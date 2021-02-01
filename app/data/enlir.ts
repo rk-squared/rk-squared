@@ -113,7 +113,7 @@ export type EnlirFormula = 'Physical' | 'Magical' | 'Hybrid' | '?';
 
 export type EnlirLegendMateriaTier = 'LMR' | 'LMR+';
 
-export type EnlirLimitBreakTier = 'LBO' | 'LBG';
+export type EnlirLimitBreakTier = 'LBO' | 'LBG' | 'LBGS';
 
 export type EnlirRelicType =
   | 'Accessory'
@@ -211,7 +211,7 @@ export type EnlirSoulBreakTier =
   | 'AASB'
   | 'Glint+'
   | 'SASB'
-  | 'TASB'
+  | 'ADSB'
   | 'RW'
   | 'Shared';
 
@@ -342,6 +342,15 @@ export interface EnlirEvent {
   abilitiesAwarded: string[] | null;
 }
 
+export interface EnlirGuardianCommand extends EnlirGenericSkill {
+  character: string;
+  source: string;
+  guardianAbilitySlot: '1' | '2' | 'Finisher';
+  sb: number;
+  school: EnlirSchool;
+  nameJp: string;
+}
+
 export interface EnlirLegendMateria {
   realm: EnlirRealm;
   character: string;
@@ -445,6 +454,7 @@ export type EnlirSkill =
   | EnlirAbility
   | EnlirBraveCommand
   | EnlirBurstCommand
+  | EnlirGuardianCommand
   | EnlirOtherSkill
   | EnlirSynchroCommand
   | EnlirSoulBreak
@@ -467,15 +477,16 @@ export const soulBreakTierOrder: { [t in EnlirSoulBreakTier]: number } = {
   AOSB: 8,
   AASB: 9,
   SASB: 10,
-  TASB: 11,
+  ADSB: 11,
   CSB: 12,
   RW: 100,
   Shared: 101,
 };
 
 export const limitBreakTierOrder: { [t in EnlirLimitBreakTier]: number } = {
-  LBO: 1,
   LBG: 0,
+  LBO: 1,
+  LBGS: 2,
 };
 
 const rawData = {
@@ -484,6 +495,7 @@ const rawData = {
   burstCommands: require('./enlir/burst.json') as EnlirBurstCommand[],
   characters: require('./enlir/characters.json') as EnlirCharacter[],
   events: require('./enlir/events.json') as EnlirEvent[],
+  guardianCommands: require('./enlir/guardianCommands.json') as EnlirGuardianCommand[],
   legendMateria: require('./enlir/legendMateria.json') as EnlirLegendMateria[],
   limitBreaks: require('./enlir/limitBreaks.json') as EnlirLimitBreak[],
   magicite: require('./enlir/magicite.json'),
@@ -646,6 +658,9 @@ export const enlir = {
 
   events: _.keyBy(rawData.events, 'eventName'),
 
+  guardianCommands: _.keyBy(rawData.guardianCommands, 'id'),
+  guardianCommandsByCharacter: makeCommandsMap(rawData.guardianCommands),
+
   legendMateria: _.keyBy(rawData.legendMateria, 'id'),
   legendMateriaByCharacter: makeCharacterMap(rawData.legendMateria, [
     (i: EnlirLegendMateria) => i.relic != null,
@@ -680,7 +695,7 @@ export const enlir = {
   allSoulBreaks: rawData.soulBreaks,
   // True Arcane Soul Breaks result in two entries with the same ID.  The second
   // activation will be under soulBreaks; add the first activation here.
-  trueArcane1stSoulBreaks: _.keyBy(rawData.soulBreaks.filter(isTrueArcane1st), 'id'),
+  trueArcane1stSoulBreaks: _.keyBy(rawData.soulBreaks.filter(isArcaneDyad1st), 'id'),
 
   status: _.keyBy(rawData.status, 'id'),
   statusByName: _.keyBy(rawData.status, 'name'),
@@ -732,11 +747,13 @@ function applyEffectsPatch<
 }
 
 function applyEffectPatch<
-  T extends { effect: string | undefined; patchedEffects?: string | undefined }
+  T extends { effect: string | undefined; patchedEffect?: string | undefined }
 >(lookup: { [s: string]: T | T[] }, name: string, from: string, to: string) {
-  applyPatch(lookup, name, item => item.effect === from, item => (item.effect = to));
+  applyPatch(lookup, name, item => item.effect === from, item => (item.patchedEffect = to));
 }
 
+// Not currently needed, but there are times when it's been helpful.
+/*
 function addPatch<T extends { [s: string]: { id: number; name: string } }>(
   lookup: T,
   newItem: Omit<T[string], 'id'>,
@@ -747,6 +764,7 @@ function addPatch<T extends { [s: string]: { id: number; name: string } }>(
   }
   lookup[newItem.name] = { ...newItem, id: NaN } as any;
 }
+*/
 
 /**
  * HACK: Patch Enlir data to make it easier for our text processing.
@@ -805,9 +823,16 @@ function patchEnlir() {
     skill => {
       skill.patchedEffects =
         'One single attack (5.20) capped at 99999, ' +
-        'causes [DEF, RES and MND -70% (8s)] if the user has Retaliate or High Retaliate, ' +
+        'causes [DEF, RES and MND -70% (8s)] if the user has [Retaliate] or [High Retaliate], ' +
         'causes [Imperil Ice 10% (15s)], grants [Buff Ice 10% (15s)] and [High Retaliate] to the user';
     },
+  );
+  // Make Lasswell's Retaliate text consistent with other Retaliate users.
+  applyEffectsPatch(
+    enlir.synchroCommands,
+    '30549310',
+    'Six single attacks (0.90 each), 100% additional critical chance if user has any retaliate, removes any retaliate from the user',
+    'Six single attacks (0.90 each), 100% additional critical chance if user has [Retaliate] or [High Retaliate], removes [Retaliate] and [High Retaliate] from the user',
   );
 
   // Multi-character soul breaks like Sarah's USB3 and Xezat's AASB are quite
@@ -895,16 +920,20 @@ function patchEnlir() {
     'After using three of Eblan Surge or Eblan Struggle, if user has any [Attach Element], grants the same Attach Element to the user',
     'Grants [Conditional Attach Element] to the user after using three of Eblan Surge or Eblan Struggle',
   );
-  addPatch(enlir.statusByName, {
-    name: 'Buff Fire 10% (5s)',
-    effects: 'Increases Fire damage dealt by 10%, cumulable',
-    defaultDuration: 5,
-    mndModifier: null,
-    mndModifierIsOpposed: false,
-    exclusiveStatus: null,
-    codedName: 'INCREASE_ELEMENT_ATK_FIRE_1_TIME_SHORT',
-    notes: null,
-  });
+  applyEffectsPatch(
+    enlir.statusByName,
+    'Mimic Hero Mode', // Match 'Mimic attacks' from, e.g., legend materia
+    'Mimicked abilities deal 50% more damage, casts the last ability used by an ally when any Damage Reduction Barrier is removed, ' +
+      'grants [40% Damage Reduction Barrier 1] to user when any Damage Reduction Barrier is removed, removed after triggering three times',
+    'Mimic attacks deal 50% more damage, casts the last ability used by an ally when any Damage Reduction Barrier is removed, ' +
+      'grants [40% Damage Reduction Barrier 1] to user when any Damage Reduction Barrier is removed, removed after triggering three times',
+  );
+  applyEffectsPatch(
+    enlir.statusByName,
+    'Pain -2', // It still seems odd to me that one status can grant another.  "when set" is already used elsewhere.
+    'Decreases Pain level by 2',
+    'Decreases Pain level by 2 when set',
+  );
 
   // Legend materia.  To be consistent with statuses, use "and" to separate
   // triggered effects, while commas separate completely distinct clauses.
@@ -999,7 +1028,8 @@ function patchEnlir() {
     'Causes [Slow] (50%), grants [Haste] to the user if successful',
   );
 
-  // Patch Bahamut (VI) to have an orb cost for rank 1.
+  // Patch Bahamut (VI) to have an orb cost for rank 1 to make it easier for our
+  // ability code to display orb costs.
   const bahamutOrbs = ['Major Summon', 'Major Non-Elemental', 'Major Dark'];
   applyPatch(
     enlir.abilitiesByName,
@@ -1060,33 +1090,19 @@ function patchEnlir() {
     'If user has any Damage Reduction Barrier, grants [200% ATB 1] to the user after using Violent Tornado or Whirlwind Form',
     'After using Violent Tornado or Whirlwind Form, grants [200% ATB 1] to the user if user has any Damage Reduction Barrier',
   );
-  // For Ayame's synchro, fix an apparent mistake in the skill name.  It's
-  // equivalent and fits our output format better to say "removed after triggering"
-  // than to say that cmd1 removes the status.
+  // For Ayame's synchro, it's equivalent and fits our output format better to
+  // say "removed after triggering" than to say that cmd1 removes the status.
   applyEffectsPatch(
     enlir.statusByName,
-    'Sword Stance',
-    "Casts Sword Stance after using Tachi: Yukikaze, removed if user hasn't Synchro Mode",
-    "Casts Taichi Blossom after using Tachi: Yukikaze, removed after triggering or if user hasn't Synchro Mode",
+    'Blade Drawn',
+    "Casts Tachi: Kasha after using Tachi: Yukikaze, removed if user hasn't Synchro Mode",
+    "Casts Tachi: Kasha after using Tachi: Yukikaze, removed after triggering or if user hasn't Synchro Mode",
   );
   applyEffectsPatch(
     enlir.synchroCommands,
     '31540074',
-    'Five single attacks (0.90 each), 100% additional critical chance if user has any Retaliate, removes [Sword Stance] from the user',
+    'Five single attacks (0.90 each), 100% additional critical chance if user has any Retaliate, removes [Blade Drawn] from the user',
     'Five single attacks (0.90 each), 100% additional critical chance if user has any Retaliate',
-  );
-  // Simplify Angeal; hopefully the "or" communicates well enough.
-  applyEffectsPatch(
-    enlir.statusByName,
-    'Dream Pioneer Mode',
-    'Grants [Dream Pioneer Wind Ability +15% Boost]/[Dream Pioneer Wind Ability +30% Boost]/[Dream Pioneer Wind Ability +50% Boost] ' +
-      'after using 1/2/3+ Wind abilities, ' +
-      'grants [Dream Pioneer Holy Ability +15% Boost]/[Dream Pioneer Holy Ability +30% Boost]/[Dream Pioneer Holy Ability +50% Boost] ' +
-      'after using 1/2/3+ Holy abilities. ' +
-      'Only one of these effects can trigger at a time',
-    'Grants [Dream Pioneer Wind Ability +15% Boost]/[Dream Pioneer Wind Ability +30% Boost]/[Dream Pioneer Wind Ability +50% Boost] ' +
-      'or [Dream Pioneer Holy Ability +15% Boost]/[Dream Pioneer Holy Ability +30% Boost]/[Dream Pioneer Holy Ability +50% Boost] ' +
-      'after using 1/2/3+ Wind or Holy abilities',
   );
   // Rain SASB is far too complex to communicate in our allotted space.  Throw
   // away some detail.
@@ -1104,16 +1120,61 @@ function patchEnlir() {
   );
   // Our code isn't set up to show otherSkills names, but that leaves no good
   // way to handle otherSkills as triggers.  Reword Gladiolus's sync to avoid
-  // the issue.
+  // the issue.  Also fix "increases X damage" to "increases X damage dealt" for
+  // consistency with other statuses.
   applyEffectsPatch(
     enlir.statusByName,
     'Precise Guard Mode',
-    'Casts Timely Counter when any Damage Reduction Barrier is removed, increases Earth damage dealt by 15/30/50/70% after casting Timely Counter 0/1/2/3+ times',
+    'Casts Timely Counter when any Damage Reduction Barrier is removed, increases Earth damage by 15/30/50/70% after casting Timely Counter 0/1/2/3+ times',
     'Casts Timely Counter when any Damage Reduction Barrier is removed, increases Earth damage dealt by 15/30/50/70% scaling with 0/1/2/3 uses',
   );
+  // The convention is that "causes [Status]" applies to the skill's target.
+  // Make Celes' SB points effect explicit.  Combining the "grants" and "causes"
+  // helps our output look nicer.
+  applyEffectsPatch(
+    enlir.otherSkillsByName,
+    'Metamorphosis',
+    'One single attack (6.00) capped at 99999, grants [Quick Cast 1] to the user if the user has 750-999 SB points, ' +
+      'grants [Instant Cast 1] and [Dualcast Spellblade 1] to the user if the user has 1000+ SB points, ' +
+      'causes [Soul Break Gauge -500] if the user has 1000+ SB points',
+    'One single attack (6.00) capped at 99999, grants [Quick Cast 1] to the user if the user has 750-999 SB points, ' +
+      'grants [Instant Cast 1], [Dualcast Spellblade 1], and [Soul Break Gauge -500] to the user if the user has 1000+ SB points',
+  );
+  // Try to add some consistency to status level conditions.
+  applyEffectsPatch(
+    enlir.synchroCommands,
+    '31540666',
+    'Three single attacks (0.80 each), grants [Quick Cast 2] to the user, ' +
+      'grants [ATK, DEF and RES +50% (8s)] to all allies if the user has Temple Knight level 1 or 2, ' +
+      'causes Temple Knight -1 to the user',
+    'Three single attacks (0.80 each), grants [Quick Cast 2] to the user, ' +
+      'grants [ATK, DEF and RES +50% (8s)] to all allies if the user has Temple Knight level 1+, ' +
+      'causes Temple Knight -1 to the user',
+  );
+  // Try to add some consistency to integer slash lists.
+  applyEffectsPatch(
+    enlir.otherSkillsByName,
+    'Gentle Thunder',
+    '4/4/4/6 single attacks (1.32 each) if 0-1/2/3/4 female allies are alive, ' +
+      "grants [Quick Cast 1] to all allies in the character's row if 2 or more female allies are alive, " +
+      'grants [Buff Lightning 10% (15s)] to all allies if 3 or more female allies are alive',
+    '4/6 single attacks (1.32 each) if 0/4 female allies are alive, ' +
+      "grants [Quick Cast 1] to all allies in the character's row if 2 or more female allies are alive, " +
+      'grants [Buff Lightning 10% (15s)] to all allies if 3 or more female allies are alive',
+  );
+  // Removed after triggering is simpler for humans and easier for our code than
+  // duplicating the trigger.  (See Celes' SASB2 as well.)
+  applyEffectsPatch(
+    enlir.statusByName,
+    'Sovereign Barrier',
+    'Grants [Overflow Ice Radiant Shield: 500% (8s)] to the user after using three Ice abilities, ' +
+      "removed after using three Ice abilities or if the user hasn't Synchro Mode",
+    'Grants [Overflow Ice Radiant Shield: 500% (8s)] to the user after using three Ice abilities, ' +
+      "removed after triggering or if user hasn't Synchro Mode",
+  );
 
-  // Use the older, less verbose format for hybrid effects.  (Personally, I
-  // prefer this...)
+  // Use the older, less verbose format for hybrid effects, since that's all our
+  // parser supports.  (Personally, I prefer the older format anyway...)
   applyEffectsPatch(
     enlir.soulBreaks,
     '23380003', // Shadowsmith - Soul of Nihility
@@ -1122,13 +1183,13 @@ function patchEnlir() {
   );
   applyEffectsPatch(
     enlir.otherSkillsByName,
-    '...Work (Earth)',
+    "Let's Get to Work (Earth)",
     'Grants [Attach Earth], grants [BLK +30% Boost 1]/[BLK +50% Boost 1] if MAG > ATK, otherwise grants [PHY +30% Boost 1]/[PHY +50% Boost 1] if Reno, Elena or Tifa are not alive/alive',
     'Grants [Attach Earth], grants [PHY +30% Boost 1]/[PHY +50% Boost 1] or [BLK +30% Boost 1]/[BLK +50% Boost 1] if Reno, Elena or Tifa are not alive/alive',
   );
   applyEffectsPatch(
     enlir.otherSkillsByName,
-    '...Work (Lightning)',
+    "Let's Get to Work (Lightning)",
     'Grants [Attach Lightning], grants [BLK +30% Boost 1]/[BLK +50% Boost 1] if MAG > ATK, otherwise grants [PHY +30% Boost 1]/[PHY +50% Boost 1] if Reno, Elena or Tifa are not alive/alive',
     'Grants [Attach Lightning], grants [PHY +30% Boost 1]/[PHY +50% Boost 1] or [BLK +30% Boost 1]/[BLK +50% Boost 1] if Reno, Elena or Tifa are not alive/alive',
   );
@@ -1229,7 +1290,7 @@ function patchEnlir() {
   applyEffectsPatch(
     enlir.abilitiesByName,
     'Mug Bloodlust',
-    'Two single attacks (1.60 each), ATK and DEF -30% for 20 seconds, [ATK and DEF +30%] to the user for 20 seconds',
+    'Two single attacks (1.60 each), [ATK and DEF -30%] for 20 seconds, [ATK and DEF +30%] to the user for 20 seconds',
     'Two single attacks (1.60 each), [ATK and DEF -30%] for 20 seconds, grants [ATK and DEF +30%] to the user for 20 seconds',
   );
   applyEffectsPatch(
@@ -1523,28 +1584,28 @@ export function getEnlirStatusByName(status: string): EnlirStatus | undefined {
   return result ? result.status : undefined;
 }
 
-const getTrueArcaneBaseName = (sb: EnlirSoulBreak) =>
+const getArcaneDyadBaseName = (sb: EnlirSoulBreak) =>
   // To accommodate Rydia's Gaia's Rage, we have to remove realm suffixes as
-  // well as "(Release)".
-  sb.name.replace(/ \(Release\)$/, '').replace(/ \([IV]+\)$/, '');
+  // well as "(Engaged)".
+  sb.name.replace(/ \(Engaged\)$/, '').replace(/ \([IV]+\)$/, '');
 
 /**
- * For a true arcane soul break (TASB), gets the associated status that
+ * For an arcane dyad soul break (ADSB), gets the associated status that
  * increments the level.
  */
-export function getEnlirTrueArcaneTracker(sb: EnlirSoulBreak): EnlirStatus | undefined {
-  const name = getTrueArcaneBaseName(sb);
+export function getEnlirArcaneDyadTracker(sb: EnlirSoulBreak): EnlirStatus | undefined {
+  const name = getArcaneDyadBaseName(sb);
   return (
     enlir.statusByName[name + ' Ability Tracker'] || enlir.statusByName[name + ' Damage Tracker']
   );
 }
 
 /**
- * For a true arcane soul break (TASB), gets the associated status that
+ * For an arcane dyad soul break (ADSB), gets the associated status that
  * tracks the level.
  */
-export function getEnlirTrueArcaneLevel(sb: EnlirSoulBreak): EnlirStatus | undefined {
-  return enlir.statusByName[getTrueArcaneBaseName(sb) + ' Level'];
+export function getEnlirArcaneDyadLevel(sb: EnlirSoulBreak): EnlirStatus | undefined {
+  return enlir.statusByName[getArcaneDyadBaseName(sb) + ' Level'];
 }
 
 /**
@@ -1594,7 +1655,11 @@ export function isSynchroSoulBreak(sb: EnlirSoulBreak): boolean {
 
 export function isBurstCommand(skill: EnlirSkill): skill is EnlirBurstCommand {
   return (
-    'character' in skill && 'source' in skill && !isBraveCommand(skill) && !isSynchroCommand(skill)
+    'character' in skill &&
+    'source' in skill &&
+    !isBraveCommand(skill) &&
+    !isSynchroCommand(skill) &&
+    !isGuardianCommand(skill)
   );
 }
 
@@ -1602,8 +1667,12 @@ export function isBraveCommand(skill: EnlirSkill): skill is EnlirBraveCommand {
   return 'brave' in skill;
 }
 
-export function isSynchroCommand(skill: EnlirSkill): skill is EnlirBraveCommand {
+export function isSynchroCommand(skill: EnlirSkill): skill is EnlirSynchroCommand {
   return 'synchroAbilitySlot' in skill;
+}
+
+export function isGuardianCommand(skill: EnlirSkill): skill is EnlirGuardianCommand {
+  return 'guardianAbilitySlot' in skill;
 }
 
 export function isSharedSoulBreak(sb: EnlirSoulBreak): boolean {
@@ -1614,12 +1683,12 @@ export function isLimitBreak(skill: EnlirSkill): skill is EnlirLimitBreak {
   return 'minimumLbPoints' in skill;
 }
 
-export function isTrueArcane1st(sb: EnlirSoulBreak): boolean {
-  return sb.tier === 'TASB' && sb.points === 0;
+export function isArcaneDyad1st(sb: EnlirSoulBreak): boolean {
+  return sb.tier === 'ADSB' && sb.points === 0;
 }
 
-export function isTrueArcane2nd(sb: EnlirSoulBreak): boolean {
-  return sb.tier === 'TASB' && sb.points !== 0;
+export function isArcaneDyad2nd(sb: EnlirSoulBreak): boolean {
+  return sb.tier === 'ADSB' && sb.points !== 0;
 }
 
 /**

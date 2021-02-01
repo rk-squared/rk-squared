@@ -36,6 +36,14 @@ export interface DamagesUndead {
   type: 'damagesUndead';
 }
 
+export interface Mimic {
+  type: 'mimic';
+  count?: number;
+  chance?: number;
+  defaultPower: number;
+  defaultCritChance?: number;
+}
+
 // --------------------------------------------------------------------------
 // Lower-level game rules
 
@@ -106,7 +114,8 @@ export type Who =
   | 'ally'
   // Used in application code (not in the parser directly) to indicate specific
   // toCharacter values.
-  | 'namedCharacter';
+  | 'namedCharacter'
+  | 'summonCharacter';
 
 export type WithoutWith = 'without' | 'with' | 'withoutWith';
 
@@ -148,7 +157,7 @@ export type Condition =
       withoutWith?: WithoutWith;
     }
   | { type: 'femalesInParty'; count: number | number[] }
-  | { type: 'femalesAlive'; count: number | number[] }
+  | { type: 'femalesAlive'; count: number | number[]; plus?: boolean }
   | { type: 'realmCharactersInParty'; realm: EnlirAnyRealm; count: number | number[] }
   | { type: 'realmCharactersAlive'; realm: EnlirAnyRealm; count: number | number[]; plus: boolean }
   | { type: 'charactersAlive'; count: number | number[] }
@@ -156,7 +165,7 @@ export type Condition =
   | { type: 'doomTimer'; value: number | number[] }
   | { type: 'hpBelowPercent'; value: number | number[] }
   | { type: 'hpAtLeastPercent'; value: number | number[] }
-  | { type: 'soulBreakPoints'; value: number | number[]; plus?: boolean }
+  | { type: 'soulBreakPoints'; value: number | number[] | SimpleRange; plus?: boolean }
   | { type: 'targetStatBreaks'; count: number | number[] }
   | { type: 'targetStatusAilments'; count: number | number[] }
   | { type: 'vsWeak'; element?: EnlirElement | EnlirElement[] }
@@ -205,6 +214,11 @@ export type UseCount =
 export interface Fraction {
   numerator: number;
   denominator: number;
+}
+
+export interface SimpleRange {
+  from: number;
+  to: number;
 }
 
 export type OrOptions<T> = T | T[] | { options: T[] };

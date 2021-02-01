@@ -70,6 +70,13 @@
       "spd": 0
     },
     "introducingEventRecordBoards": "Record Boards Launch",
+    "hpRb": "2000",
+    "atkRb": "110",
+    "defRb": "40",
+    "magRb": "50",
+    "resRb": "40",
+    "mndRb": "60",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -197,6 +204,13 @@
       "spd": null
     },
     "introducingEventRecordBoards": null,
+    "hpRb": null,
+    "atkRb": null,
+    "defRb": null,
+    "magRb": null,
+    "resRb": null,
+    "mndRb": null,
+    "spdRb": null,
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -324,6 +338,13 @@
       "spd": null
     },
     "introducingEventRecordBoards": null,
+    "hpRb": null,
+    "atkRb": null,
+    "defRb": null,
+    "magRb": null,
+    "resRb": null,
+    "mndRb": null,
+    "spdRb": null,
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -451,6 +472,13 @@
       "spd": null
     },
     "introducingEventRecordBoards": null,
+    "hpRb": null,
+    "atkRb": null,
+    "defRb": null,
+    "magRb": null,
+    "resRb": null,
+    "mndRb": null,
+    "spdRb": null,
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -578,6 +606,13 @@
       "spd": null
     },
     "introducingEventRecordBoards": null,
+    "hpRb": null,
+    "atkRb": null,
+    "defRb": null,
+    "magRb": null,
+    "resRb": null,
+    "mndRb": null,
+    "spdRb": null,
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -705,6 +740,13 @@
       "spd": null
     },
     "introducingEventRecordBoards": null,
+    "hpRb": null,
+    "atkRb": null,
+    "defRb": null,
+    "magRb": null,
+    "resRb": null,
+    "mndRb": null,
+    "spdRb": null,
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -730,7 +772,7 @@
       "shield": false,
       "hat": true,
       "helm": false,
-      "lightArmor": false,
+      "lightArmor": true,
       "heavyArmor": false,
       "robe": true,
       "bracer": true,
@@ -832,6 +874,13 @@
       "spd": null
     },
     "introducingEventRecordBoards": null,
+    "hpRb": null,
+    "atkRb": null,
+    "defRb": null,
+    "magRb": null,
+    "resRb": null,
+    "mndRb": null,
+    "spdRb": null,
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -857,7 +906,7 @@
       "shield": false,
       "hat": true,
       "helm": false,
-      "lightArmor": false,
+      "lightArmor": true,
       "heavyArmor": false,
       "robe": true,
       "bracer": true,
@@ -959,6 +1008,13 @@
       "spd": null
     },
     "introducingEventRecordBoards": null,
+    "hpRb": null,
+    "atkRb": null,
+    "defRb": null,
+    "magRb": null,
+    "resRb": null,
+    "mndRb": null,
+    "spdRb": null,
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -984,7 +1040,7 @@
       "shield": false,
       "hat": true,
       "helm": false,
-      "lightArmor": false,
+      "lightArmor": true,
       "heavyArmor": false,
       "robe": true,
       "bracer": true,
@@ -1086,6 +1142,13 @@
       "spd": null
     },
     "introducingEventRecordBoards": null,
+    "hpRb": null,
+    "atkRb": null,
+    "defRb": null,
+    "magRb": null,
+    "resRb": null,
+    "mndRb": null,
+    "spdRb": null,
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -1111,7 +1174,7 @@
       "shield": false,
       "hat": true,
       "helm": false,
-      "lightArmor": false,
+      "lightArmor": true,
       "heavyArmor": false,
       "robe": true,
       "bracer": true,
@@ -1213,6 +1276,13 @@
       "spd": null
     },
     "introducingEventRecordBoards": null,
+    "hpRb": null,
+    "atkRb": null,
+    "defRb": null,
+    "magRb": null,
+    "resRb": null,
+    "mndRb": null,
+    "spdRb": null,
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -1238,7 +1308,7 @@
       "shield": false,
       "hat": true,
       "helm": false,
-      "lightArmor": false,
+      "lightArmor": true,
       "heavyArmor": false,
       "robe": true,
       "bracer": true,
@@ -1340,6 +1410,13 @@
       "spd": null
     },
     "introducingEventRecordBoards": null,
+    "hpRb": null,
+    "atkRb": null,
+    "defRb": null,
+    "magRb": null,
+    "resRb": null,
+    "mndRb": null,
+    "spdRb": null,
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -1363,9 +1440,9 @@
       "doll": false,
       "keyblade": false,
       "shield": false,
-      "hat": false,
+      "hat": true,
       "helm": true,
-      "lightArmor": false,
+      "lightArmor": true,
       "heavyArmor": true,
       "robe": false,
       "bracer": true,
@@ -1467,6 +1544,13 @@
       "spd": null
     },
     "introducingEventRecordBoards": null,
+    "hpRb": null,
+    "atkRb": null,
+    "defRb": null,
+    "magRb": null,
+    "resRb": null,
+    "mndRb": null,
+    "spdRb": null,
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -1594,6 +1678,13 @@
       "spd": null
     },
     "introducingEventRecordBoards": null,
+    "hpRb": null,
+    "atkRb": null,
+    "defRb": null,
+    "magRb": null,
+    "resRb": null,
+    "mndRb": null,
+    "spdRb": null,
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -1721,6 +1812,13 @@
       "spd": null
     },
     "introducingEventRecordBoards": null,
+    "hpRb": null,
+    "atkRb": null,
+    "defRb": null,
+    "magRb": null,
+    "resRb": null,
+    "mndRb": null,
+    "spdRb": null,
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -1744,7 +1842,7 @@
       "doll": false,
       "keyblade": false,
       "shield": true,
-      "hat": false,
+      "hat": true,
       "helm": true,
       "lightArmor": true,
       "heavyArmor": true,
@@ -1848,6 +1946,13 @@
       "spd": null
     },
     "introducingEventRecordBoards": null,
+    "hpRb": null,
+    "atkRb": null,
+    "defRb": null,
+    "magRb": null,
+    "resRb": null,
+    "mndRb": null,
+    "spdRb": null,
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -1871,9 +1976,9 @@
       "doll": false,
       "keyblade": false,
       "shield": false,
-      "hat": false,
+      "hat": true,
       "helm": true,
-      "lightArmor": false,
+      "lightArmor": true,
       "heavyArmor": true,
       "robe": false,
       "bracer": true,
@@ -1975,6 +2080,13 @@
       "spd": null
     },
     "introducingEventRecordBoards": null,
+    "hpRb": null,
+    "atkRb": null,
+    "defRb": null,
+    "magRb": null,
+    "resRb": null,
+    "mndRb": null,
+    "spdRb": null,
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -1998,7 +2110,7 @@
       "doll": false,
       "keyblade": false,
       "shield": true,
-      "hat": false,
+      "hat": true,
       "helm": true,
       "lightArmor": true,
       "heavyArmor": true,
@@ -2102,6 +2214,13 @@
       "spd": null
     },
     "introducingEventRecordBoards": null,
+    "hpRb": null,
+    "atkRb": null,
+    "defRb": null,
+    "magRb": null,
+    "resRb": null,
+    "mndRb": null,
+    "spdRb": null,
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -2229,6 +2348,13 @@
       "spd": null
     },
     "introducingEventRecordBoards": null,
+    "hpRb": null,
+    "atkRb": null,
+    "defRb": null,
+    "magRb": null,
+    "resRb": null,
+    "mndRb": null,
+    "spdRb": null,
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -2356,6 +2482,13 @@
       "spd": null
     },
     "introducingEventRecordBoards": null,
+    "hpRb": null,
+    "atkRb": null,
+    "defRb": null,
+    "magRb": null,
+    "resRb": null,
+    "mndRb": null,
+    "spdRb": null,
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -2483,6 +2616,13 @@
       "spd": null
     },
     "introducingEventRecordBoards": null,
+    "hpRb": null,
+    "atkRb": null,
+    "defRb": null,
+    "magRb": null,
+    "resRb": null,
+    "mndRb": null,
+    "spdRb": null,
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -2610,6 +2750,13 @@
       "spd": null
     },
     "introducingEventRecordBoards": null,
+    "hpRb": null,
+    "atkRb": null,
+    "defRb": null,
+    "magRb": null,
+    "resRb": null,
+    "mndRb": null,
+    "spdRb": null,
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -2737,6 +2884,13 @@
       "spd": 0
     },
     "introducingEventRecordBoards": "Record Boards Launch",
+    "hpRb": "3000",
+    "atkRb": "0",
+    "defRb": "20",
+    "magRb": "0",
+    "resRb": "20",
+    "mndRb": "210",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -2864,6 +3018,13 @@
       "spd": 0
     },
     "introducingEventRecordBoards": "Core Torment",
+    "hpRb": "2500",
+    "atkRb": "230",
+    "defRb": "50",
+    "magRb": "0",
+    "resRb": "40",
+    "mndRb": "0",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -2887,7 +3048,7 @@
       "doll": false,
       "keyblade": false,
       "shield": true,
-      "hat": false,
+      "hat": true,
       "helm": true,
       "lightArmor": true,
       "heavyArmor": true,
@@ -2991,6 +3152,13 @@
       "spd": 0
     },
     "introducingEventRecordBoards": "Core Torment",
+    "hpRb": "2000",
+    "atkRb": "110",
+    "defRb": "40",
+    "magRb": "110",
+    "resRb": "40",
+    "mndRb": "60",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -3118,6 +3286,13 @@
       "spd": 0
     },
     "introducingEventRecordBoards": "Bug Catching Strategy",
+    "hpRb": "2500",
+    "atkRb": "0",
+    "defRb": "40",
+    "magRb": "95",
+    "resRb": "40",
+    "mndRb": "65",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -3245,6 +3420,13 @@
       "spd": 0
     },
     "introducingEventRecordBoards": "Record Boards Launch",
+    "hpRb": "2500",
+    "atkRb": "140",
+    "defRb": "50",
+    "magRb": "0",
+    "resRb": "40",
+    "mndRb": "0",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -3371,7 +3553,14 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": "The Destined Time",
+    "introducingEventRecordBoards": "The Hour of Fate",
+    "hpRb": "2500",
+    "atkRb": "120",
+    "defRb": "50",
+    "magRb": "0",
+    "resRb": "40",
+    "mndRb": "0",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -3499,6 +3688,13 @@
       "spd": 0
     },
     "introducingEventRecordBoards": "A Hope of Peace",
+    "hpRb": "3000",
+    "atkRb": "0",
+    "defRb": "20",
+    "magRb": "0",
+    "resRb": "20",
+    "mndRb": "190",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -3626,6 +3822,13 @@
       "spd": 0
     },
     "introducingEventRecordBoards": "The Journey of Light",
+    "hpRb": "2500",
+    "atkRb": "190",
+    "defRb": "50",
+    "magRb": "0",
+    "resRb": "40",
+    "mndRb": "0",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -3753,6 +3956,13 @@
       "spd": 0
     },
     "introducingEventRecordBoards": "The Journey of Light",
+    "hpRb": "2500",
+    "atkRb": "0",
+    "defRb": "40",
+    "magRb": "115",
+    "resRb": "40",
+    "mndRb": "85",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -3880,6 +4090,13 @@
       "spd": 0
     },
     "introducingEventRecordBoards": "A Hope of Peace",
+    "hpRb": "2500",
+    "atkRb": "200",
+    "defRb": "50",
+    "magRb": "0",
+    "resRb": "40",
+    "mndRb": "0",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -4007,6 +4224,13 @@
       "spd": 0
     },
     "introducingEventRecordBoards": "A Hope of Peace",
+    "hpRb": "2500",
+    "atkRb": "0",
+    "defRb": "40",
+    "magRb": "190",
+    "resRb": "40",
+    "mndRb": "40",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -4032,7 +4256,7 @@
       "shield": false,
       "hat": true,
       "helm": false,
-      "lightArmor": false,
+      "lightArmor": true,
       "heavyArmor": false,
       "robe": true,
       "bracer": true,
@@ -4133,7 +4357,14 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": null,
+    "introducingEventRecordBoards": "Fat Black Chocobo: Soggy Forgery",
+    "hpRb": "2500",
+    "atkRb": "0",
+    "defRb": "40",
+    "magRb": "190",
+    "resRb": "50",
+    "mndRb": "0",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -4261,6 +4492,13 @@
       "spd": 20
     },
     "introducingEventRecordBoards": "A Hope of Peace",
+    "hpRb": "2200",
+    "atkRb": "210",
+    "defRb": "60",
+    "magRb": "0",
+    "resRb": "60",
+    "mndRb": "0",
+    "spdRb": "20",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -4388,6 +4626,13 @@
       "spd": 0
     },
     "introducingEventRecordBoards": "Record Boards Launch",
+    "hpRb": "2500",
+    "atkRb": "160",
+    "defRb": "50",
+    "magRb": "0",
+    "resRb": "40",
+    "mndRb": "0",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -4515,6 +4760,13 @@
       "spd": 0
     },
     "introducingEventRecordBoards": "Record Boards Launch",
+    "hpRb": "2500",
+    "atkRb": "0",
+    "defRb": "40",
+    "magRb": "210",
+    "resRb": "50",
+    "mndRb": "0",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -4642,6 +4894,13 @@
       "spd": 0
     },
     "introducingEventRecordBoards": "Fat Black Chocobo: Grand Forgery",
+    "hpRb": "2500",
+    "atkRb": "230",
+    "defRb": "50",
+    "magRb": "0",
+    "resRb": "40",
+    "mndRb": "0",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -4769,6 +5028,13 @@
       "spd": 0
     },
     "introducingEventRecordBoards": "The Ultimate Magic",
+    "hpRb": "2500",
+    "atkRb": "200",
+    "defRb": "50",
+    "magRb": "0",
+    "resRb": "40",
+    "mndRb": "0",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -4896,6 +5162,13 @@
       "spd": 0
     },
     "introducingEventRecordBoards": "Fat Black Chocobo: Radiant Forgery",
+    "hpRb": "3000",
+    "atkRb": "0",
+    "defRb": "20",
+    "magRb": "0",
+    "resRb": "20",
+    "mndRb": "180",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -4921,7 +5194,7 @@
       "shield": true,
       "hat": true,
       "helm": false,
-      "lightArmor": false,
+      "lightArmor": true,
       "heavyArmor": false,
       "robe": true,
       "bracer": true,
@@ -5023,6 +5296,13 @@
       "spd": 0
     },
     "introducingEventRecordBoards": "A Way Through the Snow",
+    "hpRb": "2000",
+    "atkRb": "100",
+    "defRb": "40",
+    "magRb": "100",
+    "resRb": "40",
+    "mndRb": "60",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -5149,7 +5429,14 @@
       "mnd": 0,
       "spd": 20
     },
-    "introducingEventRecordBoards": null,
+    "introducingEventRecordBoards": "Fat Black Chocobo: Soggy Forgery",
+    "hpRb": "2200",
+    "atkRb": "200",
+    "defRb": "60",
+    "magRb": "0",
+    "resRb": "60",
+    "mndRb": "0",
+    "spdRb": "20",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -5277,6 +5564,13 @@
       "spd": 0
     },
     "introducingEventRecordBoards": "Chaotic Memories (II)",
+    "hpRb": "2500",
+    "atkRb": "220",
+    "defRb": "50",
+    "magRb": "0",
+    "resRb": "40",
+    "mndRb": "0",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -5404,6 +5698,13 @@
       "spd": 0
     },
     "introducingEventRecordBoards": "A Way Through the Snow",
+    "hpRb": "2500",
+    "atkRb": "190",
+    "defRb": "50",
+    "magRb": "0",
+    "resRb": "40",
+    "mndRb": "0",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -5531,6 +5832,13 @@
       "spd": 0
     },
     "introducingEventRecordBoards": "Fat Black Chocobo: Shady Forgery",
+    "hpRb": "2500",
+    "atkRb": "0",
+    "defRb": "40",
+    "magRb": "140",
+    "resRb": "50",
+    "mndRb": "0",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -5658,6 +5966,13 @@
       "spd": 0
     },
     "introducingEventRecordBoards": "A Way Through the Snow",
+    "hpRb": "3000",
+    "atkRb": "0",
+    "defRb": "20",
+    "magRb": "0",
+    "resRb": "20",
+    "mndRb": "240",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -5785,6 +6100,13 @@
       "spd": 0
     },
     "introducingEventRecordBoards": "A Way Through the Snow",
+    "hpRb": "2500",
+    "atkRb": "230",
+    "defRb": "50",
+    "magRb": "0",
+    "resRb": "40",
+    "mndRb": "0",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -5808,7 +6130,7 @@
       "doll": false,
       "keyblade": false,
       "shield": true,
-      "hat": false,
+      "hat": true,
       "helm": true,
       "lightArmor": true,
       "heavyArmor": true,
@@ -5912,6 +6234,13 @@
       "spd": 0
     },
     "introducingEventRecordBoards": "Journey of Growth",
+    "hpRb": "2500",
+    "atkRb": "170",
+    "defRb": "50",
+    "magRb": "0",
+    "resRb": "40",
+    "mndRb": "0",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -6038,7 +6367,14 @@
       "mnd": 40,
       "spd": 0
     },
-    "introducingEventRecordBoards": "Confounded Memories (III)",
+    "introducingEventRecordBoards": "Chaotic Memories (III)",
+    "hpRb": "2500",
+    "atkRb": "0",
+    "defRb": "40",
+    "magRb": "70",
+    "resRb": "40",
+    "mndRb": "70",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -6064,7 +6400,7 @@
       "shield": false,
       "hat": true,
       "helm": false,
-      "lightArmor": false,
+      "lightArmor": true,
       "heavyArmor": false,
       "robe": true,
       "bracer": true,
@@ -6166,6 +6502,13 @@
       "spd": 0
     },
     "introducingEventRecordBoards": "Journey of Growth",
+    "hpRb": "2500",
+    "atkRb": "210",
+    "defRb": "50",
+    "magRb": "0",
+    "resRb": "40",
+    "mndRb": "0",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -6293,6 +6636,13 @@
       "spd": 0
     },
     "introducingEventRecordBoards": "Journey of Growth",
+    "hpRb": "2700",
+    "atkRb": "80",
+    "defRb": "70",
+    "magRb": "0",
+    "resRb": "70",
+    "mndRb": "0",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -6419,7 +6769,14 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": null,
+    "introducingEventRecordBoards": "Chaotic Memories II (III)",
+    "hpRb": "2500",
+    "atkRb": "0",
+    "defRb": "40",
+    "magRb": "180",
+    "resRb": "50",
+    "mndRb": "0",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -6547,6 +6904,13 @@
       "spd": 0
     },
     "introducingEventRecordBoards": "Record Boards Launch",
+    "hpRb": "2000",
+    "atkRb": "85",
+    "defRb": "40",
+    "magRb": "85",
+    "resRb": "40",
+    "mndRb": "60",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -6673,7 +7037,14 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": "Confounded Memories (III)",
+    "introducingEventRecordBoards": "Chaotic Memories (III)",
+    "hpRb": "2500",
+    "atkRb": "0",
+    "defRb": "40",
+    "magRb": "160",
+    "resRb": "50",
+    "mndRb": "0",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -6800,7 +7171,14 @@
       "mnd": 40,
       "spd": 0
     },
-    "introducingEventRecordBoards": "Confounded Memories (III)",
+    "introducingEventRecordBoards": "Chaotic Memories (III)",
+    "hpRb": "3000",
+    "atkRb": "0",
+    "defRb": "20",
+    "magRb": "0",
+    "resRb": "20",
+    "mndRb": "210",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -6928,6 +7306,13 @@
       "spd": 0
     },
     "introducingEventRecordBoards": "By the Light of the Moon",
+    "hpRb": "2500",
+    "atkRb": "180",
+    "defRb": "50",
+    "magRb": "0",
+    "resRb": "40",
+    "mndRb": "0",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -7055,6 +7440,13 @@
       "spd": 0
     },
     "introducingEventRecordBoards": "Record Boards Launch",
+    "hpRb": "2700",
+    "atkRb": "60",
+    "defRb": "70",
+    "magRb": "0",
+    "resRb": "70",
+    "mndRb": "90",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -7182,6 +7574,13 @@
       "spd": 0
     },
     "introducingEventRecordBoards": "Record Boards Launch",
+    "hpRb": "2500",
+    "atkRb": "170",
+    "defRb": "50",
+    "magRb": "0",
+    "resRb": "40",
+    "mndRb": "0",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -7309,6 +7708,13 @@
       "spd": 0
     },
     "introducingEventRecordBoards": "Record Boards Launch",
+    "hpRb": "2500",
+    "atkRb": "0",
+    "defRb": "40",
+    "magRb": "160",
+    "resRb": "50",
+    "mndRb": "0",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -7436,6 +7842,13 @@
       "spd": 0
     },
     "introducingEventRecordBoards": "Autumn Festival 2020",
+    "hpRb": "3000",
+    "atkRb": "0",
+    "defRb": "20",
+    "magRb": "0",
+    "resRb": "20",
+    "mndRb": "200",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -7563,6 +7976,13 @@
       "spd": 0
     },
     "introducingEventRecordBoards": "Fat Black Chocobo: Radiant Forgery",
+    "hpRb": "2000",
+    "atkRb": "110",
+    "defRb": "40",
+    "magRb": "110",
+    "resRb": "40",
+    "mndRb": "60",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -7588,7 +8008,7 @@
       "shield": false,
       "hat": true,
       "helm": false,
-      "lightArmor": false,
+      "lightArmor": true,
       "heavyArmor": false,
       "robe": true,
       "bracer": true,
@@ -7690,6 +8110,13 @@
       "spd": 0
     },
     "introducingEventRecordBoards": "Fat Black Chocobo: Grand Forgery",
+    "hpRb": "2500",
+    "atkRb": "230",
+    "defRb": "50",
+    "magRb": "0",
+    "resRb": "40",
+    "mndRb": "0",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -7817,6 +8244,13 @@
       "spd": 0
     },
     "introducingEventRecordBoards": "Autumn Festival 2020",
+    "hpRb": "2500",
+    "atkRb": "0",
+    "defRb": "40",
+    "magRb": "190",
+    "resRb": "50",
+    "mndRb": "0",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -7943,7 +8377,14 @@
       "mnd": 40,
       "spd": 0
     },
-    "introducingEventRecordBoards": null,
+    "introducingEventRecordBoards": "A Tender Melody Dedicated to You",
+    "hpRb": "3000",
+    "atkRb": "0",
+    "defRb": "20",
+    "magRb": "0",
+    "resRb": "20",
+    "mndRb": "100",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -8070,7 +8511,14 @@
       "mnd": 20,
       "spd": 0
     },
-    "introducingEventRecordBoards": null,
+    "introducingEventRecordBoards": "A Tender Melody Dedicated to You",
+    "hpRb": "2500",
+    "atkRb": "0",
+    "defRb": "40",
+    "magRb": "100",
+    "resRb": "50",
+    "mndRb": "0",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -8096,7 +8544,7 @@
       "shield": false,
       "hat": true,
       "helm": false,
-      "lightArmor": false,
+      "lightArmor": true,
       "heavyArmor": false,
       "robe": true,
       "bracer": true,
@@ -8198,6 +8646,13 @@
       "spd": 20
     },
     "introducingEventRecordBoards": "Autumn Festival 2020",
+    "hpRb": "2000",
+    "atkRb": "140",
+    "defRb": "40",
+    "magRb": "150",
+    "resRb": "40",
+    "mndRb": "60",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -8325,6 +8780,13 @@
       "spd": 0
     },
     "introducingEventRecordBoards": "By the Light of the Moon",
+    "hpRb": "2500",
+    "atkRb": "0",
+    "defRb": "40",
+    "magRb": "130",
+    "resRb": "40",
+    "mndRb": "100",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -8350,7 +8812,7 @@
       "shield": false,
       "hat": true,
       "helm": false,
-      "lightArmor": false,
+      "lightArmor": true,
       "heavyArmor": false,
       "robe": true,
       "bracer": true,
@@ -8452,6 +8914,13 @@
       "spd": 0
     },
     "introducingEventRecordBoards": "By the Light of the Moon",
+    "hpRb": "2500",
+    "atkRb": "0",
+    "defRb": "40",
+    "magRb": "170",
+    "resRb": "50",
+    "mndRb": "0",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -8579,6 +9048,13 @@
       "spd": 0
     },
     "introducingEventRecordBoards": "Fat Black Chocobo: Shocking Forgery",
+    "hpRb": "2500",
+    "atkRb": "200",
+    "defRb": "50",
+    "magRb": "0",
+    "resRb": "40",
+    "mndRb": "0",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -8705,7 +9181,14 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": null,
+    "introducingEventRecordBoards": "A Tender Melody Dedicated to You",
+    "hpRb": "2700",
+    "atkRb": "30",
+    "defRb": "70",
+    "magRb": "0",
+    "resRb": "70",
+    "mndRb": "0",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -8832,7 +9315,14 @@
       "mnd": 20,
       "spd": 0
     },
-    "introducingEventRecordBoards": null,
+    "introducingEventRecordBoards": "A Tender Melody Dedicated to You",
+    "hpRb": "2500",
+    "atkRb": "0",
+    "defRb": "40",
+    "magRb": "100",
+    "resRb": "50",
+    "mndRb": "0",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -8960,6 +9450,13 @@
       "spd": 0
     },
     "introducingEventRecordBoards": "Fat Black Chocobo: Grand Forgery",
+    "hpRb": "2500",
+    "atkRb": "210",
+    "defRb": "50",
+    "magRb": "0",
+    "resRb": "40",
+    "mndRb": "0",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -9087,6 +9584,13 @@
       "spd": 0
     },
     "introducingEventRecordBoards": "Pride Wakens",
+    "hpRb": "2500",
+    "atkRb": "0",
+    "defRb": "40",
+    "magRb": "230",
+    "resRb": "50",
+    "mndRb": "0",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -9110,7 +9614,7 @@
       "doll": false,
       "keyblade": false,
       "shield": false,
-      "hat": false,
+      "hat": true,
       "helm": false,
       "lightArmor": true,
       "heavyArmor": false,
@@ -9214,6 +9718,13 @@
       "spd": 0
     },
     "introducingEventRecordBoards": "Record Boards Launch",
+    "hpRb": "3000",
+    "atkRb": "0",
+    "defRb": "20",
+    "magRb": "0",
+    "resRb": "20",
+    "mndRb": "190",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -9341,6 +9852,13 @@
       "spd": 0
     },
     "introducingEventRecordBoards": "Rays of Dawn",
+    "hpRb": "2500",
+    "atkRb": "160",
+    "defRb": "50",
+    "magRb": "0",
+    "resRb": "40",
+    "mndRb": "0",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -9467,7 +9985,14 @@
       "mnd": 20,
       "spd": 0
     },
-    "introducingEventRecordBoards": "Confounded Memories (V)",
+    "introducingEventRecordBoards": "Chaotic Memories (V)",
+    "hpRb": "2500",
+    "atkRb": "0",
+    "defRb": "40",
+    "magRb": "190",
+    "resRb": "40",
+    "mndRb": "40",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -9595,6 +10120,13 @@
       "spd": 0
     },
     "introducingEventRecordBoards": "Brink of the Void",
+    "hpRb": "2500",
+    "atkRb": "150",
+    "defRb": "50",
+    "magRb": "0",
+    "resRb": "40",
+    "mndRb": "0",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -9722,6 +10254,13 @@
       "spd": 0
     },
     "introducingEventRecordBoards": "Record Boards Launch",
+    "hpRb": "2500",
+    "atkRb": "140",
+    "defRb": "50",
+    "magRb": "0",
+    "resRb": "40",
+    "mndRb": "0",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -9849,6 +10388,13 @@
       "spd": 0
     },
     "introducingEventRecordBoards": "Unbreakable Bond",
+    "hpRb": "2200",
+    "atkRb": "110",
+    "defRb": "70",
+    "magRb": "0",
+    "resRb": "60",
+    "mndRb": "0",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -9975,7 +10521,14 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": "Confounded Memories (V)",
+    "introducingEventRecordBoards": "Chaotic Memories (V)",
+    "hpRb": "2700",
+    "atkRb": "150",
+    "defRb": "70",
+    "magRb": "0",
+    "resRb": "70",
+    "mndRb": "0",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -10103,6 +10656,13 @@
       "spd": 0
     },
     "introducingEventRecordBoards": "Brink of the Void",
+    "hpRb": "2500",
+    "atkRb": "0",
+    "defRb": "40",
+    "magRb": "105",
+    "resRb": "40",
+    "mndRb": "35",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -10126,7 +10686,7 @@
       "doll": false,
       "keyblade": false,
       "shield": false,
-      "hat": false,
+      "hat": true,
       "helm": true,
       "lightArmor": true,
       "heavyArmor": true,
@@ -10230,6 +10790,13 @@
       "spd": 0
     },
     "introducingEventRecordBoards": "Brink of the Void",
+    "hpRb": "2500",
+    "atkRb": "0",
+    "defRb": "40",
+    "magRb": "100",
+    "resRb": "50",
+    "mndRb": "0",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -10356,7 +10923,14 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": "Confounded Memories (V)",
+    "introducingEventRecordBoards": "Chaotic Memories (V)",
+    "hpRb": "2500",
+    "atkRb": "230",
+    "defRb": "50",
+    "magRb": "0",
+    "resRb": "40",
+    "mndRb": "0",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -10483,7 +11057,14 @@
       "mnd": 0,
       "spd": 20
     },
-    "introducingEventRecordBoards": "Confounded Memories (V)",
+    "introducingEventRecordBoards": "Chaotic Memories (V)",
+    "hpRb": "2200",
+    "atkRb": "190",
+    "defRb": "60",
+    "magRb": "0",
+    "resRb": "60",
+    "mndRb": "0",
+    "spdRb": "20",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -10611,6 +11192,13 @@
       "spd": 0
     },
     "introducingEventRecordBoards": "Record Boards Launch",
+    "hpRb": "2500",
+    "atkRb": "0",
+    "defRb": "40",
+    "magRb": "120",
+    "resRb": "50",
+    "mndRb": "0",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -10738,6 +11326,13 @@
       "spd": 20
     },
     "introducingEventRecordBoards": "Record Boards Launch",
+    "hpRb": "2200",
+    "atkRb": "140",
+    "defRb": "60",
+    "magRb": "0",
+    "resRb": "60",
+    "mndRb": "0",
+    "spdRb": "20",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -10865,6 +11460,13 @@
       "spd": 0
     },
     "introducingEventRecordBoards": "Unyielding Devotion",
+    "hpRb": "2500",
+    "atkRb": "160",
+    "defRb": "50",
+    "magRb": "0",
+    "resRb": "40",
+    "mndRb": "0",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -10991,7 +11593,14 @@
       "mnd": 40,
       "spd": 0
     },
-    "introducingEventRecordBoards": "Separated Friends",
+    "introducingEventRecordBoards": "Long-Lost Friends",
+    "hpRb": "3000",
+    "atkRb": "0",
+    "defRb": "20",
+    "magRb": "0",
+    "resRb": "20",
+    "mndRb": "180",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -11031,7 +11640,7 @@
       "celerity": null,
       "summoning": null,
       "spellblade": null,
-      "dragoon": 2,
+      "dragoon": 5,
       "monk": null,
       "thief": null,
       "knight": null,
@@ -11118,7 +11727,14 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": "Separated Friends",
+    "introducingEventRecordBoards": "Long-Lost Friends",
+    "hpRb": "2700",
+    "atkRb": "110",
+    "defRb": "70",
+    "magRb": "0",
+    "resRb": "70",
+    "mndRb": "0",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -11245,7 +11861,14 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": null,
+    "introducingEventRecordBoards": "The Deserting Kingdom",
+    "hpRb": "2500",
+    "atkRb": "190",
+    "defRb": "50",
+    "magRb": "0",
+    "resRb": "40",
+    "mndRb": "0",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -11373,6 +11996,13 @@
       "spd": 20
     },
     "introducingEventRecordBoards": "Fat Black Chocobo: Shady Forgery",
+    "hpRb": "2200",
+    "atkRb": "170",
+    "defRb": "60",
+    "magRb": "0",
+    "resRb": "60",
+    "mndRb": "0",
+    "spdRb": "20",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -11499,7 +12129,14 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": null,
+    "introducingEventRecordBoards": "The Deserting Kingdom",
+    "hpRb": "2500",
+    "atkRb": "200",
+    "defRb": "50",
+    "magRb": "0",
+    "resRb": "40",
+    "mndRb": "0",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -11626,7 +12263,14 @@
       "mnd": 0,
       "spd": 20
     },
-    "introducingEventRecordBoards": "Confounded Memories (VI)",
+    "introducingEventRecordBoards": "Chaotic Memories (VI)",
+    "hpRb": "2200",
+    "atkRb": "190",
+    "defRb": "60",
+    "magRb": "0",
+    "resRb": "60",
+    "mndRb": "0",
+    "spdRb": "20",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -11754,6 +12398,13 @@
       "spd": 0
     },
     "introducingEventRecordBoards": "Unyielding Devotion",
+    "hpRb": "2200",
+    "atkRb": "170",
+    "defRb": "70",
+    "magRb": "0",
+    "resRb": "60",
+    "mndRb": "0",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -11880,7 +12531,14 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": null,
+    "introducingEventRecordBoards": "Fat Black Chocobo: Soggy Forgery",
+    "hpRb": "2500",
+    "atkRb": "0",
+    "defRb": "40",
+    "magRb": "190",
+    "resRb": "50",
+    "mndRb": "0",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -12007,7 +12665,14 @@
       "mnd": 40,
       "spd": 0
     },
-    "introducingEventRecordBoards": "Separated Friends",
+    "introducingEventRecordBoards": "Long-Lost Friends",
+    "hpRb": "3000",
+    "atkRb": "0",
+    "defRb": "20",
+    "magRb": "0",
+    "resRb": "20",
+    "mndRb": "170",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -12033,7 +12698,7 @@
       "shield": false,
       "hat": true,
       "helm": false,
-      "lightArmor": false,
+      "lightArmor": true,
       "heavyArmor": false,
       "robe": true,
       "bracer": true,
@@ -12043,7 +12708,7 @@
       "blackMagic": 3,
       "whiteMagic": 5,
       "combat": null,
-      "support": null,
+      "support": 4,
       "celerity": null,
       "summoning": 4,
       "spellblade": null,
@@ -12135,6 +12800,13 @@
       "spd": 0
     },
     "introducingEventRecordBoards": "Unyielding Devotion",
+    "hpRb": "2000",
+    "atkRb": "50",
+    "defRb": "40",
+    "magRb": "180",
+    "resRb": "40",
+    "mndRb": "60",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -12262,6 +12934,13 @@
       "spd": 0
     },
     "introducingEventRecordBoards": "Unyielding Devotion",
+    "hpRb": "2500",
+    "atkRb": "230",
+    "defRb": "50",
+    "magRb": "0",
+    "resRb": "40",
+    "mndRb": "0",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -12285,7 +12964,7 @@
       "doll": false,
       "keyblade": false,
       "shield": false,
-      "hat": false,
+      "hat": true,
       "helm": false,
       "lightArmor": true,
       "heavyArmor": false,
@@ -12389,6 +13068,13 @@
       "spd": 0
     },
     "introducingEventRecordBoards": "Autumn Festival 2020",
+    "hpRb": "2500",
+    "atkRb": "0",
+    "defRb": "40",
+    "magRb": "200",
+    "resRb": "50",
+    "mndRb": "0",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -12515,7 +13201,14 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": "Confounded Memories (VI)",
+    "introducingEventRecordBoards": "Chaotic Memories (VI)",
+    "hpRb": "2700",
+    "atkRb": "110",
+    "defRb": "70",
+    "magRb": "0",
+    "resRb": "70",
+    "mndRb": "0",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -12643,6 +13336,13 @@
       "spd": 0
     },
     "introducingEventRecordBoards": "Record Boards Launch",
+    "hpRb": "2500",
+    "atkRb": "100",
+    "defRb": "50",
+    "magRb": "0",
+    "resRb": "40",
+    "mndRb": "0",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -12770,6 +13470,13 @@
       "spd": 0
     },
     "introducingEventRecordBoards": "Planet in Peril",
+    "hpRb": "2200",
+    "atkRb": "190",
+    "defRb": "70",
+    "magRb": "0",
+    "resRb": "60",
+    "mndRb": "0",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -12897,6 +13604,13 @@
       "spd": 0
     },
     "introducingEventRecordBoards": "Record Boards Launch",
+    "hpRb": "2500",
+    "atkRb": "160",
+    "defRb": "50",
+    "magRb": "0",
+    "resRb": "40",
+    "mndRb": "0",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -13024,6 +13738,13 @@
       "spd": 0
     },
     "introducingEventRecordBoards": "Planet in Peril",
+    "hpRb": "3000",
+    "atkRb": "0",
+    "defRb": "20",
+    "magRb": "0",
+    "resRb": "20",
+    "mndRb": "210",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -13151,6 +13872,13 @@
       "spd": 0
     },
     "introducingEventRecordBoards": "Autumn Festival 2020",
+    "hpRb": "2000",
+    "atkRb": "50",
+    "defRb": "40",
+    "magRb": "130",
+    "resRb": "40",
+    "mndRb": "60",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -13176,7 +13904,7 @@
       "shield": false,
       "hat": true,
       "helm": true,
-      "lightArmor": false,
+      "lightArmor": true,
       "heavyArmor": false,
       "robe": false,
       "bracer": true,
@@ -13278,6 +14006,13 @@
       "spd": 0
     },
     "introducingEventRecordBoards": "Planet in Peril",
+    "hpRb": "2000",
+    "atkRb": "100",
+    "defRb": "40",
+    "magRb": "0",
+    "resRb": "40",
+    "mndRb": "60",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -13405,6 +14140,13 @@
       "spd": 0
     },
     "introducingEventRecordBoards": "Entrusted Pride",
+    "hpRb": "2500",
+    "atkRb": "0",
+    "defRb": "40",
+    "magRb": "70",
+    "resRb": "40",
+    "mndRb": "160",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -13532,6 +14274,13 @@
       "spd": 0
     },
     "introducingEventRecordBoards": "Autumn Festival 2020",
+    "hpRb": "2500",
+    "atkRb": "35",
+    "defRb": "40",
+    "magRb": "135",
+    "resRb": "50",
+    "mndRb": "0",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -13659,6 +14408,13 @@
       "spd": 20
     },
     "introducingEventRecordBoards": "Entrusted Pride",
+    "hpRb": "2500",
+    "atkRb": "190",
+    "defRb": "50",
+    "magRb": "0",
+    "resRb": "40",
+    "mndRb": "0",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -13786,6 +14542,13 @@
       "spd": 0
     },
     "introducingEventRecordBoards": "Summer Sun Festival 2020",
+    "hpRb": "2500",
+    "atkRb": "120",
+    "defRb": "50",
+    "magRb": "0",
+    "resRb": "40",
+    "mndRb": "0",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -13913,6 +14676,13 @@
       "spd": 0
     },
     "introducingEventRecordBoards": "Entrusted Pride",
+    "hpRb": "2500",
+    "atkRb": "190",
+    "defRb": "50",
+    "magRb": "0",
+    "resRb": "40",
+    "mndRb": "0",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -14040,6 +14810,13 @@
       "spd": 0
     },
     "introducingEventRecordBoards": "Confounding Memories (VII)",
+    "hpRb": "2000",
+    "atkRb": "110",
+    "defRb": "40",
+    "magRb": "110",
+    "resRb": "40",
+    "mndRb": "60",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -14167,6 +14944,13 @@
       "spd": 0
     },
     "introducingEventRecordBoards": "Entrusted Pride",
+    "hpRb": "2500",
+    "atkRb": "210",
+    "defRb": "50",
+    "magRb": "0",
+    "resRb": "40",
+    "mndRb": "0",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -14294,6 +15078,13 @@
       "spd": 0
     },
     "introducingEventRecordBoards": "Fat Black Chocobo: Radiant Magicites",
+    "hpRb": "2500",
+    "atkRb": "230",
+    "defRb": "50",
+    "magRb": "0",
+    "resRb": "40",
+    "mndRb": "0",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -14421,6 +15212,13 @@
       "spd": 0
     },
     "introducingEventRecordBoards": "The Enduring Transparent",
+    "hpRb": "2200",
+    "atkRb": "190",
+    "defRb": "70",
+    "magRb": "0",
+    "resRb": "60",
+    "mndRb": "0",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -14548,6 +15346,13 @@
       "spd": 0
     },
     "introducingEventRecordBoards": "Confounding Memories (VII)",
+    "hpRb": "2000",
+    "atkRb": "110",
+    "defRb": "40",
+    "magRb": "110",
+    "resRb": "40",
+    "mndRb": "60",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -14675,6 +15480,13 @@
       "spd": 0
     },
     "introducingEventRecordBoards": "Confounding Memories (VII)",
+    "hpRb": "2500",
+    "atkRb": "210",
+    "defRb": "50",
+    "magRb": "0",
+    "resRb": "40",
+    "mndRb": "0",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -14801,7 +15613,14 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": "Fat Black Chocobo: Blazing Forgery",
+    "introducingEventRecordBoards": "Fat Black Chocobo: Fiery Forgery",
+    "hpRb": "2500",
+    "atkRb": "230",
+    "defRb": "50",
+    "magRb": "0",
+    "resRb": "40",
+    "mndRb": "0",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -14847,7 +15666,7 @@
       "knight": null,
       "samurai": null,
       "ninja": null,
-      "bard": null,
+      "bard": 4,
       "dancer": null,
       "machinist": null,
       "darkness": 6,
@@ -14929,6 +15748,13 @@
       "spd": 0
     },
     "introducingEventRecordBoards": "Voice in the Void",
+    "hpRb": "2500",
+    "atkRb": "120",
+    "defRb": "50",
+    "magRb": "0",
+    "resRb": "40",
+    "mndRb": "0",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -15056,6 +15882,13 @@
       "spd": 0
     },
     "introducingEventRecordBoards": "Voice in the Void",
+    "hpRb": "2500",
+    "atkRb": "0",
+    "defRb": "40",
+    "magRb": "100",
+    "resRb": "50",
+    "mndRb": "0",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -15183,6 +16016,13 @@
       "spd": 0
     },
     "introducingEventRecordBoards": "Lion and Knight",
+    "hpRb": "2500",
+    "atkRb": "0",
+    "defRb": "40",
+    "magRb": "150",
+    "resRb": "40",
+    "mndRb": "40",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -15310,6 +16150,13 @@
       "spd": 20
     },
     "introducingEventRecordBoards": null,
+    "hpRb": null,
+    "atkRb": null,
+    "defRb": null,
+    "magRb": null,
+    "resRb": null,
+    "mndRb": null,
+    "spdRb": null,
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -15437,6 +16284,13 @@
       "spd": 0
     },
     "introducingEventRecordBoards": "Record Boards Launch",
+    "hpRb": "3000",
+    "atkRb": "0",
+    "defRb": "20",
+    "magRb": "0",
+    "resRb": "20",
+    "mndRb": "180",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -15564,6 +16418,13 @@
       "spd": 0
     },
     "introducingEventRecordBoards": "Lion and Knight",
+    "hpRb": "2200",
+    "atkRb": "180",
+    "defRb": "70",
+    "magRb": "0",
+    "resRb": "60",
+    "mndRb": "0",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -15691,6 +16552,13 @@
       "spd": 0
     },
     "introducingEventRecordBoards": "Glory Fest 2020",
+    "hpRb": "2500",
+    "atkRb": "160",
+    "defRb": "50",
+    "magRb": "0",
+    "resRb": "40",
+    "mndRb": "0",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -15818,6 +16686,13 @@
       "spd": 0
     },
     "introducingEventRecordBoards": "Lion and Knight",
+    "hpRb": "2500",
+    "atkRb": "150",
+    "defRb": "50",
+    "magRb": "0",
+    "resRb": "40",
+    "mndRb": "0",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -15945,6 +16820,13 @@
       "spd": 0
     },
     "introducingEventRecordBoards": "Faeries from the Future",
+    "hpRb": "2500",
+    "atkRb": "0",
+    "defRb": "40",
+    "magRb": "160",
+    "resRb": "50",
+    "mndRb": "0",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -16071,7 +16953,14 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": null,
+    "introducingEventRecordBoards": "Fat Black Chocobo: Soggy Magicites",
+    "hpRb": "2500",
+    "atkRb": "100",
+    "defRb": "50",
+    "magRb": "0",
+    "resRb": "40",
+    "mndRb": "0",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -16198,7 +17087,14 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": null,
+    "introducingEventRecordBoards": "Fat Black Chocobo: A Howling Forgery",
+    "hpRb": "2500",
+    "atkRb": "0",
+    "defRb": "40",
+    "magRb": "160",
+    "resRb": "50",
+    "mndRb": "0",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -16326,6 +17222,13 @@
       "spd": 0
     },
     "introducingEventRecordBoards": "Voice in the Void",
+    "hpRb": "2200",
+    "atkRb": "240",
+    "defRb": "70",
+    "magRb": "0",
+    "resRb": "60",
+    "mndRb": "0",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -16453,6 +17356,13 @@
       "spd": 0
     },
     "introducingEventRecordBoards": "Voice in the Void",
+    "hpRb": "2500",
+    "atkRb": "250",
+    "defRb": "50",
+    "magRb": "0",
+    "resRb": "40",
+    "mndRb": "0",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -16580,6 +17490,13 @@
       "spd": 0
     },
     "introducingEventRecordBoards": "Record Boards Launch",
+    "hpRb": "2500",
+    "atkRb": "0",
+    "defRb": "40",
+    "magRb": "190",
+    "resRb": "50",
+    "mndRb": "0",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -16707,6 +17624,13 @@
       "spd": 20
     },
     "introducingEventRecordBoards": "Record Boards Launch",
+    "hpRb": "2200",
+    "atkRb": "170",
+    "defRb": "60",
+    "magRb": "0",
+    "resRb": "60",
+    "mndRb": "0",
+    "spdRb": "20",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -16834,6 +17758,13 @@
       "spd": 0
     },
     "introducingEventRecordBoards": "Fat Black Chocobo: Shocking Forgery",
+    "hpRb": "2500",
+    "atkRb": "0",
+    "defRb": "40",
+    "magRb": "120",
+    "resRb": "40",
+    "mndRb": "40",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -16961,6 +17892,13 @@
       "spd": 0
     },
     "introducingEventRecordBoards": "Memories of Life",
+    "hpRb": "2500",
+    "atkRb": "0",
+    "defRb": "40",
+    "magRb": "140",
+    "resRb": "50",
+    "mndRb": "0",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -16986,7 +17924,7 @@
       "shield": false,
       "hat": true,
       "helm": false,
-      "lightArmor": false,
+      "lightArmor": true,
       "heavyArmor": false,
       "robe": true,
       "bracer": true,
@@ -17087,7 +18025,14 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": null,
+    "introducingEventRecordBoards": "Flute Resonating in the Ruins",
+    "hpRb": "2700",
+    "atkRb": "60",
+    "defRb": "70",
+    "magRb": "0",
+    "resRb": "70",
+    "mndRb": "0",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -17215,6 +18160,13 @@
       "spd": 0
     },
     "introducingEventRecordBoards": "Recalling the Blue Light",
+    "hpRb": "2200",
+    "atkRb": "180",
+    "defRb": "60",
+    "magRb": "0",
+    "resRb": "60",
+    "mndRb": "0",
+    "spdRb": "20",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -17341,7 +18293,14 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": null,
+    "introducingEventRecordBoards": "Flute Resonating in the Ruins",
+    "hpRb": "2200",
+    "atkRb": "170",
+    "defRb": "70",
+    "magRb": "0",
+    "resRb": "60",
+    "mndRb": "0",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -17469,6 +18428,13 @@
       "spd": 0
     },
     "introducingEventRecordBoards": "Memories of Life",
+    "hpRb": "2500",
+    "atkRb": "0",
+    "defRb": "40",
+    "magRb": "70",
+    "resRb": "40",
+    "mndRb": "90",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -17596,6 +18562,13 @@
       "spd": 0
     },
     "introducingEventRecordBoards": "Recalling the Blue Light",
+    "hpRb": "2500",
+    "atkRb": "190",
+    "defRb": "50",
+    "magRb": "0",
+    "resRb": "40",
+    "mndRb": "0",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -17723,6 +18696,13 @@
       "spd": 0
     },
     "introducingEventRecordBoards": "Memories of Life",
+    "hpRb": "2500",
+    "atkRb": "170",
+    "defRb": "50",
+    "magRb": "0",
+    "resRb": "40",
+    "mndRb": "0",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -17850,6 +18830,13 @@
       "spd": 0
     },
     "introducingEventRecordBoards": "Summer Sun Festival 2020",
+    "hpRb": "2500",
+    "atkRb": "0",
+    "defRb": "40",
+    "magRb": "180",
+    "resRb": "50",
+    "mndRb": "0",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -17977,6 +18964,13 @@
       "spd": 20
     },
     "introducingEventRecordBoards": "Memories of Life",
+    "hpRb": "2200",
+    "atkRb": "220",
+    "defRb": "70",
+    "magRb": "0",
+    "resRb": "60",
+    "mndRb": "0",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -18104,6 +19098,13 @@
       "spd": 20
     },
     "introducingEventRecordBoards": "Record Boards Launch",
+    "hpRb": "2200",
+    "atkRb": "160",
+    "defRb": "60",
+    "magRb": "0",
+    "resRb": "60",
+    "mndRb": "0",
+    "spdRb": "20",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -18231,6 +19232,13 @@
       "spd": 0
     },
     "introducingEventRecordBoards": "Summer Sun Festival 2020",
+    "hpRb": "2500",
+    "atkRb": "0",
+    "defRb": "40",
+    "magRb": "70",
+    "resRb": "40",
+    "mndRb": "70",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -18357,7 +19365,14 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": "The Start of Our Story",
+    "introducingEventRecordBoards": "Our Story",
+    "hpRb": "2200",
+    "atkRb": "180",
+    "defRb": "70",
+    "magRb": "0",
+    "resRb": "60",
+    "mndRb": "0",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -18484,7 +19499,14 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": null,
+    "introducingEventRecordBoards": "Bug Catching Strategy",
+    "hpRb": "2500",
+    "atkRb": "0",
+    "defRb": "40",
+    "magRb": "150",
+    "resRb": "50",
+    "mndRb": "0",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -18611,7 +19633,14 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": "Confounded Memories (X)",
+    "introducingEventRecordBoards": "Chaotic Memories (X)",
+    "hpRb": "2500",
+    "atkRb": "200",
+    "defRb": "50",
+    "magRb": "0",
+    "resRb": "40",
+    "mndRb": "0",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -18739,6 +19768,13 @@
       "spd": 0
     },
     "introducingEventRecordBoards": "Record Boards Launch",
+    "hpRb": "2200",
+    "atkRb": "150",
+    "defRb": "70",
+    "magRb": "0",
+    "resRb": "60",
+    "mndRb": "0",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -18865,7 +19901,14 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": "Fat Black Chocobo: Blazing Forgery",
+    "introducingEventRecordBoards": "Fat Black Chocobo: Fiery Forgery",
+    "hpRb": "2500",
+    "atkRb": "150",
+    "defRb": "50",
+    "magRb": "0",
+    "resRb": "40",
+    "mndRb": "0",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -18992,7 +20035,14 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": "Confounded Memories (X)",
+    "introducingEventRecordBoards": "Chaotic Memories (X)",
+    "hpRb": "2500",
+    "atkRb": "140",
+    "defRb": "50",
+    "magRb": "0",
+    "resRb": "40",
+    "mndRb": "0",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -19119,7 +20169,14 @@
       "mnd": 20,
       "spd": 0
     },
-    "introducingEventRecordBoards": null,
+    "introducingEventRecordBoards": "Chaotic Memories X",
+    "hpRb": "2500",
+    "atkRb": "0",
+    "defRb": "40",
+    "magRb": "210",
+    "resRb": "50",
+    "mndRb": "0",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -19246,7 +20303,14 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": "The Start of Our Story",
+    "introducingEventRecordBoards": "Our Story",
+    "hpRb": "2500",
+    "atkRb": "170",
+    "defRb": "50",
+    "magRb": "0",
+    "resRb": "40",
+    "mndRb": "0",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -19373,7 +20437,14 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": null,
+    "introducingEventRecordBoards": "Chaotic Memories X",
+    "hpRb": "2500",
+    "atkRb": "0",
+    "defRb": "40",
+    "magRb": "200",
+    "resRb": "50",
+    "mndRb": "0",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -19501,6 +20572,13 @@
       "spd": 0
     },
     "introducingEventRecordBoards": "Record Boards Launch",
+    "hpRb": "2500",
+    "atkRb": "0",
+    "defRb": "40",
+    "magRb": "190",
+    "resRb": "50",
+    "mndRb": "0",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -19628,6 +20706,13 @@
       "spd": 0
     },
     "introducingEventRecordBoards": "A Demanding Mistress",
+    "hpRb": "2500",
+    "atkRb": "200",
+    "defRb": "50",
+    "magRb": "0",
+    "resRb": "40",
+    "mndRb": "0",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -19755,6 +20840,13 @@
       "spd": 0
     },
     "introducingEventRecordBoards": "Glory Fest 2020",
+    "hpRb": "2500",
+    "atkRb": "190",
+    "defRb": "50",
+    "magRb": "0",
+    "resRb": "40",
+    "mndRb": "0",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -19882,6 +20974,13 @@
       "spd": 0
     },
     "introducingEventRecordBoards": "A Demanding Mistress",
+    "hpRb": "2500",
+    "atkRb": "200",
+    "defRb": "50",
+    "magRb": "0",
+    "resRb": "40",
+    "mndRb": "0",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -20008,7 +21107,14 @@
       "mnd": 0,
       "spd": 20
     },
-    "introducingEventRecordBoards": null,
+    "introducingEventRecordBoards": "A Sword to Sheathe",
+    "hpRb": "2200",
+    "atkRb": "190",
+    "defRb": "60",
+    "magRb": "0",
+    "resRb": "60",
+    "mndRb": "0",
+    "spdRb": "20",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -20136,6 +21242,13 @@
       "spd": 0
     },
     "introducingEventRecordBoards": "Glory Fest 2020",
+    "hpRb": "3000",
+    "atkRb": "0",
+    "defRb": "20",
+    "magRb": "0",
+    "resRb": "20",
+    "mndRb": "200",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -20176,7 +21289,7 @@
       "summoning": 5,
       "spellblade": null,
       "dragoon": null,
-      "monk": 3,
+      "monk": 5,
       "thief": null,
       "knight": null,
       "samurai": null,
@@ -20262,7 +21375,14 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": null,
+    "introducingEventRecordBoards": "A Sword to Sheathe",
+    "hpRb": "2500",
+    "atkRb": "220",
+    "defRb": "50",
+    "magRb": "0",
+    "resRb": "40",
+    "mndRb": "0",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -20390,6 +21510,13 @@
       "spd": 20
     },
     "introducingEventRecordBoards": "A Demanding Mistress",
+    "hpRb": "2200",
+    "atkRb": "165",
+    "defRb": "60",
+    "magRb": "0",
+    "resRb": "60",
+    "mndRb": "75",
+    "spdRb": "20",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -20425,7 +21552,7 @@
       "blackMagic": null,
       "whiteMagic": null,
       "combat": 4,
-      "support": null,
+      "support": 5,
       "celerity": 5,
       "summoning": null,
       "spellblade": null,
@@ -20499,24 +21626,31 @@
     },
     "introducingEventRecordSpheres": "Braving the Countless Ordeals",
     "recordSpheres": {
-      "hp": null,
-      "atk": null,
-      "def": null,
-      "mag": null,
-      "res": null,
-      "mnd": null
+      "hp": 800,
+      "atk": 31,
+      "def": 15,
+      "mag": 0,
+      "res": 0,
+      "mnd": 0
     },
     "introducingEventLegendSpheres": "Braving the Countless Ordeals",
     "legendSpheres": {
-      "hp": null,
-      "atk": null,
-      "def": null,
-      "mag": null,
-      "res": null,
-      "mnd": null,
-      "spd": null
+      "hp": 800,
+      "atk": 40,
+      "def": 30,
+      "mag": 0,
+      "res": 30,
+      "mnd": 0,
+      "spd": 0
     },
-    "introducingEventRecordBoards": null,
+    "introducingEventRecordBoards": "A Sword to Sheathe",
+    "hpRb": "2500",
+    "atkRb": "260",
+    "defRb": "50",
+    "magRb": "0",
+    "resRb": "40",
+    "mndRb": "0",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -20644,6 +21778,13 @@
       "spd": 20
     },
     "introducingEventRecordBoards": "Record Boards Launch",
+    "hpRb": "2200",
+    "atkRb": "150",
+    "defRb": "60",
+    "magRb": "0",
+    "resRb": "60",
+    "mndRb": "0",
+    "spdRb": "20",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -20770,7 +21911,14 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": "Fat Black Chocobo: Blazing Forgery",
+    "introducingEventRecordBoards": "Fat Black Chocobo: Fiery Forgery",
+    "hpRb": "2500",
+    "atkRb": "140",
+    "defRb": "50",
+    "magRb": "0",
+    "resRb": "40",
+    "mndRb": "0",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -20898,6 +22046,13 @@
       "spd": 0
     },
     "introducingEventRecordBoards": "Clad in Hatred",
+    "hpRb": "2200",
+    "atkRb": "170",
+    "defRb": "60",
+    "magRb": "0",
+    "resRb": "60",
+    "mndRb": "0",
+    "spdRb": "20",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -21025,6 +22180,13 @@
       "spd": 0
     },
     "introducingEventRecordBoards": "Fat Black Chocobo: Radiant Forgery",
+    "hpRb": "2700",
+    "atkRb": "110",
+    "defRb": "70",
+    "magRb": "0",
+    "resRb": "70",
+    "mndRb": "0",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -21152,6 +22314,13 @@
       "spd": 0
     },
     "introducingEventRecordBoards": "Record Boards Launch",
+    "hpRb": "2500",
+    "atkRb": "0",
+    "defRb": "40",
+    "magRb": "190",
+    "resRb": "50",
+    "mndRb": "0",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -21279,6 +22448,13 @@
       "spd": 0
     },
     "introducingEventRecordBoards": "Clad in Hatred",
+    "hpRb": "3000",
+    "atkRb": "0",
+    "defRb": "20",
+    "magRb": "0",
+    "resRb": "20",
+    "mndRb": "220",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -21406,6 +22582,13 @@
       "spd": 0
     },
     "introducingEventRecordBoards": "Clad in Hatred",
+    "hpRb": "2700",
+    "atkRb": "80",
+    "defRb": "70",
+    "magRb": "0",
+    "resRb": "70",
+    "mndRb": "0",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -21532,7 +22715,14 @@
       "mnd": 40,
       "spd": 0
     },
-    "introducingEventRecordBoards": null,
+    "introducingEventRecordBoards": "To Preserve Peace",
+    "hpRb": "3000",
+    "atkRb": "0",
+    "defRb": "20",
+    "magRb": "0",
+    "resRb": "20",
+    "mndRb": "180",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -21659,7 +22849,14 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": null,
+    "introducingEventRecordBoards": "Chaotic Memories (XII)",
+    "hpRb": "2000",
+    "atkRb": "90",
+    "defRb": "40",
+    "magRb": "90",
+    "resRb": "40",
+    "mndRb": "60",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -21786,7 +22983,14 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": null,
+    "introducingEventRecordBoards": "To Preserve Peace",
+    "hpRb": "2500",
+    "atkRb": "220",
+    "defRb": "50",
+    "magRb": "0",
+    "resRb": "40",
+    "mndRb": "0",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -21914,6 +23118,13 @@
       "spd": 0
     },
     "introducingEventRecordBoards": "Record Boards Launch",
+    "hpRb": "2500",
+    "atkRb": "160",
+    "defRb": "50",
+    "magRb": "0",
+    "resRb": "40",
+    "mndRb": "0",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -22041,6 +23252,13 @@
       "spd": 0
     },
     "introducingEventRecordBoards": "Striking Back at Fate",
+    "hpRb": "2500",
+    "atkRb": "120",
+    "defRb": "50",
+    "magRb": "0",
+    "resRb": "40",
+    "mndRb": "0",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -22168,6 +23386,13 @@
       "spd": 0
     },
     "introducingEventRecordBoards": "Striking Back at Fate",
+    "hpRb": "3000",
+    "atkRb": "0",
+    "defRb": "20",
+    "magRb": "0",
+    "resRb": "20",
+    "mndRb": "150",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -22295,6 +23520,13 @@
       "spd": 0
     },
     "introducingEventRecordBoards": "The Daddy Blues",
+    "hpRb": "2200",
+    "atkRb": "210",
+    "defRb": "70",
+    "magRb": "0",
+    "resRb": "60",
+    "mndRb": "0",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -22422,6 +23654,13 @@
       "spd": 0
     },
     "introducingEventRecordBoards": "The Daddy Blues",
+    "hpRb": "2500",
+    "atkRb": "0",
+    "defRb": "40",
+    "magRb": "170",
+    "resRb": "50",
+    "mndRb": "0",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -22549,6 +23788,13 @@
       "spd": 0
     },
     "introducingEventRecordBoards": "Striking Back at Fate",
+    "hpRb": "2500",
+    "atkRb": "140",
+    "defRb": "50",
+    "magRb": "0",
+    "resRb": "40",
+    "mndRb": "0",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -22676,6 +23922,13 @@
       "spd": 0
     },
     "introducingEventRecordBoards": "Summer Sun Festival 2020",
+    "hpRb": "2500",
+    "atkRb": "0",
+    "defRb": "40",
+    "magRb": "130",
+    "resRb": "50",
+    "mndRb": "0",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -22803,6 +24056,13 @@
       "spd": 0
     },
     "introducingEventRecordBoards": "Record Boards Launch",
+    "hpRb": "2500",
+    "atkRb": "0",
+    "defRb": "40",
+    "magRb": "190",
+    "resRb": "50",
+    "mndRb": "0",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -22929,7 +24189,14 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": "Confounded Memories (XIII)",
+    "introducingEventRecordBoards": "Chaotic Memories II (XIII)",
+    "hpRb": "2500",
+    "atkRb": "150",
+    "defRb": "50",
+    "magRb": "0",
+    "resRb": "40",
+    "mndRb": "0",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -23057,6 +24324,13 @@
       "spd": 0
     },
     "introducingEventRecordBoards": "The Daddy Blues",
+    "hpRb": "2500",
+    "atkRb": "0",
+    "defRb": "40",
+    "magRb": "200",
+    "resRb": "50",
+    "mndRb": "0",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -23184,6 +24458,13 @@
       "spd": 0
     },
     "introducingEventRecordBoards": "Vanquish the Primals",
+    "hpRb": "2500",
+    "atkRb": "0",
+    "defRb": "40",
+    "magRb": "160",
+    "resRb": "40",
+    "mndRb": "120",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -23311,6 +24592,13 @@
       "spd": 20
     },
     "introducingEventRecordBoards": "Thrills and Treats",
+    "hpRb": "2200",
+    "atkRb": "180",
+    "defRb": "60",
+    "magRb": "100",
+    "resRb": "60",
+    "mndRb": "0",
+    "spdRb": "20",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -23438,6 +24726,13 @@
       "spd": 0
     },
     "introducingEventRecordBoards": "Thrills and Treats",
+    "hpRb": "2500",
+    "atkRb": "190",
+    "defRb": "50",
+    "magRb": "0",
+    "resRb": "40",
+    "mndRb": "0",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -23565,6 +24860,13 @@
       "spd": 0
     },
     "introducingEventRecordBoards": "Summer Sun Festival 2020",
+    "hpRb": "2500",
+    "atkRb": "0",
+    "defRb": "40",
+    "magRb": "190",
+    "resRb": "50",
+    "mndRb": "0",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -23692,6 +24994,13 @@
       "spd": 0
     },
     "introducingEventRecordBoards": "Record Boards Launch",
+    "hpRb": "2500",
+    "atkRb": "0",
+    "defRb": "40",
+    "magRb": "190",
+    "resRb": "40",
+    "mndRb": "140",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -23819,6 +25128,13 @@
       "spd": 0
     },
     "introducingEventRecordBoards": "Vanquish the Primals",
+    "hpRb": "2200",
+    "atkRb": "210",
+    "defRb": "70",
+    "magRb": "0",
+    "resRb": "60",
+    "mndRb": "0",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -23946,6 +25262,13 @@
       "spd": 0
     },
     "introducingEventRecordBoards": "Thrills and Treats",
+    "hpRb": "2200",
+    "atkRb": "250",
+    "defRb": "70",
+    "magRb": "0",
+    "resRb": "60",
+    "mndRb": "0",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -24073,6 +25396,13 @@
       "spd": 0
     },
     "introducingEventRecordBoards": "Summer Sun Festival 2020",
+    "hpRb": "2500",
+    "atkRb": "0",
+    "defRb": "40",
+    "magRb": "220",
+    "resRb": "50",
+    "mndRb": "0",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -24200,6 +25530,13 @@
       "spd": 0
     },
     "introducingEventRecordBoards": "Vanquish the Primals",
+    "hpRb": "2700",
+    "atkRb": "150",
+    "defRb": "70",
+    "magRb": "0",
+    "resRb": "70",
+    "mndRb": "0",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -24223,7 +25560,7 @@
       "doll": false,
       "keyblade": false,
       "shield": true,
-      "hat": false,
+      "hat": true,
       "helm": true,
       "lightArmor": true,
       "heavyArmor": true,
@@ -24327,6 +25664,13 @@
       "spd": 0
     },
     "introducingEventRecordBoards": "Glory Fest 2020",
+    "hpRb": "2500",
+    "atkRb": "220",
+    "defRb": "50",
+    "magRb": "0",
+    "resRb": "40",
+    "mndRb": "0",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -24350,7 +25694,7 @@
       "doll": false,
       "keyblade": false,
       "shield": false,
-      "hat": false,
+      "hat": true,
       "helm": true,
       "lightArmor": true,
       "heavyArmor": true,
@@ -24454,6 +25798,13 @@
       "spd": 0
     },
     "introducingEventRecordBoards": "Vanquish the Primals",
+    "hpRb": "2000",
+    "atkRb": "50",
+    "defRb": "40",
+    "magRb": "220",
+    "resRb": "40",
+    "mndRb": "60",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -24581,6 +25932,13 @@
       "spd": 20
     },
     "introducingEventRecordBoards": "Record Boards Launch",
+    "hpRb": "2500",
+    "atkRb": "180",
+    "defRb": "50",
+    "magRb": "0",
+    "resRb": "40",
+    "mndRb": "0",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -24708,6 +26066,13 @@
       "spd": 0
     },
     "introducingEventRecordBoards": "Autumn Festival 2020",
+    "hpRb": "2500",
+    "atkRb": "180",
+    "defRb": "50",
+    "magRb": "0",
+    "resRb": "40",
+    "mndRb": "0",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -24835,6 +26200,13 @@
       "spd": 0
     },
     "introducingEventRecordBoards": "Summer Sun Festival 2020",
+    "hpRb": "2500",
+    "atkRb": "220",
+    "defRb": "50",
+    "magRb": "0",
+    "resRb": "40",
+    "mndRb": "0",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -24858,7 +26230,7 @@
       "doll": false,
       "keyblade": false,
       "shield": false,
-      "hat": false,
+      "hat": true,
       "helm": false,
       "lightArmor": true,
       "heavyArmor": true,
@@ -24961,7 +26333,14 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": "Future King's Journey",
+    "introducingEventRecordBoards": "King in Waiting (2021)",
+    "hpRb": "2200",
+    "atkRb": "180",
+    "defRb": "70",
+    "magRb": "0",
+    "resRb": "60",
+    "mndRb": "0",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -25088,7 +26467,14 @@
       "mnd": 40,
       "spd": 0
     },
-    "introducingEventRecordBoards": "Future King's Journey",
+    "introducingEventRecordBoards": "King in Waiting (2021)",
+    "hpRb": "3000",
+    "atkRb": "0",
+    "defRb": "20",
+    "magRb": "0",
+    "resRb": "20",
+    "mndRb": "220",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -25129,7 +26515,7 @@
       "summoning": null,
       "spellblade": null,
       "dragoon": null,
-      "monk": 3,
+      "monk": 5,
       "thief": null,
       "knight": null,
       "samurai": null,
@@ -25215,7 +26601,14 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": null,
+    "introducingEventRecordBoards": "Chaotic Memories (XV)",
+    "hpRb": "2500",
+    "atkRb": "180",
+    "defRb": "50",
+    "magRb": "0",
+    "resRb": "40",
+    "mndRb": "0",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -25342,7 +26735,14 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": null,
+    "introducingEventRecordBoards": "Chaotic Memories (XV)",
+    "hpRb": "2500",
+    "atkRb": "240",
+    "defRb": "50",
+    "magRb": "0",
+    "resRb": "40",
+    "mndRb": "0",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -25366,7 +26766,7 @@
       "doll": false,
       "keyblade": false,
       "shield": false,
-      "hat": false,
+      "hat": true,
       "helm": false,
       "lightArmor": true,
       "heavyArmor": false,
@@ -25470,6 +26870,13 @@
       "spd": 0
     },
     "introducingEventRecordBoards": "Record Boards Launch",
+    "hpRb": "2500",
+    "atkRb": "0",
+    "defRb": "40",
+    "magRb": "145",
+    "resRb": "40",
+    "mndRb": "115",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -25529,7 +26936,7 @@
   {
     "realm": "XV",
     "name": "Ardyn",
-    "introducingEventLv50": "Future King's Journey",
+    "introducingEventLv50": "King in Waiting (2021)",
     "lv50": {
       "hp": 4420,
       "atk": 111,
@@ -25541,7 +26948,7 @@
       "eva": 22,
       "spd": 123
     },
-    "introducingEventLv65": "Future King's Journey",
+    "introducingEventLv65": "King in Waiting (2021)",
     "lv65": {
       "hp": 5495,
       "atk": 141,
@@ -25553,7 +26960,7 @@
       "eva": 23,
       "spd": 131
     },
-    "introducingEventLv80": "Future King's Journey",
+    "introducingEventLv80": "King in Waiting (2021)",
     "lv80": {
       "hp": 6534,
       "atk": 172,
@@ -25565,7 +26972,7 @@
       "eva": 24,
       "spd": 139
     },
-    "introducingEventLv99": "Future King's Journey",
+    "introducingEventLv99": "King in Waiting (2021)",
     "lv99": {
       "hp": 7810,
       "atk": 211,
@@ -25577,7 +26984,7 @@
       "eva": 25,
       "spd": 149
     },
-    "introducingEventRecordSpheres": "Future King's Journey",
+    "introducingEventRecordSpheres": "King in Waiting (2021)",
     "recordSpheres": {
       "hp": 940,
       "atk": 32,
@@ -25586,7 +26993,7 @@
       "res": 1,
       "mnd": 0
     },
-    "introducingEventLegendSpheres": "Future King's Journey",
+    "introducingEventLegendSpheres": "King in Waiting (2021)",
     "legendSpheres": {
       "hp": 800,
       "atk": 40,
@@ -25596,7 +27003,14 @@
       "mnd": 0,
       "spd": 0
     },
-    "introducingEventRecordBoards": "Future King's Journey",
+    "introducingEventRecordBoards": "King in Waiting (2021)",
+    "hpRb": "2500",
+    "atkRb": "260",
+    "defRb": "50",
+    "magRb": "0",
+    "resRb": "40",
+    "mndRb": "0",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -25651,7 +27065,7 @@
       "heavy": 6
     },
     "id": 11501000,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "FFT",
@@ -25724,6 +27138,13 @@
       "spd": 0
     },
     "introducingEventRecordBoards": "Record Boards Launch",
+    "hpRb": "2200",
+    "atkRb": "150",
+    "defRb": "70",
+    "magRb": "0",
+    "resRb": "60",
+    "mndRb": "0",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -25851,6 +27272,13 @@
       "spd": 0
     },
     "introducingEventRecordBoards": "Heroes of Ivalice",
+    "hpRb": "2500",
+    "atkRb": "200",
+    "defRb": "50",
+    "magRb": "0",
+    "resRb": "40",
+    "mndRb": "0",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -25978,6 +27406,13 @@
       "spd": 0
     },
     "introducingEventRecordBoards": "6th Anniversary Festival",
+    "hpRb": "2500",
+    "atkRb": "190",
+    "defRb": "50",
+    "magRb": "0",
+    "resRb": "40",
+    "mndRb": "0",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -26105,6 +27540,13 @@
       "spd": 0
     },
     "introducingEventRecordBoards": "Heroes of Ivalice",
+    "hpRb": "3000",
+    "atkRb": "0",
+    "defRb": "20",
+    "magRb": "0",
+    "resRb": "20",
+    "mndRb": "180",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -26130,7 +27572,7 @@
       "shield": false,
       "hat": true,
       "helm": false,
-      "lightArmor": false,
+      "lightArmor": true,
       "heavyArmor": false,
       "robe": true,
       "bracer": true,
@@ -26232,6 +27674,13 @@
       "spd": 0
     },
     "introducingEventRecordBoards": null,
+    "hpRb": null,
+    "atkRb": null,
+    "defRb": null,
+    "magRb": null,
+    "resRb": null,
+    "mndRb": null,
+    "spdRb": null,
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -26359,6 +27808,13 @@
       "spd": 0
     },
     "introducingEventRecordBoards": "Heroes of Ivalice",
+    "hpRb": "2500",
+    "atkRb": "190",
+    "defRb": "50",
+    "magRb": "0",
+    "resRb": "40",
+    "mndRb": "0",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -26486,6 +27942,13 @@
       "spd": 0
     },
     "introducingEventRecordBoards": "Heroes of Ivalice",
+    "hpRb": "2500",
+    "atkRb": "190",
+    "defRb": "50",
+    "magRb": "0",
+    "resRb": "40",
+    "mndRb": "0",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -26613,6 +28076,13 @@
       "spd": 0
     },
     "introducingEventRecordBoards": null,
+    "hpRb": null,
+    "atkRb": null,
+    "defRb": null,
+    "magRb": null,
+    "resRb": null,
+    "mndRb": null,
+    "spdRb": null,
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -26740,6 +28210,13 @@
       "spd": 0
     },
     "introducingEventRecordBoards": null,
+    "hpRb": null,
+    "atkRb": null,
+    "defRb": null,
+    "magRb": null,
+    "resRb": null,
+    "mndRb": null,
+    "spdRb": null,
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -26867,6 +28344,13 @@
       "spd": 0
     },
     "introducingEventRecordBoards": null,
+    "hpRb": null,
+    "atkRb": null,
+    "defRb": null,
+    "magRb": null,
+    "resRb": null,
+    "mndRb": null,
+    "spdRb": null,
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -26994,6 +28478,13 @@
       "spd": 0
     },
     "introducingEventRecordBoards": "Heroes of Ivalice",
+    "hpRb": "2500",
+    "atkRb": "220",
+    "defRb": "50",
+    "magRb": "0",
+    "resRb": "40",
+    "mndRb": "0",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -27017,7 +28508,7 @@
       "doll": false,
       "keyblade": false,
       "shield": true,
-      "hat": false,
+      "hat": true,
       "helm": true,
       "lightArmor": true,
       "heavyArmor": true,
@@ -27121,6 +28612,13 @@
       "spd": 0
     },
     "introducingEventRecordBoards": null,
+    "hpRb": null,
+    "atkRb": null,
+    "defRb": null,
+    "magRb": null,
+    "resRb": null,
+    "mndRb": null,
+    "spdRb": null,
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -27248,6 +28746,13 @@
       "spd": 0
     },
     "introducingEventRecordBoards": "6th Anniversary Festival",
+    "hpRb": "3000",
+    "atkRb": "0",
+    "defRb": "20",
+    "magRb": "0",
+    "resRb": "20",
+    "mndRb": "210",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -27375,6 +28880,13 @@
       "spd": 0
     },
     "introducingEventRecordBoards": "Autumn Festival 2020",
+    "hpRb": "3000",
+    "atkRb": "0",
+    "defRb": "20",
+    "magRb": "0",
+    "resRb": "20",
+    "mndRb": "250",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -27502,6 +29014,13 @@
       "spd": 0
     },
     "introducingEventRecordBoards": "Record Boards Launch",
+    "hpRb": "2500",
+    "atkRb": "0",
+    "defRb": "40",
+    "magRb": "150",
+    "resRb": "50",
+    "mndRb": "0",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -27628,7 +29147,14 @@
       "mnd": 40,
       "spd": 0
     },
-    "introducingEventRecordBoards": "Confounded Memories (Type-0)",
+    "introducingEventRecordBoards": "Chaotic Memories (Type-0)",
+    "hpRb": "3000",
+    "atkRb": "0",
+    "defRb": "20",
+    "magRb": "0",
+    "resRb": "20",
+    "mndRb": "200",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -27756,6 +29282,13 @@
       "spd": 0
     },
     "introducingEventRecordBoards": "Dear-Bought Message",
+    "hpRb": "2500",
+    "atkRb": "220",
+    "defRb": "50",
+    "magRb": "0",
+    "resRb": "40",
+    "mndRb": "0",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -27883,6 +29416,13 @@
       "spd": 0
     },
     "introducingEventRecordBoards": "Fat Black Chocobo: Grand Forgery",
+    "hpRb": "2500",
+    "atkRb": "190",
+    "defRb": "50",
+    "magRb": "0",
+    "resRb": "40",
+    "mndRb": "0",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -28010,6 +29550,13 @@
       "spd": 0
     },
     "introducingEventRecordBoards": "Record Boards Launch",
+    "hpRb": "2500",
+    "atkRb": "0",
+    "defRb": "40",
+    "magRb": "70",
+    "resRb": "40",
+    "mndRb": "130",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -28136,7 +29683,14 @@
       "mnd": 0,
       "spd": 10
     },
-    "introducingEventRecordBoards": "Confounded Memories (Type-0)",
+    "introducingEventRecordBoards": "Chaotic Memories (Type-0)",
+    "hpRb": "2500",
+    "atkRb": "200",
+    "defRb": "50",
+    "magRb": "0",
+    "resRb": "40",
+    "mndRb": "0",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -28264,6 +29818,13 @@
       "spd": 0
     },
     "introducingEventRecordBoards": "Turning Aside Fate",
+    "hpRb": "2500",
+    "atkRb": "220",
+    "defRb": "50",
+    "magRb": "0",
+    "resRb": "40",
+    "mndRb": "0",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -28391,6 +29952,13 @@
       "spd": 0
     },
     "introducingEventRecordBoards": "Turning Aside Fate",
+    "hpRb": "2500",
+    "atkRb": "220",
+    "defRb": "50",
+    "magRb": "0",
+    "resRb": "40",
+    "mndRb": "0",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -28518,6 +30086,13 @@
       "spd": 0
     },
     "introducingEventRecordBoards": "Turning Aside Fate",
+    "hpRb": "2500",
+    "atkRb": "0",
+    "defRb": "40",
+    "magRb": "220",
+    "resRb": "50",
+    "mndRb": "0",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -28541,7 +30116,7 @@
       "doll": false,
       "keyblade": false,
       "shield": false,
-      "hat": false,
+      "hat": true,
       "helm": false,
       "lightArmor": true,
       "heavyArmor": false,
@@ -28645,6 +30220,13 @@
       "spd": 0
     },
     "introducingEventRecordBoards": "Fat Black Chocobo: Shady Forgery",
+    "hpRb": "2500",
+    "atkRb": "240",
+    "defRb": "50",
+    "magRb": "0",
+    "resRb": "40",
+    "mndRb": "0",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -28772,6 +30354,13 @@
       "spd": 0
     },
     "introducingEventRecordBoards": "Dear-Bought Message",
+    "hpRb": "2500",
+    "atkRb": "250",
+    "defRb": "50",
+    "magRb": "0",
+    "resRb": "40",
+    "mndRb": "0",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -28899,6 +30488,13 @@
       "spd": 0
     },
     "introducingEventRecordBoards": null,
+    "hpRb": null,
+    "atkRb": null,
+    "defRb": null,
+    "magRb": null,
+    "resRb": null,
+    "mndRb": null,
+    "spdRb": null,
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -29026,6 +30622,13 @@
       "spd": 0
     },
     "introducingEventRecordBoards": "Turning Aside Fate",
+    "hpRb": "2200",
+    "atkRb": "230",
+    "defRb": "70",
+    "magRb": "0",
+    "resRb": "60",
+    "mndRb": "0",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -29153,6 +30756,13 @@
       "spd": 0
     },
     "introducingEventRecordBoards": "Dear-Bought Message",
+    "hpRb": "2500",
+    "atkRb": "230",
+    "defRb": "50",
+    "magRb": "0",
+    "resRb": "40",
+    "mndRb": "0",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -29280,6 +30890,13 @@
       "spd": 0
     },
     "introducingEventRecordBoards": null,
+    "hpRb": null,
+    "atkRb": null,
+    "defRb": null,
+    "magRb": null,
+    "resRb": null,
+    "mndRb": null,
+    "spdRb": null,
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -29407,6 +31024,13 @@
       "spd": 0
     },
     "introducingEventRecordBoards": null,
+    "hpRb": null,
+    "atkRb": null,
+    "defRb": null,
+    "magRb": null,
+    "resRb": null,
+    "mndRb": null,
+    "spdRb": null,
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -29534,6 +31158,13 @@
       "spd": 0
     },
     "introducingEventRecordBoards": null,
+    "hpRb": null,
+    "atkRb": null,
+    "defRb": null,
+    "magRb": null,
+    "resRb": null,
+    "mndRb": null,
+    "spdRb": null,
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -29661,6 +31292,13 @@
       "spd": 0
     },
     "introducingEventRecordBoards": null,
+    "hpRb": null,
+    "atkRb": null,
+    "defRb": null,
+    "magRb": null,
+    "resRb": null,
+    "mndRb": null,
+    "spdRb": null,
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -29788,6 +31426,13 @@
       "spd": 0
     },
     "introducingEventRecordBoards": "Core Torment",
+    "hpRb": "2500",
+    "atkRb": "0",
+    "defRb": "40",
+    "magRb": "230",
+    "resRb": "50",
+    "mndRb": "0",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -29915,6 +31560,13 @@
       "spd": 0
     },
     "introducingEventRecordBoards": "Core Torment",
+    "hpRb": "2500",
+    "atkRb": "240",
+    "defRb": "50",
+    "magRb": "0",
+    "resRb": "40",
+    "mndRb": "0",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -30042,6 +31694,13 @@
       "spd": 0
     },
     "introducingEventRecordBoards": "Core Torment",
+    "hpRb": "2200",
+    "atkRb": "250",
+    "defRb": "70",
+    "magRb": "0",
+    "resRb": "60",
+    "mndRb": "0",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -30169,6 +31828,13 @@
       "spd": 0
     },
     "introducingEventRecordBoards": "Core Torment",
+    "hpRb": "3000",
+    "atkRb": "0",
+    "defRb": "20",
+    "magRb": "0",
+    "resRb": "20",
+    "mndRb": "260",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -30296,6 +31962,13 @@
       "spd": 0
     },
     "introducingEventRecordBoards": "Core Torment",
+    "hpRb": "2500",
+    "atkRb": "270",
+    "defRb": "50",
+    "magRb": "0",
+    "resRb": "40",
+    "mndRb": "0",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -30423,6 +32096,13 @@
       "spd": 0
     },
     "introducingEventRecordBoards": "Core Torment",
+    "hpRb": "3000",
+    "atkRb": "0",
+    "defRb": "20",
+    "magRb": "0",
+    "resRb": "20",
+    "mndRb": "240",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -30550,6 +32230,13 @@
       "spd": 0
     },
     "introducingEventRecordBoards": "Core Torment",
+    "hpRb": "2500",
+    "atkRb": "0",
+    "defRb": "40",
+    "magRb": "230",
+    "resRb": "50",
+    "mndRb": "0",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -30677,6 +32364,13 @@
       "spd": 0
     },
     "introducingEventRecordBoards": "Core Torment",
+    "hpRb": "0",
+    "atkRb": "0",
+    "defRb": "0",
+    "magRb": "0",
+    "resRb": "0",
+    "mndRb": "0",
+    "spdRb": "0",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -30804,6 +32498,13 @@
       "spd": 0
     },
     "introducingEventRecordBoards": "Knights of Grandshelt",
+    "hpRb": "2500",
+    "atkRb": "260",
+    "defRb": "50",
+    "magRb": "0",
+    "resRb": "40",
+    "mndRb": "0",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": true,
@@ -30931,6 +32632,13 @@
       "spd": 0
     },
     "introducingEventRecordBoards": "Knights of Grandshelt",
+    "hpRb": "2000",
+    "atkRb": "50",
+    "defRb": "40",
+    "magRb": "50",
+    "resRb": "40",
+    "mndRb": "230",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": false,
@@ -31058,6 +32766,13 @@
       "spd": 0
     },
     "introducingEventRecordBoards": "Knights of Grandshelt",
+    "hpRb": "2500",
+    "atkRb": "260",
+    "defRb": "50",
+    "magRb": "0",
+    "resRb": "40",
+    "mndRb": "0",
+    "spdRb": "10",
     "equipment": {
       "dagger": true,
       "sword": true,

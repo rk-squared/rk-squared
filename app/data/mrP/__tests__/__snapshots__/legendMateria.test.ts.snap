@@ -228,7 +228,7 @@ Array [
     "character": "Aphmau",
     "description": "dualcast W.Mag/Monk per 3 uses",
     "effect": "100% chance to dualcast every third White Magic/Monk ability",
-    "name": "Enable (Aphmau)",
+    "name": "Re-action (Aphmau)",
   },
   Object {
     "character": "Aranea",
@@ -253,6 +253,12 @@ Array [
     "description": "25% dualcast Dragoon",
     "effect": "25% chance to dualcast Dragoon abilities",
     "name": "Magitek Dragoon",
+  },
+  Object {
+    "character": "Aranea",
+    "description": "(Dragoon ⤇ 50% for p1.15 l+d+n rngd)",
+    "effect": "50% chance to cast an ability (PHY: single, 1x 1.15 ranged Lightning/Dark/NE) after using a Dragoon ability",
+    "name": "Onslaught (Aranea)",
   },
   Object {
     "character": "Arc",
@@ -287,26 +293,26 @@ Array [
   Object {
     "character": "Arc",
     "description": "(water/holy dmg ⤇ 35% for m8.43/3 (SUM) or w8.94/3 wa+h+n, self refill 1 Summon abil. use)",
-    "effect": "35% chance to cast an ability (SUM/WHT: single, hybrid 3x 2.81 or 2.98 magical Water/Holy/NE, Summoning smart ether 1 to the user) after dealing damage with a Water or Holy ability",
-    "name": "Ambush (Arc)",
+    "effect": "35% chance to cast an ability (SUM/WHT: single, 3x 2.81/2.98 magical Water/Holy/NE, summoning ether 1 to the user) after dealing damage with a Water or Holy ability",
+    "name": "Onslaught (Arc)",
   },
   Object {
     "character": "Ardyn",
     "description": "1.1x PHY dmg",
     "effect": "PHY attacks deal 10% more damage",
-    "name": "God of Death",
+    "name": "Elusive Cipher",
   },
   Object {
     "character": "Ardyn",
     "description": "35% dualcast dark/fire",
     "effect": "35% chance to dualcast abilities that deal Dark or Fire damage",
-    "name": "King of Darkness",
+    "name": "King in the Shadows",
   },
   Object {
     "character": "Ardyn",
     "description": "(dark/fire dmg ⤇ 35% for p1.17/3 d+f+n, heal 20% of dmg)",
     "effect": "35% chance to cast an ability (PHY: single, 3x 0.39 physical Dark/Fire/NE, heals the user for 20% of the damage dealt) after dealing damage with a Dark or Fire ability",
-    "name": "Ambush (Ardyn)",
+    "name": "Onslaught (Ardyn)",
   },
   Object {
     "character": "Aria",
@@ -429,6 +435,12 @@ Array [
     "name": "Young Gun",
   },
   Object {
+    "character": "Ayame",
+    "description": "(Samurai dmg ⤇ 50% for p1.15 i+n)",
+    "effect": "50% chance to cast an ability (PHY: single, 1x 1.15 physical Ice/NE) after dealing damage with a Samurai ability",
+    "name": "Onslaught (Ayame)",
+  },
+  Object {
     "character": "Balthier",
     "description": "1.1x fire dmg",
     "effect": "Increases Fire damage dealt by 10%",
@@ -509,7 +521,7 @@ Array [
   Object {
     "character": "Bartz",
     "description": "10% triplecast Spellblade",
-    "effect": "10% chance to triplecast Spellblade abilities",
+    "effect": "10% chance to dualcast Spellblade abilities twice",
     "name": "Fragments of Grace",
   },
   Object {
@@ -546,7 +558,7 @@ Array [
     "character": "Basch",
     "description": "(holy/fire dmg ⤇ 35% for p1.47/3 h+f+n, ally heal 1.5k)",
     "effect": "35% chance to cast an ability (PHY: single, 3x 0.49 physical Holy/Fire/NE, restores 1500 HP to the lowest HP% ally) after dealing damage with a Holy or Fire ability",
-    "name": "Ambush (Basch)",
+    "name": "Onslaught (Basch)",
   },
   Object {
     "character": "Beatrix",
@@ -642,7 +654,7 @@ Array [
     "character": "Cait Sith",
     "description": "(3 Dancer/Bard ⤇ fastcast 3)",
     "effect": "Grants [Quick Cast 3] after using three Dancer/Bard abilities",
-    "name": "Swiftness (Cait Sith)",
+    "name": "Hastening (Cait Sith)",
   },
   Object {
     "character": "Cater",
@@ -882,7 +894,7 @@ Array [
     "character": "Cid Raines",
     "description": "(3 dark/holy dmg ⤇ fastcast 3)",
     "effect": "Grants [Quick Cast 3] after using three abilities that deal Dark or Holy damage",
-    "name": "Swiftness (Cid Raines)",
+    "name": "Hastening (Cid Raines)",
   },
   Object {
     "character": "Cinque",
@@ -1029,6 +1041,12 @@ Array [
     "name": "Heartfelt Devotion",
   },
   Object {
+    "character": "Curilla",
+    "description": "dualcast Knight per 3 uses",
+    "effect": "100% chance to dualcast every third Knight ability",
+    "name": "Echo (Curilla)",
+  },
+  Object {
     "character": "Cyan",
     "description": "1.15x Samurai dmg",
     "effect": "Samurai abilities deal 15% more damage",
@@ -1074,7 +1092,7 @@ Array [
     "character": "Delita",
     "description": "(Spellblade/Knight dmg ⤇ ?% for p?/4 h+f+l+i)",
     "effect": "?% chance to cast an ability (PHY: single, 4x ? physical Holy/Fire/Lightning/Ice) after dealing damage with a Spellblade or Knight attack",
-    "name": "Ambush (Delita)",
+    "name": "Onslaught (Delita)",
   },
   Object {
     "character": "Desch",
@@ -1265,7 +1283,7 @@ Array [
   Object {
     "character": "Edgar",
     "description": "10% triplecast Machinist",
-    "effect": "10% chance to triplecast Machinist abilities",
+    "effect": "10% chance to dualcast Machinist abilities twice",
     "name": "Master of Machines",
   },
   Object {
@@ -1494,7 +1512,7 @@ Array [
     "character": "Estinien",
     "description": "dualcast wind/dark per 3 uses",
     "effect": "100% chance to dualcast every third Wind/Dark ability",
-    "name": "Enable (Estinien)",
+    "name": "Re-action (Estinien)",
   },
   Object {
     "character": "Exdeath",
@@ -1740,7 +1758,7 @@ Array [
     "character": "Fujin",
     "description": "(wind dmg ⤇ 35?% for m?/4 wi+n)",
     "effect": "35?% chance to cast an ability (BLK: single, 4x ? magical Wind/NE) after dealing damage with a Wind attack",
-    "name": "Ambush (Fujin)",
+    "name": "Onslaught (Fujin)",
   },
   Object {
     "character": "Fusoya",
@@ -1878,7 +1896,7 @@ Array [
     "character": "Garland",
     "description": "(dark dmg ⤇ ?% for p?/4 d+n)",
     "effect": "?% chance to cast an ability (PHY: single, 4x ? physical Dark/NE) after dealing damage with a Dark attack",
-    "name": "Ambush (Garland)",
+    "name": "Onslaught (Garland)",
   },
   Object {
     "character": "Garnet",
@@ -2055,6 +2073,12 @@ Array [
     "name": "Masterful Mimic",
   },
   Object {
+    "character": "Gogo (VI)",
+    "description": "(3 B.Mag/Combat ⤇ fastcast 3)",
+    "effect": "Grants [Quick Cast 3] after using three Black Magic/Combat abilities",
+    "name": "Hastening (Gogo (VI))",
+  },
+  Object {
     "character": "Golbez",
     "description": "1.1x dark dmg",
     "effect": "Increases Dark damage dealt by 10%",
@@ -2112,7 +2136,7 @@ Array [
     "character": "Gordon",
     "description": "Haste, instacast 3 at battle start",
     "effect": "Grants [Haste] and [Instant Cast 3] at the beginning of the battle",
-    "name": "Swiftness (Gordon)",
+    "name": "Hastening (Gordon)",
   },
   Object {
     "character": "Guy",
@@ -2160,7 +2184,7 @@ Array [
     "character": "Haurchefant",
     "description": "(3 Knight ⤇ fastcast 3)",
     "effect": "Grants [Quick Cast 3] after using three Knight abilities",
-    "name": "Swiftness (Haurchefant)",
+    "name": "Hastening (Haurchefant)",
   },
   Object {
     "character": "Hilda",
@@ -2369,7 +2393,7 @@ Array [
   Object {
     "character": "Josef",
     "description": "(<20% HP ⤇ Doom 15s, party heal 55% HP, party Last stand)",
-    "effect": "Causes [Doom: 15] to the user and restores HP to all allies for 55% of their max HP and grants [Last Stand] to all allies when HP fall below 20%",
+    "effect": "Causes [Doom: 15], restores HP to all allies for 55% max HP and grants [Last Stand] to all allies when HP fall below 20%",
     "name": "Fitting End",
   },
   Object {
@@ -2521,6 +2545,12 @@ Array [
     "description": "25% dualcast lgt",
     "effect": "25% chance to dualcast abilities that deal Lightning damage",
     "name": "Trusted Leader",
+  },
+  Object {
+    "character": "King",
+    "description": "(lgt dmg ⤇ 35% for p?/4 l+n rngd)",
+    "effect": "35% chance to cast an ability (PHY: single, 4x ? ranged physical Lightning/NE) after dealing damage with a Lightning attack",
+    "name": "Onslaught (King)",
   },
   Object {
     "character": "Kiros",
@@ -2851,6 +2881,12 @@ Array [
     "description": "1.3x stat debuffs duration",
     "effect": "Increases the duration of stat debuffs by 30%",
     "name": "Agent's Expertise",
+  },
+  Object {
+    "character": "Lion",
+    "description": "(3 water ⤇ +10% water vuln. 15s)",
+    "effect": "Causes [Imperil Water 10% (15s)] after using three Water abilities",
+    "name": "Enfeeble (Lion)",
   },
   Object {
     "character": "Locke",
@@ -3240,7 +3276,7 @@ Array [
     "character": "Mog",
     "description": "(3 Dancer/Dragoon ⤇ fastcast 3)",
     "effect": "Grants [Quick Cast 3] after using three Dancer/Dragoon abilities",
-    "name": "Swiftness (Mog)",
+    "name": "Hastening (Mog)",
   },
   Object {
     "character": "Montblanc",
@@ -3731,7 +3767,7 @@ Array [
   Object {
     "character": "Quina",
     "description": "(<20% HP ⤇ heal 100% HP, +500 SB pts, Trance: +15% A/D/M/R/MND 25s)",
-    "effect": "Restores HP for 100% of the user's maximum HP and grants 500 SB points and grants [Quina Trance] when HP fall below 20%",
+    "effect": "Restores HP for 100% of the user's maximum HP, grants 500 SB points and grants [Quina Trance] when HP fall below 20%",
     "name": "Qu Banquet",
   },
   Object {
@@ -3881,7 +3917,7 @@ Array [
   Object {
     "character": "Red XIII",
     "description": "(<20% HP ⤇ fastcast 15s, +30% MAG, -30% RES 25s)",
-    "effect": "Grants [Quick Cast] and [Lingering Spirit] for 25 seconds when HP fall below 20%",
+    "effect": "Grants [Quick Cast], grants [Lingering Spirit] for 25 seconds when HP fall below 20%",
     "name": "Warrior's Talisman",
   },
   Object {
@@ -3909,6 +3945,12 @@ Array [
     "name": "The Road Ahead",
   },
   Object {
+    "character": "Refia",
+    "description": "(Monk dmg ⤇ 35% for p?/4 f+n)",
+    "effect": "35% chance to cast an ability (PHY: single, 4x ? physical Fire/NE) after dealing damage with a Monk attack",
+    "name": "Onslaught (Refia)",
+  },
+  Object {
     "character": "Reks",
     "description": "1.15x Spellblade dmg",
     "effect": "Spellblade abilities deal 15% more damage",
@@ -3925,6 +3967,12 @@ Array [
     "description": "(Spellblade ⤇ 25% for ally heal 40% HP)",
     "effect": "25% chance to cast an ability (NAT: single, restores HP for 40% of the target's maximum HP) after using a Spellblade ability",
     "name": "Youngest Knight",
+  },
+  Object {
+    "character": "Reks",
+    "description": "1.25x lgt dmg",
+    "effect": "Increases Lightning damage dealt by 25%",
+    "name": "Boost (Reks)",
   },
   Object {
     "character": "Relm",
@@ -4365,6 +4413,12 @@ Array [
     "name": "First-Class Pilot",
   },
   Object {
+    "character": "Sazh",
+    "description": "(3 Machinist/Support ⤇ fastcast 3)",
+    "effect": "Grants [Quick Cast 3] after using three Machinist/Support abilities",
+    "name": "Hastening (Sazh)",
+  },
+  Object {
     "character": "Scott",
     "description": "1.15x Spellblade dmg",
     "effect": "Spellblade abilities deal 15% more damage",
@@ -4491,6 +4545,12 @@ Array [
     "name": "Mirage Mascot",
   },
   Object {
+    "character": "Serafie",
+    "description": "dualcast wind per 3 uses",
+    "effect": "100% chance to dualcast every third Wind ability",
+    "name": "Re-action (Serafie)",
+  },
+  Object {
     "character": "Serah",
     "description": "1.1x ice dmg",
     "effect": "Increases Ice damage dealt by 10%",
@@ -4519,6 +4579,12 @@ Array [
     "description": "water infuse 25s at battle start",
     "effect": "Grants [Attach Water] at the beginning of the battle",
     "name": "Meanie Miss",
+  },
+  Object {
+    "character": "Serah",
+    "description": "dualcast water per 3 uses",
+    "effect": "100% chance to dualcast every third Water ability",
+    "name": "Echo (Serah)",
   },
   Object {
     "character": "Setzer",
@@ -4602,7 +4668,7 @@ Array [
     "character": "Seymour",
     "description": "(3 dark dmg ⤇ fastcast 3)",
     "effect": "Grants [Quick Cast 3] after using three abilities that deal Dark damage",
-    "name": "Swiftness (Seymour)",
+    "name": "Hastening (Seymour)",
   },
   Object {
     "character": "Shadow",
@@ -4643,7 +4709,7 @@ Array [
   Object {
     "character": "Shantotto",
     "description": "10% triplecast Witch",
-    "effect": "10% chance to triplecast Witch abilities",
+    "effect": "10% chance to dualcast Witch abilities twice",
     "name": "Master Caster",
   },
   Object {
@@ -4735,6 +4801,12 @@ Array [
     "description": "25% dualcast Monk",
     "effect": "25% chance to dualcast Monk abilities",
     "name": "Fiery Fighter",
+  },
+  Object {
+    "character": "Snow",
+    "description": "1.25x ice dmg",
+    "effect": "Increases Ice damage dealt by 25%",
+    "name": "Moxie (Snow)",
   },
   Object {
     "character": "Sora",
@@ -5109,6 +5181,12 @@ Array [
     "name": "Power of Succession",
   },
   Object {
+    "character": "Ultimecia",
+    "description": "1.25x BLK dmg",
+    "effect": "BLK attacks deal 25% more damage",
+    "name": "Boost (Ultimecia)",
+  },
+  Object {
     "character": "Umaro",
     "description": "1.1x ice dmg",
     "effect": "Increases Ice damage dealt by 10%",
@@ -5233,6 +5311,12 @@ Array [
     "description": "dark infuse 25s at battle start",
     "effect": "Grants [Attach Dark] at the beginning of the battle",
     "name": "Bathed in Blood",
+  },
+  Object {
+    "character": "Vayne",
+    "description": "1.25x dark dmg",
+    "effect": "Increases Dark damage dealt by 25%",
+    "name": "Boost (Vayne)",
   },
   Object {
     "character": "Vincent",
@@ -5400,7 +5484,7 @@ Array [
     "character": "Wedge",
     "description": "(wind dmg ⤇ 35% for p2.04/4 or m8.16/4 wi+n)",
     "effect": "35% chance to cast an ability (NAT: single hybrid, 4x 0.51 or 2.04 Wind/NE) after dealing damage with a Wind attack",
-    "name": "Ambush (Wedge)",
+    "name": "Onslaught (Wedge)",
   },
   Object {
     "character": "Wol",

@@ -98,6 +98,8 @@ export type EffectClause =
   | ModifiesSkill
   | BurstOnly
   | BurstReset
+  | TrackGuardian
+  | GuardianReset
   | StatusReset
   | DisableAttacks
   | Paralyze
@@ -219,7 +221,7 @@ interface InstantAtb {
 
 interface AtbSpeed {
   type: 'atbSpeed';
-  value: number;
+  value: number | number[];
 }
 
 interface ForAbilities {
@@ -589,6 +591,7 @@ export interface TriggeredEffect {
   onceOnly?: boolean | number; // A number indicates twice, 3x, etc.
   chance?: number;
   chanceIsUncertain?: boolean;
+  exclusive?: boolean; // This trigger and any previous are mutually exclusive.
 }
 
 export type TriggerableEffect =
@@ -602,6 +605,7 @@ export type TriggerableEffect =
   | RecoilHp
   | common.SmartEtherStatus
   | common.DispelOrEsuna
+  | common.Mimic
   // Beginning of "regular" effects (may also be standalone)
   | CritChance
   | CastSpeed;
@@ -832,6 +836,14 @@ interface BurstOnly {
 
 interface BurstReset {
   type: 'burstReset';
+}
+
+interface TrackGuardian {
+  type: 'trackGuardian';
+}
+
+interface GuardianReset {
+  type: 'guardianReset';
 }
 
 interface StatusReset {

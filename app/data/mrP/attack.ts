@@ -9,12 +9,12 @@ import {
   EnlirSkill,
   EnlirSkillType,
   EnlirSoulBreak,
-  getEnlirTrueArcaneTracker,
+  getEnlirArcaneDyadTracker,
   hasSkillType,
   isBurstCommand,
   isNat,
   isSoulBreak,
-  isTrueArcane2nd,
+  isArcaneDyad2nd,
 } from '../enlir';
 import { appendCondition, describeCondition, describeMultiplierScaleType } from './condition';
 import { describeRageEffects } from './rage';
@@ -157,22 +157,30 @@ function describeThresholdDamage(
     .join(thresholdJoin);
 }
 
-function describeOr(attack: skillTypes.Attack): [string | undefined, string | undefined] {
+function describeOr(
+  attack: skillTypes.Attack,
+): [string | undefined, string | undefined, string | undefined] {
   if (
     !attack.orMultiplier &&
     !attack.orNumAttacks &&
     !attack.orMultiplierCondition &&
     !attack.orNumAttacksCondition
   ) {
-    return [undefined, undefined];
+    return [undefined, undefined, undefined];
   }
 
   const numAttacks = attack.numAttacks;
   let orDamage: string | undefined;
+  let orHybridDamage: string | undefined;
   if (attack.orMultiplier && !isRandomNumAttacks(numAttacks)) {
     orDamage = arrayify(attack.orMultiplier)
       .map(i => describeDamage(i, numAttacks))
       .join(thresholdJoin);
+    if (attack.orHybridMultiplier) {
+      orHybridDamage = arrayify(attack.orHybridMultiplier)
+        .map(i => describeDamage(i, numAttacks))
+        .join(thresholdJoin);
+    }
   } else if (
     attack.orNumAttacks &&
     attack.attackMultiplier &&
@@ -183,6 +191,7 @@ function describeOr(attack: skillTypes.Attack): [string | undefined, string | un
 
   return [
     orDamage,
+    orHybridDamage,
     describeCondition((attack.orMultiplierCondition || attack.orNumAttacksCondition)!),
   ];
 }
@@ -409,10 +418,10 @@ function checkAttackPrereqStatus(
   return attack;
 }
 
-function describeTrueArcaneCondition(sb: EnlirSoulBreak) {
-  const status = getEnlirTrueArcaneTracker(sb);
+function describeArcaneDyadCondition(sb: EnlirSoulBreak) {
+  const status = getEnlirArcaneDyadTracker(sb);
   if (!status) {
-    logger.warn(`Failed to find TASB ability tracker for ${sb.name}`);
+    logger.warn(`Failed to find ADSB ability tracker for ${sb.name}`);
     return undefined;
   }
 
@@ -425,11 +434,19 @@ function describeTrueArcaneCondition(sb: EnlirSoulBreak) {
     | statusTypes.ChangeStatusLevel
     | undefined;
   if (!change || !change.trigger) {
-    logger.warn(`Unexpected contents for TASB ability tracker for ${sb.name}`);
+    logger.warn(`Unexpected contents for ADSB ability tracker for ${sb.name}`);
     return undefined;
   }
 
-  return '@ ' + formatTrigger(change.trigger, sb);
+  // Hack: Dyad conditions mark when the status increments.  Insert a '0' to
+  // indicate the base condition, too, to match our other triggers.
+  let trigger = formatTrigger(change.trigger, sb);
+  if (trigger.match(/^[0-9]+([/ ])/)) {
+    trigger = '0/' + trigger;
+  } else if (trigger.match(/^[0-9]+k?([- ])/)) {
+    trigger = '0-' + trigger;
+  }
+  return '@ ' + trigger;
 }
 
 /**
@@ -506,7 +523,7 @@ function describeAttackDamage(
     damage = describeDamage(attackMultiplier, numAttacks!);
   }
 
-  const [orDamage, orCondition] = describeOr(attack);
+  const [orDamage, orHybridDamage, orCondition] = describeOr(attack);
 
   let scaleType: string | undefined;
   let scaleToDamage: string | undefined;
@@ -550,15 +567,15 @@ function describeAttackDamage(
     } else if (attack.scaleType) {
       scaleType = describeCondition(attack.scaleType, getAttackCount(attack));
 
-      // Special case: Every TASB scales with status level.  Try to resolve the
+      // Special case: Every ADSB scales with status level.  Try to resolve the
       // status that manages that status level.
       if (
         attack.scaleType.type === 'statusLevel' &&
         skill !== 'simple' &&
         isSoulBreak(skill) &&
-        isTrueArcane2nd(skill)
+        isArcaneDyad2nd(skill)
       ) {
-        scaleType = describeTrueArcaneCondition(skill);
+        scaleType = describeArcaneDyadCondition(skill);
       }
     }
     if (attack.scaleToMultiplier && !isRandomNumAttacks(numAttacks)) {
@@ -593,6 +610,7 @@ function describeAttackDamage(
     defaultDamage,
 
     orDamage,
+    orHybridDamage,
     orCondition,
 
     scaleToDamage,
@@ -699,6 +717,9 @@ export function describeAttack(
       ', or ' +
       damageTypeAbbreviation(attackDamage.damageType) +
       attackDamage.orDamage +
+      (attackDamage.orHybridDamage && hybridDamageType
+        ? ' or ' + formatDamageType(hybridDamageType, abbreviate) + attackDamage.orHybridDamage
+        : '') +
       ' ' +
       attackDamage.orCondition;
   }

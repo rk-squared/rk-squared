@@ -41,7 +41,7 @@ EffectClause
 
   / TurnDuration / RemovedUnlessStatus / RemovedAfterTrigger
   / TrackStatusLevel / ChangeStatusLevel / SetStatusLevel / StatusLevelBooster
-  / BurstToggle / TrackUses / SharedCount / ModifiesSkill / BurstOnly / BurstReset / StatusReset / ReplaceAttack / ReplaceAttackDefend / DisableAttacks / Ai / Paralyze / Stun
+  / BurstToggle / TrackUses / SharedCount / ModifiesSkill / BurstOnly / BurstReset / TrackGuardian / GuardianReset / StatusReset / ReplaceAttack / ReplaceAttackDefend / DisableAttacks / Ai / Paralyze / Stun
   / ResetTarget / NoEffect / Persists / GameOver / Unknown
 
 LmEffectClause
@@ -537,7 +537,7 @@ CounterWithImmune
 // accommodate statuses like Cyan's AASB.
 TriggeredEffect
   = chance:TriggerChance? head:TriggerableEffect _ tail:(_ "and" _ TriggerableEffect)* _ trigger:Trigger _ triggerDetail:TriggerDetail? _ condition:Condition? tail2:("," _ BareTriggerableEffect)*
-    onceOnly:("," _ o:OnceOnly { return o; })?
+    onceOnly:("," _ o:OnceOnly { return o; })? exclusive:(". Only one of these effects can trigger at a time")?
   & {
     wantInfinitive[0] = false;
 
@@ -550,10 +550,21 @@ TriggeredEffect
     return castSkill && castSkill.type === 'castSkill' && castSkill.skill === onceOnly.skill;
   }
   {
-    return util.addCondition({ type: 'triggeredEffect', ...chance, effects: util.pegMultiList(head, [[tail, 3], [tail2, 2]], true), trigger, onceOnly: onceOnly == null ? undefined : onceOnly.onceOnly, triggerDetail }, condition);
+    return util.addCondition({
+      type: 'triggeredEffect',
+      ...chance,
+      effects: util.pegMultiList(head, [[tail, 3], [tail2, 2]], true),
+      trigger,
+      onceOnly: onceOnly == null ? undefined : onceOnly.onceOnly,
+      triggerDetail,
+      exclusive: !!exclusive
+    }, condition);
   }
-  // Alternate form for complex effects - used by, e.g., Orlandeau's SASB
+  // Alternate forms for complex effects - used by, e.g., Orlandeau's SASB or Cor's SASB
   / trigger:Trigger "," _ head:TriggerableEffect _ tail:(("," / "and") _ TriggerableEffect)* _ triggerDetail:TriggerDetail? {
+    return { type: 'triggeredEffect', trigger, effects: util.pegList(head, tail, 2), triggerDetail };
+  }
+  / "Triggers the following effects" _ trigger:Trigger ":" _ head:TriggerableEffect _ tail:(("," / "and") _ TriggerableEffect)* _ triggerDetail:TriggerDetail? {
     return { type: 'triggeredEffect', trigger, effects: util.pegList(head, tail, 2), triggerDetail };
   }
   // Triggered smart enther has a couple unique bits - a separate Who and different grammar for "chance of"
@@ -571,7 +582,7 @@ TriggerChance
   }
 
 TriggerableEffect
-  = CastSkill / RandomCastSkill / CastSimpleSkill/ GainSb / SimpleRemoveStatus / GrantStatus / Heal / HealPercent / RecoilHp / SmartEtherStatus / DispelOrEsuna
+  = CastSkill / RandomCastSkill / CastSimpleSkill/ GainSb / SimpleRemoveStatus / GrantStatus / Heal / HealPercent / RecoilHp / SmartEtherStatus / DispelOrEsuna / Mimic
   // Normal status effects that may also be triggered
   / CritChance / CastSpeed
 
@@ -607,7 +618,7 @@ GrantStatus
 // Some statuses are listed as directly granting other statuses.  To avoid parser
 // ambiguities, this should go after TriggeredEffect and GainSb.
 DirectGrantStatus
-  = "Grants"i _ statuses:StatusList _ duration:Duration? {
+  = ("Grants"i / "Causes"i) _ statuses:StatusList _ duration:Duration? {
     const result = { type: 'directGrantStatus', status: statuses };
     if (duration) {
       util.applyDuration(result.status, duration);
@@ -641,6 +652,14 @@ RecoilHp
 DispelOrEsuna
   = 'remove'i S _ dispelOrEsuna:('negative' / 'positive') _ 'status'? _ 'effects' _ who:Who? _ perUses:PerUses? {
     return { type: 'dispelOrEsuna', dispelOrEsuna, who, perUses };
+  }
+
+Mimic
+  = "casts"i _ "the last ability used by an ally" _ occurrence:Occurrence? {
+    return {
+      type: 'mimic',
+      count: occurrence,
+    };
   }
 
 // A special case of triggered effect.  It has a unique trigger and gets its own
@@ -752,8 +771,9 @@ RemovedUnlessStatus
 // applies to the trigger itself.  As such, it does not get its own type.
 // Hack: "or if the user hasn't Synchro Mode" is omitted from our higher-level
 // code, so we'll drop it here rather than further complicating the parser.
+// TODO: Clean these up?
 OnceOnly
-  = "Removed"i _ "after triggering" _ count:Occurrence? _ "or if user hasn't Synchro Mode"? { return { onceOnly: count || true }; }
+  = "Removed"i _ "after triggering" _ count:Occurrence? _ ("or if" _ "the"? _ "user hasn't Synchro Mode")? { return { onceOnly: count || true }; }
   / "Removed"i _ ("after" / "when") _ skill:AnySkillName _ "is cast" _ count:Occurrence? _ "or if user hasn't Synchro Mode"? { return { onceOnly: count || true, skill }; }
   / "Removed"i _ "after casting" _ skill:AnySkillName _ count:Occurrence? _ "or if user hasn't Synchro Mode"? { return { onceOnly: count || true, skill }; }
   / "Removed"i _ "when effect is triggered" _ count:Occurrence? _ "or if user hasn't Synchro Mode"? { return { onceOnly: count || true }; }
@@ -772,7 +792,7 @@ TrackStatusLevel
   // The second is used for tracking stacking effects of 6* healer HAs and is
   // mostly internal.  It may be better to treat these as distinct types.
   //
-  // TASB variant:
+  // Arcane Dyad variant:
   / "Keeps"i _ "track of" _ status:StatusNameNoBrackets _ "level, initially set at level" _ current:Integer _ "with a maximum level of" _ max:Integer { return { type: 'trackStatusLevel', status, max, current }; }
 
 ChangeStatusLevel
@@ -803,7 +823,7 @@ TrackUses
   / "Used"i _ "for tracking" _ skill:AnySkillName _ "usage" { return { type: 'trackUses', skill }; }
   / "Tracks"i _ skill:AnySkillName _ "casts" { return { type: 'trackUses', skill }; }
   / "Keeps"i _ "track of the number of" _ element:ElementAndList _ AbilityOrAttack _ "used" { return { type: 'trackUses', element }; }
-  // TASB variant.  `skill` gives the TASB name.
+  // Arcane Dyad variant.  `skill` gives the Arcane Dyad name.
   / "Keeps"i _ "track of" _ skill:AnySkillName _ "uses" { return { type: 'trackUses', skill }; }
 
 SharedCount
@@ -820,6 +840,12 @@ BurstReset
 
 StatusReset
   = "reset upon refreshing" _ status:StatusNameNoBrackets { return { type: 'statusReset', status }; }
+
+TrackGuardian
+  = "Used to track whether a Guardian Summon is active" { return { type: 'trackGuardian' }; }
+
+GuardianReset
+  = "removed after duration expires, Guardian Summon's HP is fully depleted or the associated Guardian Summon Finisher ability is triggered" { return { type: 'guardianReset' }; }
 
 ReplaceAttack
   = "Replaces"i _ "the Attack command" { return null; }
@@ -878,7 +904,7 @@ Trigger
       return { type: 'ability', element, school, count, jump: !!jump, requiresDamage: !!requiresDamage2, requiresAttack };
     }
   / "when"i _ "user triggers" _ count:TriggerCount _ element:ElementListOrOptions? _ school:SchoolAndOrList? _ jump:"jump"? _ requiresAttack:AbilityOrAttack _ "during the status" {
-      // TASB variant
+      // Arcane Dyad variant
       return { type: 'ability', element, school, count, jump: !!jump, requiresAttack };
     }
   / "every"i _ count:Ordinal _ element:ElementListOrOptions? _ school:SchoolAndOrList? _ jump:"jump"? _ requiresAttack:AbilityOrAttack {
@@ -920,18 +946,26 @@ Trigger
   }
 
   / "when" _ skill:AnySkillName _ "is triggered" _ count:Integer _ "times" { return { type: 'skillTriggered', skill, count }; }
-  / "if user has triggered" _ skill:AnySkillName _ count:NumberString _ "times" { return { type: 'skillTriggered', skill, count }; } // TASB variant
+  / "if user has triggered" _ skill:AnySkillName _ count:NumberString _ "times" { return { type: 'skillTriggered', skill, count }; } // Arcane Dyad variant
+  / "after"i _ ("using" / "casting") _ count:(NumberString / IntegerSlashList) plus:"+"? _ "of" _ "either"? _ skill:Skill1Or2 { return { type: 'skill', skill, count, plus: !!plus }; }
   / "after"i _ ("using" / "casting") _ count:NumberString _ "of" _ "either"? _ skill:Skill1Or2 { return { type: 'skill', skill, count }; }
-  / "after casting" _ skill:Skill1Or2 _ count:NumberString _ "times" { return { type: 'skill', skill, count }; }
+  / "after using" _ count:IntegerSlashList _ "of" _ skill:AnySkillName { return { type: 'skill', skill, count }; }
   / "after"i _ "taking" _ element:ElementListOrOptions _ "damage from a" _ skillType:SkillTypeList _ "attack used by another ally" { return { type: 'damagedByAlly', skillType, element }; }
   / "after"i _ "using a single-target heal" { return { type: 'singleHeal' }; }
   / "when"i _ "the user's"? _ "HP fall" "s"? _ "below" _ value:Integer "%" { return { type: 'lowHp', value }; }
   / "when"i _ "user crosses" _ value1:Integer _ "and" _ value2:Integer _ "damage dealt during the status" {
-      // For TASBs
+      // For ADSBs
       return { type: 'damageDuringStatus', value: [value1, value2] };
     }
-  / "after"i _ "an ally uses" _ count:TriggerCount _ requiresDamage:"damaging"?
-    _ element:ElementListOrOptions? _ school:SchoolAndOrList? _ jump:"jump"? _ requiresAttack:AbilityOrAttack {
+  / "when"i _ "user crosses" _ value1:Integer _ "damage dealt during the status" {
+      // For ADSBs
+      return { type: 'damageDuringStatus', value: [value1] };
+    }
+  / "after"i _ "an ally" _ ("uses" / "casts") _ count:TriggerCount _ requiresDamage:"damaging"?
+    _ element:ElementListOrOptions? _ school:SchoolAndOrList? _ jump:"jump"? _ requiresAttack:AbilityOrAttack _ anyElemental:("that deals elemental damage (excluding NE)")? {
+      if (anyElemental) {
+        element = ['Fire', 'Ice', 'Lightning', 'Earth', 'Wind', 'Water', 'Holy', 'Dark', 'Poison'];
+      }
       return { type: 'allyAbility', element, school, count, jump: !!jump, requiresDamage, requiresAttack };
     }
   // For legend materia
@@ -947,7 +981,7 @@ AbilityOrAttack
 
 TriggerCount
   = useCount:UseCount { return useCount; }
-  / value1:Integer _ "or" _ value2:Integer { return { values: [value1, value2] }; }  // TASB variant. We may someday generalize.
+  / value1:Integer _ "or" _ value2:Integer { return { values: [value1, value2] }; }  // Arcane Dyad variant. We may someday generalize.
   / values:(ArticleOrNumberString / Integer) ! "/" { return { values }; }
   / values:IntegerSlashList plus:"+"? { return { values, plus: !!plus }; }
   / "" { return { values: 1 }; }
@@ -969,10 +1003,11 @@ Skill1Or2
   = skill1:AnySkillName _ "and/or" _ skill2:AnySkillName { return [skill1, skill2]; }
   / skill1or2:AnySkillName
     & {
-        // Variation for "or" instead of "and/or" - these may be part of a skill name themselves.
-        return (skill1or2.match(/ or |\//g) || []).length === 1;
+        // Variation for "or" or "and" instead of "and/or" - these may be part of a skill name themselves.
+        // TODO: Consistently using and/or would be better.
+        return (skill1or2.match(/ (?:or|and) |\//g) || []).length === 1;
       }
-      { return skill1or2.split(/ or |\//); }
+      { return skill1or2.split(/ (?:or|and) |\//); }
 
 
 // --------------------------------------------------------------------------
@@ -1119,10 +1154,11 @@ Condition
   // Thief (I)'s glint or some SASBs.  These are more specialized, so they need
   // to go before general statuses.
   / "scaling with" _ status:StatusNameNoBrackets _ "level" { return { type: 'scaleWithStatusLevel', status }; }
-  // TODO: These two should be standardized
+  // TODO: These all should be standardized
   / "at" _ status:StatusNameNoBrackets _ "levels" _ value:IntegerAndList { return { type: 'statusLevel', status, value }; }
   / "at" _ status:StatusNameNoBrackets _ "level" _ value:IntegerSlashList { return { type: 'statusLevel', status, value }; }
   / "if" _ "the"? _ "user" _ "has" _ status:StatusNameNoBrackets _ "level" _ value:IntegerSlashList plus:"+"? { return { type: 'statusLevel', status, value, plus: !!plus }; }
+  / "if" _ "the"? _ "user" _ "has" _ status:StatusNameNoBrackets _ "=" _ value:Integer { return { type: 'statusLevel', status, value }; }
   / "if" _ "the"? _ "user" _ "has" _ status:StatusNameNoBrackets _ "level"? _ ">" _ value:Integer { return { type: 'statusLevel', status, value: value + 1, plus: true }; }
   / "if" _ "the"? _ "user" _ "has" _ "at" _ "least" _ value:Integer _ status:StatusNameNoBrackets { return { type: 'statusLevel', status, value }; }
 
@@ -1170,7 +1206,7 @@ Condition
 
   // Scaling with uses - both specific counts and generically
   / ("at" / "scaling with" / "after") _ useCount:IntegerSlashList "+"? _ ("uses" / "casts") { return { type: 'scaleUseCount', useCount }; }
-  / "scaling" _ "with" _ "uses" { return { type: 'scaleWithUses' }; }
+  / "scaling with" _ ("uses" / "activations") { return { type: 'scaleWithUses' }; }
   / ("scaling" / "scal.") _ "with" _ skill:AnySkillName _ "uses" { return { type: 'scaleWithSkillUses', skill }; }
 
   / ("after" / "every") _ useCount:UseCount _ skill:AnySkillName? _ ("uses" / "activations") { return { type: 'afterUseCount', skill, useCount }; }
@@ -1184,21 +1220,23 @@ Condition
   / "if" _ character:CharacterNameAndList _ ("is" / "are") _ "alive" { return { type: 'characterAlive', character, all: true }; }
   / "if" _ character:CharacterNameListOrPronoun _ ("is" / "are") _ "not alive/alive" { return { type: 'characterAlive', character, withoutWith: 'withoutWith' }; }
   / "if" _ count:IntegerSlashList "+"? _ "of" _ character:CharacterNameList _ "are" _ "alive" { return { type: 'characterAlive', character, count }; }
+  / "if" _ character:CharacterNameAndList _ ("is" / "are") _ "not alive" { return { type: 'characterAlive', character, withoutWith: 'without' }; }
   / "if" _ count:IntegerSlashList? _ character:CharacterNameList _ ("is" / "are") _ "in" _ "the" _ "party" { return { type: 'characterInParty', character, count }; }
   / "if" _ count:IntegerSlashList? _ character:CharacterNameAndList _ ("is" / "are") _ "in" _ "the" _ "party" { return { type: 'characterInParty', character, count, all: true }; }
   / "if" _ count:IntegerSlashList _ "females are in the party" { return { type: 'femalesInParty', count }; }
-  / "if" _ count:IntegerSlashList "+"? _ "females are alive" { return { type: 'femalesAlive', count }; }
+  / "if" _ count:IntegerSlashList "+"? _ ("females" / "female allies") _ "are alive" { return { type: 'femalesAlive', count }; }
+  / "if" _ count:Integer _ "or more female allies are alive" { return { type: 'femalesAlive', count, plus: true }; }
   / "if" _ "there" _ "are" _ count:IntegerSlashList "+"? _ realm:Realm _ "characters" _ "in" _ "the" _ "party" { return { type: 'realmCharactersInParty', realm, count }; }
   / "if" _ count:IntegerRangeSlashList plus:"+"? _ realm:Realm _ ("characters are alive" / "character is alive" / "allies are alive" / "members are alive") { return { type: 'realmCharactersAlive', realm, count, plus: !!plus }; }
   / "if" _ count:Integer _ "or more females are in the party" { return { type: 'femalesInParty', count }; }
-  / "if" _ count:IntegerSlashList "+"? _ "party" _ "members" _ "are" _ "alive" { return { type: 'charactersAlive', count }; }
+  / "if" _ count:IntegerSlashList "+"? _ ("party members" / "allies") _ "are alive" { return { type: 'charactersAlive', count }; }
 
   / "if" _ count:IntegerSlashList _ "allies" _ "in" _ "air" { return { type: 'alliesJump', count }; }
 
   / "if" _ "the" _ "user's" _ ("[Doom]" / "Doom") _ "timer" _ "is" _ "below" _ value:IntegerSlashList { return { type: 'doomTimer', value }; }
   / "if" _ "the" _ "user's" _ "HP" _ ("is" / "are") _ "below" _ value:IntegerSlashList "%" { return { type: 'hpBelowPercent', value }; }
   / "if" _ "the" _ "user's" _ "HP" _ ("is" / "are") _ "at" _ "least" _ value:IntegerSlashList "%" { return { type: 'hpAtLeastPercent', value }; }
-  / "if" _ "the"? _ "user" _ "has" _ value:IntegerSlashList plus:"+"? _ SB _ "points" { return { type: 'soulBreakPoints', value, plus: !!plus }; }
+  / "if" _ "the"? _ "user" _ "has" _ value:IntegerSlashListOrRange plus:"+"? _ SB _ "points" { return { type: 'soulBreakPoints', value, plus: !!plus }; }
 
   / "if" _ count:IntegerSlashList _ "of the target's stats are lowered" { return { type: 'targetStatBreaks', count }; }
   / "if target has" _ count:IntegerSlashList _ "of ATK, DEF, MAG, RES or MND reduced" { return { type: 'targetStatBreaks', count }; }
@@ -1299,12 +1337,15 @@ AbilityName
   = UppercaseWord (_ UppercaseWord)* { return text(); }
 CharacterName
   = UppercaseWord (_ (UppercaseWord / "of"))* (_ "(" [A-Z] [A-Za-z0-9-]+ ")")? { return text(); }
+CharacterNameOrSelf  // Hack: Accomodate the regular who: 'self' as part of a character
+  = CharacterName
+  / "the user" { return 'self'; }
 
 // Character names, for "if X are in the party."
 CharacterNameList
-  = head:CharacterName tail:(("/" / "," _ / _ "or" _) CharacterName)* { return util.pegList(head, tail, 1, true); }
+  = head:CharacterName tail:(("/" / "," _ / _ "or" _) CharacterNameOrSelf)* { return util.pegList(head, tail, 1, true); }
 CharacterNameAndList
-  = head:CharacterName tail:(("/" / "," _ / _ "and" _) CharacterName)* { return util.pegList(head, tail, 1, true); }
+  = head:CharacterName tail:(("/" / "," _ / _ "and" _) CharacterNameOrSelf)* { return util.pegList(head, tail, 1, true); }
 CharacterNameListOrPronoun
   = CharacterNameList
   / ("he" / "she" / "they") { return undefined; }
@@ -1672,6 +1713,10 @@ MultiplierSlashList "slash-separated list of multipliers"
 
 IntegerSlashList "slash-separated integers"
   = head:Integer tail:('/' Integer)* { return util.pegSlashList(head, tail); }
+
+IntegerSlashListOrRange "slash-separated integers or range"
+  = from:Integer "-" to:Integer { return { from, to }; }
+  / IntegerSlashList
 
 PercentSlashList "slash-separated percent integers"
   = head:PercentInteger tail:('/' PercentInteger)* { return util.pegSlashList(head, tail); }

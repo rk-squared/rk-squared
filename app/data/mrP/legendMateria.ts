@@ -7,7 +7,7 @@ import * as statusTypes from './statusTypes';
 export function safeParseLegendMateria(lm: EnlirLegendMateria): statusTypes.StatusEffect | null {
   try {
     return preprocessStatus(
-      statusParser.parse(lm.effect, { startRule: 'LegendMateriaEffect' }),
+      statusParser.parse(lm.patchedEffect || lm.effect, { startRule: 'LegendMateriaEffect' }),
       lm,
     );
   } catch (e) {

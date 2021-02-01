@@ -81,8 +81,10 @@ export function addCondition<T>(
   }
 }
 
-export function mergeAttackExtras(
-  effects: Array<skillTypes.EffectClause | skillTypes.StandaloneAttackExtra>,
+export function mergeAttackExtrasAndEffects(
+  effects: Array<
+    skillTypes.EffectClause | skillTypes.StandaloneAttackExtra | skillTypes.AndEffectClause
+  >,
 ) {
   const result: skillTypes.EffectClause[] = [];
   let lastAttack: skillTypes.Attack | undefined;
@@ -94,6 +96,13 @@ export function mergeAttackExtras(
         lastAttackIndex = result.length;
       }
       result.push(i);
+      if ('andEffect' in i) {
+        delete i.andEffect;
+        const prev = result[result.length - 1] as any;
+        if ('condition' in i && !prev.condition) {
+          prev.condition = i.condition;
+        }
+      }
     } else {
       if (lastAttack == null || lastAttackIndex == null) {
         logger.error(`Error checking effects for attack extras: Attack extras but no attack`);

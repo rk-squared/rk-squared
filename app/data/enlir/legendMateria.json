@@ -236,7 +236,7 @@
   {
     "realm": "Core",
     "character": "Wedge",
-    "name": "Ambush (Wedge)",
+    "name": "Onslaught (Wedge)",
     "tier": "LMR+",
     "effect": "35% chance to cast an ability (NAT: single hybrid, 4x 0.51 or 2.04 Wind/NE) after dealing damage with a Wind attack",
     "master": "ATK +5, MAG +5",
@@ -457,7 +457,7 @@
   {
     "realm": "I",
     "character": "Garland",
-    "name": "Ambush (Garland)",
+    "name": "Onslaught (Garland)",
     "tier": "LMR+",
     "effect": "?% chance to cast an ability (PHY: single, 4x ? physical Dark/NE) after dealing damage with a Dark attack",
     "master": "ATK +10",
@@ -465,7 +465,7 @@
     "nameJp": "遊撃【ガーランド】",
     "id": 201010205,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "I",
@@ -1198,7 +1198,7 @@
   {
     "realm": "II",
     "character": "Gordon",
-    "name": "Swiftness (Gordon)",
+    "name": "Hastening (Gordon)",
     "tier": "LMR+",
     "effect": "Grants [Haste] and [Instant Cast 3] at the beginning of the battle",
     "master": "ATK +5, MAG +5",
@@ -1679,7 +1679,7 @@
   {
     "realm": "III",
     "character": "Arc",
-    "name": "Ambush (Arc)",
+    "name": "Onslaught (Arc)",
     "tier": "LMR+",
     "effect": "35% chance to cast an ability (SUM/WHT: single, 3x 2.81/2.98 magical Water/Holy/NE, summoning ether 1 to the user) after dealing damage with a Water or Holy ability",
     "master": "MAG +10",
@@ -1740,6 +1740,19 @@
     "id": 201030303,
     "anima": 4,
     "gl": true
+  },
+  {
+    "realm": "III",
+    "character": "Refia",
+    "name": "Onslaught (Refia)",
+    "tier": "LMR+",
+    "effect": "35% chance to cast an ability (PHY: single, 4x ? physical Fire/NE) after dealing damage with a Monk attack",
+    "master": "ATK +10",
+    "relic": "Dragon Claw (III)",
+    "nameJp": "遊撃【レフィア】",
+    "id": 201030304,
+    "anima": null,
+    "gl": false
   },
   {
     "realm": "III",
@@ -3967,7 +3980,7 @@
   {
     "realm": "VI",
     "character": "Mog",
-    "name": "Swiftness (Mog)",
+    "name": "Hastening (Mog)",
     "tier": "LMR+",
     "effect": "Grants [Quick Cast 3] after using three Dancer/Dragoon abilities",
     "master": "MND +10",
@@ -3975,7 +3988,7 @@
     "nameJp": "短縮【モグ】",
     "id": 201060505,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "VI",
@@ -4457,6 +4470,19 @@
     "id": 201061403,
     "anima": 4,
     "gl": true
+  },
+  {
+    "realm": "VI",
+    "character": "Gogo (VI)",
+    "name": "Hastening (Gogo (VI))",
+    "tier": "LMR+",
+    "effect": "Grants [Quick Cast 3] after using three Black Magic/Combat abilities",
+    "master": "ATK +5, MAG +5",
+    "relic": "Black Robe (VI)",
+    "nameJp": "短縮【ゴゴ】",
+    "id": 201061404,
+    "anima": null,
+    "gl": false
   },
   {
     "realm": "VI",
@@ -5007,7 +5033,7 @@
   {
     "realm": "VII",
     "character": "Cait Sith",
-    "name": "Swiftness (Cait Sith)",
+    "name": "Hastening (Cait Sith)",
     "tier": "LMR+",
     "effect": "Grants [Quick Cast 3] after using three Dancer/Bard abilities",
     "master": "MND +10",
@@ -6203,7 +6229,7 @@
   {
     "realm": "VIII",
     "character": "Fujin",
-    "name": "Ambush (Fujin)",
+    "name": "Onslaught (Fujin)",
     "tier": "LMR+",
     "effect": "35?% chance to cast an ability (BLK: single, 4x ? magical Wind/NE) after dealing damage with a Wind attack",
     "master": "MAG +10",
@@ -6277,6 +6303,19 @@
     "id": 201082004,
     "anima": 4,
     "gl": true
+  },
+  {
+    "realm": "VIII",
+    "character": "Ultimecia",
+    "name": "Boost (Ultimecia)",
+    "tier": "LMR+",
+    "effect": "BLK attacks deal 25% more damage",
+    "master": "MAG +10",
+    "relic": "Celebrant's Miter (VIII)",
+    "nameJp": "昇華【アルティミシア】",
+    "id": 201082005,
+    "anima": null,
+    "gl": false
   },
   {
     "realm": "VIII",
@@ -7685,7 +7724,7 @@
   {
     "realm": "X",
     "character": "Seymour",
-    "name": "Swiftness (Seymour)",
+    "name": "Hastening (Seymour)",
     "tier": "LMR+",
     "effect": "Grants [Quick Cast 3] after using three abilities that deal Dark damage",
     "master": "MAG +10",
@@ -7814,6 +7853,19 @@
   },
   {
     "realm": "XI",
+    "character": "Ayame",
+    "name": "Onslaught (Ayame)",
+    "tier": "LMR+",
+    "effect": "50% chance to cast an ability (PHY: single, 1x 1.15 physical Ice/NE) after dealing damage with a Samurai ability",
+    "master": "ATK +10",
+    "relic": "Hachiman Domaru (XI)",
+    "nameJp": "遊撃【アヤメ】",
+    "id": 201110204,
+    "anima": null,
+    "gl": false
+  },
+  {
+    "realm": "XI",
     "character": "Curilla",
     "name": "Tempered Steel",
     "tier": null,
@@ -7863,6 +7915,19 @@
     "id": 201110303,
     "anima": 4,
     "gl": true
+  },
+  {
+    "realm": "XI",
+    "character": "Curilla",
+    "name": "Echo (Curilla)",
+    "tier": "LMR+",
+    "effect": "100% chance to dualcast every third Knight ability",
+    "master": "ATK +10",
+    "relic": "Koenig Shield (XI)",
+    "nameJp": "再動【クリルラ】",
+    "id": 201110304,
+    "anima": null,
+    "gl": false
   },
   {
     "realm": "XI",
@@ -7956,6 +8021,19 @@
     "gl": true
   },
   {
+    "realm": "XII",
+    "character": "Lion",
+    "name": "Enfeeble (Lion)",
+    "tier": "LMR+",
+    "effect": "Causes [Imperil Water 10% (15s)] after using three Water abilities",
+    "master": "ATK +10",
+    "relic": "Rogue's Vest (XI)",
+    "nameJp": "耐降【ライオン】",
+    "id": 201110503,
+    "anima": null,
+    "gl": false
+  },
+  {
     "realm": "XI",
     "character": "Aphmau",
     "name": "Caring Puppetmaster",
@@ -8010,7 +8088,7 @@
   {
     "realm": "XI",
     "character": "Aphmau",
-    "name": "Enable (Aphmau)",
+    "name": "Re-action (Aphmau)",
     "tier": "LMR+",
     "effect": "100% chance to dualcast every third White Magic/Monk ability",
     "master": "MND +10",
@@ -8018,7 +8096,7 @@
     "nameJp": "再動【アフマウ】",
     "id": 201110604,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "XI",
@@ -8426,7 +8504,7 @@
   {
     "realm": "XII",
     "character": "Basch",
-    "name": "Ambush (Basch)",
+    "name": "Onslaught (Basch)",
     "tier": "LMR+",
     "effect": "35% chance to cast an ability (PHY: single, 3x 0.49 physical Holy/Fire/NE, restores 1500 HP to the lowest HP% ally) after dealing damage with a Holy or Fire ability",
     "master": "ATK +10",
@@ -8698,6 +8776,19 @@
   },
   {
     "realm": "XII",
+    "character": "Vayne",
+    "name": "Boost (Vayne)",
+    "tier": "LMR+",
+    "effect": "Increases Dark damage dealt by 25%",
+    "master": "ATK +5, MAG +5",
+    "relic": "Mythril Armor (XII)",
+    "nameJp": "昇華【ヴェイン】",
+    "id": 201121003,
+    "anima": null,
+    "gl": false
+  },
+  {
+    "realm": "XII",
     "character": "Reks",
     "name": "For Family",
     "tier": null,
@@ -8734,6 +8825,19 @@
     "id": 201121102,
     "anima": 1,
     "gl": true
+  },
+  {
+    "realm": "XII",
+    "character": "Reks",
+    "name": "Boost (Reks)",
+    "tier": "LMR+",
+    "effect": "Increases Lightning damage dealt by 25%",
+    "master": "ATK +10",
+    "relic": "Crescent Sword (XII)",
+    "nameJp": "昇華【レックス】",
+    "id": 201121103,
+    "anima": null,
+    "gl": false
   },
   {
     "realm": "XIII",
@@ -8893,6 +8997,19 @@
   },
   {
     "realm": "XIII",
+    "character": "Snow",
+    "name": "Moxie (Snow)",
+    "tier": "LMR+",
+    "effect": "Increases Ice damage dealt by 25%",
+    "master": "ATK +10",
+    "relic": "Genji Glove (XIII)",
+    "nameJp": "昇華【スノウ】",
+    "id": 201130206,
+    "anima": null,
+    "gl": false
+  },
+  {
+    "realm": "XIII",
     "character": "Vanille",
     "name": "Pulse Prayer",
     "tier": null,
@@ -9007,6 +9124,19 @@
     "id": 201130403,
     "anima": null,
     "gl": true
+  },
+  {
+    "realm": "XIII",
+    "character": "Sazh",
+    "name": "Hastening (Sazh)",
+    "tier": "LMR+",
+    "effect": "Grants [Quick Cast 3] after using three Machinist/Support abilities",
+    "master": "ATK +10",
+    "relic": "Outsider (XIII)",
+    "nameJp": "短縮【サッズ】",
+    "id": 201130404,
+    "anima": null,
+    "gl": false
   },
   {
     "realm": "XIII",
@@ -9218,6 +9348,19 @@
   },
   {
     "realm": "XIII",
+    "character": "Serah",
+    "name": "Echo (Serah)",
+    "tier": "LMR+",
+    "effect": "100% chance to dualcast every third Water ability",
+    "master": "MAG +10",
+    "relic": "White Mage Guise (XIII)",
+    "nameJp": "再動【セラ】",
+    "id": 201130705,
+    "anima": null,
+    "gl": false
+  },
+  {
+    "realm": "XIII",
     "character": "Cid Raines",
     "name": "Young Idealist",
     "tier": null,
@@ -9271,7 +9414,7 @@
   {
     "realm": "XIII",
     "character": "Cid Raines",
-    "name": "Swiftness (Cid Raines)",
+    "name": "Hastening (Cid Raines)",
     "tier": "LMR+",
     "effect": "Grants [Quick Cast 3] after using three abilities that deal Dark or Holy damage",
     "master": "MAG +10",
@@ -9869,7 +10012,7 @@
   {
     "realm": "XIV",
     "character": "Haurchefant",
-    "name": "Swiftness (Haurchefant)",
+    "name": "Hastening (Haurchefant)",
     "tier": "LMR+",
     "effect": "Grants [Quick Cast 3] after using three Knight abilities",
     "master": "ATK +10",
@@ -9921,7 +10064,7 @@
   {
     "realm": "XIV",
     "character": "Estinien",
-    "name": "Enable (Estinien)",
+    "name": "Re-action (Estinien)",
     "tier": "LMR+",
     "effect": "100% chance to dualcast every third Wind/Dark ability",
     "master": "ATK +10",
@@ -9929,7 +10072,7 @@
     "nameJp": "再動【エスティニアン】",
     "id": 201141104,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "XIV",
@@ -10297,6 +10440,19 @@
   },
   {
     "realm": "XV",
+    "character": "Aranea",
+    "name": "Onslaught (Aranea)",
+    "tier": "LMR+",
+    "effect": "50% chance to cast an ability (PHY: single, 1x 1.15 ranged Lightning/Dark/NE) after using a Dragoon ability",
+    "master": "ATK +10",
+    "relic": "Tempered Shield (XV)",
+    "nameJp": "遊撃【アラネア】",
+    "id": 201150604,
+    "anima": null,
+    "gl": false
+  },
+  {
+    "realm": "XV",
     "character": "Cor",
     "name": "Loyal Retainer",
     "tier": null,
@@ -10376,7 +10532,7 @@
   {
     "realm": "XV",
     "character": "Ardyn",
-    "name": "God of Death",
+    "name": "Elusive Cipher",
     "tier": null,
     "effect": "PHY attacks deal 10% more damage",
     "master": null,
@@ -10384,12 +10540,12 @@
     "nameJp": "神出鬼没の風来坊",
     "id": 201151000,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "XV",
     "character": "Ardyn",
-    "name": "King of Darkness",
+    "name": "King in the Shadows",
     "tier": null,
     "effect": "35% chance to dualcast abilities that deal Dark or Fire damage",
     "master": null,
@@ -10397,12 +10553,12 @@
     "nameJp": "闇に葬られし王",
     "id": 201151001,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "XV",
     "character": "Ardyn",
-    "name": "Ambush (Ardyn)",
+    "name": "Onslaught (Ardyn)",
     "tier": "LMR+",
     "effect": "35% chance to cast an ability (PHY: single, 3x 0.39 physical Dark/Fire/NE, heals the user for 20% of the damage dealt) after dealing damage with a Dark or Fire ability",
     "master": "ATK +10",
@@ -10410,7 +10566,7 @@
     "nameJp": "遊撃【アーデン】",
     "id": 201151002,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "FFT",
@@ -10584,7 +10740,7 @@
   {
     "realm": "FFT",
     "character": "Delita",
-    "name": "Ambush (Delita)",
+    "name": "Onslaught (Delita)",
     "tier": "LMR+",
     "effect": "?% chance to cast an ability (PHY: single, 4x ? physical Holy/Fire/Lightning/Ice) after dealing damage with a Spellblade or Knight attack",
     "master": "ATK +10",
@@ -11519,6 +11675,19 @@
   },
   {
     "realm": "Type-0",
+    "character": "King",
+    "name": "Onslaught (King)",
+    "tier": "LMR+",
+    "effect": "35% chance to cast an ability (PHY: single, 4x ? ranged physical Lightning/NE) after dealing damage with a Lightning attack",
+    "master": "ATK +10",
+    "relic": "Mythril Vest (Type-0)",
+    "nameJp": "遊撃【キング】",
+    "id": 201600704,
+    "anima": null,
+    "gl": false
+  },
+  {
+    "realm": "Type-0",
     "character": "Cinque",
     "name": "Mistress of the Mace",
     "tier": null,
@@ -12296,6 +12465,19 @@
     "id": 201903201,
     "anima": null,
     "gl": true
+  },
+  {
+    "realm": "Beyond",
+    "character": "Serafie",
+    "name": "Re-action (Serafie)",
+    "tier": "LMR+",
+    "effect": "100% chance to dualcast every third Wind ability",
+    "master": "MAG +10",
+    "relic": "Circlet (Beyond)",
+    "nameJp": "再動【セラフィ】",
+    "id": 201903202,
+    "anima": null,
+    "gl": false
   },
   {
     "realm": "Beyond",

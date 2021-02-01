@@ -35,6 +35,7 @@ import {
   processSkillStatus,
   OtherDetail,
   describeDrainHp,
+  describeMimic,
 } from './skill';
 import {
   displayStatusLevel,
@@ -134,7 +135,7 @@ export function preprocessStatus(
   const grantIndex = status.findIndex(i => i.type === 'directGrantStatus');
   if (grantIndex !== -1) {
     const grant = status[grantIndex] as statusTypes.DirectGrantStatus;
-    grant.status = resolveStatuses(arrayify(grant.status), source);
+    grant.status = mergeSimilarStatuses(resolveStatuses(arrayify(grant.status), source));
     if (
       _.every(grant.status, i => i.status.type === 'standardStatus' && i.status.effects != null)
     ) {
@@ -164,8 +165,31 @@ export function preprocessStatus(
       i.status = scalarify(
         mergeSimilarStatuses(resolveStatuses(arrayify(i.status), source), i.condition),
       );
+    } else if (i.type === 'directGrantStatus') {
+      i.status = scalarify(mergeSimilarStatuses(resolveStatuses(arrayify(i.status), source)));
     }
   }
+
+  // Consolidate trigger details.  There's some inconsistency in how the
+  // database indicates limited-use effects; some say "removed after
+  // triggering", while others let the effect itself say it removes the status.
+  // Celes' Aria Mode duplicates the removedAfterTrigger, which we address here.
+  for (let i = 1; i < status.length; i++) {
+    const current = status[i];
+    if (current.type === 'removedAfterTrigger') {
+      const prev = status[i - 1];
+      if (
+        prev.type === 'triggeredEffect' &&
+        !prev.onceOnly &&
+        _.isEqual(prev.trigger, current.trigger)
+      ) {
+        prev.onceOnly = true;
+        status.splice(i, 1);
+        i--;
+      }
+    }
+  }
+
   return status;
 }
 
@@ -729,7 +753,7 @@ export function formatTrigger(
     case 'damageDuringStatus':
       // Hack: Conditions (which formatThreshold expects) have prepositions, but
       // triggers don't.
-      return formatThreshold(trigger.value, 'dmg dealt').replace(/^@ /, '');
+      return formatThreshold(trigger.value, 'dmg dealt', '', '', toMrPKilo).replace(/^@ /, '');
   }
 }
 
@@ -1039,6 +1063,8 @@ function formatTriggerableEffect(
       return formatSmartEther(effect.amount, effect.school);
     case 'dispelOrEsuna':
       return (effect.who ? whoText[effect.who] + ' ' : '') + formatDispelOrEsuna(effect);
+    case 'mimic':
+      return describeMimic(undefined, effect);
   }
 }
 
@@ -1406,7 +1432,7 @@ function describeStatusEffect(
     case 'instantAtb':
       return 'instant ATB';
     case 'atbSpeed':
-      return effect.value + 'x ATB';
+      return numberSlashList(effect.value) + 'x ATB';
     case 'physicalBlink':
       return 'Phys blink ' + effect.level;
     case 'magicBlink':
@@ -1606,7 +1632,10 @@ function describeStatusEffect(
         `, taking ${-effect.damageReduce}% dmg`
       );
     case 'triggeredEffect':
-      return formatTriggeredEffect(effect, enlirStatus, source, options, resolve);
+      return (
+        (effect.exclusive ? 'or ' : '') +
+        formatTriggeredEffect(effect, enlirStatus, source, options, resolve)
+      );
     case 'autoCure':
       return formatChance(effect.chance) + `auto-cure ${arrayify(effect.status).join('/')}`;
     case 'conditionalStatus':
@@ -1695,6 +1724,8 @@ function describeStatusEffect(
     case 'trackUses':
     case 'burstOnly':
     case 'burstReset':
+    case 'trackGuardian':
+    case 'guardianReset':
     case 'statusReset':
       // Internal details; omit from descriptions.
       return null;
@@ -2090,6 +2121,7 @@ export function resolveStatuses(
 }
 
 const valueMergeTypes = [
+  'atbSpeed',
   'castSpeed',
   'critChance',
   'damageBarrier',

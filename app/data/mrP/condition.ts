@@ -13,18 +13,27 @@ import {
   vsWeakElement,
 } from './statusAlias';
 import { formatSchoolOrAbilityList, getElementShortName, getSchoolShortName } from './typeHelpers';
-import { formatNumberSlashList, formatUseCount, formatUseNumber, stringSlashList } from './util';
+import {
+  formatNumberSlashList,
+  formatUseCount,
+  formatUseNumber,
+  stringSlashList,
+  toMrPKilo,
+} from './util';
 
 export const withoutWithClause = (withoutWith: common.WithoutWith | undefined) =>
   withoutWith === 'withoutWith' ? 'w/o - w/' : withoutWith === 'without' ? 'w/o' : 'if';
 
 export function formatThreshold(
-  thresholdValues: number | number[],
+  thresholdValues: number | number[] | common.SimpleRange,
   thresholdName: string,
   units = '',
   prefix = '',
+  converter?: (n: number) => string,
 ): string {
-  return '@ ' + prefix + formatNumberSlashList(thresholdValues) + units + ' ' + thresholdName;
+  return (
+    '@ ' + prefix + formatNumberSlashList(thresholdValues, converter) + units + ' ' + thresholdName
+  );
 }
 
 export function describeMultiplierScaleType(scaleType: skillTypes.MultiplierScaleType): string {
@@ -132,8 +141,9 @@ export function describeCondition(condition: common.Condition, count?: number | 
       // Hack: Assume that, if it's checking a simple status on someone else,
       // then it's targeting a status ailment, so phrase as 'vs.'
       if (condition.who === 'self' || condition.any || condition.withoutWith) {
-        // Special case: We don't show "High Retaliate" to the user.
-        if (condition.status === 'Retaliate or High Retaliate') {
+        // Special case: "Retaliate and High Retaliate" are common enough that
+        // we simplify them by omitting "High Retaliate."
+        if (_.isEqual(condition.status, ['Retaliate', 'High Retaliate'])) {
           return `${clause} Retaliate`;
         }
         const m =
@@ -271,6 +281,9 @@ export function describeCondition(condition: common.Condition, count?: number | 
       return formatThreshold(
         condition.value,
         (condition.element ? formatSchoolOrAbilityList(condition.element) + ' ' : '') + 'dmg dealt',
+        '',
+        '',
+        toMrPKilo,
       );
     case 'rankBased':
       return '@ rank 1-5';

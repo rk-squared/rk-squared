@@ -12,7 +12,7 @@ import {
   EnlirSoulBreakOrLegendMateria,
   EnlirSoulBreakTier,
   isSoulBreak2,
-  isTrueArcane1st,
+  isArcaneDyad1st,
   makeLegendMateriaAliases,
   makeLimitBreakAliases,
   makeSoulBreakAliases,
@@ -42,10 +42,11 @@ export function makeTierStyleMap(
     SASB: cssStyles.synchro,
     Glint: cssStyles.glint,
     'Glint+': cssStyles.glint,
-    TASB: cssStyles.trueArcane,
+    ADSB: cssStyles.arcaneDyad,
 
     LBO: cssStyles.overstrikeLimitBreak,
     LBG: cssStyles.glint,
+    LBGS: cssStyles.guardianSummon,
 
     // Unused - placeholders
     Default: cssStyles.unique,
@@ -69,7 +70,7 @@ export const soulBreakAbbrevAliases = makeSoulBreakAliases(enlir.soulBreaks, {
   CSB: 'C',
   AASB: 'AA',
   SASB: 'SA',
-  TASB: 'TA',
+  ADSB: 'AD',
   RW: '-',
   Shared: '-',
 });
@@ -80,13 +81,14 @@ export const limitBreakAbbrevAliases = makeLimitBreakAliases(enlir.limitBreaks, 
   // BOLD CAPITAL"; see https://unicode-search.net/unicode-namesearch.pl.
   LBO: '𝐋𝐎',
   LBG: '𝐋𝐆',
+  LBGS: '𝐋𝐆𝐒',
 });
 export const limitBreakFullAliases = makeLimitBreakAliases(enlir.limitBreaks);
 export const legendMateriaAliases = makeLegendMateriaAliases(enlir.legendMateria);
 
 export function formatSoulBreakOrLegendMateriaName(item: EnlirSoulBreakOrLegendMateria): string {
   let name = item.name;
-  if (isSoulBreak2(item) && isTrueArcane1st(item)) {
+  if (isSoulBreak2(item) && isArcaneDyad1st(item)) {
     name = name.replace(/ \(Release\)$/, '');
   }
   return item.gl ? name : '“' + name + '”';
@@ -135,6 +137,19 @@ export function getSynchroColumns(
             ? ', w/ ' + formatSchoolOrAbilityList(mrP.synchroCondition[i])
             : '') +
           (cmd.commandDetail ? ' (' + cmd.commandDetail + ')' : ''),
+        formatMrPSkill(cmd),
+      ] as [string, string],
+  );
+}
+
+export function getGuardianColumns(
+  mrP: MrPSkill,
+  guardianCommands: MrPSkill[],
+): Array<[string, string]> {
+  return guardianCommands.map(
+    (cmd, i) =>
+      [
+        i === guardianCommands.length - 1 ? 'Finisher' : formatSchoolName(cmd),
         formatMrPSkill(cmd),
       ] as [string, string],
   );

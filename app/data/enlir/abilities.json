@@ -3259,7 +3259,7 @@
     "introducingEvent": "Fat Black Chocobo: Soggy Forgery",
     "nameJp": "パッリダ・モルス(メイア専用)",
     "id": 30111461,
-    "gl": false,
+    "gl": true,
     "recordBoardCharacter": "Meia"
   },
   {
@@ -3313,12 +3313,12 @@
     "introducingEvent": "Glory Fest 2020",
     "nameJp": "天鼓雷音稲妻斬(アーシェ専用)",
     "id": 30111471,
-    "gl": false,
+    "gl": true,
     "recordBoardCharacter": "Ashe"
   },
   {
     "school": "Black Magic",
-    "name": "Doublecast Fira",
+    "name": "Double Black Magic Fira",
     "rarity": 6,
     "type": "BLK",
     "target": "Single",
@@ -3367,7 +3367,7 @@
     "introducingEvent": "Glory Fest 2020",
     "nameJp": "W黒魔法・ファイラ(ビビ専用)",
     "id": 30111481,
-    "gl": false,
+    "gl": true,
     "recordBoardCharacter": "Vivi"
   },
   {
@@ -3871,6 +3871,448 @@
     "id": 30111571,
     "gl": false,
     "recordBoardCharacter": "Wedge"
+  },
+  {
+    "school": "Black Magic",
+    "name": "Magic Mimicry",
+    "rarity": 6,
+    "type": "NAT",
+    "typeDetails": [
+      "PHY",
+      "BLK"
+    ],
+    "target": "Single enemy",
+    "formula": "Hybrid",
+    "multiplier": null,
+    "element": [
+      "Fire",
+      "Ice",
+      "Wind",
+      "Earth",
+      "NE"
+    ],
+    "time": 1.65,
+    "effects": "Five single hybrid attacks (1.10 or 3.50 each)",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 90,
+    "uses": 2,
+    "max": 10,
+    "orbs": {
+      "Power Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Black Crystal": [
+        null,
+        10,
+        15,
+        50,
+        75
+      ],
+      "Non-Elemental Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Record Board": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "introducingEvent": "The Deserted Kingdom",
+    "nameJp": "ものまね・まほう(ゴゴ専用)",
+    "id": 30111581,
+    "gl": false,
+    "recordBoardCharacter": "Gogo (VI)"
+  },
+  {
+    "school": "Black Magic",
+    "name": "Bolt of the Ancients",
+    "rarity": 6,
+    "type": "BLK",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 13.2,
+    "element": [
+      "Lightning"
+    ],
+    "time": 1.65,
+    "effects": "Four single attacks (3.30 each), grants [Buff Lightning 10% (15s)] to all allies every third activation",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 90,
+    "uses": 2,
+    "max": 10,
+    "orbs": {
+      "Black Crystal": [
+        null,
+        10,
+        15,
+        50,
+        75
+      ],
+      "Lightning Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Dark Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Record Board": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "introducingEvent": "Chaotic Memories II (III)",
+    "nameJp": "古代の雷閃(デッシュ専用)",
+    "id": 30111591,
+    "gl": false,
+    "recordBoardCharacter": "Desch"
+  },
+  {
+    "school": "Black Magic",
+    "name": "Dire Meteor",
+    "rarity": 6,
+    "type": "BLK",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 32.4,
+    "element": [
+      "Earth"
+    ],
+    "time": 1.65,
+    "effects": "Four single attacks (3.50 each), followed by one single attack (18.40) that ignores RES",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 90,
+    "uses": 2,
+    "max": 10,
+    "orbs": {
+      "Black Crystal": [
+        null,
+        10,
+        15,
+        50,
+        75
+      ],
+      "Earth Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Dark Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Record Board": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "introducingEvent": "Fat Black Chocobo: Shocking Magicites",
+    "nameJp": "決死のメテオ(テラ専用)",
+    "id": 30111601,
+    "gl": false,
+    "recordBoardCharacter": "Tellah"
+  },
+  {
+    "school": "Black Magic",
+    "name": "Judgment Arrow",
+    "rarity": 6,
+    "type": "BLK",
+    "target": "Single",
+    "formula": "Magical",
+    "multiplier": 17.5,
+    "element": [
+      "Wind",
+      "Dark"
+    ],
+    "time": 1.65,
+    "effects": "Five single attacks (3.50 each)",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 90,
+    "uses": 2,
+    "max": 10,
+    "orbs": {
+      "Black Crystal": [
+        null,
+        10,
+        15,
+        50,
+        75
+      ],
+      "Wind Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Dark Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Record Board": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "introducingEvent": "Extreme Fest 2020",
+    "nameJp": "天罰の矢(アルティミシア専用)",
+    "id": 30111611,
+    "gl": false,
+    "recordBoardCharacter": "Ultimecia"
+  },
+  {
+    "school": "Black Magic",
+    "name": "Artemis Volley",
+    "rarity": 6,
+    "type": "BLK",
+    "target": "Single",
+    "formula": "Magical",
+    "multiplier": null,
+    "element": [
+      "Water"
+    ],
+    "time": null,
+    "effects": "Five single attacks (? each), causes [Imperil Water 10% (5s)] every second activation",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 90,
+    "uses": 2,
+    "max": 10,
+    "orbs": {
+      "Black Crystal": [
+        null,
+        10,
+        15,
+        50,
+        75
+      ],
+      "Ice Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Dark Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Record Board": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "introducingEvent": "Extreme Fest 2020",
+    "nameJp": "アルテミスシュート(セラ専用)",
+    "id": 30111621,
+    "gl": false,
+    "recordBoardCharacter": "Serah"
+  },
+  {
+    "school": "Black Magic",
+    "name": "Blizzard and Thunder",
+    "rarity": 6,
+    "type": "BLK",
+    "target": "Single",
+    "formula": "Magical",
+    "multiplier": null,
+    "element": [
+      "Ice",
+      "Lightning"
+    ],
+    "time": null,
+    "effects": "Five single attacks (? each)",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 90,
+    "uses": 2,
+    "max": 10,
+    "orbs": {
+      "Black Crystal": [
+        null,
+        10,
+        15,
+        50,
+        75
+      ],
+      "Ice Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Lightning Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Record Board": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "introducingEvent": "Extreme Fest 2020",
+    "nameJp": "ブリザド＆サンダー(ビビ専用)",
+    "id": 30111631,
+    "gl": false,
+    "recordBoardCharacter": "Vivi"
+  },
+  {
+    "school": "Black Magic",
+    "name": "Aeroga (VI)",
+    "rarity": 6,
+    "type": "BLK",
+    "target": "Single",
+    "formula": "Magical",
+    "multiplier": null,
+    "element": [
+      "Wind"
+    ],
+    "time": 1.65,
+    "effects": "Six single attacks (? each)",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 90,
+    "uses": 2,
+    "max": 10,
+    "orbs": {
+      "Black Crystal": [
+        null,
+        10,
+        15,
+        50,
+        75
+      ],
+      "Ice Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Wind Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Record Board": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "introducingEvent": "Labyrinth Dungeon Season 1 Group B",
+    "nameJp": "エアロガ【VI】(ストラゴス専用)",
+    "id": 30111641,
+    "gl": false,
+    "recordBoardCharacter": "Strago"
+  },
+  {
+    "school": "Black Magic",
+    "name": "Wind Rhapsody",
+    "rarity": 6,
+    "type": "BLK",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 17.5,
+    "element": [
+      "Wind"
+    ],
+    "time": 1.65,
+    "effects": "Five single attacks (3.50 each), causes [Imperil Wind 10% (5s)]",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 90,
+    "uses": 2,
+    "max": 10,
+    "orbs": {
+      "Black Crystal": [
+        null,
+        10,
+        15,
+        50,
+        75
+      ],
+      "Non-Elemental Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Wind Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Record Board": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "introducingEvent": "Labyrinth Dungeon Season 1 Group B",
+    "nameJp": "かぜのラプソディ(セラフィ専用)",
+    "id": 30111651,
+    "gl": false,
+    "recordBoardCharacter": "Serafie"
   },
   {
     "school": "White Magic",
@@ -5960,7 +6402,7 @@
     "introducingEvent": "Glory Fest 2020",
     "nameJp": "リペアー(アフマウ専用)",
     "id": 30121401,
-    "gl": false,
+    "gl": true,
     "recordBoardCharacter": "Aphmau"
   },
   {
@@ -6012,7 +6454,7 @@
     "introducingEvent": "Glory Fest 2020",
     "nameJp": "ヲルバの祝福(ヴァニラ専用)",
     "id": 30121411,
-    "gl": false,
+    "gl": true,
     "recordBoardCharacter": "Vanille"
   },
   {
@@ -6068,10 +6510,10 @@
         0
       ]
     },
-    "introducingEvent": "Future King's Journey",
+    "introducingEvent": "King in Waiting (2021)",
     "nameJp": "サポート・ポーション(イリス専用)",
     "id": 30121391,
-    "gl": false,
+    "gl": true,
     "recordBoardCharacter": "Iris"
   },
   {
@@ -6120,10 +6562,10 @@
         0
       ]
     },
-    "introducingEvent": "Separated Friends",
+    "introducingEvent": "Long-Lost Friends",
     "nameJp": "スターライト(リルム専用)",
     "id": 30121421,
-    "gl": false,
+    "gl": true,
     "recordBoardCharacter": "Relm"
   },
   {
@@ -6172,10 +6614,10 @@
         0
       ]
     },
-    "introducingEvent": "The Destined Time",
+    "introducingEvent": "The Hour of Fate",
     "nameJp": "聖なる祈り(セーラ専用)",
     "id": 30121431,
-    "gl": false,
+    "gl": true,
     "recordBoardCharacter": "Sarah"
   },
   {
@@ -7266,7 +7708,7 @@
   },
   {
     "school": "Combat",
-    "name": "Shifting Earth",
+    "name": "Shift Earth",
     "rarity": 6,
     "type": "PHY",
     "target": "Single enemy",
@@ -7315,7 +7757,7 @@
     "introducingEvent": "Glory Fest 2020",
     "nameJp": "シフトアース(ノクティス専用)",
     "id": 30151201,
-    "gl": false,
+    "gl": true,
     "recordBoardCharacter": "Noctis"
   },
   {
@@ -8429,6 +8871,110 @@
     "id": 30161261,
     "gl": false,
     "recordBoardCharacter": "Gordon"
+  },
+  {
+    "school": "Support",
+    "name": "High Tide",
+    "rarity": 6,
+    "type": "NAT",
+    "target": "Single ally",
+    "formula": null,
+    "multiplier": null,
+    "element": null,
+    "time": 0.83,
+    "effects": "Transfers the user's Soul Break points to the target (maximum of 500 Soul Break points), grants [Quick Cast 2] to the user",
+    "counter": false,
+    "autoTarget": "Random ally prioritizing self last",
+    "sb": 100,
+    "uses": 2,
+    "max": 10,
+    "orbs": {
+      "Power Crystal": [
+        null,
+        10,
+        15,
+        50,
+        75
+      ],
+      "White Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Black Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Record Board": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "introducingEvent": "Extreme Fest 2020",
+    "nameJp": "満月の心得(クイナ専用)",
+    "id": 30161271,
+    "gl": false,
+    "recordBoardCharacter": "Quina"
+  },
+  {
+    "school": "Support",
+    "name": "Choco-Chick Blues",
+    "rarity": 6,
+    "type": "NAT",
+    "target": "All allies",
+    "formula": null,
+    "multiplier": null,
+    "element": null,
+    "time": 1.65,
+    "effects": "Grants [10% Damage Reduction Barrier 1], grants [Struggle Mode ATK and MAG +5%/10%/20%/30%], grants [Struggle Mode 1/2/3/3] to the user if the user has Struggle Mode 0/1/2/3",
+    "counter": false,
+    "autoTarget": "All allies",
+    "sb": null,
+    "uses": 2,
+    "max": 10,
+    "orbs": {
+      "Fire Crystal": [
+        null,
+        10,
+        15,
+        50,
+        75
+      ],
+      "Ice Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Lightning Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Record Board": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "introducingEvent": "Chaotic Memories (XIII)",
+    "nameJp": "アフロブルース(サッズ専用)",
+    "id": 30161281,
+    "gl": false,
+    "recordBoardCharacter": "Sazh"
   },
   {
     "school": "Celerity",
@@ -9645,7 +10191,7 @@
         0
       ]
     },
-    "introducingEvent": "Confounded Memories (VI)",
+    "introducingEvent": "Chaotic Memories (VI)",
     "nameJp": "あばれる(ガウ専用)",
     "id": 30171291,
     "gl": false,
@@ -11383,7 +11929,7 @@
   {
     "school": "Summoning",
     "name": "Dark Ixion",
-    "nameNote": "Alias name: Thor's Hammer",
+    "nameNote": "Alias name: Thor's Breaker",
     "rarity": 6,
     "type": "SUM",
     "target": "All enemies",
@@ -11759,7 +12305,7 @@
     "introducingEvent": "Echo Amongst the Ruins",
     "nameJp": "マダイン・サリの祈り(エーコ専用)",
     "id": 30131481,
-    "gl": false,
+    "gl": true,
     "recordBoardCharacter": "Eiko"
   },
   {
@@ -11811,10 +12357,10 @@
         0
       ]
     },
-    "introducingEvent": "The Start of Our Story",
+    "introducingEvent": "Our Story",
     "nameJp": "異界送り(ユウナ専用)",
     "id": 30131491,
-    "gl": false,
+    "gl": true,
     "recordBoardCharacter": "Yuna"
   },
   {
@@ -11925,6 +12471,61 @@
     "id": 30131521,
     "gl": false,
     "recordBoardCharacter": "Seymour"
+  },
+  {
+    "school": "Summoning",
+    "name": "Hydraean Protection",
+    "rarity": 6,
+    "type": "SUM",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 24.75,
+    "element": [
+      "Water",
+      "Holy"
+    ],
+    "time": 1.8,
+    "effects": "Five single attacks (4.95 each), minimum damage 2000, restores 1000 HP to all allies",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 90,
+    "uses": 2,
+    "max": 6,
+    "orbs": {
+      "Summoning Crystal": [
+        null,
+        10,
+        15,
+        50,
+        75
+      ],
+      "Ice Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Holy Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Record Board": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "introducingEvent": "Chaotic Memories (XV)",
+    "nameJp": "水神の加護(ルナフレーナ専用)",
+    "id": 30131531,
+    "gl": false,
+    "recordBoardCharacter": "Lunafreya"
   },
   {
     "school": "Spellblade",
@@ -13851,7 +14452,7 @@
   },
   {
     "school": "Spellblade",
-    "name": "Bring the Pain!",
+    "name": "Hurt!",
     "rarity": 6,
     "type": "PHY",
     "target": "Single enemy",
@@ -13897,15 +14498,15 @@
         0
       ]
     },
-    "introducingEvent": "The Start of Our Story",
+    "introducingEvent": "Our Story",
     "nameJp": "シメる！(パイン専用)",
     "id": 30141311,
-    "gl": false,
+    "gl": true,
     "recordBoardCharacter": "Paine"
   },
   {
     "school": "Spellblade",
-    "name": "Creation Laceration",
+    "name": "Genesis Slash",
     "rarity": 6,
     "type": "PHY",
     "target": "Single enemy",
@@ -13951,10 +14552,10 @@
         0
       ]
     },
-    "introducingEvent": "Fat Black Chocobo: Blazing Forgery",
+    "introducingEvent": "Fat Black Chocobo: Fiery Forgery",
     "nameJp": "創世の斬撃(ジェネシス専用)",
     "id": 30141321,
-    "gl": false,
+    "gl": true,
     "recordBoardCharacter": "Genesis"
   },
   {
@@ -14231,6 +14832,60 @@
     "id": 30141371,
     "gl": false,
     "recordBoardCharacter": "Scott"
+  },
+  {
+    "school": "Spellblade",
+    "name": "Dual Swords",
+    "rarity": 6,
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 6.6,
+    "element": [
+      "Lightning"
+    ],
+    "time": 1.65,
+    "effects": "Six single attacks (1.10 each)",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 90,
+    "uses": 2,
+    "max": 10,
+    "orbs": {
+      "Power Crystal": [
+        null,
+        10,
+        15,
+        50,
+        75
+      ],
+      "Lightning Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Dark Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Record Board": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "introducingEvent": "Chaotic Memories (XII)",
+    "nameJp": "ソードコンボ(レックス専用)",
+    "id": 30141381,
+    "gl": false,
+    "recordBoardCharacter": "Reks"
   },
   {
     "school": "Dragoon",
@@ -15138,7 +15793,7 @@
   },
   {
     "school": "Dragoon",
-    "name": "Darkside Dive",
+    "name": "Dark Side Dive",
     "rarity": 6,
     "type": "PHY",
     "target": "Single enemy",
@@ -15241,7 +15896,7 @@
     "introducingEvent": "Glory Fest 2020",
     "nameJp": "スターダイバー(エスティニアン専用)",
     "id": 30181221,
-    "gl": false,
+    "gl": true,
     "recordBoardCharacter": "Estinien"
   },
   {
@@ -15292,7 +15947,7 @@
         0
       ]
     },
-    "introducingEvent": "Confounded Memories (X)",
+    "introducingEvent": "Chaotic Memories (X)",
     "nameJp": "ロンゾジャンプ(キマリ専用)",
     "id": 30181231,
     "gl": false,
@@ -15408,6 +16063,116 @@
     "id": 30181251,
     "gl": false,
     "recordBoardCharacter": "Ward"
+  },
+  {
+    "school": "Dragoon",
+    "name": "Air Superiority",
+    "rarity": 6,
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 6.65,
+    "element": [
+      "Lightning",
+      "Dark",
+      "NE"
+    ],
+    "time": 1.5,
+    "effects": "Seven single ranged jump attacks (0.95 each), air time (2.50 sec.)",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 90,
+    "uses": 2,
+    "max": 10,
+    "orbs": {
+      "Lightning Crystal": [
+        null,
+        10,
+        15,
+        50,
+        75
+      ],
+      "Wind Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Dark Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Record Board": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "introducingEvent": "Chaotic Memories (XV)",
+    "nameJp": "エア・スペリオリティ(アラネア専用)",
+    "id": 30181261,
+    "gl": false,
+    "recordBoardCharacter": "Aranea"
+  },
+  {
+    "school": "Dragoon",
+    "name": "Lancer (IX)",
+    "rarity": 6,
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 5.5,
+    "element": [
+      "Wind"
+    ],
+    "time": 1.65,
+    "effects": "Five single ranged jump attacks (1.10 each), restores 1000 HP to all allies",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 90,
+    "uses": 2,
+    "max": 10,
+    "orbs": {
+      "White Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Lightning Crystal": [
+        null,
+        10,
+        15,
+        50,
+        75
+      ],
+      "Wind Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Record Board": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "introducingEvent": "Labyrinth Dungeon Season 1 Group B",
+    "nameJp": "竜剣【IX】(フライヤ専用)",
+    "id": 30181271,
+    "gl": false,
+    "recordBoardCharacter": "Freya"
   },
   {
     "school": "Monk",
@@ -16306,7 +17071,7 @@
     "multiplier": null,
     "element": null,
     "time": 1.65,
-    "effects": "Grants [ATK and DEF +50%] to the user for 5 seconds, [HP Stock (2000)] and [Monk High Quick Cast 2]",
+    "effects": "Grants [ATK and DEF +50%] to the user for 5 seconds, grants [HP Stock (2000)] and [Monk High Quick Cast 2]",
     "counter": true,
     "autoTarget": "Self",
     "sb": 100,
@@ -16559,7 +17324,7 @@
     "introducingEvent": "Glory Fest 2020",
     "nameJp": "掌打ラッシュ(ティファ専用)",
     "id": 30191241,
-    "gl": false,
+    "gl": true,
     "recordBoardCharacter": "Tifa"
   },
   {
@@ -16664,7 +17429,7 @@
         0
       ]
     },
-    "introducingEvent": "Confounded Memories (V)",
+    "introducingEvent": "Chaotic Memories (V)",
     "nameJp": "暁の一撃(ガラフ専用)",
     "id": 30191261,
     "gl": false,
@@ -16731,12 +17496,12 @@
     "type": "PHY",
     "target": "Single enemy",
     "formula": "Physical",
-    "multiplier": null,
+    "multiplier": 5.5,
     "element": [
       "Fire"
     ],
     "time": 1.65,
-    "effects": "Five single attacks (? each), restores 1500 HP to the lowest HP% ally",
+    "effects": "Five single attacks (1.10 each), restores 1500 HP to the lowest HP% ally",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 90,
@@ -16777,6 +17542,168 @@
     "id": 30191281,
     "gl": false,
     "recordBoardCharacter": "Amarant"
+  },
+  {
+    "school": "Monk",
+    "name": "Raging Fist (VI)",
+    "rarity": 6,
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 6.6,
+    "element": [
+      "Fire"
+    ],
+    "time": 1.65,
+    "effects": "Six single attacks (1.10 each)",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 90,
+    "uses": 2,
+    "max": 10,
+    "orbs": {
+      "Non-Elemental Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Fire Crystal": [
+        null,
+        10,
+        15,
+        50,
+        75
+      ],
+      "Earth Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Record Board": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "introducingEvent": "The Deserted Kingdom",
+    "nameJp": "爆裂拳【VI】(マッシュ専用)",
+    "id": 30191291,
+    "gl": false,
+    "recordBoardCharacter": "Sabin"
+  },
+  {
+    "school": "Monk",
+    "name": "Blazing Fists",
+    "rarity": 6,
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 6.6,
+    "element": [
+      "Fire"
+    ],
+    "time": 1.65,
+    "effects": "Six single attacks (1.10 each)",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 90,
+    "uses": 2,
+    "max": 10,
+    "orbs": {
+      "Non-Elemental Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Fire Crystal": [
+        null,
+        10,
+        15,
+        50,
+        75
+      ],
+      "Earth Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Record Board": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "introducingEvent": "Chaotic Memories II (III)",
+    "nameJp": "烈火の鍛拳(レフィア専用)",
+    "id": 30191301,
+    "gl": false,
+    "recordBoardCharacter": "Refia"
+  },
+  {
+    "school": "Monk",
+    "name": "Raijin Special",
+    "rarity": 6,
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 7.1,
+    "element": [
+      "Lightning"
+    ],
+    "time": 1.65,
+    "effects": "One single attack (7.10) capped at 99999",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 90,
+    "uses": 2,
+    "max": 10,
+    "orbs": {
+      "Fire Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Lightning Crystal": [
+        null,
+        10,
+        15,
+        50,
+        75
+      ],
+      "Earth Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Record Board": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "introducingEvent": "Fat Black Chocobo: Soggy Magicites",
+    "nameJp": "秘技「雷神飛竜昇」(雷神専用)",
+    "id": 30191311,
+    "gl": false,
+    "recordBoardCharacter": "Raijin"
   },
   {
     "school": "Thief",
@@ -17045,7 +17972,7 @@
     "multiplier": 3.2,
     "element": [],
     "time": 1.2,
-    "effects": "Two single attacks (1.60 each), ATK and DEF -30% for 20 seconds, [ATK and DEF +30%] to the user for 20 seconds",
+    "effects": "Two single attacks (1.60 each), [ATK and DEF -30%] for 20 seconds, [ATK and DEF +30%] to the user for 20 seconds",
     "counter": true,
     "autoTarget": "Random enemy without status",
     "sb": 100,
@@ -17481,7 +18408,7 @@
       "Fire"
     ],
     "time": 1.2,
-    "effects": "Four single attacks (1.00 each), [ATK and DEF -50% (8s)], grants [ATK and DEF +50%] for 8 seconds to the user",
+    "effects": "Four single attacks (1.00 each), causes [ATK and DEF -50% (8s)], grants [ATK and DEF +50%] for 8 seconds to the user",
     "counter": true,
     "autoTarget": "Random enemy without status",
     "sb": 80,
@@ -17535,7 +18462,7 @@
       "Water"
     ],
     "time": 1.2,
-    "effects": "Four single attacks (1.00 each), [ATK and DEF -50% (8s)], grants [ATK and DEF +50%] for 8 seconds to the user",
+    "effects": "Four single attacks (1.00 each), causes [ATK and DEF -50% (8s)], grants [ATK and DEF +50%] for 8 seconds to the user",
     "counter": true,
     "autoTarget": "Random enemy without status",
     "sb": 80,
@@ -17589,7 +18516,7 @@
       "Fire"
     ],
     "time": 0.83,
-    "effects": "Four single attacks (1.00 each), grants [Buff Fire 10% (15s)] every second activation",
+    "effects": "Four single attacks (1.00 each), grants [Buff Fire 10% (15s)] to the user every second activation",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 80,
@@ -17737,7 +18664,7 @@
     "introducingEvent": "Fat Black Chocobo: Soggy Forgery",
     "nameJp": "パイレーツアンカー(レイラ専用)",
     "id": 30201191,
-    "gl": false,
+    "gl": true,
     "recordBoardCharacter": "Leila"
   },
   {
@@ -17791,12 +18718,12 @@
     "introducingEvent": "Glory Fest 2020",
     "nameJp": "レッドスパイラル(ヴァン専用)",
     "id": 30201201,
-    "gl": false,
+    "gl": true,
     "recordBoardCharacter": "Vaan"
   },
   {
     "school": "Thief",
-    "name": "Pirate's Cannon",
+    "name": "Pirate Cannon",
     "rarity": 6,
     "type": "PHY",
     "target": "Single enemy",
@@ -17846,7 +18773,7 @@
     "introducingEvent": "Glory Fest 2020",
     "nameJp": "パイレーツキャノン(ファリス専用)",
     "id": 30201211,
-    "gl": false,
+    "gl": true,
     "recordBoardCharacter": "Faris"
   },
   {
@@ -17903,6 +18830,60 @@
     "id": 30201221,
     "gl": false,
     "recordBoardCharacter": "Marcus"
+  },
+  {
+    "school": "Thief",
+    "name": "Powder Keg",
+    "rarity": 6,
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 5.5,
+    "element": [
+      "Water"
+    ],
+    "time": 1.2,
+    "effects": "Five single attacks (1.10 each), causes [Imperil Water 10% (5s)]",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 80,
+    "uses": 2,
+    "max": 10,
+    "orbs": {
+      "Non-Elemental Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Ice Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Wind Crystal": [
+        null,
+        10,
+        15,
+        50,
+        75
+      ],
+      "Record Board": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "introducingEvent": "A Sword to Sheathe",
+    "nameJp": "パウダーケッグ(ライオン専用)",
+    "id": 30201231,
+    "gl": false,
+    "recordBoardCharacter": "Lion"
   },
   {
     "school": "Knight",
@@ -19408,7 +20389,7 @@
         0
       ]
     },
-    "introducingEvent": "Confounded Memories (VI)",
+    "introducingEvent": "Chaotic Memories (VI)",
     "nameJp": "ショック(レオ将軍専用)",
     "id": 30211311,
     "gl": false,
@@ -19578,6 +20559,112 @@
     "id": 30211331,
     "gl": false,
     "recordBoardCharacter": "Biggs"
+  },
+  {
+    "school": "Knight",
+    "name": "Swift Blade",
+    "rarity": 6,
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 4,
+    "element": [
+      "Holy"
+    ],
+    "time": 1.65,
+    "effects": "Four single attacks (1.00 each), grants [10% Damage Reduction Barrier 1] to all allies",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 90,
+    "uses": 2,
+    "max": 10,
+    "orbs": {
+      "Power Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "White Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Holy Crystal": [
+        null,
+        10,
+        15,
+        50,
+        75
+      ],
+      "Record Board": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "introducingEvent": "A Sword to Sheathe",
+    "nameJp": "スウィフトブレード(クリルラ専用)",
+    "id": 30211341,
+    "gl": false,
+    "recordBoardCharacter": "Curilla"
+  },
+  {
+    "school": "Knight",
+    "name": "The Echo",
+    "rarity": 6,
+    "type": "NAT",
+    "target": "All allies",
+    "formula": null,
+    "multiplier": null,
+    "element": null,
+    "time": 1.65,
+    "effects": "Restores 1000 HP",
+    "counter": false,
+    "autoTarget": "All allies",
+    "sb": 180,
+    "uses": 2,
+    "max": 10,
+    "orbs": {
+      "White Crystal": [
+        null,
+        10,
+        15,
+        50,
+        75
+      ],
+      "Earth Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Holy Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Record Board": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "introducingEvent": "Extreme Fest 2020",
+    "nameJp": "超える力(ミンフィリア専用)",
+    "id": 30211351,
+    "gl": false,
+    "recordBoardCharacter": "Minfilia"
   },
   {
     "school": "Samurai",
@@ -19995,7 +21082,7 @@
       "Fire"
     ],
     "time": 1.65,
-    "effects": "Four single attacks (0.75 each), 50% additional critical chance if the user has Retaliate or High Retaliate",
+    "effects": "Four single attacks (0.75 each), 50% additional critical chance if user has [Retaliate] or [High Retaliate]",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 75,
@@ -20087,7 +21174,7 @@
       "Ice"
     ],
     "time": 1.65,
-    "effects": "Four single attacks (0.75 each), 50% additional critical chance if the user has Retaliate or High Retaliate",
+    "effects": "Four single attacks (0.75 each), 50% additional critical chance if user has [Retaliate] or [High Retaliate]",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 75,
@@ -20317,7 +21404,7 @@
       "Fire"
     ],
     "time": 1.65,
-    "effects": "Five single attacks (0.85 each), 50% additional critical chance if the user has Retaliate or High Retaliate",
+    "effects": "Five single attacks (0.85 each), 50% additional critical chance if the user has [Retaliate] or [High Retaliate]",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 90,
@@ -20370,7 +21457,7 @@
       "Ice"
     ],
     "time": 1.65,
-    "effects": "Five single attacks (0.85 each), 50% additional critical chance if the user has Retaliate or High Retaliate",
+    "effects": "Five single attacks (0.85 each), 50% additional critical chance if the user has [Retaliate] or [High Retaliate]",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 90,
@@ -20577,7 +21664,7 @@
   },
   {
     "school": "Samurai",
-    "name": "Tachi Gekko",
+    "name": "Tachi: Gekko",
     "rarity": 6,
     "type": "PHY",
     "target": "Single enemy",
@@ -20588,7 +21675,7 @@
       "Water"
     ],
     "time": 1.65,
-    "effects": "Six single attacks (0.95 each), 100% additional critical chance if user has Retaliate or High Retaliate, removes Retaliate and High Retaliate from the user",
+    "effects": "Six single attacks (0.95 each), 100% additional critical chance if user has [Retaliate] or [High Retaliate], removes [Retaliate] and [High Retaliate] from the user",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 90,
@@ -20627,7 +21714,7 @@
     "introducingEvent": "A Demanding Mistress",
     "nameJp": "八之太刀・月光(アヤメ専用)",
     "id": 30221221,
-    "gl": false,
+    "gl": true,
     "recordBoardCharacter": "Ayame"
   },
   {
@@ -20678,10 +21765,10 @@
         0
       ]
     },
-    "introducingEvent": "Fat Black Chocobo: Blazing Forgery",
+    "introducingEvent": "Fat Black Chocobo: Fiery Forgery",
     "nameJp": "征伐(アーロン専用)",
     "id": 30221231,
-    "gl": false,
+    "gl": true,
     "recordBoardCharacter": "Auron"
   },
   {
@@ -20696,7 +21783,7 @@
       "Fire"
     ],
     "time": 1.65,
-    "effects": "Six single attacks (0.95 each), 100% additional critical chance if the user has Retaliate or High Retaliate, removes Retaliate and High Retaliate from the user",
+    "effects": "Six single attacks (0.95 each), 100% additional critical chance if user has [Retaliate] or [High Retaliate], removes [Retaliate] and [High Retaliate] from the user",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 90,
@@ -20732,11 +21819,65 @@
         0
       ]
     },
-    "introducingEvent": "Confounded Memories (V)",
+    "introducingEvent": "Chaotic Memories (V)",
     "nameJp": "デスクロー(ギルガメッシュ専用)",
     "id": 30221241,
     "gl": false,
     "recordBoardCharacter": "Gilgamesh"
+  },
+  {
+    "school": "Samurai",
+    "name": "Predecessor's Might",
+    "rarity": 6,
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 6.6,
+    "element": [
+      "Fire"
+    ],
+    "time": 1.65,
+    "effects": "Six single attacks (1.10 each), grants [Retaliate] to the user for 15 seconds",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 90,
+    "uses": 2,
+    "max": 10,
+    "orbs": {
+      "Power Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Non-Elemental Crystal": [
+        null,
+        10,
+        15,
+        50,
+        75
+      ],
+      "Fire Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Record Board": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "introducingEvent": "Chaotic Memories (XV)",
+    "nameJp": "先代王の力(コル専用)",
+    "id": 30221251,
+    "gl": false,
+    "recordBoardCharacter": "Cor"
   },
   {
     "school": "Ninja",
@@ -21923,7 +23064,7 @@
     "introducingEvent": "Glory Fest 2020",
     "nameJp": "鎧袖一触(ユフィ専用)",
     "id": 30231231,
-    "gl": false,
+    "gl": true,
     "recordBoardCharacter": "Yuffie"
   },
   {
@@ -21935,8 +23076,8 @@
     "formula": "Physical",
     "multiplier": 5.5,
     "element": [
-      "Dark",
-      "Ice"
+      "Ice",
+      "Dark"
     ],
     "time": 0.83,
     "effects": "Five single attacks (1.10 each)",
@@ -22728,7 +23869,7 @@
     "multiplier": null,
     "element": null,
     "time": 1.65,
-    "effects": "Restores 1000 HP, grants [Hymn of Healing ATK and MAG +5%/10%/20%/30%], grants [Acoustic 1/2/3/3] to the user if the user has Acoustic 0/1/2/3",
+    "effects": "Restores 1000 HP, grants [Hymn of Healing ATK and MAG +5%/10%/20%/30%], grants [Performance 1/2/3/3] to the user if the user has Performance 0/1/2/3",
     "counter": false,
     "autoTarget": "All allies",
     "sb": 100,
@@ -22764,10 +23905,10 @@
         0
       ]
     },
-    "introducingEvent": "Confounded Memories (Type-0)",
+    "introducingEvent": "Chaotic Memories (Type-0)",
     "nameJp": "白のセレナーデ(デュース専用)",
     "id": 30241151,
-    "gl": false,
+    "gl": true,
     "recordBoardCharacter": "Deuce"
   },
   {
@@ -22816,10 +23957,10 @@
         0
       ]
     },
-    "introducingEvent": "Confounded Memories (III)",
+    "introducingEvent": "Chaotic Memories (III)",
     "nameJp": "虹の光(エリア専用)",
     "id": 30241161,
-    "gl": false,
+    "gl": true,
     "recordBoardCharacter": "Aria"
   },
   {
@@ -24581,10 +25722,10 @@
         0
       ]
     },
-    "introducingEvent": "Confounded Memories (Type-0)",
+    "introducingEvent": "Chaotic Memories (Type-0)",
     "nameJp": "チャージショット(ケイト専用)",
     "id": 30261201,
-    "gl": false,
+    "gl": true,
     "recordBoardCharacter": "Cater"
   },
   {
@@ -24640,10 +25781,10 @@
         0
       ]
     },
-    "introducingEvent": "Confounded Memories (VII)",
+    "introducingEvent": "Chaotic Memories (VII)",
     "nameJp": "ピラミッド(レノ専用)",
     "id": 30261211,
-    "gl": false,
+    "gl": true,
     "recordBoardCharacter": "Reno"
   },
   {
@@ -24694,10 +25835,10 @@
         0
       ]
     },
-    "introducingEvent": "Future King's Journey",
+    "introducingEvent": "King in Waiting (2021)",
     "nameJp": "トリガーハッピー(プロンプト専用)",
     "id": 30261191,
-    "gl": false,
+    "gl": true,
     "recordBoardCharacter": "Prompto"
   },
   {
@@ -24808,6 +25949,116 @@
     "id": 30261231,
     "gl": false,
     "recordBoardCharacter": "Balthier"
+  },
+  {
+    "school": "Machinist",
+    "name": "Enfeeble",
+    "rarity": 6,
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 3,
+    "element": [
+      "Poison",
+      "Fire",
+      "Lightning"
+    ],
+    "time": 1.65,
+    "effects": "Three single ranged attacks (1.00 each), causes [Imperil Poison 10% (5s)], [Imperil Fire 10% (5s)] and [Imperil Lightning 10% (5s)]",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 90,
+    "uses": 2,
+    "max": 10,
+    "orbs": {
+      "Non-Elemental Crystal": [
+        null,
+        10,
+        15,
+        50,
+        75
+      ],
+      "Fire Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Lightning Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Record Board": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "introducingEvent": "The Deserted Kingdom",
+    "nameJp": "ウィークメーカー(エドガー専用)",
+    "id": 30261241,
+    "gl": false,
+    "recordBoardCharacter": "Edgar"
+  },
+  {
+    "school": "Machinist",
+    "name": "Trigger Finger",
+    "rarity": 6,
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 6.6,
+    "element": [
+      "Lightning"
+    ],
+    "time": 1.65,
+    "effects": "Six single ranged attacks (1.10 each)",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 90,
+    "uses": 2,
+    "max": 10,
+    "orbs": {
+      "Non-Elemental Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Lightning Crystal": [
+        null,
+        10,
+        15,
+        50,
+        75
+      ],
+      "Wind Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Record Board": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "introducingEvent": "Fat Black Chocobo: Soggy Magicites",
+    "nameJp": "クイックドロウ(キング専用)",
+    "id": 30261251,
+    "gl": false,
+    "recordBoardCharacter": "King"
   },
   {
     "school": "Darkness",
@@ -26011,7 +27262,7 @@
   },
   {
     "school": "Darkness",
-    "name": "Bloodfeast",
+    "name": "Bloodfest",
     "rarity": 6,
     "type": "PHY",
     "target": "Single enemy",
@@ -26062,12 +27313,12 @@
     "introducingEvent": "Glory Fest 2020",
     "nameJp": "血祭り(サイファー専用)",
     "id": 30271251,
-    "gl": false,
+    "gl": true,
     "recordBoardCharacter": "Seifer"
   },
   {
     "school": "Darkness",
-    "name": "Dark Aura",
+    "name": "Aura of Darkness",
     "rarity": 6,
     "type": "PHY",
     "target": "Single enemy",
@@ -26114,10 +27365,10 @@
         0
       ]
     },
-    "introducingEvent": "Future King's Journey",
+    "introducingEvent": "King in Waiting (2021)",
     "nameJp": "闇のオーラ(アーデン専用)",
     "id": 30271241,
-    "gl": false,
+    "gl": true,
     "recordBoardCharacter": "Ardyn"
   },
   {
@@ -26169,10 +27420,10 @@
         0
       ]
     },
-    "introducingEvent": "Separated Friends",
+    "introducingEvent": "Long-Lost Friends",
     "nameJp": "はかいのつばさ(ケフカ専用)",
     "id": 30271261,
-    "gl": false,
+    "gl": true,
     "recordBoardCharacter": "Kefka"
   },
   {
@@ -26223,10 +27474,10 @@
         0
       ]
     },
-    "introducingEvent": "Confounded Memories (III)",
+    "introducingEvent": "Chaotic Memories (III)",
     "nameJp": "はどうほう(暗闇の雲専用)",
     "id": 30271271,
-    "gl": false,
+    "gl": true,
     "recordBoardCharacter": "Cloud of Darkness"
   },
   {
@@ -26277,10 +27528,10 @@
         0
       ]
     },
-    "introducingEvent": "The Destined Time",
+    "introducingEvent": "The Hour of Fate",
     "nameJp": "カオスブリンガー(ガーランド専用)",
     "id": 30271281,
-    "gl": false,
+    "gl": true,
     "recordBoardCharacter": "Garland"
   },
   {
@@ -26332,7 +27583,7 @@
         0
       ]
     },
-    "introducingEvent": "Confounded Memories (XIII)",
+    "introducingEvent": "Chaotic Memories (XIII)",
     "nameJp": "熾天使の翼(レインズ専用)",
     "id": 30271291,
     "gl": false,
@@ -26445,6 +27696,118 @@
     "id": 30271311,
     "gl": false,
     "recordBoardCharacter": "Rufus"
+  },
+  {
+    "school": "Darkness",
+    "name": "Force of Will",
+    "rarity": 6,
+    "type": "NAT",
+    "typeDetails": [
+      "PHY",
+      "BLK"
+    ],
+    "target": "Single enemy",
+    "formula": "Hybrid",
+    "multiplier": null,
+    "element": [
+      "Dark"
+    ],
+    "time": 1.65,
+    "effects": "Six single hybrid attacks (1.10 or 3.50 each)",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 90,
+    "uses": 2,
+    "max": 10,
+    "orbs": {
+      "Black Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Non-Elemental Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Dark Crystal": [
+        null,
+        10,
+        15,
+        50,
+        75
+      ],
+      "Record Board": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "introducingEvent": "Chaotic Memories (XII)",
+    "nameJp": "嶄然震撼(ヴェイン専用)",
+    "id": 30271321,
+    "gl": false,
+    "recordBoardCharacter": "Vayne"
+  },
+  {
+    "school": "Darkness",
+    "name": "Abyssal Strike",
+    "rarity": 6,
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 6.6,
+    "element": [
+      "Dark"
+    ],
+    "time": 1.65,
+    "effects": "Six single attacks (1.10 each)",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 90,
+    "uses": 2,
+    "max": 10,
+    "orbs": {
+      "Non-Elemental Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Earth Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Dark Crystal": [
+        null,
+        10,
+        15,
+        50,
+        75
+      ],
+      "Record Board": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "introducingEvent": "A Sword to Sheathe",
+    "nameJp": "アビッサルストライク(ザイド専用)",
+    "id": 30271331,
+    "gl": false,
+    "recordBoardCharacter": "Zeid"
   },
   {
     "school": "Sharpshooter",
@@ -27086,7 +28449,7 @@
     "introducingEvent": "Autumn Festival 2020",
     "nameJp": "ジェクトシュート(ティーダ専用)",
     "id": 30281161,
-    "gl": false,
+    "gl": true,
     "recordBoardCharacter": "Tidus"
   },
   {
@@ -27138,7 +28501,7 @@
         0
       ]
     },
-    "introducingEvent": "Confounded Memories (XIII)",
+    "introducingEvent": "Chaotic Memories (XIII)",
     "nameJp": "メテオジャベリン(ノエル専用)",
     "id": 30281171,
     "gl": false,
@@ -27247,7 +28610,7 @@
         0
       ]
     },
-    "introducingEvent": "Confounded Memories (X)",
+    "introducingEvent": "Chaotic Memories (X)",
     "nameJp": "エレメントリール(ワッカ専用)",
     "id": 30281191,
     "gl": false,
@@ -27302,7 +28665,7 @@
         0
       ]
     },
-    "introducingEvent": "Confounded Memories (X)",
+    "introducingEvent": "Chaotic Memories (X)",
     "nameJp": "ジェクトビーム(ジェクト専用)",
     "id": 30281201,
     "gl": false,
@@ -27906,7 +29269,7 @@
     "introducingEvent": "A Demanding Mistress",
     "nameJp": "ブチ切れ(シャントット専用)",
     "id": 30301111,
-    "gl": false,
+    "gl": true,
     "recordBoardCharacter": "Shantotto"
   },
   {

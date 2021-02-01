@@ -9,8 +9,8 @@ import {
   EnlirSkill,
   EnlirTarget,
   getEffects,
-  getEnlirTrueArcaneLevel,
-  getEnlirTrueArcaneTracker,
+  getEnlirArcaneDyadLevel,
+  getEnlirArcaneDyadTracker,
   getNormalSBPoints,
   isAbility,
   isBraveCommand,
@@ -22,8 +22,9 @@ import {
   isSoulBreak,
   isSynchroCommand,
   isSynchroSoulBreak,
-  isTrueArcane1st,
-  isTrueArcane2nd,
+  isArcaneDyad1st,
+  isArcaneDyad2nd,
+  isLimitBreak,
 } from '../enlir';
 import {
   describeAttack,
@@ -143,7 +144,7 @@ export function describeDrainHp({ healPercent, condition }: skillTypes.DrainHp):
 
 export function describeHeal(
   skill: EnlirSkill | SimpleSkill,
-  { amount, condition, overrideSkillType }: skillTypes.Heal,
+  { amount, condition, overrideSkillType, perUses }: skillTypes.Heal,
 ): string {
   let heal: string;
   let count: number | number[] | undefined;
@@ -159,16 +160,20 @@ export function describeHeal(
     heal += ' (NAT)';
   }
   heal += appendCondition(condition, count);
+  heal += appendPerUses(perUses);
   return heal;
 }
 
-function describeMimic(skill: EnlirSkill, { chance, count }: skillTypes.Mimic): string {
+export function describeMimic(
+  skill: EnlirSkill | undefined,
+  { chance, count }: skillTypes.Mimic,
+): string {
   let description = 'Mimic';
 
   // For brave commands in particular, we'll want to compare with other
   // numbers, so always include the count.
   count = count || 1;
-  if (count > 1 || isBraveCommand(skill)) {
+  if (count > 1 || (skill && isBraveCommand(skill))) {
     description += ` ${count || 1}x`;
   }
 
@@ -187,6 +192,10 @@ export function describeRecoilHp({
   return (
     `lose ${formatNumberSlashList(damagePercent)}% ${maxOrCurrent} HP` + appendCondition(condition)
   );
+}
+
+export function describeRecoilSetHp({ hp, condition }: skillTypes.RecoilSetHp): string {
+  return `HP to ${hp}` + appendCondition(condition);
 }
 
 export function describeFixedRecoilHp({ value }: skillTypes.FixedRecoilHp): string {
@@ -418,6 +427,21 @@ function checkSynchroCommands(skill: EnlirSkill, result: MrPSkill) {
   }
 }
 
+function checkGuardianCommands(skill: EnlirSkill, result: MrPSkill) {
+  if (
+    isLimitBreak(skill) &&
+    skill.tier === 'LBGS' &&
+    skill.character &&
+    enlir.guardianCommandsByCharacter[skill.character] &&
+    enlir.guardianCommandsByCharacter[skill.character][skill.name]
+  ) {
+    const guardianCommands = enlir.guardianCommandsByCharacter[skill.character][skill.name];
+    result.guardianCommands = guardianCommands.map(i =>
+      convertEnlirSkillToMrP(i, { abbreviate: true, includeSchool: false, includeSbPoints: false }),
+    );
+  }
+}
+
 /**
  * For burst and synchro commands that have multiple variants, like Ignis or
  * Alphinaud, this identifies the particular version.
@@ -582,6 +606,7 @@ export function processSkillStatus(
   skillEffects: skillTypes.SkillEffect,
   effect: skillTypes.StatusEffect,
   other: OtherDetail,
+  summonName?: string,
 ): boolean | undefined {
   // Confuse Shell doesn't remove Confuse - this is a special case, skip.
   if (effect.verb === "doesn't remove") {
@@ -617,14 +642,29 @@ export function processSkillStatus(
 
   let lastItem: string[] | undefined;
   statuses.forEach((thisStatus, thisStatusIndex) => {
+    // Special case: "Retaliate and High Retaliate" are common enough that
+    // we simplify them by omitting "High Retaliate."
+    if (
+      effect.who === 'self' &&
+      removes &&
+      thisStatus.status.type === 'standardStatus' &&
+      thisStatus.status.name === 'High Retaliate' &&
+      thisStatusIndex > 0
+    ) {
+      const prevStatus = statuses[thisStatusIndex - 1];
+      if (prevStatus.status.type === 'standardStatus' && prevStatus.status.name === 'Retaliate') {
+        return;
+      }
+    }
+
     const [status, stacking] = checkStacking(effect, thisStatus);
 
     // If this is the last status, then append details of the whole status
     // effect.
     const isLast = thisStatusIndex + 1 === statuses.length;
 
-    // Special case: Since every TASB clears its associated mode, omit that.
-    if (who === 'self' && removes && skill && isSoulBreak(skill) && isTrueArcane2nd(skill)) {
+    // Special case: Since every ADSB clears its associated mode, omit that.
+    if (who === 'self' && removes && skill && isSoulBreak(skill) && isArcaneDyad2nd(skill)) {
       return;
     }
 
@@ -638,11 +678,11 @@ export function processSkillStatus(
       return;
     }
 
-    // Special case: Omit / simplify some TASB details, and handle others via
+    // Special case: Omit / simplify some ADSB details, and handle others via
     // describeTrueArcaneCondition.
-    if (skill && isSoulBreak(skill) && isTrueArcane1st(skill)) {
-      const tracker = getEnlirTrueArcaneTracker(skill);
-      const level = getEnlirTrueArcaneLevel(skill);
+    if (skill && isSoulBreak(skill) && isArcaneDyad1st(skill)) {
+      const tracker = getEnlirArcaneDyadTracker(skill);
+      const level = getEnlirArcaneDyadLevel(skill);
       if ((tracker && tracker.id === status.id) || (level && level.id === status.id)) {
         return;
       }
@@ -711,7 +751,7 @@ export function processSkillStatus(
       }
     }
 
-    if (toCharacter) {
+    if (toCharacter && toCharacter !== summonName) {
       description =
         (who ? formatWho(who) + '/' : '') + stringSlashList(toCharacter) + ' ' + description;
     }
@@ -731,7 +771,11 @@ export function processSkillStatus(
         lastItem[lastItem.length - 1] += ' or ' + description;
       }
     } else if (toCharacter) {
-      lastItem = other.push(sourceSkill, 'namedCharacter', description);
+      lastItem = other.push(
+        sourceSkill,
+        toCharacter === summonName ? 'summonCharacter' : 'namedCharacter',
+        description,
+      );
     } else if (thisStatus.chance && who !== 'self') {
       const chanceDescription = formatAttackStatusChance(
         thisStatus.chance,
@@ -845,6 +889,7 @@ export class OtherDetail {
   misc: string[] = [];
   detail: string[] = [];
   namedCharacter: string[] = [];
+  summonCharacter: string[] = [];
 
   push(
     skill: EnlirSkill | SimpleSkill,
@@ -908,6 +953,7 @@ export class OtherDetail {
         ...this.makeGroup(this.self, 'self'),
         ...this.misc,
         ...this.makeGroup(this.detail),
+        // Don't include this.summonCharacter; that's handled separately
       ];
     }
     return result.length ? result.join(', ') : undefined;
@@ -978,6 +1024,8 @@ export class OtherDetail {
         return this.ally;
       case 'namedCharacter':
         return this.namedCharacter;
+      case 'summonCharacter':
+        return this.summonCharacter;
     }
   }
 
@@ -1035,6 +1083,7 @@ export interface MrPSkill {
   braveCommands?: MrPSkill[];
   synchroCommands?: MrPSkill[];
   synchroCondition?: Array<EnlirElement | EnlirSchool | 'Any'>[];
+  guardianCommands?: MrPSkill[];
 }
 
 export function convertEnlirSkillToMrP(
@@ -1048,6 +1097,9 @@ export function convertEnlirSkillToMrP(
   let chain: string | undefined;
 
   let burstToggle: boolean | undefined;
+
+  let summon: string | undefined;
+  let summonName: string | undefined;
 
   // The components of MrPSkill.other, as lists.  We break them up like
   // this so that we can sort general items (e.g., elemental infuse), then
@@ -1084,6 +1136,9 @@ export function convertEnlirSkillToMrP(
         break;
       case 'recoilHp':
         other.self.push(describeRecoilHp(effect));
+        break;
+      case 'recoilSetHp':
+        other.self.push(describeRecoilSetHp(effect));
         break;
       case 'fixedRecoilHp':
         other.push(skill, effect.who, describeFixedRecoilHp(effect));
@@ -1151,8 +1206,12 @@ export function convertEnlirSkillToMrP(
       case 'mimic':
         other.normal.push(describeMimic(skill, effect));
         break;
+      case 'summon':
+        summon = 'summon ' + effect.name + ' ' + formatDuration(effect.duration);
+        summonName = effect.name;
+        break;
       case 'status': {
-        const thisBurstToggle = processSkillStatus(skill, skillEffects, effect, other);
+        const thisBurstToggle = processSkillStatus(skill, skillEffects, effect, other, summonName);
         if (thisBurstToggle != null) {
           burstToggle = thisBurstToggle;
         }
@@ -1164,9 +1223,11 @@ export function convertEnlirSkillToMrP(
       case 'setStatusLevel':
         other.self.push(formatStatusLevel(effect.status, effect.value, true));
         break;
-      case 'entrust':
-        other.normal.push('donate SB pts to target');
+      case 'entrust': {
+        const max = effect.max || 'all';
+        other.normal.push(`donate ${max} SB pts to target`);
         break;
+      }
       case 'gainSB':
         other.push(skill, effect.who, sbPointsAlias(effect.points), { defaultToAlly: true });
         break;
@@ -1199,6 +1260,12 @@ export function convertEnlirSkillToMrP(
       default:
         return assertNever(effect);
     }
+  }
+
+  if (summon) {
+    other.misc.push(
+      summon + (other.summonCharacter.length ? ' w/ ' + other.summonCharacter.join(', ') : ''),
+    );
   }
 
   {
@@ -1248,6 +1315,7 @@ export function convertEnlirSkillToMrP(
   checkBurstCommands(skill, result);
   checkBraveCommands(skill, result);
   checkSynchroCommands(skill, result);
+  checkGuardianCommands(skill, result);
 
   if (
     (isBurstCommand(skill) && enlir.burstCommands[skill.id].length > 1) ||

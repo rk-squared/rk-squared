@@ -104,7 +104,7 @@ exports[`RelicDrawBannerTable renders featured relics with equal probabilities 1
           Essence of Wind
         </td>
         <td>
-          phys 7.1/10 wind+non, wind infuse 25s, 15s: EX: (1/2/3 +3n wind ⤇ front row phys hi fastcast 1, p0.3 – p1.5/5 – p4.5/15 wi+n Spellblade)
+          phys 7.1/10 wind+non, wind infuse 25s, 15s: EX: (wind ⤇ front row phys hi fastcast 1), (1/2/3 +3n wind ⤇ p0.3 – p1.5/5 – p4.5/15 wi+n Spellblade)
         </td>
       </tr>
       <tr
@@ -720,7 +720,7 @@ exports[`RelicDrawBannerTable renders featured relics with varying probabilities
           Essence of Wind
         </td>
         <td>
-          phys 7.1/10 wind+non, wind infuse 25s, 15s: EX: (1/2/3 +3n wind ⤇ front row phys hi fastcast 1, p0.3 – p1.5/5 – p4.5/15 wi+n Spellblade)
+          phys 7.1/10 wind+non, wind infuse 25s, 15s: EX: (wind ⤇ front row phys hi fastcast 1), (1/2/3 +3n wind ⤇ p0.3 – p1.5/5 – p4.5/15 wi+n Spellblade)
         </td>
         <td>
           0
@@ -1379,7 +1379,7 @@ exports[`RelicDrawBannerTable renders featured relics without probabilities 1`] 
           Essence of Wind
         </td>
         <td>
-          phys 7.1/10 wind+non, wind infuse 25s, 15s: EX: (1/2/3 +3n wind ⤇ front row phys hi fastcast 1, p0.3 – p1.5/5 – p4.5/15 wi+n Spellblade)
+          phys 7.1/10 wind+non, wind infuse 25s, 15s: EX: (wind ⤇ front row phys hi fastcast 1), (1/2/3 +3n wind ⤇ p0.3 – p1.5/5 – p4.5/15 wi+n Spellblade)
         </td>
       </tr>
       <tr

@@ -113,6 +113,7 @@ const skillFields: { [col: string]: (value: string) => any } = {
   'Soulbreak Bonus': toCommaSeparatedArray(toString),
   'Limit Break Bonus': toCommaSeparatedArray(toString),
   'Minimum LB Points': toInt,
+  'Guardian Ability Slot': toString,
 };
 
 // The '✓' column indicates whether a row has been confirmed (e.g., verified
@@ -749,6 +750,11 @@ const dataTypes: DataType[] = [
     sheet: 'Events',
     localName: 'events',
     converter: convertEvents,
+  },
+  {
+    sheet: 'Guardian Summon Commands',
+    localName: 'guardianCommands',
+    converter: convertSkills,
   },
   {
     sheet: 'Legend Materia',

@@ -6,6 +6,7 @@ import { EnlirLimitBreak } from '../../data/enlir';
 import { convertEnlirSkillToMrP, formatMrPSkill, MrPSkill } from '../../data/mrP/skill';
 import {
   formatSoulBreakOrLegendMateriaName,
+  getGuardianColumns,
   limitBreakAbbrevAliases,
   styles,
   tierClass,
@@ -19,6 +20,20 @@ interface Props {
 const mrPLimitBreaks: { [id: number]: MrPSkill } = {};
 
 export class LimitBreakListItem extends React.PureComponent<Props> {
+  renderGuardianCommands(mrP: MrPSkill, guardianCommands: MrPSkill[]) {
+    return (
+      <>
+        {getGuardianColumns(mrP, guardianCommands).map((columns, i) => (
+          <tr className={classNames(this.props.className, styles.guardianCommand)} key={i}>
+            <td />
+            <td className={styles.school}>{columns[0]}</td>
+            <td className={styles.command}>{columns[1]}</td>
+          </tr>
+        ))}
+      </>
+    );
+  }
+
   render() {
     const { limitBreak, className } = this.props;
 
@@ -41,6 +56,7 @@ export class LimitBreakListItem extends React.PureComponent<Props> {
           <td className={styles.name}>{formatSoulBreakOrLegendMateriaName(limitBreak)}</td>
           <td className={styles.effects}>{text || '???'}</td>
         </tr>
+        {mrP.guardianCommands && this.renderGuardianCommands(mrP, mrP.guardianCommands)}
       </>
     );
   }

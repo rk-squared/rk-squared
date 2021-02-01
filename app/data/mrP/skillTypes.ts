@@ -17,6 +17,7 @@ export type EffectClause =
   | RandomFixedAttack
   | DrainHp
   | RecoilHp
+  | RecoilSetHp
   | FixedRecoilHp
   | HpAttack
   | GravityAttack
@@ -31,6 +32,7 @@ export type EffectClause =
   | RandomCastOther
   | Chain
   | Mimic
+  | Summon
   | StatusEffect
   | SetStatusLevel
   | RandomStatusEffect
@@ -51,7 +53,7 @@ export interface Attack extends Partial<AttackMultiplierGroup>, AttackExtras {
   type: 'attack';
   numAttacks: NumAttacks;
   isOverstrike?: boolean;
-  scalingOverstrike?: number[]; // For TASB.  Separate from isOverstrike.
+  scalingOverstrike?: number[]; // For ADSB.  Separate from isOverstrike.
   scaleType?: AttackScaleType;
   isAoE?: boolean;
   isHybrid?: boolean;
@@ -133,6 +135,7 @@ export interface AttackExtras {
   minDamage?: number;
 
   orMultiplier?: number | number[];
+  orHybridMultiplier?: number | number[];
   orMultiplierCondition?: common.Condition;
 
   orNumAttacks?: NumAttacks;
@@ -160,6 +163,12 @@ export interface RecoilHp {
   type: 'recoilHp';
   damagePercent: number | number[];
   maxOrCurrent: 'max' | 'curr';
+  condition?: common.Condition;
+}
+
+export interface RecoilSetHp {
+  type: 'recoilSetHp';
+  hp: number;
   condition?: common.Condition;
 }
 
@@ -195,6 +204,7 @@ export interface Heal {
   who?: common.Who;
   condition?: common.Condition;
   overrideSkillType?: EnlirSkillType;
+  perUses?: number;
 }
 
 export type HealAmount = { healFactor: number | number[] } | { fixedHp: number | number[] };
@@ -245,12 +255,12 @@ export interface Chain {
   fieldBonus: number;
 }
 
-export interface Mimic {
-  type: 'mimic';
-  count?: number;
-  chance?: number;
-  defaultPower: number;
-  defaultCritChance?: number;
+export type Mimic = common.Mimic;
+
+export interface Summon {
+  type: 'summon';
+  name: string;
+  duration: common.Duration;
 }
 
 // --------------------------------------------------------------------------
@@ -288,6 +298,7 @@ export interface RandomStatusEffect {
 
 export interface Entrust {
   type: 'entrust';
+  max?: number;
 }
 
 export interface GainSB {
@@ -325,12 +336,17 @@ export interface CastTimePerUse {
   castTimePerUse: number;
 }
 
-// Special case: This exists during parsing but is merged by mergeAttackExtras, so
-// higher-level code never sees it as part of EffectClause
+// Special case: These exist during parsing but is merged by
+// mergeAttackExtrasAndClauses, so higher-level code never sees it as part of
+// EffectClause.
 export interface StandaloneAttackExtra {
   type: 'attackExtra';
   extra: AttackExtras;
 }
+
+export type AndEffectClause = EffectClause & {
+  andEffect: true;
+};
 
 export interface RandomSkillEffect {
   type: 'randomSkillEffect';

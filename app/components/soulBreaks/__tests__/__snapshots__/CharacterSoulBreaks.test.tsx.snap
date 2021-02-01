@@ -197,6 +197,44 @@ exports[`CharacterSoulBreaks renders multiple kinds of soul breaks and shows own
           </td>
         </tr>
         <tr
+          className="unowned overstrike"
+        >
+          <td
+            className="tier"
+          >
+            AO2
+          </td>
+          <td
+            className="name"
+          >
+            Evil Tornado Dive
+          </td>
+          <td
+            className="effects"
+          >
+            phys 11.0/20, then 8.0 overstrike, dark jump
+          </td>
+        </tr>
+        <tr
+          className="unowned overstrike"
+        >
+          <td
+            className="tier"
+          >
+            AO1
+          </td>
+          <td
+            className="name"
+          >
+            Dragoon Dive
+          </td>
+          <td
+            className="effects"
+          >
+            phys 24.0/3 lgt jump overstrike
+          </td>
+        </tr>
+        <tr
           className="unowned ultra"
         >
           <td
@@ -264,44 +302,6 @@ exports[`CharacterSoulBreaks renders multiple kinds of soul breaks and shows own
             className="effects"
           >
             phys 7.1/10 lgt+non jump, lgt infuse 25s, self +30% ATK/DEF 25s, jump instacast 15s
-          </td>
-        </tr>
-        <tr
-          className="unowned overstrike"
-        >
-          <td
-            className="tier"
-          >
-            AO2
-          </td>
-          <td
-            className="name"
-          >
-            Evil Tornado Dive
-          </td>
-          <td
-            className="effects"
-          >
-            phys 11.0/20, then 8.0 overstrike, dark jump
-          </td>
-        </tr>
-        <tr
-          className="unowned overstrike"
-        >
-          <td
-            className="tier"
-          >
-            AO1
-          </td>
-          <td
-            className="name"
-          >
-            Dragoon Dive
-          </td>
-          <td
-            className="effects"
-          >
-            phys 24.0/3 lgt jump overstrike
           </td>
         </tr>
         <tr
@@ -823,6 +823,44 @@ exports[`CharacterSoulBreaks renders multiple kinds of soul breaks in anonymous 
           </td>
         </tr>
         <tr
+          className="overstrike"
+        >
+          <td
+            className="tier"
+          >
+            AO2
+          </td>
+          <td
+            className="name"
+          >
+            Evil Tornado Dive
+          </td>
+          <td
+            className="effects"
+          >
+            phys 11.0/20, then 8.0 overstrike, dark jump
+          </td>
+        </tr>
+        <tr
+          className="overstrike"
+        >
+          <td
+            className="tier"
+          >
+            AO1
+          </td>
+          <td
+            className="name"
+          >
+            Dragoon Dive
+          </td>
+          <td
+            className="effects"
+          >
+            phys 24.0/3 lgt jump overstrike
+          </td>
+        </tr>
+        <tr
           className="ultra"
         >
           <td
@@ -890,44 +928,6 @@ exports[`CharacterSoulBreaks renders multiple kinds of soul breaks in anonymous 
             className="effects"
           >
             phys 7.1/10 lgt+non jump, lgt infuse 25s, self +30% ATK/DEF 25s, jump instacast 15s
-          </td>
-        </tr>
-        <tr
-          className="overstrike"
-        >
-          <td
-            className="tier"
-          >
-            AO2
-          </td>
-          <td
-            className="name"
-          >
-            Evil Tornado Dive
-          </td>
-          <td
-            className="effects"
-          >
-            phys 11.0/20, then 8.0 overstrike, dark jump
-          </td>
-        </tr>
-        <tr
-          className="overstrike"
-        >
-          <td
-            className="tier"
-          >
-            AO1
-          </td>
-          <td
-            className="name"
-          >
-            Dragoon Dive
-          </td>
-          <td
-            className="effects"
-          >
-            phys 24.0/3 lgt jump overstrike
           </td>
         </tr>
         <tr

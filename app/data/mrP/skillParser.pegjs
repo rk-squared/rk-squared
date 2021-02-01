@@ -12,15 +12,22 @@
 }
 
 SkillEffect
-  = head:EffectClause tail:((',' / '.' _ ('Also' / 'Additional')) _ EffectClause)* {
-    return util.mergeAttackExtras(util.pegList(head, tail, 2));
+  = head:EffectClause tail:(conj:(',' / '.' _ ('Also' / 'Additional') / 'and') _ effect:EffectClause { return [conj, effect]; })* {
+    const effects = [head];
+    for (let [conj, effect] of tail) {
+      if (conj === 'and') {
+        effect.andEffect = true;
+      }
+      effects.push(effect);
+    }
+    return util.mergeAttackExtrasAndEffects(effects);
   }
   / "" { return []; }
 
 EffectClause = FixedAttack / Attack / RandomFixedAttack
-  / DrainHp / RecoilHp / FixedRecoilHp / HpAttack / GravityAttack
+  / DrainHp / RecoilHp / RecoilSetHp / FixedRecoilHp / HpAttack / GravityAttack
   / Revive / Heal / HealPercent / DamagesUndead / DispelOrEsuna / RandomEther / SmartEther
-  / RandomCastAbility / RandomCastOther / Chain / Mimic
+  / RandomCastAbility / RandomCastOther / Chain / Mimic / Summon
   / StatusEffect / ImplicitStatusEffect / SetStatusLevel / RandomStatusEffect
   / Entrust / GainSBOnSuccess / GainSB / ResetIfKO / ResistViaKO / Reset
   / CastTime / CastTimePerUse / StandaloneAttackExtra
@@ -259,8 +266,8 @@ MinDamage
   = ("minimum" _ "damage" / "min.") _ minDamage:Integer (_ "(SUM only)")? { return { minDamage }; }
 
 OrMultiplier
-  = orMultiplier:DecimalNumberSlashList _ ("multiplier" / "mult." / "each") _ orMultiplierCondition:Condition {
-    return { orMultiplier, orMultiplierCondition };
+  = orMultiplier:DecimalNumberSlashList _ orHybridMultiplier:("or" _ m:DecimalNumberSlashList { return m; })? _ ("multiplier" / "mult." / "each") _ orMultiplierCondition:Condition {
+    return { orMultiplier, orHybridMultiplier, orMultiplierCondition };
   }
 
 OrNumAttacks
@@ -317,6 +324,11 @@ RecoilHp
     }, condition);
   }
 
+RecoilSetHp
+  = "sets the user's HP to" _ hp:Integer _ condition:Condition? {
+    return util.addCondition({ type: 'recoilSetHp', hp }, condition);
+  }
+
 // New effect in December 2020 - make it strict until we've seen more use.
 FixedRecoilHp
   = "deals" _ value:Integer _ skillType:SkillType _ ("physical" / "magical") _ "damage" _ who:Who {
@@ -362,11 +374,12 @@ Heal
   = "restores"i _ amount:(
       "HP" _ "(" healFactor:DecimalNumberSlashList ")" { return { healFactor }; }
       / fixedHp:IntegerSlashList _ "HP" { return { fixedHp }; }
-    ) _ who:Who? _ condition:Condition? {
+    ) _ who:Who? _ condition:Condition? _ perUses:PerUses? {
     return util.addCondition({
       type: 'heal',
       amount,
       who,
+      perUses,
     }, condition);
   }
 
@@ -436,7 +449,7 @@ Chain
   }
 
 Mimic
-  = chance:(c:Integer "%" _ "chance" _ "to" _ { return c; })? "cast"i "s"? _ "the" _ "last" _ "ability" _ "used" _ "by" _ "an" _ "ally" _ occurrence:Occurrence?
+  = chance:(c:Integer "%" _ "chance" _ "to" _ { return c; })? "cast"i "s"? _ "the last ability used by an ally" _ occurrence:Occurrence?
   "," _ "default" _ "ability" _ "(PHY:" _ "single," _ defaultPower:DecimalNumber _ "physical" defaultCritChance:("," _ c:Integer _ "%" _ "critical" _ "chance" { return c; })? ")" {
     const result = {
       type: 'mimic',
@@ -451,6 +464,9 @@ Mimic
     }
     return result;
   }
+
+Summon
+  = "Summons"i _ name:CharacterName _ "for" _ duration:Integer _ "seconds" { return { type: 'summon', name, duration: { value: duration, units: 'seconds' } }; }
 
 
 // --------------------------------------------------------------------------
@@ -488,7 +504,7 @@ ImplicitStatusEffect
   }
 
 SetStatusLevel
-  = "set"i _ status:StatusNameNoBrackets _ "level" _ "to" _ value:Integer {
+  = "set"i "s"? _ ("the user's")? _ status:StatusNameNoBrackets _ "level" _ "to" _ value:Integer {
     return { type: 'setStatusLevel', status, value };
   }
 
@@ -507,7 +523,7 @@ RandomStatusList
 // Miscellaneous
 
 Entrust
-  = "transfers"i _ "the" _ "user's" _ SB _ "points" _ "to" _ "the" _ "target" { return { type: 'entrust' }; }
+  = "transfers"i _ "the user's" _ SB _ "points to the target" max:(" (maximum of" _ max:Integer _ "Soul Break points)" { return max; })?{ return { type: 'entrust', max }; }
 
 GainSB
   = "grants"i _ points:Integer _ SB _ "points" _ who:Who? { return { type: 'gainSB', points, who }; }
@@ -621,10 +637,11 @@ Condition
   // Thief (I)'s glint or some SASBs.  These are more specialized, so they need
   // to go before general statuses.
   / "scaling with" _ status:StatusNameNoBrackets _ "level" { return { type: 'scaleWithStatusLevel', status }; }
-  // TODO: These two should be standardized
+  // TODO: These all should be standardized
   / "at" _ status:StatusNameNoBrackets _ "levels" _ value:IntegerAndList { return { type: 'statusLevel', status, value }; }
   / "at" _ status:StatusNameNoBrackets _ "level" _ value:IntegerSlashList { return { type: 'statusLevel', status, value }; }
   / "if" _ "the"? _ "user" _ "has" _ status:StatusNameNoBrackets _ "level" _ value:IntegerSlashList plus:"+"? { return { type: 'statusLevel', status, value, plus: !!plus }; }
+  / "if" _ "the"? _ "user" _ "has" _ status:StatusNameNoBrackets _ "=" _ value:Integer { return { type: 'statusLevel', status, value }; }
   / "if" _ "the"? _ "user" _ "has" _ status:StatusNameNoBrackets _ "level"? _ ">" _ value:Integer { return { type: 'statusLevel', status, value: value + 1, plus: true }; }
   / "if" _ "the"? _ "user" _ "has" _ "at" _ "least" _ value:Integer _ status:StatusNameNoBrackets { return { type: 'statusLevel', status, value }; }
 
@@ -672,7 +689,7 @@ Condition
 
   // Scaling with uses - both specific counts and generically
   / ("at" / "scaling with" / "after") _ useCount:IntegerSlashList "+"? _ ("uses" / "casts") { return { type: 'scaleUseCount', useCount }; }
-  / "scaling" _ "with" _ "uses" { return { type: 'scaleWithUses' }; }
+  / "scaling with" _ ("uses" / "activations") { return { type: 'scaleWithUses' }; }
   / ("scaling" / "scal.") _ "with" _ skill:AnySkillName _ "uses" { return { type: 'scaleWithSkillUses', skill }; }
 
   / ("after" / "every") _ useCount:UseCount _ skill:AnySkillName? _ ("uses" / "activations") { return { type: 'afterUseCount', skill, useCount }; }
@@ -686,21 +703,23 @@ Condition
   / "if" _ character:CharacterNameAndList _ ("is" / "are") _ "alive" { return { type: 'characterAlive', character, all: true }; }
   / "if" _ character:CharacterNameListOrPronoun _ ("is" / "are") _ "not alive/alive" { return { type: 'characterAlive', character, withoutWith: 'withoutWith' }; }
   / "if" _ count:IntegerSlashList "+"? _ "of" _ character:CharacterNameList _ "are" _ "alive" { return { type: 'characterAlive', character, count }; }
+  / "if" _ character:CharacterNameAndList _ ("is" / "are") _ "not alive" { return { type: 'characterAlive', character, withoutWith: 'without' }; }
   / "if" _ count:IntegerSlashList? _ character:CharacterNameList _ ("is" / "are") _ "in" _ "the" _ "party" { return { type: 'characterInParty', character, count }; }
   / "if" _ count:IntegerSlashList? _ character:CharacterNameAndList _ ("is" / "are") _ "in" _ "the" _ "party" { return { type: 'characterInParty', character, count, all: true }; }
   / "if" _ count:IntegerSlashList _ "females are in the party" { return { type: 'femalesInParty', count }; }
-  / "if" _ count:IntegerSlashList "+"? _ "females are alive" { return { type: 'femalesAlive', count }; }
+  / "if" _ count:IntegerSlashList "+"? _ ("females" / "female allies") _ "are alive" { return { type: 'femalesAlive', count }; }
+  / "if" _ count:Integer _ "or more female allies are alive" { return { type: 'femalesAlive', count, plus: true }; }
   / "if" _ "there" _ "are" _ count:IntegerSlashList "+"? _ realm:Realm _ "characters" _ "in" _ "the" _ "party" { return { type: 'realmCharactersInParty', realm, count }; }
   / "if" _ count:IntegerRangeSlashList plus:"+"? _ realm:Realm _ ("characters are alive" / "character is alive" / "allies are alive" / "members are alive") { return { type: 'realmCharactersAlive', realm, count, plus: !!plus }; }
   / "if" _ count:Integer _ "or more females are in the party" { return { type: 'femalesInParty', count }; }
-  / "if" _ count:IntegerSlashList "+"? _ "party" _ "members" _ "are" _ "alive" { return { type: 'charactersAlive', count }; }
+  / "if" _ count:IntegerSlashList "+"? _ ("party members" / "allies") _ "are alive" { return { type: 'charactersAlive', count }; }
 
   / "if" _ count:IntegerSlashList _ "allies" _ "in" _ "air" { return { type: 'alliesJump', count }; }
 
   / "if" _ "the" _ "user's" _ ("[Doom]" / "Doom") _ "timer" _ "is" _ "below" _ value:IntegerSlashList { return { type: 'doomTimer', value }; }
   / "if" _ "the" _ "user's" _ "HP" _ ("is" / "are") _ "below" _ value:IntegerSlashList "%" { return { type: 'hpBelowPercent', value }; }
   / "if" _ "the" _ "user's" _ "HP" _ ("is" / "are") _ "at" _ "least" _ value:IntegerSlashList "%" { return { type: 'hpAtLeastPercent', value }; }
-  / "if" _ "the"? _ "user" _ "has" _ value:IntegerSlashList plus:"+"? _ SB _ "points" { return { type: 'soulBreakPoints', value, plus: !!plus }; }
+  / "if" _ "the"? _ "user" _ "has" _ value:IntegerSlashListOrRange plus:"+"? _ SB _ "points" { return { type: 'soulBreakPoints', value, plus: !!plus }; }
 
   / "if" _ count:IntegerSlashList _ "of the target's stats are lowered" { return { type: 'targetStatBreaks', count }; }
   / "if target has" _ count:IntegerSlashList _ "of ATK, DEF, MAG, RES or MND reduced" { return { type: 'targetStatBreaks', count }; }
@@ -1088,6 +1107,10 @@ DecimalNumberPercentSlashList "slash-separated decimal numbers"
 
 IntegerSlashList "slash-separated integers"
   = head:Integer tail:('/' Integer)* { return util.pegSlashList(head, tail); }
+
+IntegerSlashListOrRange "slash-separated integers or range"
+  = from:Integer "-" to:Integer { return { from, to }; }
+  / IntegerSlashList
 
 PercentSlashList "slash-separated percent integers"
   = head:PercentInteger tail:('/' PercentInteger)* { return util.pegSlashList(head, tail); }
