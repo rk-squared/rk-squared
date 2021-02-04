@@ -57,8 +57,6 @@ export class MagiciteGrid extends React.Component<Props> {
     return (
       <GridContainer>
         <AgGridReact
-          enableSorting={true}
-          enableColResize={true}
           columnDefs={this.columnDefs}
           rowData={this.objectValues(darkOdinScores)}
           deltaRowDataMode={true}
