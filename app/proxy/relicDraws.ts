@@ -99,6 +99,7 @@ export function convertBanner(
   const exchangeShopId = getExchangeShopIds(gacha);
   return {
     id: gacha.series_id,
+    hash: gacha.box_list.map(i => i.hash_value).find(i => i != null),
     openedAt: gacha.opened_at,
     closedAt: gacha.closed_at,
     sortOrder: gacha.priority,

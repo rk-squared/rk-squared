@@ -114,6 +114,7 @@ interface BannerList {
 
 interface BoxList {
   match_condition_list: any[];
+  hash_value?: string;
   box_id: number;
   rarities: number[];
   entry_point_list: EntryPointList[];

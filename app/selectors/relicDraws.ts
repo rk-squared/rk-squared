@@ -204,7 +204,12 @@ export const getBannersAndGroups = createSelector<
   },
 );
 
-export const getMissingBanners = createSelector<IState, RelicDrawState, number, number[]>(
+export interface MissingBanner {
+  id: number;
+  hash?: string;
+}
+
+export const getMissingBanners = createSelector<IState, RelicDrawState, number, MissingBanner[]>(
   (state: IState) => state.relicDraws,
   (state: IState) => state.timeState.currentTime,
   ({ banners, probabilities, selections }, currentTime) => {
@@ -228,7 +233,7 @@ export const getMissingBanners = createSelector<IState, RelicDrawState, number, 
       .filter(i => !needsSelection(+i))
       .forEach(i => missing.delete(+i));
 
-    return Array.from(missing);
+    return Array.from(missing).map(i => ({ id: i, hash: banners[i].hash }));
   },
 );
 

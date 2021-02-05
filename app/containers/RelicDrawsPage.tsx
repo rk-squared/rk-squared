@@ -12,6 +12,7 @@ import { progressKey } from '../sagas/loadBanners';
 import {
   getBannersAndGroups,
   getMissingBanners,
+  MissingBanner,
   RelicDrawBannersAndGroups,
 } from '../selectors/relicDraws';
 import { joinUrl } from '../utils/textUtils';
@@ -25,7 +26,7 @@ interface Props {
     [bannerId: string]: RelicDrawProbabilities;
   };
   want?: { [relicId: number]: boolean };
-  missingBanners: number[];
+  missingBanners: MissingBanner[];
   currentTime: number;
   dispatch: Dispatch;
 }

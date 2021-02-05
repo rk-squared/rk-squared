@@ -30,7 +30,7 @@ import { callApi, sessionErrorText } from './util';
 export const progressKey = 'banners';
 
 export function* doLoadBanners(action: ReturnType<typeof loadBanners>) {
-  const allBannerIds = action.payload.bannerIds;
+  const allBanners = action.payload.banners;
   const session = yield select((state: IState) => state.session);
   if (!hasSessionState(session)) {
     yield put(showDanger(sessionErrorText));
@@ -38,7 +38,7 @@ export function* doLoadBanners(action: ReturnType<typeof loadBanners>) {
   }
   const lang = getLang(session);
 
-  yield put(setProgress(progressKey, { current: 0, max: allBannerIds.length }));
+  yield put(setProgress(progressKey, { current: 0, max: allBanners.length }));
 
   // Re-request the main endpoint, to pick up on things like just-opened fest
   // banners.
@@ -54,14 +54,14 @@ export function* doLoadBanners(action: ReturnType<typeof loadBanners>) {
     yield put(showResult);
   }
 
-  for (let i = 0; i < allBannerIds.length; i++) {
-    const bannerId = allBannerIds[i];
+  for (let i = 0; i < allBanners.length; i++) {
+    const { id: bannerId, hash } = allBanners[i];
 
-    yield put(setProgress(progressKey, { current: i, max: allBannerIds.length }));
+    yield put(setProgress(progressKey, { current: i, max: allBanners.length }));
 
     logger.info(`Getting relic probabilities for banner ${bannerId}...`);
     const probabilitiesResult = yield callApi(
-      apiUrls.gachaProbability(lang, bannerId),
+      apiUrls.gachaProbability(lang, bannerId, hash),
       session,
       (response: AxiosResponse) => {
         // FIXME: Validate data

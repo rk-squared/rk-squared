@@ -3,6 +3,7 @@ import { createAction } from 'typesafe-actions';
 import * as _ from 'lodash';
 
 import { RelicDrawPullParams, StandardDrawCount } from '../data/probabilities';
+import { MissingBanner } from '../selectors/relicDraws';
 import { logger } from '../utils/logger';
 import { TimeT } from '../utils/timeUtils';
 
@@ -26,7 +27,7 @@ export interface RelicDrawBannerCost {
 
   /**
    * Guaranteed rarity and count.  FFRK only communicates these via its
-   * rise_message string field.  To redice the amount of string processing
+   * rise_message string field.  To reduce the amount of string processing
    * that we have to do, we ,ay instead hard-code it via special cases from
    * looking at other fields (like drawCount); see getBannerPullParams.  As a
    * result, these fields are normally blank.
@@ -38,6 +39,13 @@ export interface RelicDrawBannerCost {
 
 export interface RelicDrawBanner {
   id: number;
+
+  /**
+   * Added to FFRK game data in January 2021.  Unclear purpose, but it's needed
+   * to query probability details.
+   */
+  hash?: string;
+
   imageUrl: string;
   openedAt: TimeT;
   closedAt: TimeT;
@@ -231,10 +239,10 @@ export const clearWantedRelics = createAction('CLEAR_WANTED_RELICS', (relicIds: 
  * Instruct the app to load all missing relic probabilities and exchange shop
  * selections from the FFRK servers.
  */
-export const loadBanners = createAction('LOAD_BANNERS', (bannerIds: number[]) => ({
+export const loadBanners = createAction('LOAD_BANNERS', (banners: MissingBanner[]) => ({
   type: 'LOAD_BANNERS',
   payload: {
-    bannerIds,
+    banners,
   },
 }));
 
