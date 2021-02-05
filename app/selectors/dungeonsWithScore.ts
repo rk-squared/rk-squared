@@ -224,7 +224,7 @@ export const getCardiaScores = createSelector<
   },
 );
 
-export const getDarkOdinScores = createSelector<
+export const getOdinScores = createSelector<
   IState,
   DungeonState,
   DungeonScoreState,

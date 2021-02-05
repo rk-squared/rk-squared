@@ -7,16 +7,16 @@ import { connect } from 'react-redux';
 import * as _ from 'lodash';
 
 import { IState } from '../../reducers';
-import { getDarkOdinScores, MagiciteDungeonWithScore } from '../../selectors/dungeonsWithScore';
+import { getOdinScores, MagiciteDungeonWithScore } from '../../selectors/dungeonsWithScore';
 import { GridContainer } from '../common/GridContainer';
 import { CheckIconCellRenderer } from './CheckIconCellRenderer';
-import { DarkOdinElementCellRenderer } from './DarkOdinElementCellRenderer';
+import { OdinElementCellRenderer } from './OdinElementCellRenderer';
 
 interface Props {
-  darkOdinScores: MagiciteDungeonWithScore[];
+  odinScores: MagiciteDungeonWithScore[];
 }
 
-export class MagiciteGrid extends React.Component<Props> {
+export class OdinGrid extends React.Component<Props> {
   columnDefs: ColDef[];
   objectValues = _.memoize(_.values);
 
@@ -30,7 +30,7 @@ export class MagiciteGrid extends React.Component<Props> {
         field: 'element',
         sortable: true,
         resizable: true,
-        cellRendererFramework: DarkOdinElementCellRenderer,
+        cellRendererFramework: OdinElementCellRenderer,
         cellRendererParams: { hideElementText: true },
       },
       {
@@ -50,15 +50,15 @@ export class MagiciteGrid extends React.Component<Props> {
   getRowNodeId = (row: MagiciteDungeonWithScore) => '' + row.id + '-' + row.element;
 
   render() {
-    const { darkOdinScores } = this.props;
-    if (!darkOdinScores.length) {
-      return <div>The Dark Odin Record has been loaded.</div>;
+    const { odinScores } = this.props;
+    if (!odinScores.length) {
+      return <div>The Odin Records have not been loaded.</div>;
     }
     return (
       <GridContainer>
         <AgGridReact
           columnDefs={this.columnDefs}
-          rowData={this.objectValues(darkOdinScores)}
+          rowData={this.objectValues(odinScores)}
           deltaRowDataMode={true}
           getRowNodeId={this.getRowNodeId}
           domLayout="autoHeight"
@@ -70,5 +70,5 @@ export class MagiciteGrid extends React.Component<Props> {
 
 export default connect((state: IState) => ({
   dungeons: state.dungeons.dungeons,
-  darkOdinScores: getDarkOdinScores(state),
-}))(MagiciteGrid);
+  odinScores: getOdinScores(state),
+}))(OdinGrid);

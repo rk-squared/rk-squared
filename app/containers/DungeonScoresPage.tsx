@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import CardiaGrid from '../components/dungeonScores/CardiaGrid';
-import DarkOdinGrid from '../components/dungeonScores/DarkOdinGrid';
+import OdinGrid from '../components/dungeonScores/OdinGrid';
 import MagiciteGrid from '../components/dungeonScores/MagiciteGrid';
 import { Page } from './Page';
 
@@ -17,8 +17,8 @@ export default class DungeonScoresPage extends React.Component {
         <h4>Magicite</h4>
         <MagiciteGrid />
 
-        <h4>Dark Odin</h4>
-        <DarkOdinGrid />
+        <h4>Dark Odin and Argent Odin</h4>
+        <OdinGrid />
 
         <div className={`alert alert-secondary ${styles.howToTip}`}>
           <strong>Tip:</strong> You may need to enter a dungeon in order to get complete time and

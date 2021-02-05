@@ -20,7 +20,7 @@ const weakElement: { [e in EnlirElement]: EnlirElement } = {
   NE: 'NE',
 };
 
-export class DarkOdinElementCellRenderer extends React.Component<ICellRendererParams> {
+export class OdinElementCellRenderer extends React.Component<ICellRendererParams> {
   render() {
     const { data } = this.props;
     const dungeon = data as MagiciteDungeonWithScore;
