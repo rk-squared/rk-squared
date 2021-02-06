@@ -100,7 +100,7 @@ export class SoulBreakList extends React.Component<Props> {
 
 export default connect((state: IState) => ({
   ownedSoulBreaks: getOwnedSoulBreaks(state),
-  ownedLimitBreaks: new Set<number>(), // FIXME: Implement
+  ownedLimitBreaks: getOwnedSoulBreaks(state),
   ownedLegendMateria: getOwnedLegendMateria(state),
   showSoulBreaks: state.prefs.showSoulBreaks,
 }))(SoulBreakList);

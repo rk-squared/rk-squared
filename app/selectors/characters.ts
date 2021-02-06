@@ -30,6 +30,10 @@ export const getOwnedSoulBreaks = createSelector<
   idsToSet,
 );
 
+// Limit breaks and soul breaks share the same ID space and are tracked in the
+// same FFRK JSON structures.
+export const getOwnedLimitBreaks = getOwnedSoulBreaks;
+
 export const getOwnedRelics = createSelector<
   IState,
   Set<number> | undefined,

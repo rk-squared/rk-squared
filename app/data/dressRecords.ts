@@ -20,6 +20,11 @@ export const dressRecords: DressRecord[] = [
     id: 120100100,
     characterId: 10100100,
   },
+  {
+    name: 'Discord Incarnate',
+    id: 120100200,
+    characterId: 10100200,
+  },
 
   {
     name: 'Cosmic Retainer',

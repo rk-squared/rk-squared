@@ -47,7 +47,9 @@ export enum GradeScoreType { // GRADE_SCORE_TYPE in app.js
   // noinspection JSUnusedGlobalSymbols
   DecreasedHp = 3, // Observed with Bomb Brigade.  DAMAGE_CONTEST in app.js
   DecreasedHpAndClearTime = 4, // Standard for Neo Torments.  DAMAGE_RATE_OR_DEFEATED_TIME in app.js
-  Element = 6, // Dark Odin.  DEFEATED_ELEMENT in app.js
+  Element = 6, // Formerly Dark Odin.  DEFEATED_ELEMENT in app.js
+  ArgentOdin = 9, // MULTI_PATTERN_BATTLE_HP_RATE_AND_DEFEATED_AND_DEFEATED_NUM_AND_DEFEATED_TIME in app.js
+  DarkOdin = 10, // MULTI_PATTERN_BATTLE_DARK_ODIN_ONLY_HP_RATE_AND_DEFEATED_ELEMENT_AND_DEFEATED_TIME in app.js
 }
 
 export interface GradeScore {

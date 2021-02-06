@@ -89,7 +89,7 @@ export const legendMateriaAliases = makeLegendMateriaAliases(enlir.legendMateria
 export function formatSoulBreakOrLegendMateriaName(item: EnlirSoulBreakOrLegendMateria): string {
   let name = item.name;
   if (isSoulBreak2(item) && isArcaneDyad1st(item)) {
-    name = name.replace(/ \(Release\)$/, '');
+    name = name.replace(/ \(Engaged\)$/, '');
   }
   return item.gl ? name : '“' + name + '”';
 }
