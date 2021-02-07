@@ -58,7 +58,7 @@ function showLocalItem(item: PrizeItem) {
   const type = ItemTypeLookup[item.type_name] || item.type_name;
   logger.info(
     'New (previously unknown) item:\n' +
-      `{\n  name: '${item.name}',\n  type: ItemType.${type},\n  id: ${item.id}\n},`,
+      `{\n  name: "${item.name}",\n  type: ItemType.${type},\n  id: ${item.id}\n},`,
   );
 }
 
@@ -73,7 +73,7 @@ function showLocalDressRecord({
 }) {
   logger.info(
     'New (previously unknown) dress record:\n' +
-      `{\n  name: '${name}',\n  id: ${dress_record_id},\n  characterId: ${buddy_id},\n},`,
+      `{\n  name: "${name}",\n  id: ${dress_record_id},\n  characterId: ${buddy_id},\n},`,
   );
 }
 

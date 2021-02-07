@@ -43,7 +43,7 @@ export enum RewardType {
   Hp20 = '20',
   Hp10 = '21',
 
-  // Alternate one-time bonuses for Odin.
+  // Alternate one-time bonuses for Dark Odin.
   ElementalFire = '8',
   ElementalIce = '9',
   ElementalWind = '10',
@@ -57,6 +57,12 @@ export enum RewardType {
   // Anima lenses are shown separately.  I don't know why the game is designed
   // this way.
   AnimaLens = '28',
+
+  // Wandering Gilgamesh has its own ranges:
+  // - 8-12 for "Defeat FF1" through "Deal 80/60/40/20% Damage to FF1".
+  // - FF2-4 follow the same pattern up through FF4 at 23-27.
+  // - 28 is left as a gap for anima lenses.
+  // - Later games are sequential after that, starting with 29-33 for FF5.
 }
 
 export const MinRewardGrade = 8;

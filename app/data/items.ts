@@ -131,6 +131,11 @@ export const items: Item[] = [
   },
 
   {
+    name: "Medium Rat's Tail",
+    type: ItemType.HistoriaTail,
+    id: 24098026,
+  },
+  {
     name: "Large Rat's Tail",
     type: ItemType.HistoriaTail,
     id: 24098027,

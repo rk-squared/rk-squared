@@ -184,12 +184,14 @@ export function convertPrizeItems(prizes?: dungeonsSchemas.DungeonPrizeItem[]) {
 
 export function convertGradePrizeItems(dungeon: dungeonsSchemas.Dungeon) {
   let allPrizes: dungeonsSchemas.DungeonPrizeItem[] = [];
-  for (let i = dungeonsSchemas.MinRewardGrade; ; i++) {
-    const grade = i.toString() as dungeonsSchemas.RewardType;
-    if (!dungeon.prizes[grade]) {
-      break;
+  for (const grade of Object.keys(dungeon.prizes) as dungeonsSchemas.RewardType[]) {
+    if (
+      +grade > dungeonsSchemas.MinRewardGrade &&
+      grade !== dungeonsSchemas.RewardType.AnimaLens &&
+      dungeon.prizes[grade]
+    ) {
+      allPrizes.push(...dungeon.prizes[grade]);
     }
-    allPrizes.push(...dungeon.prizes[grade]);
   }
 
   allPrizes = _.sortBy(allPrizes, 'disp_order');
