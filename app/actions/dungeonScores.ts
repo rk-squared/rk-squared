@@ -149,7 +149,7 @@ function estimateDreambreakerScore(dungeon: Dungeon, world: World): DungeonScore
     [100, 6],
     [90, 3],
     [80, 4],
-    [70, 3],
+    [70, 4],
     [60, 4],
     [50, 3],
     [40, 4],
@@ -158,10 +158,13 @@ function estimateDreambreakerScore(dungeon: Dungeon, world: World): DungeonScore
     [10, 3],
   ];
 
-  // Do a sanity check for unexpected prizes.
+  // Do a sanity check for unexpected prizes.  Try both with and without the
+  // Dragonlord's Armlet at 70% HP that was added in February 2021.
   const prizeCount = (prizes: PrizeList) => _.sum(prizes.map(i => i[1]));
   const totalPrizeCount = prizeCount(timePrizes) + prizeCount(percentPrizes);
-  if (totalPrizeCount !== claimed + unclaimed) {
+  if (totalPrizeCount === claimed + unclaimed + 1) {
+    percentPrizes[3][1]--;
+  } else if (totalPrizeCount !== claimed + unclaimed) {
     return null;
   }
 

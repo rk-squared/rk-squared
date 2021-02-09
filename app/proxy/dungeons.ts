@@ -186,7 +186,7 @@ export function convertGradePrizeItems(dungeon: dungeonsSchemas.Dungeon) {
   let allPrizes: dungeonsSchemas.DungeonPrizeItem[] = [];
   for (const grade of Object.keys(dungeon.prizes) as dungeonsSchemas.RewardType[]) {
     if (
-      +grade > dungeonsSchemas.MinRewardGrade &&
+      +grade >= dungeonsSchemas.MinRewardGrade &&
       grade !== dungeonsSchemas.RewardType.AnimaLens &&
       dungeon.prizes[grade]
     ) {
