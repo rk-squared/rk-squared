@@ -9,6 +9,8 @@ import * as _ from 'lodash';
 
 import {
   addWorldDungeons,
+  argentOdinMagical,
+  argentOdinPhysical,
   Difficulty,
   Dungeon,
   finishWorldDungeons,
@@ -231,12 +233,11 @@ function addMagiciteDetails(dungeons: Dungeon[]) {
       if (gauntlet.length === 1) {
         const m = gauntlet[0].name.match(/Lord's Gauntlet: (.*)/);
         if (m) {
-          const detail = m[1]
-            .replace(/Physical/, 'phys.')
-            .replace(/Magical/, 'mag.')
+          dungeonsById[i].detail = m[1]
+            .replace(/Physical/, argentOdinPhysical)
+            .replace(/Magic(al)?/, argentOdinMagical)
             .replace(/Lightning/, 'lit.')
             .toLowerCase();
-          dungeonsById[i].detail = detail;
         }
       }
     }

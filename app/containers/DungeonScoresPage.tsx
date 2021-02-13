@@ -14,11 +14,11 @@ export default class DungeonScoresPage extends React.Component {
         <h4 className={styles.firstHeader}>Cardia</h4>
         <CardiaGrid />
 
-        <h4>Magicite</h4>
-        <MagiciteGrid />
-
         <h4>Dark Odin and Argent Odin</h4>
         <OdinGrid />
+
+        <h4>Magicite</h4>
+        <MagiciteGrid />
 
         <div className={`alert alert-secondary ${styles.howToTip}`}>
           <strong>Tip:</strong> You may need to enter a dungeon in order to get complete time and

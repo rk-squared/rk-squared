@@ -7,13 +7,14 @@ import { connect } from 'react-redux';
 import * as _ from 'lodash';
 
 import { IState } from '../../reducers';
-import { getOdinScores, MagiciteDungeonWithScore } from '../../selectors/dungeonsWithScore';
+import { getOdinScores, OdinElementScore } from '../../selectors/dungeonsWithScore';
 import { GridContainer } from '../common/GridContainer';
 import { CheckIconCellRenderer } from './CheckIconCellRenderer';
 import { OdinElementCellRenderer } from './OdinElementCellRenderer';
+import { ArgentOdinScoreCellRenderer } from './ArgentOdinScoreCellRenderer';
 
 interface Props {
-  odinScores: MagiciteDungeonWithScore[];
+  odinScores: OdinElementScore[];
 }
 
 export class OdinGrid extends React.Component<Props> {
@@ -34,20 +35,35 @@ export class OdinGrid extends React.Component<Props> {
         cellRendererParams: { hideElementText: true },
       },
       {
-        headerName: 'Completed',
-        width: 90,
-        field: 'isComplete',
-        sortable: true,
+        headerName: 'Dark Odin',
+        width: 110,
+        field: 'darkOdin',
         resizable: true,
         cellClass: 'text-center',
         cellRendererFramework: CheckIconCellRenderer,
-        valueGetter: ({ data }: { data: MagiciteDungeonWithScore }) =>
-          data.score ? data.score.won : false,
+        valueGetter: ({ data }: { data: OdinElementScore }) =>
+          data.darkOdin && data.darkOdin.score ? data.darkOdin.score.won : false,
+      },
+      {
+        headerName: 'Argent (phys.)',
+        width: 110,
+        field: 'argentPhysical',
+        resizable: true,
+        cellClass: 'text-right',
+        cellRendererFramework: ArgentOdinScoreCellRenderer,
+      },
+      {
+        headerName: 'Argent (mag.)',
+        width: 110,
+        field: 'argentMagical',
+        resizable: true,
+        cellClass: 'text-right',
+        cellRendererFramework: ArgentOdinScoreCellRenderer,
       },
     ];
   }
 
-  getRowNodeId = (row: MagiciteDungeonWithScore) => '' + row.id + '-' + row.element;
+  getRowNodeId = (row: OdinElementScore) => row.element;
 
   render() {
     const { odinScores } = this.props;

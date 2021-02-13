@@ -2,7 +2,7 @@ import { createSelector } from 'reselect';
 
 import * as _ from 'lodash';
 
-import { Difficulty, Dungeon } from '../actions/dungeons';
+import { argentOdinMagical, argentOdinPhysical, Difficulty, Dungeon } from '../actions/dungeons';
 import {
   compareScore,
   DungeonScore,
@@ -11,7 +11,7 @@ import {
 } from '../actions/dungeonScores';
 import { getSorter, World, WorldCategory } from '../actions/worlds';
 import { OdinWorldId } from '../api/schemas/dungeons';
-import { allEnlirElements } from '../data/enlir';
+import { allEnlirElements, EnlirElement } from '../data/enlir';
 import { IState } from '../reducers';
 import { DungeonState, getDungeonsForWorld } from '../reducers/dungeons';
 import { DungeonScoreState } from '../reducers/dungeonScores';
@@ -42,6 +42,13 @@ export interface CardiaRealmWithScore {
   seriesId: number;
   torment: TormentWorldWithScore;
   dreambreaker: DungeonWithScore;
+}
+
+export interface OdinElementScore {
+  element: EnlirElement;
+  darkOdin?: DungeonWithScore;
+  argentPhysical?: DungeonWithScore;
+  argentMagical?: DungeonWithScore;
 }
 
 function getWorlds(worldsState: WorldState, category: WorldCategory) {
@@ -228,34 +235,65 @@ export const getOdinScores = createSelector<
   IState,
   DungeonState,
   DungeonScoreState,
-  MagiciteDungeonWithScore[]
+  WorldState,
+  OdinElementScore[]
 >(
-  [(state: IState) => state.dungeons, (state: IState) => state.dungeonScores],
-  (dungeonsState: DungeonState, scoresState: DungeonScoreState): MagiciteDungeonWithScore[] => {
-    const darkOdinDungeons = getDungeonsForWorld(dungeonsState, OdinWorldId);
-    if (!darkOdinDungeons || !darkOdinDungeons.length) {
+  [
+    (state: IState) => state.dungeons,
+    (state: IState) => state.dungeonScores,
+    (state: IState) => state.worlds,
+  ],
+  (
+    dungeonsState: DungeonState,
+    scoresState: DungeonScoreState,
+    worldsState: WorldState,
+  ): OdinElementScore[] => {
+    const odinWorld = worldsState.worlds && worldsState.worlds[OdinWorldId];
+    const odinDungeons =
+      odinWorld && getDungeonsWithScoreForWorld(dungeonsState, scoresState, odinWorld);
+    if (!odinDungeons || !odinDungeons.length) {
       return [];
     }
 
-    const dungeon = darkOdinDungeons[0];
-    if (!scoresState.elementScores || !scoresState.elementScores[dungeon.id]) {
-      return [];
-    }
-    const scores = scoresState.elementScores[dungeon.id];
-    const result: MagiciteDungeonWithScore[] = [];
-    for (const element of allEnlirElements) {
-      if (scores[element]) {
-        result.push({
-          ...dungeon,
-          stars: undefined,
-          element,
-          score: scores[element],
-          estimatedScore: undefined,
-          worldId: OdinWorldId,
-        });
+    const result: { [e in EnlirElement]?: OdinElementScore } = {};
+
+    // Process Dark Odin.
+    const darkOdinDungeon = odinDungeons[0];
+    if (scoresState.elementScores && scoresState.elementScores[darkOdinDungeon.id]) {
+      const scores = scoresState.elementScores[darkOdinDungeon.id];
+      for (const element of allEnlirElements) {
+        if (scores[element]) {
+          result[element] = result[element] || { element };
+          result[element]!.darkOdin = {
+            ...darkOdinDungeon,
+            score: scores[element],
+            estimatedScore: undefined,
+          };
+        }
       }
     }
 
-    return result;
+    // Process Argent Odin.
+    for (const element of allEnlirElements) {
+      const elementText = element === 'Lightning' ? 'lit.' : element.toLowerCase();
+
+      let dungeon = odinDungeons.find(
+        i => i.detail && i.detail.match(argentOdinPhysical) && i.detail.match(elementText),
+      );
+      if (dungeon) {
+        result[element] = result[element] || { element };
+        result[element]!.argentPhysical = dungeon;
+      }
+
+      dungeon = odinDungeons.find(
+        i => i.detail && i.detail.match(argentOdinMagical) && i.detail.match(elementText),
+      );
+      if (dungeon) {
+        result[element] = result[element] || { element };
+        result[element]!.argentMagical = dungeon;
+      }
+    }
+
+    return simpleFilter(Object.values(result));
   },
 );

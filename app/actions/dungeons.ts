@@ -53,6 +53,9 @@ export interface Dungeon {
   };
 }
 
+export const argentOdinPhysical = 'phys.';
+export const argentOdinMagical = 'magic';
+
 export function formatDifficulty(dungeon: Dungeon): string {
   return dungeon.difficulty === 0 ? '???' : dungeon.difficulty.toString();
 }
