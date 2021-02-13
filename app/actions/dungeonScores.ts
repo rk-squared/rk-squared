@@ -18,6 +18,7 @@ export interface DungeonScore {
   time?: number;
   totalDamage?: number;
   maxHp?: number;
+  percentHp?: number;
   won: boolean;
 }
 
@@ -202,8 +203,10 @@ function formatDamage(totalDamage?: number): string {
   return totalDamage == null ? '' : `${totalDamage.toLocaleString()} HP`;
 }
 
-function formatPercent(totalDamage?: number, maxHp?: number): string {
-  if (totalDamage == null || !maxHp) {
+function formatPercent(totalDamage?: number, maxHp?: number, percentHp?: number): string {
+  if (percentHp) {
+    return Math.floor(percentHp) + '%';
+  } else if (totalDamage == null || !maxHp) {
     return '';
   } else {
     return Math.floor((totalDamage / maxHp) * 100) + '%';
@@ -219,7 +222,9 @@ export function formatScore(score: DungeonScore): string {
       return formatDamage(score.totalDamage);
 
     case DungeonScoreType.PercentHpOrClearTime:
-      return score.won ? formatTime(score.time) : formatPercent(score.totalDamage, score.maxHp);
+      return score.won
+        ? formatTime(score.time)
+        : formatPercent(score.totalDamage, score.maxHp, score.percentHp);
   }
 }
 
@@ -235,7 +240,7 @@ export function formatEstimatedScore(score: DungeonScore): string {
     case DungeonScoreType.PercentHpOrClearTime: {
       return score.won
         ? maybe('≤', formatTime(score.time))
-        : maybe('≥', formatPercent(score.totalDamage, score.maxHp));
+        : maybe('≥', formatPercent(score.totalDamage, score.maxHp, score.percentHp));
     }
   }
 }

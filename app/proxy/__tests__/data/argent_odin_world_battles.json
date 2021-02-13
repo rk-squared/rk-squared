@@ -1,0 +1,2631 @@
+{
+  "url": "http://ffrk.denagames.com/dff/world/battles",
+  "data": {
+    "success": true,
+    "user_dungeon": {
+      "unlock_conditions": {
+        "1305201": "2",
+        "10082105": "2",
+        "10082106": "2",
+        "10082205": "2",
+        "10082206": "2",
+        "10082305": "2",
+        "10082306": "2",
+        "10082405": "2",
+        "10082406": "2",
+        "10082505": "2",
+        "10082506": "2",
+        "10082605": "2",
+        "10082606": "2",
+        "10082705": "2",
+        "10082706": "2",
+        "10082805": "2",
+        "10082806": "2"
+      },
+      "closed_at": 2145938400,
+      "order_no": 1,
+      "is_restricted": false,
+      "stamina_consume_type": 1,
+      "supporter_type": 254,
+      "epilogue_image_path": "/dff/static/lang/ww/compile/en/image/dungeon/1305205/1305205_epilogue.png",
+      "bgm": "bgm_12_087",
+      "is_require_ranking": true,
+      "stamina_list": [
+        20
+      ],
+      "ability_category_bonus_map": {},
+      "is_auto_lap": false,
+      "unlocked_series_ids": [],
+      "id": 1305205,
+      "world_id": 13052,
+      "button_style": "EXTRA",
+      "total_stamina": 20,
+      "name": "Odin Record",
+      "ss_gauge_type": 0,
+      "has_battle": true,
+      "type": 1,
+      "epilogue": "Event",
+      "progress_map_level": 0,
+      "platform_style": 10006,
+      "has_field": false,
+      "is_clear": true,
+      "is_new": false,
+      "prologue": "Event",
+      "buddy_additional_status_bonus_level": 0,
+      "challenge_level": 600,
+      "prizes": {
+        "1": [
+          {
+            "type_name": "COMMON",
+            "is_variable_num_prize": 0,
+            "num": 3000,
+            "image_path": "/dff/static/lang/ww/compile/en/image/common_item/92000000.png",
+            "is_got_grade_bonus_prize": 0,
+            "name": "Gil",
+            "id": 92000000
+          }
+        ],
+        "2": [
+          {
+            "type_name": "BEAST_FOOD",
+            "is_variable_num_prize": 0,
+            "num": 100,
+            "image_path": "/dff/static/lang/ww/compile/en/image/beast_food/190000005/190000005_112.png",
+            "is_got_grade_bonus_prize": 0,
+            "name": "Major Arcana",
+            "id": 190000005
+          },
+          {
+            "type_name": "COMMON",
+            "is_variable_num_prize": 0,
+            "num": 1,
+            "image_path": "/dff/static/lang/ww/compile/en/image/common_item/91000000.png",
+            "is_got_grade_bonus_prize": 0,
+            "name": "Mythril",
+            "id": 91000000
+          }
+        ],
+        "3": [
+          {
+            "type_name": "EQUIPMENT",
+            "is_variable_num_prize": 0,
+            "num": 1,
+            "image_path": "/dff/static/lang/ww/compile/en/image/equipment/22256341/22256341_100_112.png",
+            "is_got_grade_bonus_prize": 0,
+            "name": "Lord's Gauntlet: Magic Lightning",
+            "id": 22256341
+          },
+          {
+            "type_name": "EQUIPMENT",
+            "is_variable_num_prize": 0,
+            "num": 1,
+            "image_path": "/dff/static/lang/ww/compile/en/image/equipment/23080615/23080615_06_112.png",
+            "is_got_grade_bonus_prize": 0,
+            "name": "White-Armored Echoes",
+            "id": 23080615
+          },
+          {
+            "type_name": "EQUIPMENT",
+            "is_variable_num_prize": 0,
+            "num": 10,
+            "image_path": "/dff/static/lang/ww/compile/en/image/equipment/21002467/21002467_06_112.png",
+            "is_got_grade_bonus_prize": 0,
+            "name": "Upgrade Blade",
+            "id": 21002467
+          },
+          {
+            "type_name": "COMMON",
+            "is_variable_num_prize": 0,
+            "num": 15000000,
+            "image_path": "/dff/static/lang/ww/compile/en/image/common_item/92000000.png",
+            "is_got_grade_bonus_prize": 0,
+            "name": "Gil",
+            "id": 92000000
+          },
+          {
+            "type_name": "EQUIPMENT",
+            "is_variable_num_prize": 0,
+            "num": 1,
+            "image_path": "/dff/static/lang/ww/compile/en/image/equipment/21201203/21201203_100_112.png",
+            "is_got_grade_bonus_prize": 0,
+            "name": "Blade of Recollection: Lightning",
+            "id": 21201203
+          }
+        ],
+        "7": [
+          {
+            "type_name": "BEAST",
+            "clear_battle_time": 120009,
+            "num": 1,
+            "name": "Odin (Ultra Magic)",
+            "is_variable_num_prize": 0,
+            "image_path": "/dff/static/lang/ww/compile/en/image/beast/161000114/161000114_112.png",
+            "is_got_grade_bonus_prize": 0,
+            "id": 161000114
+          }
+        ],
+        "8": [
+          {
+            "type_name": "COMMON",
+            "num": 25,
+            "name": "Anima Lens +",
+            "disp_order": 1,
+            "grade_bonus_description": "Deal 10% damage or more to Lightning (Vulnerable: Earth)",
+            "is_variable_num_prize": 0,
+            "image_path": "/dff/static/lang/ww/compile/en/image/common_item/95004090.png",
+            "is_got_grade_bonus_prize": 1,
+            "id": 95004090
+          }
+        ],
+        "9": [
+          {
+            "type_name": "SPHERE_MATERIAL",
+            "num": 25,
+            "name": "6★ Vitality Mote",
+            "disp_order": 2,
+            "grade_bonus_description": "Deal 20% damage or more to Lightning (Vulnerable: Earth)",
+            "is_variable_num_prize": 0,
+            "image_path": "/dff/static/lang/image/sphere_material/130300400/130300400_112.png",
+            "is_got_grade_bonus_prize": 1,
+            "id": 130300400
+          },
+          {
+            "type_name": "SPHERE_MATERIAL",
+            "num": 25,
+            "name": "6★ Dexterity Mote",
+            "disp_order": 2,
+            "grade_bonus_description": "Deal 20% damage or more to Lightning (Vulnerable: Earth)",
+            "is_variable_num_prize": 0,
+            "image_path": "/dff/static/lang/image/sphere_material/130200400/130200400_112.png",
+            "is_got_grade_bonus_prize": 1,
+            "id": 130200400
+          }
+        ],
+        "10": [
+          {
+            "type_name": "SPHERE_MATERIAL",
+            "num": 25,
+            "name": "6★ Dexterity Mote",
+            "disp_order": 3,
+            "grade_bonus_description": "Deal 30% damage or more to Lightning (Vulnerable: Earth)",
+            "is_variable_num_prize": 0,
+            "image_path": "/dff/static/lang/image/sphere_material/130200400/130200400_112.png",
+            "is_got_grade_bonus_prize": 1,
+            "id": 130200400
+          },
+          {
+            "type_name": "SPHERE_MATERIAL",
+            "num": 35,
+            "name": "6★ Spirit Mote",
+            "disp_order": 3,
+            "grade_bonus_description": "Deal 30% damage or more to Lightning (Vulnerable: Earth)",
+            "is_variable_num_prize": 0,
+            "image_path": "/dff/static/lang/image/sphere_material/130100400/130100400_112.png",
+            "is_got_grade_bonus_prize": 1,
+            "id": 130100400
+          }
+        ],
+        "11": [
+          {
+            "type_name": "SPHERE_MATERIAL",
+            "num": 25,
+            "name": "6★ Vitality Mote",
+            "disp_order": 4,
+            "grade_bonus_description": "Deal 40% damage or more to Lightning (Vulnerable: Earth)",
+            "is_variable_num_prize": 0,
+            "image_path": "/dff/static/lang/image/sphere_material/130300400/130300400_112.png",
+            "is_got_grade_bonus_prize": 1,
+            "id": 130300400
+          },
+          {
+            "type_name": "SPHERE_MATERIAL",
+            "num": 35,
+            "name": "6★ Dexterity Mote",
+            "disp_order": 4,
+            "grade_bonus_description": "Deal 40% damage or more to Lightning (Vulnerable: Earth)",
+            "is_variable_num_prize": 0,
+            "image_path": "/dff/static/lang/image/sphere_material/130200400/130200400_112.png",
+            "is_got_grade_bonus_prize": 1,
+            "id": 130200400
+          }
+        ],
+        "12": [
+          {
+            "type_name": "SPHERE_MATERIAL",
+            "num": 25,
+            "name": "6★ Vitality Mote",
+            "disp_order": 5,
+            "grade_bonus_description": "Deal 50% damage or more to Lightning (Vulnerable: Earth)",
+            "is_variable_num_prize": 0,
+            "image_path": "/dff/static/lang/image/sphere_material/130300400/130300400_112.png",
+            "is_got_grade_bonus_prize": 1,
+            "id": 130300400
+          },
+          {
+            "type_name": "SPHERE_MATERIAL",
+            "num": 55,
+            "name": "6★ Dexterity Mote",
+            "disp_order": 5,
+            "grade_bonus_description": "Deal 50% damage or more to Lightning (Vulnerable: Earth)",
+            "is_variable_num_prize": 0,
+            "image_path": "/dff/static/lang/image/sphere_material/130200400/130200400_112.png",
+            "is_got_grade_bonus_prize": 1,
+            "id": 130200400
+          },
+          {
+            "type_name": "COMMON",
+            "num": 55,
+            "name": "Anima Lens +",
+            "disp_order": 5,
+            "grade_bonus_description": "Deal 50% damage or more to Lightning (Vulnerable: Earth)",
+            "is_variable_num_prize": 0,
+            "image_path": "/dff/static/lang/ww/compile/en/image/common_item/95004090.png",
+            "is_got_grade_bonus_prize": 1,
+            "id": 95004090
+          }
+        ],
+        "13": [
+          {
+            "type_name": "SPHERE_MATERIAL",
+            "num": 35,
+            "name": "6★ Vitality Mote",
+            "disp_order": 6,
+            "grade_bonus_description": "Deal 60% damage or more to Lightning (Vulnerable: Earth)",
+            "is_variable_num_prize": 0,
+            "image_path": "/dff/static/lang/image/sphere_material/130300400/130300400_112.png",
+            "is_got_grade_bonus_prize": 1,
+            "id": 130300400
+          },
+          {
+            "type_name": "SPHERE_MATERIAL",
+            "num": 35,
+            "name": "6★ Spirit Mote",
+            "disp_order": 6,
+            "grade_bonus_description": "Deal 60% damage or more to Lightning (Vulnerable: Earth)",
+            "is_variable_num_prize": 0,
+            "image_path": "/dff/static/lang/image/sphere_material/130100400/130100400_112.png",
+            "is_got_grade_bonus_prize": 1,
+            "id": 130100400
+          }
+        ],
+        "14": [
+          {
+            "type_name": "SPHERE_MATERIAL",
+            "num": 60,
+            "name": "6★ Vitality Mote",
+            "disp_order": 7,
+            "grade_bonus_description": "Deal 70% damage or more to Lightning (Vulnerable: Earth)",
+            "is_variable_num_prize": 0,
+            "image_path": "/dff/static/lang/image/sphere_material/130300400/130300400_112.png",
+            "is_got_grade_bonus_prize": 1,
+            "id": 130300400
+          },
+          {
+            "type_name": "SPHERE_MATERIAL",
+            "num": 65,
+            "name": "6★ Spirit Mote",
+            "disp_order": 7,
+            "grade_bonus_description": "Deal 70% damage or more to Lightning (Vulnerable: Earth)",
+            "is_variable_num_prize": 0,
+            "image_path": "/dff/static/lang/image/sphere_material/130100400/130100400_112.png",
+            "is_got_grade_bonus_prize": 1,
+            "id": 130100400
+          }
+        ],
+        "15": [
+          {
+            "type_name": "SPHERE_MATERIAL",
+            "num": 65,
+            "name": "6★ Dexterity Mote",
+            "disp_order": 8,
+            "grade_bonus_description": "Deal 80% damage or more to Lightning (Vulnerable: Earth)",
+            "is_variable_num_prize": 0,
+            "image_path": "/dff/static/lang/image/sphere_material/130200400/130200400_112.png",
+            "is_got_grade_bonus_prize": 1,
+            "id": 130200400
+          },
+          {
+            "type_name": "COMMON",
+            "num": 75,
+            "name": "Anima Lens +",
+            "disp_order": 8,
+            "grade_bonus_description": "Deal 80% damage or more to Lightning (Vulnerable: Earth)",
+            "is_variable_num_prize": 0,
+            "image_path": "/dff/static/lang/ww/compile/en/image/common_item/95004090.png",
+            "is_got_grade_bonus_prize": 1,
+            "id": 95004090
+          }
+        ],
+        "16": [
+          {
+            "type_name": "SPHERE_MATERIAL",
+            "num": 70,
+            "name": "6★ Vitality Mote",
+            "disp_order": 9,
+            "grade_bonus_description": "Deal 90% damage or more to Lightning (Vulnerable: Earth)",
+            "is_variable_num_prize": 0,
+            "image_path": "/dff/static/lang/image/sphere_material/130300400/130300400_112.png",
+            "is_got_grade_bonus_prize": 1,
+            "id": 130300400
+          },
+          {
+            "type_name": "SPHERE_MATERIAL",
+            "num": 85,
+            "name": "6★ Spirit Mote",
+            "disp_order": 9,
+            "grade_bonus_description": "Deal 90% damage or more to Lightning (Vulnerable: Earth)",
+            "is_variable_num_prize": 0,
+            "image_path": "/dff/static/lang/image/sphere_material/130100400/130100400_112.png",
+            "is_got_grade_bonus_prize": 1,
+            "id": 130100400
+          }
+        ],
+        "28": []
+      },
+      "battle_drop_items": [],
+      "battle_ticket_id_2_num": {},
+      "is_master": true,
+      "series_id": 1,
+      "required_max_stamina": 0,
+      "opened_at": 1605229200,
+      "continue_allowable_type": 1,
+      "is_unlocked": true,
+      "prologue_image_path": "/dff/static/lang/ww/compile/en/image/dungeon/1305205/1305205_prologue.png",
+      "rank": 3,
+      "background_image_path": "/dff/static/lang/ww/compile/en/image/event/3052_bg.png",
+      "captures": [
+        {
+          "enemy_id": "2712004",
+          "sp_scores": [
+            {
+              "battle_id": 130520501,
+              "title": "Defeat Odin."
+            }
+          ],
+          "image_path": "/dff/static/lang/image/enemy/2712004.png",
+          "tip_battle": {
+            "group_id": 100305205,
+            "html_content": "<div class=\"s-tip-battle-title mb-b4\">Odin (Lightning Unbound)</div>\n<div class=\"p-text-element-resistance img-rep mb-b\">属性耐性</div>\n<div class=\"s-element-resistance-table\">\n    <div class=\"s-element-icon-box\">\n        <div class=\"p-icon-shield img-rep\">盾</div>\n    </div>\n    <div class=\"s-element-icon-list\">\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-fire img-rep mlr-a m\"></div>\n            <div class=\"p-text-void img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-ice img-rep mlr-a m\"></div>\n            <div class=\"p-text-void img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-thunder img-rep mlr-a m\"></div>\n            <div class=\"p-text-absorption img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-soil img-rep mlr-a m\"></div>\n            <div class=\"p-text-weak img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-wind img-rep mlr-a m\"></div>\n            <div class=\"p-text-void img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-water img-rep mlr-a m\"></div>\n            <div class=\"p-text-void img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-holy img-rep mlr-a m\"></div>\n            <div class=\"p-text-void img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-darkness img-rep mlr-a m\"></div>\n            <div class=\"p-text-void img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-poison img-rep mlr-a m\"></div>\n            <div class=\"p-text-void img-rep mlr-a mt-6\"></div>\n        </div>\n\n    </div>\n</div>\n\n<div class=\"s-tip-battle-title mb-b4\">Odin (All Elements Unbound)</div>\n<div class=\"p-text-element-resistance img-rep mb-b\">属性耐性</div>\n<div class=\"s-element-resistance-table\">\n    <div class=\"s-element-icon-box\">\n        <div class=\"p-icon-shield img-rep\">盾</div>\n    </div>\n    <div class=\"s-element-icon-list\">\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-fire img-rep mlr-a m\"></div>\n            <div class=\"p-text-weak img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-ice img-rep mlr-a m\"></div>\n            <div class=\"p-text-weak img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-thunder img-rep mlr-a m\"></div>\n            <div class=\"p-text-weak img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-soil img-rep mlr-a m\"></div>\n            <div class=\"p-text-weak img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-wind img-rep mlr-a m\"></div>\n            <div class=\"p-text-weak img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-water img-rep mlr-a m\"></div>\n            <div class=\"p-text-weak img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-holy img-rep mlr-a m\"></div>\n            <div class=\"p-text-weak img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-darkness img-rep mlr-a m\"></div>\n            <div class=\"p-text-weak img-rep mlr-a mt-6\"></div>\n        </div>\n\n        <div class=\"s-element-icon-list__children\">\n            <div class=\"p-icon-poison img-rep mlr-a m\"></div>\n            <div class=\"p-text-weak img-rep mlr-a mt-6\"></div>\n        </div>\n\n    </div>\n</div>\n\n\n<div class=\"s-tip-battle-title mb-b4\">Shared</div>\n<div class=\"p-text-break-resistance img-rep mb-b\">ブレイク耐性</div>\n<div class=\"s-break-resistance-table\">\n\n        <div class=\"s-break-resistance-table__children\">\n            <div class=\"s-break-resistance-table__category\">\n                <div class=\"p-text-atk img-rep mlr-a\"></div>\n            </div>\n            <div class=\"s-break-resistance-table__level\"><div class=\"p-text-lv-7 img-rep mlr-a\"></div></div>\n        </div>\n\n        <div class=\"s-break-resistance-table__children\">\n            <div class=\"s-break-resistance-table__category\">\n                <div class=\"p-text-def img-rep mlr-a\"></div>\n            </div>\n            <div class=\"s-break-resistance-table__level\"><div class=\"p-text-lv-7 img-rep mlr-a\"></div></div>\n        </div>\n\n        <div class=\"s-break-resistance-table__children\">\n            <div class=\"s-break-resistance-table__category\">\n                <div class=\"p-text-matk img-rep mlr-a\"></div>\n            </div>\n            <div class=\"s-break-resistance-table__level\"><div class=\"p-text-lv-7 img-rep mlr-a\"></div></div>\n        </div>\n\n        <div class=\"s-break-resistance-table__children\">\n            <div class=\"s-break-resistance-table__category\">\n                <div class=\"p-text-mdef img-rep mlr-a\"></div>\n            </div>\n            <div class=\"s-break-resistance-table__level\"><div class=\"p-text-lv-7 img-rep mlr-a\"></div></div>\n        </div>\n\n        <div class=\"s-break-resistance-table__children\">\n            <div class=\"s-break-resistance-table__category\">\n                <div class=\"p-text-spt img-rep mlr-a\"></div>\n            </div>\n            <div class=\"s-break-resistance-table__level\"><div class=\"p-text-lv-7 img-rep mlr-a\"></div></div>\n        </div>\n\n</div>\n\n<div class=\"p-text-sa-resistance img-rep mb-b\">状態異常耐性</div>\n<div class=\"s-sa-resistance-table fs-s\">\n    <span class=\"c-text-color-disable-on-paper td-lt\"> Poison </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Silence </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Paralyze </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Confuse </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Slow </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Stop </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Reflect </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Blind </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Sleep </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Petrify </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Doom </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Instant KO </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Berserk </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Sap </span>/<span class=\"c-text-color-disable-on-paper td-lt\"> Interrupt </span>\n</div>\n",
+            "id": 100305205,
+            "title": "Odin (Argent)",
+            "wiki_guide_url": "",
+            "message": "<ul class=\"c-text-indent pl-b3 pr-b3 pb-b4\"><li class=\"c-text-indent__inner is-half mb-b\">-When granted <span class=\"red\">Thunderous Blessing</span>, damage dealt to the enemy <span class=\"red\">increases</span>, and damage dealt by the enemy <span class=\"red\">decreases</span>.</li><li class=\"c-text-indent__inner is-half mb-b\">-The enemy has resistance to <span class=\"red\">all damage</span>, and <span class=\"red\">physical attacks</span> also deal reduced damage.</li><li class=\"c-text-indent__inner is-half mb-b\">-The enemy's Rage level is more likely to increase when his remaining HP is between <span class=\"red\">80% and 90%</span> or <span class=\"red\">40% and 50%</span>.</li><li class=\"c-text-indent__inner is-half mb-b\">-<span class=\"red\">While infused with the power of earth</span>, the <span class=\"red\">earth damage you deal to the enemy increases</span>.</li><li class=\"c-text-indent__inner is-half mb-b\">-The enemy uses <span class=\"red\">Trine</span> on <span class=\"red\">heroes not infused with the power of earth</span> to <span class=\"red\">Paralyze</span> them, ignoring resistances.</li><li class=\"c-text-indent__inner is-half mb-b\">-The enemy uses <span class=\"red\">Death</span> to <span class=\"red\">Instantly KO</span> all targets in range, ignoring resistances.</li><li class=\"c-text-indent__inner is-half mb-b\">-The enemy uses <span class=\"red\">Mighty Guard</span> to grant itself <span class=\"red\">Protect, Shell, and Haste</span>.</li><li class=\"c-text-indent__inner is-half mb-b\">-The enemy uses <span class=\"red\">Lightning Zanokuken</span> and <span class=\"red\">Antiheal</span>, which <span class=\"red\">reduce the effects of healing</span>.</li><li class=\"c-text-indent__inner is-half mb-b\">-The enemy uses <span class=\"red\">Argent Zantetsuken</span> to <span class=\"red\">Sap</span>, ignoring resistances, with an effect that depends on its Rage level.<li class=\"c-text-indent_inner is-half mb-b\">-At Rage level 3, <span class=\"red\">Argent Zantetsuken</span> will <span class=\"red\">KO the entire party</span>.<li class=\"c-text-indent_inner is-half mb-b\">-If the fight lasts too long and you haven't reduced the enemy's HP enough, the enemy uses <span class=\"red\">Argent Warp</span> to <span class=\"red\">remove all heroes from the battle</span>.<li class=\"c-text-indent__inner is-half mb-b\">-After a certain number of turns passes, or when the enemy loses a certain amount of HP, its <span class=\"red\">Rage level</span> increases up to a maximum of 3.</li><li class=\"c-text-indent__inner is-half mb-b\">-When the enemy's Rage level increases, it <span class=\"red\">takes less damage</span> and <span class=\"red\">deals more damage</span>.</li><li class=\"c-text-indent__inner is-half mb-b\">-Deal <span class=\"red\">damage greater than the damage cap</span> to lower the <span class=\"red\">Rage level</span> by 1.</li></ul>"
+          }
+        }
+      ]
+    },
+    "party": {
+      "historia_crystal_id": 24098021,
+      "enable_talisman_type": 0,
+      "beast_id_main": "40079029",
+      "slot_to_beast_id_sub": {
+        "1": 36067115,
+        "2": 25608130,
+        "3": 17629746,
+        "4": 28831302
+      },
+      "slot_to_buddy_id": {
+        "1": 47236966,
+        "2": 48540366,
+        "3": 49546500,
+        "4": 47249293,
+        "5": 49665828
+      },
+      "user_id": 5679473043701760
+    },
+    "assets": {
+      "player_common_battle_list": {
+        "bundle": {
+          "/Content/lang/ww/compile/en/ab/effect_image/img_light_01.json": {
+            "hash": "V08fQyTG4T6GDMosX2YVxg"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/img_round.png": {
+            "hash": "R+wta9Mi7cf5tzLT8P7kNg"
+          },
+          "/Content/lang/ww/compile/en/ab/character/player/pb_lb_aura_big_break.json": {
+            "hash": "axEjvaWSnzmFX39cFByWZA"
+          },
+          "/Content/lang/ww/compile/en/ab/character/player/sab/106001/img_chara.json": {
+            "hash": "tSBHLfFvb15f9XtPWHg6bA"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/img_lb_aura_silver.png": {
+            "hash": "b8Sb/BTa+oHMu3KRF5kpUQ"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/img_wind_i.png": {
+            "hash": "B5xB0zDlG20PzTVaomukPQ"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/img_glass_hit.png": {
+            "hash": "6jXdERuDyuuBDY1Hpmyadg"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/img_glass_hit.json": {
+            "hash": "2d96FCoELXdn5wyC96te7A"
+          },
+          "/Content/lang/ww/compile/en/ab/equip/weapon/100166/img_100166.png": {
+            "hash": "o3Vd19fUtZJ9nTFxBcDpkQ"
+          },
+          "/Content/lang/ww/compile/en/ab/character/player/pb_launch_dash.json": {
+            "hash": "J+KWiPXvOwiyfRsIDGbsfg"
+          },
+          "/Content/lang/ww/compile/en/ab/character/player/player_common.json": {
+            "hash": "7B6WmNxfGnQRcpIfNg0XkQ"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/img_normal_atks_alpha.png": {
+            "hash": "h4TI9BU81ou9aynw7MDC7g"
+          },
+          "/Content/lang/ww/compile/en/ab/character/common/img_shadow.png": {
+            "hash": "9VR2DDhy7NiAMx9m+wUZ6A"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/img_common_eff.json": {
+            "hash": "DPbdpQaVg6X9+/H6Djwh1g"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/img_normal_atks.json": {
+            "hash": "JJirDrM1e/OlIjYhVRis9w"
+          },
+          "/Content/lang/se/se_ogg/se_ability_00001.ogg": {
+            "hash": "O7wxtzhfVHwkFxZlV70bPQ"
+          },
+          "/Content/lang/se/se_ogg/se_ability_00261.ogg": {
+            "hash": "JQLf5QWnooPbU1CQh1fUXQ"
+          },
+          "/Content/lang/ww/compile/en/ab/character/common/resist_sword.png": {
+            "hash": "foDI6r0roFofZ4232ej89w"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/img_lb_aura_silver.json": {
+            "hash": "YEyStn2gg7kcNHTXv69Evw"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/img_wind_i.json": {
+            "hash": "i95hg+TqIYSbNIoKxPvNoA"
+          },
+          "/Content/lang/se/se_ogg/se_ability_10100.ogg": {
+            "hash": "KAZUru9Y0Y596UJUcD29tQ"
+          },
+          "/Content/lang/se/se_ogg/se_ability_00582.ogg": {
+            "hash": "QiCZpBCSNt68NNH/vAi36A"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/img_light_01.png": {
+            "hash": "6bAULnwkhXKcYlElSbEtDA"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/img_normal_atks_alpha.json": {
+            "hash": "Zg1ityaMBYEaRrKDpMk4uA"
+          },
+          "/Content/lang/ww/compile/en/ab/character/player/sab/106001/img_chara.png": {
+            "hash": "ZTGri2kGuVwOu7Lfs1mA4g"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/img_round.json": {
+            "hash": "Wo2J09Y+ovWJ7fNqRulJfg"
+          },
+          "/Content/lang/ww/compile/en/ab/character/player/sab/106001/base.sajson": {
+            "hash": "QekZ9TmAaJOTlw2S6lDNoQ"
+          },
+          "/Content/lang/ww/compile/en/ab/equip/weapon/100166/img_100166.json": {
+            "hash": "DgC+CfxProzd4SWVC0S21w"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/img_common_eff.png": {
+            "hash": "+PsJP5CHMDA4Jz3wKtOQmg"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/img_normal_atks.png": {
+            "hash": "h4TI9BU81ou9aynw7MDC7g"
+          },
+          "/Content/lang/ww/compile/en/ab/character/player/pb_land_dash.json": {
+            "hash": "YtrG/I1V6CHnIXFfEpxJCQ"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/img_common_anima.json": {
+            "hash": "8o5sJFjzbX1TwFjGP50/GQ"
+          },
+          "/Content/lang/se/se_ogg/se_ability_00530.ogg": {
+            "hash": "Zy81G6rSVjh2XpXKG4I1qA"
+          },
+          "/Content/lang/ww/compile/en/ab/equip/weapon/900002/shield.png": {
+            "hash": "UyvsKIMOJtiTsZlMVLc7kg"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/img_eff_fire.json": {
+            "hash": "7VzCDmEK9bZXfq+QvbOm9g"
+          },
+          "/Content/lang/se/se_ogg/se_ability_00640.ogg": {
+            "hash": "DE4Qr37g6fjGvKd3hZ0DWQ"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/img_eff_fire.png": {
+            "hash": "lKeVc4YW31UgmCScKaDGlQ"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/img_common_anima.png": {
+            "hash": "3SVokOXRh0uHeGEYQQzN8g"
+          }
+        },
+        "assetPath": "/Content/lang/ww/compile/en/ab/character/player/player_common.json"
+      },
+      "tutorial_arrow": {
+        "bundle": {
+          "/Content/lang/ww/compile/en/ab/tutorial/img_tutorial_1.png": {
+            "hash": "oxfxx70MuICPoYmedgy2uA"
+          },
+          "/Content/lang/ww/compile/en/ab/tutorial/img_tutorial_1.json": {
+            "hash": "+qNs4BGd8rBjI84E1bfYMg"
+          },
+          "/Content/lang/ww/compile/en/ab/tutorial/an_arrow.json": {
+            "hash": "VWGTDfUuFsqPPQXN0bNdwA"
+          }
+        },
+        "assetPath": "/Content/lang/ww/compile/en/ab/tutorial/an_arrow.json"
+      },
+      "dungeon-pf-10006": {
+        "bundle": {
+          "/Content/lang/ww/compile/en/ab/effect_image/eff_glow_ring.png": {
+            "hash": "EA6uqfa1hppFVrRzmZzuxw"
+          },
+          "/Content/lang/ww/compile/en/ab/ability/71344/img_eff_circle_bw.png": {
+            "hash": "TnDBUlJb7GiPHLp9HEtQvA"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/eff_thunder_w.png": {
+            "hash": "q105Cj6GrhcvOhkbp/i4ag"
+          },
+          "/Content/lang/ww/compile/en/ab/battle_list/platform/10005/img_10005.json": {
+            "hash": "CwwmiHVKcWw4xho11P8oFg"
+          },
+          "/Content/lang/ww/compile/en/ab/battle_list/platform/10006/img_10006.json": {
+            "hash": "PucpTGnPey8TrR4B2qDjtw"
+          },
+          "/Content/lang/ww/compile/en/ab/ability/71344/img_common_ef.json": {
+            "hash": "lnKIH3Z5FaFK2CYTRYwWTg"
+          },
+          "/Content/lang/ww/compile/en/ab/ability/71344/img_common_ef.png": {
+            "hash": "3SVokOXRh0uHeGEYQQzN8g"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/eff_thunder_w.json": {
+            "hash": "Gw1yzUbB27GVniDJQsJDLw"
+          },
+          "/Content/lang/ww/compile/en/ab/battle_list/platform/10006/10006.json": {
+            "hash": "FfuGMl39EzIXMThgiy6m8w"
+          },
+          "/Content/lang/ww/compile/en/ab/battle_list/platform/10005/img_10005.png": {
+            "hash": "IXWsBN3OTvMJxhxkNnCrEQ"
+          },
+          "/Content/lang/ww/compile/en/ab/battle_list/platform/10006/pb_10006_eff.json": {
+            "hash": "xdSGiIwhiPUACChZHkh6wQ"
+          },
+          "/Content/lang/ww/compile/en/ab/battle_list/platform/10006/img_10006.png": {
+            "hash": "NhxsGrK8AkpStIV6/rM74A"
+          }
+        },
+        "assetPath": "/Content/lang/ww/compile/en/ab/battle_list/platform/10006/10006.json"
+      },
+      "dungeon-bg-1305205": {
+        "bundle": {
+          "/Content/lang/ww/compile/en/image/event/3052_bg.png": {
+            "hash": "RvNfi4+OUksIo33c6vrUdQ"
+          }
+        },
+        "assetPath": "/Content/lang/ww/compile/en/image/event/3052_bg.png"
+      },
+      "boss-370010_1": {
+        "bundle": {
+          "/Content/lang/ww/compile/en/ab/effect_image/img_light_01.json": {
+            "hash": "V08fQyTG4T6GDMosX2YVxg"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/eff_thunder_w.png": {
+            "hash": "q105Cj6GrhcvOhkbp/i4ag"
+          },
+          "/Content/lang/se/se_ogg/se_ability_00450.ogg": {
+            "hash": "G00kTPLNjB3aneR10EgPdQ"
+          },
+          "/Content/lang/se/se_ogg/se_battle_101010.ogg": {
+            "hash": "X+QfwFwBvpEl9osuZ5ITIQ"
+          },
+          "/Content/lang/ww/compile/en/ab/character/boss/370010/img_eff.json": {
+            "hash": "PwQ4k79jiFr3wUlP1hfmog"
+          },
+          "/Content/lang/ww/compile/en/ab/character/boss/370010/pb_lv3_back.json": {
+            "hash": "xHoecAOO2xQra6iv2jrV2Q"
+          },
+          "/Content/lang/ww/compile/en/ab/character/boss/370010/370010_1.json": {
+            "hash": "Velwxb8ayrARywAwzn8y5w"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/img_wave_u_anm.json": {
+            "hash": "uqdS2IBg0utFunvx+Bqw8g"
+          },
+          "/Content/lang/se/se_ogg/se_battle_101019.ogg": {
+            "hash": "Tl1luHK1tYZD6pg/NVicBg"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/u_wave.sajson": {
+            "hash": "ldiPt7cJpLr6NmJJsBnynw"
+          },
+          "/Content/lang/se/se_ogg/se_common_100025.ogg": {
+            "hash": "HzKwHc+o7CowaQjx8mowcA"
+          },
+          "/Content/lang/ww/compile/en/ab/character/boss/370010/pb_phase3_front.json": {
+            "hash": "PwkutbvK3LYhJE5ZsgtlEw"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/eff_light02.png": {
+            "hash": "Sjv72DvWV55JpDKAYs1tmA"
+          },
+          "/Content/lang/ww/compile/en/ab/character/boss/370010/pb_sword_short.json": {
+            "hash": "nS+0AvHpn1s6vxXPByqwkA"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/img_wind_i.png": {
+            "hash": "B5xB0zDlG20PzTVaomukPQ"
+          },
+          "/Content/lang/ww/compile/en/ab/character/boss/370010/pb_sleipnir_kick.json": {
+            "hash": "IAJGlU/+Zn2reuoAeYLY0Q"
+          },
+          "/Content/lang/ww/compile/en/ab/character/boss/370010/pb_change.json": {
+            "hash": "wH1yPxSwMjCVDky5dp6viQ"
+          },
+          "/Content/lang/se/se_ogg/se_battle_101008.ogg": {
+            "hash": "84IOdLLQMm8K/1T3apq2Dg"
+          },
+          "/Content/lang/ww/compile/en/ab/character/boss/370010/pb_sword.json": {
+            "hash": "VGZ5mhUl7+bHmzLO/rMj9Q"
+          },
+          "/Content/lang/se/se_ogg/se_ability_00181.ogg": {
+            "hash": "T1qlvYLIKeYMK+futGJibQ"
+          },
+          "/Content/lang/se/se_ogg/se_battle_101009.ogg": {
+            "hash": "AOqgbedsHar3vcNB/fOPcA"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/img_thunder_256.json": {
+            "hash": "ET8JwCXg/m7QFGIdi0VnMA"
+          },
+          "/Content/lang/ww/compile/en/ab/character/boss/370010/pb_lv1_front.json": {
+            "hash": "9r+fLah4s7NgtMZV27FUgQ"
+          },
+          "/Content/lang/ww/compile/en/ab/character/boss/370010/img_370010.json": {
+            "hash": "gvzF8UYKpB+yVueZgTmJEQ"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/eff_smoke1.png": {
+            "hash": "Ejt/7Au0E9QnFaC1V1CupQ"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/img_normal_atks_alpha.png": {
+            "hash": "h4TI9BU81ou9aynw7MDC7g"
+          },
+          "/Content/lang/se/se_ogg/se_ability_00740.ogg": {
+            "hash": "3PGpgqi3m6AY9et4CXehUg"
+          },
+          "/Content/lang/se/se_ogg/se_ability_50003.ogg": {
+            "hash": "Mym1CuyNEWQDBSx/7qKAzw"
+          },
+          "/Content/lang/ww/compile/en/ab/character/boss/370010/pb_lv1_back.json": {
+            "hash": "ttBA66yNZLCyp0Nkm0BetA"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/img_sonic.png": {
+            "hash": "GujndlRehOCpugEsLAHIVg"
+          },
+          "/Content/lang/ww/compile/en/ab/character/boss/370010/pb_smoke.json": {
+            "hash": "qepwbKK5AhLyjKKa7i6iSQ"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/img_wave_u_anm.png": {
+            "hash": "/dXetN+X/oRugkaue3Gnkw"
+          },
+          "/Content/lang/ww/compile/en/ab/character/common/img_shadow.png": {
+            "hash": "9VR2DDhy7NiAMx9m+wUZ6A"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/eff_water_01.png": {
+            "hash": "Zobl46TqAb5Z+KJEbDbwAQ"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/img_common_eff.json": {
+            "hash": "DPbdpQaVg6X9+/H6Djwh1g"
+          },
+          "/Content/lang/ww/compile/en/ab/character/boss/370010/img_370010.png": {
+            "hash": "R3Z2u51YaEoYZ6KWipaAmA"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/img_stone_1.png": {
+            "hash": "wQAluj24kJzPRfscxho6vw"
+          },
+          "/Content/lang/ww/compile/en/ab/character/boss/370010/img_eff.png": {
+            "hash": "VJ6LIg0anoBBKihWm3j46g"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/eff_thunder_w.json": {
+            "hash": "Gw1yzUbB27GVniDJQsJDLw"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/img_eff_01.png": {
+            "hash": "lqlI1yYIl8hfQIawA1sRlg"
+          },
+          "/Content/lang/ww/compile/en/ab/character/boss/370010/pb_phase3_back.json": {
+            "hash": "N/cMl9zkiXu8G5VQ1Ie2GQ"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/img_normal_atks.json": {
+            "hash": "JJirDrM1e/OlIjYhVRis9w"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/img_wind_i.json": {
+            "hash": "i95hg+TqIYSbNIoKxPvNoA"
+          },
+          "/Content/lang/ww/compile/en/ab/character/boss/370010/pb_lv3_front.json": {
+            "hash": "sNO6lRHu8IHfbvYdk94N7g"
+          },
+          "/Content/lang/se/se_ogg/se_ability_00301.ogg": {
+            "hash": "KMV4EqN768TKJ4hz3qJrYQ"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/img_light_01.png": {
+            "hash": "6bAULnwkhXKcYlElSbEtDA"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/img_normal_atks_alpha.json": {
+            "hash": "Zg1ityaMBYEaRrKDpMk4uA"
+          },
+          "/Content/lang/se/se_ogg/se_ability_10172.ogg": {
+            "hash": "mHZiZsXg5I5uGHs5YV6jLg"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/img_wave.png": {
+            "hash": "YBVkSfFr5OS2Y52P3dycbQ"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/img_common_eff.png": {
+            "hash": "+PsJP5CHMDA4Jz3wKtOQmg"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/img_normal_atks.png": {
+            "hash": "h4TI9BU81ou9aynw7MDC7g"
+          },
+          "/Content/lang/ww/compile/en/ab/character/boss/370010/pb_lv2_back.json": {
+            "hash": "Nsh8v2zJ1sM8Q8Z/blPv1w"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/img_stone_1.json": {
+            "hash": "F9OpdZYIBkHD9m3kyd49Dw"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/img_common_anima.json": {
+            "hash": "8o5sJFjzbX1TwFjGP50/GQ"
+          },
+          "/Content/lang/se/se_ogg/se_ability_10144.ogg": {
+            "hash": "xHNT95yrFx7EoPiJTQr0OA"
+          },
+          "/Content/lang/ww/compile/en/ab/character/boss/370010/pb_lv2_front.json": {
+            "hash": "ToM3sr5/b5UUf6oxCcYPwg"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/img_flare.png": {
+            "hash": "JtvYZQ21e4oxAweGJxIdWQ"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/img_thunder_256.png": {
+            "hash": "HyNL5S6hQkgMTx1zek1FoA"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/img_aura_flash.png": {
+            "hash": "+NxUhWmw6DXNZCQo1BxpVw"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/img_eff_01.json": {
+            "hash": "OJ5kfYeo5AyP3RbrqYGa3g"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/img_eff_fire.json": {
+            "hash": "7VzCDmEK9bZXfq+QvbOm9g"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/img_common_anima.png": {
+            "hash": "3SVokOXRh0uHeGEYQQzN8g"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/img_eff_fire.png": {
+            "hash": "lKeVc4YW31UgmCScKaDGlQ"
+          }
+        },
+        "assetPath": "/Content/lang/ww/compile/en/ab/character/boss/370010/370010_1.json"
+      },
+      "battle_list": {
+        "bundle": {
+          "/Content/lang/ww/compile/en/ab/effect_image/img_light_01.json": {
+            "hash": "V08fQyTG4T6GDMosX2YVxg"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/img_light_line.png": {
+            "hash": "MsDaWdAq52FE3rZDizThoQ"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/eff_thunder_w.png": {
+            "hash": "q105Cj6GrhcvOhkbp/i4ag"
+          },
+          "/Content/lang/ww/compile/en/ab/battle_list/result_ico_eff.json": {
+            "hash": "0RVHLx7Rp+oCXh8nde9WVQ"
+          },
+          "/Content/lang/ww/compile/en/ab/battle_list/pb_force_bg_eff.json": {
+            "hash": "oyV6B5y0uueIQsbdsesSgA"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/img_kira.json": {
+            "hash": "KYB/pwMi8zjGTcJgt2bBHg"
+          },
+          "/Content/lang/ww/compile/en/ab/battle_list/pb_touch_eff_front.json": {
+            "hash": "D/SwPw1/x46BCAfrlqeCWA"
+          },
+          "/Content/lang/ww/compile/en/ab/battle_list/img_battle_list.png": {
+            "hash": "2tj0603AJJtuav9SkrS21w"
+          },
+          "/Content/lang/ww/compile/en/ab/battle_list/pb_stage_eff.json": {
+            "hash": "InLC5O6P2494AZary/WuFA"
+          },
+          "/Content/lang/ww/compile/en/ab/battle_list/pb_nightmare_top.json": {
+            "hash": "UhLRTJB78vSiRrZvc36MVw"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/img_eff_light_circle.png": {
+            "hash": "iPeWXyrfqsz6NqCOeM/pfA"
+          },
+          "/Content/lang/ww/compile/en/ab/battle_list/pb_chaos_bg_eff.json": {
+            "hash": "dlOLLNl4PQjUPwDabde6CQ"
+          },
+          "/Content/lang/ww/compile/en/ab/battle/drop_icon/95001006.png": {
+            "hash": "1ozd2xntBFA3pzIX6wS/9Q"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/eff_light02.png": {
+            "hash": "Sjv72DvWV55JpDKAYs1tmA"
+          },
+          "/Content/lang/ww/compile/en/ab/battle_list/pb_touch_eff.json": {
+            "hash": "Gf8k7EKyt4hcMtoQRFg2hg"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/img_white_ring.png": {
+            "hash": "b2t6M5+SAlzp/UT22tEZ6w"
+          },
+          "/Content/lang/ww/compile/en/ab/battle_list/img_atlas.png": {
+            "hash": "4gmQUiLpzgZ3rQ345KDJiw"
+          },
+          "/Content/lang/ww/compile/en/ab/battle_list/txt_evaluation.sajson": {
+            "hash": "itsNxDJtf8CeFjPcKPvs/Q"
+          },
+          "/Content/lang/ww/compile/en/ab/battle_list/battle_list.json": {
+            "hash": "F2MFUB4Xqon8zMXxoMsh+w"
+          },
+          "/Content/lang/ww/compile/en/ab/battle_list/img_magicite.png": {
+            "hash": "LyUH6D4gg+sQgufvbGHxvg"
+          },
+          "/Content/lang/ww/compile/en/ab/battle_list/img_atlas.json": {
+            "hash": "aW89hEbFQ+RA8151BQWihA"
+          },
+          "/Content/lang/ww/compile/en/ab/battle_list/pb_platform_eff.json": {
+            "hash": "nWHMLSqU+f7th4duV+DRhQ"
+          },
+          "/Content/lang/ww/compile/en/ab/battle_list/pb_stage_front_boss_eff.json": {
+            "hash": "TOpcuN4cRDMvLUptLzWFGQ"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/img_light_line.json": {
+            "hash": "5W889sndvoo+0O/fwwRDBg"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/img_sonic.png": {
+            "hash": "GujndlRehOCpugEsLAHIVg"
+          },
+          "/Content/lang/se/se_ogg/se_common_100007.ogg": {
+            "hash": "GZUuGjtrxQtds9smsa9gNg"
+          },
+          "/Content/lang/se/se_ogg/se_common_100038.ogg": {
+            "hash": "Fp6KrTSloEyQeN2UeuV44g"
+          },
+          "/Content/lang/ww/compile/en/ab/battle_list/pb_stage_back_boss_eff.json": {
+            "hash": "TpcfLhII8uGazqbxInyS8A"
+          },
+          "/Content/lang/ww/compile/en/ab/battle_list/img_chaos.png": {
+            "hash": "Ub//iFqR9SvPfU0HAkSQIA"
+          },
+          "/Content/lang/se/se_ogg/se_battle_common_101063.ogg": {
+            "hash": "idxolqWzm35wNrRzYdgJmQ"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/eff_light05.png": {
+            "hash": "Q5QSHLMLo5VM1GJAGRoaAA"
+          },
+          "/Content/lang/ww/compile/en/ab/battle_list/pb_stage_clear_03.json": {
+            "hash": "AVf3MTP/Q+liGILQsTt7iw"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/img_common_eff.json": {
+            "hash": "DPbdpQaVg6X9+/H6Djwh1g"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/img_eff_circle02.png": {
+            "hash": "mTAvA/KoudjpNqfBj1A/oA"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/img_kira.png": {
+            "hash": "/gr3+rUayUcUbmk1P1UdLQ"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/img_eff_01.png": {
+            "hash": "lqlI1yYIl8hfQIawA1sRlg"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/eff_thunder_w.json": {
+            "hash": "Gw1yzUbB27GVniDJQsJDLw"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/img_normal_atks.json": {
+            "hash": "JJirDrM1e/OlIjYhVRis9w"
+          },
+          "/Content/lang/ww/compile/en/ab/battle_list/pb_stage_back_clear_eff.json": {
+            "hash": "2pGpfVD0IP0j7IYoMZXMOw"
+          },
+          "/Content/lang/ww/compile/en/ab/battle_list/img_chaos.json": {
+            "hash": "vqhsk6sXa5H6QrHFDXW29w"
+          },
+          "/Content/lang/se/se_ogg/se_common_100039.ogg": {
+            "hash": "rmTTeOqBHq5iTz8AtTwTDw"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/img_light_01.png": {
+            "hash": "6bAULnwkhXKcYlElSbEtDA"
+          },
+          "/Content/lang/ww/compile/en/ab/battle_list/pb_stage_front_eff.json": {
+            "hash": "yXsHKenwFPLJaymOe3KtLg"
+          },
+          "/Content/lang/ww/compile/en/ab/battle_list/pb_nightmare_bottom.json": {
+            "hash": "ALcCv+b1RqleWInwEixg7w"
+          },
+          "/Content/lang/ww/compile/en/ab/event/countdown2016/battle/img_count.png": {
+            "hash": "Kqq7QjOsMF4jzrjk013E1A"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/img_normal_atks.png": {
+            "hash": "h4TI9BU81ou9aynw7MDC7g"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/img_common_eff.png": {
+            "hash": "+PsJP5CHMDA4Jz3wKtOQmg"
+          },
+          "/Content/lang/ww/compile/en/ab/battle_list/img_battle_list.json": {
+            "hash": "Wfo/bYtxO7imG0/H3wGVCA"
+          },
+          "/Content/lang/ww/compile/en/ab/event/countdown2016/battle/sa_count_num.sajson": {
+            "hash": "BPj4rxVwHEVwXqkn3dyzig"
+          },
+          "/Content/lang/ww/compile/en/ab/event/countdown2016/battle/img_count.json": {
+            "hash": "etqqHKWc4WBwf/OUyweHqQ"
+          },
+          "/Content/lang/font/gillsansstd_for_ab.ttf": {
+            "hash": "WkG5Tec3NUt1ie9hJyv/3g"
+          },
+          "/Content/lang/se/se_ogg/se_common_100031.ogg": {
+            "hash": "81IQhQ7YVqUkPQTXRKtd1w"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/img_eff_01.json": {
+            "hash": "OJ5kfYeo5AyP3RbrqYGa3g"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/img_eff_fire.json": {
+            "hash": "7VzCDmEK9bZXfq+QvbOm9g"
+          },
+          "/Content/lang/ww/compile/en/ab/battle_list/pb_stage_clear_02.json": {
+            "hash": "kGgg64cfvC88Ivnpjt90DA"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/img_eff_fire.png": {
+            "hash": "lKeVc4YW31UgmCScKaDGlQ"
+          }
+        },
+        "assetPath": "/Content/lang/ww/compile/en/ab/battle_list/battle_list.json"
+      },
+      "over_drive_mode_aura": {
+        "bundle": {
+          "/Content/lang/ww/compile/en/ab/effect_image/img_limit_chain.json": {
+            "hash": "F8Tt0fHPOhrhKeJrsryw7g"
+          },
+          "/Content/lang/ww/compile/en/ab/character/overdrive/pb_overdrive_ring_02.json": {
+            "hash": "wrGLhLpNw2Tn4wKGGRMzrg"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/img_common_eff.json": {
+            "hash": "DPbdpQaVg6X9+/H6Djwh1g"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/img_common_eff.png": {
+            "hash": "+PsJP5CHMDA4Jz3wKtOQmg"
+          },
+          "/Content/lang/ww/compile/en/ab/character/overdrive/pb_overdrive_ring.json": {
+            "hash": "TLtOYo7TwCw6fRUjwPJsTA"
+          },
+          "/Content/lang/ww/compile/en/ab/character/overdrive/eff_overdrive_aura.json": {
+            "hash": "hmWird9j+36+4x5BDHg/lQ"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/img_eff_fire.json": {
+            "hash": "7VzCDmEK9bZXfq+QvbOm9g"
+          },
+          "/Content/lang/ww/compile/en/ab/character/overdrive/pb_overdrive_light_s.json": {
+            "hash": "BLAm7YacYs9PHuo0IJ7Tjw"
+          },
+          "/Content/lang/ww/compile/en/ab/character/overdrive/img_white_ring_6.png": {
+            "hash": "5kryHMz2RzK9gsvqna4QCw"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/img_limit_chain.png": {
+            "hash": "CS35VFlsWBoD85xNk0IbSQ"
+          },
+          "/Content/lang/ww/compile/en/ab/effect_image/img_eff_fire.png": {
+            "hash": "lKeVc4YW31UgmCScKaDGlQ"
+          }
+        },
+        "assetPath": "/Content/lang/ww/compile/en/ab/character/overdrive/eff_overdrive_aura.json"
+      },
+      "animation-buddy-10400400": {
+        "bundle": {
+          "/Content/lang/ww/compile/en/ab/character/player/sab/104004/img_chara.json": {
+            "hash": "5MV8/eUfcJI0+ijhvW4Gew"
+          },
+          "/Content/lang/ww/compile/en/ab/character/player/sab/104004/img_chara.png": {
+            "hash": "Amc71dIgnJsd6ErYIP0ZOw"
+          },
+          "/Content/lang/ww/compile/en/ab/character/player/sab/104004/base.sajson": {
+            "hash": "A8Is7mpWayMjSvgd6VZQcA"
+          }
+        },
+        "assetPath": "/Content/lang/ww/compile/en/ab/character/player/sab/104004/base.sajson"
+      }
+    },
+    "dungeon_session": {
+      "closed_at": 2145938400,
+      "party_status": {
+        "1": {
+          "hp": 10780,
+          "no": 1,
+          "soul_strike_gauge": 0,
+          "user_dungeon_session_buddy": {
+            "max_hp": 10780,
+            "ability_1_max_num": 6,
+            "hp": 10780,
+            "ability_2_num": 6,
+            "no": 1,
+            "ability_1_num": 6,
+            "ability_2_max_num": 6
+          },
+          "max_hp": 10780,
+          "ability_1_max_num": 6,
+          "soul_strike_id_to_rest_num": {
+            "20090001": "-1",
+            "20090005": "-1",
+            "20090011": "1",
+            "20090012": "-1",
+            "20090015": "1",
+            "20090017": "1",
+            "20090022": "1"
+          },
+          "ability_2_num": 6,
+          "status_ailments": [],
+          "user_buddy_id": 47236966,
+          "ability_1_num": 6,
+          "ability_2_max_num": 6
+        },
+        "2": {
+          "hp": 12345,
+          "no": 2,
+          "soul_strike_gauge": 500,
+          "user_dungeon_session_buddy": {
+            "max_hp": 12345,
+            "ability_1_max_num": 10,
+            "hp": 12345,
+            "ability_2_num": 2,
+            "no": 2,
+            "ability_1_num": 10,
+            "ability_2_max_num": 2
+          },
+          "max_hp": 12345,
+          "ability_1_max_num": 10,
+          "soul_strike_id_to_rest_num": {
+            "20900002": "-1",
+            "20900003": "-1",
+            "20900005": "-1",
+            "20900007": "1",
+            "20900009": "1",
+            "21000048": "-1"
+          },
+          "ability_2_num": 2,
+          "status_ailments": [],
+          "user_buddy_id": 48540366,
+          "ability_1_num": 10,
+          "ability_2_max_num": 2
+        },
+        "3": {
+          "hp": 11120,
+          "no": 3,
+          "soul_strike_gauge": 0,
+          "user_dungeon_session_buddy": {
+            "max_hp": 11120,
+            "ability_1_max_num": 10,
+            "hp": 11120,
+            "ability_2_num": 10,
+            "no": 3,
+            "ability_1_num": 10,
+            "ability_2_max_num": 10
+          },
+          "max_hp": 11120,
+          "ability_1_max_num": 10,
+          "soul_strike_id_to_rest_num": {
+            "20300001": "-1",
+            "20300006": "-1",
+            "20300009": "-1",
+            "20300011": "-1",
+            "20300012": "-1",
+            "20300013": "1",
+            "20300014": "-1",
+            "20300016": "1",
+            "20300017": "1",
+            "20300018": "1",
+            "20300019": "1",
+            "20300020": "1"
+          },
+          "ability_2_num": 10,
+          "status_ailments": [],
+          "user_buddy_id": 49546500,
+          "ability_1_num": 10,
+          "ability_2_max_num": 10
+        },
+        "4": {
+          "hp": 11135,
+          "no": 4,
+          "soul_strike_gauge": 0,
+          "user_dungeon_session_buddy": {
+            "max_hp": 11135,
+            "ability_1_max_num": 10,
+            "hp": 11135,
+            "ability_2_num": 10,
+            "no": 4,
+            "ability_1_num": 10,
+            "ability_2_max_num": 10
+          },
+          "max_hp": 11135,
+          "ability_1_max_num": 10,
+          "soul_strike_id_to_rest_num": {
+            "20470001": "-1",
+            "20470004": "-1",
+            "20470007": "-1",
+            "20470008": "-1",
+            "20470009": "-1",
+            "20470011": "-1",
+            "20470012": "1"
+          },
+          "ability_2_num": 10,
+          "status_ailments": [],
+          "user_buddy_id": 47249293,
+          "ability_1_num": 10,
+          "ability_2_max_num": 10
+        },
+        "5": {
+          "hp": 10809,
+          "no": 5,
+          "soul_strike_gauge": 500,
+          "user_dungeon_session_buddy": {
+            "max_hp": 10809,
+            "ability_1_max_num": 10,
+            "hp": 10809,
+            "ability_2_num": 10,
+            "no": 5,
+            "ability_1_num": 10,
+            "ability_2_max_num": 10
+          },
+          "max_hp": 10809,
+          "ability_1_max_num": 10,
+          "soul_strike_id_to_rest_num": {
+            "22800001": "-1",
+            "22800002": "-1",
+            "22800004": "-1",
+            "22800006": "-1",
+            "22800007": "1",
+            "22800008": "1"
+          },
+          "ability_2_num": 10,
+          "status_ailments": [],
+          "user_buddy_id": 49665828,
+          "ability_1_num": 10,
+          "ability_2_max_num": 10
+        }
+      },
+      "max_active_skill_num": 2,
+      "is_restricted": 0,
+      "has_field": 0,
+      "ability_category_bonus_map": {},
+      "battle_id": 130520501,
+      "is_auto_lap": false,
+      "unlocked_series_ids": [],
+      "buddy_additional_status_bonus_level": 0,
+      "dungeon_id": 1305205,
+      "remain_active_skill_num": 2,
+      "max_supporter_ss_gauge": 2,
+      "world_id": 13052,
+      "supporter_ss_gauge": 2,
+      "series_id": 1,
+      "opened_at": 1560819600,
+      "kept_out_at": 2145938400,
+      "has_battle": 1,
+      "should_show_progress_effect": false,
+      "historia_crystal_remain_active_skill_num": 2
+    },
+    "user_battle_tickets": [],
+    "battles": [
+      {
+        "battle_ticket_id_2_num": {},
+        "round_num": 1,
+        "sp_enemy_id": 2712004,
+        "order_no": 1,
+        "play_mode": 0,
+        "name": "Odin Record",
+        "grade_score_type": 9,
+        "grade_score": {
+          "defeatedTimeMap": {
+            "103": 45710
+          },
+          "isDefeatedMap": {
+            "103": 1,
+            "103Magical": 1,
+            "103_magical": 1
+          },
+          "hpRateMap": {
+            "103": 0
+          }
+        },
+        "has_boss": 1,
+        "stamina": 20,
+        "is_unlocked": true,
+        "dungeon_id": 1305205,
+        "has_battle_ticket": 0,
+        "id": 130520501,
+        "show_timer_type": 1
+      }
+    ],
+    "fellow_session": {
+      "has_fellow": false,
+      "fellow_profile": {
+        "supporter_buddy_weapon_hammering_num": 0,
+        "supporter_buddy_armor_hammering_num": 0,
+        "supporter_buddy_sp_mdef": 68,
+        "supporter_buddy_accessory_level": 0,
+        "supporter_buddy_brave_series_ids_map": {
+          "900073": 1,
+          "900082": 1,
+          "900088": 1,
+          "900101": 1,
+          "900116": 1,
+          "900118": 1,
+          "900130": 1,
+          "900163": 1,
+          "900164": 1,
+          "900190": 1,
+          "900192": 1,
+          "900202": 1,
+          "900221": 1,
+          "900244": 1,
+          "900247": 1,
+          "900250": 1,
+          "900253": 1,
+          "900254": 1,
+          "900256": 1
+        },
+        "supporter_buddy_armor_max_level": 0,
+        "supporter_buddy_accessory_name": "",
+        "supporter_buddy_sp_spd": 105,
+        "supporter_buddy_def": 68,
+        "supporter_buddy_series_id": 200001,
+        "supporter_buddy_sp_atk": 69,
+        "supporter_buddy_armor_image_path": "",
+        "supporter_buddy_dress_record": 0,
+        "supporter_buddy_atk": 69,
+        "supporter_buddy_role_type_name": "Physical/Magic Hybrid",
+        "via_battle": false,
+        "supporter_buddy_evolution_num": 0,
+        "supporter_buddy_hp": 3460,
+        "supporter_buddy_role_type": 8,
+        "supporter_buddy_armor_name": "",
+        "supporter_buddy_accessory_id": 0,
+        "supporter_buddy_matk": 68,
+        "supporter_buddy_mnd": 68,
+        "supporter_buddy_accessory_series_id": 0,
+        "supporter_buddy_sp_def": 68,
+        "supporter_buddy_armor_series_id": 0,
+        "supporter_buddy_accessory_image_path": "",
+        "user_id": 1,
+        "supporter_buddy_ability_category": {},
+        "supporter_buddy_armor_id": 0,
+        "supporter_buddy_id": 10003900,
+        "supporter_buddy_sp_acc": 22,
+        "supporter_buddy_level": 50,
+        "last_logged_in_at": 0,
+        "profile_message": "Hello there!",
+        "supporter_buddy_eva": 22,
+        "supporter_buddy_weapon_max_hammering_num": 0,
+        "supporter_buddy_weapon_name": "",
+        "supporter_buddy_sp_mnd": 68,
+        "soul_strike": {
+          "allowed_buddy_id": 10003900,
+          "is_shin_ougi_soul_strike": false,
+          "is_common_soul_strike": false,
+          "soul_strike_category_name": "STANDARD",
+          "is_unique_soul_strike": false,
+          "has_broken_max_damage_threshold_soul_strike": false,
+          "is_synchro_soul_strike": false,
+          "is_super_soul_strike": false,
+          "is_awake_soul_strike": false,
+          "recommend_priority": 102,
+          "id": 22860001,
+          "is_limit_break_sengi_soul_strike": false,
+          "is_sengi_soul_strike": false,
+          "elements": [],
+          "allowed_buddy_name": "Elarra",
+          "name": "Fabula Guardian",
+          "soul_strike_category_id": 1,
+          "is_choren_soul_strike": false,
+          "description": "Temporarily raise the party's Defense and Resistance a very large amount.",
+          "is_param_booster_soul_strike": false,
+          "consume_ss_gauge": 2,
+          "required_exp": 10000,
+          "is_combo_soul_strike": false,
+          "usable_num": -1,
+          "allowed_buddy_series_id": 200001,
+          "is_limit_break_overflow_soul_strike": false,
+          "consume_point": 500,
+          "is_default_soul_strike": true,
+          "disabled_image_path": "/dff/static/lang/ww/compile/en/image/soulstrike/22860001/22860001_256_disable.png",
+          "is_burst_soul_strike": false,
+          "sub_common_descriptions": [],
+          "is_overflow_ougi_soul_strike": false,
+          "is_ultra_soul_strike": false,
+          "supporter_usable_num": 2,
+          "disp_name": "Fabula{n}Guardian",
+          "image_path": "/dff/static/lang/ww/compile/en/image/soulstrike/22860001/22860001_256.png",
+          "is_overflow_soul_strike": false,
+          "ability_animation_id": 71577,
+          "is_someones_soul_strike": true,
+          "is_standard_soul_strike": true,
+          "thesaurus_help_info_ids": {}
+        },
+        "supporter_buddy_weapon_ex_series_id": 0,
+        "supporter_buddy_accessory_max_level": 0,
+        "supporter_buddy_armor_max_hammering_num": 0,
+        "nickname": "Elarra",
+        "supporter_buddy_job_name": "Woman of Mystery",
+        "supporter_buddy_weapon_max_level": 0,
+        "supporter_buddy_weapon_id": 0,
+        "supporter_buddy_image_path": "/dff/static/lang/ww/compile/en/image/buddy/10003900/10003900.png",
+        "supporter_buddy_weapon_level": 0,
+        "supporter_buddy_acc": 22,
+        "supporter_buddy_sp_hp": 3460,
+        "supporter_buddy_weapon_series_id": 0,
+        "supporter_buddy_spd": 105,
+        "supporter_buddy_armor_level": 0,
+        "supporter_buddy_accessory_ex_series_id": 0,
+        "supporter_buddy_sp_matk": 68,
+        "supporter_buddy_sp_eva": 22,
+        "supporter_buddy_mdef": 68,
+        "default_soul_strike_id": 22860001,
+        "supporter_buddy_weapon_image_path": "",
+        "supporter_buddy_armor_ex_series_id": 0
+      },
+      "can_follow": false,
+      "status": 1,
+      "has_supporter": true,
+      "can_remake_fellow_list": false
+    },
+    "user_dungeon_overdrive": {
+      "dungeon_overdrive_effect_list": [],
+      "user_dungeon_overdrive": {
+        "is_activation": false
+      },
+      "dungeon_overdrive_list": [],
+      "battle_effect_list": []
+    },
+    "sp_enemies": [
+      {
+        "deform_animation_info": [
+          {
+            "enemy_id": "2712004",
+            "is_random": false,
+            "target_nodes_type": "0",
+            "deform_tag": "deformation_09",
+            "id": "37001010",
+            "path": "370010_1.json",
+            "state": [
+              "1"
+            ]
+          },
+          {
+            "enemy_id": "2712004",
+            "is_random": false,
+            "target_nodes_type": "0",
+            "deform_tag": "deformation_14",
+            "id": "37001015",
+            "path": "370010_1.json",
+            "state": [
+              "1"
+            ]
+          },
+          {
+            "enemy_id": "2712004",
+            "is_random": false,
+            "target_nodes_type": "0",
+            "deform_tag": "deformation_07",
+            "id": "37001008",
+            "path": "370010_1.json",
+            "state": [
+              "1"
+            ]
+          },
+          {
+            "enemy_id": "2712004",
+            "is_random": false,
+            "target_nodes_type": "0",
+            "deform_tag": "deformation_12",
+            "id": "37001013",
+            "path": "370010_1.json",
+            "state": [
+              "1"
+            ]
+          },
+          {
+            "enemy_id": "2712004",
+            "is_random": false,
+            "target_nodes_type": "0",
+            "deform_tag": "deformation_05",
+            "id": "37001006",
+            "path": "370010_1.json",
+            "state": [
+              "1"
+            ]
+          },
+          {
+            "enemy_id": "2712004",
+            "is_random": false,
+            "target_nodes_type": "0",
+            "deform_tag": "in",
+            "id": "37001001",
+            "path": "370010_1.json",
+            "state": [
+              "1"
+            ]
+          },
+          {
+            "enemy_id": "2712004",
+            "is_random": false,
+            "target_nodes_type": "0",
+            "deform_tag": "deformation_10",
+            "id": "37001011",
+            "path": "370010_1.json",
+            "state": [
+              "1"
+            ]
+          },
+          {
+            "enemy_id": "2712004",
+            "is_random": false,
+            "target_nodes_type": "0",
+            "deform_tag": "deformation_08",
+            "id": "37001009",
+            "path": "370010_1.json",
+            "state": [
+              "1"
+            ]
+          },
+          {
+            "enemy_id": "2712004",
+            "is_random": false,
+            "target_nodes_type": "0",
+            "deform_tag": "deformation_06",
+            "id": "37001007",
+            "path": "370010_1.json",
+            "state": [
+              "1"
+            ]
+          },
+          {
+            "enemy_id": "2712004",
+            "is_random": false,
+            "target_nodes_type": "0",
+            "deform_tag": "deformation_04",
+            "id": "37001005",
+            "path": "370010_1.json",
+            "state": [
+              "1"
+            ]
+          },
+          {
+            "enemy_id": "2712004",
+            "is_random": false,
+            "target_nodes_type": "0",
+            "deform_tag": "deformation_15",
+            "id": "37001016",
+            "path": "370010_1.json",
+            "state": [
+              "1"
+            ]
+          },
+          {
+            "enemy_id": "2712004",
+            "is_random": false,
+            "target_nodes_type": "0",
+            "deform_tag": "deformation_02",
+            "id": "37001003",
+            "path": "370010_1.json",
+            "state": [
+              "1"
+            ]
+          },
+          {
+            "enemy_id": "2712004",
+            "is_random": false,
+            "target_nodes_type": "0",
+            "deform_tag": "deformation_03",
+            "id": "37001004",
+            "path": "370010_1.json",
+            "state": [
+              "1"
+            ]
+          },
+          {
+            "enemy_id": "2712004",
+            "is_random": false,
+            "target_nodes_type": "0",
+            "deform_tag": "deformation_13",
+            "id": "37001014",
+            "path": "370010_1.json",
+            "state": [
+              "1"
+            ]
+          },
+          {
+            "enemy_id": "2712004",
+            "is_random": false,
+            "target_nodes_type": "0",
+            "deform_tag": "deformation_01",
+            "id": "37001002",
+            "path": "370010_1.json",
+            "state": [
+              "1"
+            ]
+          },
+          {
+            "enemy_id": "2712004",
+            "is_random": false,
+            "target_nodes_type": "0",
+            "deform_tag": "deformation_11",
+            "id": "37001012",
+            "path": "370010_1.json",
+            "state": [
+              "1"
+            ]
+          },
+          {
+            "enemy_id": "2712004",
+            "is_random": false,
+            "target_nodes_type": "0",
+            "deform_tag": "deformation_16",
+            "id": "37001017",
+            "path": "370010_1.json",
+            "state": [
+              "1"
+            ]
+          }
+        ],
+        "children": [
+          {
+            "enemy_id": "2712004",
+            "params": [
+              {
+                "disp_name": "Odin the White",
+                "animation_info": {
+                  "enemy_status_id": "271200401",
+                  "uses_fix_pos": false,
+                  "hp_gauge_size": "3",
+                  "offset_y": "0",
+                  "path": "370010_1",
+                  "assets": {
+                    "boss-370010_1": "/Content/lang/ww/compile/en/ab/character/boss/370010/370010_1.json"
+                  },
+                  "scale": "1",
+                  "offset_x": "0"
+                }
+              },
+              {
+                "disp_name": "Odin the White",
+                "animation_info": {
+                  "enemy_status_id": "271200402",
+                  "uses_fix_pos": false,
+                  "hp_gauge_size": "3",
+                  "offset_y": "0",
+                  "path": "370010_1",
+                  "assets": {
+                    "boss-370010_1": "/Content/lang/ww/compile/en/ab/character/boss/370010/370010_1.json"
+                  },
+                  "scale": "1",
+                  "offset_x": "0"
+                }
+              },
+              {
+                "disp_name": "Odin the White",
+                "animation_info": {
+                  "enemy_status_id": "271200403",
+                  "uses_fix_pos": false,
+                  "hp_gauge_size": "3",
+                  "offset_y": "0",
+                  "path": "370010_1",
+                  "assets": {
+                    "boss-370010_1": "/Content/lang/ww/compile/en/ab/character/boss/370010/370010_1.json"
+                  },
+                  "scale": "1",
+                  "offset_x": "0"
+                }
+              },
+              {
+                "disp_name": "Odin the White",
+                "animation_info": {
+                  "enemy_status_id": "271200404",
+                  "uses_fix_pos": false,
+                  "hp_gauge_size": "3",
+                  "offset_y": "0",
+                  "path": "370010_1",
+                  "assets": {
+                    "boss-370010_1": "/Content/lang/ww/compile/en/ab/character/boss/370010/370010_1.json"
+                  },
+                  "scale": "1",
+                  "offset_x": "0"
+                }
+              },
+              {
+                "disp_name": "Odin the White",
+                "animation_info": {
+                  "enemy_status_id": "271200405",
+                  "uses_fix_pos": false,
+                  "hp_gauge_size": "3",
+                  "offset_y": "0",
+                  "path": "370010_1",
+                  "assets": {
+                    "boss-370010_1": "/Content/lang/ww/compile/en/ab/character/boss/370010/370010_1.json"
+                  },
+                  "scale": "1",
+                  "offset_x": "0"
+                }
+              },
+              {
+                "disp_name": "Odin the White",
+                "animation_info": {
+                  "enemy_status_id": "271200406",
+                  "uses_fix_pos": false,
+                  "hp_gauge_size": "3",
+                  "offset_y": "0",
+                  "path": "370010_1",
+                  "assets": {
+                    "boss-370010_1": "/Content/lang/ww/compile/en/ab/character/boss/370010/370010_1.json"
+                  },
+                  "scale": "1",
+                  "offset_x": "0"
+                }
+              },
+              {
+                "disp_name": "Odin the White",
+                "animation_info": {
+                  "enemy_status_id": "271200407",
+                  "uses_fix_pos": false,
+                  "hp_gauge_size": "3",
+                  "offset_y": "0",
+                  "path": "370010_1",
+                  "assets": {
+                    "boss-370010_1": "/Content/lang/ww/compile/en/ab/character/boss/370010/370010_1.json"
+                  },
+                  "scale": "1",
+                  "offset_x": "0"
+                }
+              },
+              {
+                "disp_name": "Odin the White",
+                "animation_info": {
+                  "enemy_status_id": "271200408",
+                  "uses_fix_pos": false,
+                  "hp_gauge_size": "3",
+                  "offset_y": "0",
+                  "path": "370010_1",
+                  "assets": {
+                    "boss-370010_1": "/Content/lang/ww/compile/en/ab/character/boss/370010/370010_1.json"
+                  },
+                  "scale": "1",
+                  "offset_x": "0"
+                }
+              },
+              {
+                "disp_name": "Odin the White",
+                "animation_info": {
+                  "enemy_status_id": "271200409",
+                  "uses_fix_pos": false,
+                  "hp_gauge_size": "3",
+                  "offset_y": "0",
+                  "path": "370010_1",
+                  "assets": {
+                    "boss-370010_1": "/Content/lang/ww/compile/en/ab/character/boss/370010/370010_1.json"
+                  },
+                  "scale": "1",
+                  "offset_x": "0"
+                }
+              },
+              {
+                "disp_name": "Odin the White",
+                "animation_info": {
+                  "enemy_status_id": "271200410",
+                  "uses_fix_pos": false,
+                  "hp_gauge_size": "3",
+                  "offset_y": "0",
+                  "path": "370010_1",
+                  "assets": {
+                    "boss-370010_1": "/Content/lang/ww/compile/en/ab/character/boss/370010/370010_1.json"
+                  },
+                  "scale": "1",
+                  "offset_x": "0"
+                }
+              },
+              {
+                "disp_name": "Odin the White",
+                "animation_info": {
+                  "enemy_status_id": "271200411",
+                  "uses_fix_pos": false,
+                  "hp_gauge_size": "3",
+                  "offset_y": "0",
+                  "path": "370010_1",
+                  "assets": {
+                    "boss-370010_1": "/Content/lang/ww/compile/en/ab/character/boss/370010/370010_1.json"
+                  },
+                  "scale": "1",
+                  "offset_x": "0"
+                }
+              },
+              {
+                "disp_name": "",
+                "animation_info": {
+                  "enemy_status_id": "271200412",
+                  "uses_fix_pos": false,
+                  "hp_gauge_size": "3",
+                  "offset_y": "0",
+                  "path": "370010_1",
+                  "assets": {
+                    "boss-370010_1": "/Content/lang/ww/compile/en/ab/character/boss/370010/370010_1.json"
+                  },
+                  "scale": "1",
+                  "offset_x": "0"
+                }
+              }
+            ],
+            "child_pos_id": "1"
+          }
+        ],
+        "id": "2712004",
+        "battle_list_adjustment": {
+          "init_tag": "",
+          "offset_y": 0,
+          "enemy_id": 2712004,
+          "hidden_children": [],
+          "scale": 1,
+          "alter_type": 0,
+          "offset_x": 10,
+          "arrange_type": 0,
+          "alter_asset_key": ""
+        },
+        "ai_arguments": [
+          {
+            "arg_type": "3",
+            "tag": "formula_of_receive_damage_rate_in_mad_mode_earth",
+            "arg_value": "100 - 10 * n"
+          },
+          {
+            "arg_type": "3",
+            "tag": "mad_hp_map_in_phase_2_earth",
+            "arg_value": "80:1\n70:2\n60:3"
+          },
+          {
+            "arg_type": "4",
+            "tag": "decrease_damage_ability_tags_of_buddy_buff_to_ice",
+            "arg_value": "#damage_2,#4_magic,#physics_zanoku,#non_matoi_buddy,#damage_3,#j_damage,#j_regist_down,#j_en_down,mad_zantetsuken_0,#grav,#zantetsuken_1,#zantetsuken_2"
+          },
+          {
+            "arg_type": "3",
+            "tag": "formula_of_atb_and_cast_speed_rate_in_mad_mode_holy",
+            "arg_value": "100 + 25 * n"
+          },
+          {
+            "arg_type": "3",
+            "tag": "hp_rate_gimmick_map_holy",
+            "arg_value": ""
+          },
+          {
+            "arg_type": "3",
+            "tag": "formula_of_atb_and_cast_speed_rate_in_mad_mode_wind",
+            "arg_value": "100 + 20 * n"
+          },
+          {
+            "arg_type": "3",
+            "tag": "countdown_map_in_phase_2_ice",
+            "arg_value": "2:3\n3:2\n4:1\n7:2\n8:1"
+          },
+          {
+            "arg_type": "3",
+            "tag": "mad_turn_map_in_phase_2_wind",
+            "arg_value": "2:1\n3:1\n4:1\n6:1\n7:2\n8:3"
+          },
+          {
+            "arg_type": "3",
+            "tag": "mad_hp_map_in_phase_2_poison",
+            "arg_value": "80:1\n70:2\n60:3"
+          },
+          {
+            "arg_type": "3",
+            "tag": "mad_turn_map_in_phase_2_earth",
+            "arg_value": "2:1\n3:1\n4:1\n6:1\n7:2\n8:3"
+          },
+          {
+            "arg_type": "3",
+            "tag": "formula_of_inflict_damage_rate_in_mad_mode_holy",
+            "arg_value": "100 + 25 * n"
+          },
+          {
+            "arg_type": "3",
+            "tag": "ABILITY_TARGET_MAP_TAG_STATUS_NO_03",
+            "arg_value": ""
+          },
+          {
+            "arg_type": "3",
+            "tag": "mad_hp_map_in_phase_2_holy",
+            "arg_value": "80:1\n70:2\n60:3"
+          },
+          {
+            "arg_type": "3",
+            "tag": "countdown_map_in_phase_2_lightning",
+            "arg_value": "2:3\n3:2\n4:1\n7:2\n8:1"
+          },
+          {
+            "arg_type": "4",
+            "tag": "decrease_damage_ability_tags_of_buddy_buff_to_water",
+            "arg_value": "#damage_2,#4_magic,#physics_zanoku,#non_matoi_buddy,#damage_3,#j_damage,#j_regist_down,#j_en_down,mad_zantetsuken_0,#grav,#zantetsuken_1,#zantetsuken_2"
+          },
+          {
+            "arg_type": "3",
+            "tag": "formula_of_atb_and_cast_speed_rate_in_mad_mode_water",
+            "arg_value": "100 - 20 * n"
+          },
+          {
+            "arg_type": "1",
+            "tag": "beast_passive_skill_base_id_for_buddy_buff_2_water",
+            "arg_value": "49"
+          },
+          {
+            "arg_type": "3",
+            "tag": "hp_rate_gimmick_map_dark",
+            "arg_value": ""
+          },
+          {
+            "arg_type": "3",
+            "tag": "increase_rate_of_inflict_damage_for_buddy_buff_of_attach_element",
+            "arg_value": "1: 220\n2: 240\n3: 280"
+          },
+          {
+            "arg_type": "3",
+            "tag": "formula_of_inflict_damage_rate_in_mad_mode_water",
+            "arg_value": "100 - 20 * n"
+          },
+          {
+            "arg_type": "3",
+            "tag": "hp_rate_gimmick_map_lightning",
+            "arg_value": ""
+          },
+          {
+            "arg_type": "4",
+            "tag": "decrease_damage_ability_tags_of_buddy_buff_2_to_poison",
+            "arg_value": ""
+          },
+          {
+            "arg_type": "3",
+            "tag": "ABILITY_TARGET_MAP_TAG_STATUS_NO_05",
+            "arg_value": ""
+          },
+          {
+            "arg_type": "4",
+            "tag": "decrease_damage_ability_tags_of_buddy_buff_2_to_earth",
+            "arg_value": "#damage_2,#4_magic,#physics_zanoku,#non_matoi_buddy,#damage_3,#j_damage,#j_regist_down,#j_en_down,mad_zantetsuken_0,#grav,#j_hp100,#zantetsuken_1,#zantetsuken_2"
+          },
+          {
+            "arg_type": "3",
+            "tag": "ABILITY_TARGET_MAP_TURN_STATUS_NO_07",
+            "arg_value": ""
+          },
+          {
+            "arg_type": "3",
+            "tag": "decrease_rate_of_receive_damage_for_buddy_buff_of_attach_element",
+            "arg_value": "1:100 \n2:100\n3:100"
+          },
+          {
+            "arg_type": "3",
+            "tag": "mad_hp_map_in_phase_2_dark",
+            "arg_value": "80:1\n70:2\n60:3"
+          },
+          {
+            "arg_type": "3",
+            "tag": "ABILITY_DEFORM_MAP_TAG_1",
+            "arg_value": "#grapnir: deformation_13\nzantetsuken: deformation_14\nmad_zantetsuken_0: deformation_14\nmad_zantetsuken_1: deformation_14\nmad_zantetsuken_2: deformation_14"
+          },
+          {
+            "arg_type": "3",
+            "tag": "ABILITY_TARGET_MAP_TURN_STATUS_NO_06",
+            "arg_value": ""
+          },
+          {
+            "arg_type": "1",
+            "tag": "beast_passive_skill_base_id_for_buddy_buff_ice",
+            "arg_value": "39"
+          },
+          {
+            "arg_type": "3",
+            "tag": "hp_rate_gimmick_map_fire",
+            "arg_value": ""
+          },
+          {
+            "arg_type": "3",
+            "tag": "formula_of_inflict_damage_rate_in_mad_mode_fire",
+            "arg_value": "100 + 10 * n"
+          },
+          {
+            "arg_type": "3",
+            "tag": "mad_hp_map_in_phase_2_ice",
+            "arg_value": "80:1\n70:2\n60:3"
+          },
+          {
+            "arg_type": "1",
+            "tag": "advantage_type_by_phase_1_skip",
+            "arg_value": "1"
+          },
+          {
+            "arg_type": "3",
+            "tag": "ABILITY_TARGET_MAP_TAG_STATUS_NO_07",
+            "arg_value": ""
+          },
+          {
+            "arg_type": "1",
+            "tag": "beast_passive_skill_base_id_for_buddy_buff_2_poison",
+            "arg_value": "0"
+          },
+          {
+            "arg_type": "1",
+            "tag": "beast_passive_skill_base_id_for_buddy_buff_2_dark",
+            "arg_value": "51"
+          },
+          {
+            "arg_type": "1",
+            "tag": "beast_passive_skill_base_id_for_buddy_buff_2_earth",
+            "arg_value": "47"
+          },
+          {
+            "arg_type": "3",
+            "tag": "mad_hp_map_in_phase_2_water",
+            "arg_value": "80:1\n70:2\n60:3"
+          },
+          {
+            "arg_type": "3",
+            "tag": "countdown_map_in_phase_2_fire",
+            "arg_value": "2:3\n3:2\n4:1\n7:2\n8:1"
+          },
+          {
+            "arg_type": "1",
+            "tag": "beast_passive_skill_base_id_for_buddy_buff_wind",
+            "arg_value": "40"
+          },
+          {
+            "arg_type": "4",
+            "tag": "decrease_damage_ability_tags_of_buddy_buff_to_earth",
+            "arg_value": "#damage_2,#4_magic,#physics_zanoku,#non_matoi_buddy,#damage_3,#j_damage,#j_regist_down,#j_en_down,mad_zantetsuken_0,#grav,#j_hp100,#zantetsuken_1,#zantetsuken_2"
+          },
+          {
+            "arg_type": "4",
+            "tag": "decrease_damage_ability_tags_of_buddy_buff_2_to_holy",
+            "arg_value": ""
+          },
+          {
+            "arg_type": "1",
+            "tag": "hp_rate_to_phase_3",
+            "arg_value": "30"
+          },
+          {
+            "arg_type": "4",
+            "tag": "decrease_damage_ability_tags_of_buddy_buff_2_to_water",
+            "arg_value": ""
+          },
+          {
+            "arg_type": "1",
+            "tag": "beast_passive_skill_base_id_for_buddy_buff_holy",
+            "arg_value": "41"
+          },
+          {
+            "arg_type": "1",
+            "tag": "decrease_rate_of_receive_damage_for_buddy_buff_of_beast_passive_skill",
+            "arg_value": "130"
+          },
+          {
+            "arg_type": "3",
+            "tag": "ABILITY_TARGET_MAP_TURN_STATUS_NO_09",
+            "arg_value": ""
+          },
+          {
+            "arg_type": "3",
+            "tag": "countdown_map_in_phase_2_water",
+            "arg_value": "2:3\n3:2\n4:1\n7:2\n8:1"
+          },
+          {
+            "arg_type": "3",
+            "tag": "formula_of_receive_damage_rate_in_mad_mode_poison",
+            "arg_value": "100 + 30 * n"
+          },
+          {
+            "arg_type": "3",
+            "tag": "mad_hp_map_in_phase_2_fire",
+            "arg_value": "80:1\n70:2\n60:3"
+          },
+          {
+            "arg_type": "3",
+            "tag": "formula_of_atb_and_cast_speed_rate_in_mad_mode_fire",
+            "arg_value": "100 + 10 * n"
+          },
+          {
+            "arg_type": "4",
+            "tag": "decrease_damage_ability_tags_of_buddy_buff_to_fire",
+            "arg_value": "#damage_2,#4_magic,#physics_zanoku,#non_matoi_buddy,#damage_3,#j_damage,#j_regist_down,#j_en_down,mad_zantetsuken_0,#grav,#zantetsuken_1,#zantetsuken_2"
+          },
+          {
+            "arg_type": "1",
+            "tag": "beast_passive_skill_base_id_for_buddy_buff_2_wind",
+            "arg_value": "46"
+          },
+          {
+            "arg_type": "3",
+            "tag": "mad_turn_map_in_phase_2_ice",
+            "arg_value": "2:1\n3:1\n4:1\n6:1\n7:2\n8:3"
+          },
+          {
+            "arg_type": "1",
+            "tag": "beast_passive_skill_base_id_for_buddy_buff_water",
+            "arg_value": "37"
+          },
+          {
+            "arg_type": "3",
+            "tag": "formula_of_receive_damage_rate_in_mad_mode_water",
+            "arg_value": "100 - 20 * n"
+          },
+          {
+            "arg_type": "3",
+            "tag": "formula_of_inflict_damage_rate_in_mad_mode_poison",
+            "arg_value": "100 + 30 * n"
+          },
+          {
+            "arg_type": "3",
+            "tag": "formula_of_receive_damage_rate_in_mad_mode_dark",
+            "arg_value": "100 - 25 * n"
+          },
+          {
+            "arg_type": "3",
+            "tag": "mad_hp_map_in_phase_2_wind",
+            "arg_value": "80:1\n70:2\n60:3"
+          },
+          {
+            "arg_type": "3",
+            "tag": "ABILITY_TARGET_MAP_TURN_STATUS_NO_10",
+            "arg_value": ""
+          },
+          {
+            "arg_type": "3",
+            "tag": "formula_of_atb_and_cast_speed_rate_in_mad_mode_poison",
+            "arg_value": "100 + 30 * n"
+          },
+          {
+            "arg_type": "3",
+            "tag": "ABILITY_TARGET_MAP_TURN_STATUS_NO_02",
+            "arg_value": ""
+          },
+          {
+            "arg_type": "3",
+            "tag": "countdown_map_in_phase_2_poison",
+            "arg_value": "2:3\n3:2\n4:1\n7:2\n8:1"
+          },
+          {
+            "arg_type": "4",
+            "tag": "decrease_damage_ability_tags_of_buddy_buff_2_to_ice",
+            "arg_value": ""
+          },
+          {
+            "arg_type": "3",
+            "tag": "ABILITY_TARGET_MAP_TAG_STATUS_NO_10",
+            "arg_value": ""
+          },
+          {
+            "arg_type": "3",
+            "tag": "formula_of_inflict_damage_rate_in_mad_mode_lightning",
+            "arg_value": "100 - 15 * n"
+          },
+          {
+            "arg_type": "1",
+            "tag": "hp_rate_to_victory",
+            "arg_value": "90"
+          },
+          {
+            "arg_type": "1",
+            "tag": "beast_passive_skill_base_id_for_buddy_buff_earth",
+            "arg_value": "34"
+          },
+          {
+            "arg_type": "1",
+            "tag": "decrease_magical_receive_damage_rate_by_physical_advantage",
+            "arg_value": "300"
+          },
+          {
+            "arg_type": "4",
+            "tag": "decrease_damage_ability_tags_of_buddy_buff_to_lightning",
+            "arg_value": "#damage_2,#4_magic,#physics_zanoku,#non_matoi_buddy,#damage_3,#j_damage,#j_regist_down,#j_en_down,mad_zantetsuken_0,#grav,#zantetsuken_1,#zantetsuken_2"
+          },
+          {
+            "arg_type": "1",
+            "tag": "decrease_receive_damage_rate_in_phase_3",
+            "arg_value": "390"
+          },
+          {
+            "arg_type": "3",
+            "tag": "formula_of_receive_damage_rate_in_mad_mode_holy",
+            "arg_value": "100 + 25 * n"
+          },
+          {
+            "arg_type": "1",
+            "tag": "beast_passive_skill_base_id_for_buddy_buff_lightning",
+            "arg_value": "36"
+          },
+          {
+            "arg_type": "4",
+            "tag": "decrease_damage_ability_tags_of_buddy_buff_2_to_lightning",
+            "arg_value": "#damage_2,#4_magic,#physics_zanoku,#non_matoi_buddy,#damage_3,#j_damage,#j_regist_down,#j_en_down,mad_zantetsuken_0,#grav,#zantetsuken_1,#zantetsuken_2"
+          },
+          {
+            "arg_type": "3",
+            "tag": "ABILITY_TARGET_MAP_TAG_STATUS_NO_09",
+            "arg_value": ""
+          },
+          {
+            "arg_type": "4",
+            "tag": "ability_tags_of_decrease_receive_damage_for_buddy_buff_of_attach_element",
+            "arg_value": ""
+          },
+          {
+            "arg_type": "3",
+            "tag": "ABILITY_TARGET_MAP_TAG_STATUS_NO_02",
+            "arg_value": ""
+          },
+          {
+            "arg_type": "3",
+            "tag": "formula_of_inflict_damage_rate_in_mad_mode_ice",
+            "arg_value": "100 + 15 * n"
+          },
+          {
+            "arg_type": "1",
+            "tag": "weak_element_id_by_phase_1_skip",
+            "arg_value": "103"
+          },
+          {
+            "arg_type": "3",
+            "tag": "formula_of_atb_and_cast_speed_rate_in_mad_mode_earth",
+            "arg_value": "100 - 10 * n"
+          },
+          {
+            "arg_type": "3",
+            "tag": "hp_rate_gimmick_map_earth",
+            "arg_value": ""
+          },
+          {
+            "arg_type": "1",
+            "tag": "beast_passive_skill_base_id_for_buddy_buff_2_lightning",
+            "arg_value": "48"
+          },
+          {
+            "arg_type": "3",
+            "tag": "countdown_map_in_phase_3",
+            "arg_value": "10:3\n11:2\n12:1"
+          },
+          {
+            "arg_type": "3",
+            "tag": "ABILITY_TARGET_MAP_TURN_STATUS_NO_08",
+            "arg_value": ""
+          },
+          {
+            "arg_type": "1",
+            "tag": "decrease_rate_of_receive_damage_for_buddy_buff_2_of_beast_passive_skill",
+            "arg_value": "105"
+          },
+          {
+            "arg_type": "3",
+            "tag": "hp_rate_gimmick_map_poison",
+            "arg_value": ""
+          },
+          {
+            "arg_type": "3",
+            "tag": "ABILITY_TARGET_MAP_TURN_STATUS_NO_03",
+            "arg_value": ""
+          },
+          {
+            "arg_type": "3",
+            "tag": "countdown_map_in_phase_2_earth",
+            "arg_value": "2:3\n3:2\n4:1\n7:2\n8:1"
+          },
+          {
+            "arg_type": "1",
+            "tag": "beast_passive_skill_base_id_for_buddy_buff_2_ice",
+            "arg_value": "45"
+          },
+          {
+            "arg_type": "4",
+            "tag": "decrease_damage_ability_tags_of_buddy_buff_to_dark",
+            "arg_value": "#damage_2,#4_magic,#physics_zanoku,#non_matoi_buddy,#damage_3,#j_damage,#j_regist_down,#j_en_down,mad_zantetsuken_0,#grav,#zantetsuken_1,#zantetsuken_2"
+          },
+          {
+            "arg_type": "3",
+            "tag": "formula_of_inflict_damage_rate_in_mad_mode_wind",
+            "arg_value": "100 + 20 * n"
+          },
+          {
+            "arg_type": "3",
+            "tag": "countdown_map_in_phase_2_wind",
+            "arg_value": "2:3\n3:2\n4:1\n7:2\n8:1"
+          },
+          {
+            "arg_type": "3",
+            "tag": "mad_turn_map_in_phase_2_poison",
+            "arg_value": "2:1\n3:1\n4:1\n6:1\n7:2\n8:3"
+          },
+          {
+            "arg_type": "3",
+            "tag": "formula_of_atb_and_cast_speed_rate_in_mad_mode_ice",
+            "arg_value": "100 + 15 * n"
+          },
+          {
+            "arg_type": "1",
+            "tag": "beast_passive_skill_base_id_for_buddy_buff_poison",
+            "arg_value": "1"
+          },
+          {
+            "arg_type": "4",
+            "tag": "decrease_damage_ability_tags_of_buddy_buff_to_holy",
+            "arg_value": "#damage_2,#4_magic,#physics_zanoku,#non_matoi_buddy,#damage_3,#j_damage,#j_regist_down,#j_en_down,mad_zantetsuken_0,#grav,#j_hp100,#zantetsuken_1,#zantetsuken_2"
+          },
+          {
+            "arg_type": "3",
+            "tag": "hp_rate_gimmick_map_water",
+            "arg_value": ""
+          },
+          {
+            "arg_type": "3",
+            "tag": "formula_of_atb_and_cast_speed_rate_in_mad_mode_lightning",
+            "arg_value": "100 - 15 * n"
+          },
+          {
+            "arg_type": "1",
+            "tag": "increase_rate_of_inflict_damage_for_buddy_buff_2_of_beast_passive_skill",
+            "arg_value": "105"
+          },
+          {
+            "arg_type": "3",
+            "tag": "ABILITY_TARGET_MAP_TAG_STATUS_NO_04",
+            "arg_value": ""
+          },
+          {
+            "arg_type": "4",
+            "tag": "decrease_damage_ability_tags_of_buddy_buff_2_to_dark",
+            "arg_value": ""
+          },
+          {
+            "arg_type": "3",
+            "tag": "formula_of_receive_damage_rate_in_mad_mode_ice",
+            "arg_value": "100 + 15 * n"
+          },
+          {
+            "arg_type": "3",
+            "tag": "ABILITY_TARGET_MAP_TURN_STATUS_NO_05",
+            "arg_value": ""
+          },
+          {
+            "arg_type": "1",
+            "tag": "increase_inflict_damage_rate_in_phase_3",
+            "arg_value": "130"
+          },
+          {
+            "arg_type": "3",
+            "tag": "mad_turn_map_in_phase_2_dark",
+            "arg_value": "2:1\n3:1\n4:1\n6:1\n7:2\n8:3"
+          },
+          {
+            "arg_type": "3",
+            "tag": "countdown_map_in_phase_2_holy",
+            "arg_value": "2:3\n3:2\n4:1\n7:2\n8:1"
+          },
+          {
+            "arg_type": "4",
+            "tag": "decrease_damage_ability_tags_of_buddy_buff_to_wind",
+            "arg_value": "#damage_2,#4_magic,#physics_zanoku,#non_matoi_buddy,#damage_3,#j_damage,#j_regist_down,#j_en_down,mad_zantetsuken_0,#grav,#zantetsuken_1,#zantetsuken_2"
+          },
+          {
+            "arg_type": "4",
+            "tag": "decrease_damage_ability_tags_of_buddy_buff_to_poison",
+            "arg_value": "#damage_2,#4_magic,#physics_zanoku,#non_matoi_buddy,#damage_3,#j_damage,#j_regist_down,#j_en_down,mad_zantetsuken_0,#grav,#zantetsuken_1,#zantetsuken_2"
+          },
+          {
+            "arg_type": "3",
+            "tag": "mad_turn_map_in_phase_2_lightning",
+            "arg_value": "2:1\n3:1\n4:1\n6:1\n7:2\n8:3"
+          },
+          {
+            "arg_type": "1",
+            "tag": "beast_passive_skill_base_id_for_buddy_buff_2_holy",
+            "arg_value": "50"
+          },
+          {
+            "arg_type": "4",
+            "tag": "decrease_damage_ability_tags_of_buddy_buff_2_to_wind",
+            "arg_value": ""
+          },
+          {
+            "arg_type": "3",
+            "tag": "hp_rate_gimmick_map_ice",
+            "arg_value": ""
+          },
+          {
+            "arg_type": "3",
+            "tag": "formula_of_inflict_damage_rate_in_mad_mode_earth",
+            "arg_value": "100 - 10 * n"
+          },
+          {
+            "arg_type": "3",
+            "tag": "formula_of_receive_damage_rate_in_mad_mode_wind",
+            "arg_value": "100 + 20 * n"
+          },
+          {
+            "arg_type": "3",
+            "tag": "mad_turn_map_in_phase_2_fire",
+            "arg_value": "2:1\n3:1\n4:1\n6:1\n7:2\n8:3"
+          },
+          {
+            "arg_type": "3",
+            "tag": "mad_turn_map_in_phase_2_holy",
+            "arg_value": "2:1\n3:1\n4:1\n6:1\n7:2\n8:3"
+          },
+          {
+            "arg_type": "1",
+            "tag": "beast_passive_skill_base_id_for_buddy_buff_2_fire",
+            "arg_value": "44"
+          },
+          {
+            "arg_type": "3",
+            "tag": "ABILITY_TARGET_MAP_TAG_STATUS_NO_06",
+            "arg_value": ""
+          },
+          {
+            "arg_type": "3",
+            "tag": "countdown_map_in_phase_2_dark",
+            "arg_value": "2:3\n3:2\n4:1\n7:2\n8:1"
+          },
+          {
+            "arg_type": "4",
+            "tag": "decrease_damage_ability_tags_of_buddy_buff_2_to_fire",
+            "arg_value": ""
+          },
+          {
+            "arg_type": "3",
+            "tag": "ABILITY_TARGET_MAP_TAG_STATUS_NO_08",
+            "arg_value": ""
+          },
+          {
+            "arg_type": "3",
+            "tag": "formula_of_receive_damage_rate_in_mad_mode_lightning",
+            "arg_value": "100 - 15 * n"
+          },
+          {
+            "arg_type": "1",
+            "tag": "beast_passive_skill_base_id_for_buddy_buff_fire",
+            "arg_value": "38"
+          },
+          {
+            "arg_type": "3",
+            "tag": "ABILITY_TARGET_MAP_TAG_STATUS_NO_11",
+            "arg_value": ""
+          },
+          {
+            "arg_type": "3",
+            "tag": "hp_rate_gimmick_map_phase_3",
+            "arg_value": "30,gungnir\n20,#gard"
+          },
+          {
+            "arg_type": "3",
+            "tag": "formula_of_inflict_damage_rate_in_mad_mode_dark",
+            "arg_value": "100 - 25 * n"
+          },
+          {
+            "arg_type": "3",
+            "tag": "ABILITY_TARGET_MAP_TURN_STATUS_NO_04",
+            "arg_value": ""
+          },
+          {
+            "arg_type": "1",
+            "tag": "increase_rate_of_inflict_damage_for_buddy_buff_of_beast_passive_skill",
+            "arg_value": "130"
+          },
+          {
+            "arg_type": "3",
+            "tag": "hp_rate_gimmick_map_wind",
+            "arg_value": ""
+          },
+          {
+            "arg_type": "1",
+            "tag": "increase_rate_of_inflict_damage_for_buddy_buff_of_no_attach_element",
+            "arg_value": "200"
+          },
+          {
+            "arg_type": "3",
+            "tag": "mad_hp_map_in_phase_2_lightning",
+            "arg_value": "80:1\n70:2\n60:3"
+          },
+          {
+            "arg_type": "1",
+            "tag": "decrease_receive_damage_rate_in_phase_2",
+            "arg_value": "286"
+          },
+          {
+            "arg_type": "3",
+            "tag": "formula_of_atb_and_cast_speed_rate_in_mad_mode_dark",
+            "arg_value": "100 - 25 * n"
+          },
+          {
+            "arg_type": "1",
+            "tag": "beast_passive_skill_base_id_for_buddy_buff_dark",
+            "arg_value": "42"
+          },
+          {
+            "arg_type": "3",
+            "tag": "formula_of_receive_damage_rate_in_mad_mode_fire",
+            "arg_value": "100 + 10 * n"
+          },
+          {
+            "arg_type": "1",
+            "tag": "decrease_physical_receive_damage_rate_by_magical_advantage",
+            "arg_value": "300"
+          },
+          {
+            "arg_type": "3",
+            "tag": "mad_turn_map_in_phase_2_water",
+            "arg_value": "2:1\n3:1\n4:1\n6:1\n7:2\n8:3"
+          }
+        ]
+      }
+    ],
+    "user": {
+      "is_exceed_current_stamina_upper_limit": false,
+      "stamina_piece": 1269,
+      "soul_piece": 377,
+      "residual_stamina_piece": 4,
+      "start_time_of_today": 1613134800,
+      "stamina_recovery_time": 180,
+      "max_followee_num": 100,
+      "dungeon_id": 1305205,
+      "id": 5679473043701760,
+      "release_id": 0,
+      "stamina_info": {
+        "additional_stamina": 0,
+        "current_max_stamina": 253,
+        "prev_max_stamina": 253,
+        "got_stamina_piece": 0
+      },
+      "func_tutorial_flags": {
+        "SORTIE_LIMITATION": false,
+        "EXTREME": false,
+        "DUNGEON_LIST": true,
+        "FIRST_ENTER_BEAST_REPAIR_2ND_WORLD_LIST_3": false,
+        "GENERATE_RAINBOW_CRYSTAL": true,
+        "BUDDY_EVOLUTION": true,
+        "FIRST_ENTER_BEAST_REPAIR_2ND_DUNGEON_LIST_2": false,
+        "RECORD_DIVE": true,
+        "DRESS_RECORD": true,
+        "FIRST_ENTER_BEAST_DUNGEON_LIST_1": true,
+        "FELLOW": true,
+        "FIRST_ENTER_BEAST_REPAIR_2ND_WORLD_LIST_1": false,
+        "EQUIPMENT_HYPER_EVOLVE": true,
+        "PROGRESS_MAP": true,
+        "ABILITY_CHANGE": false,
+        "OLD_HOME": true,
+        "BEAST_DUNGEON_REPAIR_2ND_RARITY3_NUM1_CLEAR_2": false,
+        "BEAST_DUNGEON_RARITY3_NUM3_CLEAR": true,
+        "PARTY_TOP": true,
+        "BATTLE_OPERATION": true,
+        "BEAST_DUNGEON_REPAIR_2ND_RARITY4_NUM1_CLEAR_1": false,
+        "SS_MULTI": false,
+        "WDAY_DUNGEON_EXCHANGE_SHOP": true,
+        "SS_LIMITATION": true,
+        "FIRST_ENTER_BEAST_REPAIR_2ND_WORLD_LIST_5": false,
+        "BEAST_DUNGEON_RARITY4_NUM3_CLEAR_3": true,
+        "BEAST_DUNGEON_RARITY3_NUM1_CLEAR_2": true,
+        "SECOND_ENTER_BEAST_REPAIR_2ND_WORLD_LIST_2": false,
+        "EXTREME_OPENING": true,
+        "ENHANCEMENT": true,
+        "ABILITY_DECOMPOSE": true,
+        "OLD_UI_REBORN": true,
+        "BEAST_DUNGEON_RARITY6_CHALLENGE_BEFORE": true,
+        "SECOND_ENTER_BEAST_WORLD_LIST": true,
+        "LEAD_TO_SECOND_DUNGEON": true,
+        "MO_FORMAL": false,
+        "BEAST_DUNGEON_RARITY4_NUM3_CLEAR_1": true,
+        "EXTREME_CLOSING_MOVIE": true,
+        "OLD_BUFF_DEBUFF_TRAINING_FOR_BEGINNER": true,
+        "ENHANCEMENT_TOP": true,
+        "BEAST_DUNGEON_RARITY5_ALL_CLEAR_1": true,
+        "FIRST_ENTER_BEAST_WORLD_LIST_1": true,
+        "ABILITY_GENERATION": true,
+        "BEAST_DUNGEON_RARITY3_ALL_CLEAR_2": true,
+        "SACRED_CASTLE": true,
+        "NEW_YEAR_2017": false,
+        "RECORD_DUNGEON_BATTLE_LIST": true,
+        "MASTER_LEGEND_MATERIA": true,
+        "BEAST_DUNGEON_RARITY4_OPEN_2": true,
+        "BEAST_DUNGEON_RARITY4_NUM3_CLEAR_2": true,
+        "BEAST_DUNGEON_RARITY4_NUM6_CLEAR_AFTER_UPDATE": true,
+        "BEAST_DUNGEON_RARITY4_OPEN_1": true,
+        "BATTLE_LIST": true,
+        "KITE_EXCHANGE_SHOP": true,
+        "PARTY_EDIT": true,
+        "HISTORIA_CRYSTAL_ENHANCEMENT": true,
+        "EXTREME_CLOSE1": false,
+        "BEAST_WORLD_OPENING_MOVIE": true,
+        "BRAVE_SERIES_BONUS": true,
+        "FIRST_ENTER_BEAST_DUNGEON_LIST_2": true,
+        "BEAST_DUNGEON_REPAIR_2ND_RARITY3_NUM1_CLEAR_5": false,
+        "BEAST_DUNGEON_REPAIR_2ND_RARITY3_NUM1_CLEAR_3": false,
+        "INVENTORY": true,
+        "BEAST_DUNGEON_BEAST_INHERITANCE": true,
+        "BOOK_ROOM": true,
+        "MO_PARTY": true,
+        "BEAST_DUNGEON_RARITY3_NUM6_CLEAR_BEAST_TOP": true,
+        "SUPPRESS": true,
+        "SS_MULTI_AND_EXP": true,
+        "SS_EXP": false,
+        "NIGHTMARE_DUNGEON": true,
+        "EXTREME_CLOSE2": false,
+        "ABILITY_MATERIAL_CONVERT": true,
+        "BEAST_DUNGEON_RARITY4_NUM6_CLEAR": true,
+        "FIRST_ENTER_RECORD_DUNGEON": true,
+        "SECOND_ANNIVERSARY": false,
+        "BOOK_ROOM2": true,
+        "GROWEGG": true,
+        "OLD_ABILITY_GENERATION": false,
+        "FELLOW_LIST": true,
+        "LEGEND_MATERIA": true,
+        "SERIES": true,
+        "FIRST_ENTER_BEAST_WORLD_LIST_2": true,
+        "STAMINA_RECOVERY_AGENT": true,
+        "SECOND_ENTER_BEAST_REPAIR_2ND_WORLD_LIST_3": false,
+        "MAGIA_CRYSTAL_BATTLE_RESULT": true,
+        "BEAST_DUNGEON_RARITY3_NUM6_CLEAR_AFTER_UPDATE": true,
+        "FIRST_ENTER_BEAST_REPAIR_2ND_WORLD_LIST_6": false,
+        "RECORD_DUNGEON_FRAME_ART_BREAK": true,
+        "BEAST_DUNGEON_RARITY3_NUM1_CLEAR_1": true,
+        "BEAST_DUNGEON_REPAIR_2ND_RARITY4_NUM1_CLEAR_2": false,
+        "EXTREME_MOVIE": true,
+        "COUNTDOWN_2016_DEFEAT_CNT_RESULT": false,
+        "FIRST_ANNIVERSARY": false,
+        "FIRST_ENTER_BEAST_REPAIR_2ND_DUNGEON_LIST_1": false,
+        "MO_INTRODUCTION_MOVIE": false,
+        "SECOND_ENTER_BEAST_REPAIR_2ND_WORLD_LIST_1": false,
+        "PARTY_MEMORY": true,
+        "BEAST_DUNGEON_RARITY4_ALL_CLEAR_1": true,
+        "RECORD_DUNGEON_PARTY_EDIT": true,
+        "PROFILE": true,
+        "OLD_QUEST": false,
+        "BEAST_DUNGEON_REPAIR_2ND_RARITY3_NUM1_CLEAR_1": false,
+        "DUNGEON_OVERDRIVE_MODE_TUTORIAL": true,
+        "LEGEND_SPHERE": true,
+        "BEAST_DUNGEON_REPAIR_2ND_RARITY5_NUM1_CLEAR_1": false,
+        "FIRST_ENTER_BEAST_REPAIR_2ND_DUNGEON_LIST_3": false,
+        "ABILITY_UPGRADE": true,
+        "FIRST_ENTER_BEAST_REPAIR_2ND_WORLD_LIST_4": false,
+        "HISTORIA_CRYSTAL_EVOLUTION": true,
+        "BATTLE_LIST_2": true,
+        "SOUL_STRIKE_CHOREN": true,
+        "SECOND_ENTER_BEAST_DUNGEON_LIST": true,
+        "OLD_ACHIEVEMENT_ROOM": true,
+        "BUDDY_ADDITIONAL_STATUS_BONUS": true,
+        "COUNTDOWN_2016_MOVIE": false,
+        "CARDIA_DUNGEON": true,
+        "OLD_INVENTORY": false,
+        "MEMORY_LABO2": false,
+        "SECOND_ENTER_BEAST_REPAIR_2ND_WORLD_LIST_4": false,
+        "FELLOW_PLUS": true,
+        "TEN_MILLION_DOWNLOAD_MOVIE": false,
+        "HAMMERING": true,
+        "MEMORY_LABO": true,
+        "EQUIPMENT_CHANGE": true,
+        "MAGIA_CRYSTAL_FIRST_ENTER": true,
+        "FORCE_DUNGEON": true,
+        "ANYTIME_MUSIC_ROOM": true,
+        "SECOND_ENTER_BEAST_REPAIR_2ND_WORLD_LIST_5": false,
+        "BEAST_DUNGEON_REPAIR_2ND_RARITY3_NUM1_CLEAR_4": false,
+        "SACRED_CASTLE_ATTRIBUTE_FLOOR": true,
+        "FIRST_ENTER_BEAST_REPAIR_2ND_WORLD_LIST_2": false,
+        "EQUIPMENT_REFERENCE": true,
+        "BEAST_DUNGEON_RARITY3_NUM6_CLEAR": false,
+        "OLD_ENHANCEMENT": false,
+        "BEAST_DUNGEON_RARITY3_ALL_CLEAR_1": true,
+        "RECORD_BOARD": true,
+        "EVOLUTION": true,
+        "BEAST_INHERITANCE": true,
+        "OLD_MISSION": true,
+        "RECORD_TEAR": true
+      },
+      "is_in_dungeon": true,
+      "name": "Yehosua",
+      "has_all_clear_ver_to_show": false,
+      "stamina": 96,
+      "can_review": true,
+      "tutorial_step": 255,
+      "followee_num": 97,
+      "sacred_lithograph": 73,
+      "stamina_recovery_remaining_time": 28111,
+      "gil": 1268211585,
+      "is_update_last_logined_at": false,
+      "last_logined_at": 1613135002,
+      "is_tutorial_finish": true,
+      "max_follower_num": 100,
+      "max_stamina": 253
+    },
+    "SERVER_TIME": 1613188652
+  }
+}

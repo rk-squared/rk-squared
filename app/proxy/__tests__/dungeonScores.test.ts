@@ -13,6 +13,7 @@ const neoTormentTUnkBattles = require('./data/neo_torment_t_unk_world_battles.js
 const magiciteWorldBattles = require('./data/magicite_world_battles.json');
 const magiciteWinBattle = require('./data/magicite_win_battle.json');
 const darkOdinDungeons = require('./data/dark_odin_dungeons.json');
+const argentOdinBattles = require('./data/argent_odin_world_battles.json');
 
 describe('dungeonScores proxy handler', () => {
   const mockStore = configureStore<IState>();
@@ -75,6 +76,27 @@ describe('dungeonScores proxy handler', () => {
               totalDamage: 1432340,
               type: DungeonScoreType.PercentHpOrClearTime,
               won: false,
+            },
+          },
+          type: 'SET_DUNGEON_SCORE',
+        },
+      ]);
+    });
+
+    it('handles Argent Odin', () => {
+      const store = mockStore();
+
+      dungeonScoresHandler.battles(argentOdinBattles.data, store, {});
+
+      expect(store.getActions()).toEqual([
+        {
+          payload: {
+            dungeonId: 1305205,
+            score: {
+              percentHp: 100,
+              time: 45710,
+              type: DungeonScoreType.PercentHpOrClearTime,
+              won: true,
             },
           },
           type: 'SET_DUNGEON_SCORE',

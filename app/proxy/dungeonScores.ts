@@ -112,7 +112,7 @@ const dungeonScoresHandler: Handler = {
     for (const i of data.battles) {
       if (i.grade_score_type && i.grade_score) {
         const type = gradeToScoreType(i.grade_score_type);
-        if (type) {
+        if (type && 'maxHp' in i.grade_score) {
           store.dispatch(
             setDungeonScore(i.dungeon_id, {
               type,
@@ -120,6 +120,19 @@ const dungeonScoresHandler: Handler = {
               totalDamage: i.grade_score.decreasedAmountOfHp,
               maxHp: i.grade_score.maxHp,
               won: i.grade_score.isDefeated,
+            }),
+          );
+        } else if (
+          i.grade_score_type === GradeScoreType.ArgentOdin &&
+          'hpRateMap' in i.grade_score
+        ) {
+          store.dispatch(
+            // I *think* that simply grabbing the first value is safe.
+            setDungeonScore(i.dungeon_id, {
+              type: DungeonScoreType.PercentHpOrClearTime,
+              time: Object.values(i.grade_score.defeatedTimeMap)[0],
+              percentHp: 100 - Object.values(i.grade_score.hpRateMap)[0],
+              won: !!Object.values(i.grade_score.isDefeatedMap)[0],
             }),
           );
         }

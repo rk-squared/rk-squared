@@ -29,7 +29,7 @@ export interface Battle {
   order_no: number;
   play_mode: number;
   grade_score_type?: GradeScoreType;
-  grade_score?: GradeScore;
+  grade_score?: GradeScore | MultiPatternGradeScore;
 
   /**
    * Clear time, in milliseconds.  Used for, e.g., magicite.
@@ -57,6 +57,20 @@ export interface GradeScore {
   elapsedBattleTimeFromBeginning: number;
   isDefeated: boolean;
   decreasedAmountOfHp: number;
+}
+
+export interface MultiPatternGradeScore {
+  // These use the same element codes as elsewhere; e.g., 100 = fire, 101 = ice
+  defeatedTimeMap: {
+    [element: number]: number;
+  };
+  isDefeatedMap: {
+    // These use element codes, but also, e.g., "103Magical" and "103_magical".
+    [element: string]: number;
+  };
+  hpRateMap: {
+    [element: number]: number;
+  };
 }
 
 export interface DungeonSession {
