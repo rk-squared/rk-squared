@@ -6,10 +6,14 @@ import { getOrganizedChains, OrganizedChains } from '../../data/chains';
 import { allEnlirElements } from '../../data/enlir';
 import { ChainCell } from './ChainCell';
 import { ElementChainCellGroup } from './ElementChainCellGroup';
+import { connect } from 'react-redux';
+import { IState } from '../../reducers';
+import { getOwnedSoulBreaks } from '../../selectors/characters';
 
 const styles = require('./ElementChainList.scss');
 
 interface Props {
+  ownedSoulBreaks?: Set<number>;
   isAnonymous?: boolean;
 }
 
@@ -23,6 +27,7 @@ function getChainCount(chains: OrganizedChains['element'], gen: 'gen2' | 'gen25'
 
 export class ElementChainList extends React.Component<Props> {
   render() {
+    const { ownedSoulBreaks, isAnonymous } = this.props;
     const chains = getOrganizedChains().element;
 
     const gen2Count = getChainCount(chains, 'gen2');
@@ -31,6 +36,7 @@ export class ElementChainList extends React.Component<Props> {
       i => chains.gen05[i] || chains.gen1[i] || chains.gen2[i] || chains.gen25[i],
     );
 
+    const props = { ownedSoulBreaks, isAnonymous };
     return (
       <div>
         <h3>Elemental Chains</h3>
@@ -60,10 +66,10 @@ export class ElementChainList extends React.Component<Props> {
                 <th className={styles.element + ' ' + i.toLowerCase()} scope="row">
                   {i}
                 </th>
-                <ChainCell soulBreak={chains.gen05[i]} />
-                <ElementChainCellGroup chains={chains.gen1[i]} count={1} />
-                <ElementChainCellGroup chains={chains.gen2[i]} count={gen2Count} />
-                <ElementChainCellGroup chains={chains.gen25[i]} count={gen25Count} />
+                <ChainCell soulBreak={chains.gen05[i]} {...props} />
+                <ElementChainCellGroup chains={chains.gen1[i]} count={1} {...props} />
+                <ElementChainCellGroup chains={chains.gen2[i]} count={gen2Count} {...props} />
+                <ElementChainCellGroup chains={chains.gen25[i]} count={gen25Count} {...props} />
               </tr>
             ))}
           </tbody>
@@ -73,4 +79,6 @@ export class ElementChainList extends React.Component<Props> {
   }
 }
 
-export default ElementChainList;
+export default connect((state: IState) => ({
+  ownedSoulBreaks: getOwnedSoulBreaks(state),
+}))(ElementChainList);

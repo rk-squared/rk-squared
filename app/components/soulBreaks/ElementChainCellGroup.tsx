@@ -11,19 +11,23 @@ interface Props {
       }
     | undefined;
   count: number;
+
+  ownedSoulBreaks?: Set<number>;
+  isAnonymous?: boolean;
 }
 
 export class ElementChainCellGroup extends React.Component<Props> {
   render() {
-    const { count } = this.props;
+    const { count, ownedSoulBreaks, isAnonymous } = this.props;
     const chains = this.props.chains || { phys: [], mag: [] };
+    const props = { ownedSoulBreaks, isAnonymous };
     return (
       <>
         {_.times(count, i => (
-          <ChainCell key={i} soulBreak={chains.phys[i]} />
+          <ChainCell key={i} soulBreak={chains.phys[i]} {...props} />
         ))}
         {_.times(count, i => (
-          <ChainCell key={count + i} soulBreak={chains.mag[i]} />
+          <ChainCell key={count + i} soulBreak={chains.mag[i]} {...props} />
         ))}
       </>
     );
