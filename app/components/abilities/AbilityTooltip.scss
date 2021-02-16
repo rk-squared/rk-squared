@@ -2,7 +2,7 @@
 
 :local {
   .component {
-    width: 30em;
+    width: 35em;
     display: flex;
 
     .iconsBlock {
@@ -23,11 +23,16 @@
       }
     }
 
-    .detail {
+    .schoolDetail, .castTimeDetail, .sbDetail {
       font-style: italic;
       display: inline-block;
-      width: 50%;
       margin-bottom: 0.5rem;
+    }
+    .schoolDetail, .sbDetail {
+      width: 30%;
+    }
+    .castTimeDetail {
+      width: 40%;
     }
 
     .eventDetail {

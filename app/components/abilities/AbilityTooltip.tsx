@@ -43,14 +43,15 @@ export class AbilityTooltip extends React.Component<Props> {
     return (
       <>
         <div className={styles.iconsBlock}>
-          {character && <img src={urls.characterImage(lang, character.id)} />}
-          <img src={urls.abilityImage(lang, +abilityId)} />
+          {character && <img src={urls.characterImage(lang, character.id)} alt={character.name} />}
+          <img src={urls.abilityImage(lang, +abilityId)} alt="" />
         </div>
 
         <div className={styles.textBlock}>
           <h6>{ability.name}</h6>
-          <div className={styles.detail}>Cast time: {ability.time} sec</div>
-          <div className={styles.detail}>{ability.sb} SB pts.</div>
+          <div className={styles.schoolDetail}>{ability.school}</div>
+          <div className={styles.castTimeDetail}>Cast time: {ability.time} sec</div>
+          <div className={styles.sbDetail}>{ability.sb} SB pts.</div>
           <p>{ability.effects}</p>
           {!ability.gl && <p className={styles.eventDetail}>{this.getEventDetails(ability)}</p>}
         </div>
