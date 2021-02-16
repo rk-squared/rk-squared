@@ -1,0 +1,17 @@
+:local {
+  .table {
+    width: auto;
+  }
+
+  .table > tbody > tr > th {
+    width: 18ch;
+  }
+
+  .table td {
+    width: 18ch;
+    max-width: 18ch;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+}

@@ -30,12 +30,11 @@ export class ElementChainHelp extends React.Component {
           </li>
           <li>
             <strong>Gen. 2.5</strong> chains boost damage of the corresponding element by 50% and
-            offer a chain bonus up to <strong>99 hits</strong>. They're instant cast, boost
-            individual party members' elemental damage (on top of the 50% field effect), and have
-            the same stat boosts as gen 2 chains. They ramp up faster than gen 2 chains but have a
-            lower damage cap, so they're not universally better (hence the "2.5" moniker), but
-            having less drop-off when renewing a chain and earlier savage mode breaking is often
-            beneficial.
+            offer a chain bonus up to <strong>99 hits</strong>. They're instant cast, boost party
+            members' elemental damage (on top of the 50% field effect), and have the same stat
+            boosts as gen 2 chains. They ramp up faster than gen 2 chains but have a lower damage
+            cap, so they're not universally better (hence the "2.5" moniker), but having less
+            drop-off when renewing a chain and earlier savage mode breaking is often beneficial.
           </li>
           <li>
             A <strong>RW</strong> (Roaming Warrior) chain, Fabula Sorcerer, is available in magicite

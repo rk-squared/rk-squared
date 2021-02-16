@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { Page } from './Page';
 import ElementChainList from '../components/soulBreaks/ElementChainList';
+import RealmChainList from '../components/soulBreaks/RealmChainList';
 
 export class ChainSoulBreaksPage extends React.Component<{}> {
   render() {
@@ -8,6 +9,7 @@ export class ChainSoulBreaksPage extends React.Component<{}> {
     return (
       <Page title="Chain Soul Breaks">
         <ElementChainList isAnonymous={isAnonymous} />
+        <RealmChainList isAnonymous={isAnonymous} />
       </Page>
     );
   }
