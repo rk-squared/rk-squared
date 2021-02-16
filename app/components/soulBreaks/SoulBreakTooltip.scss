@@ -25,15 +25,10 @@
       }
     }
 
-    .schoolDetail, .castTimeDetail, .sbDetail {
+    .castTimeDetail {
       font-style: italic;
       display: inline-block;
       margin-bottom: 0.5rem;
-    }
-    .schoolDetail, .sbDetail {
-      width: 30%;
-    }
-    .castTimeDetail {
       width: 40%;
     }
 

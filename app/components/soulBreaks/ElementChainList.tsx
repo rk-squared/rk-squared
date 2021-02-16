@@ -15,6 +15,7 @@ const styles = require('./ElementChainList.scss');
 interface Props {
   ownedSoulBreaks?: Set<number>;
   isAnonymous?: boolean;
+  soulBreakTooltipId?: string;
 }
 
 function getChainCount(chains: OrganizedChains['element'], gen: 'gen2' | 'gen25') {
@@ -27,7 +28,7 @@ function getChainCount(chains: OrganizedChains['element'], gen: 'gen2' | 'gen25'
 
 export class ElementChainList extends React.Component<Props> {
   render() {
-    const { ownedSoulBreaks, isAnonymous } = this.props;
+    const { ownedSoulBreaks, isAnonymous, soulBreakTooltipId } = this.props;
     const chains = getOrganizedChains().element;
 
     const gen2Count = getChainCount(chains, 'gen2');
@@ -36,7 +37,7 @@ export class ElementChainList extends React.Component<Props> {
       i => chains.gen05[i] || chains.gen1[i] || chains.gen2[i] || chains.gen25[i],
     );
 
-    const props = { ownedSoulBreaks, isAnonymous };
+    const props = { ownedSoulBreaks, isAnonymous, soulBreakTooltipId };
     return (
       <div>
         <h3>Elemental Chains</h3>

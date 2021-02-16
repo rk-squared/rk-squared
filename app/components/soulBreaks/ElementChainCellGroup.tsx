@@ -14,13 +14,14 @@ interface Props {
 
   ownedSoulBreaks?: Set<number>;
   isAnonymous?: boolean;
+  soulBreakTooltipId?: string;
 }
 
 export class ElementChainCellGroup extends React.Component<Props> {
   render() {
-    const { count, ownedSoulBreaks, isAnonymous } = this.props;
+    const { count, ownedSoulBreaks, isAnonymous, soulBreakTooltipId } = this.props;
     const chains = this.props.chains || { phys: [], mag: [] };
-    const props = { ownedSoulBreaks, isAnonymous };
+    const props = { ownedSoulBreaks, isAnonymous, soulBreakTooltipId };
     return (
       <>
         {_.times(count, i => (

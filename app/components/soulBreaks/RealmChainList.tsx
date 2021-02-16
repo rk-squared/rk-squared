@@ -13,16 +13,17 @@ const styles = require('./RealmChainList.scss');
 interface Props {
   ownedSoulBreaks?: Set<number>;
   isAnonymous?: boolean;
+  soulBreakTooltipId?: string;
 }
 
 export class RealmChainList extends React.Component<Props> {
   render() {
-    const { ownedSoulBreaks, isAnonymous } = this.props;
+    const { ownedSoulBreaks, isAnonymous, soulBreakTooltipId } = this.props;
     const chains = getOrganizedChains().realm;
 
     const realms = allEnlirRealms.filter(i => chains.gen1[i] || chains.gen2[i]);
 
-    const props = { ownedSoulBreaks, isAnonymous };
+    const props = { ownedSoulBreaks, isAnonymous, soulBreakTooltipId };
     return (
       <div>
         <h3>Realm Chains</h3>

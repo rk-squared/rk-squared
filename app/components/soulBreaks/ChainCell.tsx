@@ -7,15 +7,23 @@ interface Props {
   soulBreak: EnlirSoulBreak | undefined;
   ownedSoulBreaks?: Set<number>;
   isAnonymous?: boolean;
+  soulBreakTooltipId?: string;
 }
 
 export class ChainCell extends React.Component<Props> {
   render() {
-    const { soulBreak, ownedSoulBreaks, isAnonymous } = this.props;
+    const { soulBreak, ownedSoulBreaks, isAnonymous, soulBreakTooltipId } = this.props;
     const className =
       !isAnonymous && ownedSoulBreaks && (!soulBreak || !ownedSoulBreaks.has(soulBreak.id))
         ? styles.unowned
         : undefined;
-    return <td className={className}>{soulBreak ? soulBreak.character : undefined}</td>;
+    if (!soulBreak) {
+      return <td className={className} />;
+    }
+    return (
+      <td className={className} data-tip={soulBreak.id} data-for={soulBreakTooltipId}>
+        {soulBreak.character}
+      </td>
+    );
   }
 }

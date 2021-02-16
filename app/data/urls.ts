@@ -41,6 +41,10 @@ export function abilityImage(lang: LangType, id: number): string {
   return url(lang, `image/ability/${id}/${id}_128.png`);
 }
 
+export function soulBreakImage(lang: LangType, id: number): string {
+  return url(lang, `image/soulstrike/${id}/${id}_256.png`);
+}
+
 export function characterImage(lang: LangType, id: number): string {
   return url(lang, `image/buddy/${id}/${id}.png`);
 }
