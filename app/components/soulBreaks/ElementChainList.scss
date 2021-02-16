@@ -1,0 +1,25 @@
+@import '../shared/elements';
+
+:local {
+  .table > tbody > tr > th {
+    width: 12ch;
+  }
+
+  .table td {
+    width: 12ch;
+    max-width: 12ch;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  .element::before {
+    content: '⬢ ';
+  }
+
+  @each $name, $color in $element-colors {
+    .element:global(.#{$name})::before {
+      color: $color;
+    }
+  }
+}

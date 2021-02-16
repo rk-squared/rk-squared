@@ -1,4 +1,5 @@
 import AbilitiesPage from '../containers/AbilitiesPage';
+import ChainSoulBreaksPage from '../containers/ChainSoulBreaksPage';
 import DesktopHomePage from '../containers/DesktopHomePage';
 import DropTrackerPage from '../containers/DropTrackerPage';
 import DungeonScoresPage from '../containers/DungeonScoresPage';
@@ -49,6 +50,11 @@ const routes: RouteItem[] = [
     description: 'Soul Breaks',
     path: '/soulBreaks',
     children: [
+      {
+        component: ChainSoulBreaksPage,
+        description: 'Chains',
+        path: '/soulBreaks/chains',
+      },
       {
         component: SharedSoulBreaksPage,
         description: 'Shared',
