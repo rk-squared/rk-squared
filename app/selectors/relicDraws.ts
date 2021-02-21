@@ -237,6 +237,16 @@ export const getMissingBanners = createSelector<IState, RelicDrawState, number, 
   },
 );
 
+/**
+ * Gets the IDs of all selectable relics, past and current.
+ */
+export const getAllExchangeShopSelections = createSelector<IState, RelicDrawState, Set<number>>(
+  (state: IState) => state.relicDraws,
+  ({ selections }) => {
+    return new Set<number>(_.flatten(_.flatten(Object.values(selections))));
+  },
+);
+
 export const getNewExchangeShopSelections = createSelector<
   IState,
   RelicDrawState,

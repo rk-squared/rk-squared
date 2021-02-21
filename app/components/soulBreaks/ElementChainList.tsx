@@ -2,17 +2,19 @@ import classNames from 'classnames';
 import * as _ from 'lodash';
 import * as React from 'react';
 import { ElementChainHelp } from './ElementChainHelp';
-import { getOrganizedChains, OrganizedChains } from '../../data/chains';
+import { OrganizedChains } from '../../data/chains';
 import { allEnlirElements } from '../../data/enlir';
 import { ChainCell } from './ChainCell';
 import { ElementChainCellGroup } from './ElementChainCellGroup';
 import { connect } from 'react-redux';
 import { IState } from '../../reducers';
 import { getOwnedSoulBreaks } from '../../selectors/characters';
+import { selectOrganizedSoulBreaks } from '../../selectors/soulBreaks';
 
 const styles = require('./ElementChainList.scss');
 
 interface Props {
+  chains: OrganizedChains['element'];
   ownedSoulBreaks?: Set<number>;
   isAnonymous?: boolean;
   soulBreakTooltipId?: string;
@@ -28,8 +30,7 @@ function getChainCount(chains: OrganizedChains['element'], gen: 'gen2' | 'gen25'
 
 export class ElementChainList extends React.Component<Props> {
   render() {
-    const { ownedSoulBreaks, isAnonymous, soulBreakTooltipId } = this.props;
-    const chains = getOrganizedChains().element;
+    const { chains, ownedSoulBreaks, isAnonymous, soulBreakTooltipId } = this.props;
 
     const gen2Count = getChainCount(chains, 'gen2');
     const gen25Count = getChainCount(chains, 'gen25');
@@ -82,4 +83,5 @@ export class ElementChainList extends React.Component<Props> {
 
 export default connect((state: IState) => ({
   ownedSoulBreaks: getOwnedSoulBreaks(state),
+  chains: selectOrganizedSoulBreaks(state).element,
 }))(ElementChainList);

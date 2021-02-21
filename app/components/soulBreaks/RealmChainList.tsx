@@ -1,16 +1,18 @@
 import classNames from 'classnames';
 import * as React from 'react';
 import { connect } from 'react-redux';
-import { getOrganizedChains } from '../../data/chains';
+import { OrganizedChains } from '../../data/chains';
 import { allEnlirRealms } from '../../data/enlir';
 import { ChainCell } from './ChainCell';
 import { RealmChainHelp } from './RealmChainHelp';
 import { IState } from '../../reducers';
 import { getOwnedSoulBreaks } from '../../selectors/characters';
+import { selectOrganizedSoulBreaks } from '../../selectors/soulBreaks';
 
 const styles = require('./RealmChainList.scss');
 
 interface Props {
+  chains: OrganizedChains['realm'];
   ownedSoulBreaks?: Set<number>;
   isAnonymous?: boolean;
   soulBreakTooltipId?: string;
@@ -18,8 +20,7 @@ interface Props {
 
 export class RealmChainList extends React.Component<Props> {
   render() {
-    const { ownedSoulBreaks, isAnonymous, soulBreakTooltipId } = this.props;
-    const chains = getOrganizedChains().realm;
+    const { chains, ownedSoulBreaks, isAnonymous, soulBreakTooltipId } = this.props;
 
     const realms = allEnlirRealms.filter(i => chains.gen1[i] || chains.gen2[i]);
 
@@ -54,4 +55,5 @@ export class RealmChainList extends React.Component<Props> {
 
 export default connect((state: IState) => ({
   ownedSoulBreaks: getOwnedSoulBreaks(state),
+  chains: selectOrganizedSoulBreaks(state).realm,
 }))(RealmChainList);

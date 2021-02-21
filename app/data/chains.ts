@@ -70,7 +70,16 @@ function getPhysMag(soulBreak: EnlirSoulBreak, effects: skillTypes.EffectClause[
   }
 }
 
-function getOrganizedChainsImpl(): OrganizedChains {
+/**
+ * Gets chain soul breaks, organized by realm vs. element, generation, etc.
+ *
+ * This optionally takes the set of relic banner gem selections to help organize
+ * soul breaks.
+ *
+ * To avoid extra processing and to keep consistent usage, it should be invoked
+ * via its Reselect selector (selectOrganizedSoulBreaks) instead of directly.
+ */
+export function getOrganizedChains(exchangeShopSelections?: Set<number>): OrganizedChains {
   const result: OrganizedChains = {
     element: {
       gen05: {},
@@ -128,13 +137,28 @@ function getOrganizedChainsImpl(): OrganizedChains {
   }
 
   // Try to sort same-type chains.  The Enlir database doesn't give release
-  // order; sorting by the character's soul break number isn't too bad...
+  // order; sorting by the character's soul break number isn't too bad, just to
+  // give us something stable...
+  //
+  // If we have information about gem-selectable relics, we can take advantage
+  // of the fact that only the first of each gen 2 chain is selectable.
   for (const gen of ['gen1', 'gen2', 'gen25'] as const) {
     for (const element of allEnlirElements) {
       const part = result.element[gen][element];
       if (part) {
         for (const physMag of ['phys', 'mag'] as const) {
-          part[physMag] = _.sortBy(part[physMag], i => i.id % 1000);
+          if (gen === 'gen2' && exchangeShopSelections) {
+            part[physMag] = _.sortBy(
+              part[physMag],
+              i => {
+                const relic = i.relic && enlir.relicsByNameWithRealm[i.relic];
+                return relic && exchangeShopSelections.has(relic.id) ? 0 : 1;
+              },
+              i => i.id % 1000,
+            );
+          } else {
+            part[physMag] = _.sortBy(part[physMag], i => i.id % 1000);
+          }
         }
       }
     }
@@ -142,5 +166,3 @@ function getOrganizedChainsImpl(): OrganizedChains {
 
   return result;
 }
-
-export const getOrganizedChains = _.memoize(getOrganizedChainsImpl);
