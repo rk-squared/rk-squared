@@ -1,11 +1,27 @@
 # v2.7.0
 
-- Dungeon Tracker
-  - Add / update handling for Beginner's Hall and Secret Hunt
+- Dungeons
+  - Add / update handling for Beginner's Hall, Secret Hunt, Wandering Gilgamesh
+- Dungeon Scores
+  - Add Dreambreakers and Argent Odin. Update for Torment and Dream changes.
+- Abilities
+  - Numerous updates from the FFRK Community Database
+  - More intelligent grouping of hero abilities
 - Record Materia
-  - Add Alisaie
+  - Add Alisaie and Ardyn
+- Soul Breaks
+  - Numerous updates from the FFRK Community Database
+  - Add Arcane Dyads and Limit Break Summons
+  - Properly report on owned limit breaks
+  - Arcane Overstrikes are now listed before Ultra Soul Breaks; they used to be grouped with Overstrikes, but they serve a very different role, and they were released after Ultra Soul Breaks.
+  - Rework legend materia wording to more closely match soul break wording
+  - Burst and synchro soul breaks with status-dependent commands now better describe their status dependencies. (For example, Rikku's sync now lists "(2 status lvl)", "(1 status lvl)", and "(0 status lvl)" to show which effect is which.)
+- Relic Draws
+  - Add handling for stamp sheet selections
 - Options
-  - Online comments suggest that the "Always show timer" option no longer works, so it's been removed.
+  - Online comments suggest that the "Always show timer" option no longer works, and it's rarely needed for end-game content, so it's been removed.
+- Internal changes
+  - Switch from Font Awesome Pro to Font Awesome Free to make it easier for other developers to contribute
 
 # v2.6.0
 
