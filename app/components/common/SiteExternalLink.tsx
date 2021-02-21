@@ -5,6 +5,6 @@ import classNames from 'classnames';
 
 export const SiteExternalLink = ({ children, className, ...props }: any) => (
   <a target="_blank" rel="noopener" className={classNames('text-reset', className)} {...props}>
-    {children} <FontAwesomeIcon icon="external-link" />
+    {children} <FontAwesomeIcon icon="external-link-alt" />
   </a>
 );

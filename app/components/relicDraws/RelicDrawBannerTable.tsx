@@ -280,7 +280,7 @@ export class RelicDrawBannerTable extends React.Component<Props, State> {
         {showProbability && <th scope="col">Chance</th>}
         {this.props.allowSelect && (
           <th scope="col">
-            <FontAwesomeIcon icon={['fal', 'dice-d20']} title="Want" />
+            <FontAwesomeIcon icon="dice-d20" title="Want" />
           </th>
         )}
         {this.props.getStatusAndCss && (

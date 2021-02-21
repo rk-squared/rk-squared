@@ -19,8 +19,6 @@ Both the global and Japanese versions of FFRK are supported. However, a running 
 
 RK Squared uses TypeScript, React, and Electron.
 
-As of June 2020, a license to Font Awesome Pro is also required.
-
 Sample instructions for setting up development:
 
 ```sh

@@ -14,7 +14,7 @@ export class DonationInfo extends React.Component {
         <BrowserLink href={URL} className="alert-link">
           Buy me a coffee!
         </BrowserLink>{' '}
-        <FontAwesomeIcon icon="coffee-togo" />
+        <FontAwesomeIcon icon="coffee" />
       </div>
     );
   }

@@ -216,7 +216,7 @@ export class RelicChances extends React.PureComponent<Props> {
 
     return (
       <MinableCard
-        icon={['fal', 'dice-d20']}
+        icon={'dice-d20'}
         className={styles.component + ' ' + className}
         iconClassName="bg-success text-white"
         bodyClassName="row"
