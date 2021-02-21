@@ -33,7 +33,7 @@
     "postbuild-site": "react-snap",
     "test-site": "node scripts/test-site.js",
     "postget-enlir": "yarn copy-json",
-    "peg": "pegjs -o app/data/mrp/skillParser.js --cache --dependency util:./parserHelpers app/data/mrp/skillParser.pegjs && pegjs -o app/data/mrp/statusParser.js --cache --dependency util:./parserHelpers --allowed-start-rules StatusEffect,LegendMateriaEffect app/data/mrp/statusParser.pegjs",
+    "peg": "pegjs -o app/data/mrP/skillParser.js --cache --dependency util:./parserHelpers app/data/mrP/skillParser.pegjs && pegjs -o app/data/mrP/statusParser.js --cache --dependency util:./parserHelpers --allowed-start-rules StatusEffect,LegendMateriaEffect app/data/mrP/statusParser.pegjs",
     "postpeg": "copyfiles --flat \"./app/data/mrP/*.js\" ./dist/app/data/mrP"
   },
   "jest": {
