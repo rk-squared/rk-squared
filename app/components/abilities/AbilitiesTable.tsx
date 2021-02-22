@@ -25,7 +25,7 @@ export function getMrPAbility(ability: EnlirAbility) {
 }
 
 interface Props {
-  abilities: EnlirAbility[] | { [s: string]: EnlirAbility[] };
+  abilities: EnlirAbility[] | { [s: string]: EnlirAbility[] | undefined };
   categories?: string[];
   categoryRenderer?: (key: string) => React.ReactNode;
   showRecordBoard?: boolean;

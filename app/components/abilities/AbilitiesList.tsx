@@ -98,7 +98,10 @@ type AbilitySortHandler =
       getter: (rarity: number, showRecordBoard?: boolean) => EnlirAbility[];
     }
   | {
-      getter: (rarity: number, showRecordBoard?: boolean) => { [s: string]: EnlirAbility[] };
+      getter: (
+        rarity: number,
+        showRecordBoard?: boolean,
+      ) => { [s: string]: EnlirAbility[] | undefined };
       categories: string[];
       categoryRenderer: (key: string) => React.ReactNode;
     };

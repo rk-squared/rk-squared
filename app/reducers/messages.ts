@@ -39,7 +39,8 @@ export function messages(
       let newMessages: Message[];
       const messageIdOrIndex = action.payload;
       if (typeof messageIdOrIndex === 'number') {
-        newMessages = _.omit(state.messages, messageIdOrIndex);
+        newMessages = state.messages.slice();
+        newMessages.splice(messageIdOrIndex, 1);
       } else {
         newMessages = _.filter(state.messages, i => i.id !== messageIdOrIndex);
       }

@@ -13,11 +13,10 @@ interface Props {
 export class MessagesList extends React.Component<Props> {
   render() {
     const { messages, hideMessage } = this.props;
-    const messageIds = Object.keys(messages).sort();
     return (
       <>
-        {messageIds.map(i => (
-          <MessageBox key={i} message={messages[+i]} onClose={() => hideMessage(+i)} />
+        {messages.map((message, i) => (
+          <MessageBox key={i} message={message} onClose={() => hideMessage(i)} />
         ))}
       </>
     );
