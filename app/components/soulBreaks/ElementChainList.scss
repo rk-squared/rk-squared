@@ -1,8 +1,14 @@
 @import '../shared/elements';
 
 :local {
+  .table {
+    max-width: 100%;
+    overflow-x: scroll;
+  }
+
   .table > tbody > tr > th {
     width: 12ch;
+    min-width: 12ch;
   }
 
   .table td {

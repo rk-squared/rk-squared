@@ -22,7 +22,7 @@ export class RealmChainList extends React.Component<Props> {
   render() {
     const { chains, ownedSoulBreaks, isAnonymous, soulBreakTooltipId } = this.props;
 
-    const realms = allEnlirRealms.filter(i => chains.gen1[i] || chains.gen2[i]);
+    const realms = allEnlirRealms.filter((i) => chains.gen1[i] || chains.gen2[i]);
 
     const props = { ownedSoulBreaks, isAnonymous, soulBreakTooltipId };
     return (
@@ -30,24 +30,26 @@ export class RealmChainList extends React.Component<Props> {
         <h3>Realm Chains</h3>
         <RealmChainHelp />
 
-        <table className={classNames('table table-bordered table-responsive-sm', styles.table)}>
-          <thead>
-            <tr>
-              <th>Realm</th>
-              <th>Gen. 1</th>
-              <th>Gen. 2</th>
-            </tr>
-          </thead>
-          <tbody>
-            {realms.map(i => (
-              <tr key={i}>
-                <th scope="row">{i}</th>
-                <ChainCell soulBreak={chains.gen1[i]} {...props} />
-                <ChainCell soulBreak={chains.gen2[i]} {...props} />
+        <div className="table-responsive">
+          <table className={classNames('table table-bordered table-responsive-sm', styles.table)}>
+            <thead>
+              <tr>
+                <th>Realm</th>
+                <th>Gen. 1</th>
+                <th>Gen. 2</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {realms.map((i) => (
+                <tr key={i}>
+                  <th scope="row">{i}</th>
+                  <ChainCell soulBreak={chains.gen1[i]} {...props} />
+                  <ChainCell soulBreak={chains.gen2[i]} {...props} />
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
     );
   }

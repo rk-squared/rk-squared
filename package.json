@@ -231,7 +231,7 @@
     "optimize-css-assets-webpack-plugin": "^5.0.1",
     "pnp-webpack-plugin": "^1.4.1",
     "postcss-safe-parser": "^4.0.1",
-    "prettier": "^1.15.3",
+    "prettier": "^2.2.1",
     "react-dev-utils": "^8.0.0",
     "react-hot-loader": "^3.0.0-beta.6",
     "react-snap": "^1.23.0",

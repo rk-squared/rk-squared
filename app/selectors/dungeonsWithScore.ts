@@ -11,7 +11,7 @@ import {
 } from '../actions/dungeonScores';
 import { getSorter, World, WorldCategory } from '../actions/worlds';
 import { OdinWorldId } from '../api/schemas/dungeons';
-import { allEnlirElements, EnlirElement } from '../data/enlir';
+import { enlirElementWheel, EnlirElement } from '../data/enlir';
 import { IState } from '../reducers';
 import { DungeonState, getDungeonsForWorld } from '../reducers/dungeons';
 import { DungeonScoreState } from '../reducers/dungeonScores';
@@ -261,7 +261,7 @@ export const getOdinScores = createSelector<
     const darkOdinDungeon = odinDungeons[0];
     if (scoresState.elementScores && scoresState.elementScores[darkOdinDungeon.id]) {
       const scores = scoresState.elementScores[darkOdinDungeon.id];
-      for (const element of allEnlirElements) {
+      for (const element of enlirElementWheel) {
         if (scores[element]) {
           result[element] = result[element] || { element };
           result[element]!.darkOdin = {
@@ -274,7 +274,7 @@ export const getOdinScores = createSelector<
     }
 
     // Process Argent Odin.
-    for (const element of allEnlirElements) {
+    for (const element of enlirElementWheel) {
       const elementText = element === 'Lightning' ? 'lit.' : element.toLowerCase();
 
       let dungeon = odinDungeons.find(

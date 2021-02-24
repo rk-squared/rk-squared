@@ -91,6 +91,20 @@ export const enlirPrismElementCount = 9; // 8 core + bio; exclude non-elemental
 export const isEnlirElement = (s: string): s is EnlirElement =>
   allEnlirElements.indexOf(s as EnlirElement) !== -1;
 
+/**
+ * All Enlir elements, in the order shown by the magicite wheel.
+ */
+export const enlirElementWheel: EnlirElement[] = [
+  'Fire',
+  'Ice',
+  'Wind',
+  'Earth',
+  'Lightning',
+  'Water',
+  'Holy',
+  'Dark',
+];
+
 export type EnlirEventType =
   | '?'
   | 'Challenge Event'
