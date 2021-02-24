@@ -1,4 +1,4 @@
-# v2.7.0
+# v3.0.0
 
 - Dungeons
   - Add / update handling for Beginner's Hall, Secret Hunt, Wandering Gilgamesh
