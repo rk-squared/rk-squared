@@ -167,6 +167,11 @@ export const dressRecords: DressRecord[] = [
     id: 120801000,
     characterId: 10800400,
   },
+  {
+    name: 'Uniformed Laguna',
+    id: 120801200,
+    characterId: 10800900,
+  },
 
   {
     name: 'Show of Resolve',
@@ -214,6 +219,12 @@ export const dressRecords: DressRecord[] = [
     name: 'Ministerial Vestiture',
     id: 121100100,
     characterId: 11100100,
+  },
+
+  {
+    name: "Stray's Tenacity",
+    id: 121200300,
+    characterId: 11200700,
   },
 
   {
@@ -283,4 +294,7 @@ export const dressRecords: DressRecord[] = [
   },
 ];
 
-export const dressRecordsById = _.zipObject(dressRecords.map(i => i.id), dressRecords);
+export const dressRecordsById = _.zipObject(
+  dressRecords.map((i) => i.id),
+  dressRecords,
+);
