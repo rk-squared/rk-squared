@@ -1,5 +1,4 @@
 import { exportSoulBreaksToCsv } from '../exporters';
-import { IState } from '../../reducers';
 import { makeTestState } from '../../reducers/__fixtures__/testState';
 
 describe('exporters', () => {
@@ -19,7 +18,7 @@ describe('exporters', () => {
           soulBreaks: [20330007],
         },
       });
-      expect(exportSoulBreaksToCsv((state as any) as IState)).toMatchInlineSnapshot(`
+      expect(exportSoulBreaksToCsv(state)).toMatchInlineSnapshot(`
         "ID,Character,Realm,Soul Break,Tier,Effects
         20330007,Warrior of Light,I,Shield of Light,CSB1,\\"holy chain 1.2x (max 99), phys 7.92/11 holy, party Autoheal 2k\\"
         "

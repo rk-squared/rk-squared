@@ -1,3 +1,4 @@
+import { makeTestState } from '../../reducers/__fixtures__/testState';
 import {
   convertGradePrizeItems,
   convertPrizeItems,
@@ -188,7 +189,7 @@ describe('dungeons proxy handler', () => {
   describe('dungeons handler', () => {
     it('sorts Record Dungeons', () => {
       const data = require('./data/untrodden_paths_dungeons.json');
-      const sortedDungeonNames = sortDungeons(data).map(i => i.name);
+      const sortedDungeonNames = sortDungeons(data).map((i) => i.name);
       // noinspection SpellCheckingInspection
       expect(sortedDungeonNames).toEqual([
         'Midgar Sector 1',
@@ -221,7 +222,7 @@ describe('dungeons proxy handler', () => {
     it('handles damage-based grade prizes', () => {
       const data = require('./data/damage_race_dungeons.json');
       const prizes = convertGradePrizeItems(data.dungeons[2]);
-      expect(prizes.claimedGrade.map(i => i.name)).toEqual([
+      expect(prizes.claimedGrade.map((i) => i.name)).toEqual([
         'Bravery Mote (4★)',
         'Spirit Mote (4★)',
         'Dexterity Mote (4★)',
@@ -229,7 +230,7 @@ describe('dungeons proxy handler', () => {
         'Memory Crystal III Lode',
         'Memory Crystal II Lode',
       ]);
-      expect(prizes.unclaimedGrade.map(i => i.name)).toEqual(['Vitality Mote (4★)']);
+      expect(prizes.unclaimedGrade.map((i) => i.name)).toEqual(['Vitality Mote (4★)']);
     });
 
     it('handles Neo Torment grade prizes', () => {
@@ -238,7 +239,7 @@ describe('dungeons proxy handler', () => {
       const prizes = convertGradePrizeItems(data.dungeons[2]);
 
       const totalCount = (name: string) =>
-        _.sum(prizes.unclaimedGrade.filter(i => i.name === name).map(i => i.amount));
+        _.sum(prizes.unclaimedGrade.filter((i) => i.name === name).map((i) => i.amount));
       expect(totalCount('Record Rubies')).toEqual(160);
       expect(totalCount('Power Crystal')).toEqual(10);
     });
@@ -256,13 +257,13 @@ describe('dungeons proxy handler', () => {
       };
 
       const mockStore = configureStore<IState>();
-      const initialState: Partial<IState> = {
+      const initialState = makeTestState({
         worlds: { worlds: { [powerUpWorld.id]: powerUpWorld } },
-      };
-      const store = mockStore(initialState as IState);
+      });
+      const store = mockStore(initialState);
 
       dungeonsHandler['dungeons'](data.data, store, { query: { world_id: powerUpWorld.id } });
-      const action = store.getActions().find(i => i.type === 'ADD_WORLD_DUNGEONS');
+      const action = store.getActions().find((i) => i.type === 'ADD_WORLD_DUNGEONS');
       expect(action.payload.dungeons[0].isUnlocked).toEqual(true);
       expect(store.getActions()).toMatchSnapshot();
     });
@@ -285,7 +286,7 @@ describe('dungeons proxy handler', () => {
       const data = require('./data/magicite_titan_dungeons.json').data as dungeonsSchemas.Dungeons;
       const dungeons = convertWorldDungeons(data);
       const namesAndDetails = dungeons.map(
-        i => [i.id, i.name, i.detail] as [number, string, string | undefined],
+        (i) => [i.id, i.name, i.detail] as [number, string, string | undefined],
       );
       expect(namesAndDetails).toMatchInlineSnapshot(`
         Array [

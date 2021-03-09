@@ -6,6 +6,7 @@ import { DungeonScoreType } from '../../actions/dungeonScores';
 import { WorldCategory } from '../../actions/worlds';
 import * as dungeonsSchemas from '../../api/schemas/dungeons';
 import { IState } from '../../reducers';
+import { makeTestState } from '../../reducers/__fixtures__/testState';
 import { default as dungeonScoresHandler, getElementsClaimed } from '../dungeonScores';
 
 const neoTormentT280Battles = require('./data/neo_torment_t_280_world_battles.json');
@@ -111,8 +112,7 @@ describe('dungeonScores proxy handler', () => {
       // Magicite dungeon IDs happen to correspond to world ID + a 2 digit number.
       const worldId = Math.floor(dungeonId / 100);
 
-      // HACK: Declare enough state for the test to pass, even if it's not all valid...
-      const initialState = {
+      const initialState = makeTestState({
         dungeons: {
           byWorld: {
             [worldId]: [dungeonId],
@@ -128,7 +128,7 @@ describe('dungeonScores proxy handler', () => {
             },
           },
         },
-      } as IState;
+      });
 
       const store = mockStore(initialState);
 
@@ -171,11 +171,11 @@ describe('dungeonScores proxy handler', () => {
       const dungeon = _.cloneDeep(darkOdinDungeons.data.dungeons[0]) as dungeonsSchemas.Dungeon;
       _.forEach(
         dungeon.prizes[dungeonsSchemas.RewardType.ElementalEarth],
-        i => (i.is_got_grade_bonus_prize = 1),
+        (i) => (i.is_got_grade_bonus_prize = 1),
       );
       _.forEach(
         dungeon.prizes[dungeonsSchemas.RewardType.ElementalHoly],
-        i => (i.is_got_grade_bonus_prize = 1),
+        (i) => (i.is_got_grade_bonus_prize = 1),
       );
 
       const elements = getElementsClaimed(dungeon);
