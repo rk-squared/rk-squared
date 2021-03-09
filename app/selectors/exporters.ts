@@ -1,6 +1,5 @@
+import { createObjectCsvStringifier } from 'csv-writer';
 import * as _ from 'lodash';
-
-const createCsvStringifier = require('csv-writer').createObjectCsvStringifier;
 
 import { enlir, makeLegendMateriaAliases, makeSoulBreakAliases } from '../data/enlir';
 import { describeMrPLegendMateria } from '../data/mrP/legendMateria';
@@ -22,7 +21,7 @@ export function exportSoulBreaksToCsv({ characters: { soulBreaks, vault } }: ISt
   const allSoulBreaks = new Set<number>([...soulBreaks, ...(vault ? vault.soulBreaks || [] : [])]);
   const aliases = makeSoulBreakAliases(enlir.soulBreaks);
 
-  const stringifier = createCsvStringifier({
+  const stringifier = createObjectCsvStringifier({
     header: [
       { id: 'id', title: 'ID' },
       { id: 'character', title: 'Character' },
@@ -41,7 +40,7 @@ export function exportSoulBreaksToCsv({ characters: { soulBreaks, vault } }: ISt
     for (const sb of _.reverse(
       _.filter(
         enlir.soulBreaksByCharacter[character],
-        i => i.tier !== 'RW' && i.tier !== 'Default' && allSoulBreaks.has(i.id),
+        (i) => i.tier !== 'RW' && i.tier !== 'Default' && allSoulBreaks.has(i.id),
       ),
     )) {
       result += stringifier.stringifyRecords([
@@ -57,7 +56,7 @@ export function exportSoulBreaksToCsv({ characters: { soulBreaks, vault } }: ISt
     }
   }
 
-  return result;
+  return result || '';
 }
 
 export function exportLegendMateriaToCsv({ characters: { legendMateria, vault } }: IState): string {
@@ -71,7 +70,7 @@ export function exportLegendMateriaToCsv({ characters: { legendMateria, vault } 
   ]);
   const aliases = makeLegendMateriaAliases(enlir.legendMateria);
 
-  const stringifier = createCsvStringifier({
+  const stringifier = createObjectCsvStringifier({
     header: [
       { id: 'id', title: 'ID' },
       { id: 'character', title: 'Character' },
@@ -88,7 +87,7 @@ export function exportLegendMateriaToCsv({ characters: { legendMateria, vault } 
       continue;
     }
     for (const lm of _.reverse(
-      _.filter(enlir.legendMateriaByCharacter[character], i => allLegendMateria.has(i.id)),
+      _.filter(enlir.legendMateriaByCharacter[character], (i) => allLegendMateria.has(i.id)),
     )) {
       result += stringifier.stringifyRecords([
         {
@@ -103,5 +102,5 @@ export function exportLegendMateriaToCsv({ characters: { legendMateria, vault } 
     }
   }
 
-  return result;
+  return result || '';
 }
