@@ -19,7 +19,7 @@ export class ModalDialog extends React.Component<Props> {
   render() {
     const { isOpen, onClose, title, className, children } = this.props;
 
-    const overlayStyles = {
+    const overlayStyles: React.CSSProperties = {
       backgroundColor: 'rgba(0, 0, 0, 0.50)',
       overflowY: 'auto',
       // Ensure that the overlay appears on top of anything else using z-index
