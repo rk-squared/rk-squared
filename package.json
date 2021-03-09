@@ -187,7 +187,7 @@
     "@types/sprintf-js": "^1.1.2",
     "@types/stream-buffers": "^3.0.2",
     "@types/xregexp": "^3.0.29",
-    "@types/yargs": "^13.0",
+    "@types/yargs": "^16.0.0",
     "@typescript-eslint/eslint-plugin": "^4.17.0",
     "@typescript-eslint/parser": "^4.17.0",
     "asar": "^0.14.0",
@@ -312,7 +312,7 @@
     "typesafe-actions": "^1.1.2",
     "winston": "^3.0.0",
     "xregexp": "^4.2.4",
-    "yargs": "^13.2.2"
+    "yargs": "^16.2.0"
   },
   "devEngines": {
     "node": ">=6.x",
