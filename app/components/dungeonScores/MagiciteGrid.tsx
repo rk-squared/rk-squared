@@ -39,18 +39,24 @@ export class MagiciteGrid extends React.Component<Props> {
         width: 95,
         field: 'worldId', // World IDs correspond to elements and have a good sort order.
         cellRendererFramework: MagiciteElementCellRenderer,
+        sortable: true,
+        resizable: true,
       },
       {
         headerName: '★',
         width: 40,
         field: 'stars',
         cellStyle: { textAlign: 'center' },
+        sortable: true,
+        resizable: true,
       },
       {
         headerName: 'Name',
         width: 200,
         field: 'name',
         cellRendererFramework: MagiciteNameCellRenderer,
+        sortable: true,
+        resizable: true,
       },
       {
         headerName: 'Completed',
@@ -58,6 +64,8 @@ export class MagiciteGrid extends React.Component<Props> {
         field: 'isComplete',
         cellClass: 'text-center',
         cellRendererFramework: CheckIconCellRenderer,
+        sortable: true,
+        resizable: true,
       },
       {
         headerName: 'Mastered',
@@ -65,6 +73,8 @@ export class MagiciteGrid extends React.Component<Props> {
         field: 'isMaster',
         cellClass: 'text-center',
         cellRendererFramework: CheckIconCellRenderer,
+        sortable: true,
+        resizable: true,
       },
       {
         headerName: 'Time',
@@ -73,6 +83,8 @@ export class MagiciteGrid extends React.Component<Props> {
         cellClass: 'text-right',
         cellRendererFramework: MagiciteScoreCellRenderer,
         comparator: compareWithUndefined(compareScore),
+        sortable: true,
+        resizable: true,
       },
     ];
   }
@@ -87,8 +99,6 @@ export class MagiciteGrid extends React.Component<Props> {
     return (
       <GridContainer>
         <AgGridReact
-          enableSorting={true}
-          enableColResize={true}
           columnDefs={this.columnDefs}
           rowData={this.objectValues(magiciteScores)}
           deltaRowDataMode={true}

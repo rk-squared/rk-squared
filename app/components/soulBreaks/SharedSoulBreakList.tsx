@@ -22,7 +22,7 @@ interface Props {
   isAnonymous?: boolean;
 }
 
-const sortedSoulBreaks = _.sortBy(enlir.sharedSoulBreaks, i => i.soulBreak.name);
+const sortedSoulBreaks = _.sortBy(enlir.sharedSoulBreaks, (i) => i.soulBreak.name);
 const sharedMrPSoulBreaks: { [id: number]: MrPSkill } = {};
 
 function getSharedSoulBreakDescription(soulBreak: EnlirSoulBreak): string {
@@ -46,23 +46,31 @@ export class SharedSoulBreakList extends React.PureComponent<Props> {
         cellRendererFramework: ({ value }: ICellRendererParams) => (
           <RelicTypeIcon type={value} className={styles.icon} />
         ),
+        sortable: true,
+        resizable: true,
       },
       {
         headerName: 'Relic',
         width: 145,
         field: 'relic.name',
         cellClass: ({ data }) => (!data.relic.gl ? 'font-italic' : ''),
+        sortable: true,
+        resizable: true,
       },
       {
         headerName: 'Soul Break',
         width: 180,
         field: 'soulBreak.name',
         cellClass: ({ data }) => (!data.relic.gl ? 'font-italic' : ''),
+        sortable: true,
+        resizable: true,
       },
       {
         headerName: 'Effects',
         width: 450,
         valueGetter: ({ data }) => getSharedSoulBreakDescription(data.soulBreak),
+        sortable: true,
+        resizable: true,
       },
     ];
   }
@@ -83,10 +91,8 @@ export class SharedSoulBreakList extends React.PureComponent<Props> {
     return (
       <GridContainer style={{ height: '500px', width: '100%' }}>
         <AgGridReact
-          enableSorting={true}
-          enableColResize={true}
           columnDefs={this.columnDefs}
-          rowData={_.filter(sortedSoulBreaks, i => filter(i.soulBreak))}
+          rowData={_.filter(sortedSoulBreaks, (i) => filter(i.soulBreak))}
           deltaRowDataMode={true}
           getRowNodeId={this.getRowNodeId}
           getRowClass={this.getRowClass}
