@@ -1,7 +1,7 @@
 import * as React from 'react';
 
-import { ColDef } from 'ag-grid-community';
-import { AgGridReact } from 'ag-grid-react';
+import { ColDef } from '@ag-grid-community/core';
+import { AgGridReact } from '@ag-grid-community/react';
 import { connect } from 'react-redux';
 import * as ReactTooltip from 'react-tooltip';
 

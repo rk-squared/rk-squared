@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { ICellRendererParams } from 'ag-grid-community';
+import { ICellRendererParams } from '@ag-grid-community/core';
 
 import { MagiciteDungeonWithScore } from '../../selectors/dungeonsWithScore';
 

@@ -1,7 +1,7 @@
 import * as React from 'react';
 
-import { ColDef, GridApi, GridReadyEvent, RowNode } from 'ag-grid-community';
-import { AgGridReact } from 'ag-grid-react';
+import { ColDef, GridApi, GridReadyEvent, RowNode } from '@ag-grid-community/core';
+import { AgGridReact } from '@ag-grid-community/react';
 import * as ReactTooltip from 'react-tooltip';
 
 import * as _ from 'lodash';

@@ -12,6 +12,25 @@
   resolved "https://registry.yarnpkg.com/7zip/-/7zip-0.0.6.tgz#9cafb171af82329490353b4816f03347aa150a30"
   integrity sha1-nK+xca+CMpSQNTtIFvAzR6oVCjA=
 
+"@ag-grid-community/client-side-row-model@^22.0":
+  version "22.1.1"
+  resolved "https://registry.yarnpkg.com/@ag-grid-community/client-side-row-model/-/client-side-row-model-22.1.1.tgz#9ac111319559b19dfaf20ea158020cddc6848365"
+  integrity sha512-lLqYuYHngb8pC5wSnBRYzszBDeTxRkz6TmxpVP8CHYM3QSqe2xUTp8KFkzO+RrlySB7uCCx1ym0bOR4vRkkaAw==
+  dependencies:
+    "@ag-grid-community/core" "~22.1.1"
+
+"@ag-grid-community/core@^22.0", "@ag-grid-community/core@~22.1.1":
+  version "22.1.1"
+  resolved "https://registry.yarnpkg.com/@ag-grid-community/core/-/core-22.1.1.tgz#5b30fe9de4e309c92540dfb218ddb97db319d88a"
+  integrity sha512-x9dLUnsIsa+3bsweYKM8UWN42b7i5FDMvGpabAlOS0jAcJRs6krZUBK8XyZwzCc2vELuoBQ6VrKG5RWCN2phjg==
+
+"@ag-grid-community/react@^22.0":
+  version "22.1.2"
+  resolved "https://registry.yarnpkg.com/@ag-grid-community/react/-/react-22.1.2.tgz#1bf188177f5c8d12371aa20539d66d66a29960dd"
+  integrity sha512-rouYVp1NFq4hwBMmazMQ5sxcmwImcBOQC2YVn5/39uoP8+3UHTNcimMbKviAN+jMQgIHDlBTTBgjDAH9mMKmQg==
+  dependencies:
+    prop-types "^15.6.2"
+
 "@babel/code-frame@7.0.0":
   version "7.0.0"
   resolved "https://registry.yarnpkg.com/@babel/code-frame/-/code-frame-7.0.0.tgz#06e2ab19bdb535385559aabb5ba59729482800f8"
@@ -1803,18 +1822,6 @@ address@1.0.3, address@^1.0.1:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/address/-/address-1.0.3.tgz#b5f50631f8d6cec8bd20c963963afb55e06cbce9"
   integrity sha512-z55ocwKBRLryBs394Sm3ushTtBeg6VAeuku7utSoSnsJKvKcnXFIyC6vh27n3rXyxSgkJBBCAvyOn7gSUcTYjg==
-
-ag-grid-community@^21.0.0:
-  version "21.2.2"
-  resolved "https://registry.yarnpkg.com/ag-grid-community/-/ag-grid-community-21.2.2.tgz#a5696a303fa04d03d26e4c9e09e114d308ff4ad4"
-  integrity sha512-x8kQmynYM/7zoigs7wIe7DkK1TIlUP5N1TYrGPsK8vO2gN+rqOok9csGPy4YamggWTcSxpy7wji/Kcz/gUp8/w==
-
-ag-grid-react@^21.0.0:
-  version "21.2.2"
-  resolved "https://registry.yarnpkg.com/ag-grid-react/-/ag-grid-react-21.2.2.tgz#55f19eb3bb14a3beddd642adb0bb03da1249ae59"
-  integrity sha512-QlTtLMsBgLMPzqP95KoOUxXfCwVoYpLOF0uiZeVouHXUR/WxZXlsgtcyOPueKwDGWKBQ+qxB0+3JV5q+mSrPXw==
-  dependencies:
-    prop-types "^15.6.2"
 
 agent-base@^4.1.0:
   version "4.2.1"

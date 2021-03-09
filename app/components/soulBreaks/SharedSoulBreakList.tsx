@@ -3,8 +3,8 @@ import { connect } from 'react-redux';
 
 import * as _ from 'lodash';
 
-import { ColDef, ICellRendererParams } from 'ag-grid-community';
-import { AgGridReact } from 'ag-grid-react';
+import { ColDef, ICellRendererParams } from '@ag-grid-community/core';
+import { AgGridReact } from '@ag-grid-community/react';
 
 import { makeSoulBreaksFilter, ShowSoulBreaksType } from '../../actions/prefs';
 import { enlir, EnlirSoulBreak, SharedSoulBreak } from '../../data/enlir';

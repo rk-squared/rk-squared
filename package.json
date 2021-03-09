@@ -257,12 +257,13 @@
     "yarn-deduplicate": "^3.1.0"
   },
   "dependencies": {
+    "@ag-grid-community/client-side-row-model": "^22.0",
+    "@ag-grid-community/core": "^22.0",
+    "@ag-grid-community/react": "^22.0",
     "@fortawesome/fontawesome-svg-core": "^1.2.14",
     "@fortawesome/free-brands-svg-icons": "^5.11.2",
     "@fortawesome/free-solid-svg-icons": "^5.15.2",
     "@fortawesome/react-fontawesome": "^0.1.4",
-    "ag-grid-community": "^21.0.0",
-    "ag-grid-react": "^21.0.0",
     "axios": "^0.18.0",
     "bootstrap": "^4.1.0",
     "cheerio": "^1.0.0-rc.2",
