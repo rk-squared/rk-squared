@@ -244,6 +244,7 @@
     "ts-node": "^4.1.0",
     "typescript": "^3.5",
     "url-loader": "^0.6.1",
+    "utility-types": "^3.10.0",
     "webpack": "^4.0.0",
     "webpack-bundle-analyzer": "^3.1.0",
     "webpack-cli": "^3.2.3",
