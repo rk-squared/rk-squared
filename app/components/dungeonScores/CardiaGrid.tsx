@@ -113,6 +113,7 @@ export class CardiaGrid extends React.Component<Props> {
           rowData={this.objectValues(cardiaScores)}
           deltaRowDataMode={true}
           getRowNodeId={this.getRowNodeId}
+          onFirstDataRendered={ReactTooltip.rebuild}
           onViewportChanged={ReactTooltip.rebuild}
           onRowDataChanged={ReactTooltip.rebuild}
           domLayout="autoHeight"

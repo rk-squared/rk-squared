@@ -132,6 +132,7 @@ export class RecordMateriaGrid extends React.Component<Props, State> {
           deltaRowDataMode={true}
           getRowNodeId={this.getRowNodeId}
           onGridReady={this.handleGridReady}
+          onFirstDataRendered={ReactTooltip.rebuild}
           onViewportChanged={ReactTooltip.rebuild}
           onRowDataChanged={ReactTooltip.rebuild}
           onFilterChanged={ReactTooltip.rebuild}
