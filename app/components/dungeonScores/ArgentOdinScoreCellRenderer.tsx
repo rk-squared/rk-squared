@@ -21,11 +21,15 @@ export class ArgentOdinScoreCellRenderer extends React.Component<ICellRendererPa
     }
     const useEstimated = shouldUseEstimatedScore(dungeon.score, dungeon.estimatedScore);
     const score = useEstimated ? dungeon.estimatedScore : dungeon.score;
+    const showTooltips = score && !score.won;
     return (
-      <>
+      <span
+        data-tip={showTooltips ? dungeon.id : undefined}
+        data-for={ArgentOdinScoreCellRenderer.ID}
+      >
         {score && (useEstimated ? formatEstimatedScore(score) : formatScore(score))}
         <CheckIcon checked={dungeon.isMaster} className={'ml-1'} />
-      </>
+      </span>
     );
   }
 }

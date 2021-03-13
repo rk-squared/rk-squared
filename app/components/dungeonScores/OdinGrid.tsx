@@ -1,19 +1,21 @@
-import * as React from 'react';
-
 import { ColDef } from '@ag-grid-community/core';
 import { AgGridReact } from '@ag-grid-community/react';
-import { connect } from 'react-redux';
-
 import * as _ from 'lodash';
+import * as React from 'react';
+import { connect } from 'react-redux';
+import * as ReactTooltip from 'react-tooltip';
 
+import { Dungeon, getAvailablePrizes } from '../../actions/dungeons';
 import { IState } from '../../reducers';
 import { getOdinScores, OdinElementScore } from '../../selectors/dungeonsWithScore';
 import { GridContainer } from '../common/GridContainer';
+import { PrizeList } from '../dungeons/PrizeList';
+import { ArgentOdinScoreCellRenderer } from './ArgentOdinScoreCellRenderer';
 import { CheckIconCellRenderer } from './CheckIconCellRenderer';
 import { OdinElementCellRenderer } from './OdinElementCellRenderer';
-import { ArgentOdinScoreCellRenderer } from './ArgentOdinScoreCellRenderer';
 
 interface Props {
+  dungeons: { [id: number]: Dungeon };
   odinScores: OdinElementScore[];
 }
 
@@ -64,6 +66,10 @@ export class OdinGrid extends React.Component<Props> {
   }
 
   getRowNodeId = (row: OdinElementScore) => row.element;
+  getTooltipContent = (dungeonId: string) =>
+    this.props.dungeons[+dungeonId] ? (
+      <PrizeList prizes={getAvailablePrizes(this.props.dungeons[+dungeonId])} />
+    ) : null;
 
   render() {
     const { odinScores } = this.props;
@@ -78,6 +84,11 @@ export class OdinGrid extends React.Component<Props> {
           deltaRowDataMode={true}
           getRowNodeId={this.getRowNodeId}
           domLayout="autoHeight"
+        />
+        <ReactTooltip
+          place="bottom"
+          id={ArgentOdinScoreCellRenderer.ID}
+          getContent={this.getTooltipContent}
         />
       </GridContainer>
     );
