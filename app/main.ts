@@ -86,7 +86,7 @@ const installExtensions = () => {
 
     const extensions = ['REACT_DEVELOPER_TOOLS', 'REDUX_DEVTOOLS'];
     const forceDownload = !!process.env.UPGRADE_EXTENSIONS;
-    return Promise.all(extensions.map(name => installer.default(installer[name], forceDownload)));
+    return Promise.all(extensions.map((name) => installer.default(installer[name], forceDownload)));
   }
 
   return Promise.resolve([]);
@@ -102,6 +102,11 @@ app.on('ready', () =>
       show: false,
       width: 1024,
       height: 728,
+      // This was disabled by default starting in Electron 5, and it may add security risks if we
+      // ever run code from untrusted sources, but our current application depends on it.
+      webPreferences: {
+        nodeIntegration: true,
+      },
     });
 
     const mainUrl =
