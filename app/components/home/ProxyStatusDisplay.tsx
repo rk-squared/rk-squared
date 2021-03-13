@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
-const { default: TimeAgo } = require('timeago-react');
+import TimeAgo from 'timeago-react';
 
 import { ProxyStatus } from '../../actions/proxy';
 import { IState } from '../../reducers';

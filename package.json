@@ -307,7 +307,7 @@
     "sprintf-js": "^1.1.2",
     "stream-buffers": "^3.0.2",
     "striptags": "^3.1.1",
-    "timeago-react": "^2.0.0",
+    "timeago-react": "^3.0.2",
     "transformer-proxy": "^0.3.4",
     "trie-search": "^1.2.9",
     "tslib": "^1.9.0",
