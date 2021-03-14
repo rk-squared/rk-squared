@@ -34,7 +34,8 @@
     "test-site": "node scripts/test-site.js",
     "postget-enlir": "yarn copy-json",
     "peg": "pegjs -o app/data/mrP/skillParser.js --cache --dependency util:./parserHelpers app/data/mrP/skillParser.pegjs && pegjs -o app/data/mrP/statusParser.js --cache --dependency util:./parserHelpers --allowed-start-rules StatusEffect,LegendMateriaEffect app/data/mrP/statusParser.pegjs",
-    "postpeg": "copyfiles --flat \"./app/data/mrP/*.js\" ./dist/app/data/mrP"
+    "postpeg": "copyfiles --flat \"./app/data/mrP/*.js\" ./dist/app/data/mrP",
+    "deduplicate": "yarn-deduplicate && yarn"
   },
   "jest": {
     "testURL": "http://localhost/",
@@ -202,7 +203,7 @@
     "css-modules-require-hook": "^4.0.6",
     "devtron": "^1.4.0",
     "dotenv": "^8.0.0",
-    "electron": "^5.0.0",
+    "electron": "^7.0.0",
     "electron-builder": "^22.2.0",
     "electron-builder-http": "^19.15.0",
     "electron-devtools-installer": "^2.0.1",

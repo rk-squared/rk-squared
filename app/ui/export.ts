@@ -53,23 +53,21 @@ export function handleExport(
   filters: FileFilter[],
   callback: (filename: string) => string,
 ) {
-  dialog.showSaveDialog(
-    window,
-    {
+  dialog
+    .showSaveDialog(window, {
       defaultPath,
       filters,
-    },
-    (filename?: string) => {
-      if (!filename) {
+    })
+    .then(({ canceled, filePath }) => {
+      if (canceled || !filePath) {
         return;
       }
-      fs.writeFile(filename, callback(filename)).catch(e =>
+      fs.writeFile(filePath, callback(filePath)).catch((e) =>
         dialog.showMessageBox(window, {
           title: 'Error',
           type: 'error',
-          message: `Failed to write ${filename}:\n${e}`,
+          message: `Failed to write ${filePath}:\n${e}`,
         }),
       );
-    },
-  );
+    });
 }
