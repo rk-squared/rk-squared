@@ -254,7 +254,6 @@
     "webpack-hot-middleware": "^2.13.2",
     "webpack-manifest-plugin": "^2.0.4",
     "webpack-merge": "^4.1.1",
-    "workbox-webpack-plugin": "^4.1.1",
     "yarn-deduplicate": "^3.1.0"
   },
   "dependencies": {
