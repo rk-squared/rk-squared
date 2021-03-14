@@ -285,7 +285,7 @@
     "lodash": "^4.17.5",
     "logform": "^1.9.1",
     "moment": "^2.29.1",
-    "node-forge": "^0.7.6",
+    "node-forge": "^0.10.0",
     "pegjs": "^0.10.0",
     "popper.js": "^1.14.3",
     "react": "^16.6.0",
