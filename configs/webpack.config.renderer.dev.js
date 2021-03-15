@@ -193,6 +193,7 @@ module.exports = merge.smart(baseConfig, {
           options: {
             limit: 10000,
             mimetype: 'application/font-woff',
+            esModule: false,
           },
         },
       },
@@ -204,6 +205,7 @@ module.exports = merge.smart(baseConfig, {
           options: {
             limit: 10000,
             mimetype: 'application/font-woff',
+            esModule: false,
           },
         },
       },
@@ -215,13 +217,19 @@ module.exports = merge.smart(baseConfig, {
           options: {
             limit: 10000,
             mimetype: 'application/octet-stream',
+            esModule: false,
           },
         },
       },
       // EOT Font
       {
         test: /\.eot(\?v=\d+\.\d+\.\d+)?$/,
-        use: 'file-loader',
+        use: {
+          loader: 'file-loader',
+          options: {
+            esModule: false,
+          },
+        },
       },
       // SVG Font
       {
@@ -231,13 +239,19 @@ module.exports = merge.smart(baseConfig, {
           options: {
             limit: 10000,
             mimetype: 'image/svg+xml',
+            esModule: false,
           },
         },
       },
       // Common Image Formats
       {
         test: /\.(?:ico|gif|png|jpg|jpeg|webp)$/,
-        use: 'url-loader',
+        use: {
+          loader: 'url-loader',
+          options: {
+            esModule: false,
+          },
+        },
       },
     ],
   },
