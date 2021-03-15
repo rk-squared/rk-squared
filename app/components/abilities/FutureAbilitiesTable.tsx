@@ -18,7 +18,7 @@ import { EventTooltip } from './EventTooltip';
 import { OrbCostsDisplay } from './OrbCostsDisplay';
 import { RecordBoardCharacterIcon } from './RecordBoardCharacterIcon';
 
-const styles = require('./FutureAbilitiesTable.scss');
+const styles = require('./FutureAbilitiesTable.module.scss');
 
 interface Props {
   className?: string;
@@ -52,7 +52,7 @@ function getUnreleasedAbilities(
 ): EnlirAbility[] {
   return abilities
     .filter(
-      i =>
+      (i) =>
         i.rarity === rarity &&
         !i.gl &&
         (getAbilityUnlockType(i) === EnlirAbilityUnlockType.RecordBoard) === showRecordBoard,

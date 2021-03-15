@@ -17,7 +17,7 @@ import { Mythril } from '../shared/Mythril';
 import { getRelicChanceDetails } from './RelicChances';
 import { RelicWantCount } from './RelicWantCount';
 
-const styles = require('./RelicDrawBannerList.scss');
+const styles = require('./RelicDrawBannerList.module.scss');
 
 interface Props {
   group?: RelicDrawGroupDetails;
@@ -205,7 +205,7 @@ export class RelicDrawBannerList extends React.PureComponent<Props> {
     return (
       <>
         {details
-          .filter(d => isAnonymous || shouldShow(d))
+          .filter((d) => isAnonymous || shouldShow(d))
           .map((d, i) =>
             isGroup(d) ? (
               <RelicDrawGroupLink

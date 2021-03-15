@@ -11,9 +11,12 @@ import { alphabet, alphabetize } from '../../utils/textUtils';
 import { SearchResults, searchSoulBreaksAndLegendMateria } from '../shared/SoulBreakShared';
 import { CharacterSoulBreaks } from './CharacterSoulBreaks';
 
-const styles = require('./SoulBreakList.scss');
+const styles = require('./SoulBreakList.module.scss');
 
-const characters = alphabetize(_.values(enlir.characters).filter(i => !isCoreJob(i)), i => i.name);
+const characters = alphabetize(
+  _.values(enlir.characters).filter((i) => !isCoreJob(i)),
+  (i) => i.name,
+);
 
 function combineFilter<T extends { id: number }>(filter: (item: T) => boolean, set: Set<number>) {
   return (item: T) => filter(item) && set.has(item.id);
@@ -55,8 +58,8 @@ export class SoulBreakList extends React.Component<Props> {
     let legendMateriaFilter: (item: EnlirSoulBreakOrLegendMateria) => boolean;
     if (searchFilter) {
       searchResults = searchSoulBreaksAndLegendMateria(searchFilter);
-      showCharacters = _.mapValues(characters, c =>
-        c.filter(i => searchResults!.characters.has(i.name)),
+      showCharacters = _.mapValues(characters, (c) =>
+        c.filter((i) => searchResults!.characters.has(i.name)),
       );
       soulBreaksFilter = combineFilter(soulBreaksShowFilter, searchResults.soulBreakIds);
       limitBreaksFilter = combineFilter(limitBreaksShowFilter, searchResults.limitBreakIds);

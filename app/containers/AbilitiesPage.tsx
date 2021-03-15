@@ -12,7 +12,7 @@ import { IState } from '../reducers';
 import { joinUrl } from '../utils/textUtils';
 import { Page } from './Page';
 
-const styles = require('./AbilitiesPage.scss');
+const styles = require('./AbilitiesPage.module.scss');
 
 interface Props {
   recordBoardSort?: AbilitySortType;
@@ -33,7 +33,7 @@ export class AbilitiesPage extends React.PureComponent<Props & RouteComponentPro
   render() {
     const { match, recordBoardSort } = this.props;
 
-    const rarities = _.times(MAX_ABILITY_RARITY, i => MAX_ABILITY_RARITY - i);
+    const rarities = _.times(MAX_ABILITY_RARITY, (i) => MAX_ABILITY_RARITY - i);
     return (
       <Page title="Abilities" className={styles.component}>
         <ul className="nav nav-tabs">
@@ -47,7 +47,7 @@ export class AbilitiesPage extends React.PureComponent<Props & RouteComponentPro
               Hero Board
             </NavLink>
           </li>
-          {rarities.map(i => (
+          {rarities.map((i) => (
             <li className="nav-item" key={i}>
               <NavLink
                 exact

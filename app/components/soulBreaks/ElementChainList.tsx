@@ -11,7 +11,7 @@ import { IState } from '../../reducers';
 import { getOwnedSoulBreaks } from '../../selectors/characters';
 import { selectOrganizedSoulBreaks } from '../../selectors/soulBreaks';
 
-const styles = require('./ElementChainList.scss');
+const styles = require('./ElementChainList.module.scss');
 
 interface Props {
   chains: OrganizedChains['element'];

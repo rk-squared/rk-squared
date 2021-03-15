@@ -7,7 +7,7 @@ import { animaWaves } from '../../data/anima';
 import { EnlirSoulBreakOrLegendMateria } from '../../data/enlir';
 import { getAnimaWaveIcon } from '../../data/localData';
 
-const styles = require('./RelicAvailability.scss');
+const styles = require('./RelicAvailability.module.scss');
 
 interface Props {
   item: EnlirSoulBreakOrLegendMateria;

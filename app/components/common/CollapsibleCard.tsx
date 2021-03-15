@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import classNames from 'classnames';
 
-const styles = require('./CollapsibleCard.scss');
+const styles = require('./CollapsibleCard.module.scss');
 
 interface Props {
   id: string;

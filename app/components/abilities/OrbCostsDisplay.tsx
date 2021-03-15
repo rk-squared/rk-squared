@@ -4,7 +4,7 @@ import * as classNames from 'classnames';
 
 import { OrbCost, orbCosts } from '../../data/orbDetails';
 
-const styles = require('./OrbCostsDisplay.scss');
+const styles = require('./OrbCostsDisplay.module.scss');
 
 interface Props {
   costs: OrbCost[];

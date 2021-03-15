@@ -14,7 +14,7 @@ import { getOwnedSoulBreaks } from '../../selectors/characters';
 import { GridContainer } from '../common/GridContainer';
 import { RelicTypeIcon } from '../shared/RelicTypeIcon';
 
-const styles = require('./SharedSoulBreakList.scss');
+const styles = require('./SharedSoulBreakList.module.scss');
 
 interface Props {
   ownedSoulBreaks?: Set<number>;

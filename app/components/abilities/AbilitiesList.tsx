@@ -12,7 +12,7 @@ import { AbilityTooltip } from './AbilityTooltip';
 import { OrbCostsTooltip } from './OrbCostsTooltip';
 import RecordBoardNav from './RecordBoardNav';
 
-const styles = require('./AbilitiesList.scss');
+const styles = require('./AbilitiesList.module.scss');
 
 const sortedSchools: EnlirSchool[] = [
   // Predominantly physical
@@ -49,7 +49,7 @@ interface Props {
 function getAbilities(rarity: number, showRecordBoard?: boolean) {
   showRecordBoard = !!showRecordBoard;
   return Object.values(enlir.abilities).filter(
-    i => i.rarity === rarity && !!i.recordBoardCharacter === showRecordBoard,
+    (i) => i.rarity === rarity && !!i.recordBoardCharacter === showRecordBoard,
   );
 }
 
@@ -59,7 +59,7 @@ export function getAbilitiesBySchool(rarity: number, showRecordBoard?: boolean) 
     bySchool[i.school] = bySchool[i.school] || [];
     bySchool[i.school]!.push(i);
   }
-  return _.mapValues(bySchool, abilities => _.sortBy(abilities, 'name'));
+  return _.mapValues(bySchool, (abilities) => _.sortBy(abilities, 'name'));
 }
 
 export function getAbilitiesByRealm(rarity: number, showRecordBoard?: boolean) {
@@ -72,8 +72,8 @@ export function getAbilitiesByRealm(rarity: number, showRecordBoard?: boolean) {
     byRealm[character.realm] = byRealm[character.realm] || [];
     byRealm[character.realm]!.push(i);
   }
-  return _.mapValues(byRealm, abilities =>
-    _.sortBy(abilities, i => enlir.charactersByName[i.recordBoardCharacter!].id),
+  return _.mapValues(byRealm, (abilities) =>
+    _.sortBy(abilities, (i) => enlir.charactersByName[i.recordBoardCharacter!].id),
   );
 }
 

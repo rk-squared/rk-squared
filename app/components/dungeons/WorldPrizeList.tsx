@@ -11,7 +11,7 @@ import { rewards, rewardsTitle } from './DungeonCommon';
 import DungeonPrizeList from './DungeonPrizeList';
 import ItemTypeChecklist from './ItemTypeChecklist';
 
-const styles = require('./WorldPrizeList.scss');
+const styles = require('./WorldPrizeList.module.scss');
 
 interface StateProps {
   dungeons: Dungeon[];

@@ -9,7 +9,7 @@ import { getOrbCosts } from '../../data/orbDetails';
 import { OrbCostsDisplay } from './OrbCostsDisplay';
 import { RecordBoardCharacterIcon } from './RecordBoardCharacterIcon';
 
-const styles = require('./AbilitiesTable.scss');
+const styles = require('./AbilitiesTable.module.scss');
 
 const mrPAbilities: { [id: number]: MrPSkill } = {};
 
@@ -70,13 +70,13 @@ export function groupAbilities(abilities: EnlirAbility[]): GroupedEnlirAbility[]
       continue;
     }
 
-    const found = forcedGroups.find(group => group.has(ability.name));
+    const found = forcedGroups.find((group) => group.has(ability.name));
     if (found) {
-      addGroup(i, ab => found.has(ab.name));
+      addGroup(i, (ab) => found.has(ab.name));
     } else {
       addGroup(
         i,
-        ab =>
+        (ab) =>
           ab.multiplier === ability.multiplier &&
           ab.time === ability.time &&
           distance(ab.effects, ability.effects) <= 15,
@@ -146,7 +146,7 @@ export class AbilitiesTable extends React.PureComponent<Props> {
           {Array.isArray(abilities)
             ? this.renderAbilityList(abilities)
             : categories
-                .filter(category => abilities[category] != null)
+                .filter((category) => abilities[category] != null)
                 .map((category, i) => (
                   <React.Fragment key={i}>
                     <tr>

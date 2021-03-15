@@ -10,7 +10,7 @@ import {
   soulBreakFullAliases,
 } from '../shared/SoulBreakShared';
 
-const styles = require('./SimulatedRelic.scss');
+const styles = require('./SimulatedRelic.module.scss');
 
 const tierClass = makeTierStyleMap(styles);
 

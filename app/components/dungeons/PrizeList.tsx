@@ -9,7 +9,7 @@ import { ItemType } from '../../data/items';
 import { itemImage } from '../../data/urls';
 import { RelicTooltip } from '../shared/RelicTooltip';
 
-const styles = require('./PrizeList.scss');
+const styles = require('./PrizeList.module.scss');
 
 interface Props {
   prizes: PrizeItem[];
@@ -28,7 +28,7 @@ export class PrizeList extends React.PureComponent<Props> {
     const { prizes, showTooltips, className } = this.props;
     return (
       <LangContext.Consumer>
-        {lang => (
+        {(lang) => (
           <ul className={classNames(className, styles.component)}>
             {prizes.map((prize, i) => (
               <li

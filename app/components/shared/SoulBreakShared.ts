@@ -25,7 +25,7 @@ import {
   getShortName,
 } from '../../data/mrP/typeHelpers';
 
-export const styles = require('./SoulBreakShared.scss');
+export const styles = require('./SoulBreakShared.module.scss');
 
 export function makeTierStyleMap(
   cssStyles: any,
@@ -117,7 +117,7 @@ export function getBraveColumns(mrP: MrPSkill, braveCommands: MrPSkill[]): [stri
 
 export function getBurstColumns(burstCommands: MrPSkill[]): Array<[string, string]> {
   return burstCommands.map(
-    cmd =>
+    (cmd) =>
       [
         formatSchoolName(cmd) + (cmd.commandDetail ? ' (' + cmd.commandDetail + ')' : ''),
         formatMrPSkill(cmd),
@@ -187,8 +187,8 @@ function getSearches() {
     );
     cachedSoulBreakSearch.addAll(
       Object.values(enlir.soulBreaks)
-        .filter(i => i.character != null)
-        .map(i => ({
+        .filter((i) => i.character != null)
+        .map((i) => ({
           id: i.id,
           character: i.character!,
           characterText: i.character!.replace(/[^a-zA-Z]/g, ''),
@@ -205,7 +205,7 @@ function getSearches() {
       idFieldOrFunction: 'id',
     });
     cachedLimitBreakSearch.addAll(
-      Object.values(enlir.limitBreaks).map(i => ({
+      Object.values(enlir.limitBreaks).map((i) => ({
         id: i.id,
         character: i.character,
         characterText: i.character!.replace(/[^a-zA-Z]/g, ''),
@@ -222,7 +222,7 @@ function getSearches() {
       idFieldOrFunction: 'id',
     });
     cachedLegendMateriaSearch.addAll(
-      Object.values(enlir.legendMateria).map(i => ({
+      Object.values(enlir.legendMateria).map((i) => ({
         id: i.id,
         character: i.character,
         characterText: i.character!.replace(/[^a-zA-Z]/g, ''),

@@ -1,7 +1,7 @@
 import { EnlirSoulBreak } from '../../data/enlir';
 import * as React from 'react';
 
-const styles = require('./ChainCell.scss');
+const styles = require('./ChainCell.module.scss');
 
 interface Props {
   soulBreak: EnlirSoulBreak | undefined;

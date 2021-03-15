@@ -4,7 +4,7 @@ import { ICellRendererParams } from '@ag-grid-community/core';
 
 import { MagiciteDungeonWithScore } from '../../selectors/dungeonsWithScore';
 
-const styles = require('./MagiciteElementCellRenderer.scss');
+const styles = require('./MagiciteElementCellRenderer.module.scss');
 
 export class MagiciteElementCellRenderer extends React.Component<ICellRendererParams> {
   render() {

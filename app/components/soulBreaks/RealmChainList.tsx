@@ -9,7 +9,7 @@ import { IState } from '../../reducers';
 import { getOwnedSoulBreaks } from '../../selectors/characters';
 import { selectOrganizedSoulBreaks } from '../../selectors/soulBreaks';
 
-const styles = require('./RealmChainList.scss');
+const styles = require('./RealmChainList.module.scss');
 
 interface Props {
   chains: OrganizedChains['realm'];

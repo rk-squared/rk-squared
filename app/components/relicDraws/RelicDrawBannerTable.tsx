@@ -37,7 +37,7 @@ import {
 } from '../shared/SoulBreakShared';
 import { RelicAvailability } from './RelicAvailability';
 
-const styles = require('./RelicDrawBannerTable.scss');
+const styles = require('./RelicDrawBannerTable.module.scss');
 
 interface Props {
   title: string;
@@ -65,7 +65,7 @@ interface State {
 
 function getRelicGroupRealmId(relics: number[]): number | undefined {
   const firstRealm = _.filter(
-    relics.map(i => (enlir.relics[i] ? enlir.relics[i].realm : undefined)),
+    relics.map((i) => (enlir.relics[i] ? enlir.relics[i].realm : undefined)),
   )[0];
   if (firstRealm) {
     return enlirRealmToSeriesId[firstRealm];
@@ -332,8 +332,8 @@ export class RelicDrawBannerTable extends React.Component<Props, State> {
       totalProbability = null;
       showProbability = false;
     } else {
-      commonProbability = getAllSameValue(_.flatten(relics).map(i => probabilities.byRelic[i]));
-      totalProbability = _.sum(_.flatten(relics).map(i => probabilities.byRelic[i]));
+      commonProbability = getAllSameValue(_.flatten(relics).map((i) => probabilities.byRelic[i]));
+      totalProbability = _.sum(_.flatten(relics).map((i) => probabilities.byRelic[i]));
       showProbability = commonProbability == null;
     }
 
@@ -344,18 +344,18 @@ export class RelicDrawBannerTable extends React.Component<Props, State> {
       : [relics]) as number[][];
     const isStandardBanner = relicsArray.length === 1 && relicsArray[0].length <= 14;
     if (!isStandardBanner && probabilities && showProbability) {
-      relicsArray = relicsArray.map(i =>
-        _.sortBy(i, getRelicRealmId, j => -probabilities.byRelic[j]),
+      relicsArray = relicsArray.map((i) =>
+        _.sortBy(i, getRelicRealmId, (j) => -probabilities.byRelic[j]),
       );
     } else if (groupBySeries && relicsArray.length > 1) {
       relicsArray = _.sortBy(relicsArray, getRelicGroupRealmId);
     }
     if (filter) {
-      relicsArray = relicsArray.map(i => i.filter(filter));
+      relicsArray = relicsArray.map((i) => i.filter(filter));
     }
 
     const collapsed = allowCollapse && this.state.collapsed;
-    const grouped = relicsArray.length > 1 && _.some(relicsArray, i => i.length > 1);
+    const grouped = relicsArray.length > 1 && _.some(relicsArray, (i) => i.length > 1);
     this.lastRealm = null;
 
     // TODO: Appearance at low screen sizes (mobile) is quite bad.

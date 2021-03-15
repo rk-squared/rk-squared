@@ -7,7 +7,7 @@ import { enlir } from '../../data';
 import { CharacterRecordMateria, getByCharacter } from './byCharacter';
 import { StatusIcon } from './StatusIcon';
 
-const styles = require('./RecordMateriaList.scss');
+const styles = require('./RecordMateriaList.module.scss');
 
 export interface RecordMateriaProps {
   recordMateria: { [id: number]: RecordMateriaDetail };

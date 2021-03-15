@@ -4,7 +4,7 @@ import { IconProp } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import * as classNames from 'classnames';
 
-const styles = require('./MinableCard.scss');
+const styles = require('./MinableCard.module.scss');
 
 interface Props {
   icon: IconProp;

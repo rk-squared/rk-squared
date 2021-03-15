@@ -7,7 +7,7 @@ import { EnlirRealm } from '../../data/enlir';
 import { enlirRealmToSeriesId } from '../../data/series';
 import { seriesIcon } from '../../data/urls';
 
-const styles = require('./SeriesIcon.scss');
+const styles = require('./SeriesIcon.module.scss');
 
 interface Props {
   seriesId?: number;

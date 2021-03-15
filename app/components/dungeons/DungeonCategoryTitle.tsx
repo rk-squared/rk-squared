@@ -3,7 +3,7 @@ import * as React from 'react';
 import { World, WorldCategory } from '../../actions/worlds';
 import WorldBadge from './WorldBadge';
 
-const styles = require('./DungeonCategoryTitle.scss');
+const styles = require('./DungeonCategoryTitle.module.scss');
 
 export const categoryImages: { [category in WorldCategory]: string } = {
   [WorldCategory.CrystalTower]: require('../../images/game-icons/white-tower.svg'),
