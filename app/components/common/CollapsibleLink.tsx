@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-const styles = require('./CollapsibleLink.scss');
+const styles = require('./CollapsibleLink.module.scss');
 
 interface Props {
   id: string;

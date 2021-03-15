@@ -5,7 +5,7 @@ import { ICellRendererParams } from '@ag-grid-community/core';
 import { EnlirElement } from '../../data/enlir';
 import { MagiciteDungeonWithScore } from '../../selectors/dungeonsWithScore';
 
-const styles = require('./MagiciteElementCellRenderer.scss');
+const styles = require('./MagiciteElementCellRenderer.module.scss');
 
 const weakElement: { [e in EnlirElement]: EnlirElement } = {
   Fire: 'Water',

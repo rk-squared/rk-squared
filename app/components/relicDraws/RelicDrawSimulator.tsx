@@ -15,7 +15,7 @@ import { pluralize } from '../../utils/textUtils';
 import { DrawButton } from './DrawButton';
 import { SimulatedRelic } from './SimulatedRelic';
 
-const styles = require('./RelicDrawSimulator.scss');
+const styles = require('./RelicDrawSimulator.module.scss');
 
 interface StateProps {
   banner: RelicDrawBanner;

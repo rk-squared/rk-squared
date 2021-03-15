@@ -10,7 +10,7 @@ import { RecordMateriaProps } from '../components/recordMateria/RecordMateriaLis
 import { StatBuffs } from '../components/recordMateria/StatBuffs';
 import { joinUrl } from '../utils/textUtils';
 
-const styles = require('./RecordMateriaRoutes.scss');
+const styles = require('./RecordMateriaRoutes.module.scss');
 
 export class RecordMateriaRoutes extends React.Component<RecordMateriaProps & RouteComponentProps> {
   renderPart = (Part: React.ComponentType<RecordMateriaProps>) => (

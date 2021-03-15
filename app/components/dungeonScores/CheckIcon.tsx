@@ -3,7 +3,7 @@ import * as React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import classNames from 'classnames';
 
-const styles = require('./CheckIcon.scss');
+const styles = require('./CheckIcon.module.scss');
 
 interface Props {
   checked: boolean;

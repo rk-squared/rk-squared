@@ -13,7 +13,7 @@ import { KeysOfType } from '../../utils/typeUtils';
 import { CheatWarningModalLink } from './CheatWarningModalLink';
 import { OptionsInput } from './OptionsInput';
 
-const styles = require('./OptionsForm.scss');
+const styles = require('./OptionsForm.module.scss');
 
 interface Props {
   options: Options;
@@ -233,7 +233,7 @@ export default connect(
     capturePath: proxy.capturePath,
     logFilename: proxy.logFilename,
   }),
-  dispatch => ({
+  (dispatch) => ({
     setOption: (newOptions: Options) => dispatch(setOptionAction(newOptions)),
     deleteCertificate: () =>
       deleteCertificate(remote.app.getPath('userData'), (error: string) =>

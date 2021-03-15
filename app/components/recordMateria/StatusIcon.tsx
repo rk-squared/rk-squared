@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { RecordMateriaStatus } from '../../actions/recordMateria';
 
-const styles = require('./StatusIcon.scss');
+const styles = require('./StatusIcon.module.scss');
 
 export class StatusIcon extends React.Component<{ status: RecordMateriaStatus }> {
   render() {

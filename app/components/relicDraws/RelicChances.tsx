@@ -20,7 +20,7 @@ import { Mythril } from '../shared/Mythril';
 import { RelicDrawModalLink } from './RelicDrawModalLink';
 import { RelicWantCount } from './RelicWantCount';
 
-const styles = require('./RelicChances.scss');
+const styles = require('./RelicChances.module.scss');
 
 interface Props {
   banner: RelicDrawBannerDetails;
@@ -44,7 +44,7 @@ export function getRelicChanceDetails(
   const params = getNormalBannerPullParams(banner);
 
   const desiredFeaturedCount =
-    banner.bannerRelics && want ? _.sum(banner.bannerRelics.map(i => (want[i] ? 1 : 0))) : null;
+    banner.bannerRelics && want ? _.sum(banner.bannerRelics.map((i) => (want[i] ? 1 : 0))) : null;
 
   const starOrBetterChancePerRelic = new Array<number>(MaxRarity).fill(0);
   let rareChancePerRelic = 0;
@@ -77,9 +77,10 @@ export function getRelicChanceDetails(
   const relicIds =
     banner.bannerRelics && banner.bannerRelics.length
       ? banner.bannerRelics
-      : _.keys(probabilities.byRelic).map(i => +i);
+      : _.keys(probabilities.byRelic).map((i) => +i);
 
-  const sixStarCount = relicIds.map(i => enlir.relics[i]).filter(i => !!i && i.rarity >= 6).length;
+  const sixStarCount = relicIds.map((i) => enlir.relics[i]).filter((i) => !!i && i.rarity >= 6)
+    .length;
 
   const totalDetails = chanceOfDesiredDrawProp5(
     params,
@@ -111,7 +112,7 @@ export class RelicChances extends React.PureComponent<Props> {
     e.preventDefault();
     const { probabilities, onClear } = this.props;
     if (onClear) {
-      onClear(_.keys(probabilities.byRelic).map(i => +i));
+      onClear(_.keys(probabilities.byRelic).map((i) => +i));
     }
   };
 
@@ -170,7 +171,7 @@ export class RelicChances extends React.PureComponent<Props> {
           )
         </p>
         <div className={styles.want}>
-          {_.times(limit, i => (
+          {_.times(limit, (i) => (
             <div key={i} className={styles.wantItem}>
               <span className={styles.wantCount}>{i + 1 + ' ' + pluralize(i + 1, 'pull')}</span>
               {formatChance(chance, i + 1)}
@@ -254,7 +255,6 @@ export class RelicChances extends React.PureComponent<Props> {
   }
 }
 
-export default connect(
-  (state: IState) => ({ want: state.relicDraws.want }),
-  { onClear: clearWantedRelics },
-)(RelicChances);
+export default connect((state: IState) => ({ want: state.relicDraws.want }), {
+  onClear: clearWantedRelics,
+})(RelicChances);

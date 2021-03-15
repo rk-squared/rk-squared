@@ -11,7 +11,7 @@ import * as urls from '../../data/urls';
 import { BrTextToP } from '../common/BrTextToP';
 import { StatusIcon } from './StatusIcon';
 
-const styles = require('./RecordMateriaTooltip.scss');
+const styles = require('./RecordMateriaTooltip.module.scss');
 
 interface Props {
   id: string;

@@ -14,6 +14,12 @@ const CheckNodeEnv = require('../internals/scripts/CheckNodeEnv');
 
 CheckNodeEnv('production');
 
+// style files regexes
+const cssRegex = /\.css$/;
+const cssModuleRegex = /\.module\.css$/;
+const sassRegex = /\.(scss|sass)$/;
+const sassModuleRegex = /\.module\.(scss|sass)$/;
+
 const config = merge.smart(baseConfig, {
   devtool: 'source-map',
 
@@ -51,13 +57,13 @@ const config = merge.smart(baseConfig, {
       },
       // Add any node_modules styles as globals.
       {
-        test: /^((?!\.global).)*\.css$/,
+        test: cssRegex,
         include: /node_modules/,
         use: ['style-loader', 'css-loader'],
       },
       // Pipe other styles through css modules and append to style.css
       {
-        test: /^((?!\.global).)*\.css$/,
+        test: cssModuleRegex,
         exclude: /node_modules/,
         use: [
           {
@@ -98,7 +104,7 @@ const config = merge.smart(baseConfig, {
       },
       // Add SASS support  - compile all other .scss files and pipe it to style.css
       {
-        test: /^((?!\.global).)*\.(scss|sass)$/,
+        test: sassModuleRegex,
         use: [
           {
             loader: MiniCssExtractPlugin.loader,

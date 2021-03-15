@@ -13,7 +13,7 @@ import { getOrbCosts, OrbCost, orbCosts } from '../../data/orbDetails';
 import * as urls from '../../data/urls';
 import { runningTotal } from '../../utils/typeUtils';
 
-const styles = require('./OrbCostsTooltip.scss');
+const styles = require('./OrbCostsTooltip.module.scss');
 
 interface Props {
   id: string;
@@ -47,7 +47,7 @@ export class OrbCostsTooltip extends React.Component<Props> {
   context!: React.ContextType<typeof LangContext>;
 
   getStartingRank(costs: OrbCost[]): number {
-    if (_.every(costs.map(i => orbCosts[i.cost] && orbCosts[i.cost][0] === 0))) {
+    if (_.every(costs.map((i) => orbCosts[i.cost] && orbCosts[i.cost][0] === 0))) {
       // If rank 1 has no cost, then start at rank 2.
       return 2;
     } else {

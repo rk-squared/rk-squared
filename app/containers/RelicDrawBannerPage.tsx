@@ -15,7 +15,7 @@ import {
   RelicDrawBannerDetails,
 } from '../selectors/relicDraws';
 
-const styles = require('./RelicDrawBannerPage.scss');
+const styles = require('./RelicDrawBannerPage.module.scss');
 
 interface RouteParams {
   banner: string;

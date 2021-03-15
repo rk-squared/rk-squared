@@ -7,7 +7,7 @@ import { LegendMateriaListItem } from './LegendMateriaListItem';
 import { LimitBreakListItem } from './LimitBreakListItem';
 import { SoulBreakListItem } from './SoulBreakListItem';
 
-const styles = require('./CharacterSoulBreaks.scss');
+const styles = require('./CharacterSoulBreaks.module.scss');
 
 interface Props {
   character: string;
@@ -23,7 +23,7 @@ export class CharacterSoulBreaks extends React.PureComponent<Props> {
   getSoulBreaks() {
     const { character, soulBreaksFilter } = this.props;
     const characterSoulBreaks = enlir.soulBreaksByCharacter[character].filter(
-      i => i.tier !== 'RW' && i.tier !== 'Default',
+      (i) => i.tier !== 'RW' && i.tier !== 'Default',
     );
     return _.reverse(
       soulBreaksFilter ? characterSoulBreaks.filter(soulBreaksFilter) : characterSoulBreaks,

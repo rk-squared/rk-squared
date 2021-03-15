@@ -5,7 +5,7 @@ import { LangContext } from '../../contexts/LangContext';
 import { enlir } from '../../data/enlir';
 import * as urls from '../../data/urls';
 
-const styles = require('./RecordBoardCharacterIcon.scss');
+const styles = require('./RecordBoardCharacterIcon.module.scss');
 
 interface Props {
   character: string | undefined;

@@ -5,7 +5,7 @@ import { LangContext } from '../../contexts/LangContext';
 import { enlir } from '../../data/enlir';
 import * as urls from '../../data/urls';
 
-const styles = require('./SoulBreakTooltip.scss');
+const styles = require('./SoulBreakTooltip.module.scss');
 
 interface Props {
   id: string;

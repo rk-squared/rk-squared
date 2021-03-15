@@ -24,6 +24,12 @@ const dll = path.join(__dirname, '..', 'dll');
 const manifest = path.resolve(dll, 'renderer.json');
 const requiredByDLLConfig = module.parent.filename.includes('webpack.config.renderer.dev.dll');
 
+// style files regexes
+const cssRegex = /\.css$/;
+const cssModuleRegex = /\.module\.css$/;
+const sassRegex = /\.(scss|sass)$/;
+const sassModuleRegex = /\.module\.(scss|sass)$/;
+
 /**
  * Warn if the DLL is not built
  */
@@ -87,7 +93,7 @@ module.exports = merge.smart(baseConfig, {
         ],
       },
       {
-        test: /^((?!\.global).)*\.css$/,
+        test: cssModuleRegex,
         exclude: /node_modules/,
         use: [
           {
@@ -106,7 +112,7 @@ module.exports = merge.smart(baseConfig, {
         ],
       },
       {
-        test: /^((?!\.global).)*\.css$/,
+        test: cssRegex,
         include: /node_modules/,
         use: ['style-loader', 'css-loader'],
       },
@@ -130,7 +136,7 @@ module.exports = merge.smart(baseConfig, {
       },
       // SASS support - compile all other .scss files and pipe it to style.css
       {
-        test: /^((?!\.global).)*\.(scss|sass)$/,
+        test: sassModuleRegex,
         use: [
           {
             loader: 'style-loader',

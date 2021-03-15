@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { DropItem } from '../actions/battle';
 import { IState } from '../reducers';
 
-const styles = require('./DropItemAlert.scss');
+const styles = require('./DropItemAlert.module.scss');
 
 interface Props {
   dropItems: DropItem[];

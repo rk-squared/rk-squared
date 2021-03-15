@@ -5,7 +5,7 @@ import OdinGrid from '../components/dungeonScores/OdinGrid';
 import MagiciteGrid from '../components/dungeonScores/MagiciteGrid';
 import { Page } from './Page';
 
-const styles = require('./DungeonScoresPage.scss');
+const styles = require('./DungeonScoresPage.module.scss');
 
 export default class DungeonScoresPage extends React.Component {
   render() {

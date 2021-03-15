@@ -4,7 +4,7 @@ import { Dungeon, hasAvailablePrizes } from '../../actions/dungeons';
 
 import * as _ from 'lodash';
 
-const styles = require('./DungeonBadge.scss');
+const styles = require('./DungeonBadge.module.scss');
 
 interface Props {
   dungeons: Dungeon[];
@@ -45,8 +45,8 @@ export const DungeonBadge = ({ dungeons, isAnonymous }: Props) => {
     );
   }
 
-  const mastered = _.sumBy(dungeons, d => +!hasAvailablePrizes(d));
-  const hasUnlocked = _.find(dungeons, d => d.isUnlocked && hasAvailablePrizes(d));
+  const mastered = _.sumBy(dungeons, (d) => +!hasAvailablePrizes(d));
+  const hasUnlocked = _.find(dungeons, (d) => d.isUnlocked && hasAvailablePrizes(d));
   // TODO: Highlight in red if about to expire?
   // TODO: Add Cid missions
   // TODO: Add a tooltip explaining mastered / completed / total syntax
@@ -59,8 +59,8 @@ export const DungeonBadge = ({ dungeons, isAnonymous }: Props) => {
       </span>
     );
   } else {
-    const completed = _.sumBy(dungeons, d => +d.isComplete);
-    const stamina = _.sumBy(dungeons, d => (hasAvailablePrizes(d) ? d.totalStamina : 0));
+    const completed = _.sumBy(dungeons, (d) => +d.isComplete);
+    const stamina = _.sumBy(dungeons, (d) => (hasAvailablePrizes(d) ? d.totalStamina : 0));
 
     return (
       <span className={classes}>

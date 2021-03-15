@@ -5,7 +5,7 @@ import * as _ from 'lodash';
 import { RecordMateriaList, RecordMateriaProps } from './RecordMateriaList';
 import { TableDefinition, TableRow } from './RecordMateriaTableDefinitions';
 
-const styles = require('./RecordMateriaTable.scss');
+const styles = require('./RecordMateriaTable.module.scss');
 
 interface Props extends RecordMateriaProps {
   tooltipId: string;
@@ -15,7 +15,7 @@ interface Props extends RecordMateriaProps {
 export class RecordMateriaTable extends React.Component<Props> {
   renderCell = (row: TableRow, rowIndex: number, contents: string[], index: number) => {
     const { tooltipId, recordMateria, isAnonymous } = this.props;
-    const show = _.filter(_.flatMap(contents, s => row.items[s]));
+    const show = _.filter(_.flatMap(contents, (s) => row.items[s]));
     return (
       <td key={index}>
         <RecordMateriaList

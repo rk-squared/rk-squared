@@ -10,7 +10,7 @@ import { localIcons } from '../../data/localData';
 import { categoryImages } from '../dungeons/DungeonCategoryTitle';
 import { SeriesIcon } from '../shared/SeriesIcon';
 
-const styles = require('./EventTooltip.scss');
+const styles = require('./EventTooltip.module.scss');
 
 interface Props {
   id: string;

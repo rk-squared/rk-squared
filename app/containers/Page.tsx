@@ -5,7 +5,7 @@ import classNames from 'classnames';
 
 import MessagesList from './MessagesList';
 
-const styles = require('./Page.scss');
+const styles = require('./Page.module.scss');
 
 interface Props {
   className?: string;

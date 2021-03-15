@@ -8,7 +8,7 @@ import { enlir, EnlirAbility } from '../../data/enlir';
 import { getEventText, getReleaseDate } from '../../data/futureAbilities';
 import * as urls from '../../data/urls';
 
-const styles = require('./AbilityTooltip.scss');
+const styles = require('./AbilityTooltip.module.scss');
 
 interface Props {
   id: string;

@@ -17,7 +17,7 @@ import { getProcessor, rewardsTitle } from './DungeonCommon';
 import DungeonPrizeList from './DungeonPrizeList';
 import { PrizeList } from './PrizeList';
 
-const styles = require('./DungeonCard.scss');
+const styles = require('./DungeonCard.module.scss');
 
 interface Props {
   world: World;

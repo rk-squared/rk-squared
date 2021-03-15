@@ -8,7 +8,7 @@ import { routes } from '../routes';
 import { RouteItem } from '../routes/types';
 import { ErrorBoundary } from './ErrorBoundary';
 
-const styles = require('./AppLayout.scss');
+const styles = require('./AppLayout.module.scss');
 const logo = require('../images/logo.png');
 
 interface Props {
@@ -60,7 +60,7 @@ export class AppLayout extends React.Component<Props> {
             <div className={`collapse navbar-collapse`} id={navId}>
               <ul className="navbar-nav mr-auto flex-column">
                 {routes
-                  .filter(i => i.description != null)
+                  .filter((i) => i.description != null)
                   .map((i, n) => (
                     <RouteNavItem {...i} key={n} />
                   ))}

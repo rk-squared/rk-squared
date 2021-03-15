@@ -13,7 +13,7 @@ import LoadMissingPrompt from '../components/shared/LoadMissingPrompt';
 import { progressKey } from '../sagas/loadDungeons';
 import { Page } from './Page';
 
-const styles = require('./DungeonsPage.scss');
+const styles = require('./DungeonsPage.module.scss');
 
 interface Props {
   worlds: {
@@ -72,6 +72,6 @@ export default connect((state: IState) => ({
   worlds: state.worlds.worlds,
   // FIXME: Use reselect (I think)
   missingWorlds: Object.keys(state.worlds.worlds || {})
-    .map(i => +i)
-    .filter(i => (state.worlds.worlds || {})[i].isUnlocked && !state.dungeons.byWorld[i]),
+    .map((i) => +i)
+    .filter((i) => (state.worlds.worlds || {})[i].isUnlocked && !state.dungeons.byWorld[i]),
 }))(DungeonsPage);
