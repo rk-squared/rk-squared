@@ -63,7 +63,12 @@ module.exports = function (webpackEnv) {
   // common function to get style loaders
   const getStyleLoaders = (cssOptions, preProcessor) => {
     const loaders = [
-      isEnvDevelopment && require.resolve('style-loader'),
+      isEnvDevelopment && {
+        loader: require.resolve('style-loader'),
+        options: {
+          esModule: false,
+        },
+      },
       isEnvProduction && {
         loader: MiniCssExtractPlugin.loader,
         options: Object.assign(

@@ -63,6 +63,9 @@ const config = merge.smart(baseConfig, {
         use: [
           {
             loader: 'style-loader',
+            options: {
+              esModule: false,
+            },
           },
           {
             loader: 'css-loader',

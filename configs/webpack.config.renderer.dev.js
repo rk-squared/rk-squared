@@ -83,6 +83,9 @@ module.exports = merge.smart(baseConfig, {
         use: [
           {
             loader: 'style-loader',
+            options: {
+              esModule: false,
+            },
           },
           {
             loader: 'css-loader',
@@ -99,6 +102,9 @@ module.exports = merge.smart(baseConfig, {
         use: [
           {
             loader: 'style-loader',
+            options: {
+              esModule: false,
+            },
           },
           {
             loader: 'css-loader',
@@ -119,6 +125,9 @@ module.exports = merge.smart(baseConfig, {
         use: [
           {
             loader: 'style-loader',
+            options: {
+              esModule: false,
+            },
           },
           {
             loader: 'css-loader',
@@ -134,6 +143,9 @@ module.exports = merge.smart(baseConfig, {
         use: [
           {
             loader: 'style-loader',
+            options: {
+              esModule: false,
+            },
           },
           {
             loader: 'css-loader',
@@ -153,6 +165,9 @@ module.exports = merge.smart(baseConfig, {
         use: [
           {
             loader: 'style-loader',
+            options: {
+              esModule: false,
+            },
           },
           {
             loader: 'css-loader',
