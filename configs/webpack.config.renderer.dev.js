@@ -87,6 +87,7 @@ module.exports = merge.smart(baseConfig, {
           {
             loader: 'css-loader',
             options: {
+              esModule: false,
               sourceMap: true,
             },
           },
@@ -102,6 +103,7 @@ module.exports = merge.smart(baseConfig, {
           {
             loader: 'css-loader',
             options: {
+              esModule: false,
               modules: {
                 localIdentName: '[name]__[local]__[hash:base64:5]',
               },
@@ -114,7 +116,17 @@ module.exports = merge.smart(baseConfig, {
       {
         test: cssRegex,
         include: /node_modules/,
-        use: ['style-loader', 'css-loader'],
+        use: [
+          {
+            loader: 'style-loader',
+          },
+          {
+            loader: 'css-loader',
+            options: {
+              esModule: false,
+            },
+          },
+        ],
       },
       // SASS support - compile all .global.scss files and pipe it to style.css
       {
@@ -126,6 +138,7 @@ module.exports = merge.smart(baseConfig, {
           {
             loader: 'css-loader',
             options: {
+              esModule: false,
               sourceMap: true,
             },
           },
@@ -144,6 +157,7 @@ module.exports = merge.smart(baseConfig, {
           {
             loader: 'css-loader',
             options: {
+              esModule: false,
               modules: {
                 localIdentName: '[name]__[local]__[hash:base64:5]',
               },

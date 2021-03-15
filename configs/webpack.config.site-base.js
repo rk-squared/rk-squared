@@ -346,6 +346,7 @@ module.exports = function (webpackEnv) {
               test: cssRegex,
               exclude: cssModuleRegex,
               use: getStyleLoaders({
+                esModule: false,
                 importLoaders: 1,
                 sourceMap: isEnvProduction && shouldUseSourceMap,
               }),
@@ -360,6 +361,7 @@ module.exports = function (webpackEnv) {
             {
               test: cssModuleRegex,
               use: getStyleLoaders({
+                esModule: false,
                 importLoaders: 1,
                 sourceMap: isEnvProduction && shouldUseSourceMap,
                 modules: {
@@ -375,6 +377,7 @@ module.exports = function (webpackEnv) {
               exclude: sassModuleRegex,
               use: getStyleLoaders(
                 {
+                  esModule: false,
                   importLoaders: 2,
                   sourceMap: isEnvProduction && shouldUseSourceMap,
                 },
@@ -392,6 +395,7 @@ module.exports = function (webpackEnv) {
               test: sassModuleRegex,
               use: getStyleLoaders(
                 {
+                  esModule: false,
                   importLoaders: 2,
                   sourceMap: isEnvProduction && shouldUseSourceMap,
                   modules: {
