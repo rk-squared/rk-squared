@@ -132,6 +132,11 @@ export const dressRecords: DressRecord[] = [
     characterId: 10700300,
   },
   {
+    name: 'Happi Cloud',
+    id: 120700500,
+    characterId: 10700100,
+  },
+  {
     name: 'KINGDOM HEARTS Cloud',
     id: 120700600,
     characterId: 10700100,
@@ -208,6 +213,11 @@ export const dressRecords: DressRecord[] = [
     name: 'Dreams of Glory',
     id: 121000500,
     characterId: 11000100,
+  },
+  {
+    name: 'Otohime Yuna',
+    id: 121000600,
+    characterId: 11000200,
   },
   {
     name: 'Diving Suit',
