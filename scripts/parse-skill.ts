@@ -5,8 +5,8 @@ import * as process from 'process';
 import * as yargs from 'yargs';
 
 import { enlir, EnlirSkill, getEffects, soulBreakTierOrder } from '../app/data/enlir';
-import { convertEnlirSkillToMrP, formatMrPSkill } from '../app/data/mrp/skill';
-import { parse, SyntaxError } from '../app/data/mrp/skillParser';
+import { convertEnlirSkillToMrP, formatMrPSkill } from '../app/data/mrP/skill';
+import { parse, SyntaxError } from '../app/data/mrP/skillParser';
 import { SkillEffect } from '../app/data/mrP/skillTypes';
 
 const argv = yargs
@@ -156,11 +156,11 @@ function processSoulBreaks() {
   return processEffects(
     'soulBreaks',
     _.sortBy(enlir.allSoulBreaks, [
-      i => i.character || '-',
-      i => soulBreakTierOrder[i.tier],
+      (i) => i.character || '-',
+      (i) => soulBreakTierOrder[i.tier],
       'id',
-    ]).filter(sb => sb.tier !== 'RW'),
-    sb => (sb.character || '-') + ': ' + sb.tier + ': ' + sb.name,
+    ]).filter((sb) => sb.tier !== 'RW'),
+    (sb) => (sb.character || '-') + ': ' + sb.tier + ': ' + sb.name,
   );
 }
 
@@ -168,7 +168,7 @@ function processAbilities() {
   return processEffects(
     'abilities',
     _.sortBy(_.values(enlir.abilities), 'name'),
-    ability => ability.name,
+    (ability) => ability.name,
   );
 }
 
@@ -206,7 +206,7 @@ function processOther() {
   return processEffects(
     'other',
     _.sortBy(_.values(enlir.otherSkills), 'name'),
-    other => other.name,
+    (other) => other.name,
   );
 }
 
@@ -214,7 +214,7 @@ function processLimitBreaks() {
   return processEffects(
     'limitBreaks',
     _.sortBy(_.values(enlir.limitBreaks), ['character', 'id']),
-    lb => (lb.character || '-') + ': ' + lb.tier + ': ' + lb.name,
+    (lb) => (lb.character || '-') + ': ' + lb.tier + ': ' + lb.name,
   );
 }
 

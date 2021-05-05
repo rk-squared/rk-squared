@@ -1,6 +1,6 @@
 import { describeRelicEffect } from '../relics';
 
-describe('mrp/Relics', () => {
+describe('mrP/relics', () => {
   describe('describeRelicEffect', () => {
     it('converts relic effects', () => {
       function check(enlirEffect: string, expected: string) {

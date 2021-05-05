@@ -6,7 +6,7 @@ import * as yargs from 'yargs';
 
 import { enlir, EnlirStatus, getEffects } from '../app/data/enlir';
 import { parseEnlirStatus } from '../app/data/mrP/status';
-import { parse, SyntaxError } from '../app/data/mrp/statusParser';
+import { parse, SyntaxError } from '../app/data/mrP/statusParser';
 import { StatusEffect } from '../app/data/mrP/statusTypes';
 
 const argv = yargs
@@ -104,7 +104,7 @@ function processStatuses(): [number, number] {
 
   let successCount = 0;
   let totalCount = 0;
-  _.forEach(items, i => {
+  _.forEach(items, (i) => {
     if (
       shouldAlwaysSkip(i) ||
       (argv.filter && !i.name.match(argv.filter) && i.id.toString() !== argv.filter)

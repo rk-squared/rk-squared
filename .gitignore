@@ -64,4 +64,4 @@ app/data/enlir/*.json.bak
 .env
 
 # Compiled PEG.js files
-app/data/mrp/*Parser.js
+app/data/mrP/*Parser.js

@@ -5,7 +5,7 @@ import * as process from 'process';
 import * as yargs from 'yargs';
 
 import { enlir, EnlirLegendMateria } from '../app/data/enlir';
-import { parse, SyntaxError } from '../app/data/mrp/statusParser';
+import { parse, SyntaxError } from '../app/data/mrP/statusParser';
 import { StatusEffect } from '../app/data/mrP/statusTypes';
 import { describeMrPLegendMateria } from '../app/data/mrP/legendMateria';
 
@@ -78,7 +78,7 @@ function processLegendMateria(): [number, number] {
 
   let successCount = 0;
   let totalCount = 0;
-  _.forEach(items, i => {
+  _.forEach(items, (i) => {
     if (argv.filter && !i.name.match(argv.filter) && i.id.toString() !== argv.filter) {
       return;
     }
