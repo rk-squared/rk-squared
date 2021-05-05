@@ -95,7 +95,7 @@ const config = merge.smart(baseConfig, {
           },
         ],
       },
-      // Add SASS support  - compile all .global.scss files and pipe it to style.css
+      // SASS support - compile all .global.scss files and pipe it to style.css
       {
         test: /\.global\.(scss|sass)$/,
         use: [
@@ -118,7 +118,7 @@ const config = merge.smart(baseConfig, {
           },
         ],
       },
-      // Add SASS support  - compile all other .scss files and pipe it to style.css
+      // SASS support - compile all other .scss files and pipe it to style.css
       {
         test: sassModuleRegex,
         use: [
@@ -132,8 +132,8 @@ const config = merge.smart(baseConfig, {
               modules: {
                 localIdentName: '[name]__[local]__[hash:base64:5]',
               },
-              importLoaders: 1,
               sourceMap: true,
+              importLoaders: 1,
             },
           },
           {

@@ -78,6 +78,7 @@ module.exports = merge.smart(baseConfig, {
           },
         },
       },
+      // Extract all .global.css to style.css as is
       {
         test: /\.global\.css$/,
         use: [
@@ -97,6 +98,25 @@ module.exports = merge.smart(baseConfig, {
         ],
       },
       {
+        test: cssRegex,
+        include: /node_modules/,
+        use: [
+          {
+            loader: 'style-loader',
+            options: {
+              esModule: false,
+            },
+          },
+          {
+            loader: 'css-loader',
+            options: {
+              esModule: false,
+            },
+          },
+        ],
+      },
+      // Pipe other styles through css modules and append to style.css
+      {
         test: cssModuleRegex,
         exclude: /node_modules/,
         use: [
@@ -115,24 +135,6 @@ module.exports = merge.smart(baseConfig, {
               },
               sourceMap: true,
               importLoaders: 1,
-            },
-          },
-        ],
-      },
-      {
-        test: cssRegex,
-        include: /node_modules/,
-        use: [
-          {
-            loader: 'style-loader',
-            options: {
-              esModule: false,
-            },
-          },
-          {
-            loader: 'css-loader',
-            options: {
-              esModule: false,
             },
           },
         ],

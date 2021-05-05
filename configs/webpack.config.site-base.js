@@ -72,7 +72,9 @@ module.exports = function (webpackEnv) {
       isEnvProduction && {
         loader: MiniCssExtractPlugin.loader,
         options: Object.assign(
-          {},
+          {
+            esModule: false,
+          },
           shouldUseRelativeAssetPaths ? { publicPath: '../../' } : undefined,
         ),
       },
