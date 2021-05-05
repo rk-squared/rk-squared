@@ -187,6 +187,7 @@
     "@types/redux-mock-store": "^1.0.0",
     "@types/sprintf-js": "^1.1.2",
     "@types/stream-buffers": "^3.0.2",
+    "@types/webpack-dev-server": "^3.11.3",
     "@types/xregexp": "^3.0.29",
     "@types/yargs": "^16.0.0",
     "@typescript-eslint/eslint-plugin": "^4.17.0",
