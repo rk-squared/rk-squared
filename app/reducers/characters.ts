@@ -6,19 +6,12 @@ import {
   addSoulBreak,
   Character,
   CharacterAction,
-  ExpMap,
   InventoryType,
   setCharacter,
   setCharacters,
   setLegendMateria,
-  setLegendMateriaExp,
-  setLegendMateriaExpRequired,
-  setSoulBreakExp,
-  setSoulBreakExpRequired,
   setSoulBreaks,
   updateCharacter,
-  updateLegendMateriaExp,
-  updateSoulBreakExp,
 } from '../actions/characters';
 import { arrayify } from '../utils/typeUtils';
 
@@ -50,19 +43,11 @@ export interface CharacterState {
     legendMateria?: number[];
   };
 
-  /**
-   * Experience towards mastery for each soul break.  This includes fully
-   * mastered soul breaks but does not include soul breaks for which the
-   * user has learned nothing.
-   */
-  soulBreakExp?: ExpMap;
-  /**
-   * Experience towards master for each legend materia.  See soulBreakExp.
-   */
-  legendMateriaExp?: ExpMap;
-
-  soulBreakExpRequired?: ExpMap;
-  legendMateriaExpRequired?: ExpMap;
+  // No longer used / needed:
+  // soulBreakExp?: ExpMap;
+  // legendMateriaExp?: ExpMap;
+  // soulBreakExpRequired?: ExpMap;
+  // legendMateriaExpRequired?: ExpMap;
 }
 
 const initialState: CharacterState = {
@@ -136,49 +121,6 @@ export function characters(
         addIds(dest.legendMateria, action.payload.idOrIds);
         return;
       }
-
-      // Soul break and legend materia experience
-      case getType(setSoulBreakExp):
-        draft.soulBreakExp = action.payload;
-        return;
-
-      case getType(setLegendMateriaExp):
-        draft.legendMateriaExp = action.payload;
-        return;
-
-      case getType(updateSoulBreakExp):
-        if (!draft.soulBreakExp) {
-          return;
-        }
-        draft.soulBreakExp = {
-          ...draft.soulBreakExp,
-          ...action.payload,
-        };
-        return;
-
-      case getType(updateLegendMateriaExp):
-        if (!draft.legendMateriaExp) {
-          return;
-        }
-        draft.legendMateriaExp = {
-          ...draft.legendMateriaExp,
-          ...action.payload,
-        };
-        return;
-
-      case getType(setSoulBreakExpRequired):
-        draft.soulBreakExpRequired = {
-          ...(draft.soulBreakExpRequired || {}),
-          ...action.payload,
-        };
-        break;
-
-      case getType(setLegendMateriaExpRequired):
-        draft.legendMateriaExpRequired = {
-          ...(draft.legendMateriaExpRequired || {}),
-          ...action.payload,
-        };
-        break;
     }
   });
 }
