@@ -5,30 +5,19 @@ import * as _ from 'lodash';
 import { enlir } from '../data';
 import { IState } from '../reducers';
 
-const idsToSet = (...ids: Array<number[] | undefined>) =>
-  ids ? new Set<number>(_.flatten(_.filter(ids) as number[][])) : undefined;
+const idsToSet = (ids: number[]) => new Set<number>(ids);
 
 export const getOwnedLegendMateria = createSelector<
   IState,
   number[] | undefined,
-  number[] | undefined,
   Set<number> | undefined
->(
-  ({ characters }: IState) => characters.legendMateria,
-  ({ characters }: IState) => (characters.vault || {}).legendMateria,
-  idsToSet,
-);
+>(({ characters }: IState) => characters.legendMateria, idsToSet);
 
 export const getOwnedSoulBreaks = createSelector<
   IState,
   number[] | undefined,
-  number[] | undefined,
   Set<number> | undefined
->(
-  ({ characters }: IState) => characters.soulBreaks,
-  ({ characters }: IState) => (characters.vault || {}).soulBreaks,
-  idsToSet,
-);
+>(({ characters }: IState) => characters.soulBreaks, idsToSet);
 
 // Limit breaks and soul breaks share the same ID space and are tracked in the
 // same FFRK JSON structures.

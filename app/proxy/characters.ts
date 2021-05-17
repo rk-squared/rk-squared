@@ -9,7 +9,6 @@ import * as _ from 'lodash';
 
 import {
   Character,
-  InventoryType,
   setCharacter,
   setCharacters,
   setLegendMateria,
@@ -18,7 +17,6 @@ import {
 } from '../actions/characters';
 import * as schemas from '../api/schemas';
 import * as charactersSchemas from '../api/schemas/characters';
-import * as warehouseSchemas from '../api/schemas/warehouse';
 import { IState } from '../reducers';
 import { logger } from '../utils/logger';
 import { Handler, HandlerRequest } from './common';
@@ -73,24 +71,6 @@ const charactersHandler: Handler = {
 
     store.dispatch(setSoulBreaks(data.soul_strikes.map((i) => i.id)));
     store.dispatch(setLegendMateria(data.legend_materias.map((i) => i.id)));
-  },
-
-  'warehouse/get_equipment_list'(
-    data: warehouseSchemas.WarehouseGetEquipmentList,
-    store: Store<IState>,
-  ) {
-    store.dispatch(
-      setSoulBreaks(
-        data.soul_strikes.map((i) => i.id),
-        InventoryType.Vault,
-      ),
-    );
-    store.dispatch(
-      setLegendMateria(
-        data.legend_materias.map((i) => i.id),
-        InventoryType.Vault,
-      ),
-    );
   },
 
   win_battle: handleWinBattle,

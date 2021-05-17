@@ -6,7 +6,6 @@ import {
   addSoulBreak,
   Character,
   CharacterAction,
-  InventoryType,
   setCharacter,
   setCharacters,
   setLegendMateria,
@@ -32,18 +31,8 @@ export interface CharacterState {
    */
   legendMateria?: number[];
 
-  vault?: {
-    /**
-     * Soul break IDs as returned by the vault screen.
-     */
-    soulBreaks?: number[];
-    /**
-     * Legend materia IDs as returned by the vault screen.
-     */
-    legendMateria?: number[];
-  };
-
   // No longer used / needed:
+  // vault?: { soulBreaks?: number[]; legendMateria?: number[] }
   // soulBreakExp?: ExpMap;
   // legendMateriaExp?: ExpMap;
   // soulBreakExpRequired?: ExpMap;
@@ -54,21 +43,7 @@ const initialState: CharacterState = {
   characters: {},
   soulBreaks: [],
   legendMateria: [],
-  vault: {
-    soulBreaks: [],
-    legendMateria: [],
-  },
 };
-
-function getDestination(draft: CharacterState, inventoryType: InventoryType) {
-  switch (inventoryType) {
-    case InventoryType.Inventory:
-      return draft;
-    case InventoryType.Vault:
-      draft.vault = draft.vault || {};
-      return draft.vault;
-  }
-}
 
 function addIds(idList: number[] | undefined, idOrIds: number | number[]) {
   if (!idList) {
@@ -101,24 +76,20 @@ export function characters(
 
       // Known soul breaks and legend materia
       case getType(setSoulBreaks):
-        getDestination(draft, action.payload.inventoryType).soulBreaks =
-          action.payload.soulBreakIds;
+        draft.soulBreaks = action.payload.soulBreakIds;
         return;
 
       case getType(setLegendMateria):
-        getDestination(draft, action.payload.inventoryType).legendMateria =
-          action.payload.legendMateriaIds;
+        draft.legendMateria = action.payload.legendMateriaIds;
         return;
 
       case getType(addSoulBreak): {
-        const dest = getDestination(draft, action.payload.inventoryType);
-        addIds(dest.soulBreaks, action.payload.idOrIds);
+        addIds(draft.soulBreaks, action.payload.idOrIds);
         return;
       }
 
       case getType(addLegendMateria): {
-        const dest = getDestination(draft, action.payload.inventoryType);
-        addIds(dest.legendMateria, action.payload.idOrIds);
+        addIds(draft.legendMateria, action.payload.idOrIds);
         return;
       }
     }

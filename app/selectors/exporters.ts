@@ -13,12 +13,12 @@ export function exportStateToJson(state: IState): string {
   return JSON.stringify(_.omit(state, blacklist), undefined, 2);
 }
 
-export function exportSoulBreaksToCsv({ characters: { soulBreaks, vault } }: IState): string {
+export function exportSoulBreaksToCsv({ characters: { soulBreaks } }: IState): string {
   if (!soulBreaks) {
     return 'Soul breaks have not been loaded.';
   }
 
-  const allSoulBreaks = new Set<number>([...soulBreaks, ...(vault ? vault.soulBreaks || [] : [])]);
+  const allSoulBreaks = new Set<number>(soulBreaks);
   const aliases = makeSoulBreakAliases(enlir.soulBreaks);
 
   const stringifier = createObjectCsvStringifier({
@@ -59,15 +59,12 @@ export function exportSoulBreaksToCsv({ characters: { soulBreaks, vault } }: ISt
   return result || '';
 }
 
-export function exportLegendMateriaToCsv({ characters: { legendMateria, vault } }: IState): string {
+export function exportLegendMateriaToCsv({ characters: { legendMateria } }: IState): string {
   if (!legendMateria) {
     return 'Legend materia have not been loaded.';
   }
 
-  const allLegendMateria = new Set<number>([
-    ...legendMateria,
-    ...(vault ? vault.legendMateria || [] : []),
-  ]);
+  const allLegendMateria = new Set<number>(legendMateria);
   const aliases = makeLegendMateriaAliases(enlir.legendMateria);
 
   const stringifier = createObjectCsvStringifier({

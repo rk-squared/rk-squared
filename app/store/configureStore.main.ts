@@ -24,6 +24,7 @@ const migrations: MigrationManifest = {
   0: (state) =>
     produce(state, (draft) => {
       const characters = (draft as IState).characters as any;
+      delete characters?.vault;
       delete characters?.soulBreakExp;
       delete characters?.legendMateriaExp;
       delete characters?.soulBreakExpRequired;

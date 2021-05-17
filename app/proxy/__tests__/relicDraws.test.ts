@@ -8,7 +8,6 @@ import * as _ from 'lodash';
 import configureStore from 'redux-mock-store';
 import * as url from 'url';
 
-import { InventoryType } from '../../actions/characters';
 import { RelicDrawBanner } from '../../actions/relicDraws';
 import { LangType } from '../../api/apiUrls';
 import { IState } from '../../reducers';
@@ -23,7 +22,7 @@ describe('gacha proxy handler', () => {
 
       expect(_.values(banners).length).toEqual(45);
 
-      const ff5Banner = _.find(banners, i => i.id === 788)!;
+      const ff5Banner = _.find(banners, (i) => i.id === 788)!;
       expect(ff5Banner.pullLimit).toBeUndefined();
       expect(ff5Banner.cost).toEqual({
         drawCount: 11,
@@ -78,26 +77,32 @@ describe('gacha proxy handler', () => {
 
       const filteredIds = (items: RelicDrawBanner[], filter?: (i: RelicDrawBanner) => boolean) =>
         _.filter(items, filter || _.constant(true))
-          .map(i => i.id)
+          .map((i) => i.id)
           .sort();
 
-      const archiveBanners = _.filter(banners, i => i.group === 'archive');
-      expect(_.every(archiveBanners, i => i.pullLimit === 1)).toEqual(true);
+      const archiveBanners = _.filter(banners, (i) => i.group === 'archive');
+      expect(_.every(archiveBanners, (i) => i.pullLimit === 1)).toEqual(true);
       // Acolyte Archives are 9 banners starting at ID 7001.
-      expect(filteredIds(archiveBanners)).toEqual(_.times(9, i => i + 7001));
+      expect(filteredIds(archiveBanners)).toEqual(_.times(9, (i) => i + 7001));
       // All Acolyte Archive banners have been pulled.
-      expect(filteredIds(archiveBanners, i => i.canPull)).toEqual([]);
+      expect(filteredIds(archiveBanners, (i) => i.canPull)).toEqual([]);
       // Banners 4, 5, 6, 8 and 9 still have selections available.
-      expect(filteredIds(archiveBanners, i => i.canSelect)).toEqual([7004, 7005, 7006, 7008, 7009]);
+      expect(filteredIds(archiveBanners, (i) => i.canSelect)).toEqual([
+        7004,
+        7005,
+        7006,
+        7008,
+        7009,
+      ]);
 
-      const luckOfTheRealms = _.filter(banners, i => i.group === 'group4');
+      const luckOfTheRealms = _.filter(banners, (i) => i.group === 'group4');
       // This capture was taken when all 17 banners were available.
-      expect(_.every(luckOfTheRealms, i => i.pullLimit === 1)).toEqual(true);
-      expect(filteredIds(luckOfTheRealms)).toEqual(_.times(17, i => i + 805));
+      expect(_.every(luckOfTheRealms, (i) => i.pullLimit === 1)).toEqual(true);
+      expect(filteredIds(luckOfTheRealms)).toEqual(_.times(17, (i) => i + 805));
       // All but FF1 have been used.
-      expect(filteredIds(luckOfTheRealms, i => i.canPull)).toEqual([821]);
+      expect(filteredIds(luckOfTheRealms, (i) => i.canPull)).toEqual([821]);
       // None of these banners have selections.
-      expect(filteredIds(luckOfTheRealms, i => i.canSelect)).toEqual([]);
+      expect(filteredIds(luckOfTheRealms, (i) => i.canSelect)).toEqual([]);
     });
 
     it('understands 2xG5 and festival 40x pulls', () => {
@@ -140,7 +145,7 @@ describe('gacha proxy handler', () => {
         '5': 8.01999,
         '6': 6.01999,
       });
-      expect(_.filter(byRelic, value => value >= 1).length).toEqual(14);
+      expect(_.filter(byRelic, (value) => value >= 1).length).toEqual(14);
       expect(_.keys(byRelic).length).toEqual(42);
     });
   });
@@ -155,14 +160,12 @@ describe('gacha proxy handler', () => {
           type: 'ADD_SOUL_BREAK',
           payload: {
             idOrIds: [20860014],
-            inventoryType: InventoryType.Inventory,
           },
         },
         {
           type: 'ADD_LEGEND_MATERIA',
           payload: {
             idOrIds: [201110103],
-            inventoryType: InventoryType.Inventory,
           },
         },
         {

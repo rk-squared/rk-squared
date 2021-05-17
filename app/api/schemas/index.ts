@@ -204,7 +204,14 @@ export interface PartyList {
   legend_materias: LegendMateria[];
 }
 
-// Sample URL: http://ffrk.denagames.com/dff/party/list_buddy
+/**
+ * Sample URL: http://ffrk.denagames.com/dff/party/list_buddy
+ *
+ * Starting with the May 2021 maintenance, this is retrieved in multiple parts;
+ * e.g., http://ffrk.denagames.com/dff/party/list_buddy?part=0&split=3 through
+ * http://ffrk.denagames.com/dff/party/list_buddy?part=2&split=3, retrieved in
+ * parallel.
+ */
 export interface PartyListBuddy {
   soul_strikes: PartySoulStrike[];
   legend_materias: LegendMateria[];

@@ -8,11 +8,6 @@ export interface Character {
   levelCap: number;
 }
 
-export enum InventoryType {
-  Inventory,
-  Vault,
-}
-
 export const setCharacters = createAction(
   'SET_CHARACTERS',
   (characters: { [id: number]: Character }) => ({
@@ -39,46 +34,36 @@ export const updateCharacter = createAction(
   }),
 );
 
-export const setSoulBreaks = createAction(
-  'SET_SOUL_BREAKS',
-  (soulBreakIds: number[], inventoryType: InventoryType = InventoryType.Inventory) => ({
-    type: 'SET_SOUL_BREAKS',
-    payload: {
-      soulBreakIds,
-      inventoryType,
-    },
-  }),
-);
+export const setSoulBreaks = createAction('SET_SOUL_BREAKS', (soulBreakIds: number[]) => ({
+  type: 'SET_SOUL_BREAKS',
+  payload: {
+    soulBreakIds,
+  },
+}));
 
 export const setLegendMateria = createAction(
   'SET_LEGEND_MATERIA',
-  (legendMateriaIds: number[], inventoryType: InventoryType = InventoryType.Inventory) => ({
+  (legendMateriaIds: number[]) => ({
     type: 'SET_LEGEND_MATERIA',
     payload: {
       legendMateriaIds,
-      inventoryType,
     },
   }),
 );
 
-export const addSoulBreak = createAction(
-  'ADD_SOUL_BREAK',
-  (idOrIds: number | number[], inventoryType: InventoryType = InventoryType.Inventory) => ({
-    type: 'ADD_SOUL_BREAK',
-    payload: {
-      idOrIds,
-      inventoryType,
-    },
-  }),
-);
+export const addSoulBreak = createAction('ADD_SOUL_BREAK', (idOrIds: number | number[]) => ({
+  type: 'ADD_SOUL_BREAK',
+  payload: {
+    idOrIds,
+  },
+}));
 
 export const addLegendMateria = createAction(
   'ADD_LEGEND_MATERIA',
-  (idOrIds: number | number[], inventoryType: InventoryType = InventoryType.Inventory) => ({
+  (idOrIds: number | number[]) => ({
     type: 'ADD_LEGEND_MATERIA',
     payload: {
       idOrIds,
-      inventoryType,
     },
   }),
 );
