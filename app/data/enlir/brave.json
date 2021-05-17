@@ -1009,8 +1009,8 @@
   },
   {
     "character": "Porom",
-    "source": "Prayer of Mysidia",
-    "name": "Recovery Magic",
+    "source": "Pray (IV)",
+    "name": "Healing Sigil",
     "brave": 0,
     "type": "WHT",
     "target": "Single ally",
@@ -1028,12 +1028,12 @@
     ],
     "nameJp": "癒しの魔法陣",
     "id": 31540515,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Porom",
-    "source": "Prayer of Mysidia",
-    "name": "Recovery Magic",
+    "source": "Pray (IV)",
+    "name": "Healing Sigil",
     "brave": 1,
     "type": "WHT",
     "target": "All allies",
@@ -1051,12 +1051,12 @@
     ],
     "nameJp": "癒しの魔法陣",
     "id": 31540516,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Porom",
-    "source": "Prayer of Mysidia",
-    "name": "Recovery Magic",
+    "source": "Pray (IV)",
+    "name": "Healing Sigil",
     "brave": 2,
     "type": "WHT",
     "target": "All allies",
@@ -1074,12 +1074,12 @@
     ],
     "nameJp": "癒しの魔法陣",
     "id": 31540517,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Porom",
-    "source": "Prayer of Mysidia",
-    "name": "Recovery Magic",
+    "source": "Pray (IV)",
+    "name": "Healing Sigil",
     "brave": 3,
     "type": "WHT",
     "target": "All allies",
@@ -1097,7 +1097,7 @@
     ],
     "nameJp": "癒しの魔法陣",
     "id": 31540518,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Gilgamesh",
@@ -1708,6 +1708,110 @@
     "nameJp": "魔法剣みだれうち　激流",
     "id": 30547165,
     "gl": true
+  },
+  {
+    "character": "Dorgann",
+    "source": "Swords of the Ages",
+    "name": "Sword of Dawn",
+    "brave": 0,
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 1.92,
+    "element": [
+      "Earth",
+      "NE"
+    ],
+    "time": 1.65,
+    "effects": "One single attack (1.92)",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 75,
+    "school": "Combat",
+    "braveCondition": [
+      "Earth"
+    ],
+    "nameJp": "我流剣技・聳然",
+    "id": 31541069,
+    "gl": false
+  },
+  {
+    "character": "Dorgann",
+    "source": "Swords of the Ages",
+    "name": "Sword of Dawn",
+    "brave": 1,
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 3.2,
+    "element": [
+      "Earth",
+      "NE"
+    ],
+    "time": 1.65,
+    "effects": "One single attack (3.20) capped at 99999",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 75,
+    "school": "Combat",
+    "braveCondition": [
+      "Earth"
+    ],
+    "nameJp": "我流剣技・聳然",
+    "id": 31541070,
+    "gl": false
+  },
+  {
+    "character": "Dorgann",
+    "source": "Swords of the Ages",
+    "name": "Sword of Dawn",
+    "brave": 2,
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 6.4,
+    "element": [
+      "Earth",
+      "NE"
+    ],
+    "time": 1.65,
+    "effects": "One single attack (6.40) capped at 99999",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 75,
+    "school": "Combat",
+    "braveCondition": [
+      "Earth"
+    ],
+    "nameJp": "我流剣技・聳然",
+    "id": 31541071,
+    "gl": false
+  },
+  {
+    "character": "Dorgann",
+    "source": "Swords of the Ages",
+    "name": "Sword of Dawn",
+    "brave": 3,
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 10,
+    "element": [
+      "Earth",
+      "NE"
+    ],
+    "time": 1.65,
+    "effects": "One single attack (10.00) capped at 99999, grants [Dualcast Knight 1] to the user",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 75,
+    "school": "Combat",
+    "braveCondition": [
+      "Earth"
+    ],
+    "nameJp": "我流剣技・聳然",
+    "id": 31541072,
+    "gl": false
   },
   {
     "character": "Terra",
@@ -3521,8 +3625,8 @@
   },
   {
     "character": "Garnet",
-    "source": "Princess of Storms",
-    "name": "Summoners' Legacy",
+    "source": "Thunderstorm Princess",
+    "name": "Summoners's Calling",
     "brave": 0,
     "type": "SUM",
     "target": "Single enemy",
@@ -3544,12 +3648,12 @@
     ],
     "nameJp": "本来の召喚の力",
     "id": 31540582,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Garnet",
-    "source": "Princess of Storms",
-    "name": "Summoners' Legacy",
+    "source": "Thunderstorm Princess",
+    "name": "Summoners's Calling",
     "brave": 1,
     "type": "SUM",
     "target": "Single enemy",
@@ -3571,12 +3675,12 @@
     ],
     "nameJp": "本来の召喚の力",
     "id": 31540583,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Garnet",
-    "source": "Princess of Storms",
-    "name": "Summoners' Legacy",
+    "source": "Thunderstorm Princess",
+    "name": "Summoners's Calling",
     "brave": 2,
     "type": "SUM",
     "target": "Single enemy",
@@ -3598,12 +3702,12 @@
     ],
     "nameJp": "本来の召喚の力",
     "id": 31540584,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Garnet",
-    "source": "Princess of Storms",
-    "name": "Summoners' Legacy",
+    "source": "Thunderstorm Princess",
+    "name": "Summoners's Calling",
     "brave": 3,
     "type": "SUM",
     "target": "Single enemy",
@@ -3625,7 +3729,7 @@
     ],
     "nameJp": "本来の召喚の力",
     "id": 31540585,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Tidus",
@@ -4740,6 +4844,126 @@
     "nameJp": "ミアズマバースト",
     "id": 30543056,
     "gl": true
+  },
+  {
+    "character": "Cid (XIV)",
+    "source": "Flamethrower",
+    "name": "Heat Blast",
+    "brave": 0,
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 1.44,
+    "element": [
+      "Fire",
+      "Earth",
+      "Wind",
+      "Poison",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "One single ranged attack (1.44)",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 75,
+    "school": "Machinist",
+    "braveCondition": [
+      "Machinist",
+      "Support"
+    ],
+    "nameJp": "ヒートブラスト",
+    "id": 31540956,
+    "gl": false
+  },
+  {
+    "character": "Cid (XIV)",
+    "source": "Flamethrower",
+    "name": "Heat Blast",
+    "brave": 1,
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 2.28,
+    "element": [
+      "Fire",
+      "Earth",
+      "Wind",
+      "Poison",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Six single ranged attacks (0.38 each)",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 75,
+    "school": "Machinist",
+    "braveCondition": [
+      "Machinist",
+      "Support"
+    ],
+    "nameJp": "ヒートブラスト",
+    "id": 31540957,
+    "gl": false
+  },
+  {
+    "character": "Cid (XIV)",
+    "source": "Flamethrower",
+    "name": "Heat Blast",
+    "brave": 2,
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 4.5,
+    "element": [
+      "Fire",
+      "Earth",
+      "Wind",
+      "Poison",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Six single ranged attacks (0.75 each), causes [DEF -30% (8s)]",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 75,
+    "school": "Machinist",
+    "braveCondition": [
+      "Machinist",
+      "Support"
+    ],
+    "nameJp": "ヒートブラスト",
+    "id": 31540958,
+    "gl": false
+  },
+  {
+    "character": "Cid (XIV)",
+    "source": "Flamethrower",
+    "name": "Heat Blast",
+    "brave": 3,
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 6.96,
+    "element": [
+      "Fire",
+      "Earth",
+      "Wind",
+      "Poison",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Six single ranged attacks (1.16 each), causes [DEF, RES and MND -50% (8s)]",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 75,
+    "school": "Machinist",
+    "braveCondition": [
+      "Machinist",
+      "Support"
+    ],
+    "nameJp": "ヒートブラスト",
+    "id": 31540959,
+    "gl": false
   },
   {
     "character": "Gaffgarion",

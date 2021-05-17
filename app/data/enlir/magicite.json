@@ -765,6 +765,132 @@
     "gl": true
   },
   {
+    "11": "5",
+    "21": "15",
+    "31": null,
+    "110": "6",
+    "125": "7",
+    "150": "8",
+    "165": "10",
+    "180": "12",
+    "181": "12",
+    "190": "13",
+    "199": "15",
+    "210": "15",
+    "225": "15",
+    "250": "15",
+    "265": "15",
+    "280": "15",
+    "281": "15",
+    "290": "15",
+    "299": "15",
+    "310": null,
+    "325": null,
+    "350": null,
+    "365": null,
+    "380": null,
+    "381": null,
+    "390": null,
+    "399": null,
+    "element": "Fire",
+    "name": "Odin (Ultra Magic)",
+    "realm": "Core",
+    "rarity": 6,
+    "introducingEventLv99": "Magicite: Odin (Fire)",
+    "stats": {
+      "hp": 6023,
+      "atk": 267,
+      "def": 260,
+      "mag": 305,
+      "res": 260,
+      "mnd": 260,
+      "spd": 186
+    },
+    "passives": {
+      "Argent Sage's Blessing": {},
+      "Lord's Seal: Fire": {}
+    },
+    "cooldown": 0.01,
+    "duration": 15,
+    "magiciteUltraSkill": {
+      "name": "Ultra Arcane Zantetsuken",
+      "type": "BLK",
+      "autoTarget": "Lowest HP% enemy",
+      "formula": "Magical",
+      "multiplier": 11,
+      "ultraSkillElement": "Fire, Ice, Lightning, Earth, Wind, Water, Holy, Dark, Poison",
+      "time": 0.01,
+      "effects": "One single attack (11.00) capped at 99999, ignores RES",
+      "counter": false
+    },
+    "nameJp": "【契】斬鉄剣・魔",
+    "id": 161000109,
+    "gl": true
+  },
+  {
+    "11": "5",
+    "21": "15",
+    "31": null,
+    "110": "6",
+    "125": "7",
+    "150": "8",
+    "165": "10",
+    "180": "12",
+    "181": "12",
+    "190": "13",
+    "199": "15",
+    "210": "15",
+    "225": "15",
+    "250": "15",
+    "265": "15",
+    "280": "15",
+    "281": "15",
+    "290": "15",
+    "299": "15",
+    "310": null,
+    "325": null,
+    "350": null,
+    "365": null,
+    "380": null,
+    "381": null,
+    "390": null,
+    "399": null,
+    "element": "Fire",
+    "name": "Odin (Ultra Attack)",
+    "realm": "Core",
+    "rarity": 6,
+    "introducingEventLv99": "Magicite: Odin (Fire)",
+    "stats": {
+      "hp": 6023,
+      "atk": 301,
+      "def": 260,
+      "mag": 267,
+      "res": 260,
+      "mnd": 260,
+      "spd": 186
+    },
+    "passives": {
+      "Argent Sage's Blessing": {},
+      "Lord's Seal: Fire": {}
+    },
+    "cooldown": 0.01,
+    "duration": 15,
+    "magiciteUltraSkill": {
+      "name": "Ultra Zantetsuken",
+      "type": "PHY",
+      "autoTarget": "Lowest HP% enemy",
+      "formula": "Physical",
+      "multiplier": 3.7,
+      "ultraSkillElement": "Fire, Ice, Lightning, Earth, Wind, Water, Holy, Dark, Poison",
+      "time": 0.01,
+      "effects": "One single attack (3.70) capped at 99999, ignores DEF",
+      "counter": false
+    },
+    "nameJp": "【契】斬鉄剣",
+    "id": 161000110,
+    "gl": true
+  },
+  {
     "11": "1",
     "21": null,
     "31": null,
@@ -1527,6 +1653,132 @@
     },
     "nameJp": "【契】ダイアモンドダスト",
     "id": 161000101,
+    "gl": true
+  },
+  {
+    "11": "5",
+    "21": "15",
+    "31": null,
+    "110": "6",
+    "125": "7",
+    "150": "8",
+    "165": "10",
+    "180": "12",
+    "181": "12",
+    "190": "13",
+    "199": "15",
+    "210": "15",
+    "225": "15",
+    "250": "15",
+    "265": "15",
+    "280": "15",
+    "281": "15",
+    "290": "15",
+    "299": "15",
+    "310": null,
+    "325": null,
+    "350": null,
+    "365": null,
+    "380": null,
+    "381": null,
+    "390": null,
+    "399": null,
+    "element": "Ice",
+    "name": "Odin (Ultra Magic)",
+    "realm": "Core",
+    "rarity": 6,
+    "introducingEventLv99": "Magicite: Odin (Ice)",
+    "stats": {
+      "hp": 6023,
+      "atk": 267,
+      "def": 260,
+      "mag": 305,
+      "res": 260,
+      "mnd": 260,
+      "spd": 186
+    },
+    "passives": {
+      "Argent Sage's Blessing": {},
+      "Lord's Seal: Ice": {}
+    },
+    "cooldown": 0.01,
+    "duration": 15,
+    "magiciteUltraSkill": {
+      "name": "Ultra Arcane Zantetsuken",
+      "type": "BLK",
+      "autoTarget": "Lowest HP% enemy",
+      "formula": "Magical",
+      "multiplier": 11,
+      "ultraSkillElement": "Fire, Ice, Lightning, Earth, Wind, Water, Holy, Dark, Poison",
+      "time": 0.01,
+      "effects": "One single attack (11.00) capped at 99999, ignores RES",
+      "counter": false
+    },
+    "nameJp": "【契】斬鉄剣・魔",
+    "id": 161000111,
+    "gl": true
+  },
+  {
+    "11": "5",
+    "21": "15",
+    "31": null,
+    "110": "6",
+    "125": "7",
+    "150": "8",
+    "165": "10",
+    "180": "12",
+    "181": "12",
+    "190": "13",
+    "199": "15",
+    "210": "15",
+    "225": "15",
+    "250": "15",
+    "265": "15",
+    "280": "15",
+    "281": "15",
+    "290": "15",
+    "299": "15",
+    "310": null,
+    "325": null,
+    "350": null,
+    "365": null,
+    "380": null,
+    "381": null,
+    "390": null,
+    "399": null,
+    "element": "Ice",
+    "name": "Odin (Ultra Attack)",
+    "realm": "Core",
+    "rarity": 6,
+    "introducingEventLv99": "Magicite: Odin (Ice)",
+    "stats": {
+      "hp": 6023,
+      "atk": 301,
+      "def": 260,
+      "mag": 267,
+      "res": 260,
+      "mnd": 260,
+      "spd": 186
+    },
+    "passives": {
+      "Argent Sage's Blessing": {},
+      "Lord's Seal: Ice": {}
+    },
+    "cooldown": 0.01,
+    "duration": 15,
+    "magiciteUltraSkill": {
+      "name": "Ultra Zantetsuken",
+      "type": "PHY",
+      "autoTarget": "Lowest HP% enemy",
+      "formula": "Physical",
+      "multiplier": 3.7,
+      "ultraSkillElement": "Fire, Ice, Lightning, Earth, Wind, Water, Holy, Dark, Poison",
+      "time": 0.01,
+      "effects": "One single attack (3.70) capped at 99999, ignores DEF",
+      "counter": false
+    },
+    "nameJp": "【契】斬鉄剣",
+    "id": 161000112,
     "gl": true
   },
   {
@@ -4901,8 +5153,8 @@
       "counter": false
     },
     "nameJp": "【契】斬鉄剣・魔",
-    "id": null,
-    "gl": false
+    "id": 161000105,
+    "gl": true
   },
   {
     "11": "5",
@@ -4964,8 +5216,8 @@
       "counter": false
     },
     "nameJp": "【契】斬鉄剣",
-    "id": null,
-    "gl": false
+    "id": 161000106,
+    "gl": true
   },
   {
     "11": "1",
@@ -6499,6 +6751,195 @@
     "gl": true
   },
   {
+    "11": "5",
+    "21": "4",
+    "31": null,
+    "110": "6",
+    "125": "7",
+    "150": "8",
+    "165": "10",
+    "180": "12",
+    "181": "12",
+    "190": "13",
+    "199": "15",
+    "210": "4",
+    "225": "4",
+    "250": "6",
+    "265": "7",
+    "280": "8",
+    "281": "8",
+    "290": "8",
+    "299": "10",
+    "310": null,
+    "325": null,
+    "350": null,
+    "365": null,
+    "380": null,
+    "381": null,
+    "390": null,
+    "399": null,
+    "element": "Poison",
+    "name": "Ultros",
+    "realm": "VI",
+    "rarity": 6,
+    "introducingEventLv99": "Knight King's Memory",
+    "stats": {
+      "hp": 7151,
+      "atk": 354,
+      "def": 321,
+      "mag": 354,
+      "res": 321,
+      "mnd": 321,
+      "spd": 163
+    },
+    "passives": {
+      "Poison Blessing": {},
+      "Stat Boon": {}
+    },
+    "cooldown": 0.01,
+    "duration": 20,
+    "magiciteUltraSkill": {
+      "name": "?",
+      "type": "NAT",
+      "autoTarget": "Lowest HP% enemy",
+      "formula": null,
+      "multiplier": null,
+      "ultraSkillElement": null,
+      "time": 0.01,
+      "effects": "One single attack that deals 99999 damage, grants [Buff Poison 20% (15s)] to all allies",
+      "counter": false
+    },
+    "nameJp": "?",
+    "id": 161000149,
+    "gl": false
+  },
+  {
+    "11": "5",
+    "21": "15",
+    "31": null,
+    "110": "6",
+    "125": "7",
+    "150": "8",
+    "165": "10",
+    "180": "12",
+    "181": "12",
+    "190": "13",
+    "199": "15",
+    "210": "15",
+    "225": "15",
+    "250": "15",
+    "265": "15",
+    "280": "15",
+    "281": "15",
+    "290": "15",
+    "299": "15",
+    "310": null,
+    "325": null,
+    "350": null,
+    "365": null,
+    "380": null,
+    "381": null,
+    "390": null,
+    "399": null,
+    "element": "Poison",
+    "name": "Odin (Ultra Magic)",
+    "realm": "Core",
+    "rarity": 6,
+    "introducingEventLv99": "Knight King's Memory",
+    "stats": {
+      "hp": 6023,
+      "atk": 267,
+      "def": 260,
+      "mag": 305,
+      "res": 260,
+      "mnd": 260,
+      "spd": 186
+    },
+    "passives": {
+      "Argent Sage's Blessing": {},
+      "Lord's Seal: Poison": {}
+    },
+    "cooldown": 0.01,
+    "duration": 15,
+    "magiciteUltraSkill": {
+      "name": "Ultra Arcane Zantetsuken",
+      "type": "BLK",
+      "autoTarget": "Lowest HP% enemy",
+      "formula": "Magical",
+      "multiplier": 11,
+      "ultraSkillElement": "Fire, Ice, Lightning, Earth, Wind, Water, Holy, Dark, Poison",
+      "time": 0.01,
+      "effects": "One single attack (11.00) capped at 99999, ignores RES",
+      "counter": false
+    },
+    "nameJp": "【契】斬鉄剣・魔",
+    "id": 161000152,
+    "gl": false
+  },
+  {
+    "11": "5",
+    "21": "15",
+    "31": null,
+    "110": "6",
+    "125": "7",
+    "150": "8",
+    "165": "10",
+    "180": "12",
+    "181": "12",
+    "190": "13",
+    "199": "15",
+    "210": "15",
+    "225": "15",
+    "250": "15",
+    "265": "15",
+    "280": "15",
+    "281": "15",
+    "290": "15",
+    "299": "15",
+    "310": null,
+    "325": null,
+    "350": null,
+    "365": null,
+    "380": null,
+    "381": null,
+    "390": null,
+    "399": null,
+    "element": "Poison",
+    "name": "Odin (Ultra Attack)",
+    "realm": "Core",
+    "rarity": 6,
+    "introducingEventLv99": "Knight King's Memory",
+    "stats": {
+      "hp": 6023,
+      "atk": 301,
+      "def": 260,
+      "mag": 267,
+      "res": 260,
+      "mnd": 260,
+      "spd": 186
+    },
+    "passives": {
+      "Argent Sage's Blessing": {},
+      "Lord's Seal: Poison": {}
+    },
+    "cooldown": 0.01,
+    "duration": 15,
+    "magiciteUltraSkill": {
+      "name": "Ultra Zantetsuken",
+      "type": "PHY",
+      "autoTarget": "Lowest HP% enemy",
+      "formula": "Physical",
+      "multiplier": 3.7,
+      "ultraSkillElement": "Fire, Ice, Lightning, Earth, Wind, Water, Holy, Dark, Poison",
+      "time": 0.01,
+      "effects": "One single attack (3.70) capped at 99999, ignores DEF",
+      "counter": false
+    },
+    "nameJp": "【契】斬鉄剣",
+    "id": 161000153,
+    "gl": false
+  },
+  {
     "11": "0",
     "21": null,
     "31": null,
@@ -6547,7 +6988,7 @@
     "duration": null,
     "nameJp": null,
     "id": 161000121,
-    "gl": false
+    "gl": true
   },
   {
     "11": "0",
@@ -6598,7 +7039,7 @@
     "duration": null,
     "nameJp": null,
     "id": 161000122,
-    "gl": false
+    "gl": true
   },
   {
     "11": "0",
@@ -6649,7 +7090,7 @@
     "duration": null,
     "nameJp": null,
     "id": 161000123,
-    "gl": false
+    "gl": true
   },
   {
     "11": "0",
@@ -6700,7 +7141,7 @@
     "duration": null,
     "nameJp": null,
     "id": 161000124,
-    "gl": false
+    "gl": true
   },
   {
     "11": "0",
@@ -6751,7 +7192,7 @@
     "duration": null,
     "nameJp": null,
     "id": 161000125,
-    "gl": false
+    "gl": true
   },
   {
     "11": "0",
@@ -6802,7 +7243,7 @@
     "duration": null,
     "nameJp": null,
     "id": 161000126,
-    "gl": false
+    "gl": true
   },
   {
     "11": "0",
@@ -6853,7 +7294,7 @@
     "duration": null,
     "nameJp": null,
     "id": 161000127,
-    "gl": false
+    "gl": true
   },
   {
     "11": "0",
@@ -6904,6 +7345,57 @@
     "duration": null,
     "nameJp": null,
     "id": 161000128,
+    "gl": true
+  },
+  {
+    "11": "0",
+    "21": null,
+    "31": null,
+    "110": "0",
+    "125": "0",
+    "150": "0",
+    "165": "0",
+    "180": "0",
+    "181": "0",
+    "190": "0",
+    "199": "12",
+    "210": null,
+    "225": null,
+    "250": null,
+    "265": null,
+    "280": null,
+    "281": null,
+    "290": null,
+    "299": null,
+    "310": null,
+    "325": null,
+    "350": null,
+    "365": null,
+    "380": null,
+    "381": null,
+    "390": null,
+    "399": null,
+    "element": "-",
+    "name": "Dampen Poison (Lv 8)",
+    "realm": null,
+    "rarity": 5,
+    "introducingEventLv99": "Knight King's Memory",
+    "stats": {
+      "hp": 3800,
+      "atk": 204,
+      "def": 173,
+      "mag": 193,
+      "res": 174,
+      "mnd": 183,
+      "spd": 87
+    },
+    "passives": {
+      "Empower Poison": {}
+    },
+    "cooldown": null,
+    "duration": null,
+    "nameJp": null,
+    "id": 161000150,
     "gl": false
   },
   {
@@ -6955,7 +7447,7 @@
     "duration": null,
     "nameJp": null,
     "id": 161000129,
-    "gl": false
+    "gl": true
   },
   {
     "11": "0",
@@ -7006,7 +7498,7 @@
     "duration": null,
     "nameJp": null,
     "id": 161000130,
-    "gl": false
+    "gl": true
   },
   {
     "11": "0",
@@ -7057,7 +7549,7 @@
     "duration": null,
     "nameJp": null,
     "id": 161000131,
-    "gl": false
+    "gl": true
   },
   {
     "11": "0",
@@ -7108,7 +7600,7 @@
     "duration": null,
     "nameJp": null,
     "id": 161000132,
-    "gl": false
+    "gl": true
   },
   {
     "11": "0",
@@ -7159,7 +7651,7 @@
     "duration": null,
     "nameJp": null,
     "id": 161000133,
-    "gl": false
+    "gl": true
   },
   {
     "11": "0",
@@ -7210,7 +7702,7 @@
     "duration": null,
     "nameJp": null,
     "id": 161000134,
-    "gl": false
+    "gl": true
   },
   {
     "11": "0",
@@ -7261,7 +7753,7 @@
     "duration": null,
     "nameJp": null,
     "id": 161000135,
-    "gl": false
+    "gl": true
   },
   {
     "11": "0",
@@ -7312,6 +7804,57 @@
     "duration": null,
     "nameJp": null,
     "id": 161000136,
+    "gl": true
+  },
+  {
+    "11": "0",
+    "21": null,
+    "31": null,
+    "110": "0",
+    "125": "0",
+    "150": "0",
+    "165": "0",
+    "180": "0",
+    "181": "0",
+    "190": "0",
+    "199": "8",
+    "210": null,
+    "225": null,
+    "250": null,
+    "265": null,
+    "280": null,
+    "281": null,
+    "290": null,
+    "299": null,
+    "310": null,
+    "325": null,
+    "350": null,
+    "365": null,
+    "380": null,
+    "381": null,
+    "390": null,
+    "399": null,
+    "element": "-",
+    "name": "Dampen Poison (Lv 8)",
+    "realm": null,
+    "rarity": 5,
+    "introducingEventLv99": "Knight King's Memory",
+    "stats": {
+      "hp": 3800,
+      "atk": 204,
+      "def": 173,
+      "mag": 193,
+      "res": 174,
+      "mnd": 183,
+      "spd": 87
+    },
+    "passives": {
+      "Dampen Poison": {}
+    },
+    "cooldown": null,
+    "duration": null,
+    "nameJp": null,
+    "id": 161000151,
     "gl": false
   },
   {
@@ -7363,7 +7906,7 @@
     "duration": null,
     "nameJp": null,
     "id": 161000137,
-    "gl": false
+    "gl": true
   },
   {
     "11": "0",
@@ -7414,7 +7957,7 @@
     "duration": null,
     "nameJp": null,
     "id": 161000138,
-    "gl": false
+    "gl": true
   },
   {
     "11": "0",
@@ -7465,7 +8008,7 @@
     "duration": null,
     "nameJp": null,
     "id": 161000139,
-    "gl": false
+    "gl": true
   },
   {
     "11": "0",
@@ -7516,7 +8059,7 @@
     "duration": null,
     "nameJp": null,
     "id": 161000140,
-    "gl": false
+    "gl": true
   },
   {
     "11": "0",
@@ -7567,7 +8110,7 @@
     "duration": null,
     "nameJp": null,
     "id": 161000141,
-    "gl": false
+    "gl": true
   },
   {
     "11": "0",
@@ -7618,7 +8161,7 @@
     "duration": null,
     "nameJp": null,
     "id": 161000142,
-    "gl": false
+    "gl": true
   },
   {
     "11": "0",
@@ -7669,7 +8212,7 @@
     "duration": null,
     "nameJp": null,
     "id": 161000143,
-    "gl": false
+    "gl": true
   },
   {
     "11": "0",
@@ -7720,7 +8263,7 @@
     "duration": null,
     "nameJp": null,
     "id": 161000144,
-    "gl": false
+    "gl": true
   },
   {
     "11": "0",
@@ -7771,7 +8314,7 @@
     "duration": null,
     "nameJp": null,
     "id": 161000145,
-    "gl": false
+    "gl": true
   },
   {
     "11": "0",
@@ -7822,7 +8365,7 @@
     "duration": null,
     "nameJp": null,
     "id": 161000146,
-    "gl": false
+    "gl": true
   },
   {
     "11": "0",
@@ -7873,7 +8416,7 @@
     "duration": null,
     "nameJp": null,
     "id": 161000147,
-    "gl": false
+    "gl": true
   },
   {
     "11": "0",
@@ -7924,6 +8467,6 @@
     "duration": null,
     "nameJp": null,
     "id": 161000148,
-    "gl": false
+    "gl": true
   }
 ]

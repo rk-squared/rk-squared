@@ -215,7 +215,7 @@
   {
     "realm": "II",
     "character": "Josef",
-    "name": "Hero's Headbutt",
+    "name": "Heroic Hardhead",
     "tier": "LBO",
     "type": "PHY",
     "target": "Single enemy",
@@ -237,12 +237,39 @@
     "relic": "Ice Shield (II)",
     "nameJp": "漢の堅頭",
     "id": 20190017,
+    "gl": true
+  },
+  {
+    "realm": "II",
+    "character": "Josef",
+    "name": "Ice Flash (Josef)",
+    "tier": "LBG",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 3.36,
+    "element": [
+      "Ice",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "One single attack (3.36) capped at 99999, grants [Limit Break Gauge +250] to the user",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "minimumLbPoints": 0,
+    "limitBreakBonus": [
+      "Ice Damage Up"
+    ],
+    "masteryBonus": "ATK +10",
+    "relic": "Chakra Headband (II)",
+    "nameJp": "氷閃【ヨーゼフ】",
+    "id": 20190023,
     "gl": false
   },
   {
     "realm": "II",
     "character": "Minwu",
-    "name": "Holy Judgment",
+    "name": "Holy Verdict",
     "tier": "LBO",
     "type": "WHT",
     "target": "Single enemy",
@@ -264,7 +291,7 @@
     "relic": "Golden Staff (II)",
     "nameJp": "ホーリージャッジメント",
     "id": 22120017,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "III",
@@ -296,7 +323,7 @@
   {
     "realm": "III",
     "character": "Luneth",
-    "name": "Galestrike (Luneth)",
+    "name": "Wind Flash (Luneth)",
     "tier": "LBG",
     "type": "PHY",
     "target": "Single enemy",
@@ -318,7 +345,7 @@
     "relic": "Dragoon's Helm (III)",
     "nameJp": "風閃【ルーネス】",
     "id": 20290018,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "III",
@@ -350,7 +377,7 @@
   {
     "realm": "III",
     "character": "Onion Knight",
-    "name": "Aquastrike (Onion Knight)",
+    "name": "Water Flash (Onion Knight)",
     "tier": "LBG",
     "type": "BLK",
     "target": "Single enemy",
@@ -372,7 +399,7 @@
     "relic": "Serpent Sword+ (III)",
     "nameJp": "水閃【オニオンナイト】",
     "id": 22460022,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "III",
@@ -435,6 +462,33 @@
   },
   {
     "realm": "IV",
+    "character": "Cecil (Dark Knight)",
+    "name": "Abyssal Charge",
+    "tier": "LBO",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 40,
+    "element": [
+      "Dark"
+    ],
+    "time": 2.5,
+    "effects": "Five single attacks (1.00 each scaling with LB gauge and LB honing level) capped at 99999, ignores DEF, 100% additional critical chance",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "minimumLbPoints": 250,
+    "limitBreakBonus": [
+      "Limit Break Damage Up",
+      "Cast Time Down"
+    ],
+    "masteryBonus": null,
+    "relic": "Medical Shield (IV)",
+    "nameJp": "アビスチャージ",
+    "id": 20060021,
+    "gl": false
+  },
+  {
+    "realm": "IV",
     "character": "Edge",
     "name": "Eblan Lotus",
     "tier": "LBO",
@@ -492,6 +546,35 @@
   },
   {
     "realm": "IV",
+    "character": "Palom",
+    "name": "Black Magic Crush",
+    "tier": "LBO",
+    "type": "BLK",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 96,
+    "element": [
+      "Fire",
+      "Lightning",
+      "Ice"
+    ],
+    "time": 2.5,
+    "effects": "Four single attacks (3.00 each scaling with LB gauge and LB honing level) capped at 99999, ignores RES",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "minimumLbPoints": 250,
+    "limitBreakBonus": [
+      "Limit Break Damage Up",
+      "Cast Time Down"
+    ],
+    "masteryBonus": null,
+    "relic": "Golden Staff (IV)",
+    "nameJp": "トリプルクラッシュ",
+    "id": 22210012,
+    "gl": false
+  },
+  {
+    "realm": "IV",
     "character": "Rydia",
     "name": "Eidolon Confidante",
     "tier": "LBO",
@@ -542,6 +625,31 @@
     "nameJp": "水装【リディア】",
     "id": 20090021,
     "gl": true
+  },
+  {
+    "realm": "IV",
+    "character": "Rydia",
+    "name": "Guardian Titan",
+    "tier": "LBGS",
+    "type": "NAT",
+    "target": "Self",
+    "formula": null,
+    "multiplier": null,
+    "element": null,
+    "time": 0.01,
+    "effects": "Summons Titan for 5 seconds, grants [Protect], [Shell], [Haste], [Instant ATB 1], [DEF and RES +200% (25s)], [Attach Earth 3 with Stacking] and [Damage Cap +20000] to Titan",
+    "counter": false,
+    "autoTarget": "Self",
+    "minimumLbPoints": 250,
+    "limitBreakBonus": [
+      "Guardian Summon Damage Up",
+      "Damage Reduction Barrier"
+    ],
+    "masteryBonus": null,
+    "relic": "Master Whip (IV)",
+    "nameJp": "Gタイタン",
+    "id": 20090026,
+    "gl": false
   },
   {
     "realm": "IV",
@@ -616,10 +724,10 @@
       "Cast Time Down"
     ],
     "masteryBonus": null,
-    "relic": "Mythgraven Blade (IV)",
+    "relic": "Lustrous Sword-C (IV)",
     "nameJp": "バイブレイ・セカンド",
     "id": 22720011,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "IV",
@@ -815,7 +923,7 @@
   {
     "realm": "V",
     "character": "Gilgamesh",
-    "name": "Commander's Bladeblow",
+    "name": "Captain's Duel",
     "tier": "LBO",
     "type": "PHY",
     "target": "Single enemy",
@@ -837,6 +945,88 @@
     "relic": "Viper Halberd (V)",
     "nameJp": "親衛隊長の一騎討ち",
     "id": 20810019,
+    "gl": true
+  },
+  {
+    "realm": "V",
+    "character": "Gogo (V)",
+    "name": "Arcane Aqua Breath",
+    "tier": "LBO",
+    "type": "BLK",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 96,
+    "element": [
+      "Water"
+    ],
+    "time": 2.5,
+    "effects": "Four single attacks (3.00 each scaling with LB gauge and LB honing level) capped at 99999, ignores RES, casts the last ability used by an ally, default ability (PHY: single, 1.50 physical)",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "minimumLbPoints": 250,
+    "limitBreakBonus": [
+      "Limit Break Damage Up",
+      "Cast Time Down"
+    ],
+    "masteryBonus": null,
+    "relic": "Ruby Chestplate (V)",
+    "nameJp": "アクアブレスの極意",
+    "id": 22730010,
+    "gl": false
+  },
+  {
+    "realm": "V",
+    "character": "Exdeath",
+    "name": "100 Gs",
+    "tier": "LBO",
+    "type": "BLK",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 96,
+    "element": [
+      "Dark",
+      "Holy"
+    ],
+    "time": 2.5,
+    "effects": "Four single attacks (3.00 each scaling with LB gauge and LB honing level) capped at 99999, ignores RES",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "minimumLbPoints": 250,
+    "limitBreakBonus": [
+      "Limit Break Damage Up",
+      "Cast Time Down"
+    ],
+    "masteryBonus": null,
+    "relic": "Bone Wrist (V)",
+    "nameJp": "じゅうりょく100",
+    "id": 22080020,
+    "gl": false
+  },
+  {
+    "realm": "V",
+    "character": "Kelger",
+    "name": "Guiding Light of Dawn",
+    "tier": "LBO",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 40,
+    "element": [
+      "Earth"
+    ],
+    "time": 2.5,
+    "effects": "Five single attacks (1.00 each scaling with LB gauge and LB honing level) capped at 99999, ignores DEF, 100% additional critical chance",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "minimumLbPoints": 250,
+    "limitBreakBonus": [
+      "Limit Break Damage Up",
+      "Cast Time Down"
+    ],
+    "masteryBonus": null,
+    "relic": "Iga Blade (V)",
+    "nameJp": "暁の導き",
+    "id": 22510009,
     "gl": false
   },
   {
@@ -914,6 +1104,31 @@
     "nameJp": "炎装【ロック】",
     "id": 20240021,
     "gl": true
+  },
+  {
+    "realm": "VI",
+    "character": "Locke",
+    "name": "Guardian Phoenix",
+    "tier": "LBGS",
+    "type": "NAT",
+    "target": "Self",
+    "formula": null,
+    "multiplier": null,
+    "element": null,
+    "time": 0.01,
+    "effects": "Summons Phoenix for 5 seconds, grants [Protect], [Shell], [Haste], [Instant ATB 1], [DEF and RES +200% (25s)], [Attach Fire 3 with Stacking] and [Damage Cap +20000] to Phoenix",
+    "counter": false,
+    "autoTarget": "Self",
+    "minimumLbPoints": 250,
+    "limitBreakBonus": [
+      "Guardian Summon Damage Up",
+      "Damage Reduction Barrier"
+    ],
+    "masteryBonus": null,
+    "relic": "Double Edge (VI)",
+    "nameJp": "Gフェニックス",
+    "id": 20240025,
+    "gl": false
   },
   {
     "realm": "VI",
@@ -1199,7 +1414,7 @@
   {
     "realm": "VII",
     "character": "Shelke",
-    "name": "Transparent Shock",
+    "name": "Transparent Flash",
     "tier": "LBO",
     "type": "PHY",
     "target": "Single enemy",
@@ -1221,12 +1436,12 @@
     "relic": "Dragoon Lance (DoC) (VII)",
     "nameJp": "無式・彩雷",
     "id": 22820010,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "VII",
     "character": "Angeal",
-    "name": "Unleashed Wrath",
+    "name": "True Unleashed Wrath",
     "tier": "LBO",
     "type": "PHY",
     "target": "Single enemy",
@@ -1249,7 +1464,7 @@
     "relic": "Soul Sabre (CC) (VII)",
     "nameJp": "真・憤怒の解放",
     "id": 22500011,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "VII",
@@ -1306,6 +1521,33 @@
     "gl": false
   },
   {
+    "realm": "VII",
+    "character": "Barret",
+    "name": "Volcanic Cannon",
+    "tier": "LBO",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 40,
+    "element": [
+      "Fire"
+    ],
+    "time": 2.5,
+    "effects": "Five single attacks (1.00 each scaling with LB gauge and LB honing level) capped at 99999, ignores DEF, 100% additional critical chance",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "minimumLbPoints": 250,
+    "limitBreakBonus": [
+      "Limit Break Damage Up",
+      "Cast Time Down"
+    ],
+    "masteryBonus": null,
+    "relic": "Pile Banger (VII)",
+    "nameJp": "ボルカニックキャノン",
+    "id": 20760019,
+    "gl": false
+  },
+  {
     "realm": "VIII",
     "character": "Rinoa",
     "name": "Angel Wing Permafrost",
@@ -1358,12 +1600,12 @@
     "relic": "Spica (VIII)",
     "nameJp": "タクティカルフリーズ",
     "id": 22100018,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "VIII",
     "character": "Kiros",
-    "name": "Exhilarating Times",
+    "name": "Thirst for Life",
     "tier": "LBO",
     "type": "PHY",
     "target": "Single enemy",
@@ -1386,7 +1628,7 @@
     "relic": "Shadow Maverick (VIII)",
     "nameJp": "飽くなき人生",
     "id": 22990007,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "VIII",
@@ -1437,6 +1679,58 @@
     "relic": "Asura's Rod (VIII)",
     "nameJp": "風装【アルティミシア】",
     "id": 23230016,
+    "gl": false
+  },
+  {
+    "realm": "VIII",
+    "character": "Edea",
+    "name": "Frost Flash (Edea)",
+    "tier": "LBG",
+    "type": "BLK",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 7.5,
+    "element": [
+      "Ice",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "One single attack (7.50) capped at 99999, grants [Limit Break Gauge +250] to the user",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "minimumLbPoints": 0,
+    "limitBreakBonus": [
+      "Ice Damage Up"
+    ],
+    "masteryBonus": "MAG +10",
+    "relic": "Thornlet (VIII)",
+    "nameJp": "氷閃【イデア】",
+    "id": 22200015,
+    "gl": false
+  },
+  {
+    "realm": "VIII",
+    "character": "Quistis",
+    "name": "Guardian Doomtrain",
+    "tier": "LBGS",
+    "type": "NAT",
+    "target": "Self",
+    "formula": null,
+    "multiplier": null,
+    "element": null,
+    "time": 0.01,
+    "effects": "Summons Doomtrain for 5 seconds, grants [Protect], [Shell], [Haste], [Instant ATB 1], [DEF and RES +200% (25s)], [Attach Poison 3 with Stacking] and [Damage Cap +20000] to Doomtrain",
+    "counter": false,
+    "autoTarget": "Self",
+    "minimumLbPoints": 250,
+    "limitBreakBonus": [
+      "Guardian Summon Damage Up",
+      "Damage Reduction Barrier"
+    ],
+    "masteryBonus": null,
+    "relic": "Poison Whipblade (VIII)",
+    "nameJp": "Gグラシャラボラス",
+    "id": 20500017,
     "gl": false
   },
   {
@@ -1495,7 +1789,7 @@
   {
     "realm": "IX",
     "character": "Zidane",
-    "name": "Fragmented Blast",
+    "name": "Blast Flag",
     "tier": "LBO",
     "type": "PHY",
     "target": "Single enemy",
@@ -1514,10 +1808,10 @@
       "Cast Time Down"
     ],
     "masteryBonus": null,
-    "relic": "Thief's Cap (IX)",
+    "relic": "Thief Hat (IX)",
     "nameJp": "ブラストフラッグ",
     "id": 20860022,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "IX",
@@ -1654,7 +1948,7 @@
   {
     "realm": "X",
     "character": "Jecht",
-    "name": "Jecht Beam Mk. II",
+    "name": "Ultimate Jecht Beam",
     "tier": "LBO",
     "type": "PHY",
     "target": "Single enemy",
@@ -1674,10 +1968,10 @@
       "Cast Time Down"
     ],
     "masteryBonus": null,
-    "relic": "Summoner's Ball (X)",
+    "relic": "Aeon Ball (X)",
     "nameJp": "真・ジェクトビーム",
     "id": 22090017,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "X",
@@ -1696,7 +1990,7 @@
     "minimumLbPoints": 250,
     "limitBreakBonus": [
       "Guardian Summon Damage Up",
-      "Dual Blink 1"
+      "Damage Reduction Barrier"
     ],
     "masteryBonus": null,
     "relic": "Prism Rod (X)",
@@ -1786,6 +2080,59 @@
     "gl": false
   },
   {
+    "realm": "XI",
+    "character": "Prishe",
+    "name": "Chi Blast",
+    "tier": "LBO",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 32,
+    "element": [
+      "Lightning",
+      "Ice"
+    ],
+    "time": 2.5,
+    "effects": "Four single attacks (1.00 each scaling with LB gauge and LB honing level) capped at 99999, ignores DEF, 100% additional critical chance",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "minimumLbPoints": 250,
+    "limitBreakBonus": [
+      "Limit Break Damage Up",
+      "Cast Time Down"
+    ],
+    "masteryBonus": null,
+    "relic": "Gnole Sainti (XI)",
+    "nameJp": "気孔弾",
+    "id": 22680014,
+    "gl": false
+  },
+  {
+    "realm": "XI",
+    "character": "Lilisette",
+    "name": "Guardian Lady Lilith",
+    "tier": "LBGS",
+    "type": "NAT",
+    "target": "Self",
+    "formula": null,
+    "multiplier": null,
+    "element": null,
+    "time": 0.01,
+    "effects": "Summons Lady Lilith for 5 seconds, grants [Protect], [Shell], [Haste], [Instant ATB 1], [DEF and RES +200% (25s)], [Attach Lightning 3 with Stacking], [Damage Cap +20000], [Overflow Radiant Shield: 700%] and [Last Stand] to Lady Lilith",
+    "counter": false,
+    "autoTarget": "Self",
+    "minimumLbPoints": 250,
+    "limitBreakBonus": [
+      "Guardian Summon Damage Up",
+      "Damage Reduction Barrier"
+    ],
+    "masteryBonus": null,
+    "relic": "Dancer's Tights (XI)",
+    "nameJp": "Gレディ・リリス",
+    "id": 23350006,
+    "gl": false
+  },
+  {
     "realm": "XII",
     "character": "Vaan",
     "name": "Swift Superstar",
@@ -1838,7 +2185,7 @@
     "relic": "Gastrophetes (XII)",
     "nameJp": "デュアルミスト",
     "id": 20390018,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "XII",
@@ -1862,15 +2209,15 @@
       "Cast Time Down"
     ],
     "masteryBonus": null,
-    "relic": "Daybreak & Twilight (XII)",
+    "relic": "Twilight (XII)",
     "nameJp": "二刀連斬",
     "id": 22370016,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "XII",
     "character": "Basch",
-    "name": "Heroic Blade",
+    "name": "Captain's Oathblade",
     "tier": "LBO",
     "type": "PHY",
     "target": "Single enemy",
@@ -1893,7 +2240,7 @@
     "relic": "Galatyn (XII)",
     "nameJp": "勇将の誓剣",
     "id": 22180018,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "XII",
@@ -1924,6 +2271,60 @@
     "relic": "Enigma (XII)",
     "nameJp": "断罪",
     "id": 22620011,
+    "gl": false
+  },
+  {
+    "realm": "XII",
+    "character": "Ashe",
+    "name": "Sparkflash (Ashe)",
+    "tier": "LBG",
+    "type": "BLK",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 7.5,
+    "element": [
+      "Lightning",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "One single attack (7.50) capped at 99999, grants [Limit Break Gauge +250] to the user",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "minimumLbPoints": 0,
+    "limitBreakBonus": [
+      "Lightning Damage Up"
+    ],
+    "masteryBonus": null,
+    "relic": "Laurel Crown (XII)",
+    "nameJp": "雷閃【アーシェ】",
+    "id": 20710019,
+    "gl": false
+  },
+  {
+    "realm": "XII",
+    "character": "Balthier",
+    "name": "Wildfires of War",
+    "tier": "LBO",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 24,
+    "element": [
+      "Fire"
+    ],
+    "time": 2.5,
+    "effects": "Five single ranged attacks (0.60 each scaling with LB gauge and LB honing level) capped at 99999, ignores DEF, 100% additional critical chance",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "minimumLbPoints": 250,
+    "limitBreakBonus": [
+      "Limit Break Damage Up",
+      "Cast Time Down"
+    ],
+    "masteryBonus": null,
+    "relic": "Procyon (XII)",
+    "nameJp": "真・略奪のコンパス",
+    "id": 20440024,
     "gl": false
   },
   {
@@ -1980,7 +2381,7 @@
   {
     "realm": "XIII",
     "character": "Snow",
-    "name": "Icebound Promise",
+    "name": "Ice Chain Promise",
     "tier": "LBO",
     "type": "PHY",
     "target": "Single enemy",
@@ -2002,7 +2403,7 @@
     "relic": "Crystal Guard (XIII)",
     "nameJp": "氷鎖の約束",
     "id": 20310021,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "XIII",
@@ -2112,7 +2513,7 @@
     "relic": "Voeburtite Tunic of Casting (XIV)",
     "nameJp": "氷装【イゼル】",
     "id": 23130009,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "XIV",
@@ -2140,6 +2541,34 @@
     "relic": "Priwen (XIV)",
     "nameJp": "ラストバスティオン",
     "id": 23110009,
+    "gl": true
+  },
+  {
+    "realm": "XIV",
+    "character": "Alisaie",
+    "name": "Vermillion Scourge",
+    "tier": "LBO",
+    "type": "BLK",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 96,
+    "element": [
+      "Wind",
+      "Lightning"
+    ],
+    "time": 2.5,
+    "effects": "Four single attacks (3.00 each scaling with LB gauge and LB honing level) capped at 99999, ignores RES",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "minimumLbPoints": 250,
+    "limitBreakBonus": [
+      "Limit Break Damage Up",
+      "Cast Time Down"
+    ],
+    "masteryBonus": null,
+    "relic": "Fae Rapier (XIV)",
+    "nameJp": "ヴァーミリオンスカージ",
+    "id": 23510010,
     "gl": false
   },
   {
@@ -2280,6 +2709,34 @@
   },
   {
     "realm": "Type-0",
+    "character": "Cinque",
+    "name": "Maximum Swing!",
+    "tier": "LBO",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 40,
+    "element": [
+      "Earth",
+      "Wind"
+    ],
+    "time": 2.5,
+    "effects": "Five single attacks (1.00 each scaling with LB gauge and LB honing level) capped at 99999, ignores DEF, 100% additional critical chance",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "minimumLbPoints": 250,
+    "limitBreakBonus": [
+      "Limit Break Damage Up",
+      "Cast Time Down"
+    ],
+    "masteryBonus": null,
+    "relic": "Mythril Mace (Type-0)",
+    "nameJp": "MAXチャージメイス",
+    "id": 23190011,
+    "gl": false
+  },
+  {
+    "realm": "Type-0",
     "character": "Queen",
     "name": "Destructive Energy",
     "tier": "LBO",
@@ -2358,6 +2815,62 @@
     "nameJp": "クリムゾンカード",
     "id": 22790014,
     "gl": true
+  },
+  {
+    "realm": "Type-0",
+    "character": "Trey",
+    "name": "Sharp Arrow Shower",
+    "tier": "LBO",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 32,
+    "element": [
+      "Fire",
+      "Ice",
+      "Water"
+    ],
+    "time": 2.5,
+    "effects": "Four single ranged attacks (1.00 each scaling with LB gauge and LB honing level) capped at 99999, ignores DEF, 100% additional critical chance",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "minimumLbPoints": 250,
+    "limitBreakBonus": [
+      "Limit Break Damage Up",
+      "Cast Time Down"
+    ],
+    "masteryBonus": null,
+    "relic": "Elfin Bow (Type-0)",
+    "nameJp": "スナイプアローショット",
+    "id": 23430009,
+    "gl": false
+  },
+  {
+    "realm": "Type-0",
+    "character": "Eight",
+    "name": "Frostclaw Assault",
+    "tier": "LBO",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 40,
+    "element": [
+      "Ice"
+    ],
+    "time": 2.5,
+    "effects": "Five single attacks (1.00 each scaling with LB gauge and LB honing level) capped at 99999, ignores DEF, 100% additional critical chance",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "minimumLbPoints": 250,
+    "limitBreakBonus": [
+      "Limit Break Damage Up",
+      "Cast Time Down"
+    ],
+    "masteryBonus": null,
+    "relic": "Steel Claws (Type-0)",
+    "nameJp": "フロストアサルト",
+    "id": 23360011,
+    "gl": false
   },
   {
     "realm": "Beyond",
