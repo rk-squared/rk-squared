@@ -1,3 +1,10 @@
+# v3.1.0
+
+- Dungeon Scores
+  - Add Dragonking
+- Soul Breaks
+  - Fix tracking of soul break and legend materia inventory after FFRK's May 2021 maintenance
+
 # v3.0.0
 
 - Dungeons
