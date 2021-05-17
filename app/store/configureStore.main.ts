@@ -1,5 +1,12 @@
+import produce from 'immer';
 import { Action, applyMiddleware, createStore, Reducer, Store } from 'redux';
-import { Persistor, persistReducer, persistStore } from 'redux-persist';
+import {
+  Persistor,
+  persistReducer,
+  persistStore,
+  createMigrate,
+  MigrationManifest,
+} from 'redux-persist';
 import createSagaMiddleware from 'redux-saga';
 import thunk from 'redux-thunk';
 const { forwardToRenderer } = require('electron-redux');
@@ -13,6 +20,17 @@ const sagaMiddleware = createSagaMiddleware();
 
 const enhancer = applyMiddleware(thunk, sagaMiddleware, forwardToRenderer);
 
+const migrations: MigrationManifest = {
+  0: (state) =>
+    produce(state, (draft) => {
+      const characters = (draft as IState).characters as any;
+      delete characters?.soulBreakExp;
+      delete characters?.legendMateriaExp;
+      delete characters?.soulBreakExpRequired;
+      delete characters?.legendMateriaExpRequired;
+    }),
+};
+
 export function configureStore(
   initialState?: IState,
 ): { store: Store<IState>; persistor: Persistor } {
@@ -23,6 +41,8 @@ export function configureStore(
       key: 'root',
       storage: createElectronStorage(),
       blacklist,
+      version: 0,
+      migrate: createMigrate(migrations, { debug: true }),
     },
     createRootReducer(),
   );
