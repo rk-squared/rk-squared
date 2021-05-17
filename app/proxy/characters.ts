@@ -8,11 +8,11 @@ import { Store } from 'redux';
 import * as _ from 'lodash';
 
 import {
+  addLegendMateria,
+  addSoulBreak,
   Character,
   setCharacter,
   setCharacters,
-  setLegendMateria,
-  setSoulBreaks,
   updateCharacter,
 } from '../actions/characters';
 import * as schemas from '../api/schemas';
@@ -69,8 +69,13 @@ const charactersHandler: Handler = {
 
     store.dispatch(setCharacters(convertCharacters(data)));
 
-    store.dispatch(setSoulBreaks(data.soul_strikes.map((i) => i.id)));
-    store.dispatch(setLegendMateria(data.legend_materias.map((i) => i.id)));
+    // We could get the "?part=1&split=3" parameters out of the request to know
+    // when we have a complete list of soul breaks and legend materia, but it's
+    // easier to let setSoulBreaks / setLegendMateria always append (never
+    // remove) so that incomplete lists won't be a problem.  See these actions'
+    // handling within the characters.ts reducer.
+    store.dispatch(addSoulBreak(data.soul_strikes.map((i) => i.id)));
+    store.dispatch(addLegendMateria(data.legend_materias.map((i) => i.id)));
   },
 
   win_battle: handleWinBattle,

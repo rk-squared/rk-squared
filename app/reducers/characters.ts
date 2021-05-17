@@ -49,11 +49,8 @@ function addIds(idList: number[] | undefined, idOrIds: number | number[]) {
   if (!idList) {
     return;
   }
-  for (const i of arrayify(idOrIds)) {
-    if (idList.indexOf(i) === -1) {
-      idList.push(i);
-    }
-  }
+  const existing = new Set(idList);
+  idList.push(...arrayify(idOrIds).filter((i) => !existing.has(i)));
 }
 
 export function characters(
