@@ -44,6 +44,7 @@ const config = merge.smart(baseConfig, {
           {
             loader: MiniCssExtractPlugin.loader,
             options: {
+              esModule: false,
               publicPath: './',
             },
           },
@@ -82,6 +83,9 @@ const config = merge.smart(baseConfig, {
         use: [
           {
             loader: MiniCssExtractPlugin.loader,
+            options: {
+              esModule: false,
+            },
           },
           {
             loader: 'css-loader',
@@ -101,6 +105,9 @@ const config = merge.smart(baseConfig, {
         use: [
           {
             loader: MiniCssExtractPlugin.loader,
+            options: {
+              esModule: false,
+            },
           },
           {
             loader: 'css-loader',
@@ -124,6 +131,9 @@ const config = merge.smart(baseConfig, {
         use: [
           {
             loader: MiniCssExtractPlugin.loader,
+            options: {
+              esModule: false,
+            },
           },
           {
             loader: 'css-loader',
