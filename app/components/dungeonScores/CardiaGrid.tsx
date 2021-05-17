@@ -57,26 +57,16 @@ export class CardiaGrid extends React.Component<Props> {
         valueFormatter: ({ value }: { value: SeriesId }) => series.short[value],
       },
       {
-        headerName: 'Torment',
+        headerName: 'Dragonking',
         width: 165,
-        field: 'torment.name',
+        field: 'dragonking.name',
         sortable: true,
         resizable: true,
         valueFormatter: formatName,
       },
       {
-        headerName: 'D240',
-        field: 'torment.d240',
-        ...dColumnDef,
-      },
-      {
-        headerName: 'D280',
-        field: 'torment.d280',
-        ...dColumnDef,
-      },
-      {
-        headerName: 'D450',
-        field: 'torment.d450',
+        headerName: 'D630',
+        field: 'dragonking',
         ...dColumnDef,
       },
       {
@@ -90,6 +80,29 @@ export class CardiaGrid extends React.Component<Props> {
       {
         headerName: 'D580',
         field: 'dreambreaker',
+        ...dColumnDef,
+      },
+      {
+        headerName: 'Torment',
+        width: 165,
+        field: 'torment.name',
+        sortable: true,
+        resizable: true,
+        valueFormatter: formatName,
+      },
+      {
+        headerName: 'D450',
+        field: 'torment.d450',
+        ...dColumnDef,
+      },
+      {
+        headerName: 'D280',
+        field: 'torment.d280',
+        ...dColumnDef,
+      },
+      {
+        headerName: 'D240',
+        field: 'torment.d240',
         ...dColumnDef,
       },
     ];

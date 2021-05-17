@@ -21,9 +21,10 @@ export enum WorldCategory {
   Record,
   Dreams,
   Dreambreaker,
+  Dragonking,
 }
 
-export const descriptions = {
+export const descriptions: { [c in WorldCategory]: string } = {
   [WorldCategory.Realm]: 'Realm Dungeons',
   [WorldCategory.Nightmare]: 'Nightmare',
   [WorldCategory.Magicite]: 'Magicite',
@@ -39,6 +40,7 @@ export const descriptions = {
   [WorldCategory.Newcomer]: 'Newcomer Dungeons',
   [WorldCategory.Renewal]: 'Renewal Dungeons',
   [WorldCategory.Record]: 'Record Dungeons',
+  [WorldCategory.Dragonking]: 'Dragonking',
 };
 
 export const sortOrder = [
@@ -55,6 +57,7 @@ export const sortOrder = [
   WorldCategory.Dreams,
   WorldCategory.Torment,
   WorldCategory.Dreambreaker,
+  WorldCategory.Dragonking,
   WorldCategory.PowerUpMote,
   WorldCategory.Newcomer,
 ];
@@ -105,6 +108,7 @@ function getSortOrder(category: WorldCategory) {
     case WorldCategory.Dreams:
     case WorldCategory.Torment:
     case WorldCategory.Dreambreaker:
+    case WorldCategory.Dragonking:
       // Old torments were sorted by series.  Neo Torments were listed by time
       // when first released, but now that they've all been out for a bit, the
       // the game lists them by series.  Similarly, FFRK lists Dreambreaker
@@ -136,13 +140,13 @@ const getClosedAt = (world: any) => (world.closedAt > FAR_FUTURE ? Infinity : wo
 export function getSorter(category: WorldCategory): (worlds: World[]) => World[] {
   switch (getSortOrder(category)) {
     case WorldSortOrder.BySeriesId:
-      return worlds => _.sortBy(worlds, 'seriesId');
+      return (worlds) => _.sortBy(worlds, 'seriesId');
     case WorldSortOrder.ById:
-      return worlds => _.sortBy(worlds, 'id');
+      return (worlds) => _.sortBy(worlds, 'id');
     case WorldSortOrder.ByReverseId:
-      return worlds => _.sortBy(worlds, i => -i.id);
+      return (worlds) => _.sortBy(worlds, (i) => -i.id);
     case WorldSortOrder.ByTime:
-      return worlds =>
+      return (worlds) =>
         _.sortBy(worlds, [(i: any) => -getClosedAt(i), (i: any) => -i.openedAt, 'id']);
   }
 }

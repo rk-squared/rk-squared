@@ -88,7 +88,7 @@ function sortDungeonsByNode(
   const seen = new Map<number, boolean>();
   const toProcess: number[] = [];
 
-  const root = _.find(nodes, node => node.type === dungeonsSchemas.NodeType.Start);
+  const root = _.find(nodes, (node) => node.type === dungeonsSchemas.NodeType.Start);
   if (root == null) {
     return [[], dungeonList];
   }
@@ -110,7 +110,10 @@ function sortDungeonsByNode(
 
     const pathInfo = subtreeRoot.path_info;
     if (pathInfo != null) {
-      const nextIds = _.sortBy(Object.keys(pathInfo).map(i => +i), i => +pathInfo[i]);
+      const nextIds = _.sortBy(
+        Object.keys(pathInfo).map((i) => +i),
+        (i) => +pathInfo[i],
+      );
       for (const id of nextIds) {
         if (!seen.has(id)) {
           toProcess.push(id);
@@ -120,8 +123,11 @@ function sortDungeonsByNode(
   }
 
   return [
-    _.sortBy(dungeonList.filter(i => sortOrder.has(i.id)), i => sortOrder.get(i.id)),
-    dungeonList.filter(i => !sortOrder.has(i.id)),
+    _.sortBy(
+      dungeonList.filter((i) => sortOrder.has(i.id)),
+      (i) => sortOrder.get(i.id),
+    ),
+    dungeonList.filter((i) => !sortOrder.has(i.id)),
   ];
 }
 
@@ -132,8 +138,8 @@ function sortDungeonsStandard(
   // Normally, type 1 vs. 2 marks classic vs. elite, page 1 vs. page 2, etc.
   // But, for Nightmare, 1 is the actual record, and 2 is the buildup.
   const sortType: (d: dungeonsSchemas.Dungeon) => number = dungeonData.room_of_abyss_assets
-    ? d => -d.type
-    : d => d.type;
+    ? (d) => -d.type
+    : (d) => d.type;
 
   return _.sortBy(dungeonList, [
     // Sort by page 1 vs. page 2, Classic vs. Elite, whatever
@@ -154,7 +160,7 @@ export function sortDungeons(dungeonData: dungeonsSchemas.Dungeons) {
     const [sorted, unsorted] = sortDungeonsByNode(dungeonData);
     if (unsorted.length) {
       logger.error(`Failed to sort ${unsorted.length} node dungeons`);
-      logger.error(unsorted.map(i => i.name));
+      logger.error(unsorted.map((i) => i.name));
     }
     return sorted.concat(sortDungeonsStandard(dungeonData, unsorted));
   } else {
@@ -175,7 +181,7 @@ export function convertPrizeItems(prizes?: dungeonsSchemas.DungeonPrizeItem[]) {
   if (!prizes) {
     return [];
   } else {
-    return prizes.map(i => ({
+    return prizes.map((i) => ({
       id: i.id,
       name: i.name,
       amount: i.num,
@@ -198,7 +204,7 @@ export function convertGradePrizeItems(dungeon: dungeonsSchemas.Dungeon) {
 
   allPrizes = _.sortBy(allPrizes, 'disp_order');
   const convert = (claimed: boolean) =>
-    convertPrizeItems(_.filter(allPrizes, i => !!i.is_got_grade_bonus_prize === claimed));
+    convertPrizeItems(_.filter(allPrizes, (i) => !!i.is_got_grade_bonus_prize === claimed));
   return {
     claimedGrade: convert(true),
     unclaimedGrade: convert(false),
@@ -227,7 +233,7 @@ function addMagiciteDetails(dungeons: Dungeon[]) {
         dungeonsById[i].detail = 'mag. effective';
       }
     } else if (dungeonsById[i].difficulty === Difficulty.ArgentOdin) {
-      const gauntlet = dungeonsById[i].prizes.mastery.filter(prize =>
+      const gauntlet = dungeonsById[i].prizes.mastery.filter((prize) =>
         prize.name.match(/Lord's Gauntlet/),
       );
       if (gauntlet.length === 1) {
@@ -248,7 +254,7 @@ export function convertWorldDungeons(
   data: dungeonsSchemas.Dungeons,
   forceUnlock?: boolean,
 ): Dungeon[] {
-  const dungeons = sortDungeons(data).map(d => ({
+  const dungeons = sortDungeons(data).map((d) => ({
     name: d.name,
     id: d.id,
     seriesId: d.series_id,
@@ -338,6 +344,8 @@ export function convertWorld(
   } else if (event.tag === 'regular_zetsumu_dungeon') {
     category = WorldCategory.Dreambreaker;
     name = world.name.replace(/^Dreambreaker - /, '') + ' (' + seriesShortName + ')';
+  } else if (event.tag === 'regular_haryu_dungeon') {
+    category = WorldCategory.Dragonking;
   } else if (event.tag === 'crystal_tower') {
     category = WorldCategory.CrystalTower;
   } else if (world.name.startsWith("Newcomers' Dungeons - ") || world.name === "Beginner's Hall") {
@@ -459,9 +467,12 @@ function convertWorlds(
 ): { [id: number]: World } {
   const result: { [id: number]: World } = {};
 
-  const worldsById = _.zipObject(worlds.map(i => i.id), worlds);
+  const worldsById = _.zipObject(
+    worlds.map((i) => i.id),
+    worlds,
+  );
   const crystalTowerIcons = _.fromPairs(
-    _.flatten(crystalTowers.map(i => i.floor_infos)).map(i => [i.world_id, i.floor_icon_id]),
+    _.flatten(crystalTowers.map((i) => i.floor_infos)).map((i) => [i.world_id, i.floor_icon_id]),
   );
 
   const seenWorlds = new Set<number>();
@@ -531,7 +542,7 @@ function checkForUpdatedRealmDungeons(
       continue;
     }
 
-    const newLength = w.dungeon_term_list.filter(i => +i.opened_at < now / 1000).length;
+    const newLength = w.dungeon_term_list.filter((i) => +i.opened_at < now / 1000).length;
     logger.debug(
       `World ${w.name}:` +
         describeDungeons('normal', summary1) +
@@ -546,10 +557,10 @@ function checkForUpdatedRealmDungeons(
     const newCompleted = summary1.clear_count + summary2.clear_count;
     const newMastered = summary1.master_count + summary2.master_count;
 
-    const worldDungeons = dungeons.byWorld[w.id].map(i => dungeons.dungeons[i]);
+    const worldDungeons = dungeons.byWorld[w.id].map((i) => dungeons.dungeons[i]);
     const oldLength = worldDungeons.length;
-    const oldCompleted = _.sumBy(worldDungeons, i => +i.isComplete);
-    const oldMastered = _.sumBy(worldDungeons, i => +i.isMaster);
+    const oldCompleted = _.sumBy(worldDungeons, (i) => +i.isComplete);
+    const oldMastered = _.sumBy(worldDungeons, (i) => +i.isMaster);
     logger.debug(
       `  loaded ${worldDungeons.length}, completed ${oldCompleted}, mastered ${oldMastered}`,
     );
@@ -593,9 +604,9 @@ function checkForUpdatedRecordDungeons(
       continue;
     }
 
-    const worldDungeons = dungeons.byWorld[w.id].map(i => dungeons.dungeons[i]);
+    const worldDungeons = dungeons.byWorld[w.id].map((i) => dungeons.dungeons[i]);
     const oldLength = worldDungeons.length;
-    const oldCompleted = _.sumBy(worldDungeons, i => +i.isComplete);
+    const oldCompleted = _.sumBy(worldDungeons, (i) => +i.isComplete);
 
     if (oldLength === oldCompleted && w.has_new_dungeon) {
       logger.debug(`World ${w.name} has new dungeons (was at ${oldCompleted}/${oldLength})`);
@@ -609,7 +620,7 @@ function checkForWorldIconUpdates(world: World, dungeons: Dungeon[]) {
     const m = dungeons[0].name.match(/^Trial of (\w+)/);
     if (m) {
       const element = m[1];
-      if (_.every(dungeons, i => i.name.startsWith(`Trial of ${element}`))) {
+      if (_.every(dungeons, (i) => i.name.startsWith(`Trial of ${element}`))) {
         return {
           worldId: world.id,
           icon: { localIcon: elementIcon(element) },

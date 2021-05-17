@@ -21,6 +21,7 @@ export const categoryImages: { [category in WorldCategory]: string } = {
   [WorldCategory.Torment]: require('../../images/game-icons/daemon-skull.svg'),
   [WorldCategory.Dreams]: require('../../images/game-icons/night-sleep.svg'),
   [WorldCategory.Dreambreaker]: require('../../images/game-icons/breaking-chain.svg'),
+  [WorldCategory.Dragonking]: require('../../images/game-icons/spiked-dragon-head.svg'),
 };
 
 interface Props {

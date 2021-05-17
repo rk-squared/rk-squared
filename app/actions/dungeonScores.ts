@@ -87,9 +87,26 @@ function estimateTormentScore(dungeon: Dungeon, world: World): DungeonScore | nu
   // for 1 minute. Initial rewards were for 50% HP or above: 2 (D240) or 3 for
   // victory, 3 each for 90%, 80%, 70%, 60%, 2 for 50%. An update added rewards
   // for 10% HP or above: 3 each for 40%, 30%, 20%, 10%.
-  const timePrizes: PrizeList = [[30, 1], [40, 2], [50, 2], [60, 1]];
-  const percentPrizes50: PrizeList = [[100, 3], [90, 3], [80, 3], [70, 3], [60, 3], [50, 2]];
-  const percentPrizes10: PrizeList = [[40, 3], [30, 3], [20, 3], [10, 3]];
+  const timePrizes: PrizeList = [
+    [30, 1],
+    [40, 2],
+    [50, 2],
+    [60, 1],
+  ];
+  const percentPrizes50: PrizeList = [
+    [100, 3],
+    [90, 3],
+    [80, 3],
+    [70, 3],
+    [60, 3],
+    [50, 2],
+  ];
+  const percentPrizes10: PrizeList = [
+    [40, 3],
+    [30, 3],
+    [20, 3],
+    [10, 3],
+  ];
   if (dungeon.difficulty === Difficulty.Torment1) {
     percentPrizes50[0][1]--;
   }
@@ -100,7 +117,7 @@ function estimateTormentScore(dungeon: Dungeon, world: World): DungeonScore | nu
 
   // Check whether we're using the old or new prize list, and do a sanity check
   // for unexpected prizes.
-  const prizeCount = (prizes: PrizeList) => _.sum(prizes.map(i => i[1]));
+  const prizeCount = (prizes: PrizeList) => _.sum(prizes.map((i) => i[1]));
   const totalPrizeCount50 = prizeCount(timePrizes) + prizeCount(percentPrizes50);
   const totalPrizeCount10 = totalPrizeCount50 + prizeCount(percentPrizes10);
   let percentPrizes: PrizeList;
@@ -145,7 +162,12 @@ function estimateDreambreakerScore(dungeon: Dungeon, world: World): DungeonScore
   // Count the number of prizes claimed vs. expected, and use that to estimate
   // completion status.  Hard-code the number of prizes, as we do for
   // estimateTormentScore.
-  const timePrizes: PrizeList = [[30, 3], [40, 3], [50, 3], [60, 3]];
+  const timePrizes: PrizeList = [
+    [30, 3],
+    [40, 3],
+    [50, 3],
+    [60, 3],
+  ];
   const percentPrizes: PrizeList = [
     [100, 6],
     [90, 3],
@@ -161,7 +183,7 @@ function estimateDreambreakerScore(dungeon: Dungeon, world: World): DungeonScore
 
   // Do a sanity check for unexpected prizes.  Try both with and without the
   // Dragonlord's Armlet at 70% HP that was added in February 2021.
-  const prizeCount = (prizes: PrizeList) => _.sum(prizes.map(i => i[1]));
+  const prizeCount = (prizes: PrizeList) => _.sum(prizes.map((i) => i[1]));
   const totalPrizeCount = prizeCount(timePrizes) + prizeCount(percentPrizes);
   if (totalPrizeCount === claimed + unclaimed + 1) {
     percentPrizes[3][1]--;
@@ -175,8 +197,62 @@ function estimateDreambreakerScore(dungeon: Dungeon, world: World): DungeonScore
   return estimateScoreFromPrizeList(maxHp, timePrizes, percentPrizes, unclaimed);
 }
 
+/**
+ * Similar to estimateTormentScore and estimateDreambreakerScore.  These really
+ * ought to be consolidated...
+ */
+function estimateDragonkingScore(dungeon: Dungeon, world: World): DungeonScore | null {
+  if (world.category !== WorldCategory.Dragonking) {
+    return null;
+  }
+
+  if (!dungeon.prizes.claimedGrade || !dungeon.prizes.unclaimedGrade) {
+    return null;
+  }
+  const claimed = dungeon.prizes.claimedGrade.length;
+  const unclaimed = dungeon.prizes.unclaimedGrade.length;
+
+  // Count the number of prizes claimed vs. expected, and use that to estimate
+  // completion status.  Hard-code the number of prizes, as we do for
+  // estimateTormentScore.
+  const timePrizes: PrizeList = [
+    [30, 3],
+    [40, 3],
+    [50, 3],
+    [60, 3],
+  ];
+  const percentPrizes: PrizeList = [
+    [100, 6],
+    [90, 4],
+    [80, 4],
+    [70, 4],
+    [60, 4],
+    [50, 4],
+    [40, 4],
+    [30, 4],
+    [20, 4],
+    [10, 4],
+  ];
+
+  // Do a sanity check for unexpected prizes.
+  const prizeCount = (prizes: PrizeList) => _.sum(prizes.map((i) => i[1]));
+  const totalPrizeCount = prizeCount(timePrizes) + prizeCount(percentPrizes);
+  if (totalPrizeCount !== claimed + unclaimed) {
+    return null;
+  }
+
+  // This is anywhere from 4.5 to 6.2 million, but 5.0 seems the most common.
+  const maxHp = 5e6;
+
+  return estimateScoreFromPrizeList(maxHp, timePrizes, percentPrizes, unclaimed);
+}
+
 export function estimateScore(dungeon: Dungeon, world: World): DungeonScore | null {
-  return estimateTormentScore(dungeon, world) || estimateDreambreakerScore(dungeon, world);
+  return (
+    estimateTormentScore(dungeon, world) ||
+    estimateDreambreakerScore(dungeon, world) ||
+    estimateDragonkingScore(dungeon, world)
+  );
 }
 
 export function isSub30(score: DungeonScore): boolean {

@@ -42,6 +42,7 @@ export interface CardiaRealmWithScore {
   seriesId: number;
   torment: TormentWorldWithScore;
   dreambreaker: DungeonWithScore;
+  dragonking: DungeonWithScore;
 }
 
 export interface OdinElementScore {
@@ -52,7 +53,7 @@ export interface OdinElementScore {
 }
 
 function getWorlds(worldsState: WorldState, category: WorldCategory) {
-  return getSorter(category)(_.values(worldsState.worlds).filter(i => i.category === category));
+  return getSorter(category)(_.values(worldsState.worlds).filter((i) => i.category === category));
 }
 
 function getDungeonsWithScoreForWorld(
@@ -64,7 +65,7 @@ function getDungeonsWithScoreForWorld(
   if (!dungeons) {
     return [];
   }
-  return dungeons.map(d => ({
+  return dungeons.map((d) => ({
     ...d,
     score: scoresState.scores[d.id],
     estimatedScore: estimateScore(d, world) || undefined,
@@ -82,7 +83,7 @@ const magiciteStarsByDifficulty: { [difficulty: number]: number } = {
 
 function getHighestUnlocked(dungeons: MagiciteDungeonWithScore[]): number | null {
   for (let stars = MAX_MAGICITE_STARS; stars >= MIN_MAGICITE_STARS; stars--) {
-    if (_.some(dungeons, i => i.stars && i.stars >= stars && i.isUnlocked)) {
+    if (_.some(dungeons, (i) => i.stars && i.stars >= stars && i.isUnlocked)) {
       return stars;
     }
   }
@@ -125,9 +126,9 @@ export const getMagiciteScores = createSelector<
 
     let dungeons: MagiciteDungeonWithScore[] = _.flatten(
       worlds
-        .filter(w => w.id !== OdinWorldId)
-        .map(w =>
-          getDungeonsWithScoreForWorld(dungeonsState, scoresState, w).map(d => ({
+        .filter((w) => w.id !== OdinWorldId)
+        .map((w) =>
+          getDungeonsWithScoreForWorld(dungeonsState, scoresState, w).map((d) => ({
             ...d,
             stars: magiciteStarsByDifficulty[d.difficulty],
             element: w.name,
@@ -138,9 +139,9 @@ export const getMagiciteScores = createSelector<
 
     const highestUnlocked = getHighestUnlocked(dungeons);
     if (highestUnlocked && highestUnlocked < MAX_MAGICITE_STARS) {
-      dungeons = _.filter(dungeons, i => !i.stars || i.stars <= highestUnlocked);
+      dungeons = _.filter(dungeons, (i) => !i.stars || i.stars <= highestUnlocked);
     }
-    dungeons = _.sortBy(dungeons, i => (i.stars ? -i.stars : undefined));
+    dungeons = _.sortBy(dungeons, (i) => (i.stars ? -i.stars : undefined));
 
     return dungeons;
   },
@@ -163,7 +164,7 @@ export const getTormentScores = createSelector<
     dungeonsState: DungeonState,
     scoresState: DungeonScoreState,
   ): TormentWorldWithScore[] => {
-    return getWorlds(worldsState, WorldCategory.Torment).map(w => {
+    return getWorlds(worldsState, WorldCategory.Torment).map((w) => {
       const dungeons: { [dungeonId: number]: DungeonWithScore } = _.keyBy(
         getDungeonsWithScoreForWorld(dungeonsState, scoresState, w),
         'difficulty',
@@ -180,53 +181,56 @@ export const getTormentScores = createSelector<
   },
 );
 
-export const getDreambreakerScores = createSelector<
-  IState,
-  WorldState,
-  DungeonState,
-  DungeonScoreState,
-  DungeonWithScore[]
->(
-  [
-    (state: IState) => state.worlds,
-    (state: IState) => state.dungeons,
-    (state: IState) => state.dungeonScores,
-  ],
-  (
-    worldsState: WorldState,
-    dungeonsState: DungeonState,
-    scoresState: DungeonScoreState,
-  ): DungeonWithScore[] =>
-    simpleFilter(
-      getWorlds(worldsState, WorldCategory.Dreambreaker).map(w =>
-        getDungeonsWithScoreForWorld(dungeonsState, scoresState, w),
-      ),
-    )
-      .filter(i => i.length > 0) // Exclude dungeons that haven't yet been loaded.
-      .map(i => i[0]), // Each dreambreaker has one dungeon.
-);
+const makeSingleDungeonWorldScoreSelector = (category: WorldCategory) =>
+  createSelector<IState, WorldState, DungeonState, DungeonScoreState, DungeonWithScore[]>(
+    [
+      (state: IState) => state.worlds,
+      (state: IState) => state.dungeons,
+      (state: IState) => state.dungeonScores,
+    ],
+
+    (
+      worldsState: WorldState,
+      dungeonsState: DungeonState,
+      scoresState: DungeonScoreState,
+    ): DungeonWithScore[] =>
+      simpleFilter(
+        getWorlds(worldsState, category).map((w) =>
+          getDungeonsWithScoreForWorld(dungeonsState, scoresState, w),
+        ),
+      )
+        .filter((i) => i.length > 0) // Exclude dungeons that haven't yet been loaded.
+        .map((i) => i[0]), // This function is for worlds with one dungeon each.
+  );
+
+const getDreambreakerScores = makeSingleDungeonWorldScoreSelector(WorldCategory.Dreambreaker);
+const getDragonkingScores = makeSingleDungeonWorldScoreSelector(WorldCategory.Dragonking);
 
 export const getCardiaScores = createSelector<
   IState,
   TormentWorldWithScore[],
   DungeonWithScore[],
+  DungeonWithScore[],
   CardiaRealmWithScore[]
 >(
-  [getTormentScores, getDreambreakerScores],
+  [getTormentScores, getDreambreakerScores, getDragonkingScores],
   (
     torments: TormentWorldWithScore[],
     dreambreakers: DungeonWithScore[],
+    dragonkings: DungeonWithScore[],
   ): CardiaRealmWithScore[] => {
     const tormentsBySeries = _.keyBy(torments, 'seriesId');
     const dreambreakersBySeries = _.keyBy(dreambreakers, 'seriesId');
+    const dragonkingsBySeries = _.keyBy(dragonkings, 'seriesId');
     const allSeries = _.uniq([
-      ...torments.map(i => i.seriesId),
-      ...dreambreakers.map(i => i.seriesId),
+      ...torments.map((i) => i.seriesId),
+      ...dreambreakers.map((i) => i.seriesId),
     ]).sort();
-    return allSeries.map(seriesId => ({
+    return allSeries.map((seriesId) => ({
       seriesId,
       torment: tormentsBySeries[seriesId],
       dreambreaker: dreambreakersBySeries[seriesId],
+      dragonking: dragonkingsBySeries[seriesId],
     }));
   },
 );
@@ -278,7 +282,7 @@ export const getOdinScores = createSelector<
       const elementText = element === 'Lightning' ? 'lit.' : element.toLowerCase();
 
       let dungeon = odinDungeons.find(
-        i => i.detail && i.detail.match(argentOdinPhysical) && i.detail.match(elementText),
+        (i) => i.detail && i.detail.match(argentOdinPhysical) && i.detail.match(elementText),
       );
       if (dungeon) {
         result[element] = result[element] || { element };
@@ -286,7 +290,7 @@ export const getOdinScores = createSelector<
       }
 
       dungeon = odinDungeons.find(
-        i => i.detail && i.detail.match(argentOdinMagical) && i.detail.match(elementText),
+        (i) => i.detail && i.detail.match(argentOdinMagical) && i.detail.match(elementText),
       );
       if (dungeon) {
         result[element] = result[element] || { element };
