@@ -294,7 +294,7 @@ SwitchDrawAlt
 SwitchDrawStacking
   = "Grants"i _ elements1:EnElementStackingSlashList _ "after using a"
     _ elements2:ElementSlashList _ "ability"
-    & { return elements1.elements.length > 1 && util.isEqual(elements1.elements, elements2); }
+    & { return Array.isArray(elements1.elements) && elements1.elements.length > 1 && util.isEqual(elements1.elements, elements2); }
     { return { type: 'switchDrawStacking', elements: elements1.elements, level: elements1.level }; }
 
 

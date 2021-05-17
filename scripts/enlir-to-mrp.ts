@@ -5,7 +5,7 @@ import * as yargs from 'yargs';
 
 import { enlir, isLimitBreak, limitBreakTierOrder, soulBreakTierOrder } from '../app/data/enlir';
 import { formatBraveCommands } from '../app/data/mrP/brave';
-import { convertEnlirSkillToMrP, formatMrPSkill } from '../app/data/mrP/skill';
+import { convertEnlirSkillToMrP, formatMrPSkill, MrPSkill } from '../app/data/mrP/skill';
 import { formatSchoolOrAbilityList, getShortName } from '../app/data/mrP/typeHelpers';
 import { logForCli } from '../app/utils/logger';
 
@@ -30,8 +30,8 @@ const startTime = process.hrtime();
 for (const sb of _.sortBy(
   [...enlir.allSoulBreaks, ...Object.values(enlir.limitBreaks)],
   [
-    i => i.character || '-',
-    i => (isLimitBreak(i) ? limitBreakTierOrder[i.tier] + 1000 : soulBreakTierOrder[i.tier]),
+    (i) => i.character || '-',
+    (i) => (isLimitBreak(i) ? limitBreakTierOrder[i.tier] + 1000 : soulBreakTierOrder[i.tier]),
     'id',
   ],
 )) {
@@ -42,7 +42,14 @@ for (const sb of _.sortBy(
     continue;
   }
 
-  const mrP = convertEnlirSkillToMrP(sb);
+  let mrP: MrPSkill;
+  try {
+    mrP = convertEnlirSkillToMrP(sb);
+  } catch (e) {
+    console.log(`Failed to parse ${sb.name}`);
+    console.error(e);
+    process.exit(1);
+  }
 
   if (filtered) {
     if ((argv.brave && !mrP.braveCommands) || (argv.burst && !mrP.burstCommands)) {
