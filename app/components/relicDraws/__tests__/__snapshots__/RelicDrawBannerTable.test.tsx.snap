@@ -456,7 +456,7 @@ exports[`RelicDrawBannerTable renders featured relics with equal probabilities 1
           <img
             className="anima"
             src="test-file-stub"
-            title="Anima wave 4 (estimated December 2020)"
+            title="Anima wave 4 (currently available)"
           />
         </td>
         <td>
@@ -495,7 +495,7 @@ exports[`RelicDrawBannerTable renders featured relics with equal probabilities 1
           <img
             className="anima"
             src="test-file-stub"
-            title="Anima wave 4 (estimated December 2020)"
+            title="Anima wave 4 (currently available)"
           />
         </td>
         <td>
@@ -534,7 +534,7 @@ exports[`RelicDrawBannerTable renders featured relics with equal probabilities 1
           <img
             className="anima"
             src="test-file-stub"
-            title="Anima wave 4 (estimated December 2020)"
+            title="Anima wave 4 (currently available)"
           />
         </td>
         <td>
@@ -1114,7 +1114,7 @@ exports[`RelicDrawBannerTable renders featured relics with varying probabilities
           <img
             className="anima"
             src="test-file-stub"
-            title="Anima wave 4 (estimated December 2020)"
+            title="Anima wave 4 (currently available)"
           />
         </td>
         <td>
@@ -1157,7 +1157,7 @@ exports[`RelicDrawBannerTable renders featured relics with varying probabilities
           <img
             className="anima"
             src="test-file-stub"
-            title="Anima wave 4 (estimated December 2020)"
+            title="Anima wave 4 (currently available)"
           />
         </td>
         <td>
@@ -1200,7 +1200,7 @@ exports[`RelicDrawBannerTable renders featured relics with varying probabilities
           <img
             className="anima"
             src="test-file-stub"
-            title="Anima wave 4 (estimated December 2020)"
+            title="Anima wave 4 (currently available)"
           />
         </td>
         <td>
@@ -1731,7 +1731,7 @@ exports[`RelicDrawBannerTable renders featured relics without probabilities 1`] 
           <img
             className="anima"
             src="test-file-stub"
-            title="Anima wave 4 (estimated December 2020)"
+            title="Anima wave 4 (currently available)"
           />
         </td>
         <td>
@@ -1770,7 +1770,7 @@ exports[`RelicDrawBannerTable renders featured relics without probabilities 1`] 
           <img
             className="anima"
             src="test-file-stub"
-            title="Anima wave 4 (estimated December 2020)"
+            title="Anima wave 4 (currently available)"
           />
         </td>
         <td>
@@ -1809,7 +1809,7 @@ exports[`RelicDrawBannerTable renders featured relics without probabilities 1`] 
           <img
             className="anima"
             src="test-file-stub"
-            title="Anima wave 4 (estimated December 2020)"
+            title="Anima wave 4 (currently available)"
           />
         </td>
         <td>

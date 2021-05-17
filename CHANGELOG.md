@@ -6,6 +6,8 @@
   - Add Dragonking
 - Soul Breaks
   - Fix tracking of soul break and legend materia inventory after FFRK's May 2021 maintenance
+- Relic Draws
+  - Include information about anima lens wave 5
 
 # v3.0.0
 

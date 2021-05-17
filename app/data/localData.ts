@@ -14,6 +14,7 @@ export type LocalIconType =
   | 'animaWave2'
   | 'animaWave3'
   | 'animaWave4'
+  | 'animaWave5'
   | 'animaWaveUnknown'
   | 'mythril'
   | 'odin'
@@ -37,6 +38,7 @@ export const localIcons: { [s in LocalIconType]: string | undefined } = {
   animaWave2: require('../images/game-icons/checkered-diamond-d22d2d.svg'),
   animaWave3: require('../images/game-icons/checkered-diamond-2283c3.svg'),
   animaWave4: require('../images/game-icons/checkered-diamond-8000ff.svg'),
+  animaWave5: require('../images/game-icons/checkered-diamond-f08f2e.svg'),
   animaWaveUnknown: require('../images/game-icons/checkered-diamond-000000.svg'),
 
   mythril: require('../images/ffrk-icons/mythril.png'),
