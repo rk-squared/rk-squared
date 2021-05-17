@@ -1,5 +1,7 @@
 # v3.1.0
 
+- Dungeons
+  - Don't show the new Soul Break Trial Run in the dungeon tracker
 - Dungeon Scores
   - Add Dragonking
 - Soul Breaks

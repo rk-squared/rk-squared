@@ -311,6 +311,10 @@ export function convertWorld(
     // The old 4* rotating mote dungeons are obsolete, now that full open
     // "fragment" dungeons are in GL.
     return false;
+  } else if (event.tag === 'trial_battle') {
+    // Soul break trial runs have no rewards and no completion status; there's
+    // no reason to include them.
+    return false;
   } else if (event.type_name === 'rotation' || event.type_name === 'wday') {
     // For power up ("wday") dungeons, there's only one worlds ("Power Up
     // Dungeons"), with normally only a few dungeons visible at a time.  No
