@@ -238,13 +238,13 @@
     "character": "Wedge",
     "name": "Onslaught (Wedge)",
     "tier": "LMR+",
-    "effect": "35% chance to cast an ability (NAT: single hybrid, 4x 0.51 or 2.04 Wind/NE) after dealing damage with a Wind attack",
+    "effect": "35% chance to cast Spiral Arc after dealing damage with a Wind attack",
     "master": "ATK +5, MAG +5",
-    "relic": "Silk Shirt (Core)",
+    "relic": "Silken Shirt (Core)",
     "nameJp": "遊撃【ウェッジ】",
     "id": 201004404,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "Core",
@@ -1772,13 +1772,13 @@
     "character": "Refia",
     "name": "Onslaught (Refia)",
     "tier": "LMR+",
-    "effect": "35% chance to cast an ability (PHY: single, 4x ? physical Fire/NE) after dealing damage with a Monk attack",
+    "effect": "35% chance to cast Flame Blossom after dealing damage with a Monk attack",
     "master": "ATK +10",
-    "relic": "Dragon Claw (III)",
+    "relic": "Dragon Claws (III)",
     "nameJp": "遊撃【レフィア】",
     "id": 201030304,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "III",
@@ -4573,7 +4573,7 @@
     "nameJp": "短縮【ゴゴ】",
     "id": 201061404,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "VI",
@@ -5513,6 +5513,19 @@
   },
   {
     "realm": "VII",
+    "character": "Shelke",
+    "name": "Subversion (Shelke)",
+    "tier": "LMR+",
+    "effect": "Causes [Imperil Lightning 10% (15s)] after using three Celerity or Support abilities",
+    "master": "ATK +10",
+    "relic": "Harpoon (DoC) (VII)",
+    "nameJp": "耐降【シェルク】",
+    "id": 201071904,
+    "anima": null,
+    "gl": false
+  },
+  {
+    "realm": "VII",
     "character": "Angeal",
     "name": "1st Uniter",
     "tier": null,
@@ -6348,7 +6361,7 @@
     "character": "Fujin",
     "name": "Onslaught (Fujin)",
     "tier": "LMR+",
-    "effect": "35?% chance to cast Geki after dealing damage with a Wind attack",
+    "effect": "35% chance to cast Geki after dealing damage with a Wind attack",
     "master": "MAG +10",
     "relic": "Sniper (VIII)",
     "nameJp": "遊撃【風神】",
@@ -7632,6 +7645,19 @@
   },
   {
     "realm": "X",
+    "character": "Auron",
+    "name": "Provoke (Auron)",
+    "tier": "LMR+",
+    "effect": "Grants [ATK and RES +25% (?s)] and [Quick Cast ?] after using three Samurai abilities once per battle",
+    "master": "ATK +10",
+    "relic": "Soundless Scream (X)",
+    "nameJp": "契機【アーロン】",
+    "id": 201100704,
+    "anima": null,
+    "gl": false
+  },
+  {
+    "realm": "X",
     "character": "Jecht",
     "name": "Unruly Father",
     "tier": null,
@@ -7973,13 +7999,13 @@
     "character": "Ayame",
     "name": "Onslaught (Ayame)",
     "tier": "LMR+",
-    "effect": "50% chance to cast an ability (PHY: single, 1x 1.15 physical Ice/NE) after dealing damage with a Samurai ability",
+    "effect": "50% chance to cast Zanshin (XI) after dealing damage with a Samurai ability",
     "master": "ATK +10",
     "relic": "Hachiman Domaru (XI)",
     "nameJp": "遊撃【アヤメ】",
     "id": 201110204,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "XI",
@@ -8036,7 +8062,7 @@
   {
     "realm": "XI",
     "character": "Curilla",
-    "name": "Echo (Curilla)",
+    "name": "Re-action (Curilla)",
     "tier": "LMR+",
     "effect": "100% chance to dualcast every third Knight ability",
     "master": "ATK +10",
@@ -8044,7 +8070,7 @@
     "nameJp": "再動【クリルラ】",
     "id": 201110304,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "XI",
@@ -8148,7 +8174,7 @@
     "nameJp": "耐降【ライオン】",
     "id": 201110503,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "XI",
@@ -8313,7 +8339,7 @@
     "tier": "LMR+",
     "effect": "Grants [Quick Cast 3] after using three Dancer/Support abilities",
     "master": "ATK +5, MND +5",
-    "relic": "Dancer's Casaque (XI)",
+    "relic": "Avis (XI)",
     "nameJp": "短縮【リリゼット】",
     "id": 201110803,
     "anima": null,
@@ -8907,7 +8933,7 @@
   {
     "realm": "XII",
     "character": "Vayne",
-    "name": "Boost (Vayne)",
+    "name": "Refinement (Vayne)",
     "tier": "LMR+",
     "effect": "Increases Dark damage dealt by 25%",
     "master": "ATK +5, MAG +5",
@@ -8915,7 +8941,7 @@
     "nameJp": "昇華【ヴェイン】",
     "id": 201121003,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "XII",
@@ -8959,7 +8985,7 @@
   {
     "realm": "XII",
     "character": "Reks",
-    "name": "Boost (Reks)",
+    "name": "Refinement (Reks)",
     "tier": "LMR+",
     "effect": "Increases Lightning damage dealt by 25%",
     "master": "ATK +10",
@@ -8967,7 +8993,7 @@
     "nameJp": "昇華【レックス】",
     "id": 201121103,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "XIII",

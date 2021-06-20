@@ -2,17 +2,18 @@
   {
     "realm": "Core",
     "character": "Biggs",
-    "name": "Pulverizing Powerbomb",
+    "name": "Unshackled Power",
     "tier": "LBO",
     "type": "PHY",
     "target": "Single enemy",
     "formula": "Physical",
     "multiplier": 24,
     "element": [
-      "Earth"
+      "Earth",
+      "Holy"
     ],
     "time": 2.5,
-    "effects": "Three single attacks (1.00 each scaling with LB gauge and LB honing level) capped at 99999, ignores DEF, grants [100% Critical 2] and [High Quick Cast 2] to the user",
+    "effects": "Three single attacks (1.00 each scaling with LB gauge and LB honing level) capped at 99999, ignores DEF, 100% additional critical chance, grants [100% Critical 2] and [High Quick Cast 2] to the user",
     "counter": false,
     "autoTarget": "Lowest HP% enemy",
     "minimumLbPoints": 250,
@@ -21,10 +22,10 @@
       "Cast Time Down"
     ],
     "masteryBonus": null,
-    "relic": "Great Sword (Core)",
+    "relic": "Greatsword (Core)",
     "nameJp": "オレ様流・マッスル全開",
     "id": 23310006,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "Core",
@@ -55,7 +56,7 @@
     "relic": "Wedge's Guise (Core)",
     "nameJp": "トルネドスター",
     "id": 23320007,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "I",
@@ -376,6 +377,34 @@
   },
   {
     "realm": "III",
+    "character": "Cloud of Darkness",
+    "name": "Weakening Flash (Cloud of Darkness)",
+    "tier": "LBG",
+    "type": "BLK",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 14.8,
+    "element": [
+      "Dark",
+      "Lightning",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Ten single attacks (1.48 each), causes [Imperil Lightning 40% (5s)] and [Imperil Dark 40% (5s)]",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "minimumLbPoints": 0,
+    "limitBreakBonus": [
+      "Lightning Damage Up"
+    ],
+    "masteryBonus": "MAG +10",
+    "relic": "Sleipnir Tail (III)",
+    "nameJp": " 降閃【暗闇の雲】",
+    "id": 22670022,
+    "gl": false
+  },
+  {
+    "realm": "III",
     "character": "Onion Knight",
     "name": "Water Flash (Onion Knight)",
     "tier": "LBG",
@@ -404,7 +433,7 @@
   {
     "realm": "III",
     "character": "Desch",
-    "name": "Will of Owen",
+    "name": "Owen's Will",
     "tier": "LBO",
     "type": "BLK",
     "target": "Single enemy",
@@ -423,10 +452,10 @@
       "Cast Time Down"
     ],
     "masteryBonus": null,
-    "relic": "Ancient Sword (III)",
+    "relic": "Antiquity Blade (III)",
     "nameJp": "オーエンの意志",
     "id": 22230016,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "IV",
@@ -1213,7 +1242,7 @@
   {
     "realm": "VI",
     "character": "Edgar",
-    "name": "Royal Blaster",
+    "name": "Royal Blast",
     "tier": "LBO",
     "type": "PHY",
     "target": "Single enemy",
@@ -1237,7 +1266,7 @@
     "relic": "Auto Crossbow (VI)",
     "nameJp": "ロイヤルブラスト",
     "id": 20530016,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "VI",
@@ -1895,6 +1924,33 @@
     "gl": false
   },
   {
+    "realm": "IX",
+    "character": "Kuja",
+    "name": "Force Requiem",
+    "tier": "LBO",
+    "type": "BLK",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 120,
+    "element": [
+      "Dark"
+    ],
+    "time": 2.5,
+    "effects": "Five single attacks (3.00 each scaling with LB gauge and LB honing level) capped at 99999, ignores RES",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "minimumLbPoints": 250,
+    "limitBreakBonus": [
+      "Limit Break Damage Up",
+      "Cast Time Down"
+    ],
+    "masteryBonus": null,
+    "relic": "Reaper's Rod (IX)",
+    "nameJp": "フォースレクイエム",
+    "id": 22240021,
+    "gl": false
+  },
+  {
     "realm": "X",
     "character": "Tidus",
     "name": "Water Raiment (Tidus)",
@@ -2026,6 +2082,60 @@
     "gl": false
   },
   {
+    "realm": "X",
+    "character": "Auron",
+    "name": "Bushido: Dragon Fang",
+    "tier": "LBO",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 40,
+    "element": [
+      "Fire"
+    ],
+    "time": 2.5,
+    "effects": "Five single attacks (1.00 each scaling with LB gauge and LB honing level) capped at 99999, ignores DEF, 100% additional critical chance",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "minimumLbPoints": 250,
+    "limitBreakBonus": [
+      "Limit Break Damage Up",
+      "Cast Time Down"
+    ],
+    "masteryBonus": null,
+    "relic": "Ichimonji (X)",
+    "nameJp": "秘伝・牙龍",
+    "id": 20690024,
+    "gl": false
+  },
+  {
+    "realm": "X",
+    "character": "Rikku",
+    "name": "Mix: Bubble Bomb",
+    "tier": "LBO",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 32,
+    "element": [
+      "Water"
+    ],
+    "time": 2.5,
+    "effects": "Four single attacks (1.00 each scaling with LB gauge and LB honing level) capped at 99999, ignores DEF, 100% additional critical chance, grants [50% Damage Reduction Barrier 2] to all allies",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "minimumLbPoints": 250,
+    "limitBreakBonus": [
+      "Limit Break Damage Up",
+      "Cast Time Down"
+    ],
+    "masteryBonus": null,
+    "relic": "Lady Luck's Gloves (X)",
+    "nameJp": "調合バブルボム",
+    "id": 20970026,
+    "gl": false
+  },
+  {
     "realm": "XI",
     "character": "Shantotto",
     "name": "Ancient Magic Burst II",
@@ -2077,7 +2187,7 @@
     "relic": "Martial Sword (XI)",
     "nameJp": "グラウンドストライク",
     "id": 22890009,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "XI",
@@ -2271,7 +2381,7 @@
     "relic": "Enigma (XII)",
     "nameJp": "断罪",
     "id": 22620011,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "XII",

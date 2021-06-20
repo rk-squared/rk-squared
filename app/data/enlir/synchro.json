@@ -221,8 +221,8 @@
   },
   {
     "character": "Biggs",
-    "source": "Gung-Ho Agent",
-    "name": "Passionate Charge",
+    "source": "Prime Explosion",
+    "name": "Spirited Strike",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
       "Earth",
@@ -245,12 +245,12 @@
     "nameJp": "気合の剣撃",
     "id": 31540619,
     "synchroConditionId": 2013,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Biggs",
-    "source": "Gung-Ho Agent",
-    "name": "Rough and Tough Stance",
+    "source": "Prime Explosion",
+    "name": "Stalwart Stance",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
       "Earth",
@@ -262,7 +262,7 @@
     "multiplier": null,
     "element": null,
     "time": 0.01,
-    "effects": "Grants [100% Critical 1] and Fiery Agent +1",
+    "effects": "Grants [100% Critical 1] and Earnest Agent +1",
     "counter": false,
     "autoTarget": "Self",
     "sb": 70,
@@ -270,11 +270,11 @@
     "nameJp": "強堅なる構え",
     "id": 31540620,
     "synchroConditionId": 2013,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Wedge",
-    "source": "High-Flying Star",
+    "source": "Flying Star",
     "name": "Vacuum Cutter",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -301,11 +301,11 @@
     "nameJp": "バキュームカッター",
     "id": 31540615,
     "synchroConditionId": 104,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Wedge",
-    "source": "High-Flying Star",
+    "source": "Flying Star",
     "name": "Wind Booster",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -332,7 +332,7 @@
     "nameJp": "ウィンドブースター",
     "id": 31540616,
     "synchroConditionId": 104,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Warrior of Light",
@@ -1885,6 +1885,62 @@
     "gl": true
   },
   {
+    "character": "Cloud of Darkness",
+    "source": "Diffraction Particle Beam",
+    "name": "Homing Particle Beam",
+    "synchroAbilitySlot": 1,
+    "synchroCondition": [
+      "Lightning"
+    ],
+    "type": "BLK",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 18.3,
+    "element": [
+      "Dark",
+      "Lightning",
+      "NE"
+    ],
+    "time": 1.65,
+    "effects": "Six single attacks (3.05 each), grants [Lightning Ability +30% Boost 2] and Flood of Darkness +1 to the user",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 90,
+    "school": "Darkness",
+    "nameJp": null,
+    "id": 31541283,
+    "synchroConditionId": 102,
+    "gl": false
+  },
+  {
+    "character": "Cloud of Darkness",
+    "source": "Diffraction Particle Beam",
+    "name": "Bursting Particle Beam",
+    "synchroAbilitySlot": 2,
+    "synchroCondition": [
+      "Lightning"
+    ],
+    "type": "BLK",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 16.4,
+    "element": [
+      "Dark",
+      "Lightning",
+      "NE"
+    ],
+    "time": 1.65,
+    "effects": "One single attack (16.40) capped at 99999",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 90,
+    "school": "Darkness",
+    "nameJp": "噴流砲",
+    "id": 31541284,
+    "synchroConditionId": 102,
+    "gl": false
+  },
+  {
     "character": "Aria",
     "source": "Ephemeral Maiden",
     "name": "Sacred Iris",
@@ -1933,6 +1989,59 @@
     "id": 31540283,
     "synchroConditionId": 1005,
     "gl": true
+  },
+  {
+    "character": "Aria",
+    "source": "Prismatic Plea",
+    "name": "Maiden's Miracle",
+    "synchroAbilitySlot": 1,
+    "synchroCondition": [
+      "Bard",
+      "White Magic"
+    ],
+    "type": "WHT",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 9.3,
+    "element": [
+      "Water",
+      "NE"
+    ],
+    "time": 1.65,
+    "effects": "Three single attacks (3.10 each), restores HP (17.50/20.00/25.00) to all allies if 0-1/2-3/4+ allies have any [Attach Water]",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 70,
+    "school": "White Magic",
+    "nameJp": "巫女の奇跡",
+    "id": 31541218,
+    "synchroConditionId": 1005,
+    "gl": false
+  },
+  {
+    "character": "Aria",
+    "source": "Prismatic Plea",
+    "name": "Maiden's Chant",
+    "synchroAbilitySlot": 2,
+    "synchroCondition": [
+      "Bard",
+      "White Magic"
+    ],
+    "type": "WHT",
+    "target": "Single ally",
+    "formula": null,
+    "multiplier": null,
+    "element": null,
+    "time": 0.01,
+    "effects": "Restores HP (55), grants [Quick Cast 1] and [Pain -1]",
+    "counter": false,
+    "autoTarget": "Lowest HP% ally",
+    "sb": 70,
+    "school": "White Magic",
+    "nameJp": "巫女の祈り",
+    "id": 31541219,
+    "synchroConditionId": 1005,
+    "gl": false
   },
   {
     "character": "Luneth",
@@ -2103,8 +2212,8 @@
   },
   {
     "character": "Refia",
-    "source": "Circle of Love",
-    "name": "Crimson Hexapalm",
+    "source": "Searing Circle",
+    "name": "Scarlet Flamefist",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
       "Fire"
@@ -2126,12 +2235,12 @@
     "nameJp": "緋炎六拳",
     "id": 31540683,
     "synchroConditionId": 100,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Refia",
-    "source": "Circle of Love",
-    "name": "Blazing Ascension",
+    "source": "Searing Circle",
+    "name": "Cresting Flames",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
       "Fire"
@@ -2150,12 +2259,12 @@
     "nameJp": "炎昇",
     "id": 31540684,
     "synchroConditionId": 100,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Desch",
-    "source": "Sparks of Life",
-    "name": "Crackling Purge (Bolt 0)",
+    "source": "Life Spark",
+    "name": "Chaotic Bolt (Enduring Flash 0)",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
       "Lightning"
@@ -2177,12 +2286,12 @@
     "nameJp": "散雷滅却",
     "id": 31540678,
     "synchroConditionId": 102,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Desch",
-    "source": "Sparks of Life",
-    "name": "Crackling Purge (Bolt 1)",
+    "source": "Life Spark",
+    "name": "Chaotic Bolt (Enduring Flash 1)",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
       "Lightning"
@@ -2196,7 +2305,7 @@
       "NE"
     ],
     "time": 1.65,
-    "effects": "Six single attacks (3.05 each), causes Bolt -1 to the user",
+    "effects": "Six single attacks (3.05 each), causes Enduring Flash -1 to the user",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 90,
@@ -2204,12 +2313,12 @@
     "nameJp": "散雷滅却",
     "id": 31540678,
     "synchroConditionId": 102,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Desch",
-    "source": "Sparks of Life",
-    "name": "Crackling Purge (Bolt 2)",
+    "source": "Life Spark",
+    "name": "Chaotic Bolt (Enduring Flash 2)",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
       "Lightning"
@@ -2223,7 +2332,7 @@
       "NE"
     ],
     "time": 1.65,
-    "effects": "One single attack (16.40) capped at 99999, grants [Quick Cast 3] to the user, causes Bolt -1 to the user",
+    "effects": "One single attack (16.40) capped at 99999, grants [Quick Cast 3] to the user, causes Enduring Flash -1 to the user",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 90,
@@ -2231,12 +2340,12 @@
     "nameJp": "散雷滅却",
     "id": 31540678,
     "synchroConditionId": 102,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Desch",
-    "source": "Sparks of Life",
-    "name": "Crackling Purge (Bolt 3)",
+    "source": "Life Spark",
+    "name": "Chaotic Bolt (Enduring Flash 3)",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
       "Lightning"
@@ -2250,7 +2359,7 @@
       "NE"
     ],
     "time": 1.65,
-    "effects": "One single attack (16.40) capped at 99999, causes [Imperil Lightning 20% (15s)], causes Bolt -1 to the user",
+    "effects": "One single attack (16.40) capped at 99999, causes [Imperil Lightning 20% (15s)], causes Enduring Flash -1 to the user",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 90,
@@ -2258,12 +2367,12 @@
     "nameJp": "散雷滅却",
     "id": 31540678,
     "synchroConditionId": 102,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Desch",
-    "source": "Sparks of Life",
-    "name": "Electric Devotion",
+    "source": "Life Spark",
+    "name": "Selfless Call",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
       "Lightning"
@@ -2274,7 +2383,7 @@
     "multiplier": null,
     "element": null,
     "time": 0.01,
-    "effects": "Grants Bolt +1",
+    "effects": "Grants Enduring Flash +1",
     "counter": false,
     "autoTarget": "Self",
     "sb": 70,
@@ -2282,7 +2391,7 @@
     "nameJp": "滅私召雷",
     "id": 31540679,
     "synchroConditionId": 102,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Ingus",
@@ -5187,8 +5296,8 @@
   },
   {
     "character": "Edgar",
-    "source": "Full Triple Boost",
-    "name": "Hexaboost",
+    "source": "Trinity Boost",
+    "name": "Hexa Boost",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
       "Machinist"
@@ -5212,12 +5321,12 @@
     "nameJp": "熱誠なる拳",
     "id": 31540649,
     "synchroConditionId": 16,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Edgar",
-    "source": "Full Triple Boost",
-    "name": "Royal Bravery",
+    "source": "Trinity Boost",
+    "name": "Royal Courage",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
       "Machinist"
@@ -5241,7 +5350,7 @@
     "nameJp": "幻影闘心",
     "id": 31540650,
     "synchroConditionId": 16,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Edgar",
@@ -5301,8 +5410,8 @@
   },
   {
     "character": "Sabin",
-    "source": "Fiery Brotherhood",
-    "name": "Ardent Fist",
+    "source": "Fiery Bond",
+    "name": "Solemn Fist",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
       "Monk"
@@ -5316,7 +5425,7 @@
       "NE"
     ],
     "time": 1.65,
-    "effects": "Six single attacks (0.90 each), grants [Monk +30% Boost 1] and Righteous Power +1 to the user",
+    "effects": "Six single attacks (0.90 each), grants [Monk +30% Boost 1] and Pillar of Justice +1 to the user",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 90,
@@ -5324,12 +5433,12 @@
     "nameJp": "熱誠なる拳",
     "id": 31540653,
     "synchroConditionId": 9,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Sabin",
-    "source": "Fiery Brotherhood",
-    "name": "Ghostly Charge",
+    "source": "Fiery Bond",
+    "name": "Phantom Resolve",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
       "Fire"
@@ -5340,7 +5449,7 @@
     "multiplier": null,
     "element": null,
     "time": 0.01,
-    "effects": "Grants [Quick Cast 2], [Physical Blink 1] and Assist Power +1",
+    "effects": "Grants [Quick Cast 2], [Physical Blink 1] and Pillar of Support +1",
     "counter": false,
     "autoTarget": "Self",
     "sb": 70,
@@ -5348,12 +5457,12 @@
     "nameJp": "幻影闘心",
     "id": 31540654,
     "synchroConditionId": 100,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Gogo (VI)",
     "source": "True Punishing Meteor",
-    "name": "Quadra Magic",
+    "name": "Tetra Magic",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
       "Combat",
@@ -5383,12 +5492,12 @@
     "nameJp": "テトラマジック",
     "id": 31540657,
     "synchroConditionId": 1012,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Gogo (VI)",
     "source": "True Punishing Meteor",
-    "name": "Magic Fusion",
+    "name": "Magical Fusion",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
       "Combat",
@@ -5410,7 +5519,7 @@
       "NE"
     ],
     "time": 0.01,
-    "effects": "One single hybrid attack (0.80 or 2.70), grants [Quick Cast 2] to the user if the user has Mysterious Mimic level 0, grants [Fire/Ice/Wind/Earth Ability +30% Boost 2], [Damage Cap +10000 2] and [Mimicry Mode] to the user if the user has Mysterious Mimic level 1, causes Mysterious Mimic -1 to the user",
+    "effects": "One single hybrid attack (0.80 or 2.70), grants [Quick Cast 2] to the user if the user has Mysterious Mimic level 0, grants [Fire/Ice/Wind/Earth Ability +30% Boost 2], [Damage Cap +10000 2] and [Impersonation Mode] to the user if the user has Mysterious Mimic level 1, causes Mysterious Mimic -1 to the user",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 60,
@@ -5418,7 +5527,7 @@
     "nameJp": "マジカルフュージョン",
     "id": 31540658,
     "synchroConditionId": 1012,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Umaro",
@@ -5472,6 +5581,109 @@
     "nameJp": "おおなだれ",
     "id": 31541130,
     "synchroConditionId": 101,
+    "gl": false
+  },
+  {
+    "character": "Cyan",
+    "source": "Bushido: Tiger",
+    "name": "Doman Flame",
+    "synchroAbilitySlot": 1,
+    "synchroCondition": [
+      "Samurai"
+    ],
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 5.4,
+    "element": [
+      "Fire",
+      "NE"
+    ],
+    "time": 1.65,
+    "effects": "Six single attacks (0.90 each), grants [Fire Ability +30% Boost 1] to the user",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 90,
+    "school": "Samurai",
+    "nameJp": "ドマ流剣技・焔斬",
+    "id": 31541269,
+    "synchroConditionId": 12,
+    "gl": false
+  },
+  {
+    "character": "Cyan",
+    "source": "Bushido: Tiger",
+    "name": "Doman Rend",
+    "synchroAbilitySlot": 2,
+    "synchroCondition": [
+      "Samurai"
+    ],
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 6,
+    "element": [
+      "Fire",
+      "NE"
+    ],
+    "time": 1.65,
+    "effects": "One single attack (6.00) capped at 99999, grants [Fire Ability +30% Boost 1] to the user",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 90,
+    "school": "Samurai",
+    "nameJp": "ドマ流剣技・滅断",
+    "id": 31541270,
+    "synchroConditionId": 12,
+    "gl": false
+  },
+  {
+    "character": "Setzer",
+    "source": "Shuffle Deck",
+    "name": "Black Solitaire",
+    "synchroAbilitySlot": 1,
+    "synchroCondition": [
+      "Sharpshooter",
+      "Support"
+    ],
+    "type": "NAT",
+    "target": "Single enemy",
+    "formula": null,
+    "multiplier": null,
+    "element": null,
+    "time": 1.65,
+    "effects": "Causes [Imperil Dark 10% (5s)], grant [Soul Break Gauge +180] to the user",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Support",
+    "nameJp": "ブラックソリテアー",
+    "id": 31541265,
+    "synchroConditionId": 1020,
+    "gl": false
+  },
+  {
+    "character": "Setzer",
+    "source": "Shuffle Deck",
+    "name": "Two-Headed Coin",
+    "synchroAbilitySlot": 2,
+    "synchroCondition": [
+      "Support"
+    ],
+    "type": "NAT",
+    "target": "Single enemy",
+    "formula": null,
+    "multiplier": null,
+    "element": null,
+    "time": 0.01,
+    "effects": "Transfers the user's Soul Break points to the target, grants [Instant Cast 1] to the same target",
+    "counter": false,
+    "autoTarget": "Random ally",
+    "sb": 70,
+    "school": "Support",
+    "nameJp": "イカサマのコイン",
+    "id": 31541266,
+    "synchroConditionId": 6,
     "gl": false
   },
   {
@@ -5598,7 +5810,7 @@
       "NE"
     ],
     "time": 1.65,
-    "effects": "6/7 single attacks (0.90 each) if the user has Mako level 0/1, grants [Quick Cast 1] to the user if the user has Mako level 1, causes Mako -1 to the user",
+    "effects": "6/7 single attacks (0.90 each) if the user has Mako level 0/1, grants [Quick Cast 1] to the user if the user has Mako level 1, grants Mako +1 to the user if the user has Mako level 0, causes Mako -1 to the user if the user has Mako level 1",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 90,
@@ -6329,6 +6541,57 @@
     "id": 31540376,
     "synchroConditionId": 7,
     "gl": true
+  },
+  {
+    "character": "Shelke",
+    "source": "Transparent Edge",
+    "name": "Countertek Dive",
+    "synchroAbilitySlot": 1,
+    "synchroCondition": [
+      "Lightning"
+    ],
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 4.8,
+    "element": [
+      "Lightning",
+      "NE"
+    ],
+    "time": 1.2,
+    "effects": "Six single attacks (0.80 each), causes [Imperil Lightning 10% (5s)]",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 70,
+    "school": "Celerity",
+    "nameJp": "テクニカルダイブ",
+    "id": 31541280,
+    "synchroConditionId": 102,
+    "gl": false
+  },
+  {
+    "character": "Shelke",
+    "source": "Transparent Edge",
+    "name": "Quick Rewrite",
+    "synchroAbilitySlot": 2,
+    "synchroCondition": [
+      "Lightning"
+    ],
+    "type": "NAT",
+    "target": "Self",
+    "formula": null,
+    "multiplier": null,
+    "element": null,
+    "time": 0.01,
+    "effects": "Grants [Quick Cast 3]",
+    "counter": false,
+    "autoTarget": "Self",
+    "sb": 70,
+    "school": "Celerity",
+    "nameJp": "クイックリライト",
+    "id": 31541281,
+    "synchroConditionId": 102,
+    "gl": false
   },
   {
     "character": "Cait Sith",
@@ -7818,6 +8081,58 @@
     "gl": true
   },
   {
+    "character": "Beatrix",
+    "source": "Spectral Break",
+    "name": "Holy Minus Strike",
+    "synchroAbilitySlot": 1,
+    "synchroCondition": [
+      "Knight"
+    ],
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": null,
+    "element": [
+      "Holy",
+      "NE"
+    ],
+    "time": 1.65,
+    "effects": "Six single attacks (0.90~1.10 each) scaling with HP%, followed by one single attack (2.95~3.60) scaling with HP%  if the user has Final Attack level 1, causes Final Attack -1 to the user",
+    "effectsNote": "The multipliers for this attack is given by the following formulas, where X is the current HP% of the user:\n\nSix hits: min(exp(-1*(X-1)*600/10000)*20+90, 110) / 100\n\nSingle hit follow-up: min(exp(-1*(X-1)*600/10000)*65+295, 360) / 100\n\nFor the six hits, the minimum multiplier is 0.90, and never goes higher than 1.10.\n\nFor the single hit follow-up, the minimum multiplier is 2.95, and never goes higher than 3.60.",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 90,
+    "school": "Knight",
+    "nameJp": "ホーリーサガク剣",
+    "id": 31541255,
+    "synchroConditionId": 11,
+    "gl": false
+  },
+  {
+    "character": "Beatrix",
+    "source": "Spectral Break",
+    "name": "Illumination",
+    "synchroAbilitySlot": 2,
+    "synchroCondition": [
+      "Knight"
+    ],
+    "type": "NAT",
+    "target": "Self",
+    "formula": null,
+    "multiplier": null,
+    "element": null,
+    "time": 0.01,
+    "effects": "Grants [Holy Ability +50% Boost 3]",
+    "counter": false,
+    "autoTarget": "Self",
+    "sb": 70,
+    "school": "Knight",
+    "nameJp": "聖剣技強化",
+    "id": 31541256,
+    "synchroConditionId": 11,
+    "gl": false
+  },
+  {
     "character": "Zidane",
     "source": "Not Alone",
     "name": "Rumbling Blast",
@@ -8053,6 +8368,59 @@
     "gl": true
   },
   {
+    "character": "Eiko",
+    "source": "Terra Homing Sanctified",
+    "name": "Immemorial Decay",
+    "synchroAbilitySlot": 1,
+    "synchroCondition": [
+      "Summoning"
+    ],
+    "type": "SUM",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 19.2,
+    "element": [
+      "Wind",
+      "Holy",
+      "NE"
+    ],
+    "time": 1.65,
+    "effects": "Six single attacks (2.90/3.05/3.20) scaling with uses, grants [Summoning +50% Boost 1]/[Summoning +30% Boost 1]/[Summoning +15% Boost 1] to the user after 1/2/3+ uses",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 90,
+    "school": "Summoning",
+    "nameJp": "一兆年の風化",
+    "id": 31541247,
+    "synchroConditionId": 3,
+    "gl": false
+  },
+  {
+    "character": "Eiko",
+    "source": "Terra Homing Sanctified",
+    "name": "Terra Healing",
+    "synchroAbilitySlot": 2,
+    "synchroCondition": [
+      "White Magic",
+      "Summoning"
+    ],
+    "type": null,
+    "target": null,
+    "formula": null,
+    "multiplier": null,
+    "element": null,
+    "time": 0.01,
+    "effects": "Grants [Quick Cast 2], restores 2 consumed ability uses, restores HP (25) to all allies on the first cast, grants [HP Stock (2000)] to all allies on the first cast",
+    "counter": false,
+    "autoTarget": "Self",
+    "sb": 70,
+    "school": "Summoning",
+    "nameJp": "テラヒーリング",
+    "id": 31541248,
+    "synchroConditionId": 1006,
+    "gl": false
+  },
+  {
     "character": "Vivi",
     "source": "Glittering Flame",
     "name": "My Memory",
@@ -8274,9 +8642,67 @@
     "gl": true
   },
   {
+    "character": "Steiner",
+    "source": "Spellblade Delusion",
+    "name": "Full Break Rush",
+    "synchroAbilitySlot": 1,
+    "synchroCondition": [
+      "Spellblade"
+    ],
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 6,
+    "element": [
+      "Fire",
+      "Ice",
+      "Lightning",
+      "NE"
+    ],
+    "time": 1.65,
+    "effects": "One single attack (6.00) capped at 99999, causes [ATK, DEF, MAG and RES -40% (8s)]",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 90,
+    "school": "Spellblade",
+    "nameJp": "盲進フルブレイク",
+    "id": 31541251,
+    "synchroConditionId": 4,
+    "gl": false
+  },
+  {
+    "character": "Steiner",
+    "source": "Spellblade Delusion",
+    "name": "Primordial Sword",
+    "synchroAbilitySlot": 2,
+    "synchroCondition": [
+      "Spellblade"
+    ],
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 0.8,
+    "element": [
+      "Fire",
+      "Ice",
+      "Lightning",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "One single attack (0.80), grants [Instant Cast 2] to the user",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 70,
+    "school": "Spellblade",
+    "nameJp": "氷炎雷鳴剣",
+    "id": 31541252,
+    "synchroConditionId": 4,
+    "gl": false
+  },
+  {
     "character": "Amarant",
-    "source": "Inflammable Fist",
-    "name": "Crackling Fist",
+    "source": "Ironfire Countdown",
+    "name": "Explosive Jab",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
       "Monk"
@@ -8298,11 +8724,11 @@
     "nameJp": "秘炮拳",
     "id": 31540640,
     "synchroConditionId": 9,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Amarant",
-    "source": "Inflammable Fist",
+    "source": "Ironfire Countdown",
     "name": "Retaliate (IX)",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -8322,12 +8748,12 @@
     "nameJp": "かまえる【IX】",
     "id": 31540641,
     "synchroConditionId": 9,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Marcus",
     "source": "There You Go!",
-    "name": "Resistance Down",
+    "name": "Undermine Resistance",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
       "Thief"
@@ -8350,7 +8776,7 @@
     "nameJp": "レジスタンスダウン",
     "id": 31540637,
     "synchroConditionId": 10,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Marcus",
@@ -8378,7 +8804,7 @@
     "nameJp": "クイックポイズン",
     "id": 31540638,
     "synchroConditionId": 10,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Quina",
@@ -8694,6 +9120,61 @@
     "gl": true
   },
   {
+    "character": "Rikku",
+    "source": "Refined Aqua Toxin",
+    "name": "Calamity Bomb",
+    "synchroAbilitySlot": 1,
+    "synchroCondition": [
+      "Water"
+    ],
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 6.3,
+    "element": [
+      "Water",
+      "NE"
+    ],
+    "time": 3.3,
+    "effects": "Seven single ranged attacks (0.90 each)",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 90,
+    "school": "Machinist",
+    "nameJp": "カラミティボム",
+    "id": 31541230,
+    "synchroConditionId": 105,
+    "gl": false
+  },
+  {
+    "character": "Rikku",
+    "source": "Refined Aqua Toxin",
+    "name": "Cataract Splash",
+    "synchroAbilitySlot": 2,
+    "synchroCondition": [
+      "Thief",
+      "Dancer"
+    ],
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 2.4,
+    "element": [
+      "Water",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Three single attacks (0.80 each), causes [MAG and RES -50% (8s)], grants [Instant Cast 1] to the user",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 60,
+    "school": "Thief",
+    "nameJp": "スプラッシュフォール",
+    "id": 31541231,
+    "synchroConditionId": 1019,
+    "gl": false
+  },
+  {
     "character": "Yuna",
     "source": "Farplane Wish",
     "name": "Luminous Ray",
@@ -8798,6 +9279,57 @@
     "gl": true
   },
   {
+    "character": "Paine",
+    "source": "Swordplay Deluge",
+    "name": "Liquid Steel Overdrive",
+    "synchroAbilitySlot": 1,
+    "synchroCondition": [
+      "Water"
+    ],
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 6,
+    "element": [
+      "Water",
+      "NE"
+    ],
+    "time": 1.65,
+    "effects": "One single attack (6.00) capped at 99999",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 90,
+    "school": "Spellblade",
+    "nameJp": "限界突破アクアセイバー",
+    "id": 31541212,
+    "synchroConditionId": 105,
+    "gl": false
+  },
+  {
+    "character": "Paine",
+    "source": "Swordplay Deluge",
+    "name": "Luck",
+    "synchroAbilitySlot": 2,
+    "synchroCondition": [
+      "Water"
+    ],
+    "type": "NAT",
+    "target": "Self",
+    "formula": null,
+    "multiplier": null,
+    "element": null,
+    "time": 0.01,
+    "effects": "Grants Luck +1 and [Quick Cast 1]",
+    "counter": false,
+    "autoTarget": "Self",
+    "sb": 70,
+    "school": "Spellblade",
+    "nameJp": "幸運",
+    "id": 31541213,
+    "synchroConditionId": 105,
+    "gl": false
+  },
+  {
     "character": "Auron",
     "source": "Secret Shooting Star",
     "name": "Redstar",
@@ -8850,6 +9382,60 @@
     "id": 31540191,
     "synchroConditionId": 12,
     "gl": true
+  },
+  {
+    "character": "Auron",
+    "source": "Refined Banishing Blade",
+    "name": "Banishing Break",
+    "synchroAbilitySlot": 1,
+    "synchroCondition": [
+      "Samurai"
+    ],
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 6,
+    "element": [
+      "Fire",
+      "NE"
+    ],
+    "time": 1.65,
+    "effects": "One single attack (6.00) capped at 99999",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 90,
+    "school": "Samurai",
+    "nameJp": "灼破",
+    "id": 31541234,
+    "synchroConditionId": 12,
+    "gl": false
+  },
+  {
+    "character": "Auron",
+    "source": "Refined Banishing Blade",
+    "name": "Crimson Fang",
+    "synchroAbilitySlot": 2,
+    "synchroCondition": [
+      "Samurai"
+    ],
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 2.7,
+    "element": [
+      "Fire",
+      "NE"
+    ],
+    "time": 1.65,
+    "effects": "Three single attacks (0.90 each), grants [100% Critical 3] to the user",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 90,
+    "school": "Samurai",
+    "nameJp": "紅牙",
+    "id": 31541235,
+    "synchroConditionId": 12,
+    "gl": false
   },
   {
     "character": "Lulu",
@@ -9363,12 +9949,12 @@
     "nameJp": "サベッジブレード",
     "id": 31540665,
     "synchroConditionId": 106,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Curilla",
     "source": "Knights of Round",
-    "name": "Angelwing",
+    "name": "Angel's Wing",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
       "Holy"
@@ -9390,12 +9976,12 @@
     "nameJp": "エンゼルウィング",
     "id": 31540666,
     "synchroConditionId": 106,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Lion",
     "source": "Mandalic Stab",
-    "name": "Blindside",
+    "name": "Trailing Stab",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
       "Water"
@@ -9417,7 +10003,7 @@
     "nameJp": "バックスタッブ",
     "id": 31540673,
     "synchroConditionId": 105,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Lion",
@@ -9444,12 +10030,12 @@
     "nameJp": "アサシンチャージ",
     "id": 31540674,
     "synchroConditionId": 105,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Zeid",
-    "source": "Scourge",
-    "name": "Scarlet Delirium",
+    "source": "Scourge (XI)",
+    "name": "Red Delirium",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
       "Dark"
@@ -9471,12 +10057,12 @@
     "nameJp": "レッドデリリアム",
     "id": 31540669,
     "synchroConditionId": 107,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Zeid",
-    "source": "Scourge",
-    "name": "Soul Eater, Last Resort, Blood Weapon",
+    "source": "Scourge (XI)",
+    "name": "Dark Blood",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
       "Dark"
@@ -9498,7 +10084,7 @@
     "nameJp": "暗黒ラスリゾブラッド",
     "id": 31540670,
     "synchroConditionId": 107,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Prishe",
@@ -10189,7 +10775,7 @@
       "NE"
     ],
     "time": 1.65,
-    "effects": "One single attack (6.00) capped at 99999 with additional 20% critical damage, grants [Intstant Cast 1] to the user",
+    "effects": "One single attack (6.00) capped at 99999 with additional 20% critical damage, grants [Instant Cast 1] to the user",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 90,
@@ -10201,8 +10787,8 @@
   },
   {
     "character": "Vayne",
-    "source": "Stalk of Sephira",
-    "name": "Coup of Darkness",
+    "source": "Steel Fusillade",
+    "name": "Dark Domination",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
       "Dark"
@@ -10228,12 +10814,12 @@
     "nameJp": "レヴィンプレッジ",
     "id": 31540597,
     "synchroConditionId": 107,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Vayne",
-    "source": "Stalk of Sephira",
-    "name": "Dark Tactics",
+    "source": "Steel Fusillade",
+    "name": "Shadow Tactics",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
       "Dark"
@@ -10251,7 +10837,7 @@
       "NE"
     ],
     "time": 1.65,
-    "effects": "One single ranged hybrid attack (6.00 or 16.40) capped at 99999, sets the user's HP to 1 if the user has [Rising Dynast Mode], grants [Dark Ability +30% Boost 2] to the user if the user has [Rising Dynast Mode]",
+    "effects": "One single ranged hybrid attack (6.00 or 16.40) capped at 99999, sets the user's HP to 1 if the user has [Scheming Statesman Mode], grants [Dark Ability +30% Boost 2] to the user if the user has [Scheming Statesman Mode]",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 90,
@@ -10259,12 +10845,12 @@
     "nameJp": "チャージソード",
     "id": 31540598,
     "synchroConditionId": 107,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Reks",
-    "source": "Dalmascan Whorl",
-    "name": "Levin Pledge",
+    "source": "Dalmascan Hazard",
+    "name": "Raven Pledge",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
       "Lightning"
@@ -10286,12 +10872,12 @@
     "nameJp": "レヴィンプレッジ",
     "id": 31540602,
     "synchroConditionId": 102,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Reks",
-    "source": "Dalmascan Whorl",
-    "name": "Sword Charge",
+    "source": "Dalmascan Hazard",
+    "name": "Charging Sword",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
       "Lightning"
@@ -10313,7 +10899,7 @@
     "nameJp": "チャージソード",
     "id": 31540603,
     "synchroConditionId": 102,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Lightning",
@@ -14097,7 +14683,7 @@
   {
     "character": "Enna Kros",
     "source": "The World's Rules: Genesis",
-    "name": "Purging Meteor",
+    "name": "Astral Purge",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
       "Earth"
@@ -14120,12 +14706,12 @@
     "nameJp": "粛清のエストレラ",
     "id": 31540611,
     "synchroConditionId": 103,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Enna Kros",
     "source": "The World's Rules: Genesis",
-    "name": "Mother Earth",
+    "name": "Motherland",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
       "Earth"
@@ -14144,7 +14730,7 @@
     "nameJp": "母なる大地",
     "id": 31540612,
     "synchroConditionId": 103,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Serafie",

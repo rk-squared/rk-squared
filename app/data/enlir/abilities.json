@@ -3811,7 +3811,7 @@
     "introducingEvent": "Core Torment",
     "nameJp": "世界のルール(エナ・クロ専用)",
     "id": 30111541,
-    "gl": false,
+    "gl": true,
     "recordBoardCharacter": "Enna Kros"
   },
   {
@@ -3869,12 +3869,12 @@
     "introducingEvent": "Core Torment",
     "nameJp": "トリックスター(ウェッジ専用)",
     "id": 30111571,
-    "gl": false,
+    "gl": true,
     "recordBoardCharacter": "Wedge"
   },
   {
     "school": "Black Magic",
-    "name": "Magic Mimicry",
+    "name": "Magical Mimicry",
     "rarity": 6,
     "type": "NAT",
     "typeDetails": [
@@ -3931,7 +3931,7 @@
     "introducingEvent": "The Sand Kingdom Rises",
     "nameJp": "ものまね・まほう(ゴゴ専用)",
     "id": 30111581,
-    "gl": false,
+    "gl": true,
     "recordBoardCharacter": "Gogo (VI)"
   },
   {
@@ -3985,7 +3985,7 @@
     "introducingEvent": "Chaotic Memories II (III)",
     "nameJp": "古代の雷閃(デッシュ専用)",
     "id": 30111591,
-    "gl": false,
+    "gl": true,
     "recordBoardCharacter": "Desch"
   },
   {
@@ -4036,7 +4036,7 @@
         0
       ]
     },
-    "introducingEvent": "Fat Black Chocobo: Shocking Magicites",
+    "introducingEvent": "Fat Black Chocobo: Shocking Magicite",
     "nameJp": "決死のメテオ(テラ専用)",
     "id": 30111601,
     "gl": false,
@@ -9459,6 +9459,58 @@
     "id": 30161281,
     "gl": false,
     "recordBoardCharacter": "Sazh"
+  },
+  {
+    "school": "Celerity",
+    "name": "The Transparent",
+    "rarity": 6,
+    "type": "NAT",
+    "target": "Single ally",
+    "formula": null,
+    "multiplier": null,
+    "element": null,
+    "time": 1.65,
+    "effects": "Transfers the user's Soul Break points to the target (maximum of 500 Soul Break points), grants [Quick Cast 1] to the user",
+    "counter": false,
+    "autoTarget": "Random ally prioritizing self last",
+    "sb": 100,
+    "uses": 2,
+    "max": 10,
+    "orbs": {
+      "Power Crystal": [
+        null,
+        10,
+        15,
+        50,
+        75
+      ],
+      "White Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Black Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Record Board": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "introducingEvent": "Labyrinth Dungeon Season 2 Group C",
+    "nameJp": "無式(シェルク専用)",
+    "id": 30161291,
+    "gl": false,
+    "recordBoardCharacter": "Shelke"
   },
   {
     "school": "Celerity",
@@ -15422,7 +15474,7 @@
     "introducingEvent": "Chaotic Memories (XII)",
     "nameJp": "ソードコンボ(レックス専用)",
     "id": 30141381,
-    "gl": false,
+    "gl": true,
     "recordBoardCharacter": "Reks"
   },
   {
@@ -18245,7 +18297,7 @@
     "introducingEvent": "The Sleepless City",
     "nameJp": "秘孔拳(サラマンダー専用)",
     "id": 30191281,
-    "gl": false,
+    "gl": true,
     "recordBoardCharacter": "Amarant"
   },
   {
@@ -18299,7 +18351,7 @@
     "introducingEvent": "The Sand Kingdom Rises",
     "nameJp": "爆裂拳【VI】(マッシュ専用)",
     "id": 30191291,
-    "gl": false,
+    "gl": true,
     "recordBoardCharacter": "Sabin"
   },
   {
@@ -18353,7 +18405,7 @@
     "introducingEvent": "Chaotic Memories II (III)",
     "nameJp": "烈火の鍛拳(レフィア専用)",
     "id": 30191301,
-    "gl": false,
+    "gl": true,
     "recordBoardCharacter": "Refia"
   },
   {
@@ -18404,7 +18456,7 @@
         0
       ]
     },
-    "introducingEvent": "Fat Black Chocobo: Soggy Magicites",
+    "introducingEvent": "Fat Black Chocobo: Soggy Magicite",
     "nameJp": "秘技「雷神飛竜昇」(雷神専用)",
     "id": 30191311,
     "gl": false,
@@ -18764,17 +18816,17 @@
       ],
       "Lightning Crystal": [
         null,
-        10,
-        15,
-        50,
-        75
-      ],
-      "Earth Crystal": [
-        null,
         5,
         10,
         25,
         35
+      ],
+      "Earth Crystal": [
+        null,
+        10,
+        15,
+        50,
+        75
       ],
       "Record Board": [
         1,
@@ -19969,7 +20021,7 @@
     "introducingEvent": "The Sleepless City",
     "nameJp": "タンタラスブレイク(マーカス専用)",
     "id": 30201221,
-    "gl": false,
+    "gl": true,
     "recordBoardCharacter": "Marcus"
   },
   {
@@ -20020,10 +20072,10 @@
         0
       ]
     },
-    "introducingEvent": "A Sword to Sheathe",
+    "introducingEvent": "Peace in Strength",
     "nameJp": "パウダーケッグ(ライオン専用)",
     "id": 30201231,
-    "gl": false,
+    "gl": true,
     "recordBoardCharacter": "Lion"
   },
   {
@@ -20101,18 +20153,18 @@
     "max": 10,
     "orbs": {
       "Power Crystal": [
-        6,
-        12,
-        18,
-        30,
-        60
-      ],
-      "Wind Crystal": [
         10,
         20,
         30,
         50,
         100
+      ],
+      "Wind Crystal": [
+        6,
+        12,
+        18,
+        30,
+        60
       ],
       "Dark Crystal": [
         6,
@@ -21804,7 +21856,7 @@
     "introducingEvent": "Fat Black Chocobo: Shadowy Magicite",
     "nameJp": "紛れ無き終焉(バッシュ専用)",
     "id": 30211321,
-    "gl": false,
+    "gl": true,
     "recordBoardCharacter": "Basch"
   },
   {
@@ -21859,7 +21911,7 @@
     "introducingEvent": "Core Torment",
     "nameJp": "オレ様流・聖岩裂斬(ビッグス専用)",
     "id": 30211331,
-    "gl": false,
+    "gl": true,
     "recordBoardCharacter": "Biggs"
   },
   {
@@ -21910,10 +21962,10 @@
         0
       ]
     },
-    "introducingEvent": "A Sword to Sheathe",
+    "introducingEvent": "Peace in Strength",
     "nameJp": "スウィフトブレード(クリルラ専用)",
     "id": 30211341,
-    "gl": false,
+    "gl": true,
     "recordBoardCharacter": "Curilla"
   },
   {
@@ -23562,6 +23614,60 @@
     "id": 30221281,
     "gl": false,
     "recordBoardCharacter": "Sephiroth"
+  },
+  {
+    "school": "Samurai",
+    "name": "Bushido Tempest",
+    "rarity": 6,
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 7,
+    "element": [
+      "Fire"
+    ],
+    "time": 3.3,
+    "effects": "Seven single attacks (1.00 each)",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 90,
+    "uses": 2,
+    "max": 10,
+    "orbs": {
+      "Power Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Non-Elemental Crystal": [
+        null,
+        10,
+        15,
+        50,
+        75
+      ],
+      "Fire Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Record Board": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "introducingEvent": "Chaotic Memories II (VI)",
+    "nameJp": "必殺剣・烈(カイエン専用)",
+    "id": 30221291,
+    "gl": false,
+    "recordBoardCharacter": "Cyan"
   },
   {
     "school": "Ninja",
@@ -27846,7 +27952,7 @@
   },
   {
     "school": "Machinist",
-    "name": "Enfeeble",
+    "name": "Withering Shot",
     "rarity": 6,
     "type": "PHY",
     "target": "Single enemy",
@@ -27897,7 +28003,7 @@
     "introducingEvent": "The Sand Kingdom Rises",
     "nameJp": "ウィークメーカー(エドガー専用)",
     "id": 30261241,
-    "gl": false,
+    "gl": true,
     "recordBoardCharacter": "Edgar"
   },
   {
@@ -27948,7 +28054,7 @@
         0
       ]
     },
-    "introducingEvent": "Fat Black Chocobo: Soggy Magicites",
+    "introducingEvent": "Fat Black Chocobo: Soggy Magicite",
     "nameJp": "クイックドロウ(キング専用)",
     "id": 30261251,
     "gl": false,
@@ -28038,18 +28144,18 @@
         60
       ],
       "Earth Crystal": [
-        10,
-        20,
-        30,
-        50,
-        100
-      ],
-      "Dark Crystal": [
         6,
         12,
         18,
         30,
         60
+      ],
+      "Dark Crystal": [
+        10,
+        20,
+        30,
+        50,
+        100
       ],
       "Ability Record": [
         1,
@@ -28117,6 +28223,60 @@
     "id": 30261281,
     "gl": false,
     "recordBoardCharacter": "Barret"
+  },
+  {
+    "school": "Machinist",
+    "name": "Tidal Wave",
+    "rarity": 6,
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 5.95,
+    "element": [
+      "Water"
+    ],
+    "time": 1.65,
+    "effects": "Seven single ranged attacks (0.85 each)",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 90,
+    "uses": 2,
+    "max": 10,
+    "orbs": {
+      "Non-Elemental Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Ice Crystal": [
+        null,
+        10,
+        15,
+        50,
+        75
+      ],
+      "Lightning Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Record Board": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "introducingEvent": "Hall of Illusions",
+    "nameJp": "タイダルウェーブ(リュック専用)",
+    "id": 30261291,
+    "gl": false,
+    "recordBoardCharacter": "Rikku"
   },
   {
     "school": "Darkness",
@@ -29810,7 +29970,7 @@
     "introducingEvent": "Chaotic Memories (XII)",
     "nameJp": "嶄然震撼(ヴェイン専用)",
     "id": 30271321,
-    "gl": false,
+    "gl": true,
     "recordBoardCharacter": "Vayne"
   },
   {
@@ -29861,10 +30021,10 @@
         0
       ]
     },
-    "introducingEvent": "A Sword to Sheathe",
+    "introducingEvent": "Peace in Strength",
     "nameJp": "アビッサルストライク(ザイド専用)",
     "id": 30271331,
-    "gl": false,
+    "gl": true,
     "recordBoardCharacter": "Zeid"
   },
   {
@@ -29920,6 +30080,61 @@
     "id": 30271341,
     "gl": false,
     "recordBoardCharacter": "Sice"
+  },
+  {
+    "school": "Darkness",
+    "name": "Insulating Appendages",
+    "rarity": 6,
+    "type": "BLK",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": null,
+    "element": [
+      "Dark",
+      "Lightning"
+    ],
+    "time": 1.65,
+    "effects": "Five single attacks (? each)",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 90,
+    "uses": 2,
+    "max": 10,
+    "orbs": {
+      "Non-Elemental Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Lightning Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Dark Crystal": [
+        null,
+        10,
+        15,
+        50,
+        75
+      ],
+      "Record Board": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "introducingEvent": "Labyrinth Dungeon Season 2 Group C",
+    "nameJp": "隔たりの触手(暗闇の雲専用)",
+    "id": 30271351,
+    "gl": false,
+    "recordBoardCharacter": "Cloud of Darkness"
   },
   {
     "school": "Sharpshooter",
@@ -30894,6 +31109,60 @@
     "recordBoardCharacter": "Trey"
   },
   {
+    "school": "Sharpshooter",
+    "name": "Red Card",
+    "rarity": 6,
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 4,
+    "element": [
+      "Dark"
+    ],
+    "time": 1.65,
+    "effects": "Four single ranged attacks (1.00 each), causes [Imperil Dark 10% (5s)], grants [Sharpshoot Quick Cast 2] (50% chance)/restores 1000 HP to all allies and removes [Poison], [Blind] and [Sleep] from all allies (50% chance)",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 90,
+    "uses": 2,
+    "max": 10,
+    "orbs": {
+      "Black Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Lightning Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Dark Crystal": [
+        null,
+        10,
+        15,
+        50,
+        75
+      ],
+      "Record Board": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "introducingEvent": "Chaotic Memories II (VI)",
+    "nameJp": "ブラッディカード(セッツァー専用)",
+    "id": 30281231,
+    "gl": false,
+    "recordBoardCharacter": "Setzer"
+  },
+  {
     "school": "Witch",
     "name": "Hell Thunder",
     "rarity": 5,
@@ -31623,15 +31892,15 @@
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 90,
-    "uses": null,
-    "max": null,
+    "uses": 2,
+    "max": 10,
     "orbs": {
       "Fire Crystal": [
         null,
+        5,
         10,
-        15,
-        50,
-        75
+        25,
+        35
       ],
       "Ice Crystal": [
         null,
@@ -31642,10 +31911,10 @@
       ],
       "Dark Crystal": [
         null,
-        5,
         10,
-        25,
-        35
+        15,
+        50,
+        75
       ],
       "Record Board": [
         1,

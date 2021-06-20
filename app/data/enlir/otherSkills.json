@@ -393,8 +393,8 @@
   },
   {
     "sourceType": "Follow-Up Status",
-    "source": "My Bonds Follow-Up",
-    "name": "My Bonds",
+    "source": "Our Bond Follow-Up",
+    "name": "Our Bond",
     "type": "PHY",
     "target": "Single enemy",
     "formula": "Physical",
@@ -411,12 +411,12 @@
     "sb": 0,
     "school": "Knight",
     "id": 31540628,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
-    "source": "Wonder Mirage Follow-Up",
-    "name": "Wonder Mirage",
+    "source": "Wondrous Mirage Follow-Up",
+    "name": "Wondrous Mirage",
     "type": "NAT",
     "typeDetails": [
       "PHY",
@@ -436,7 +436,7 @@
     "sb": 0,
     "school": "Black Magic",
     "id": 31540626,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
@@ -1544,8 +1544,8 @@
   },
   {
     "sourceType": "Follow-Up Status",
-    "source": "Blazing Strike Follow-Up",
-    "name": "Blazing Strike",
+    "source": "Relentless Blaze Follow-Up",
+    "name": "Relentless Blaze",
     "type": "PHY",
     "target": "Single enemy",
     "formula": "Physical",
@@ -1561,12 +1561,12 @@
     "sb": 0,
     "school": "Monk",
     "id": 31540685,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
-    "source": "Pulverizing Blast Follow-Up",
-    "name": "Pulverizing Blast",
+    "source": "Scattering Blast Follow-Up",
+    "name": "Scattering Blast",
     "type": "PHY",
     "target": "Single enemy",
     "formula": "Physical",
@@ -1582,7 +1582,7 @@
     "sb": 0,
     "school": "Monk",
     "id": 31540688,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
@@ -1624,6 +1624,104 @@
     "sb": 0,
     "school": "Black Magic",
     "id": 31541026,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Maiden of Water Mode",
+    "name": "Maiden's Support",
+    "type": "WHT",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": null,
+    "element": null,
+    "time": 0.01,
+    "effects": "One single attack that deals 99999 damage, grants [HP Stock (2000)] to a random ally",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "White Magic",
+    "id": 31541220,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Weakening Appendages",
+    "name": "Weakened Tentacles 0",
+    "type": "NAT",
+    "target": "Self",
+    "formula": null,
+    "multiplier": null,
+    "element": null,
+    "time": 0.01,
+    "effects": "Grants [Quick Cast 2]",
+    "counter": true,
+    "autoTarget": "Self",
+    "sb": 0,
+    "school": "Darkness",
+    "id": 31541285,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Weakening Appendages",
+    "name": "Weakened Tentacles 1",
+    "type": "BLK",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 11.28,
+    "element": [
+      "Dark",
+      "Lightning",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "One single attack (11.28) capped at 99999, causes [DEF, RES and MND -70% (8s)], causes Flood of Darkness -1 to the user",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Darkness",
+    "id": 31541285,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Weakening Appendages",
+    "name": "Weakened Tentacles 2",
+    "type": "BLK",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 16.4,
+    "element": [
+      "Dark",
+      "Lightning",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "One single attack (11.28) capped at 99999, causes [Imperil Lightning 10% (15s)] and [DEF, RES and MND -70% (8s)], causes Flood of Darkness -2 to the user",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Darkness",
+    "id": 31541285,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Particle Charge Follow-Up",
+    "name": "Particle Charge",
+    "type": "NAT",
+    "target": "Single enemy",
+    "formula": null,
+    "multiplier": null,
+    "element": null,
+    "time": 0.01,
+    "effects": "Causes [Imperil Lightning 10% (15s)] and [Imperil Dark 10% (15s)], grants [Dark/Lightning Ability +30% Boost 1] to the user",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Darkness",
+    "id": 31541289,
     "gl": false
   },
   {
@@ -3995,8 +4093,8 @@
   },
   {
     "sourceType": "Follow-Up Status",
-    "source": "Figaro Fighter Mode",
-    "name": "Figaro Fighter (Righteous)",
+    "source": "Figaro Firebrand Mode",
+    "name": "Lethal Punch (Righteous)",
     "type": "PHY",
     "target": "Single enemy",
     "formula": "Physical",
@@ -4006,13 +4104,52 @@
       "NE"
     ],
     "time": 0.01,
-    "effects": "Two single attacks (4.45 each), ignores DEF, 100% hit rate, causes Righteous Power -2 to the user",
+    "effects": "Two single attacks (4.45 each), ignores DEF, 100% hit rate, causes Pillar of Justice -2 to the user",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 0,
     "school": "Monk",
     "id": 31540655,
-    "gl": false
+    "gl": true
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Figaro Firebrand Mode",
+    "name": "Lethal Punch (Support)",
+    "type": "NAT",
+    "target": "All allies",
+    "formula": null,
+    "multiplier": null,
+    "element": null,
+    "time": 0.01,
+    "effects": "Restores 2000 HP and removes negative effects, causes Pillar of Support -2 to the user",
+    "counter": false,
+    "autoTarget": "All allies",
+    "sb": 0,
+    "school": "Monk",
+    "id": 31540655,
+    "gl": true
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Figaro Firebrand Mode",
+    "name": "Lethal Punch (Mixed)",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 5,
+    "element": [
+      "Fire",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "1/2 single attacks (3.52/2.50 each) capped at 99999 if the user has Physical Blink 0-1/2, 100% hit rate, causes Pillar of Justice -1 and Pillar of Support -1 to the user",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Monk",
+    "id": 31540655,
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
@@ -4035,46 +4172,7 @@
     "sb": 0,
     "school": "Machinist",
     "id": 31540651,
-    "gl": false
-  },
-  {
-    "sourceType": "Follow-Up Status",
-    "source": "Figaro Fighter Mode",
-    "name": "Figaro Fighter (Assist)",
-    "type": "NAT",
-    "target": "All allies",
-    "formula": null,
-    "multiplier": null,
-    "element": null,
-    "time": 0.01,
-    "effects": "Restores 2000 HP and removes negative effects, causes Assist Power -2 to the user",
-    "counter": false,
-    "autoTarget": "All allies",
-    "sb": 0,
-    "school": "Monk",
-    "id": 31540655,
-    "gl": false
-  },
-  {
-    "sourceType": "Follow-Up Status",
-    "source": "Figaro Fighter Mode",
-    "name": "Figaro Fighter (Other)",
-    "type": "PHY",
-    "target": "Single enemy",
-    "formula": "Physical",
-    "multiplier": 5,
-    "element": [
-      "Fire",
-      "NE"
-    ],
-    "time": 0.01,
-    "effects": "1/2 single attacks (3.52/2.50 each) capped at 99999 if the user has Physical Blink 0-1/2, 100% hit rate, causes Righteous Power -1 and Assist Power -1 to the user",
-    "counter": true,
-    "autoTarget": "Lowest HP% enemy",
-    "sb": 0,
-    "school": "Monk",
-    "id": 31540655,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
@@ -4116,6 +4214,69 @@
     "sb": 0,
     "school": "Monk",
     "id": 31541158,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Dutiful Samurai Mode",
+    "name": "Samurai's Blow",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 3.52,
+    "element": [
+      "Fire",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "One single attack (3.52) capped at 99999, 100% hit rate",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Samurai",
+    "id": 31541271,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Quick-witted Stance",
+    "name": "Quick Strike",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 2,
+    "element": [
+      "Fire",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Four single attacks (0.50 each), 100% hit rate, grants [Samurai Quick Cast 1] to the user",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Samurai",
+    "id": 31541276,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Dark Trick Follow-Up",
+    "name": "Dark Trick",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 2,
+    "element": [
+      "Dark",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Four single ranged attacks (0.50 each), causes [ATK and DEF -50% (8s)]/[MAG and RES -50% (8s)]/[DEF, RES and MND -50% (8s)] after casting Dark Trick 1+3n/2+3n/3+3n times",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Sharpshooter",
+    "id": 31541267,
     "gl": false
   },
   {
@@ -4708,6 +4869,27 @@
     "sb": 0,
     "school": "Combat",
     "id": 31541174,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Awoken Tsviet Mode",
+    "name": "Lightning Spear",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 4.32,
+    "element": [
+      "Lightning",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "One single attack (1.32/2.08/2.80/3.56/4.32) capped at 99999, 100% hit rate, causes [Imperil Lightning 10% (15s)]",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Celerity",
+    "id": 31541287,
     "gl": false
   },
   {
@@ -5837,7 +6019,7 @@
     "sb": 0,
     "school": "Summoning",
     "id": 31540579,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
@@ -5855,12 +6037,12 @@
     "sb": 0,
     "school": "Summoning",
     "id": 31540586,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
-    "source": "Payback Mode",
-    "name": "Eye for an Eye",
+    "source": "Eye for an Eye Mode",
+    "name": "Merciless Counter",
     "type": "PHY",
     "target": "Single enemy",
     "formula": "Physical",
@@ -5876,12 +6058,12 @@
     "sb": 0,
     "school": "Monk",
     "id": 31540642,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
     "source": "Awoken Power Throw",
-    "name": "Power Throw",
+    "name": "Flaming Spare Change",
     "type": "PHY",
     "target": "Single enemy",
     "formula": "Physical",
@@ -5897,7 +6079,7 @@
     "sb": 0,
     "school": "Monk",
     "id": 31540644,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
@@ -5915,7 +6097,7 @@
     "sb": 0,
     "school": "Thief",
     "id": 31540646,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
@@ -5957,6 +6139,45 @@
     "sb": 0,
     "school": "Dragoon",
     "id": 31540787,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Knightslayer Follow-Up",
+    "name": "Knightslayer",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 2,
+    "element": [
+      "Holy",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "2/4 single attacks (0.57/0.50 each) if Steiner isn't/is alive, 0%/100% additional critical chance if Steiner isn't/is alive",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Knight",
+    "id": 31541257,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Emerald Gleam Follow-Up",
+    "name": "Emerald Gleam",
+    "type": "WHT",
+    "target": "All allies",
+    "formula": null,
+    "multiplier": null,
+    "element": null,
+    "time": 0.01,
+    "effects": "Restores 1000 HP",
+    "counter": false,
+    "autoTarget": "All allies",
+    "sb": 0,
+    "school": "Summoning",
+    "id": 31541249,
     "gl": false
   },
   {
@@ -6461,6 +6682,147 @@
     "sb": 0,
     "school": "Summoning",
     "id": 31541021,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Break Buster Follow-Up",
+    "name": "Break Buster",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 2,
+    "element": [
+      "Water",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Four single attacks (0.50 each), 100% hit rate, restores 1000 HP to all allies if Yuna is alive, causes [ATK, DEF, MAG and RES -30% (8s)] if Rikku is alive",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Spellblade",
+    "id": 31541214,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Amateur Warrior Mode",
+    "name": "Full Slide",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 1.68,
+    "element": [
+      "Water",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Six single ranged attacks (0.28/0.32/0.36/0.40/0.44 each) scaling with uses, 100% hit rate",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Sharpshooter",
+    "id": 31541225,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Bushido Blade Mode",
+    "name": "Flame",
+    "type": "NAT",
+    "target": "Single enemy",
+    "formula": null,
+    "multiplier": null,
+    "element": null,
+    "time": 0.01,
+    "effects": "Causes [Imperil Fire 30% (5s)], removes [Bushido Blade Mode] from the user",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Samurai",
+    "id": 31541236,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Awoken Guardian's Guidance",
+    "name": "Dedicated Blade",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 4.32,
+    "element": [
+      "Fire",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Six single attacks (0.72 each), 100% hit rate, 100% additional critical chance if Braska or Jecht are alive, causes [Imperil Fire 10% (15s)] every second cast",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Samurai",
+    "id": 31541241,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Versatile Bomb Follow-Up",
+    "name": "Versatile Bomb",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 3,
+    "element": [
+      "Water",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "2/4/6 single ranged attacks (0.50 each) if 0-1/2-3/4+ of the target's stats are lowered, grants [Water Ability +15% Boost 1]/[Water Ability +30% Boost 1] if 2/4+ of the target's stats are lowered",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Machinist",
+    "id": 31541232,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Awoken Salvage",
+    "name": "Hydro Grenade",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 4.32,
+    "element": [
+      "Water",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Six single ranged attacks (0.72 each), 100% hit rate",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Machinist",
+    "id": 31541238,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Lively Girl Mode",
+    "name": "Help to Position",
+    "type": "NAT",
+    "target": "Single enemy",
+    "formula": null,
+    "multiplier": null,
+    "element": null,
+    "time": 0.01,
+    "effects": "Causes [Imperil Water 10% (15s)]/[Imperil Prismatic 10% (15s)]",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Thief",
+    "id": 31541239,
     "gl": false
   },
   {
@@ -7059,8 +7421,8 @@
   },
   {
     "sourceType": "Follow-Up Status",
-    "source": "Rising Dynast Mode",
-    "name": "Dark Sephira",
+    "source": "Scheming Statesman Mode",
+    "name": "Evil Sephira",
     "type": "NAT",
     "typeDetails": [
       "PHY",
@@ -7074,18 +7436,18 @@
       "NE"
     ],
     "time": 0.01,
-    "effects": "Five single ranged hybrid attacks (5.34 or 22.03 each), ignores DEF and RES, removes [Rising Dynast Mode] from the user",
+    "effects": "Five single ranged hybrid attacks (5.34 or 22.03 each), ignores DEF and RES, removes [Scheming Statesman Mode] from the user",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 0,
     "school": "Darkness",
     "id": 31540600,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
-    "source": "Awoken Striving Politician",
-    "name": "Writ of Archadia",
+    "source": "Awoken Ambition",
+    "name": "Statesman's Gambit",
     "type": "NAT",
     "typeDetails": [
       "PHY",
@@ -7105,7 +7467,7 @@
     "sb": 0,
     "school": "Darkness",
     "id": 31540605,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
@@ -10415,8 +10777,8 @@
   },
   {
     "sourceType": "Periodic Status",
-    "source": "Bystander of the World Mode",
-    "name": "Bystander of the World",
+    "source": "World Watcher Mode",
+    "name": "Divine Justice",
     "type": "BLK",
     "target": "Single enemy",
     "formula": "Magical",
@@ -10427,13 +10789,13 @@
       "NE"
     ],
     "time": 0.01,
-    "effects": "0/2/4 single attacks (1.30 each) scaling with activations, followed by one single attack (11.00) capped at 99999, removes [Bystander of the World Mode] after three uses",
+    "effects": "0/2/4 single attacks (1.30 each) scaling with activations, followed by one single attack (11.00) capped at 99999, removes [World Watcher Mode] after three uses",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 0,
     "school": "Black Magic",
     "id": 31540613,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Rage Status",
@@ -13068,7 +13430,7 @@
   {
     "sourceType": "Legend Materia",
     "source": "Onslaught (Wedge)",
-    "name": "Ambush",
+    "name": "Spiral Arc",
     "type": "NAT",
     "typeDetails": [
       "PHY",
@@ -13086,12 +13448,9 @@
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 0,
-    "school": "?",
-    "schoolDetails": [
-      "Need to remine, likely Special"
-    ],
+    "school": "Black Magic",
     "id": 31520017,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Legend Materia",
@@ -13306,7 +13665,7 @@
   {
     "sourceType": "Legend Materia",
     "source": "Onslaught (Refia)",
-    "name": "Ambush",
+    "name": "Flame Blossom",
     "type": "PHY",
     "target": "Single enemy",
     "formula": "Physical",
@@ -13322,7 +13681,7 @@
     "sb": 0,
     "school": "?",
     "id": null,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Legend Materia",
@@ -13498,7 +13857,7 @@
     "time": 0.01,
     "effects": "Three group attacks (0.67 each), 100% hit rate",
     "counter": true,
-    "autoTarget": "Lowest HP% enemy",
+    "autoTarget": "All enemies",
     "sb": 0,
     "school": "Monk",
     "id": 31520051,
@@ -13519,7 +13878,7 @@
     "time": 0.01,
     "effects": "One single attack (1.76) capped at 99999, 100% hit rate",
     "counter": true,
-    "autoTarget": "All enemies",
+    "autoTarget": "Lowest HP% enemy",
     "sb": 0,
     "school": "Monk",
     "id": 31520052,
@@ -13656,18 +14015,18 @@
     "type": "BLK",
     "target": "Single enemy",
     "formula": "Magical",
-    "multiplier": null,
+    "multiplier": 8.16,
     "element": [
       "Wind",
       "NE"
     ],
     "time": 0.01,
-    "effects": "Four single attacks (? each)",
+    "effects": "Four single attacks (2.04 each)",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 0,
     "school": "Black Magic",
-    "id": null,
+    "id": 31520013,
     "gl": true
   },
   {
@@ -13752,7 +14111,7 @@
   {
     "sourceType": "Legend Materia",
     "source": "Onslaught (Ayame)",
-    "name": "Ambush",
+    "name": "Zanshin (XI)",
     "type": "PHY",
     "target": "Single enemy",
     "formula": "Physical",
@@ -13766,9 +14125,9 @@
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 0,
-    "school": "?",
-    "id": null,
-    "gl": false
+    "school": "Samurai",
+    "id": 31520019,
+    "gl": true
   },
   {
     "sourceType": "Legend Materia",
@@ -13949,6 +14308,7 @@
     ],
     "time": 0.01,
     "effects": "Three single attacks (0.39 each), heals the user for 20% of the damage dealt",
+    "effectsNote": "Need to recheck multiplier",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 0,

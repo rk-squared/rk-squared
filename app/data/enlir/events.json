@@ -12434,7 +12434,7 @@
   {
     "eventName": "Fat Black Chocobo: Shadowy Magicite",
     "realm": null,
-    "glDate": null,
+    "glDate": "2021-05-13",
     "jpDate": "2020-11-06",
     "type": "Collection Event",
     "heroRecords": null,
@@ -12447,7 +12447,7 @@
   {
     "eventName": "Core Torment",
     "realm": "Core",
-    "glDate": null,
+    "glDate": "2021-05-18",
     "jpDate": "2020-11-14",
     "type": "Torment Dungeon",
     "heroRecords": null,
@@ -12460,7 +12460,7 @@
   {
     "eventName": "The Sleepless City",
     "realm": "IX",
-    "glDate": null,
+    "glDate": "2021-05-20",
     "jpDate": "2020-11-20",
     "type": "Challenge Event",
     "heroRecords": null,
@@ -12473,7 +12473,7 @@
   {
     "eventName": "Chaotic Memories (XII)",
     "realm": "XII",
-    "glDate": null,
+    "glDate": "2021-05-27",
     "jpDate": "2020-11-27",
     "type": "Challenge Event",
     "heroRecords": [
@@ -12498,7 +12498,7 @@
   {
     "eventName": "The Sand Kingdom Rises",
     "realm": "VI",
-    "glDate": null,
+    "glDate": "2021-06-03",
     "jpDate": "2020-11-30",
     "type": "Challenge Event",
     "heroRecords": null,
@@ -12511,7 +12511,7 @@
   {
     "eventName": "Chaotic Memories II (III)",
     "realm": "III",
-    "glDate": null,
+    "glDate": "2021-06-10",
     "jpDate": "2020-12-04",
     "type": "Challenge Event",
     "heroRecords": null,
@@ -12535,9 +12535,9 @@
     "abilitiesAwarded": null
   },
   {
-    "eventName": "A Sword to Sheathe",
+    "eventName": "Peace in Strength",
     "realm": "XI",
-    "glDate": null,
+    "glDate": "2021-06-17",
     "jpDate": "2020-12-11",
     "type": "Challenge Event",
     "heroRecords": null,
@@ -12548,7 +12548,7 @@
     "abilitiesAwarded": null
   },
   {
-    "eventName": "Fat Black Chocobo: Shocking Magicites",
+    "eventName": "Fat Black Chocobo: Shocking Magicite",
     "realm": null,
     "glDate": null,
     "jpDate": "2020-12-18",
@@ -12600,7 +12600,7 @@
     "abilitiesAwarded": null
   },
   {
-    "eventName": "Fat Black Chocobo: Soggy Magicites",
+    "eventName": "Fat Black Chocobo: Soggy Magicite",
     "realm": null,
     "glDate": null,
     "jpDate": "2021-01-08",
@@ -12616,7 +12616,7 @@
     "eventName": "Labyrinth Dungeon Season 1 Group B",
     "realm": null,
     "glDate": null,
-    "jpDate": "2021-01-08",
+    "jpDate": "2021-01-15",
     "type": "Labyrinth Event",
     "heroRecords": null,
     "memoryCrystals1": null,
@@ -12904,6 +12904,71 @@
     "glDate": null,
     "jpDate": "2021-05-14",
     "type": "Challenge Event",
+    "heroRecords": null,
+    "memoryCrystals1": null,
+    "memoryCrystals2": null,
+    "memoryCrystals3": null,
+    "wardrobeRecords": null,
+    "abilitiesAwarded": null
+  },
+  {
+    "eventName": "Labyrinth Dungeon Season 2 Group B",
+    "realm": null,
+    "glDate": null,
+    "jpDate": "2021-05-21",
+    "type": "Labyrinth Event",
+    "heroRecords": null,
+    "memoryCrystals1": null,
+    "memoryCrystals2": null,
+    "memoryCrystals3": null,
+    "wardrobeRecords": null,
+    "abilitiesAwarded": null
+  },
+  {
+    "eventName": "Hall of Illusions",
+    "realm": "X",
+    "glDate": null,
+    "jpDate": "2021-05-28",
+    "type": "Challenge Event",
+    "heroRecords": null,
+    "memoryCrystals1": null,
+    "memoryCrystals2": null,
+    "memoryCrystals3": null,
+    "wardrobeRecords": null,
+    "abilitiesAwarded": null
+  },
+  {
+    "eventName": "The Importance of Life",
+    "realm": "IX",
+    "glDate": null,
+    "jpDate": "2021-05-31",
+    "type": "Challenge Event",
+    "heroRecords": null,
+    "memoryCrystals1": null,
+    "memoryCrystals2": null,
+    "memoryCrystals3": null,
+    "wardrobeRecords": null,
+    "abilitiesAwarded": null
+  },
+  {
+    "eventName": "Chaotic Memories II (VI)",
+    "realm": "VI",
+    "glDate": null,
+    "jpDate": "2021-06-04",
+    "type": "Challenge Event",
+    "heroRecords": null,
+    "memoryCrystals1": null,
+    "memoryCrystals2": null,
+    "memoryCrystals3": null,
+    "wardrobeRecords": null,
+    "abilitiesAwarded": null
+  },
+  {
+    "eventName": "Labyrinth Dungeon Season 2 Group C",
+    "realm": null,
+    "glDate": null,
+    "jpDate": "2021-06-11",
+    "type": "Labyrinth Event",
     "heroRecords": null,
     "memoryCrystals1": null,
     "memoryCrystals2": null,
