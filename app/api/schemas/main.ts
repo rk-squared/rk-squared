@@ -41,6 +41,8 @@ export interface Event {
   // e.g., "nightmare_dungeon" (Torment), "beast_element_dungeon", "crystal_tower", "ff4_reopen_ww201804"
   tag: string;
   background_image_path: RelativeUrlPath;
+  // e.g., { "0": "FFRK_0033_bg" }
+  background_image_map?: Record<string, string>;
 }
 
 export interface World {

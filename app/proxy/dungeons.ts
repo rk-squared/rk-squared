@@ -375,6 +375,8 @@ export function convertWorld(
     } else {
       category = WorldCategory.Event;
     }
+  } else if (event.type_name === 'labyrinth') {
+    category = WorldCategory.Labyrinth;
   } else {
     return null;
   }

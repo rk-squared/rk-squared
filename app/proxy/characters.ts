@@ -54,7 +54,10 @@ function handleWinBattle(data: schemas.WinBattle, store: Store<IState>) {
 
 const charactersHandler: Handler = {
   'party/list'(data: schemas.PartyList, store: Store<IState>, request: HandlerRequest) {
-    if (schemas.isRecordDungeonPartyList(request.url)) {
+    if (
+      schemas.isRecordDungeonPartyList(request.url) ||
+      schemas.isLabyrinthPartyList(request.url)
+    ) {
       return;
     }
     store.dispatch(setCharacters(convertCharacters(data)));

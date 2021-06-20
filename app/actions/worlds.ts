@@ -22,6 +22,7 @@ export enum WorldCategory {
   Dreams,
   Dreambreaker,
   Dragonking,
+  Labyrinth,
 }
 
 export const descriptions: { [c in WorldCategory]: string } = {
@@ -41,6 +42,7 @@ export const descriptions: { [c in WorldCategory]: string } = {
   [WorldCategory.Renewal]: 'Renewal Dungeons',
   [WorldCategory.Record]: 'Record Dungeons',
   [WorldCategory.Dragonking]: 'Dragonking',
+  [WorldCategory.Labyrinth]: 'Labyrinth',
 };
 
 export const sortOrder = [
@@ -52,6 +54,7 @@ export const sortOrder = [
   WorldCategory.CrystalTower,
   WorldCategory.Realm,
   WorldCategory.Record,
+  WorldCategory.Labyrinth,
   WorldCategory.Nightmare,
   WorldCategory.Magicite,
   WorldCategory.Dreams,
@@ -97,7 +100,7 @@ export interface RecordWorldChapter {
   name: string;
 }
 
-function getSortOrder(category: WorldCategory) {
+function getSortOrder(category: WorldCategory): WorldSortOrder {
   switch (category) {
     case WorldCategory.Renewal:
       return WorldSortOrder.ByReverseId;
@@ -126,6 +129,9 @@ function getSortOrder(category: WorldCategory) {
       // Jump Starts were ByTime, but, once they were all open, by series
       // makes more sense.
       return WorldSortOrder.BySeriesId;
+    case WorldCategory.Labyrinth:
+      // All labyrinth seasons may use one world, so this may be irrelevant.
+      return WorldSortOrder.ById;
   }
 }
 

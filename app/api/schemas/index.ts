@@ -172,11 +172,19 @@ export function isRecordDungeonPartyList(url: UrlWithStringQuery | undefined) {
   return url && url.pathname && url.pathname.includes('original_scenario/');
 }
 
+export function isLabyrinthPartyList(url: UrlWithStringQuery | undefined) {
+  return url && url.pathname && url.pathname.includes('labyrinth/');
+}
+
 // http://ffrk.denagames.com/dff/party/list
 // Record dungeons use a similar but restricted schema.  For example:
 // http://ffrk.denagames.com/dff/event/original_scenario/11002/party/list?dungeon_id=40100217
+//
 // As of February 2019, this appears to be discontinued in favor of
 // party/list_buddy, party/list_equipment, and party/list_other
+//
+// As of June 2021, see also dff/labyrinth/party/list, which is completely
+// different; it gives a `parties` array with IDs of the three parties' members.
 export interface PartyList {
   buddies: Buddy[];
 
