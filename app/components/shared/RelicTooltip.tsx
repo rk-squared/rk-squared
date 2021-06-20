@@ -3,7 +3,13 @@ import * as ReactTooltip from 'react-tooltip';
 
 import * as _ from 'lodash';
 
-import { describeRelicStats, enlir, EnlirRelicRarity } from '../../data/enlir';
+import {
+  describeRelicStats,
+  enlir,
+  EnlirRelicRarity,
+  EnlirHeroArtifact,
+  EnlirRelic,
+} from '../../data/enlir';
 import { formatRelicName } from '../../data/items';
 import { separateWithBr } from '../common/BrText';
 
@@ -17,15 +23,20 @@ const formatRarity = (rarity: EnlirRelicRarity) => (rarity === 'S' ? 'Artifact' 
 export class RelicTooltip extends React.PureComponent<Props & any> {
   render() {
     const { id, relicId, ...props } = this.props;
-    const relic = enlir.relics[relicId];
+    const relic =
+      (enlir.relics[relicId] as EnlirRelic | undefined) ??
+      (enlir.heroArtifacts[relicId] as EnlirHeroArtifact | undefined);
     if (!relic) {
       return null;
     }
 
     const lines = _.filter([
-      formatRarity(relic.rarity) + ' ' + relic.type,
+      ('season' in relic ? relic.character + "'s Hero Artifact" : formatRarity(relic.rarity)) +
+        ' ' +
+        relic.type,
       describeRelicStats(relic),
-      relic.effect,
+      'effect' in relic ? relic.effect : undefined,
+      ...('fixedEffects' in relic ? relic.fixedEffects : []),
     ]);
 
     return (

@@ -71,7 +71,7 @@ export function recordMateriaImage(lang: LangType, id: number): string {
 }
 
 export function relicImage(lang: LangType, id: number, rarity: EnlirRelicRarity): string {
-  const fragment = rarity === 'S' ? '100' : `0${rarity}`;
+  const fragment = enlir.heroArtifacts[id] ? '101' : rarity === 'S' ? '100' : `0${rarity}`;
   return url(lang, `image/equipment/${id}/${id}_${fragment}_112.png`);
 }
 

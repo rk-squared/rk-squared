@@ -38,13 +38,15 @@ export class PrizeList extends React.PureComponent<Props> {
               >
                 <img src={itemImage(lang, prize.id, prize.type)} width={32} height={32} alt="" />
                 {prize.name} ×{formatAmount(prize.amount)}
-                {showTooltips && prize.type === ItemType.Relic && enlir.relics[prize.id] && (
-                  <RelicTooltip
-                    id={`prize-tooltip-${prize.id}`}
-                    relicId={prize.id}
-                    place="bottom"
-                  />
-                )}
+                {showTooltips &&
+                  prize.type === ItemType.Relic &&
+                  (enlir.relics[prize.id] || enlir.heroArtifacts[prize.id]) && (
+                    <RelicTooltip
+                      id={`prize-tooltip-${prize.id}`}
+                      relicId={prize.id}
+                      place="bottom"
+                    />
+                  )}
               </li>
             ))}
           </ul>

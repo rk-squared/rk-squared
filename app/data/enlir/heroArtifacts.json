@@ -1,0 +1,8480 @@
+[
+  {
+    "character": "Wedge",
+    "realm": "Core",
+    "season": "1",
+    "group": "B",
+    "name": "Crescent Knife",
+    "type": "Dagger",
+    "rarity": "S",
+    "stats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 258,
+      "def": 0,
+      "mag": 258,
+      "res": 0,
+      "mnd": 0,
+      "acc": 95,
+      "eva": 0
+    },
+    "fixedEffects": [
+      "Hand of Vengeance 5",
+      "Prismatic damage +20%"
+    ],
+    "randomEffects": [
+      "Wind +1/2/3/4/5% Boost",
+      "Quick Cast 3/4/5%",
+      "Grants [MAG +10% (8s)]/[MAG +20% (8s)]/[MAG +30% (8s)] at the beginning of the battle"
+    ],
+    "baseStats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 165,
+      "def": null,
+      "mag": 165,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": "S",
+      "level": 99,
+      "atk": 350,
+      "def": null,
+      "mag": 350,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 21301214,
+    "gl": false
+  },
+  {
+    "character": "Wedge",
+    "realm": "Core",
+    "season": "1",
+    "group": "B",
+    "name": "Wedge's Hat",
+    "type": "Hat",
+    "rarity": "S",
+    "stats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 49,
+      "def": 101,
+      "mag": 49,
+      "res": 143,
+      "mnd": 0,
+      "acc": 0,
+      "eva": 105
+    },
+    "fixedEffects": [
+      "Empower Healing 5%",
+      "Prismatic damage +20%"
+    ],
+    "randomEffects": [
+      "Wind Ability +1/2/3/4/5% Boost",
+      "Grants [20% Damage Reduction Barrier 1 Follow-Up]/[30% Damage Reduction Barrier 1 Follow-Up]/[40% Damage Reduction Barrier 1 Follow-Up] at the beginning of the battle",
+      "Grants [RES +10% (8s)]/[RES +20% (8s)]/[RES +30% (8s)] at the beginning of the battle"
+    ],
+    "baseStats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 36,
+      "def": 61,
+      "mag": 36,
+      "res": 76,
+      "mnd": null,
+      "acc": null,
+      "eva": 105
+    },
+    "maxStats": {
+      "rarity": "S",
+      "level": 99,
+      "atk": 62,
+      "def": 140,
+      "mag": 62,
+      "res": 210,
+      "mnd": null,
+      "acc": null,
+      "eva": 105
+    },
+    "id": 22351169,
+    "gl": false
+  },
+  {
+    "character": "Wedge",
+    "realm": "Core",
+    "season": "1",
+    "group": "B",
+    "name": "Wedge's Scarf",
+    "type": "Accessory",
+    "rarity": "S",
+    "stats": {
+      "rarity": "S",
+      "level": 1,
+      "atk": 0,
+      "def": 0,
+      "mag": 0,
+      "res": 0,
+      "mnd": 0,
+      "acc": 0,
+      "eva": 0
+    },
+    "fixedEffects": [
+      "HP +500",
+      "Prismatic resistance (moderate)"
+    ],
+    "randomEffects": [
+      "Quick Cast 4/5/6/7/8%"
+    ],
+    "baseStats": {
+      "rarity": "S",
+      "level": 1,
+      "atk": null,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": null,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": "S",
+      "level": 1,
+      "atk": null,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": null,
+      "eva": null
+    },
+    "id": 23380644,
+    "gl": false
+  },
+  {
+    "character": "Master",
+    "realm": "I",
+    "season": "2",
+    "group": "A",
+    "name": "Buster Knuckles",
+    "type": "Fist",
+    "rarity": "S",
+    "stats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 266,
+      "def": 0,
+      "mag": 0,
+      "res": 0,
+      "mnd": 0,
+      "acc": 95,
+      "eva": 0
+    },
+    "fixedEffects": [
+      "Deadly Strikes 5",
+      "Prismatic damage +20%"
+    ],
+    "randomEffects": [
+      "Fire/Lightning/Earth +1/2/3/4/5% Boost",
+      "Quick Cast 3/4/5%",
+      "Grants [ATK +10% (8s)]/[ATK +20% (8s)]/[ATK +30% (8s)] at the beginning of the battle"
+    ],
+    "baseStats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 172,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": "S",
+      "level": 99,
+      "atk": 360,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 21307218,
+    "gl": false
+  },
+  {
+    "character": "Master",
+    "realm": "I",
+    "season": "2",
+    "group": "A",
+    "name": "Chikara Dasuki",
+    "type": "Light Armor",
+    "rarity": "S",
+    "stats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 49,
+      "def": 122,
+      "mag": 0,
+      "res": 122,
+      "mnd": 0,
+      "acc": 0,
+      "eva": 100
+    },
+    "fixedEffects": [
+      "Precise Strikes 5",
+      "Prismatic damage +20%"
+    ],
+    "randomEffects": [
+      "Fire/Lightning/Earth Ability +1/2/3/4/5% Boost",
+      "Grants [20% Damage Reduction Barrier 1 Follow-Up]/[30% Damage Reduction Barrier 1 Follow-Up]/[40% Damage Reduction Barrier 1 Follow-Up] at the beginning of the battle",
+      "Grants [DEF +10% (8s)]/[DEF +20% (8s)]/[DEF +30% (8s)] at the beginning of the battle"
+    ],
+    "baseStats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 36,
+      "def": 50,
+      "mag": null,
+      "res": 50,
+      "mnd": null,
+      "acc": null,
+      "eva": 100
+    },
+    "maxStats": {
+      "rarity": "S",
+      "level": 99,
+      "atk": 62,
+      "def": 194,
+      "mag": null,
+      "res": 194,
+      "mnd": null,
+      "acc": null,
+      "eva": 100
+    },
+    "id": 22353257,
+    "gl": false
+  },
+  {
+    "character": "Master",
+    "realm": "I",
+    "season": "2",
+    "group": "A",
+    "name": "Golden Apple",
+    "type": "Accessory",
+    "rarity": "S",
+    "stats": {
+      "rarity": "S",
+      "level": 1,
+      "atk": 0,
+      "def": 0,
+      "mag": 0,
+      "res": 0,
+      "mnd": 0,
+      "acc": 0,
+      "eva": 0
+    },
+    "fixedEffects": [
+      "HP +500",
+      "Prismatic resistance (moderate)"
+    ],
+    "randomEffects": [
+      "Quick Cast 4/5/6/7/8%"
+    ],
+    "baseStats": {
+      "rarity": "S",
+      "level": 1,
+      "atk": null,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": null,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": "S",
+      "level": 1,
+      "atk": null,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": null,
+      "eva": null
+    },
+    "id": 23380621,
+    "gl": false
+  },
+  {
+    "character": "Matoya",
+    "realm": "I",
+    "season": "2",
+    "group": "A",
+    "name": "Matoya's Broom",
+    "type": "Staff",
+    "rarity": "S",
+    "stats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 0,
+      "def": 0,
+      "mag": 258,
+      "res": 0,
+      "mnd": 129,
+      "acc": 95,
+      "eva": 0
+    },
+    "fixedEffects": [
+      "Hand of Vengeance 5",
+      "Prismatic damage +20%"
+    ],
+    "randomEffects": [
+      "Fire/Ice/Lightning +1/2/3/4/5% Boost",
+      "Quick Cast 3/4/5%",
+      "Grants [MAG +10% (8s)]/[MAG +20% (8s)]/[MAG +30% (8s)] at the beginning of the battle"
+    ],
+    "baseStats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": null,
+      "def": null,
+      "mag": 165,
+      "res": null,
+      "mnd": 83,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": "S",
+      "level": 99,
+      "atk": null,
+      "def": null,
+      "mag": 350,
+      "res": null,
+      "mnd": 175,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 21309081,
+    "gl": false
+  },
+  {
+    "character": "Matoya",
+    "realm": "I",
+    "season": "2",
+    "group": "A",
+    "name": "Matoya's Robe",
+    "type": "Robe",
+    "rarity": "S",
+    "stats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 0,
+      "def": 100,
+      "mag": 39,
+      "res": 163,
+      "mnd": 39,
+      "acc": 0,
+      "eva": 105
+    },
+    "fixedEffects": [
+      "Empower Healing 5%",
+      "Prismatic damage +20%"
+    ],
+    "randomEffects": [
+      "Fire/Ice/Lightning Ability +1/2/3/4/5% Boost",
+      "Grants [20% Damage Reduction Barrier 1 Follow-Up]/[30% Damage Reduction Barrier 1 Follow-Up]/[40% Damage Reduction Barrier 1 Follow-Up] at the beginning of the battle",
+      "Grants [RES +10% (8s)]/[RES +20% (8s)]/[RES +30% (8s)] at the beginning of the battle"
+    ],
+    "baseStats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": null,
+      "def": 45,
+      "mag": 26,
+      "res": 93,
+      "mnd": 26,
+      "acc": null,
+      "eva": 105
+    },
+    "maxStats": {
+      "rarity": "S",
+      "level": 99,
+      "atk": null,
+      "def": 155,
+      "mag": 52,
+      "res": 233,
+      "mnd": 52,
+      "acc": null,
+      "eva": 105
+    },
+    "id": 22355089,
+    "gl": false
+  },
+  {
+    "character": "Matoya",
+    "realm": "I",
+    "season": "2",
+    "group": "A",
+    "name": "Bekkoame",
+    "type": "Accessory",
+    "rarity": "S",
+    "stats": {
+      "rarity": "S",
+      "level": 1,
+      "atk": 0,
+      "def": 0,
+      "mag": 0,
+      "res": 0,
+      "mnd": 0,
+      "acc": 0,
+      "eva": 0
+    },
+    "fixedEffects": [
+      "HP +500",
+      "Prismatic resistance (moderate)"
+    ],
+    "randomEffects": [
+      "Quick Cast 4/5/6/7/8%"
+    ],
+    "baseStats": {
+      "rarity": "S",
+      "level": 1,
+      "atk": null,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": null,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": "S",
+      "level": 1,
+      "atk": null,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": null,
+      "eva": null
+    },
+    "id": 23380587,
+    "gl": false
+  },
+  {
+    "character": "Meia",
+    "realm": "I",
+    "season": "2",
+    "group": "B",
+    "name": "Svetovid",
+    "type": "Rod",
+    "rarity": "S",
+    "stats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 0,
+      "def": 0,
+      "mag": 258,
+      "res": 0,
+      "mnd": 0,
+      "acc": 95,
+      "eva": 0
+    },
+    "fixedEffects": [
+      "Hand of Vengeance 5",
+      "Prismatic damage +20%"
+    ],
+    "randomEffects": [
+      "Water +1/2/3/4/5% Boost",
+      "Quick Cast 3/4/5%",
+      "Grants [MAG +10% (8s)]/[MAG +20% (8s)]/[MAG +30% (8s)] at the beginning of the battle"
+    ],
+    "baseStats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": null,
+      "def": null,
+      "mag": 165,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": "S",
+      "level": 99,
+      "atk": null,
+      "def": null,
+      "mag": 350,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 21308228,
+    "gl": false
+  },
+  {
+    "character": "Meia",
+    "realm": "I",
+    "season": "2",
+    "group": "B",
+    "name": "Vesna Krasna",
+    "type": "Light Armor",
+    "rarity": "S",
+    "stats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 0,
+      "def": 122,
+      "mag": 49,
+      "res": 122,
+      "mnd": 0,
+      "acc": 0,
+      "eva": 0
+    },
+    "fixedEffects": [
+      "Empower Healing 5%",
+      "Prismatic damage +20%"
+    ],
+    "randomEffects": [
+      "Water Ability +1/2/3/4/5% Boost",
+      "Grants [20% Damage Reduction Barrier 1 Follow-Up]/[30% Damage Reduction Barrier 1 Follow-Up]/[40% Damage Reduction Barrier 1 Follow-Up] at the beginning of the battle",
+      "Grants [RES +10% (8s)]/[RES +20% (8s)]/[RES +30% (8s)] at the beginning of the battle"
+    ],
+    "baseStats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": null,
+      "def": 50,
+      "mag": 36,
+      "res": 50,
+      "mnd": null,
+      "acc": null,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": "S",
+      "level": 99,
+      "atk": null,
+      "def": 194,
+      "mag": 62,
+      "res": 194,
+      "mnd": null,
+      "acc": null,
+      "eva": null
+    },
+    "id": 22353268,
+    "gl": false
+  },
+  {
+    "character": "Meia",
+    "realm": "I",
+    "season": "2",
+    "group": "B",
+    "name": "Angel Ring",
+    "type": "Accessory",
+    "rarity": "S",
+    "stats": {
+      "rarity": "S",
+      "level": 1,
+      "atk": 0,
+      "def": 0,
+      "mag": 0,
+      "res": 0,
+      "mnd": 0,
+      "acc": 0,
+      "eva": 0
+    },
+    "fixedEffects": [
+      "HP +500",
+      "Prismatic resistance (moderate)"
+    ],
+    "randomEffects": [
+      "Quick Cast 4/5/6/7/8%"
+    ],
+    "baseStats": {
+      "rarity": "S",
+      "level": 1,
+      "atk": null,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": null,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": "S",
+      "level": 1,
+      "atk": null,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": null,
+      "eva": null
+    },
+    "id": 23380285,
+    "gl": false
+  },
+  {
+    "character": "Guy",
+    "realm": "II",
+    "season": "1",
+    "group": "A",
+    "name": "Gigant Axe",
+    "type": "Axe",
+    "rarity": "S",
+    "stats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 266,
+      "def": 0,
+      "mag": 0,
+      "res": 0,
+      "mnd": 0,
+      "acc": 95,
+      "eva": 0
+    },
+    "fixedEffects": [
+      "Deadly Strikes 5",
+      "Prismatic damage +20%"
+    ],
+    "randomEffects": [
+      "Earth +1/2/3/4/5% Boost",
+      "Quick Cast 3/4/5%",
+      "Grants [ATK +10% (8s)]/[ATK +20% (8s)]/[ATK +30% (8s)] at the beginning of the battle"
+    ],
+    "baseStats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 172,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": "S",
+      "level": 99,
+      "atk": 360,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 21304031,
+    "gl": true
+  },
+  {
+    "character": "Guy",
+    "realm": "II",
+    "season": "1",
+    "group": "A",
+    "name": "Guy's Helm",
+    "type": "Helm",
+    "rarity": "S",
+    "stats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 49,
+      "def": 126,
+      "mag": 0,
+      "res": 115,
+      "mnd": 0,
+      "acc": 0,
+      "eva": 105
+    },
+    "fixedEffects": [
+      "Precise Strikes 5",
+      "Prismatic damage +20%"
+    ],
+    "randomEffects": [
+      "Earth Ability +1/2/3/4/5% Boost",
+      "Grants [20% Damage Reduction Barrier 1 Follow-Up]/[30% Damage Reduction Barrier 1 Follow-Up]/[40% Damage Reduction Barrier 1 Follow-Up] at the beginning of the battle",
+      "Grants [DEF +10% (8s)]/[DEF +20% (8s)]/[DEF +30% (8s)] at the beginning of the battle"
+    ],
+    "baseStats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 36,
+      "def": 57,
+      "mag": null,
+      "res": 57,
+      "mnd": null,
+      "acc": null,
+      "eva": 105
+    },
+    "maxStats": {
+      "rarity": "S",
+      "level": 99,
+      "atk": 62,
+      "def": 195,
+      "mag": null,
+      "res": 173,
+      "mnd": null,
+      "acc": null,
+      "eva": 105
+    },
+    "id": 22352072,
+    "gl": true
+  },
+  {
+    "character": "Guy",
+    "realm": "II",
+    "season": "1",
+    "group": "A",
+    "name": "Sunfire",
+    "type": "Accessory",
+    "rarity": "S",
+    "stats": {
+      "rarity": "S",
+      "level": 1,
+      "atk": 0,
+      "def": 0,
+      "mag": 0,
+      "res": 0,
+      "mnd": 0,
+      "acc": 0,
+      "eva": 0
+    },
+    "fixedEffects": [
+      "HP +500",
+      "Prismatic resistance (moderate)"
+    ],
+    "randomEffects": [
+      "Quick Cast 4/5/6/7/8%"
+    ],
+    "baseStats": {
+      "rarity": "S",
+      "level": 1,
+      "atk": null,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": null,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": "S",
+      "level": 1,
+      "atk": null,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": null,
+      "eva": null
+    },
+    "id": 23380380,
+    "gl": true
+  },
+  {
+    "character": "Emperor",
+    "realm": "II",
+    "season": "1",
+    "group": "A",
+    "name": "Demon's Rod",
+    "type": "Rod",
+    "rarity": "S",
+    "stats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 0,
+      "def": 0,
+      "mag": 258,
+      "res": 0,
+      "mnd": 0,
+      "acc": 95,
+      "eva": 0
+    },
+    "fixedEffects": [
+      "Hand of Vengeance 5",
+      "Prismatic damage +20%"
+    ],
+    "randomEffects": [
+      "Earth/Wind/Dark +1/2/3/4/5% Boost",
+      "Quick Cast 3/4/5%",
+      "Grants [MAG +10% (8s)]/[MAG +20% (8s)]/[MAG +30% (8s)] at the beginning of the battle"
+    ],
+    "baseStats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": null,
+      "def": null,
+      "mag": 165,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": "S",
+      "level": 99,
+      "atk": null,
+      "def": null,
+      "mag": 350,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 21308134,
+    "gl": true
+  },
+  {
+    "character": "Emperor",
+    "realm": "II",
+    "season": "1",
+    "group": "A",
+    "name": "Imperial Shell",
+    "type": "Light Armor",
+    "rarity": "S",
+    "stats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 0,
+      "def": 122,
+      "mag": 49,
+      "res": 122,
+      "mnd": 0,
+      "acc": 0,
+      "eva": 100
+    },
+    "fixedEffects": [
+      "Empower Healing 5%",
+      "Prismatic damage +20%"
+    ],
+    "randomEffects": [
+      "Earth/Wind/Dark Ability +1/2/3/4/5% Boost",
+      "Grants [20% Damage Reduction Barrier 1 Follow-Up]/[30% Damage Reduction Barrier 1 Follow-Up]/[40% Damage Reduction Barrier 1 Follow-Up] at the beginning of the battle",
+      "Grants [RES +10% (8s)]/[RES +20% (8s)]/[RES +30% (8s)] at the beginning of the battle"
+    ],
+    "baseStats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": null,
+      "def": 50,
+      "mag": 36,
+      "res": 50,
+      "mnd": null,
+      "acc": null,
+      "eva": 100
+    },
+    "maxStats": {
+      "rarity": "S",
+      "level": 99,
+      "atk": null,
+      "def": 194,
+      "mag": 62,
+      "res": 194,
+      "mnd": null,
+      "acc": null,
+      "eva": 100
+    },
+    "id": 22353221,
+    "gl": true
+  },
+  {
+    "character": "Emperor",
+    "realm": "II",
+    "season": "1",
+    "group": "A",
+    "name": "Emperor's Ring",
+    "type": "Accessory",
+    "rarity": "S",
+    "stats": {
+      "rarity": "S",
+      "level": 1,
+      "atk": 0,
+      "def": 0,
+      "mag": 0,
+      "res": 0,
+      "mnd": 0,
+      "acc": 0,
+      "eva": 0
+    },
+    "fixedEffects": [
+      "HP +500",
+      "Prismatic resistance (moderate)"
+    ],
+    "randomEffects": [
+      "Quick Cast 4/5/6/7/8%"
+    ],
+    "baseStats": {
+      "rarity": "S",
+      "level": 1,
+      "atk": null,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": null,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": "S",
+      "level": 1,
+      "atk": null,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": null,
+      "eva": null
+    },
+    "id": 23380556,
+    "gl": true
+  },
+  {
+    "character": "Firion",
+    "realm": "II",
+    "season": "1",
+    "group": "C",
+    "name": "Crimson Sword",
+    "type": "Sword",
+    "rarity": "S",
+    "stats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 266,
+      "def": 0,
+      "mag": 0,
+      "res": 0,
+      "mnd": 0,
+      "acc": 95,
+      "eva": 0
+    },
+    "fixedEffects": [
+      "Deadly Strikes 5",
+      "Prismatic damage +20%"
+    ],
+    "randomEffects": [
+      "Fire/Ice/Holy +1/2/3/4/5% Boost",
+      "Quick Cast 3/4/5%",
+      "Grants [ATK +10% (8s)]/[ATK +20% (8s)]/[ATK +30% (8s)] at the beginning of the battle"
+    ],
+    "baseStats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 172,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": "S",
+      "level": 99,
+      "atk": 360,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 21302349,
+    "gl": false
+  },
+  {
+    "character": "Firion",
+    "realm": "II",
+    "season": "1",
+    "group": "C",
+    "name": "Firion's Bandana",
+    "type": "Hat",
+    "rarity": "S",
+    "stats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 49,
+      "def": 101,
+      "mag": 0,
+      "res": 143,
+      "mnd": 0,
+      "acc": 0,
+      "eva": 105
+    },
+    "fixedEffects": [
+      "Precise Strikes 5",
+      "Prismatic damage +20%"
+    ],
+    "randomEffects": [
+      "Fire/Ice/Holy Ability +1/2/3/4/5% Boost",
+      "Grants [20% Damage Reduction Barrier 1 Follow-Up]/[30% Damage Reduction Barrier 1 Follow-Up]/[40% Damage Reduction Barrier 1 Follow-Up] at the beginning of the battle",
+      "Grants [DEF +10% (8s)]/[DEF +20% (8s)]/[DEF +30% (8s)] at the beginning of the battle"
+    ],
+    "baseStats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 36,
+      "def": 61,
+      "mag": null,
+      "res": 76,
+      "mnd": null,
+      "acc": null,
+      "eva": 105
+    },
+    "maxStats": {
+      "rarity": "S",
+      "level": 99,
+      "atk": 62,
+      "def": 140,
+      "mag": null,
+      "res": 210,
+      "mnd": null,
+      "acc": null,
+      "eva": 105
+    },
+    "id": 22351158,
+    "gl": false
+  },
+  {
+    "character": "Firion",
+    "realm": "II",
+    "season": "1",
+    "group": "C",
+    "name": "Firion's Earring",
+    "type": "Accessory",
+    "rarity": "S",
+    "stats": {
+      "rarity": "S",
+      "level": 1,
+      "atk": 0,
+      "def": 0,
+      "mag": 0,
+      "res": 0,
+      "mnd": 0,
+      "acc": 0,
+      "eva": 0
+    },
+    "fixedEffects": [
+      "HP +500",
+      "Prismatic resistance (moderate)"
+    ],
+    "randomEffects": [
+      "Quick Cast 4/5/6/7/8%"
+    ],
+    "baseStats": {
+      "rarity": "S",
+      "level": 1,
+      "atk": null,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": null,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": "S",
+      "level": 1,
+      "atk": null,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": null,
+      "eva": null
+    },
+    "id": 23380295,
+    "gl": false
+  },
+  {
+    "character": "Leila",
+    "realm": "II",
+    "season": "2",
+    "group": "B",
+    "name": "Dancing Dagger",
+    "type": "Dagger",
+    "rarity": "S",
+    "stats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 266,
+      "def": 0,
+      "mag": 0,
+      "res": 0,
+      "mnd": 0,
+      "acc": 95,
+      "eva": 0
+    },
+    "fixedEffects": [
+      "Deadly Strikes 5",
+      "Prismatic damage +20%"
+    ],
+    "randomEffects": [
+      "Water/Poison +1/2/3/4/5% Boost",
+      "Quick Cast 3/4/5%",
+      "Grants [ATK +10% (8s)]/[ATK +20% (8s)]/[ATK +30% (8s)] at the beginning of the battle"
+    ],
+    "baseStats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 172,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": "S",
+      "level": 99,
+      "atk": 360,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 21301078,
+    "gl": false
+  },
+  {
+    "character": "Leila",
+    "realm": "II",
+    "season": "2",
+    "group": "B",
+    "name": "Leila's Guise",
+    "type": "Light Armor",
+    "rarity": "S",
+    "stats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 49,
+      "def": 122,
+      "mag": 0,
+      "res": 122,
+      "mnd": 0,
+      "acc": 0,
+      "eva": 0
+    },
+    "fixedEffects": [
+      "Precise Strikes 5",
+      "Prismatic damage +20%"
+    ],
+    "randomEffects": [
+      "Water/Poison Ability +1/2/3/4/5% Boost",
+      "Grants [20% Damage Reduction Barrier 1 Follow-Up]/[30% Damage Reduction Barrier 1 Follow-Up]/[40% Damage Reduction Barrier 1 Follow-Up] at the beginning of the battle",
+      "Grants [DEF +10% (8s)]/[DEF +20% (8s)]/[DEF +30% (8s)] at the beginning of the battle"
+    ],
+    "baseStats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 36,
+      "def": 50,
+      "mag": null,
+      "res": 50,
+      "mnd": null,
+      "acc": null,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": "S",
+      "level": 99,
+      "atk": 62,
+      "def": 194,
+      "mag": null,
+      "res": 194,
+      "mnd": null,
+      "acc": null,
+      "eva": null
+    },
+    "id": 22353378,
+    "gl": false
+  },
+  {
+    "character": "Leila",
+    "realm": "II",
+    "season": "2",
+    "group": "B",
+    "name": "Leila's Necklace",
+    "type": "Accessory",
+    "rarity": "S",
+    "stats": {
+      "rarity": "S",
+      "level": 1,
+      "atk": 0,
+      "def": 0,
+      "mag": 0,
+      "res": 0,
+      "mnd": 0,
+      "acc": 0,
+      "eva": 0
+    },
+    "fixedEffects": [
+      "HP +500",
+      "Prismatic resistance (moderate)"
+    ],
+    "randomEffects": [
+      "Quick Cast 4/5/6/7/8%"
+    ],
+    "baseStats": {
+      "rarity": "S",
+      "level": 1,
+      "atk": null,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": null,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": "S",
+      "level": 1,
+      "atk": null,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": null,
+      "eva": null
+    },
+    "id": 23380408,
+    "gl": false
+  },
+  {
+    "character": "Aria",
+    "realm": "III",
+    "season": "2",
+    "group": "B",
+    "name": "Loki's Lyre",
+    "type": "Instrument",
+    "rarity": "S",
+    "stats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 0,
+      "def": 0,
+      "mag": 129,
+      "res": 0,
+      "mnd": 258,
+      "acc": 95,
+      "eva": 0
+    },
+    "fixedEffects": [
+      "Hand of Vengeance 5",
+      "Prismatic damage +20%"
+    ],
+    "randomEffects": [
+      "WHT Heals +1/2/3/4/5%",
+      "Quick Cast 3/4/5%\r",
+      "Grants [MND +10% (8s)]/[MND +20% (8s)]/[MND +30% (8s)] at the beginning of the battle"
+    ],
+    "baseStats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": null,
+      "def": null,
+      "mag": 83,
+      "res": null,
+      "mnd": 165,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": "S",
+      "level": 99,
+      "atk": null,
+      "def": null,
+      "mag": 175,
+      "res": null,
+      "mnd": 350,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 21311058,
+    "gl": false
+  },
+  {
+    "character": "Aria",
+    "realm": "III",
+    "season": "2",
+    "group": "B",
+    "name": "Aria's Dress",
+    "type": "Light Armor",
+    "rarity": "S",
+    "stats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 0,
+      "def": 122,
+      "mag": 0,
+      "res": 122,
+      "mnd": 49,
+      "acc": 0,
+      "eva": 0
+    },
+    "fixedEffects": [
+      "Empower Healing 5%",
+      "Prismatic damage +20%"
+    ],
+    "randomEffects": [
+      "White Magic +1/2/3/4/5% Boost",
+      "Grants [20% Damage Reduction Barrier 1 Follow-Up]/[30% Damage Reduction Barrier 1 Follow-Up]/[40% Damage Reduction Barrier 1 Follow-Up] at the beginning of the battle",
+      "Grants [RES +10% (8s)]/[RES +20% (8s)]/[RES +30% (8s)] at the beginning of the battle"
+    ],
+    "baseStats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": null,
+      "def": 50,
+      "mag": null,
+      "res": 50,
+      "mnd": 36,
+      "acc": null,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": "S",
+      "level": 99,
+      "atk": null,
+      "def": 194,
+      "mag": null,
+      "res": 194,
+      "mnd": 62,
+      "acc": null,
+      "eva": null
+    },
+    "id": 22353224,
+    "gl": false
+  },
+  {
+    "character": "Aria",
+    "realm": "III",
+    "season": "2",
+    "group": "B",
+    "name": "Aria's Ribbon",
+    "type": "Accessory",
+    "rarity": "S",
+    "stats": {
+      "rarity": "S",
+      "level": 1,
+      "atk": 0,
+      "def": 0,
+      "mag": 0,
+      "res": 0,
+      "mnd": 0,
+      "acc": 0,
+      "eva": 0
+    },
+    "fixedEffects": [
+      "HP +500",
+      "Prismatic resistance (moderate)"
+    ],
+    "randomEffects": [
+      "Quick Cast 4/5/6/7/8%"
+    ],
+    "baseStats": {
+      "rarity": "S",
+      "level": 1,
+      "atk": null,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": null,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": "S",
+      "level": 1,
+      "atk": null,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": null,
+      "eva": null
+    },
+    "id": 23380358,
+    "gl": false
+  },
+  {
+    "character": "Tellah",
+    "realm": "IV",
+    "season": "1",
+    "group": "A",
+    "name": "Stardust Rod",
+    "type": "Rod",
+    "rarity": "S",
+    "stats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 0,
+      "def": 0,
+      "mag": 258,
+      "res": 0,
+      "mnd": 0,
+      "acc": 95,
+      "eva": 0
+    },
+    "fixedEffects": [
+      "Hand of Vengeance 5",
+      "Prismatic damage +20%"
+    ],
+    "randomEffects": [
+      "Earth +1/2/3/4/5% Boost",
+      "Quick Cast 3/4/5%",
+      "Grants [MAG +10% (8s)]/[MAG +20% (8s)]/[MAG +30% (8s)] at the beginning of the battle"
+    ],
+    "baseStats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": null,
+      "def": null,
+      "mag": 165,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": "S",
+      "level": 99,
+      "atk": null,
+      "def": null,
+      "mag": 350,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 21308082,
+    "gl": true
+  },
+  {
+    "character": "Tellah",
+    "realm": "IV",
+    "season": "1",
+    "group": "A",
+    "name": "Tellah's Robe",
+    "type": "Robe",
+    "rarity": "S",
+    "stats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 0,
+      "def": 100,
+      "mag": 49,
+      "res": 163,
+      "mnd": 0,
+      "acc": 0,
+      "eva": 105
+    },
+    "fixedEffects": [
+      "Empower Healing 5%",
+      "Prismatic damage +20%"
+    ],
+    "randomEffects": [
+      "Earth Ability +1/2/3/4/5% Boost",
+      "Grants [20% Damage Reduction Barrier 1 Follow-Up]/[30% Damage Reduction Barrier 1 Follow-Up]/[40% Damage Reduction Barrier 1 Follow-Up] at the beginning of the battle",
+      "Grants [RES +10% (8s)]/[RES +20% (8s)]/[RES +30% (8s)] at the beginning of the battle"
+    ],
+    "baseStats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": null,
+      "def": 45,
+      "mag": 36,
+      "res": 93,
+      "mnd": null,
+      "acc": null,
+      "eva": 105
+    },
+    "maxStats": {
+      "rarity": "S",
+      "level": 99,
+      "atk": null,
+      "def": 155,
+      "mag": 62,
+      "res": 233,
+      "mnd": null,
+      "acc": null,
+      "eva": 105
+    },
+    "id": 22355123,
+    "gl": true
+  },
+  {
+    "character": "Tellah",
+    "realm": "IV",
+    "season": "1",
+    "group": "A",
+    "name": "Tellah's Glasses",
+    "type": "Accessory",
+    "rarity": "S",
+    "stats": {
+      "rarity": "S",
+      "level": 1,
+      "atk": 0,
+      "def": 0,
+      "mag": 0,
+      "res": 0,
+      "mnd": 0,
+      "acc": 0,
+      "eva": 0
+    },
+    "fixedEffects": [
+      "HP +500",
+      "Prismatic resistance (moderate)"
+    ],
+    "randomEffects": [
+      "Quick Cast 4/5/6/7/8%"
+    ],
+    "baseStats": {
+      "rarity": "S",
+      "level": 1,
+      "atk": null,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": null,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": "S",
+      "level": 1,
+      "atk": null,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": null,
+      "eva": null
+    },
+    "id": 23380612,
+    "gl": true
+  },
+  {
+    "character": "Palom",
+    "realm": "IV",
+    "season": "1",
+    "group": "C",
+    "name": "Asura's Rod",
+    "type": "Rod",
+    "rarity": "S",
+    "stats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 0,
+      "def": 0,
+      "mag": 258,
+      "res": 0,
+      "mnd": 0,
+      "acc": 95,
+      "eva": 0
+    },
+    "fixedEffects": [
+      "Hand of Vengeance 5",
+      "Prismatic damage +20%"
+    ],
+    "randomEffects": [
+      "Fire/Ice/Lightning +1/2/3/4/5% Boost",
+      "Quick Cast 3/4/5%",
+      "Grants [MAG +10% (8s)]/[MAG +20% (8s)]/[MAG +30% (8s)] at the beginning of the battle"
+    ],
+    "baseStats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": null,
+      "def": null,
+      "mag": 165,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": "S",
+      "level": 99,
+      "atk": null,
+      "def": null,
+      "mag": 350,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 21308104,
+    "gl": false
+  },
+  {
+    "character": "Palom",
+    "realm": "IV",
+    "season": "1",
+    "group": "C",
+    "name": "Sage's Robe",
+    "type": "Robe",
+    "rarity": "S",
+    "stats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 0,
+      "def": 100,
+      "mag": 49,
+      "res": 163,
+      "mnd": 0,
+      "acc": 0,
+      "eva": 105
+    },
+    "fixedEffects": [
+      "Empower Healing 5%",
+      "Prismatic damage +20%"
+    ],
+    "randomEffects": [
+      "Fire/Ice/Lightning Ability +1/2/3/4/5% Boost",
+      "Grants [20% Damage Reduction Barrier 1 Follow-Up]/[30% Damage Reduction Barrier 1 Follow-Up]/[40% Damage Reduction Barrier 1 Follow-Up] at the beginning of the battle",
+      "Grants [RES +10% (8s)]/[RES +20% (8s)]/[RES +30% (8s)] at the beginning of the battle"
+    ],
+    "baseStats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": null,
+      "def": 45,
+      "mag": 36,
+      "res": 93,
+      "mnd": null,
+      "acc": null,
+      "eva": 105
+    },
+    "maxStats": {
+      "rarity": "S",
+      "level": 99,
+      "atk": null,
+      "def": 155,
+      "mag": 62,
+      "res": 233,
+      "mnd": null,
+      "acc": null,
+      "eva": 105
+    },
+    "id": 22355035,
+    "gl": false
+  },
+  {
+    "character": "Palom",
+    "realm": "IV",
+    "season": "1",
+    "group": "C",
+    "name": "Black Mage Twin Stars",
+    "type": "Accessory",
+    "rarity": "S",
+    "stats": {
+      "rarity": "S",
+      "level": 1,
+      "atk": 0,
+      "def": 0,
+      "mag": 0,
+      "res": 0,
+      "mnd": 0,
+      "acc": 0,
+      "eva": 0
+    },
+    "fixedEffects": [
+      "HP +500",
+      "Prismatic resistance (moderate)"
+    ],
+    "randomEffects": [
+      "Quick Cast 4/5/6/7/8%"
+    ],
+    "baseStats": {
+      "rarity": "S",
+      "level": 1,
+      "atk": null,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": null,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": "S",
+      "level": 1,
+      "atk": null,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": null,
+      "eva": null
+    },
+    "id": 23380202,
+    "gl": false
+  },
+  {
+    "character": "Rosa",
+    "realm": "IV",
+    "season": "1",
+    "group": "D",
+    "name": "Artemis Bow",
+    "type": "Bow",
+    "rarity": "S",
+    "stats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 0,
+      "def": 0,
+      "mag": 134,
+      "res": 0,
+      "mnd": 258,
+      "acc": 95,
+      "eva": 0
+    },
+    "fixedEffects": [
+      "Empower Healing 5%",
+      "Prismatic damage +20%"
+    ],
+    "randomEffects": [
+      "WHT Heals +1/2/3/4/5%",
+      "Quick Cast 3/4/5%\r",
+      "Grants [MND +10% (8s)]/[MND +20% (8s)]/[MND +30% (8s)] at the beginning of the battle"
+    ],
+    "baseStats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": null,
+      "def": null,
+      "mag": 93,
+      "res": null,
+      "mnd": 165,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": "S",
+      "level": 99,
+      "atk": null,
+      "def": null,
+      "mag": 175,
+      "res": null,
+      "mnd": 350,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 21310027,
+    "gl": false
+  },
+  {
+    "character": "Rosa",
+    "realm": "IV",
+    "season": "1",
+    "group": "D",
+    "name": "Rosa's Guise",
+    "type": "Light Armor",
+    "rarity": "S",
+    "stats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 0,
+      "def": 122,
+      "mag": 0,
+      "res": 122,
+      "mnd": 49,
+      "acc": 0,
+      "eva": 100
+    },
+    "fixedEffects": [
+      "Max HP +5%",
+      "Prismatic damage +20%"
+    ],
+    "randomEffects": [
+      "White Magic +1/2/3/4/5% Boost",
+      "Grants [20% Damage Reduction Barrier 1 Follow-Up]/[30% Damage Reduction Barrier 1 Follow-Up]/[40% Damage Reduction Barrier 1 Follow-Up] at the beginning of the battle",
+      "Grants [RES +10% (8s)]/[RES +20% (8s)]/[RES +30% (8s)] at the beginning of the battle"
+    ],
+    "baseStats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": null,
+      "def": 50,
+      "mag": null,
+      "res": 50,
+      "mnd": 36,
+      "acc": null,
+      "eva": 100
+    },
+    "maxStats": {
+      "rarity": "S",
+      "level": 99,
+      "atk": null,
+      "def": 194,
+      "mag": null,
+      "res": 194,
+      "mnd": 62,
+      "acc": null,
+      "eva": 100
+    },
+    "id": 22353231,
+    "gl": false
+  },
+  {
+    "character": "Rosa",
+    "realm": "IV",
+    "season": "1",
+    "group": "D",
+    "name": "Rosa's Circlet",
+    "type": "Accessory",
+    "rarity": "S",
+    "stats": {
+      "rarity": "S",
+      "level": 1,
+      "atk": 0,
+      "def": 0,
+      "mag": 0,
+      "res": 0,
+      "mnd": 0,
+      "acc": 0,
+      "eva": 0
+    },
+    "fixedEffects": [
+      "HP +500",
+      "Prismatic resistance (moderate)"
+    ],
+    "randomEffects": [
+      "Quick Cast 4/5/6/7/8%"
+    ],
+    "baseStats": {
+      "rarity": "S",
+      "level": 1,
+      "atk": null,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": null,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": "S",
+      "level": 1,
+      "atk": null,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": null,
+      "eva": null
+    },
+    "id": 23380240,
+    "gl": false
+  },
+  {
+    "character": "Edward",
+    "realm": "IV",
+    "season": "1",
+    "group": "D",
+    "name": "Lute",
+    "type": "Instrument",
+    "rarity": "S",
+    "stats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 258,
+      "def": 0,
+      "mag": 258,
+      "res": 0,
+      "mnd": 0,
+      "acc": 95,
+      "eva": 0
+    },
+    "fixedEffects": [
+      "Empower Healing 5%",
+      "Prismatic damage +20%"
+    ],
+    "randomEffects": [
+      "Holy +1/2/3/4/5% Boost",
+      "Quick Cast 3/4/5%",
+      "Grants [MAG +10% (8s)]/[MAG +20% (8s)]/[MAG +30% (8s)] at the beginning of the battle"
+    ],
+    "baseStats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 165,
+      "def": null,
+      "mag": 165,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": "S",
+      "level": 99,
+      "atk": 350,
+      "def": null,
+      "mag": 350,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 21311073,
+    "gl": false
+  },
+  {
+    "character": "Edward",
+    "realm": "IV",
+    "season": "1",
+    "group": "D",
+    "name": "Edward's Hat",
+    "type": "Hat",
+    "rarity": "S",
+    "stats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 49,
+      "def": 101,
+      "mag": 49,
+      "res": 143,
+      "mnd": 0,
+      "acc": 0,
+      "eva": 105
+    },
+    "fixedEffects": [
+      "Max HP +5%",
+      "Prismatic damage +20%"
+    ],
+    "randomEffects": [
+      "Holy Ability +1/2/3/4/5% Boost",
+      "Grants [20% Damage Reduction Barrier 1 Follow-Up]/[30% Damage Reduction Barrier 1 Follow-Up]/[40% Damage Reduction Barrier 1 Follow-Up] at the beginning of the battle",
+      "Grants [RES +10% (8s)]/[RES +20% (8s)]/[RES +30% (8s)] at the beginning of the battle"
+    ],
+    "baseStats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 36,
+      "def": 61,
+      "mag": 36,
+      "res": 76,
+      "mnd": null,
+      "acc": null,
+      "eva": 105
+    },
+    "maxStats": {
+      "rarity": "S",
+      "level": 99,
+      "atk": 62,
+      "def": 140,
+      "mag": 62,
+      "res": 210,
+      "mnd": null,
+      "acc": null,
+      "eva": 105
+    },
+    "id": 22351237,
+    "gl": false
+  },
+  {
+    "character": "Edward",
+    "realm": "IV",
+    "season": "1",
+    "group": "D",
+    "name": "Sand Pearl",
+    "type": "Accessory",
+    "rarity": "S",
+    "stats": {
+      "rarity": "S",
+      "level": 1,
+      "atk": 0,
+      "def": 0,
+      "mag": 0,
+      "res": 0,
+      "mnd": 0,
+      "acc": 0,
+      "eva": 0
+    },
+    "fixedEffects": [
+      "HP +500",
+      "Prismatic resistance (moderate)"
+    ],
+    "randomEffects": [
+      "Quick Cast 4/5/6/7/8%"
+    ],
+    "baseStats": {
+      "rarity": "S",
+      "level": 1,
+      "atk": null,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": null,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": "S",
+      "level": 1,
+      "atk": null,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": null,
+      "eva": null
+    },
+    "id": 23380061,
+    "gl": false
+  },
+  {
+    "character": "Yang",
+    "realm": "IV",
+    "season": "1",
+    "group": "D",
+    "name": "Faerie Claws",
+    "type": "Fist",
+    "rarity": "S",
+    "stats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 266,
+      "def": 0,
+      "mag": 0,
+      "res": 0,
+      "mnd": 0,
+      "acc": 95,
+      "eva": 0
+    },
+    "fixedEffects": [
+      "Deadly Strikes 5",
+      "Prismatic damage +20%"
+    ],
+    "randomEffects": [
+      "Earth +1/2/3/4/5% Boost",
+      "Quick Cast 3/4/5%",
+      "Grants [ATK +10% (8s)]/[ATK +20% (8s)]/[ATK +30% (8s)] at the beginning of the battle"
+    ],
+    "baseStats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 172,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": "S",
+      "level": 99,
+      "atk": 360,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 21307021,
+    "gl": false
+  },
+  {
+    "character": "Yang",
+    "realm": "IV",
+    "season": "1",
+    "group": "D",
+    "name": "Yang's Dogi",
+    "type": "Light Armor",
+    "rarity": "S",
+    "stats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 49,
+      "def": 122,
+      "mag": 0,
+      "res": 122,
+      "mnd": 0,
+      "acc": 0,
+      "eva": 100
+    },
+    "fixedEffects": [
+      "Precise Strike 5",
+      "Prismatic damage +20%"
+    ],
+    "randomEffects": [
+      "Earth Ability +1/2/3/4/5% Boost",
+      "Grants [20% Damage Reduction Barrier 1 Follow-Up]/[30% Damage Reduction Barrier 1 Follow-Up]/[40% Damage Reduction Barrier 1 Follow-Up] at the beginning of the battle",
+      "Grants [DEF +10% (8s)]/[DEF +20% (8s)]/[DEF +30% (8s)] at the beginning of the battle"
+    ],
+    "baseStats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 36,
+      "def": 50,
+      "mag": null,
+      "res": 50,
+      "mnd": null,
+      "acc": null,
+      "eva": 100
+    },
+    "maxStats": {
+      "rarity": "S",
+      "level": 99,
+      "atk": 62,
+      "def": 194,
+      "mag": null,
+      "res": 194,
+      "mnd": null,
+      "acc": null,
+      "eva": 100
+    },
+    "id": 22353316,
+    "gl": false
+  },
+  {
+    "character": "Yang",
+    "realm": "IV",
+    "season": "1",
+    "group": "D",
+    "name": "Yang's Frying Pan",
+    "type": "Accessory",
+    "rarity": "S",
+    "stats": {
+      "rarity": "S",
+      "level": 1,
+      "atk": 0,
+      "def": 0,
+      "mag": 0,
+      "res": 0,
+      "mnd": 0,
+      "acc": 0,
+      "eva": 0
+    },
+    "fixedEffects": [
+      "HP +500",
+      "Prismatic resistance (moderate)"
+    ],
+    "randomEffects": [
+      "Quick Cast 4/5/6/7/8%"
+    ],
+    "baseStats": {
+      "rarity": "S",
+      "level": 1,
+      "atk": null,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": null,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": "S",
+      "level": 1,
+      "atk": null,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": null,
+      "eva": null
+    },
+    "id": 23380343,
+    "gl": false
+  },
+  {
+    "character": "Porom",
+    "realm": "IV",
+    "season": "1",
+    "group": "D",
+    "name": "Nirvana",
+    "type": "Staff",
+    "rarity": "S",
+    "stats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 0,
+      "def": 0,
+      "mag": 134,
+      "res": 0,
+      "mnd": 258,
+      "acc": 95,
+      "eva": 0
+    },
+    "fixedEffects": [
+      "Empower Healing 5%",
+      "Prismatic damage +20%"
+    ],
+    "randomEffects": [
+      "WHT Heals +1/2/3/4/5%",
+      "Quick Cast 3/4/5%\r",
+      "Grants [MND +10% (8s)]/[MND +20% (8s)]/[MND +30% (8s)] at the beginning of the battle"
+    ],
+    "baseStats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": null,
+      "def": null,
+      "mag": 93,
+      "res": null,
+      "mnd": 165,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": "S",
+      "level": 99,
+      "atk": null,
+      "def": null,
+      "mag": 175,
+      "res": null,
+      "mnd": 350,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 21309042,
+    "gl": false
+  },
+  {
+    "character": "Porom",
+    "realm": "IV",
+    "season": "1",
+    "group": "D",
+    "name": "Cat-Ear Hood",
+    "type": "Hat",
+    "rarity": "S",
+    "stats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 0,
+      "def": 101,
+      "mag": 0,
+      "res": 143,
+      "mnd": 60,
+      "acc": 0,
+      "eva": 105
+    },
+    "fixedEffects": [
+      "Max HP +5%",
+      "Prismatic damage +20%"
+    ],
+    "randomEffects": [
+      "White Magic +1/2/3/4/5% Boost",
+      "Grants [20% Damage Reduction Barrier 1 Follow-Up]/[30% Damage Reduction Barrier 1 Follow-Up]/[40% Damage Reduction Barrier 1 Follow-Up] at the beginning of the battle",
+      "Grants [RES +10% (8s)]/[RES +20% (8s)]/[RES +30% (8s)] at the beginning of the battle"
+    ],
+    "baseStats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": null,
+      "def": 61,
+      "mag": null,
+      "res": 76,
+      "mnd": 49,
+      "acc": null,
+      "eva": 105
+    },
+    "maxStats": {
+      "rarity": "S",
+      "level": 99,
+      "atk": null,
+      "def": 140,
+      "mag": null,
+      "res": 210,
+      "mnd": 70,
+      "acc": null,
+      "eva": 105
+    },
+    "id": 22351083,
+    "gl": false
+  },
+  {
+    "character": "Porom",
+    "realm": "IV",
+    "season": "1",
+    "group": "D",
+    "name": "White Mage Twin Stars",
+    "type": "Accessory",
+    "rarity": "S",
+    "stats": {
+      "rarity": "S",
+      "level": 1,
+      "atk": 0,
+      "def": 0,
+      "mag": 0,
+      "res": 0,
+      "mnd": 0,
+      "acc": 0,
+      "eva": 0
+    },
+    "fixedEffects": [
+      "HP +500",
+      "Prismatic resistance (moderate)"
+    ],
+    "randomEffects": [
+      "Quick Cast 4/5/6/7/8%"
+    ],
+    "baseStats": {
+      "rarity": "S",
+      "level": 1,
+      "atk": null,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": null,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": "S",
+      "level": 1,
+      "atk": null,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": null,
+      "eva": null
+    },
+    "id": 23380374,
+    "gl": false
+  },
+  {
+    "character": "Fusoya",
+    "realm": "IV",
+    "season": "1",
+    "group": "D",
+    "name": "Wave Wand",
+    "type": "Staff",
+    "rarity": "S",
+    "stats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 0,
+      "def": 0,
+      "mag": 258,
+      "res": 0,
+      "mnd": 258,
+      "acc": 95,
+      "eva": 0
+    },
+    "fixedEffects": [
+      "Hand of Vengeance 5",
+      "Prismatic damage +20%"
+    ],
+    "randomEffects": [
+      "Holy +1/2/3/4/5% Boost",
+      "Quick Cast 3/4/5%",
+      "Grants [MND +10% (8s)]/[MND +20% (8s)]/[MND +30% (8s)] at the beginning of the battle"
+    ],
+    "baseStats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": null,
+      "def": null,
+      "mag": 165,
+      "res": null,
+      "mnd": 165,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": "S",
+      "level": 99,
+      "atk": null,
+      "def": null,
+      "mag": 350,
+      "res": null,
+      "mnd": 350,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 21309015,
+    "gl": false
+  },
+  {
+    "character": "Fusoya",
+    "realm": "IV",
+    "season": "1",
+    "group": "D",
+    "name": "Fusoya's Robes",
+    "type": "Robe",
+    "rarity": "S",
+    "stats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 0,
+      "def": 100,
+      "mag": 39,
+      "res": 163,
+      "mnd": 39,
+      "acc": 0,
+      "eva": 105
+    },
+    "fixedEffects": [
+      "Empower Healing 5%",
+      "Prismatic damage +20%"
+    ],
+    "randomEffects": [
+      "Holy Ability +1/2/3/4/5% Boost",
+      "Grants [20% Damage Reduction Barrier 1 Follow-Up]/[30% Damage Reduction Barrier 1 Follow-Up]/[40% Damage Reduction Barrier 1 Follow-Up] at the beginning of the battle",
+      "Grants [RES +10% (8s)]/[RES +20% (8s)]/[RES +30% (8s)] at the beginning of the battle"
+    ],
+    "baseStats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": null,
+      "def": 45,
+      "mag": 26,
+      "res": 93,
+      "mnd": 26,
+      "acc": null,
+      "eva": 105
+    },
+    "maxStats": {
+      "rarity": "S",
+      "level": 99,
+      "atk": null,
+      "def": 155,
+      "mag": 52,
+      "res": 233,
+      "mnd": 52,
+      "acc": null,
+      "eva": 105
+    },
+    "id": 22355043,
+    "gl": false
+  },
+  {
+    "character": "Fusoya",
+    "realm": "IV",
+    "season": "1",
+    "group": "D",
+    "name": "Alarm Clock",
+    "type": "Accessory",
+    "rarity": "S",
+    "stats": {
+      "rarity": "S",
+      "level": 1,
+      "atk": 0,
+      "def": 0,
+      "mag": 0,
+      "res": 0,
+      "mnd": 0,
+      "acc": 0,
+      "eva": 0
+    },
+    "fixedEffects": [
+      "HP +500",
+      "Prismatic resistance (moderate)"
+    ],
+    "randomEffects": [
+      "Quick Cast 4/5/6/7/8%"
+    ],
+    "baseStats": {
+      "rarity": "S",
+      "level": 1,
+      "atk": null,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": null,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": "S",
+      "level": 1,
+      "atk": null,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": null,
+      "eva": null
+    },
+    "id": 23380060,
+    "gl": false
+  },
+  {
+    "character": "Golbez",
+    "realm": "IV",
+    "season": "1",
+    "group": "D",
+    "name": "Zeromus Shard",
+    "type": "Rod",
+    "rarity": "S",
+    "stats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 0,
+      "def": 0,
+      "mag": 258,
+      "res": 0,
+      "mnd": 0,
+      "acc": 95,
+      "eva": 0
+    },
+    "fixedEffects": [
+      "Hand of Vengeance 5",
+      "Prismatic damage +20%"
+    ],
+    "randomEffects": [
+      "Dark +1/2/3/4/5% Boost",
+      "Quick Cast 3/4/5%",
+      "Grants [MAG +10% (8s)]/[MAG +20% (8s)]/[MAG +30% (8s)] at the beginning of the battle"
+    ],
+    "baseStats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": null,
+      "def": null,
+      "mag": 165,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": "S",
+      "level": 99,
+      "atk": null,
+      "def": null,
+      "mag": 350,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 21308109,
+    "gl": false
+  },
+  {
+    "character": "Golbez",
+    "realm": "IV",
+    "season": "1",
+    "group": "D",
+    "name": "Golbez's Bascinet",
+    "type": "Helm",
+    "rarity": "S",
+    "stats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 0,
+      "def": 126,
+      "mag": 49,
+      "res": 115,
+      "mnd": 0,
+      "acc": 0,
+      "eva": 105
+    },
+    "fixedEffects": [
+      "Empower Healing 5%",
+      "Prismatic damage +20%"
+    ],
+    "randomEffects": [
+      "Dark Ability +1/2/3/4/5% Boost",
+      "Grants [20% Damage Reduction Barrier 1 Follow-Up]/[30% Damage Reduction Barrier 1 Follow-Up]/[40% Damage Reduction Barrier 1 Follow-Up] at the beginning of the battle",
+      "Grants [RES +10% (8s)]/[RES +20% (8s)]/[RES +30% (8s)] at the beginning of the battle"
+    ],
+    "baseStats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": null,
+      "def": 57,
+      "mag": 36,
+      "res": 57,
+      "mnd": null,
+      "acc": null,
+      "eva": 105
+    },
+    "maxStats": {
+      "rarity": "S",
+      "level": 99,
+      "atk": null,
+      "def": 195,
+      "mag": 62,
+      "res": 173,
+      "mnd": null,
+      "acc": null,
+      "eva": 105
+    },
+    "id": 22352041,
+    "gl": false
+  },
+  {
+    "character": "Golbez",
+    "realm": "IV",
+    "season": "1",
+    "group": "D",
+    "name": "Golbez's Bracelet",
+    "type": "Accessory",
+    "rarity": "S",
+    "stats": {
+      "rarity": "S",
+      "level": 1,
+      "atk": 0,
+      "def": 0,
+      "mag": 0,
+      "res": 0,
+      "mnd": 0,
+      "acc": 0,
+      "eva": 0
+    },
+    "fixedEffects": [
+      "HP +500",
+      "Prismatic resistance (moderate)"
+    ],
+    "randomEffects": [
+      "Quick Cast 4/5/6/7/8%"
+    ],
+    "baseStats": {
+      "rarity": "S",
+      "level": 1,
+      "atk": null,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": null,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": "S",
+      "level": 1,
+      "atk": null,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": null,
+      "eva": null
+    },
+    "id": 23380633,
+    "gl": false
+  },
+  {
+    "character": "Cid (IV)",
+    "realm": "IV",
+    "season": "1",
+    "group": "D",
+    "name": "Flare Sledgehammer",
+    "type": "Hammer",
+    "rarity": "S",
+    "stats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 266,
+      "def": 0,
+      "mag": 0,
+      "res": 0,
+      "mnd": 0,
+      "acc": 95,
+      "eva": 0
+    },
+    "fixedEffects": [
+      "Deadly Strikes 5",
+      "Prismatic damage +20%"
+    ],
+    "randomEffects": [
+      "Lightning +1/2/3/4/5% Boost",
+      "Quick Cast 3/4/5%",
+      "Grants [ATK +10% (8s)]/[ATK +20% (8s)]/[ATK +30% (8s)] at the beginning of the battle"
+    ],
+    "baseStats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 172,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": "S",
+      "level": 99,
+      "atk": 360,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 21305023,
+    "gl": false
+  },
+  {
+    "character": "Cid (IV)",
+    "realm": "IV",
+    "season": "1",
+    "group": "D",
+    "name": "Cid's Mask",
+    "type": "Hat",
+    "rarity": "S",
+    "stats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 49,
+      "def": 101,
+      "mag": 0,
+      "res": 143,
+      "mnd": 0,
+      "acc": 0,
+      "eva": 105
+    },
+    "fixedEffects": [
+      "Precise Strike 5",
+      "Prismatic damage +20%"
+    ],
+    "randomEffects": [
+      "Lightning Ability +1/2/3/4/5% Boost",
+      "Grants [20% Damage Reduction Barrier 1 Follow-Up]/[30% Damage Reduction Barrier 1 Follow-Up]/[40% Damage Reduction Barrier 1 Follow-Up] at the beginning of the battle",
+      "Grants [DEF +10% (8s)]/[DEF +20% (8s)]/[DEF +30% (8s)] at the beginning of the battle"
+    ],
+    "baseStats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 36,
+      "def": 61,
+      "mag": null,
+      "res": 76,
+      "mnd": null,
+      "acc": null,
+      "eva": 105
+    },
+    "maxStats": {
+      "rarity": "S",
+      "level": 99,
+      "atk": 62,
+      "def": 140,
+      "mag": null,
+      "res": 210,
+      "mnd": null,
+      "acc": null,
+      "eva": 105
+    },
+    "id": 22351094,
+    "gl": false
+  },
+  {
+    "character": "Cid (IV)",
+    "realm": "IV",
+    "season": "1",
+    "group": "D",
+    "name": "Cid's Boots",
+    "type": "Accessory",
+    "rarity": "S",
+    "stats": {
+      "rarity": "S",
+      "level": 1,
+      "atk": 0,
+      "def": 0,
+      "mag": 0,
+      "res": 0,
+      "mnd": 0,
+      "acc": 0,
+      "eva": 0
+    },
+    "fixedEffects": [
+      "HP +500",
+      "Prismatic resistance (moderate)"
+    ],
+    "randomEffects": [
+      "Quick Cast 4/5/6/7/8%"
+    ],
+    "baseStats": {
+      "rarity": "S",
+      "level": 1,
+      "atk": null,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": null,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": "S",
+      "level": 1,
+      "atk": null,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": null,
+      "eva": null
+    },
+    "id": 23380288,
+    "gl": false
+  },
+  {
+    "character": "Ceodore",
+    "realm": "IV",
+    "season": "1",
+    "group": "D",
+    "name": "Ceodore's Sword",
+    "type": "Sword",
+    "rarity": "S",
+    "stats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 266,
+      "def": 0,
+      "mag": 0,
+      "res": 0,
+      "mnd": 0,
+      "acc": 95,
+      "eva": 0
+    },
+    "fixedEffects": [
+      "Deadly Strikes 5",
+      "Prismatic damage +20%"
+    ],
+    "randomEffects": [
+      "Holy +1/2/3/4/5% Boost",
+      "Quick Cast 3/4/5%",
+      "Grants [ATK +10% (8s)]/[ATK +20% (8s)]/[ATK +30% (8s)] at the beginning of the battle"
+    ],
+    "baseStats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 172,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": "S",
+      "level": 99,
+      "atk": 360,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 21302292,
+    "gl": false
+  },
+  {
+    "character": "Ceodore",
+    "realm": "IV",
+    "season": "1",
+    "group": "D",
+    "name": "Ceodore's Guise",
+    "type": "Heavy Armor",
+    "rarity": "S",
+    "stats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 49,
+      "def": 165,
+      "mag": 0,
+      "res": 115,
+      "mnd": 0,
+      "acc": 0,
+      "eva": 105
+    },
+    "fixedEffects": [
+      "Precise Strike 5",
+      "Prismatic damage +20%"
+    ],
+    "randomEffects": [
+      "Holy Ability +1/2/3/4/5% Boost",
+      "Grants [20% Damage Reduction Barrier 1 Follow-Up]/[30% Damage Reduction Barrier 1 Follow-Up]/[40% Damage Reduction Barrier 1 Follow-Up] at the beginning of the battle",
+      "Grants [DEF +10% (8s)]/[DEF +20% (8s)]/[DEF +30% (8s)] at the beginning of the battle"
+    ],
+    "baseStats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 36,
+      "def": 96,
+      "mag": null,
+      "res": 75,
+      "mnd": null,
+      "acc": null,
+      "eva": 105
+    },
+    "maxStats": {
+      "rarity": "S",
+      "level": 99,
+      "atk": 62,
+      "def": 233,
+      "mag": null,
+      "res": 155,
+      "mnd": null,
+      "acc": null,
+      "eva": 105
+    },
+    "id": 22354088,
+    "gl": false
+  },
+  {
+    "character": "Ceodore",
+    "realm": "IV",
+    "season": "1",
+    "group": "D",
+    "name": "Defense Ring",
+    "type": "Accessory",
+    "rarity": "S",
+    "stats": {
+      "rarity": "S",
+      "level": 1,
+      "atk": 0,
+      "def": 0,
+      "mag": 0,
+      "res": 0,
+      "mnd": 0,
+      "acc": 0,
+      "eva": 0
+    },
+    "fixedEffects": [
+      "HP +500",
+      "Prismatic resistance (moderate)"
+    ],
+    "randomEffects": [
+      "Quick Cast 4/5/6/7/8%"
+    ],
+    "baseStats": {
+      "rarity": "S",
+      "level": 1,
+      "atk": null,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": null,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": "S",
+      "level": 1,
+      "atk": null,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": null,
+      "eva": null
+    },
+    "id": 23380282,
+    "gl": false
+  },
+  {
+    "character": "Rubicante",
+    "realm": "IV",
+    "season": "1",
+    "group": "D",
+    "name": "Rubicante's Gloves",
+    "type": "Fist",
+    "rarity": "S",
+    "stats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 0,
+      "def": 0,
+      "mag": 258,
+      "res": 0,
+      "mnd": 0,
+      "acc": 95,
+      "eva": 0
+    },
+    "fixedEffects": [
+      "Hand of Vengeance 5",
+      "Prismatic damage +20%"
+    ],
+    "randomEffects": [
+      "Fire +1/2/3/4/5% Boost",
+      "Quick Cast 3/4/5%",
+      "Grants [MAG +10% (8s)]/[MAG +20% (8s)]/[MAG +30% (8s)] at the beginning of the battle"
+    ],
+    "baseStats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": null,
+      "def": null,
+      "mag": 165,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": "S",
+      "level": 99,
+      "atk": null,
+      "def": null,
+      "mag": 350,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 21307104,
+    "gl": false
+  },
+  {
+    "character": "Rubicante",
+    "realm": "IV",
+    "season": "1",
+    "group": "D",
+    "name": "Flame Scarf",
+    "type": "Light Armor",
+    "rarity": "S",
+    "stats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 0,
+      "def": 122,
+      "mag": 49,
+      "res": 122,
+      "mnd": 0,
+      "acc": 0,
+      "eva": 100
+    },
+    "fixedEffects": [
+      "Empower Healing 5%",
+      "Prismatic damage +20%"
+    ],
+    "randomEffects": [
+      "Fire Ability +1/2/3/4/5% Boost",
+      "Grants [20% Damage Reduction Barrier 1 Follow-Up]/[30% Damage Reduction Barrier 1 Follow-Up]/[40% Damage Reduction Barrier 1 Follow-Up] at the beginning of the battle",
+      "Grants [RES +10% (8s)]/[RES +20% (8s)]/[RES +30% (8s)] at the beginning of the battle"
+    ],
+    "baseStats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": null,
+      "def": 50,
+      "mag": 36,
+      "res": 50,
+      "mnd": null,
+      "acc": null,
+      "eva": 100
+    },
+    "maxStats": {
+      "rarity": "S",
+      "level": 99,
+      "atk": null,
+      "def": 194,
+      "mag": 62,
+      "res": 194,
+      "mnd": null,
+      "acc": null,
+      "eva": 100
+    },
+    "id": 22353457,
+    "gl": false
+  },
+  {
+    "character": "Rubicante",
+    "realm": "IV",
+    "season": "1",
+    "group": "D",
+    "name": "Flame Cloak",
+    "type": "Accessory",
+    "rarity": "S",
+    "stats": {
+      "rarity": "S",
+      "level": 1,
+      "atk": 0,
+      "def": 0,
+      "mag": 0,
+      "res": 0,
+      "mnd": 0,
+      "acc": 0,
+      "eva": 0
+    },
+    "fixedEffects": [
+      "HP +500",
+      "Prismatic resistance (moderate)"
+    ],
+    "randomEffects": [
+      "Quick Cast 4/5/6/7/8%"
+    ],
+    "baseStats": {
+      "rarity": "S",
+      "level": 1,
+      "atk": null,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": null,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": "S",
+      "level": 1,
+      "atk": null,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": null,
+      "eva": null
+    },
+    "id": 23380139,
+    "gl": false
+  },
+  {
+    "character": "Bartz",
+    "realm": "V",
+    "season": "1",
+    "group": "B",
+    "name": "Excalibur",
+    "type": "Sword",
+    "rarity": "S",
+    "stats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 266,
+      "def": 0,
+      "mag": 0,
+      "res": 0,
+      "mnd": 0,
+      "acc": 95,
+      "eva": 0
+    },
+    "fixedEffects": [
+      "Deadly Strikes 5",
+      "Prismatic damage +20%"
+    ],
+    "randomEffects": [
+      "Fire/Earth/Wind/Water +1/2/3/4/5% Boost",
+      "Quick Cast 3/4/5%",
+      "Grants [ATK +10% (8s)]/[ATK +20% (8s)]/[ATK +30% (8s)] at the beginning of the battle"
+    ],
+    "baseStats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 172,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": "S",
+      "level": 99,
+      "atk": 360,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 21302062,
+    "gl": false
+  },
+  {
+    "character": "Bartz",
+    "realm": "V",
+    "season": "1",
+    "group": "B",
+    "name": "Freelancer Bartz's Guise",
+    "type": "Light Armor",
+    "rarity": "S",
+    "stats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 49,
+      "def": 122,
+      "mag": 0,
+      "res": 122,
+      "mnd": 0,
+      "acc": 0,
+      "eva": 100
+    },
+    "fixedEffects": [
+      "Precise Strike 5",
+      "Prismatic damage +20%"
+    ],
+    "randomEffects": [
+      "Fire/Earth/Wind/Water Ability +1/2/3/4/5% Boost",
+      "Grants [20% Damage Reduction Barrier 1 Follow-Up]/[30% Damage Reduction Barrier 1 Follow-Up]/[40% Damage Reduction Barrier 1 Follow-Up] at the beginning of the battle",
+      "Grants [DEF +10% (8s)]/[DEF +20% (8s)]/[DEF +30% (8s)] at the beginning of the battle"
+    ],
+    "baseStats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 36,
+      "def": 50,
+      "mag": null,
+      "res": 50,
+      "mnd": null,
+      "acc": null,
+      "eva": 100
+    },
+    "maxStats": {
+      "rarity": "S",
+      "level": 99,
+      "atk": 62,
+      "def": 194,
+      "mag": null,
+      "res": 194,
+      "mnd": null,
+      "acc": null,
+      "eva": 100
+    },
+    "id": 22353333,
+    "gl": false
+  },
+  {
+    "character": "Bartz",
+    "realm": "V",
+    "season": "1",
+    "group": "B",
+    "name": "Memento Bag",
+    "type": "Accessory",
+    "rarity": "S",
+    "stats": {
+      "rarity": "S",
+      "level": 1,
+      "atk": 0,
+      "def": 0,
+      "mag": 0,
+      "res": 0,
+      "mnd": 0,
+      "acc": 0,
+      "eva": 0
+    },
+    "fixedEffects": [
+      "HP +500",
+      "Prismatic resistance (moderate)"
+    ],
+    "randomEffects": [
+      "Quick Cast 4/5/6/7/8%"
+    ],
+    "baseStats": {
+      "rarity": "S",
+      "level": 1,
+      "atk": null,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": null,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": "S",
+      "level": 1,
+      "atk": null,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": null,
+      "eva": null
+    },
+    "id": 23380491,
+    "gl": false
+  },
+  {
+    "character": "Xezat",
+    "realm": "V",
+    "season": "1",
+    "group": "C",
+    "name": "Xezat's Blade",
+    "type": "Sword",
+    "rarity": "S",
+    "stats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 266,
+      "def": 0,
+      "mag": 0,
+      "res": 0,
+      "mnd": 0,
+      "acc": 95,
+      "eva": 0
+    },
+    "fixedEffects": [
+      "Deadly Strikes 5",
+      "Prismatic damage +20%"
+    ],
+    "randomEffects": [
+      "Ice/Earth/Wind +1/2/3/4/5% Boost",
+      "Quick Cast 3/4/5%",
+      "Grants [ATK +10% (8s)]/[ATK +20% (8s)]/[ATK +30% (8s)] at the beginning of the battle"
+    ],
+    "baseStats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 172,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": "S",
+      "level": 99,
+      "atk": 360,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 21302298,
+    "gl": false
+  },
+  {
+    "character": "Xezat",
+    "realm": "V",
+    "season": "1",
+    "group": "C",
+    "name": "Xezat's Cloak",
+    "type": "Light Armor",
+    "rarity": "S",
+    "stats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 49,
+      "def": 122,
+      "mag": 0,
+      "res": 122,
+      "mnd": 0,
+      "acc": 0,
+      "eva": 100
+    },
+    "fixedEffects": [
+      "Precise Strike 5",
+      "Prismatic damage +20%"
+    ],
+    "randomEffects": [
+      "Ice/Earth/Wind Ability +1/2/3/4/5% Boost",
+      "Grants [20% Damage Reduction Barrier 1 Follow-Up]/[30% Damage Reduction Barrier 1 Follow-Up]/[40% Damage Reduction Barrier 1 Follow-Up] at the beginning of the battle",
+      "Grants [DEF +10% (8s)]/[DEF +20% (8s)]/[DEF +30% (8s)] at the beginning of the battle"
+    ],
+    "baseStats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 36,
+      "def": 50,
+      "mag": null,
+      "res": 50,
+      "mnd": null,
+      "acc": null,
+      "eva": 100
+    },
+    "maxStats": {
+      "rarity": "S",
+      "level": 99,
+      "atk": 62,
+      "def": 194,
+      "mag": null,
+      "res": 194,
+      "mnd": null,
+      "acc": null,
+      "eva": 100
+    },
+    "id": 22353305,
+    "gl": false
+  },
+  {
+    "character": "Xezat",
+    "realm": "V",
+    "season": "1",
+    "group": "C",
+    "name": "Whisperweed",
+    "type": "Accessory",
+    "rarity": "S",
+    "stats": {
+      "rarity": "S",
+      "level": 1,
+      "atk": 0,
+      "def": 0,
+      "mag": 0,
+      "res": 0,
+      "mnd": 0,
+      "acc": 0,
+      "eva": 0
+    },
+    "fixedEffects": [
+      "HP +500",
+      "Prismatic resistance (moderate)"
+    ],
+    "randomEffects": [
+      "Quick Cast 4/5/6/7/8%"
+    ],
+    "baseStats": {
+      "rarity": "S",
+      "level": 1,
+      "atk": null,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": null,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": "S",
+      "level": 1,
+      "atk": null,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": null,
+      "eva": null
+    },
+    "id": 23380346,
+    "gl": false
+  },
+  {
+    "character": "Gau",
+    "realm": "VI",
+    "season": "1",
+    "group": "B",
+    "name": "Gauntlet",
+    "type": "Fist",
+    "rarity": "S",
+    "stats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 266,
+      "def": 0,
+      "mag": 0,
+      "res": 0,
+      "mnd": 0,
+      "acc": 95,
+      "eva": 0
+    },
+    "fixedEffects": [
+      "Deadly Strikes 5",
+      "Prismatic damage +20%"
+    ],
+    "randomEffects": [
+      "Wind/Lightning +1/2/3/4/5% Boost",
+      "Quick Cast 3/4/5%",
+      "Grants [ATK +10% (8s)]/[ATK +20% (8s)]/[ATK +30% (8s)] at the beginning of the battle"
+    ],
+    "baseStats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 172,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": "S",
+      "level": 99,
+      "atk": 360,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 21307061,
+    "gl": false
+  },
+  {
+    "character": "Gau",
+    "realm": "VI",
+    "season": "1",
+    "group": "B",
+    "name": "Gau's Guise",
+    "type": "Light Armor",
+    "rarity": "S",
+    "stats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 49,
+      "def": 122,
+      "mag": 0,
+      "res": 122,
+      "mnd": 0,
+      "acc": 0,
+      "eva": 100
+    },
+    "fixedEffects": [
+      "Precise Strike 5",
+      "Prismatic damage +20%"
+    ],
+    "randomEffects": [
+      "Wind/Lightning Ability +1/2/3/4/5% Boost",
+      "Grants [20% Damage Reduction Barrier 1 Follow-Up]/[30% Damage Reduction Barrier 1 Follow-Up]/[40% Damage Reduction Barrier 1 Follow-Up] at the beginning of the battle",
+      "Grants [DEF +10% (8s)]/[DEF +20% (8s)]/[DEF +30% (8s)] at the beginning of the battle"
+    ],
+    "baseStats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 36,
+      "def": 50,
+      "mag": null,
+      "res": 50,
+      "mnd": null,
+      "acc": null,
+      "eva": 100
+    },
+    "maxStats": {
+      "rarity": "S",
+      "level": 99,
+      "atk": 62,
+      "def": 194,
+      "mag": null,
+      "res": 194,
+      "mnd": null,
+      "acc": null,
+      "eva": 100
+    },
+    "id": 22353346,
+    "gl": false
+  },
+  {
+    "character": "Gau",
+    "realm": "VI",
+    "season": "1",
+    "group": "B",
+    "name": "Master's Scroll",
+    "type": "Accessory",
+    "rarity": "S",
+    "stats": {
+      "rarity": "S",
+      "level": 1,
+      "atk": 0,
+      "def": 0,
+      "mag": 0,
+      "res": 0,
+      "mnd": 0,
+      "acc": 0,
+      "eva": 0
+    },
+    "fixedEffects": [
+      "HP +500",
+      "Prismatic resistance (moderate)"
+    ],
+    "randomEffects": [
+      "Quick Cast 4/5/6/7/8%"
+    ],
+    "baseStats": {
+      "rarity": "S",
+      "level": 1,
+      "atk": null,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": null,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": "S",
+      "level": 1,
+      "atk": null,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": null,
+      "eva": null
+    },
+    "id": 23380442,
+    "gl": false
+  },
+  {
+    "character": "Umaro",
+    "realm": "VI",
+    "season": "1",
+    "group": "C",
+    "name": "Bone Club",
+    "type": "Hammer",
+    "rarity": "S",
+    "stats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 266,
+      "def": 0,
+      "mag": 0,
+      "res": 0,
+      "mnd": 0,
+      "acc": 95,
+      "eva": 0
+    },
+    "fixedEffects": [
+      "Deadly Strikes 5",
+      "Prismatic damage +20%"
+    ],
+    "randomEffects": [
+      "Ice +1/2/3/4/5% Boost",
+      "Quick Cast 3/4/5%",
+      "Grants [ATK +10% (8s)]/[ATK +20% (8s)]/[ATK +30% (8s)] at the beginning of the battle"
+    ],
+    "baseStats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 172,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": "S",
+      "level": 99,
+      "atk": 360,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 21305014,
+    "gl": false
+  },
+  {
+    "character": "Umaro",
+    "realm": "VI",
+    "season": "1",
+    "group": "C",
+    "name": "Snow Scarf",
+    "type": "Light Armor",
+    "rarity": "S",
+    "stats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 49,
+      "def": 122,
+      "mag": 0,
+      "res": 122,
+      "mnd": 0,
+      "acc": 0,
+      "eva": 100
+    },
+    "fixedEffects": [
+      "Precise Strike 5",
+      "Prismatic damage +20%"
+    ],
+    "randomEffects": [
+      "Ice Ability +1/2/3/4/5% Boost",
+      "Grants [20% Damage Reduction Barrier 1 Follow-Up]/[30% Damage Reduction Barrier 1 Follow-Up]/[40% Damage Reduction Barrier 1 Follow-Up] at the beginning of the battle",
+      "Grants [DEF +10% (8s)]/[DEF +20% (8s)]/[DEF +30% (8s)] at the beginning of the battle"
+    ],
+    "baseStats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 36,
+      "def": 50,
+      "mag": null,
+      "res": 50,
+      "mnd": null,
+      "acc": null,
+      "eva": 100
+    },
+    "maxStats": {
+      "rarity": "S",
+      "level": 99,
+      "atk": 62,
+      "def": 194,
+      "mag": null,
+      "res": 194,
+      "mnd": null,
+      "acc": null,
+      "eva": 100
+    },
+    "id": 22353201,
+    "gl": false
+  },
+  {
+    "character": "Umaro",
+    "realm": "VI",
+    "season": "1",
+    "group": "C",
+    "name": "Berserker Ring",
+    "type": "Accessory",
+    "rarity": "S",
+    "stats": {
+      "rarity": "S",
+      "level": 1,
+      "atk": 0,
+      "def": 0,
+      "mag": 0,
+      "res": 0,
+      "mnd": 0,
+      "acc": 0,
+      "eva": 0
+    },
+    "fixedEffects": [
+      "HP +500",
+      "Prismatic resistance (moderate)"
+    ],
+    "randomEffects": [
+      "Quick Cast 4/5/6/7/8%"
+    ],
+    "baseStats": {
+      "rarity": "S",
+      "level": 1,
+      "atk": null,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": null,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": "S",
+      "level": 1,
+      "atk": null,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": null,
+      "eva": null
+    },
+    "id": 23380379,
+    "gl": false
+  },
+  {
+    "character": "Locke",
+    "realm": "VI",
+    "season": "2",
+    "group": "A",
+    "name": "Thief's Knife",
+    "type": "Dagger",
+    "rarity": "S",
+    "stats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 266,
+      "def": 0,
+      "mag": 0,
+      "res": 0,
+      "mnd": 0,
+      "acc": 95,
+      "eva": 0
+    },
+    "fixedEffects": [
+      "Deadly Strikes 5",
+      "Prismatic damage +20%"
+    ],
+    "randomEffects": [
+      "Fire +1/2/3/4/5% Boost",
+      "Quick Cast 3/4/5%",
+      "Grants [ATK +10% (8s)]/[ATK +20% (8s)]/[ATK +30% (8s)] at the beginning of the battle"
+    ],
+    "baseStats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 172,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": "S",
+      "level": 99,
+      "atk": 360,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 21301083,
+    "gl": false
+  },
+  {
+    "character": "Locke",
+    "realm": "VI",
+    "season": "2",
+    "group": "A",
+    "name": "Locke's Jacket",
+    "type": "Light Armor",
+    "rarity": "S",
+    "stats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 49,
+      "def": 122,
+      "mag": 0,
+      "res": 122,
+      "mnd": 0,
+      "acc": 0,
+      "eva": 100
+    },
+    "fixedEffects": [
+      "Precise Strike 5",
+      "Prismatic damage +20%"
+    ],
+    "randomEffects": [
+      "Fire Ability +1/2/3/4/5% Boost",
+      "Grants [20% Damage Reduction Barrier 1 Follow-Up]/[30% Damage Reduction Barrier 1 Follow-Up]/[40% Damage Reduction Barrier 1 Follow-Up] at the beginning of the battle",
+      "Grants [DEF +10% (8s)]/[DEF +20% (8s)]/[DEF +30% (8s)] at the beginning of the battle"
+    ],
+    "baseStats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 36,
+      "def": 50,
+      "mag": null,
+      "res": 50,
+      "mnd": null,
+      "acc": null,
+      "eva": 100
+    },
+    "maxStats": {
+      "rarity": "S",
+      "level": 99,
+      "atk": 62,
+      "def": 194,
+      "mag": null,
+      "res": 194,
+      "mnd": null,
+      "acc": null,
+      "eva": 100
+    },
+    "id": 22353116,
+    "gl": false
+  },
+  {
+    "character": "Locke",
+    "realm": "VI",
+    "season": "2",
+    "group": "A",
+    "name": "Locke's Bandana",
+    "type": "Accessory",
+    "rarity": "S",
+    "stats": {
+      "rarity": "S",
+      "level": 1,
+      "atk": 0,
+      "def": 0,
+      "mag": 0,
+      "res": 0,
+      "mnd": 0,
+      "acc": 0,
+      "eva": 0
+    },
+    "fixedEffects": [
+      "HP +500",
+      "Prismatic resistance (moderate)"
+    ],
+    "randomEffects": [
+      "Quick Cast 4/5/6/7/8%"
+    ],
+    "baseStats": {
+      "rarity": "S",
+      "level": 1,
+      "atk": null,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": null,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": "S",
+      "level": 1,
+      "atk": null,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": null,
+      "eva": null
+    },
+    "id": 23380236,
+    "gl": false
+  },
+  {
+    "character": "Cyan",
+    "realm": "VI",
+    "season": "2",
+    "group": "A",
+    "name": "Zanma Sword",
+    "type": "Katana",
+    "rarity": "S",
+    "stats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 266,
+      "def": 0,
+      "mag": 0,
+      "res": 0,
+      "mnd": 0,
+      "acc": 95,
+      "eva": 0
+    },
+    "fixedEffects": [
+      "Deadly Strikes 5",
+      "Prismatic damage +20%"
+    ],
+    "randomEffects": [
+      "Fire +1/2/3/4/5% Boost",
+      "Quick Cast 3/4/5%",
+      "Grants [ATK +10% (8s)]/[ATK +20% (8s)]/[ATK +30% (8s)] at the beginning of the battle"
+    ],
+    "baseStats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 172,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": "S",
+      "level": 99,
+      "atk": 360,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 21303102,
+    "gl": false
+  },
+  {
+    "character": "Cyan",
+    "realm": "VI",
+    "season": "2",
+    "group": "A",
+    "name": "Cyan's Bracer",
+    "type": "Bracer",
+    "rarity": "S",
+    "stats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 70,
+      "def": 117,
+      "mag": 0,
+      "res": 100,
+      "mnd": 0,
+      "acc": 0,
+      "eva": 105
+    },
+    "fixedEffects": [
+      "Precise Strike 5",
+      "Prismatic damage +20%"
+    ],
+    "randomEffects": [
+      "Fire Ability +1/2/3/4/5% Boost",
+      "Grants [20% Damage Reduction Barrier 1 Follow-Up]/[30% Damage Reduction Barrier 1 Follow-Up]/[40% Damage Reduction Barrier 1 Follow-Up] at the beginning of the battle",
+      "Grants [DEF +10% (8s)]/[DEF +20% (8s)]/[DEF +30% (8s)] at the beginning of the battle"
+    ],
+    "baseStats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 61,
+      "def": 79,
+      "mag": null,
+      "res": 45,
+      "mnd": null,
+      "acc": null,
+      "eva": 105
+    },
+    "maxStats": {
+      "rarity": "S",
+      "level": 99,
+      "atk": 79,
+      "def": 155,
+      "mag": null,
+      "res": 155,
+      "mnd": null,
+      "acc": null,
+      "eva": 105
+    },
+    "id": 22356131,
+    "gl": false
+  },
+  {
+    "character": "Cyan",
+    "realm": "VI",
+    "season": "2",
+    "group": "A",
+    "name": "Cyan's Hairtie",
+    "type": "Accessory",
+    "rarity": "S",
+    "stats": {
+      "rarity": "S",
+      "level": 1,
+      "atk": 0,
+      "def": 0,
+      "mag": 0,
+      "res": 0,
+      "mnd": 0,
+      "acc": 0,
+      "eva": 0
+    },
+    "fixedEffects": [
+      "HP +500",
+      "Prismatic resistance (moderate)"
+    ],
+    "randomEffects": [
+      "Quick Cast 4/5/6/7/8%"
+    ],
+    "baseStats": {
+      "rarity": "S",
+      "level": 1,
+      "atk": null,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": null,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": "S",
+      "level": 1,
+      "atk": null,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": null,
+      "eva": null
+    },
+    "id": 23380528,
+    "gl": false
+  },
+  {
+    "character": "Tifa",
+    "realm": "VII",
+    "season": "1",
+    "group": "A",
+    "name": "Premium Heart",
+    "type": "Fist",
+    "rarity": "S",
+    "stats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 266,
+      "def": 0,
+      "mag": 0,
+      "res": 0,
+      "mnd": 0,
+      "acc": 95,
+      "eva": 0
+    },
+    "fixedEffects": [
+      "Deadly Strikes 5",
+      "Prismatic damage +20%"
+    ],
+    "randomEffects": [
+      "Earth +1/2/3/4/5% Boost",
+      "Quick Cast 3/4/5%",
+      "Grants [ATK +10% (8s)]/[ATK +20% (8s)]/[ATK +30% (8s)] at the beginning of the battle"
+    ],
+    "baseStats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 172,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": "S",
+      "level": 99,
+      "atk": 360,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 10700300,
+    "gl": true
+  },
+  {
+    "character": "Tifa",
+    "realm": "VII",
+    "season": "1",
+    "group": "A",
+    "name": "Tifa's Gloves",
+    "type": "Light Armor",
+    "rarity": "S",
+    "stats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 70,
+      "def": 117,
+      "mag": 0,
+      "res": 100,
+      "mnd": 0,
+      "acc": 0,
+      "eva": 105
+    },
+    "fixedEffects": [
+      "Precise Strike 5",
+      "Prismatic damage +20%"
+    ],
+    "randomEffects": [
+      "Earth Ability +1/2/3/4/5% Boost",
+      "Grants [20% Damage Reduction Barrier 1 Follow-Up]/[30% Damage Reduction Barrier 1 Follow-Up]/[40% Damage Reduction Barrier 1 Follow-Up] at the beginning of the battle",
+      "Grants [DEF +10% (8s)]/[DEF +20% (8s)]/[DEF +30% (8s)] at the beginning of the battle"
+    ],
+    "baseStats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 61,
+      "def": 79,
+      "mag": null,
+      "res": 45,
+      "mnd": null,
+      "acc": null,
+      "eva": 105
+    },
+    "maxStats": {
+      "rarity": "S",
+      "level": 99,
+      "atk": 79,
+      "def": 155,
+      "mag": null,
+      "res": 155,
+      "mnd": null,
+      "acc": null,
+      "eva": 105
+    },
+    "id": 22356055,
+    "gl": true
+  },
+  {
+    "character": "Tifa",
+    "realm": "VII",
+    "season": "1",
+    "group": "A",
+    "name": "Tifa's Earrings",
+    "type": "Accessory",
+    "rarity": "S",
+    "stats": {
+      "rarity": "S",
+      "level": 1,
+      "atk": 0,
+      "def": 0,
+      "mag": 0,
+      "res": 0,
+      "mnd": 0,
+      "acc": 0,
+      "eva": 0
+    },
+    "fixedEffects": [
+      "HP +500",
+      "Prismatic resistance (moderate)"
+    ],
+    "randomEffects": [
+      "Quick Cast 4/5/6/7/8%"
+    ],
+    "baseStats": {
+      "rarity": "S",
+      "level": 1,
+      "atk": null,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": null,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": "S",
+      "level": 1,
+      "atk": null,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": null,
+      "eva": null
+    },
+    "id": 23380150,
+    "gl": true
+  },
+  {
+    "character": "Red XIII",
+    "realm": "VII",
+    "season": "1",
+    "group": "A",
+    "name": "Limited Moon",
+    "type": "Hairpin",
+    "rarity": "S",
+    "stats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 0,
+      "def": 0,
+      "mag": 258,
+      "res": 0,
+      "mnd": 0,
+      "acc": 95,
+      "eva": 0
+    },
+    "fixedEffects": [
+      "Hand of Vengeance 5",
+      "Prismatic damage +20%"
+    ],
+    "randomEffects": [
+      "Earth +1/2/3/4/5% Boost",
+      "Quick Cast 3/4/5%",
+      "Grants [MAG +10% (8s)]/[MAG +20% (8s)]/[MAG +30% (8s)] at the beginning of the battle"
+    ],
+    "baseStats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": null,
+      "def": null,
+      "mag": 165,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": "S",
+      "level": 99,
+      "atk": null,
+      "def": null,
+      "mag": 350,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 22331012,
+    "gl": true
+  },
+  {
+    "character": "Red XIII",
+    "realm": "VII",
+    "season": "1",
+    "group": "A",
+    "name": "Red XIII's Armlet",
+    "type": "Bracer",
+    "rarity": "S",
+    "stats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 0,
+      "def": 117,
+      "mag": 60,
+      "res": 100,
+      "mnd": 0,
+      "acc": 0,
+      "eva": 105
+    },
+    "fixedEffects": [
+      "Empower Healing 5%",
+      "Prismatic damage +20%"
+    ],
+    "randomEffects": [
+      "Earth Ability +1/2/3/4/5% Boost",
+      "Grants [20% Damage Reduction Barrier 1 Follow-Up]/[30% Damage Reduction Barrier 1 Follow-Up]/[40% Damage Reduction Barrier 1 Follow-Up] at the beginning of the battle",
+      "Grants [RES +10% (8s)]/[RES +20% (8s)]/[RES +30% (8s)] at the beginning of the battle"
+    ],
+    "baseStats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": null,
+      "def": 79,
+      "mag": 49,
+      "res": 45,
+      "mnd": null,
+      "acc": null,
+      "eva": 105
+    },
+    "maxStats": {
+      "rarity": "S",
+      "level": 99,
+      "atk": null,
+      "def": 155,
+      "mag": 70,
+      "res": 155,
+      "mnd": null,
+      "acc": null,
+      "eva": 105
+    },
+    "id": 22356068,
+    "gl": true
+  },
+  {
+    "character": "Red XIII",
+    "realm": "VII",
+    "season": "1",
+    "group": "A",
+    "name": "Star Pendant",
+    "type": "Accessory",
+    "rarity": "S",
+    "stats": {
+      "rarity": "S",
+      "level": 1,
+      "atk": 0,
+      "def": 0,
+      "mag": 0,
+      "res": 0,
+      "mnd": 0,
+      "acc": 0,
+      "eva": 0
+    },
+    "fixedEffects": [
+      "HP +500",
+      "Prismatic resistance (moderate)"
+    ],
+    "randomEffects": [
+      "Quick Cast 4/5/6/7/8%"
+    ],
+    "baseStats": {
+      "rarity": "S",
+      "level": 1,
+      "atk": null,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": null,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": "S",
+      "level": 1,
+      "atk": null,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": null,
+      "eva": null
+    },
+    "id": 23380010,
+    "gl": true
+  },
+  {
+    "character": "Rude",
+    "realm": "VII",
+    "season": "1",
+    "group": "A",
+    "name": "Rude's Gloves",
+    "type": "Fist",
+    "rarity": "S",
+    "stats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 258,
+      "def": 0,
+      "mag": 258,
+      "res": 0,
+      "mnd": 0,
+      "acc": 95,
+      "eva": 0
+    },
+    "fixedEffects": [
+      "Hand of Vengeance 5",
+      "Prismatic damage +20%"
+    ],
+    "randomEffects": [
+      "Earth +1/2/3/4/5% Boost",
+      "Quick Cast 3/4/5%",
+      "Grants [MAG +10% (8s)]/[MAG +20% (8s)]/[MAG +30% (8s)] at the beginning of the battle"
+    ],
+    "baseStats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 165,
+      "def": null,
+      "mag": 165,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": "S",
+      "level": 99,
+      "atk": 350,
+      "def": null,
+      "mag": 350,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 21307114,
+    "gl": true
+  },
+  {
+    "character": "Rude",
+    "realm": "VII",
+    "season": "1",
+    "group": "A",
+    "name": "Shinra Headset",
+    "type": "Hat",
+    "rarity": "S",
+    "stats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 49,
+      "def": 101,
+      "mag": 49,
+      "res": 143,
+      "mnd": 0,
+      "acc": 0,
+      "eva": 105
+    },
+    "fixedEffects": [
+      "Empower Healing 5%",
+      "Prismatic damage +20%"
+    ],
+    "randomEffects": [
+      "Earth Ability +1/2/3/4/5% Boost",
+      "Grants [20% Damage Reduction Barrier 1 Follow-Up]/[30% Damage Reduction Barrier 1 Follow-Up]/[40% Damage Reduction Barrier 1 Follow-Up] at the beginning of the battle",
+      "Grants [RES +10% (8s)]/[RES +20% (8s)]/[RES +30% (8s)] at the beginning of the battle"
+    ],
+    "baseStats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 36,
+      "def": 61,
+      "mag": 36,
+      "res": 76,
+      "mnd": null,
+      "acc": null,
+      "eva": 105
+    },
+    "maxStats": {
+      "rarity": "S",
+      "level": 99,
+      "atk": 62,
+      "def": 140,
+      "mag": 62,
+      "res": 210,
+      "mnd": null,
+      "acc": null,
+      "eva": 105
+    },
+    "id": 22351116,
+    "gl": true
+  },
+  {
+    "character": "Rude",
+    "realm": "VII",
+    "season": "1",
+    "group": "A",
+    "name": "Rude's Sunglasses",
+    "type": "Accessory",
+    "rarity": "S",
+    "stats": {
+      "rarity": "S",
+      "level": 1,
+      "atk": 0,
+      "def": 0,
+      "mag": 0,
+      "res": 0,
+      "mnd": 0,
+      "acc": 0,
+      "eva": 0
+    },
+    "fixedEffects": [
+      "HP +500",
+      "Prismatic resistance (moderate)"
+    ],
+    "randomEffects": [
+      "Quick Cast 4/5/6/7/8%"
+    ],
+    "baseStats": {
+      "rarity": "S",
+      "level": 1,
+      "atk": null,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": null,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": "S",
+      "level": 1,
+      "atk": null,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": null,
+      "eva": null
+    },
+    "id": 23380375,
+    "gl": true
+  },
+  {
+    "character": "Cid (VII)",
+    "realm": "VII",
+    "season": "1",
+    "group": "B",
+    "name": "Venus Gospel",
+    "type": "Spear",
+    "rarity": "S",
+    "stats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 266,
+      "def": 0,
+      "mag": 0,
+      "res": 0,
+      "mnd": 0,
+      "acc": 95,
+      "eva": 0
+    },
+    "fixedEffects": [
+      "Deadly Strikes 5",
+      "Prismatic damage +20%"
+    ],
+    "randomEffects": [
+      "Wind +1/2/3/4/5% Boost",
+      "Quick Cast 3/4/5%",
+      "Grants [ATK +10% (8s)]/[ATK +20% (8s)]/[ATK +30% (8s)] at the beginning of the battle"
+    ],
+    "baseStats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 172,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": "S",
+      "level": 99,
+      "atk": 360,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 21306178,
+    "gl": false
+  },
+  {
+    "character": "Cid (VII)",
+    "realm": "VII",
+    "season": "1",
+    "group": "B",
+    "name": "Cid's Jacket",
+    "type": "Light Armor",
+    "rarity": "S",
+    "stats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 49,
+      "def": 122,
+      "mag": 0,
+      "res": 122,
+      "mnd": 0,
+      "acc": 0,
+      "eva": 100
+    },
+    "fixedEffects": [
+      "Precise Strike 5",
+      "Prismatic damage +20%"
+    ],
+    "randomEffects": [
+      "Wind Ability +1/2/3/4/5% Boost",
+      "Grants [20% Damage Reduction Barrier 1 Follow-Up]/[30% Damage Reduction Barrier 1 Follow-Up]/[40% Damage Reduction Barrier 1 Follow-Up] at the beginning of the battle",
+      "Grants [DEF +10% (8s)]/[DEF +20% (8s)]/[DEF +30% (8s)] at the beginning of the battle"
+    ],
+    "baseStats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 36,
+      "def": 50,
+      "mag": null,
+      "res": 50,
+      "mnd": null,
+      "acc": null,
+      "eva": 100
+    },
+    "maxStats": {
+      "rarity": "S",
+      "level": 99,
+      "atk": 62,
+      "def": 194,
+      "mag": null,
+      "res": 194,
+      "mnd": null,
+      "acc": null,
+      "eva": 100
+    },
+    "id": 22353193,
+    "gl": false
+  },
+  {
+    "character": "Cid (VII)",
+    "realm": "VII",
+    "season": "1",
+    "group": "B",
+    "name": "PHS",
+    "type": "Accessory",
+    "rarity": "S",
+    "stats": {
+      "rarity": "S",
+      "level": 1,
+      "atk": 0,
+      "def": 0,
+      "mag": 0,
+      "res": 0,
+      "mnd": 0,
+      "acc": 0,
+      "eva": 0
+    },
+    "fixedEffects": [
+      "HP +500",
+      "Prismatic resistance (moderate)"
+    ],
+    "randomEffects": [
+      "Quick Cast 4/5/6/7/8%"
+    ],
+    "baseStats": {
+      "rarity": "S",
+      "level": 1,
+      "atk": null,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": null,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": "S",
+      "level": 1,
+      "atk": null,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": null,
+      "eva": null
+    },
+    "id": 23380617,
+    "gl": false
+  },
+  {
+    "character": "Barret",
+    "realm": "VII",
+    "season": "2",
+    "group": "A",
+    "name": "Missing Score",
+    "type": "Gun-Arm",
+    "rarity": "S",
+    "stats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 253,
+      "def": 0,
+      "mag": 0,
+      "res": 0,
+      "mnd": 0,
+      "acc": 95,
+      "eva": 0
+    },
+    "fixedEffects": [
+      "Deadly Strikes 5",
+      "Prismatic damage +20%"
+    ],
+    "randomEffects": [
+      "Fire +1/2/3/4/5% Boost",
+      "Quick Cast 3/4/5%",
+      "Grants [ATK +10% (8s)]/[ATK +20% (8s)]/[ATK +30% (8s)] at the beginning of the battle"
+    ],
+    "baseStats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 160,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": "S",
+      "level": 99,
+      "atk": 346,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 21332016,
+    "gl": false
+  },
+  {
+    "character": "Barret",
+    "realm": "VII",
+    "season": "2",
+    "group": "A",
+    "name": "Barret's Vest",
+    "type": "Light Armor",
+    "rarity": "S",
+    "stats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 49,
+      "def": 122,
+      "mag": 0,
+      "res": 122,
+      "mnd": 0,
+      "acc": 0,
+      "eva": 100
+    },
+    "fixedEffects": [
+      "Precise Strike 5",
+      "Prismatic damage +20%"
+    ],
+    "randomEffects": [
+      "Fire Ability +1/2/3/4/5% Boost",
+      "Grants [20% Damage Reduction Barrier 1 Follow-Up]/[30% Damage Reduction Barrier 1 Follow-Up]/[40% Damage Reduction Barrier 1 Follow-Up] at the beginning of the battle",
+      "Grants [DEF +10% (8s)]/[DEF +20% (8s)]/[DEF +30% (8s)] at the beginning of the battle"
+    ],
+    "baseStats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 36,
+      "def": 50,
+      "mag": null,
+      "res": 50,
+      "mnd": null,
+      "acc": null,
+      "eva": 100
+    },
+    "maxStats": {
+      "rarity": "S",
+      "level": 99,
+      "atk": 62,
+      "def": 194,
+      "mag": null,
+      "res": 194,
+      "mnd": null,
+      "acc": null,
+      "eva": 100
+    },
+    "id": 22353412,
+    "gl": false
+  },
+  {
+    "character": "Barret",
+    "realm": "VII",
+    "season": "2",
+    "group": "A",
+    "name": "Dog Tag",
+    "type": "Accessory",
+    "rarity": "S",
+    "stats": {
+      "rarity": "S",
+      "level": 1,
+      "atk": 0,
+      "def": 0,
+      "mag": 0,
+      "res": 0,
+      "mnd": 0,
+      "acc": 0,
+      "eva": 0
+    },
+    "fixedEffects": [
+      "HP +500",
+      "Prismatic resistance (moderate)"
+    ],
+    "randomEffects": [
+      "Quick Cast 4/5/6/7/8%"
+    ],
+    "baseStats": {
+      "rarity": "S",
+      "level": 1,
+      "atk": null,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": null,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": "S",
+      "level": 1,
+      "atk": null,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": null,
+      "eva": null
+    },
+    "id": 23380105,
+    "gl": false
+  },
+  {
+    "character": "Sephiroth",
+    "realm": "VII",
+    "season": "2",
+    "group": "A",
+    "name": "Masamune",
+    "type": "Katana",
+    "rarity": "S",
+    "stats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 266,
+      "def": 0,
+      "mag": 0,
+      "res": 0,
+      "mnd": 0,
+      "acc": 95,
+      "eva": 0
+    },
+    "fixedEffects": [
+      "Deadly Strikes 5",
+      "Prismatic damage +20%"
+    ],
+    "randomEffects": [
+      "Fire/Dark +1/2/3/4/5% Boost",
+      "Quick Cast 3/4/5%",
+      "Grants [ATK +10% (8s)]/[ATK +20% (8s)]/[ATK +30% (8s)] at the beginning of the battle"
+    ],
+    "baseStats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 172,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": "S",
+      "level": 99,
+      "atk": 360,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 21303005,
+    "gl": false
+  },
+  {
+    "character": "Sephiroth",
+    "realm": "VII",
+    "season": "2",
+    "group": "A",
+    "name": "Sephiroth's Guise",
+    "type": "Light Armor",
+    "rarity": "S",
+    "stats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 49,
+      "def": 122,
+      "mag": 0,
+      "res": 122,
+      "mnd": 0,
+      "acc": 0,
+      "eva": 100
+    },
+    "fixedEffects": [
+      "Precise Strike 5",
+      "Prismatic damage +20%"
+    ],
+    "randomEffects": [
+      "Fire/Dark Ability +1/2/3/4/5% Boost",
+      "Grants [20% Damage Reduction Barrier 1 Follow-Up]/[30% Damage Reduction Barrier 1 Follow-Up]/[40% Damage Reduction Barrier 1 Follow-Up] at the beginning of the battle",
+      "Grants [DEF +10% (8s)]/[DEF +20% (8s)]/[DEF +30% (8s)] at the beginning of the battle"
+    ],
+    "baseStats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 36,
+      "def": 50,
+      "mag": null,
+      "res": 50,
+      "mnd": null,
+      "acc": null,
+      "eva": 100
+    },
+    "maxStats": {
+      "rarity": "S",
+      "level": 99,
+      "atk": 62,
+      "def": 194,
+      "mag": null,
+      "res": 194,
+      "mnd": null,
+      "acc": null,
+      "eva": 100
+    },
+    "id": 22353050,
+    "gl": false
+  },
+  {
+    "character": "Sephiroth",
+    "realm": "VII",
+    "season": "2",
+    "group": "A",
+    "name": "One-Winged Pendant",
+    "type": "Accessory",
+    "rarity": "S",
+    "stats": {
+      "rarity": "S",
+      "level": 1,
+      "atk": 0,
+      "def": 0,
+      "mag": 0,
+      "res": 0,
+      "mnd": 0,
+      "acc": 0,
+      "eva": 0
+    },
+    "fixedEffects": [
+      "HP +500",
+      "Prismatic resistance (moderate)"
+    ],
+    "randomEffects": [
+      "Quick Cast 4/5/6/7/8%"
+    ],
+    "baseStats": {
+      "rarity": "S",
+      "level": 1,
+      "atk": null,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": null,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": "S",
+      "level": 1,
+      "atk": null,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": null,
+      "eva": null
+    },
+    "id": 23380328,
+    "gl": false
+  },
+  {
+    "character": "Vincent",
+    "realm": "VII",
+    "season": "2",
+    "group": "A",
+    "name": "Despenalty",
+    "type": "Gun",
+    "rarity": "S",
+    "stats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 258,
+      "def": 0,
+      "mag": 258,
+      "res": 0,
+      "mnd": 0,
+      "acc": 95,
+      "eva": 0
+    },
+    "fixedEffects": [
+      "Hand of Vengeance 5",
+      "Prismatic damage +20%"
+    ],
+    "randomEffects": [
+      "Fire +1/2/3/4/5% Boost",
+      "Quick Cast 3/4/5%",
+      "Grants [MAG +10% (8s)]/[MAG +20% (8s)]/[MAG +30% (8s)] at the beginning of the battle"
+    ],
+    "baseStats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 165,
+      "def": null,
+      "mag": 165,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": "S",
+      "level": 99,
+      "atk": 350,
+      "def": null,
+      "mag": 350,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 21315133,
+    "gl": false
+  },
+  {
+    "character": "Vincent",
+    "realm": "VII",
+    "season": "2",
+    "group": "A",
+    "name": "Vincent's Bandana",
+    "type": "Hat",
+    "rarity": "S",
+    "stats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 49,
+      "def": 101,
+      "mag": 49,
+      "res": 143,
+      "mnd": 0,
+      "acc": 0,
+      "eva": 105
+    },
+    "fixedEffects": [
+      "Empower Healing 5%",
+      "Prismatic damage +20%"
+    ],
+    "randomEffects": [
+      "Fire Ability +1/2/3/4/5% Boost",
+      "Grants [20% Damage Reduction Barrier 1 Follow-Up]/[30% Damage Reduction Barrier 1 Follow-Up]/[40% Damage Reduction Barrier 1 Follow-Up] at the beginning of the battle",
+      "Grants [RES +10% (8s)]/[RES +20% (8s)]/[RES +30% (8s)] at the beginning of the battle"
+    ],
+    "baseStats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 36,
+      "def": 61,
+      "mag": 36,
+      "res": 76,
+      "mnd": null,
+      "acc": null,
+      "eva": 105
+    },
+    "maxStats": {
+      "rarity": "S",
+      "level": 99,
+      "atk": 62,
+      "def": 140,
+      "mag": 62,
+      "res": 210,
+      "mnd": null,
+      "acc": null,
+      "eva": 105
+    },
+    "id": 22351091,
+    "gl": false
+  },
+  {
+    "character": "Vincent",
+    "realm": "VII",
+    "season": "2",
+    "group": "A",
+    "name": "Vincent's Boots",
+    "type": "Accessory",
+    "rarity": "S",
+    "stats": {
+      "rarity": "S",
+      "level": 1,
+      "atk": 0,
+      "def": 0,
+      "mag": 0,
+      "res": 0,
+      "mnd": 0,
+      "acc": 0,
+      "eva": 0
+    },
+    "fixedEffects": [
+      "HP +500",
+      "Prismatic resistance (moderate)"
+    ],
+    "randomEffects": [
+      "Quick Cast 4/5/6/7/8%"
+    ],
+    "baseStats": {
+      "rarity": "S",
+      "level": 1,
+      "atk": null,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": null,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": "S",
+      "level": 1,
+      "atk": null,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": null,
+      "eva": null
+    },
+    "id": 23380546,
+    "gl": false
+  },
+  {
+    "character": "Rinoa",
+    "realm": "VIII",
+    "season": "1",
+    "group": "A",
+    "name": "Shooting Star",
+    "type": "Thrown",
+    "rarity": "S",
+    "stats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 0,
+      "def": 0,
+      "mag": 258,
+      "res": 0,
+      "mnd": 0,
+      "acc": 95,
+      "eva": 0
+    },
+    "fixedEffects": [
+      "Hand of Vengeance 5",
+      "Prismatic damage +20%"
+    ],
+    "randomEffects": [
+      "Earth +1/2/3/4/5% Boost",
+      "Quick Cast 3/4/5%",
+      "Grants [MAG +10% (8s)]/[MAG +20% (8s)]/[MAG +30% (8s)] at the beginning of the battle"
+    ],
+    "baseStats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": null,
+      "def": null,
+      "mag": 165,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": "S",
+      "level": 99,
+      "atk": null,
+      "def": null,
+      "mag": 350,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 21313019,
+    "gl": true
+  },
+  {
+    "character": "Rinoa",
+    "realm": "VIII",
+    "season": "1",
+    "group": "A",
+    "name": "Rinoa's Guise",
+    "type": "Light Armor",
+    "rarity": "S",
+    "stats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 0,
+      "def": 122,
+      "mag": 49,
+      "res": 122,
+      "mnd": 0,
+      "acc": 0,
+      "eva": 100
+    },
+    "fixedEffects": [
+      "Empower Healing 5%",
+      "Prismatic damage +20%"
+    ],
+    "randomEffects": [
+      "Earth Ability +1/2/3/4/5% Boost",
+      "Grants [20% Damage Reduction Barrier 1 Follow-Up]/[30% Damage Reduction Barrier 1 Follow-Up]/[40% Damage Reduction Barrier 1 Follow-Up] at the beginning of the battle",
+      "Grants [RES +10% (8s)]/[RES +20% (8s)]/[RES +30% (8s)] at the beginning of the battle"
+    ],
+    "baseStats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": null,
+      "def": 50,
+      "mag": 36,
+      "res": 50,
+      "mnd": null,
+      "acc": null,
+      "eva": 100
+    },
+    "maxStats": {
+      "rarity": "S",
+      "level": 99,
+      "atk": null,
+      "def": 194,
+      "mag": 62,
+      "res": 194,
+      "mnd": null,
+      "acc": null,
+      "eva": 100
+    },
+    "id": 22353103,
+    "gl": true
+  },
+  {
+    "character": "Rinoa",
+    "realm": "VIII",
+    "season": "1",
+    "group": "A",
+    "name": "Rinoa's Necklace",
+    "type": "Accessory",
+    "rarity": "S",
+    "stats": {
+      "rarity": "S",
+      "level": 1,
+      "atk": 0,
+      "def": 0,
+      "mag": 0,
+      "res": 0,
+      "mnd": 0,
+      "acc": 0,
+      "eva": 0
+    },
+    "fixedEffects": [
+      "HP +500",
+      "Prismatic resistance (moderate)"
+    ],
+    "randomEffects": [
+      "Quick Cast 4/5/6/7/8%"
+    ],
+    "baseStats": {
+      "rarity": "S",
+      "level": 1,
+      "atk": null,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": null,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": "S",
+      "level": 1,
+      "atk": null,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": null,
+      "eva": null
+    },
+    "id": 23380214,
+    "gl": true
+  },
+  {
+    "character": "Edea",
+    "realm": "VIII",
+    "season": "1",
+    "group": "C",
+    "name": "Sorceress's Might",
+    "type": "Thrown",
+    "rarity": "S",
+    "stats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 0,
+      "def": 0,
+      "mag": 258,
+      "res": 0,
+      "mnd": 0,
+      "acc": 95,
+      "eva": 0
+    },
+    "fixedEffects": [
+      "Hand of Vengeance 5",
+      "Prismatic damage +20%"
+    ],
+    "randomEffects": [
+      "Ice/Dark +1/2/3/4/5% Boost",
+      "Quick Cast 3/4/5%",
+      "Grants [MAG +10% (8s)]/[MAG +20% (8s)]/[MAG +30% (8s)] at the beginning of the battle"
+    ],
+    "baseStats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": null,
+      "def": null,
+      "mag": 165,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": "S",
+      "level": 99,
+      "atk": null,
+      "def": null,
+      "mag": 350,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 21313028,
+    "gl": false
+  },
+  {
+    "character": "Edea",
+    "realm": "VIII",
+    "season": "1",
+    "group": "C",
+    "name": "Sorceress's Crown",
+    "type": "Hat",
+    "rarity": "S",
+    "stats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 0,
+      "def": 101,
+      "mag": 60,
+      "res": 145,
+      "mnd": 0,
+      "acc": 0,
+      "eva": 105
+    },
+    "fixedEffects": [
+      "Empower Healing 5%",
+      "Prismatic damage +20%"
+    ],
+    "randomEffects": [
+      "Ice/Dark Ability +1/2/3/4/5% Boost",
+      "Grants [20% Damage Reduction Barrier 1 Follow-Up]/[30% Damage Reduction Barrier 1 Follow-Up]/[40% Damage Reduction Barrier 1 Follow-Up] at the beginning of the battle",
+      "Grants [RES +10% (8s)]/[RES +20% (8s)]/[RES +30% (8s)] at the beginning of the battle"
+    ],
+    "baseStats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": null,
+      "def": 61,
+      "mag": 49,
+      "res": 79,
+      "mnd": null,
+      "acc": null,
+      "eva": 105
+    },
+    "maxStats": {
+      "rarity": "S",
+      "level": 99,
+      "atk": null,
+      "def": 140,
+      "mag": 70,
+      "res": 210,
+      "mnd": null,
+      "acc": null,
+      "eva": 105
+    },
+    "id": 22351069,
+    "gl": false
+  },
+  {
+    "character": "Edea",
+    "realm": "VIII",
+    "season": "1",
+    "group": "C",
+    "name": "Circlet",
+    "type": "Accessory",
+    "rarity": "S",
+    "stats": {
+      "rarity": "S",
+      "level": 1,
+      "atk": 0,
+      "def": 0,
+      "mag": 0,
+      "res": 0,
+      "mnd": 0,
+      "acc": 0,
+      "eva": 0
+    },
+    "fixedEffects": [
+      "HP +500",
+      "Prismatic resistance (moderate)"
+    ],
+    "randomEffects": [
+      "Quick Cast 4/5/6/7/8%"
+    ],
+    "baseStats": {
+      "rarity": "S",
+      "level": 1,
+      "atk": null,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": null,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": "S",
+      "level": 1,
+      "atk": null,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": null,
+      "eva": null
+    },
+    "id": 23380120,
+    "gl": false
+  },
+  {
+    "character": "Ward",
+    "realm": "VIII",
+    "season": "2",
+    "group": "B",
+    "name": "Harpoon",
+    "type": "Spear",
+    "rarity": "S",
+    "stats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 266,
+      "def": 0,
+      "mag": 0,
+      "res": 0,
+      "mnd": 0,
+      "acc": 95,
+      "eva": 0
+    },
+    "fixedEffects": [
+      "Deadly Strikes 5",
+      "Prismatic damage +20%"
+    ],
+    "randomEffects": [
+      "Ice/Earth/Water +1/2/3/4/5% Boost",
+      "Quick Cast 3/4/5%",
+      "Grants [ATK +10% (8s)]/[ATK +20% (8s)]/[ATK +30% (8s)] at the beginning of the battle"
+    ],
+    "baseStats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 172,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": "S",
+      "level": 99,
+      "atk": 360,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 21306099,
+    "gl": false
+  },
+  {
+    "character": "Ward",
+    "realm": "VIII",
+    "season": "2",
+    "group": "B",
+    "name": "Ward's Bandana",
+    "type": "Hat",
+    "rarity": "S",
+    "stats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 49,
+      "def": 101,
+      "mag": 0,
+      "res": 143,
+      "mnd": 0,
+      "acc": 0,
+      "eva": 0
+    },
+    "fixedEffects": [
+      "Precise Strike 5",
+      "Prismatic damage +20%"
+    ],
+    "randomEffects": [
+      "Ice/Earth/Water Ability +1/2/3/4/5% Boost",
+      "Grants [20% Damage Reduction Barrier 1 Follow-Up]/[30% Damage Reduction Barrier 1 Follow-Up]/[40% Damage Reduction Barrier 1 Follow-Up] at the beginning of the battle",
+      "Grants [DEF +10% (8s)]/[DEF +20% (8s)]/[DEF +30% (8s)] at the beginning of the battle"
+    ],
+    "baseStats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 36,
+      "def": 61,
+      "mag": null,
+      "res": 76,
+      "mnd": null,
+      "acc": null,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": "S",
+      "level": 99,
+      "atk": 62,
+      "def": 140,
+      "mag": null,
+      "res": 210,
+      "mnd": null,
+      "acc": null,
+      "eva": null
+    },
+    "id": 22351118,
+    "gl": false
+  },
+  {
+    "character": "Ward",
+    "realm": "VIII",
+    "season": "2",
+    "group": "B",
+    "name": "Gaia Ring",
+    "type": "Accessory",
+    "rarity": "S",
+    "stats": {
+      "rarity": "S",
+      "level": 1,
+      "atk": 0,
+      "def": 0,
+      "mag": 0,
+      "res": 0,
+      "mnd": 0,
+      "acc": 0,
+      "eva": 0
+    },
+    "fixedEffects": [
+      "HP +500",
+      "Prismatic resistance (moderate)"
+    ],
+    "randomEffects": [
+      "Quick Cast 4/5/6/7/8%"
+    ],
+    "baseStats": {
+      "rarity": "S",
+      "level": 1,
+      "atk": null,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": null,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": "S",
+      "level": 1,
+      "atk": null,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": null,
+      "eva": null
+    },
+    "id": 23380215,
+    "gl": false
+  },
+  {
+    "character": "Eiko",
+    "realm": "IX",
+    "season": "1",
+    "group": "B",
+    "name": "Angel Flute",
+    "type": "Instrument",
+    "rarity": "S",
+    "stats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 0,
+      "def": 0,
+      "mag": 258,
+      "res": 0,
+      "mnd": 129,
+      "acc": 95,
+      "eva": 0
+    },
+    "fixedEffects": [
+      "Hand of Vengeance 5",
+      "Prismatic damage +20%"
+    ],
+    "randomEffects": [
+      "Wind +1/2/3/4/5% Boost",
+      "Quick Cast 3/4/5%",
+      "Grants [MAG +10% (8s)]/[MAG +20% (8s)]/[MAG +30% (8s)] at the beginning of the battle"
+    ],
+    "baseStats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": null,
+      "def": null,
+      "mag": 165,
+      "res": null,
+      "mnd": 83,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": "S",
+      "level": 99,
+      "atk": null,
+      "def": null,
+      "mag": 350,
+      "res": null,
+      "mnd": 175,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 21311029,
+    "gl": false
+  },
+  {
+    "character": "Eiko",
+    "realm": "IX",
+    "season": "1",
+    "group": "B",
+    "name": "Eiko's Guise",
+    "type": "Light Armor",
+    "rarity": "S",
+    "stats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 0,
+      "def": 122,
+      "mag": 39,
+      "res": 122,
+      "mnd": 0,
+      "acc": 0,
+      "eva": 100
+    },
+    "fixedEffects": [
+      "Empower Healing 5%",
+      "Prismatic damage +20%"
+    ],
+    "randomEffects": [
+      "Wind Ability +1/2/3/4/5% Boost",
+      "Grants [20% Damage Reduction Barrier 1 Follow-Up]/[30% Damage Reduction Barrier 1 Follow-Up]/[40% Damage Reduction Barrier 1 Follow-Up] at the beginning of the battle",
+      "Grants [RES +10% (8s)]/[RES +20% (8s)]/[RES +30% (8s)] at the beginning of the battle"
+    ],
+    "baseStats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": null,
+      "def": 50,
+      "mag": 26,
+      "res": 50,
+      "mnd": null,
+      "acc": null,
+      "eva": 100
+    },
+    "maxStats": {
+      "rarity": "S",
+      "level": 99,
+      "atk": null,
+      "def": 194,
+      "mag": 52,
+      "res": 194,
+      "mnd": null,
+      "acc": null,
+      "eva": 100
+    },
+    "id": 22353104,
+    "gl": false
+  },
+  {
+    "character": "Eiko",
+    "realm": "IX",
+    "season": "1",
+    "group": "B",
+    "name": "Friendship Ribbon",
+    "type": "Accessory",
+    "rarity": "S",
+    "stats": {
+      "rarity": "S",
+      "level": 1,
+      "atk": 0,
+      "def": 0,
+      "mag": 0,
+      "res": 0,
+      "mnd": 0,
+      "acc": 0,
+      "eva": 0
+    },
+    "fixedEffects": [
+      "HP +500",
+      "Prismatic resistance (moderate)"
+    ],
+    "randomEffects": [
+      "Quick Cast 4/5/6/7/8%"
+    ],
+    "baseStats": {
+      "rarity": "S",
+      "level": 1,
+      "atk": null,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": null,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": "S",
+      "level": 1,
+      "atk": null,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": null,
+      "eva": null
+    },
+    "id": 23380158,
+    "gl": false
+  },
+  {
+    "character": "Freya",
+    "realm": "IX",
+    "season": "1",
+    "group": "B",
+    "name": "Dragon Whisker",
+    "type": "Spear",
+    "rarity": "S",
+    "stats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 266,
+      "def": 0,
+      "mag": 0,
+      "res": 0,
+      "mnd": 0,
+      "acc": 95,
+      "eva": 0
+    },
+    "fixedEffects": [
+      "Deadly Strikes 5",
+      "Prismatic damage +20%"
+    ],
+    "randomEffects": [
+      "Wind +1/2/3/4/5% Boost",
+      "Quick Cast 3/4/5%",
+      "Grants [ATK +10% (8s)]/[ATK +20% (8s)]/[ATK +30% (8s)] at the beginning of the battle"
+    ],
+    "baseStats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 172,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": "S",
+      "level": 99,
+      "atk": 360,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 21306139,
+    "gl": false
+  },
+  {
+    "character": "Freya",
+    "realm": "IX",
+    "season": "1",
+    "group": "B",
+    "name": "Freya's Cap",
+    "type": "Hat",
+    "rarity": "S",
+    "stats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 49,
+      "def": 101,
+      "mag": 0,
+      "res": 143,
+      "mnd": 0,
+      "acc": 0,
+      "eva": 105
+    },
+    "fixedEffects": [
+      "Precise Strike 5",
+      "Prismatic damage +20%"
+    ],
+    "randomEffects": [
+      "Wind Ability +1/2/3/4/5% Boost",
+      "Grants [20% Damage Reduction Barrier 1 Follow-Up]/[30% Damage Reduction Barrier 1 Follow-Up]/[40% Damage Reduction Barrier 1 Follow-Up] at the beginning of the battle",
+      "Grants [DEF +10% (8s)]/[DEF +20% (8s)]/[DEF +30% (8s)] at the beginning of the battle"
+    ],
+    "baseStats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 36,
+      "def": 61,
+      "mag": null,
+      "res": 76,
+      "mnd": null,
+      "acc": null,
+      "eva": 105
+    },
+    "maxStats": {
+      "rarity": "S",
+      "level": 99,
+      "atk": 62,
+      "def": 140,
+      "mag": null,
+      "res": 210,
+      "mnd": null,
+      "acc": null,
+      "eva": 105
+    },
+    "id": 22351080,
+    "gl": false
+  },
+  {
+    "character": "Freya",
+    "realm": "IX",
+    "season": "1",
+    "group": "B",
+    "name": "Freya's Ring",
+    "type": "Accessory",
+    "rarity": "S",
+    "stats": {
+      "rarity": "S",
+      "level": 1,
+      "atk": 0,
+      "def": 0,
+      "mag": 0,
+      "res": 0,
+      "mnd": 0,
+      "acc": 0,
+      "eva": 0
+    },
+    "fixedEffects": [
+      "HP +500",
+      "Prismatic resistance (moderate)"
+    ],
+    "randomEffects": [
+      "Quick Cast 4/5/6/7/8%"
+    ],
+    "baseStats": {
+      "rarity": "S",
+      "level": 1,
+      "atk": null,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": null,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": "S",
+      "level": 1,
+      "atk": null,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": null,
+      "eva": null
+    },
+    "id": 23380628,
+    "gl": false
+  },
+  {
+    "character": "Marcus",
+    "realm": "IX",
+    "season": "1",
+    "group": "B",
+    "name": "Marcus's Sword",
+    "type": "Sword",
+    "rarity": "S",
+    "stats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 266,
+      "def": 0,
+      "mag": 0,
+      "res": 0,
+      "mnd": 0,
+      "acc": 95,
+      "eva": 0
+    },
+    "fixedEffects": [
+      "Deadly Strikes 5",
+      "Prismatic damage +20%"
+    ],
+    "randomEffects": [
+      "Wind/Poison +1/2/3/4/5% Boost",
+      "Quick Cast 3/4/5%",
+      "Grants [ATK +10% (8s)]/[ATK +20% (8s)]/[ATK +30% (8s)] at the beginning of the battle"
+    ],
+    "baseStats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 172,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": "S",
+      "level": 99,
+      "atk": 360,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 21302329,
+    "gl": false
+  },
+  {
+    "character": "Marcus",
+    "realm": "IX",
+    "season": "1",
+    "group": "B",
+    "name": "Marcus's Bandana",
+    "type": "Hat",
+    "rarity": "S",
+    "stats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 49,
+      "def": 101,
+      "mag": 0,
+      "res": 143,
+      "mnd": 0,
+      "acc": 0,
+      "eva": 105
+    },
+    "fixedEffects": [
+      "Precise Strike 5",
+      "Prismatic damage +20%"
+    ],
+    "randomEffects": [
+      "Wind/Poison Ability +1/2/3/4/5% Boost",
+      "Grants [20% Damage Reduction Barrier 1 Follow-Up]/[30% Damage Reduction Barrier 1 Follow-Up]/[40% Damage Reduction Barrier 1 Follow-Up] at the beginning of the battle",
+      "Grants [DEF +10% (8s)]/[DEF +20% (8s)]/[DEF +30% (8s)] at the beginning of the battle"
+    ],
+    "baseStats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 36,
+      "def": 61,
+      "mag": null,
+      "res": 76,
+      "mnd": null,
+      "acc": null,
+      "eva": 105
+    },
+    "maxStats": {
+      "rarity": "S",
+      "level": 99,
+      "atk": 62,
+      "def": 140,
+      "mag": null,
+      "res": 210,
+      "mnd": null,
+      "acc": null,
+      "eva": 105
+    },
+    "id": 22351134,
+    "gl": false
+  },
+  {
+    "character": "Marcus",
+    "realm": "IX",
+    "season": "1",
+    "group": "B",
+    "name": "Marcus's Armlet",
+    "type": "Accessory",
+    "rarity": "S",
+    "stats": {
+      "rarity": "S",
+      "level": 1,
+      "atk": 0,
+      "def": 0,
+      "mag": 0,
+      "res": 0,
+      "mnd": 0,
+      "acc": 0,
+      "eva": 0
+    },
+    "fixedEffects": [
+      "HP +500",
+      "Prismatic resistance (moderate)"
+    ],
+    "randomEffects": [
+      "Quick Cast 4/5/6/7/8%"
+    ],
+    "baseStats": {
+      "rarity": "S",
+      "level": 1,
+      "atk": null,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": null,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": "S",
+      "level": 1,
+      "atk": null,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": null,
+      "eva": null
+    },
+    "id": 23380269,
+    "gl": false
+  },
+  {
+    "character": "Braska",
+    "realm": "X",
+    "season": "2",
+    "group": "A",
+    "name": "Braska's Staff",
+    "type": "Staff",
+    "rarity": "S",
+    "stats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 0,
+      "def": 0,
+      "mag": 258,
+      "res": 0,
+      "mnd": 0,
+      "acc": 95,
+      "eva": 0
+    },
+    "fixedEffects": [
+      "Hand of Vengeance 5",
+      "Prismatic damage +20%"
+    ],
+    "randomEffects": [
+      "Fire +1/2/3/4/5% Boost",
+      "Quick Cast 3/4/5%",
+      "Grants [MAG +10% (8s)]/[MAG +20% (8s)]/[MAG +30% (8s)] at the beginning of the battle"
+    ],
+    "baseStats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": null,
+      "def": null,
+      "mag": 165,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": "S",
+      "level": 99,
+      "atk": null,
+      "def": null,
+      "mag": 350,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 21309059,
+    "gl": false
+  },
+  {
+    "character": "Braska",
+    "realm": "X",
+    "season": "2",
+    "group": "A",
+    "name": "Braska's Hat",
+    "type": "Hat",
+    "rarity": "S",
+    "stats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 0,
+      "def": 101,
+      "mag": 60,
+      "res": 143,
+      "mnd": 0,
+      "acc": 0,
+      "eva": 105
+    },
+    "fixedEffects": [
+      "Empower Healing 5%",
+      "Prismatic damage +20%"
+    ],
+    "randomEffects": [
+      "Fire Ability +1/2/3/4/5% Boost",
+      "Grants [20% Damage Reduction Barrier 1 Follow-Up]/[30% Damage Reduction Barrier 1 Follow-Up]/[40% Damage Reduction Barrier 1 Follow-Up] at the beginning of the battle",
+      "Grants [RES +10% (8s)]/[RES +20% (8s)]/[RES +30% (8s)] at the beginning of the battle"
+    ],
+    "baseStats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": null,
+      "def": 61,
+      "mag": 49,
+      "res": 76,
+      "mnd": null,
+      "acc": null,
+      "eva": 105
+    },
+    "maxStats": {
+      "rarity": "S",
+      "level": 99,
+      "atk": null,
+      "def": 140,
+      "mag": 70,
+      "res": 210,
+      "mnd": null,
+      "acc": null,
+      "eva": 105
+    },
+    "id": 22351093,
+    "gl": false
+  },
+  {
+    "character": "Braska",
+    "realm": "X",
+    "season": "2",
+    "group": "A",
+    "name": "Final Aeon Pendant",
+    "type": "Accessory",
+    "rarity": "S",
+    "stats": {
+      "rarity": "S",
+      "level": 1,
+      "atk": 0,
+      "def": 0,
+      "mag": 0,
+      "res": 0,
+      "mnd": 0,
+      "acc": 0,
+      "eva": 0
+    },
+    "fixedEffects": [
+      "HP +500",
+      "Prismatic resistance (moderate)"
+    ],
+    "randomEffects": [
+      "Quick Cast 4/5/6/7/8%"
+    ],
+    "baseStats": {
+      "rarity": "S",
+      "level": 1,
+      "atk": null,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": null,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": "S",
+      "level": 1,
+      "atk": null,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": null,
+      "eva": null
+    },
+    "id": 23380208,
+    "gl": false
+  },
+  {
+    "character": "Paine",
+    "realm": "X",
+    "season": "2",
+    "group": "B",
+    "name": "Paine's Sword",
+    "type": "Sword",
+    "rarity": "S",
+    "stats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 266,
+      "def": 0,
+      "mag": 0,
+      "res": 0,
+      "mnd": 0,
+      "acc": 95,
+      "eva": 0
+    },
+    "fixedEffects": [
+      "Deadly Strikes 5",
+      "Prismatic damage +20%"
+    ],
+    "randomEffects": [
+      "Water +1/2/3/4/5% Boost",
+      "Quick Cast 3/4/5%",
+      "Grants [ATK +10% (8s)]/[ATK +20% (8s)]/[ATK +30% (8s)] at the beginning of the battle"
+    ],
+    "baseStats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 172,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": "S",
+      "level": 99,
+      "atk": 360,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 21302173,
+    "gl": false
+  },
+  {
+    "character": "Paine",
+    "realm": "X",
+    "season": "2",
+    "group": "B",
+    "name": "Paine's Guise",
+    "type": "Light Armor",
+    "rarity": "S",
+    "stats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 49,
+      "def": 122,
+      "mag": 0,
+      "res": 122,
+      "mnd": 0,
+      "acc": 0,
+      "eva": 0
+    },
+    "fixedEffects": [
+      "Precise Strike 5",
+      "Prismatic damage +20%"
+    ],
+    "randomEffects": [
+      "Water Ability +1/2/3/4/5% Boost",
+      "Grants [20% Damage Reduction Barrier 1 Follow-Up]/[30% Damage Reduction Barrier 1 Follow-Up]/[40% Damage Reduction Barrier 1 Follow-Up] at the beginning of the battle",
+      "Grants [DEF +10% (8s)]/[DEF +20% (8s)]/[DEF +30% (8s)] at the beginning of the battle"
+    ],
+    "baseStats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 36,
+      "def": 50,
+      "mag": null,
+      "res": 50,
+      "mnd": null,
+      "acc": null,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": "S",
+      "level": 99,
+      "atk": 62,
+      "def": 194,
+      "mag": null,
+      "res": 194,
+      "mnd": null,
+      "acc": null,
+      "eva": null
+    },
+    "id": 22353178,
+    "gl": false
+  },
+  {
+    "character": "Paine",
+    "realm": "X",
+    "season": "2",
+    "group": "B",
+    "name": "Paine's Necklace",
+    "type": "Accessory",
+    "rarity": "S",
+    "stats": {
+      "rarity": "S",
+      "level": 1,
+      "atk": 0,
+      "def": 0,
+      "mag": 0,
+      "res": 0,
+      "mnd": 0,
+      "acc": 0,
+      "eva": 0
+    },
+    "fixedEffects": [
+      "HP +500",
+      "Prismatic resistance (moderate)"
+    ],
+    "randomEffects": [
+      "Quick Cast 4/5/6/7/8%"
+    ],
+    "baseStats": {
+      "rarity": "S",
+      "level": 1,
+      "atk": null,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": null,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": "S",
+      "level": 1,
+      "atk": null,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": null,
+      "eva": null
+    },
+    "id": 23380497,
+    "gl": false
+  },
+  {
+    "character": "Rikku",
+    "realm": "X",
+    "season": "2",
+    "group": "B",
+    "name": "Godhand",
+    "type": "Fist",
+    "rarity": "S",
+    "stats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 266,
+      "def": 0,
+      "mag": 0,
+      "res": 0,
+      "mnd": 0,
+      "acc": 95,
+      "eva": 0
+    },
+    "fixedEffects": [
+      "Deadly Strikes 5",
+      "Prismatic damage +20%"
+    ],
+    "randomEffects": [
+      "Water +1/2/3/4/5% Boost",
+      "Quick Cast 3/4/5%",
+      "Grants [ATK +10% (8s)]/[ATK +20% (8s)]/[ATK +30% (8s)] at the beginning of the battle"
+    ],
+    "baseStats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 172,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": "S",
+      "level": 99,
+      "atk": 360,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 21307249,
+    "gl": false
+  },
+  {
+    "character": "Rikku",
+    "realm": "X",
+    "season": "2",
+    "group": "B",
+    "name": "Dreadnought",
+    "type": "Bracer",
+    "rarity": "S",
+    "stats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 70,
+      "def": 117,
+      "mag": 0,
+      "res": 100,
+      "mnd": 0,
+      "acc": 0,
+      "eva": 0
+    },
+    "fixedEffects": [
+      "Precise Strike 5",
+      "Prismatic damage +20%"
+    ],
+    "randomEffects": [
+      "Water Ability +1/2/3/4/5% Boost",
+      "Grants [20% Damage Reduction Barrier 1 Follow-Up]/[30% Damage Reduction Barrier 1 Follow-Up]/[40% Damage Reduction Barrier 1 Follow-Up] at the beginning of the battle",
+      "Grants [DEF +10% (8s)]/[DEF +20% (8s)]/[DEF +30% (8s)] at the beginning of the battle"
+    ],
+    "baseStats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 61,
+      "def": 79,
+      "mag": null,
+      "res": 45,
+      "mnd": null,
+      "acc": null,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": "S",
+      "level": 99,
+      "atk": 79,
+      "def": 155,
+      "mag": null,
+      "res": 155,
+      "mnd": null,
+      "acc": null,
+      "eva": null
+    },
+    "id": 22356391,
+    "gl": false
+  },
+  {
+    "character": "Rikku",
+    "realm": "X",
+    "season": "2",
+    "group": "B",
+    "name": "Rikku's Hairpin",
+    "type": "Accessory",
+    "rarity": "S",
+    "stats": {
+      "rarity": "S",
+      "level": 1,
+      "atk": 0,
+      "def": 0,
+      "mag": 0,
+      "res": 0,
+      "mnd": 0,
+      "acc": 0,
+      "eva": 0
+    },
+    "fixedEffects": [
+      "HP +500",
+      "Prismatic resistance (moderate)"
+    ],
+    "randomEffects": [
+      "Quick Cast 4/5/6/7/8%"
+    ],
+    "baseStats": {
+      "rarity": "S",
+      "level": 1,
+      "atk": null,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": null,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": "S",
+      "level": 1,
+      "atk": null,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": null,
+      "eva": null
+    },
+    "id": 23380548,
+    "gl": false
+  },
+  {
+    "character": "Wakka",
+    "realm": "X",
+    "season": "2",
+    "group": "B",
+    "name": "World Champion",
+    "type": "Blitzball",
+    "rarity": "S",
+    "stats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 253,
+      "def": 0,
+      "mag": 0,
+      "res": 0,
+      "mnd": 0,
+      "acc": 95,
+      "eva": 0
+    },
+    "fixedEffects": [
+      "Deadly Strikes 5",
+      "Prismatic damage +20%"
+    ],
+    "randomEffects": [
+      "Water +1/2/3/4/5% Boost",
+      "Quick Cast 3/4/5%",
+      "Grants [ATK +10% (8s)]/[ATK +20% (8s)]/[ATK +30% (8s)] at the beginning of the battle"
+    ],
+    "baseStats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 160,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": "S",
+      "level": 99,
+      "atk": 346,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 21330022,
+    "gl": false
+  },
+  {
+    "character": "Wakka",
+    "realm": "X",
+    "season": "2",
+    "group": "B",
+    "name": "Never Give Up",
+    "type": "Bracer",
+    "rarity": "S",
+    "stats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 70,
+      "def": 117,
+      "mag": 0,
+      "res": 100,
+      "mnd": 0,
+      "acc": 0,
+      "eva": 0
+    },
+    "fixedEffects": [
+      "Precise Strike 5",
+      "Prismatic damage +20%"
+    ],
+    "randomEffects": [
+      "Water Ability +1/2/3/4/5% Boost",
+      "Grants [20% Damage Reduction Barrier 1 Follow-Up]/[30% Damage Reduction Barrier 1 Follow-Up]/[40% Damage Reduction Barrier 1 Follow-Up] at the beginning of the battle",
+      "Grants [DEF +10% (8s)]/[DEF +20% (8s)]/[DEF +30% (8s)] at the beginning of the battle"
+    ],
+    "baseStats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 61,
+      "def": 79,
+      "mag": null,
+      "res": 45,
+      "mnd": null,
+      "acc": null,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": "S",
+      "level": 99,
+      "atk": 79,
+      "def": 155,
+      "mag": null,
+      "res": 155,
+      "mnd": null,
+      "acc": null,
+      "eva": null
+    },
+    "id": 22356381,
+    "gl": false
+  },
+  {
+    "character": "Wakka",
+    "realm": "X",
+    "season": "2",
+    "group": "B",
+    "name": "Wakka's Bandana",
+    "type": "Accessory",
+    "rarity": "S",
+    "stats": {
+      "rarity": "S",
+      "level": 1,
+      "atk": 0,
+      "def": 0,
+      "mag": 0,
+      "res": 0,
+      "mnd": 0,
+      "acc": 0,
+      "eva": 0
+    },
+    "fixedEffects": [
+      "HP +500",
+      "Prismatic resistance (moderate)"
+    ],
+    "randomEffects": [
+      "Quick Cast 4/5/6/7/8%"
+    ],
+    "baseStats": {
+      "rarity": "S",
+      "level": 1,
+      "atk": null,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": null,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": "S",
+      "level": 1,
+      "atk": null,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": null,
+      "eva": null
+    },
+    "id": 23380117,
+    "gl": false
+  },
+  {
+    "character": "Lulu",
+    "realm": "X",
+    "season": "2",
+    "group": "B",
+    "name": "Onion Knight",
+    "type": "Doll",
+    "rarity": "S",
+    "stats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 0,
+      "def": 0,
+      "mag": 258,
+      "res": 0,
+      "mnd": 0,
+      "acc": 95,
+      "eva": 0
+    },
+    "fixedEffects": [
+      "Hand of Vengeance 5",
+      "Prismatic damage +20%"
+    ],
+    "randomEffects": [
+      "Ice/Lightning/Water +1/2/3/4/5% Boost",
+      "Quick Cast 3/4/5%",
+      "Grants [MAG +10% (8s)]/[MAG +20% (8s)]/[MAG +30% (8s)] at the beginning of the battle"
+    ],
+    "baseStats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": null,
+      "def": null,
+      "mag": 165,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": "S",
+      "level": 99,
+      "atk": null,
+      "def": null,
+      "mag": 350,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 21334011,
+    "gl": false
+  },
+  {
+    "character": "Lulu",
+    "realm": "X",
+    "season": "2",
+    "group": "B",
+    "name": "Soul of Samasa",
+    "type": "Bracer",
+    "rarity": "S",
+    "stats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 0,
+      "def": 117,
+      "mag": 60,
+      "res": 100,
+      "mnd": 0,
+      "acc": 0,
+      "eva": 0
+    },
+    "fixedEffects": [
+      "Empower Healing 5%",
+      "Prismatic damage +20%"
+    ],
+    "randomEffects": [
+      "Ice/Lightning/Water +1/2/3/4/5% Boost",
+      "Grants [20% Damage Reduction Barrier 1 Follow-Up]/[30% Damage Reduction Barrier 1 Follow-Up]/[40% Damage Reduction Barrier 1 Follow-Up] at the beginning of the battle",
+      "Grants [RES +10% (8s)]/[RES +20% (8s)]/[RES +30% (8s)] at the beginning of the battle"
+    ],
+    "baseStats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": null,
+      "def": 79,
+      "mag": 49,
+      "res": 45,
+      "mnd": null,
+      "acc": null,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": "S",
+      "level": 99,
+      "atk": null,
+      "def": 155,
+      "mag": 70,
+      "res": 155,
+      "mnd": null,
+      "acc": null,
+      "eva": null
+    },
+    "id": 22356389,
+    "gl": false
+  },
+  {
+    "character": "Lulu",
+    "realm": "X",
+    "season": "2",
+    "group": "B",
+    "name": "Lulu's Necklace",
+    "type": "Accessory",
+    "rarity": "S",
+    "stats": {
+      "rarity": "S",
+      "level": 1,
+      "atk": 0,
+      "def": 0,
+      "mag": 0,
+      "res": 0,
+      "mnd": 0,
+      "acc": 0,
+      "eva": 0
+    },
+    "fixedEffects": [
+      "HP +500",
+      "Prismatic resistance (moderate)"
+    ],
+    "randomEffects": [
+      "Quick Cast 4/5/6/7/8%"
+    ],
+    "baseStats": {
+      "rarity": "S",
+      "level": 1,
+      "atk": null,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": null,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": "S",
+      "level": 1,
+      "atk": null,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": null,
+      "eva": null
+    },
+    "id": 23380170,
+    "gl": false
+  },
+  {
+    "character": "Lion",
+    "realm": "XI",
+    "season": "2",
+    "group": "B",
+    "name": "Lust Dagger",
+    "type": "Dagger",
+    "rarity": "S",
+    "stats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 266,
+      "def": 0,
+      "mag": 0,
+      "res": 0,
+      "mnd": 0,
+      "acc": 95,
+      "eva": 0
+    },
+    "fixedEffects": [
+      "Deadly Strikes 5",
+      "Prismatic damage +20%"
+    ],
+    "randomEffects": [
+      "Water +1/2/3/4/5% Boost",
+      "Quick Cast 3/4/5%",
+      "Grants [ATK +10% (8s)]/[ATK +20% (8s)]/[ATK +30% (8s)] at the beginning of the battle"
+    ],
+    "baseStats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 172,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": "S",
+      "level": 99,
+      "atk": 360,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 21301096,
+    "gl": false
+  },
+  {
+    "character": "Lion",
+    "realm": "XI",
+    "season": "2",
+    "group": "B",
+    "name": "Gaia Doublet",
+    "type": "Light Armor",
+    "rarity": "S",
+    "stats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 49,
+      "def": 122,
+      "mag": 0,
+      "res": 122,
+      "mnd": 0,
+      "acc": 0,
+      "eva": 0
+    },
+    "fixedEffects": [
+      "Precise Strike 5",
+      "Prismatic damage +20%"
+    ],
+    "randomEffects": [
+      "Water Ability +1/2/3/4/5% Boost",
+      "Grants [20% Damage Reduction Barrier 1 Follow-Up]/[30% Damage Reduction Barrier 1 Follow-Up]/[40% Damage Reduction Barrier 1 Follow-Up] at the beginning of the battle",
+      "Grants [DEF +10% (8s)]/[DEF +20% (8s)]/[DEF +30% (8s)] at the beginning of the battle"
+    ],
+    "baseStats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 36,
+      "def": 50,
+      "mag": null,
+      "res": 50,
+      "mnd": null,
+      "acc": null,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": "S",
+      "level": 99,
+      "atk": 62,
+      "def": 194,
+      "mag": null,
+      "res": 194,
+      "mnd": null,
+      "acc": null,
+      "eva": null
+    },
+    "id": 22353145,
+    "gl": false
+  },
+  {
+    "character": "Lion",
+    "realm": "XI",
+    "season": "2",
+    "group": "B",
+    "name": "Brutal Earring",
+    "type": "Accessory",
+    "rarity": "S",
+    "stats": {
+      "rarity": "S",
+      "level": 1,
+      "atk": 0,
+      "def": 0,
+      "mag": 0,
+      "res": 0,
+      "mnd": 0,
+      "acc": 0,
+      "eva": 0
+    },
+    "fixedEffects": [
+      "HP +500",
+      "Prismatic resistance (moderate)"
+    ],
+    "randomEffects": [
+      "Quick Cast 4/5/6/7/8%"
+    ],
+    "baseStats": {
+      "rarity": "S",
+      "level": 1,
+      "atk": null,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": null,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": "S",
+      "level": 1,
+      "atk": null,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": null,
+      "eva": null
+    },
+    "id": 23380394,
+    "gl": false
+  },
+  {
+    "character": "Vaan",
+    "realm": "XII",
+    "season": "1",
+    "group": "B",
+    "name": "Shikari Nagasa",
+    "type": "Dagger",
+    "rarity": "S",
+    "stats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 266,
+      "def": 0,
+      "mag": 0,
+      "res": 0,
+      "mnd": 0,
+      "acc": 95,
+      "eva": 0
+    },
+    "fixedEffects": [
+      "Deadly Strikes 5",
+      "Prismatic damage +20%"
+    ],
+    "randomEffects": [
+      "Wind +1/2/3/4/5% Boost",
+      "Quick Cast 3/4/5%",
+      "Grants [ATK +10% (8s)]/[ATK +20% (8s)]/[ATK +30% (8s)] at the beginning of the battle"
+    ],
+    "baseStats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 172,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": "S",
+      "level": 99,
+      "atk": 360,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 21301217,
+    "gl": false
+  },
+  {
+    "character": "Vaan",
+    "realm": "XII",
+    "season": "1",
+    "group": "B",
+    "name": "Vaan's Vest",
+    "type": "Light Armor",
+    "rarity": "S",
+    "stats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 49,
+      "def": 122,
+      "mag": 0,
+      "res": 122,
+      "mnd": 0,
+      "acc": 0,
+      "eva": 100
+    },
+    "fixedEffects": [
+      "Precise Strike 5",
+      "Prismatic damage +20%"
+    ],
+    "randomEffects": [
+      "Wind Ability +1/2/3/4/5% Boost",
+      "Grants [20% Damage Reduction Barrier 1 Follow-Up]/[30% Damage Reduction Barrier 1 Follow-Up]/[40% Damage Reduction Barrier 1 Follow-Up] at the beginning of the battle",
+      "Grants [DEF +10% (8s)]/[DEF +20% (8s)]/[DEF +30% (8s)] at the beginning of the battle"
+    ],
+    "baseStats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 36,
+      "def": 50,
+      "mag": null,
+      "res": 50,
+      "mnd": null,
+      "acc": null,
+      "eva": 100
+    },
+    "maxStats": {
+      "rarity": "S",
+      "level": 99,
+      "atk": 62,
+      "def": 194,
+      "mag": null,
+      "res": 194,
+      "mnd": null,
+      "acc": null,
+      "eva": 100
+    },
+    "id": 22353113,
+    "gl": false
+  },
+  {
+    "character": "Vaan",
+    "realm": "XII",
+    "season": "1",
+    "group": "B",
+    "name": "Orrachea Armlet",
+    "type": "Accessory",
+    "rarity": "S",
+    "stats": {
+      "rarity": "S",
+      "level": 1,
+      "atk": 0,
+      "def": 0,
+      "mag": 0,
+      "res": 0,
+      "mnd": 0,
+      "acc": 0,
+      "eva": 0
+    },
+    "fixedEffects": [
+      "HP +500",
+      "Prismatic resistance (moderate)"
+    ],
+    "randomEffects": [
+      "Quick Cast 4/5/6/7/8%"
+    ],
+    "baseStats": {
+      "rarity": "S",
+      "level": 1,
+      "atk": null,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": null,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": "S",
+      "level": 1,
+      "atk": null,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": null,
+      "eva": null
+    },
+    "id": 23380099,
+    "gl": false
+  },
+  {
+    "character": "Fran",
+    "realm": "XII",
+    "season": "1",
+    "group": "C",
+    "name": "Sagittarius",
+    "type": "Bow",
+    "rarity": "S",
+    "stats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 253,
+      "def": 0,
+      "mag": 0,
+      "res": 0,
+      "mnd": 0,
+      "acc": 95,
+      "eva": 0
+    },
+    "fixedEffects": [
+      "Deadly Strikes 5",
+      "Prismatic damage +20%"
+    ],
+    "randomEffects": [
+      "Ice/Lightning +1/2/3/4/5% Boost",
+      "Quick Cast 3/4/5%",
+      "Grants [ATK +10% (8s)]/[ATK +20% (8s)]/[ATK +30% (8s)] at the beginning of the battle"
+    ],
+    "baseStats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 160,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": "S",
+      "level": 99,
+      "atk": 346,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 21310111,
+    "gl": false
+  },
+  {
+    "character": "Fran",
+    "realm": "XII",
+    "season": "1",
+    "group": "C",
+    "name": "Fran's Guise",
+    "type": "Light Armor",
+    "rarity": "S",
+    "stats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 49,
+      "def": 122,
+      "mag": 0,
+      "res": 122,
+      "mnd": 0,
+      "acc": 0,
+      "eva": 100
+    },
+    "fixedEffects": [
+      "Precise Strike 5",
+      "Prismatic damage +20%"
+    ],
+    "randomEffects": [
+      "Ice/Lightning Ability +1/2/3/4/5% Boost",
+      "Grants [20% Damage Reduction Barrier 1 Follow-Up]/[30% Damage Reduction Barrier 1 Follow-Up]/[40% Damage Reduction Barrier 1 Follow-Up] at the beginning of the battle",
+      "Grants [DEF +10% (8s)]/[DEF +20% (8s)]/[DEF +30% (8s)] at the beginning of the battle"
+    ],
+    "baseStats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 36,
+      "def": 50,
+      "mag": null,
+      "res": 50,
+      "mnd": null,
+      "acc": null,
+      "eva": 100
+    },
+    "maxStats": {
+      "rarity": "S",
+      "level": 99,
+      "atk": 62,
+      "def": 194,
+      "mag": null,
+      "res": 194,
+      "mnd": null,
+      "acc": null,
+      "eva": 100
+    },
+    "id": 22353341,
+    "gl": false
+  },
+  {
+    "character": "Fran",
+    "realm": "XII",
+    "season": "1",
+    "group": "C",
+    "name": "Agate Ring",
+    "type": "Accessory",
+    "rarity": "S",
+    "stats": {
+      "rarity": "S",
+      "level": 1,
+      "atk": 0,
+      "def": 0,
+      "mag": 0,
+      "res": 0,
+      "mnd": 0,
+      "acc": 0,
+      "eva": 0
+    },
+    "fixedEffects": [
+      "HP +500",
+      "Prismatic resistance (moderate)"
+    ],
+    "randomEffects": [
+      "Quick Cast 4/5/6/7/8%"
+    ],
+    "baseStats": {
+      "rarity": "S",
+      "level": 1,
+      "atk": null,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": null,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": "S",
+      "level": 1,
+      "atk": null,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": null,
+      "eva": null
+    },
+    "id": 23380311,
+    "gl": false
+  },
+  {
+    "character": "Sazh",
+    "realm": "XIII",
+    "season": "2",
+    "group": "A",
+    "name": "Total Eclipses",
+    "type": "Gun",
+    "rarity": "S",
+    "stats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 253,
+      "def": 0,
+      "mag": 0,
+      "res": 0,
+      "mnd": 0,
+      "acc": 95,
+      "eva": 0
+    },
+    "fixedEffects": [
+      "Deadly Strikes 5",
+      "Prismatic damage +20%"
+    ],
+    "randomEffects": [
+      "Fire/Ice/Lightning +1/2/3/4/5% Boost",
+      "Quick Cast 3/4/5%",
+      "Grants [ATK +10% (8s)]/[ATK +20% (8s)]/[ATK +30% (8s)] at the beginning of the battle"
+    ],
+    "baseStats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 160,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": "S",
+      "level": 99,
+      "atk": 346,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 21315134,
+    "gl": false
+  },
+  {
+    "character": "Sazh",
+    "realm": "XIII",
+    "season": "2",
+    "group": "A",
+    "name": "Sazh's Coat",
+    "type": "Light Armor",
+    "rarity": "S",
+    "stats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 49,
+      "def": 122,
+      "mag": 0,
+      "res": 122,
+      "mnd": 0,
+      "acc": 0,
+      "eva": 100
+    },
+    "fixedEffects": [
+      "Precise Strike 5",
+      "Prismatic damage +20%"
+    ],
+    "randomEffects": [
+      "Fire/Ice/Lightning Ability +1/2/3/4/5% Boost",
+      "Grants [20% Damage Reduction Barrier 1 Follow-Up]/[30% Damage Reduction Barrier 1 Follow-Up]/[40% Damage Reduction Barrier 1 Follow-Up] at the beginning of the battle",
+      "Grants [DEF +10% (8s)]/[DEF +20% (8s)]/[DEF +30% (8s)] at the beginning of the battle"
+    ],
+    "baseStats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 36,
+      "def": 50,
+      "mag": null,
+      "res": 50,
+      "mnd": null,
+      "acc": null,
+      "eva": 100
+    },
+    "maxStats": {
+      "rarity": "S",
+      "level": 99,
+      "atk": 62,
+      "def": 194,
+      "mag": null,
+      "res": 194,
+      "mnd": null,
+      "acc": null,
+      "eva": 100
+    },
+    "id": 22353211,
+    "gl": false
+  },
+  {
+    "character": "Sazh",
+    "realm": "XIII",
+    "season": "2",
+    "group": "A",
+    "name": "Peace Amulet",
+    "type": "Accessory",
+    "rarity": "S",
+    "stats": {
+      "rarity": "S",
+      "level": 1,
+      "atk": 0,
+      "def": 0,
+      "mag": 0,
+      "res": 0,
+      "mnd": 0,
+      "acc": 0,
+      "eva": 0
+    },
+    "fixedEffects": [
+      "HP +500",
+      "Prismatic resistance (moderate)"
+    ],
+    "randomEffects": [
+      "Quick Cast 4/5/6/7/8%"
+    ],
+    "baseStats": {
+      "rarity": "S",
+      "level": 1,
+      "atk": null,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": null,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": "S",
+      "level": 1,
+      "atk": null,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": null,
+      "eva": null
+    },
+    "id": 23380492,
+    "gl": false
+  },
+  {
+    "character": "Cid (XIV)",
+    "realm": "XIV",
+    "season": "1",
+    "group": "A",
+    "name": "Ferdinand",
+    "type": "Gun",
+    "rarity": "S",
+    "stats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 253,
+      "def": 0,
+      "mag": 0,
+      "res": 0,
+      "mnd": 0,
+      "acc": 95,
+      "eva": 0
+    },
+    "fixedEffects": [
+      "Deadly Strikes 5",
+      "Prismatic damage +20%"
+    ],
+    "randomEffects": [
+      "Earth/Fire/Wind/Poison +1/2/3/4/5% Boost",
+      "Quick Cast 3/4/5%",
+      "Grants [ATK +10% (8s)]/[ATK +20% (8s)]/[ATK +30% (8s)] at the beginning of the battle"
+    ],
+    "baseStats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 160,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": "S",
+      "level": 99,
+      "atk": 346,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 21315066,
+    "gl": true
+  },
+  {
+    "character": "Cid (XIV)",
+    "realm": "XIV",
+    "season": "1",
+    "group": "A",
+    "name": "Garlond Goggles",
+    "type": "Hat",
+    "rarity": "S",
+    "stats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 49,
+      "def": 101,
+      "mag": 0,
+      "res": 143,
+      "mnd": 0,
+      "acc": 0,
+      "eva": 105
+    },
+    "fixedEffects": [
+      "Precise Strikes 5",
+      "Prismatic damage +20%"
+    ],
+    "randomEffects": [
+      "Earth/Fire/Wind/Poison Ability +1/2/3/4/5% Boost",
+      "Grants [20% Damage Reduction Barrier 1 Follow-Up]/[30% Damage Reduction Barrier 1 Follow-Up]/[40% Damage Reduction Barrier 1 Follow-Up] at the beginning of the battle",
+      "Grants [DEF +10% (8s)]/[DEF +20% (8s)]/[DEF +30% (8s)] at the beginning of the battle"
+    ],
+    "baseStats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 36,
+      "def": 61,
+      "mag": null,
+      "res": 76,
+      "mnd": null,
+      "acc": null,
+      "eva": 105
+    },
+    "maxStats": {
+      "rarity": "S",
+      "level": 99,
+      "atk": 62,
+      "def": 140,
+      "mag": null,
+      "res": 210,
+      "mnd": null,
+      "acc": null,
+      "eva": 105
+    },
+    "id": 22351103,
+    "gl": true
+  },
+  {
+    "character": "Cid (XIV)",
+    "realm": "XIV",
+    "season": "1",
+    "group": "A",
+    "name": "Garlond Ring",
+    "type": "Accessory",
+    "rarity": "S",
+    "stats": {
+      "rarity": "S",
+      "level": 1,
+      "atk": 0,
+      "def": 0,
+      "mag": 0,
+      "res": 0,
+      "mnd": 0,
+      "acc": 0,
+      "eva": 0
+    },
+    "fixedEffects": [
+      "HP +500",
+      "Prismatic resistance (moderate)"
+    ],
+    "randomEffects": [
+      "Quick Cast 4/5/6/7/8%"
+    ],
+    "baseStats": {
+      "rarity": "S",
+      "level": 1,
+      "atk": null,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": null,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": "S",
+      "level": 1,
+      "atk": null,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": null,
+      "eva": null
+    },
+    "id": 23380341,
+    "gl": true
+  },
+  {
+    "character": "Cinque",
+    "realm": "Type-0",
+    "season": "1",
+    "group": "A",
+    "name": "Skull Crusher",
+    "type": "Hammer",
+    "rarity": "S",
+    "stats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 266,
+      "def": 0,
+      "mag": 0,
+      "res": 0,
+      "mnd": 0,
+      "acc": 95,
+      "eva": 0
+    },
+    "fixedEffects": [
+      "Deadly Strikes 5",
+      "Prismatic damage +20%"
+    ],
+    "randomEffects": [
+      "Earth +1/2/3/4/5% Boost",
+      "Quick Cast 3/4/5%",
+      "Grants [ATK +10% (8s)]/[ATK +20% (8s)]/[ATK +30% (8s)] at the beginning of the battle"
+    ],
+    "baseStats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 172,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": "S",
+      "level": 99,
+      "atk": 360,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 21305033,
+    "gl": true
+  },
+  {
+    "character": "Cinque",
+    "realm": "Type-0",
+    "season": "1",
+    "group": "A",
+    "name": "Cinque's Summer Guise",
+    "type": "Light Armor",
+    "rarity": "S",
+    "stats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 49,
+      "def": 122,
+      "mag": 0,
+      "res": 122,
+      "mnd": 0,
+      "acc": 0,
+      "eva": 100
+    },
+    "fixedEffects": [
+      "Precise Strikes 5",
+      "Prismatic damage +20%"
+    ],
+    "randomEffects": [
+      "Earth Ability +1/2/3/4/5% Boost",
+      "Grants [20% Damage Reduction Barrier 1 Follow-Up]/[30% Damage Reduction Barrier 1 Follow-Up]/[40% Damage Reduction Barrier 1 Follow-Up] at the beginning of the battle",
+      "Grants [DEF +10% (8s)]/[DEF +20% (8s)]/[DEF +30% (8s)] at the beginning of the battle"
+    ],
+    "baseStats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 36,
+      "def": 50,
+      "mag": null,
+      "res": 50,
+      "mnd": null,
+      "acc": null,
+      "eva": 100
+    },
+    "maxStats": {
+      "rarity": "S",
+      "level": 99,
+      "atk": 62,
+      "def": 194,
+      "mag": null,
+      "res": 194,
+      "mnd": null,
+      "acc": null,
+      "eva": 100
+    },
+    "id": 22353562,
+    "gl": true
+  },
+  {
+    "character": "Cinque",
+    "realm": "Type-0",
+    "season": "1",
+    "group": "A",
+    "name": "Moogle Plushie",
+    "type": "Accessory",
+    "rarity": "S",
+    "stats": {
+      "rarity": "S",
+      "level": 1,
+      "atk": 0,
+      "def": 0,
+      "mag": 0,
+      "res": 0,
+      "mnd": 0,
+      "acc": 0,
+      "eva": 0
+    },
+    "fixedEffects": [
+      "HP +500",
+      "Prismatic resistance (moderate)"
+    ],
+    "randomEffects": [
+      "Quick Cast 4/5/6/7/8%"
+    ],
+    "baseStats": {
+      "rarity": "S",
+      "level": 1,
+      "atk": null,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": null,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": "S",
+      "level": 1,
+      "atk": null,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": null,
+      "eva": null
+    },
+    "id": 23380434,
+    "gl": true
+  },
+  {
+    "character": "Trey",
+    "realm": "Type-0",
+    "season": "1",
+    "group": "C",
+    "name": "Argentic Bow",
+    "type": "Bow",
+    "rarity": "S",
+    "stats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 253,
+      "def": 0,
+      "mag": 0,
+      "res": 0,
+      "mnd": 0,
+      "acc": 95,
+      "eva": 0
+    },
+    "fixedEffects": [
+      "Deadly Strikes 5",
+      "Prismatic damage +20%"
+    ],
+    "randomEffects": [
+      "Fire/Ice/Water +1/2/3/4/5% Boost",
+      "Quick Cast 3/4/5%",
+      "Grants [ATK +10% (8s)]/[ATK +20% (8s)]/[ATK +30% (8s)] at the beginning of the battle"
+    ],
+    "baseStats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 160,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": "S",
+      "level": 99,
+      "atk": 346,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 21310080,
+    "gl": false
+  },
+  {
+    "character": "Trey",
+    "realm": "Type-0",
+    "season": "1",
+    "group": "C",
+    "name": "Trey's Summer Guise",
+    "type": "Light Armor",
+    "rarity": "S",
+    "stats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 49,
+      "def": 122,
+      "mag": 0,
+      "res": 122,
+      "mnd": 0,
+      "acc": 0,
+      "eva": 100
+    },
+    "fixedEffects": [
+      "Precise Strikes 5",
+      "Prismatic damage +20%"
+    ],
+    "randomEffects": [
+      "Fire/Ice/Water Ability +1/2/3/4/5% Boost",
+      "Grants [20% Damage Reduction Barrier 1 Follow-Up]/[30% Damage Reduction Barrier 1 Follow-Up]/[40% Damage Reduction Barrier 1 Follow-Up] at the beginning of the battle",
+      "Grants [DEF +10% (8s)]/[DEF +20% (8s)]/[DEF +30% (8s)] at the beginning of the battle"
+    ],
+    "baseStats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 36,
+      "def": 50,
+      "mag": null,
+      "res": 50,
+      "mnd": null,
+      "acc": null,
+      "eva": 100
+    },
+    "maxStats": {
+      "rarity": "S",
+      "level": 99,
+      "atk": 62,
+      "def": 194,
+      "mag": null,
+      "res": 194,
+      "mnd": null,
+      "acc": null,
+      "eva": 100
+    },
+    "id": 22353415,
+    "gl": false
+  },
+  {
+    "character": "Trey",
+    "realm": "Type-0",
+    "season": "1",
+    "group": "C",
+    "name": "Iron Bangle",
+    "type": "Accessory",
+    "rarity": "S",
+    "stats": {
+      "rarity": "S",
+      "level": 1,
+      "atk": 0,
+      "def": 0,
+      "mag": 0,
+      "res": 0,
+      "mnd": 0,
+      "acc": 0,
+      "eva": 0
+    },
+    "fixedEffects": [
+      "HP +500",
+      "Prismatic resistance (moderate)"
+    ],
+    "randomEffects": [
+      "Quick Cast 4/5/6/7/8%"
+    ],
+    "baseStats": {
+      "rarity": "S",
+      "level": 1,
+      "atk": null,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": null,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": "S",
+      "level": 1,
+      "atk": null,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": null,
+      "eva": null
+    },
+    "id": 23380614,
+    "gl": false
+  },
+  {
+    "character": "Seven",
+    "realm": "Type-0",
+    "season": "1",
+    "group": "C",
+    "name": "Silver Whipblade",
+    "type": "Whip",
+    "rarity": "S",
+    "stats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 0,
+      "def": 0,
+      "mag": 258,
+      "res": 0,
+      "mnd": 0,
+      "acc": 95,
+      "eva": 0
+    },
+    "fixedEffects": [
+      "Hand of Vengeance 5",
+      "Prismatic damage +20%"
+    ],
+    "randomEffects": [
+      "Ice +1/2/3/4/5% Boost",
+      "Quick Cast 3/4/5%",
+      "Grants [ATK +10% (8s)]/[ATK +20% (8s)]/[ATK +30% (8s)] at the beginning of the battle"
+    ],
+    "baseStats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": null,
+      "def": null,
+      "mag": 165,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": "S",
+      "level": 99,
+      "atk": null,
+      "def": null,
+      "mag": 350,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 21312032,
+    "gl": false
+  },
+  {
+    "character": "Seven",
+    "realm": "Type-0",
+    "season": "1",
+    "group": "C",
+    "name": "Seven's Guise",
+    "type": "Light Armor",
+    "rarity": "S",
+    "stats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 0,
+      "def": 122,
+      "mag": 49,
+      "res": 122,
+      "mnd": 0,
+      "acc": 0,
+      "eva": 100
+    },
+    "fixedEffects": [
+      "Empower Healing 5%",
+      "Prismatic damage +20%"
+    ],
+    "randomEffects": [
+      "Ice Ability +1/2/3/4/5% Boost",
+      "Grants [20% Damage Reduction Barrier 1 Follow-Up]/[30% Damage Reduction Barrier 1 Follow-Up]/[40% Damage Reduction Barrier 1 Follow-Up] at the beginning of the battle",
+      "Grants [DEF +10% (8s)]/[DEF +20% (8s)]/[DEF +30% (8s)] at the beginning of the battle"
+    ],
+    "baseStats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": null,
+      "def": 50,
+      "mag": 36,
+      "res": 50,
+      "mnd": null,
+      "acc": null,
+      "eva": 100
+    },
+    "maxStats": {
+      "rarity": "S",
+      "level": 99,
+      "atk": null,
+      "def": 194,
+      "mag": 62,
+      "res": 194,
+      "mnd": null,
+      "acc": null,
+      "eva": 100
+    },
+    "id": 22353307,
+    "gl": false
+  },
+  {
+    "character": "Seven",
+    "realm": "Type-0",
+    "season": "1",
+    "group": "C",
+    "name": "Seven's Boots",
+    "type": "Accessory",
+    "rarity": "S",
+    "stats": {
+      "rarity": "S",
+      "level": 1,
+      "atk": 0,
+      "def": 0,
+      "mag": 0,
+      "res": 0,
+      "mnd": 0,
+      "acc": 0,
+      "eva": 0
+    },
+    "fixedEffects": [
+      "HP +500",
+      "Prismatic resistance (moderate)"
+    ],
+    "randomEffects": [
+      "Quick Cast 4/5/6/7/8%"
+    ],
+    "baseStats": {
+      "rarity": "S",
+      "level": 1,
+      "atk": null,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": null,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": "S",
+      "level": 1,
+      "atk": null,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": null,
+      "eva": null
+    },
+    "id": 23380480,
+    "gl": false
+  },
+  {
+    "character": "Eight",
+    "realm": "Type-0",
+    "season": "1",
+    "group": "C",
+    "name": "Killer Knuckles",
+    "type": "Fist",
+    "rarity": "S",
+    "stats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 266,
+      "def": 0,
+      "mag": 0,
+      "res": 0,
+      "mnd": 0,
+      "acc": 95,
+      "eva": 0
+    },
+    "fixedEffects": [
+      "Deadly Strikes 5",
+      "Prismatic damage +20%"
+    ],
+    "randomEffects": [
+      "Ice +1/2/3/4/5% Boost",
+      "Quick Cast 3/4/5%",
+      "Grants [ATK +10% (8s)]/[ATK +20% (8s)]/[ATK +30% (8s)] at the beginning of the battle"
+    ],
+    "baseStats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 172,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": "S",
+      "level": 99,
+      "atk": 360,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 21307164,
+    "gl": false
+  },
+  {
+    "character": "Eight",
+    "realm": "Type-0",
+    "season": "1",
+    "group": "C",
+    "name": "Eight's Akademeia Uniform",
+    "type": "Light Armor",
+    "rarity": "S",
+    "stats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 49,
+      "def": 122,
+      "mag": 0,
+      "res": 122,
+      "mnd": 0,
+      "acc": 0,
+      "eva": 100
+    },
+    "fixedEffects": [
+      "Precise Strikes 5",
+      "Prismatic damage +20%"
+    ],
+    "randomEffects": [
+      "Ice Ability +1/2/3/4/5% Boost",
+      "Grants [20% Damage Reduction Barrier 1 Follow-Up]/[30% Damage Reduction Barrier 1 Follow-Up]/[40% Damage Reduction Barrier 1 Follow-Up] at the beginning of the battle",
+      "Grants [DEF +10% (8s)]/[DEF +20% (8s)]/[DEF +30% (8s)] at the beginning of the battle"
+    ],
+    "baseStats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 36,
+      "def": 50,
+      "mag": null,
+      "res": 50,
+      "mnd": null,
+      "acc": null,
+      "eva": 100
+    },
+    "maxStats": {
+      "rarity": "S",
+      "level": 99,
+      "atk": 62,
+      "def": 194,
+      "mag": null,
+      "res": 194,
+      "mnd": null,
+      "acc": null,
+      "eva": 100
+    },
+    "id": 22353381,
+    "gl": false
+  },
+  {
+    "character": "Eight",
+    "realm": "Type-0",
+    "season": "1",
+    "group": "C",
+    "name": "Angel Earrings",
+    "type": "Accessory",
+    "rarity": "S",
+    "stats": {
+      "rarity": "S",
+      "level": 1,
+      "atk": 0,
+      "def": 0,
+      "mag": 0,
+      "res": 0,
+      "mnd": 0,
+      "acc": 0,
+      "eva": 0
+    },
+    "fixedEffects": [
+      "HP +500",
+      "Prismatic resistance (moderate)"
+    ],
+    "randomEffects": [
+      "Quick Cast 4/5/6/7/8%"
+    ],
+    "baseStats": {
+      "rarity": "S",
+      "level": 1,
+      "atk": null,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": null,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": "S",
+      "level": 1,
+      "atk": null,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": null,
+      "eva": null
+    },
+    "id": 23380398,
+    "gl": false
+  },
+  {
+    "character": "Serafie",
+    "realm": "Beyond",
+    "season": "1",
+    "group": "B",
+    "name": "Diva Serafie's Harp",
+    "type": "Instrument",
+    "rarity": "S",
+    "stats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 0,
+      "def": 0,
+      "mag": 258,
+      "res": 0,
+      "mnd": 0,
+      "acc": 95,
+      "eva": 0
+    },
+    "fixedEffects": [
+      "Hand of Vengeance 5",
+      "Prismatic damage +20%"
+    ],
+    "randomEffects": [
+      "Wind +1/2/3/4/5% Boost",
+      "Quick Cast 3/4/5%",
+      "Grants [MAG +10% (8s)]/[MAG +20% (8s)]/[MAG +30% (8s)] at the beginning of the battle"
+    ],
+    "baseStats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": null,
+      "def": null,
+      "mag": 165,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": "S",
+      "level": 99,
+      "atk": null,
+      "def": null,
+      "mag": 350,
+      "res": null,
+      "mnd": null,
+      "acc": 95,
+      "eva": null
+    },
+    "id": 21311066,
+    "gl": false
+  },
+  {
+    "character": "Serafie",
+    "realm": "Beyond",
+    "season": "1",
+    "group": "B",
+    "name": "Serafie's Guise",
+    "type": "Light Armor",
+    "rarity": "S",
+    "stats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": 0,
+      "def": 122,
+      "mag": 49,
+      "res": 122,
+      "mnd": 0,
+      "acc": 0,
+      "eva": 100
+    },
+    "fixedEffects": [
+      "Empower Healing 5%",
+      "Prismatic damage +20%"
+    ],
+    "randomEffects": [
+      "Wind Ability +1/2/3/4/5% Boost",
+      "Grants [20% Damage Reduction Barrier 1 Follow-Up]/[30% Damage Reduction Barrier 1 Follow-Up]/[40% Damage Reduction Barrier 1 Follow-Up] at the beginning of the battle",
+      "Grants [RES +10% (8s)]/[RES +20% (8s)]/[RES +30% (8s)] at the beginning of the battle"
+    ],
+    "baseStats": {
+      "rarity": "S",
+      "level": 50,
+      "atk": null,
+      "def": 50,
+      "mag": 36,
+      "res": 50,
+      "mnd": null,
+      "acc": null,
+      "eva": 100
+    },
+    "maxStats": {
+      "rarity": "S",
+      "level": 99,
+      "atk": null,
+      "def": 194,
+      "mag": 62,
+      "res": 194,
+      "mnd": null,
+      "acc": null,
+      "eva": 100
+    },
+    "id": 22353435,
+    "gl": false
+  },
+  {
+    "character": "Serafie",
+    "realm": "Beyond",
+    "season": "1",
+    "group": "B",
+    "name": "Faerie Watering Can",
+    "type": "Accessory",
+    "rarity": "S",
+    "stats": {
+      "rarity": "S",
+      "level": 1,
+      "atk": 0,
+      "def": 0,
+      "mag": 0,
+      "res": 0,
+      "mnd": 0,
+      "acc": 0,
+      "eva": 0
+    },
+    "fixedEffects": [
+      "HP +500",
+      "Prismatic resistance (moderate)"
+    ],
+    "randomEffects": [
+      "Quick Cast 4/5/6/7/8%"
+    ],
+    "baseStats": {
+      "rarity": "S",
+      "level": 1,
+      "atk": null,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": null,
+      "eva": null
+    },
+    "maxStats": {
+      "rarity": "S",
+      "level": 1,
+      "atk": null,
+      "def": null,
+      "mag": null,
+      "res": null,
+      "mnd": null,
+      "acc": null,
+      "eva": null
+    },
+    "id": 23380567,
+    "gl": false
+  }
+]

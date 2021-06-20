@@ -365,6 +365,22 @@ export interface EnlirGuardianCommand extends EnlirGenericSkill {
   nameJp: string;
 }
 
+export interface EnlirHeroArtifact {
+  character: string;
+  realm: EnlirRealm | null;
+  season: number;
+  group: string;
+  name: string;
+  type: EnlirRelicType;
+  rarity: EnlirRelicRarity;
+  stats: EnlirRelicStats;
+  fixedEffects: string[];
+  randomEffects: string[];
+  baseStats: EnlirRelicStats;
+  maxStats: EnlirRelicStats;
+  id: number;
+}
+
 export interface EnlirLegendMateria {
   realm: EnlirRealm;
   character: string;
@@ -510,6 +526,7 @@ const rawData = {
   characters: require('./enlir/characters.json') as EnlirCharacter[],
   events: require('./enlir/events.json') as EnlirEvent[],
   guardianCommands: require('./enlir/guardianCommands.json') as EnlirGuardianCommand[],
+  heroArtifacts: require('./enlir/heroArtifacts.json') as EnlirHeroArtifact[],
   legendMateria: require('./enlir/legendMateria.json') as EnlirLegendMateria[],
   limitBreaks: require('./enlir/limitBreaks.json') as EnlirLimitBreak[],
   magicite: require('./enlir/magicite.json'),
@@ -677,6 +694,8 @@ export const enlir = {
 
   guardianCommands: _.keyBy(rawData.guardianCommands, 'id'),
   guardianCommandsByCharacter: makeCommandsMap(rawData.guardianCommands),
+
+  heroArtifacts: _.keyBy(rawData.heroArtifacts, 'id'),
 
   legendMateria: _.keyBy(rawData.legendMateria, 'id'),
   legendMateriaByCharacter: makeCharacterMap(rawData.legendMateria, [
@@ -1502,7 +1521,7 @@ function patchEnlir() {
 }
 patchEnlir();
 
-export function describeRelicStats(relic: EnlirRelic): string {
+export function describeRelicStats(relic: EnlirRelic | EnlirHeroArtifact): string {
   return _.filter(
     allEnlirStats.map((i) => (relic.stats[i] ? `${i.toUpperCase()} ${relic.stats[i]}` : '')),
   ).join(', ');

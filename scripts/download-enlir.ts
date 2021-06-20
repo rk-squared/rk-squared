@@ -215,7 +215,7 @@ function postProcessAbilities(abilities: any[]) {
   // pair of nested parenthesis but no more, so that we can handle names like
   // "(Cecil (Paladin) Only)" and "Jump (III) (Luneth Only)".
   const recordBoardCharacterRegex = / \(([^()]+(?:\([^()]+\))?) Only\)$/;
-  _.forEach(abilities, ability => {
+  _.forEach(abilities, (ability) => {
     const orbs = Object.keys(ability.orbs);
     const m = ability.name.match(recordBoardCharacterRegex);
     if (!m || !orbs[orbs.length - 1].match(/Record Board$/)) {
@@ -318,7 +318,7 @@ function convertCharacters(rows: any[]): any[] {
  */
 function postProcessCharacters(characters: any[], allData: { [localName: string]: any[] }) {
   const isCharacterInGl: { [character: string]: boolean } = {};
-  _.forEach(allData.recordMateria, i => {
+  _.forEach(allData.recordMateria, (i) => {
     if (i.gl) {
       isCharacterInGl[i.character] = true;
     }
@@ -587,6 +587,10 @@ function convertRelics(rows: any[]): any[] {
         item[f1][f2] = toStat(f2, rows[i][j]);
       } else if (col === 'Effect') {
         item[field] = toStringWithDecimals(rows[i][j]) || null;
+      } else if (col === 'Fixed Passive Effects') {
+        item['fixedEffects'] = rows[i][j].split('\n');
+      } else if (col === 'Random Passive Effects') {
+        item['randomEffects'] = rows[i][j].split('\n');
       } else {
         item[field] = toCommon(field, rows[i][j]);
       }
@@ -789,6 +793,11 @@ const dataTypes: DataType[] = [
     converter: convertRelics,
   },
   {
+    sheet: 'Hero Artifacts',
+    localName: 'heroArtifacts',
+    converter: convertRelics,
+  },
+  {
     sheet: 'Synchro',
     localName: 'synchro',
     includeNotes: true,
@@ -902,4 +911,4 @@ async function main() {
   await convertEnlir(argv.outputDirectory as string);
 }
 
-main().catch(e => console.error(e));
+main().catch((e) => console.error(e));
