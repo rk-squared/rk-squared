@@ -1405,7 +1405,7 @@ describe('skill', () => {
     });
 
     it('converts stacking EX bonuses', () => {
-      expect(describeSoulBreak('Firion - Double Trouble')).toEqual({
+      expect(describeSoulBreak('Firion - Dual Assault')).toEqual({
         damage: 'phys 7.1/10 holy+non',
         other:
           'holy infuse 25s, 15s: EX: +30% ATK, ' +
