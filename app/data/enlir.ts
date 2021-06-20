@@ -569,7 +569,7 @@ function makeCharacterMap<T extends { character: string | null }>(
     result[i.character].push(i);
   }
 
-  return _.mapValues(result, i => _.sortBy(i, sortOrder));
+  return _.mapValues(result, (i) => _.sortBy(i, sortOrder));
 }
 
 function makeCommandsMap<T extends Command>(commands: T[]): CommandsMap<T> {
@@ -609,9 +609,9 @@ function makeRelicMap<T extends RelicMapType>(
 
   const result: { [relicId: number]: T } = {};
 
-  const indexedItems = _.keyBy(items, i => key(i.character, i.name));
+  const indexedItems = _.keyBy(items, (i) => key(i.character, i.name));
   const indexedAltItems = altItems
-    ? _.keyBy(_.flatten(altItems), i => key(i.character, i.name))
+    ? _.keyBy(_.flatten(altItems), (i) => key(i.character, i.name))
     : {};
 
   for (const i of relics) {
@@ -649,10 +649,13 @@ function getSharedSoulBreaks(
   relics: EnlirRelic[],
   soulBreaks: EnlirSoulBreak[],
 ): SharedSoulBreak[] {
-  const soulBreaksByName = _.keyBy(soulBreaks.filter(i => i.character == null), 'name');
+  const soulBreaksByName = _.keyBy(
+    soulBreaks.filter((i) => i.character == null),
+    'name',
+  );
   return relics
-    .filter(i => i.soulBreak != null && soulBreaksByName[i.soulBreak] != null)
-    .map(i => ({ relic: i, soulBreak: soulBreaksByName[i.soulBreak!] }));
+    .filter((i) => i.soulBreak != null && soulBreaksByName[i.soulBreak] != null)
+    .map((i) => ({ relic: i, soulBreak: soulBreaksByName[i.soulBreak!] }));
 }
 
 const otherSkillSourceKey = (source: string, name: string) => source + '_' + name;
@@ -693,10 +696,10 @@ export const enlir = {
   // expose the raw array.
   otherSkills: rawData.otherSkills,
   otherSkillsByName: _.keyBy(rawData.otherSkills, 'name'),
-  otherSkillsBySource: _.keyBy(rawData.otherSkills, i => otherSkillSourceKey(i.source, i.name)),
+  otherSkillsBySource: _.keyBy(rawData.otherSkills, (i) => otherSkillSourceKey(i.source, i.name)),
 
   relics: _.keyBy(rawData.relics, 'id'),
-  relicsByNameWithRealm: _.keyBy(rawData.relics, i => i.name + ' (' + i.realm + ')'),
+  relicsByNameWithRealm: _.keyBy(rawData.relics, (i) => i.name + ' (' + i.realm + ')'),
 
   recordMateria: _.keyBy(rawData.recordMateria, 'id'),
 
@@ -757,13 +760,23 @@ export function getEffect(item: EnlirLegendMateria) {
 function applyEffectsPatch<
   T extends { effects: string | undefined; patchedEffects?: string | undefined }
 >(lookup: { [s: string]: T | T[] }, name: string, from: string, to: string) {
-  applyPatch(lookup, name, item => item.effects === from, item => (item.patchedEffects = to));
+  applyPatch(
+    lookup,
+    name,
+    (item) => item.effects === from,
+    (item) => (item.patchedEffects = to),
+  );
 }
 
 function applyEffectPatch<
   T extends { effect: string | undefined; patchedEffect?: string | undefined }
 >(lookup: { [s: string]: T | T[] }, name: string, from: string, to: string) {
-  applyPatch(lookup, name, item => item.effect === from, item => (item.patchedEffect = to));
+  applyPatch(
+    lookup,
+    name,
+    (item) => item.effect === from,
+    (item) => (item.patchedEffect = to),
+  );
 }
 
 // Not currently needed, but there are times when it's been helpful.
@@ -796,7 +809,7 @@ function patchEnlir() {
   applyPatch(
     enlir.otherSkillsByName,
     'Heavy Strike',
-    strike =>
+    (strike) =>
       strike.effects === 'Three single attacks (0.52 each), 100% hit rate' &&
       enlir.otherSkillsByName['Heavy Strike+'].effects ===
         'Five single attacks (0.52 each), 100% hit rate' &&
@@ -804,7 +817,7 @@ function patchEnlir() {
         'Five single attacks (0.52 each), 100% hit rate' &&
       enlir.otherSkillsByName['Orbital Edge'].effects ===
         'Ten single attacks (0.50 each) and one single attack (5.00) capped at 99999, 100% hit rate',
-    strike => {
+    (strike) => {
       strike.patchedEffects =
         '3/5/5 single attacks (0.52 each) if 0/72001/240001 damage was dealt during the status. ' +
         'Additional ten single attacks (0.50 each), followed by one single attack (5.00) capped at 99999 if 240001 damage was dealt during the status';
@@ -829,12 +842,12 @@ function patchEnlir() {
   applyPatch(
     enlir.otherSkillsByName,
     'Azure Oblivion 1',
-    skill =>
+    (skill) =>
       skill.effects ===
         'One single attack (5.20) capped at 99999, causes [Imperil Ice 10% (15s)], grants [Buff Ice 10% (15s)] and [High Retaliate] to the user' &&
       enlir.otherSkillsByName['Azure Oblivion 2'].effects ===
         'One single attack (5.20) capped at 99999, causes [DEF, RES and MND -70% (8s)] and [Imperil Ice 10% (15s)], grants [Buff Ice 10% (15s)] to the user',
-    skill => {
+    (skill) => {
       skill.patchedEffects =
         'One single attack (5.20) capped at 99999, ' +
         'causes [DEF, RES and MND -70% (8s)] if the user has [Retaliate] or [High Retaliate], ' +
@@ -896,8 +909,8 @@ function patchEnlir() {
     applyPatch(
       enlir.statusByName,
       `Windborn Swiftness ${i}`,
-      mode => mode.effects.match(/[Gg]rants \[Windborn Swiftness (\d+)],/) != null,
-      mode => {
+      (mode) => mode.effects.match(/[Gg]rants \[Windborn Swiftness (\d+)],/) != null,
+      (mode) => {
         mode.patchedEffects = mode.effects.replace(
           /([Gg]rants) \[Windborn Swiftness (\d+)],/,
           (match, p1, p2) => `${p1} [Windborn Swiftness ${p2}] after using a Monk ability,`,
@@ -1048,8 +1061,8 @@ function patchEnlir() {
   applyPatch(
     enlir.abilitiesByName,
     'Bahamut (VI)',
-    ability => _.every(bahamutOrbs, i => ability.orbs[i] && ability.orbs[i][0] === 0),
-    ability => {
+    (ability) => _.every(bahamutOrbs, (i) => ability.orbs[i] && ability.orbs[i][0] === 0),
+    (ability) => {
       const bahamutV = enlir.abilitiesByName['Bahamut (V)'];
       for (const orb of bahamutOrbs) {
         ability.orbs[orb][0] = bahamutV.orbs[orb][0];
@@ -1506,7 +1519,7 @@ patchEnlir();
 
 export function describeRelicStats(relic: EnlirRelic): string {
   return _.filter(
-    allEnlirStats.map(i => (relic.stats[i] ? `${i.toUpperCase()} ${relic.stats[i]}` : '')),
+    allEnlirStats.map((i) => (relic.stats[i] ? `${i.toUpperCase()} ${relic.stats[i]}` : '')),
   ).join(', ');
 }
 
@@ -1544,7 +1557,10 @@ export function getEnlirStatusWithPlaceholders(
 
   const placeholders: EnlirStatusPlaceholders = {};
 
-  const checkNumbers: Array<[RegExp, string]> = [[/(-\d+)/, '+X'], [/(\d+\??|\?)/, 'X']];
+  const checkNumbers: Array<[RegExp, string]> = [
+    [/(-\d+)/, '+X'],
+    [/(\d+\??|\?)/, 'X'],
+  ];
   for (const [search, replace] of checkNumbers) {
     const m = status.match(search);
     if (m) {
@@ -1725,14 +1741,14 @@ function makeSkillAliases<
   const seen: { [key: string]: number } = {};
   const makeKey = ({ character, tier }: SkillT) => character + '-' + tier;
   const tierText = tierAlias ? (tier: TierT) => tierAlias[tier] : (tier: TierT) => tier as string;
-  _.forEach(skills, i => {
+  _.forEach(skills, (i) => {
     const key = makeKey(i);
     total[key] = total[key] || 0;
     total[key]++;
   });
 
   const result: { [id: number]: string } = {};
-  _.sortBy(skills, 'sortOrder').forEach(i => {
+  _.sortBy(skills, 'sortOrder').forEach((i) => {
     const key = makeKey(i);
     seen[key] = seen[key] || 0;
     seen[key]++;
@@ -1785,14 +1801,14 @@ export function makeLegendMateriaAliases(
   const total: { [key: string]: number } = {};
   const seen: { [key: string]: number } = {};
   const makeKey = ({ character, tier }: EnlirLegendMateria) => character + (tier || '');
-  _.forEach(legendMateria, lm => {
+  _.forEach(legendMateria, (lm) => {
     const key = makeKey(lm);
     total[key] = total[key] || 0;
     total[key]++;
   });
 
   const result: { [id: number]: string } = {};
-  _.sortBy(legendMateria, 'id').forEach(lm => {
+  _.sortBy(legendMateria, 'id').forEach((lm) => {
     const key = makeKey(lm);
     seen[key] = seen[key] || 0;
     seen[key]++;
