@@ -34,7 +34,10 @@ import { getRequestLang, Handler, HandlerRequest } from './common';
  * from the Electron front-end.
  */
 let localItems = _.clone(items);
-export const localItemsById = _.zipObject(items.map(i => i.id), localItems);
+export const localItemsById = _.zipObject(
+  items.map((i) => i.id),
+  localItems,
+);
 
 interface PrizeItem {
   type_name: schemas.ItemTypeName;
@@ -77,8 +80,8 @@ function showLocalDressRecord({
   );
 }
 
-function checkKnownEnlir(item: PrizeItem, enlirData: any) {
-  if (enlirData[item.id] == null) {
+function checkKnownEnlir(item: PrizeItem, ...enlirData: any) {
+  if (_.every(enlirData, (i) => i[item.id] == null)) {
     showUnknownItem(item);
   }
 }
@@ -108,7 +111,7 @@ function checkItem(item: PrizeItem) {
   if (item.type_name === 'BEAST') {
     checkKnownEnlir(item, enlir.magicites);
   } else if (item.type_name === 'EQUIPMENT') {
-    checkKnownEnlir(item, enlir.relics);
+    checkKnownEnlir(item, enlir.relics, enlir.heroArtifacts);
   } else if (item.type_name === 'ABILITY') {
     checkKnownEnlir(item, enlir.abilities);
   } else if (
@@ -158,7 +161,7 @@ function checkAllPartyItems(data: schemas.PartyList | schemas.PartyListOther) {
 }
 
 function handleWinBattle(data: schemas.WinBattle) {
-  _.forEach(data.result.prize_master, item => {
+  _.forEach(data.result.prize_master, (item) => {
     checkItem({
       id: +item.item_id,
       type_name: item.type_name,
@@ -231,15 +234,15 @@ function showUpdateCommands<T extends EnlirEntity>(
   tabName: string,
   callback: (message: string) => void,
 ) {
-  const releaseIds = checked.filter(i => i.updateRelease).map(i => i.enlirItem.id);
+  const releaseIds = checked.filter((i) => i.updateRelease).map((i) => i.enlirItem.id);
   if (releaseIds.length) {
     callback(`update-enlir.ts releaseInGl ${tabName} ${releaseIds.join(' ')}`);
   }
 
   const renames = checked
-    .filter(i => i.updateName)
+    .filter((i) => i.updateName)
     .map(
-      i =>
+      (i) =>
         [i.enlirItem.id, '"' + removeRealm(i.enlirItem, i.updateName!) + '"'] as [number, string],
     );
   if (renames.length) {
@@ -327,8 +330,8 @@ function getGachaShowEquipment(data: gachaSchemas.GachaShow, currentTime: number
 function getGachaProbabilitiesEquipment(data: gachaSchemas.GachaProbability) {
   return _.flatten(
     _.values(data)
-      .filter(i => i.equipments)
-      .map(i => i.equipments),
+      .filter((i) => i.equipments)
+      .map((i) => i.equipments),
   );
 }
 
@@ -344,13 +347,13 @@ function handleGlRelicDrawEquipment(
 
   checkGlRelicDrawEquipment(getEquipment(), callback);
 
-  results.sort().forEach(i => logger.info(i));
+  results.sort().forEach((i) => logger.info(i));
 }
 
 const itemUpdatesHandler: Handler = {
   dungeons(data: schemas.Dungeons) {
     for (const d of data.dungeons) {
-      _.forEach(d.prizes, prizeList => {
+      _.forEach(d.prizes, (prizeList) => {
         for (const prize of prizeList) {
           checkItem(prize);
         }
