@@ -7,11 +7,11 @@ import { formatBraveCommands } from '../brave';
 
 // Allow looking up soul breaks both by name and type.  This keeps tests from
 // breaking just because a soul break is renamed from JP to GL.
-const soulBreaksByName = _.keyBy(_.values(enlir.soulBreaks), i => i.character + ' - ' + i.name);
+const soulBreaksByName = _.keyBy(_.values(enlir.soulBreaks), (i) => i.character + ' - ' + i.name);
 const soulBreakAliases = makeSoulBreakAliases(enlir.soulBreaks);
 const soulBreaksByAlias = _.keyBy(
   _.values(enlir.soulBreaks),
-  i => i.character + ' - ' + soulBreakAliases[i.id],
+  (i) => i.character + ' - ' + soulBreakAliases[i.id],
 );
 // Add additional aliases from "SB" to "SB1" so that references like "SB" won't
 // break if a second soul break is released.
@@ -729,7 +729,7 @@ describe('skill', () => {
           },
         ],
       });
-      expect(damage.burstCommands!.map(i => formatMrPSkill(i))).toEqual([
+      expect(damage.burstCommands!.map((i) => formatMrPSkill(i))).toEqual([
         'ON, self fastcast 3',
         'OFF, p3.42/6 h+wi @ +50% crit dmg',
         'p2.28/4 h+wi',
@@ -761,7 +761,7 @@ describe('skill', () => {
           },
         ],
       });
-      expect(heal.burstCommands!.map(i => formatMrPSkill(i))).toEqual([
+      expect(heal.burstCommands!.map((i) => formatMrPSkill(i))).toEqual([
         'ON, h60',
         'OFF, w10.48/4 l+n, ally h60',
         'party h25',
@@ -795,7 +795,7 @@ describe('skill', () => {
         damage: 'AoE magic 11.94/6 fire+non',
         other: 'fire infuse 25s',
       });
-      expect(counter.burstCommands!.map(i => formatMrPSkill(i))).toEqual([
+      expect(counter.burstCommands!.map((i) => formatMrPSkill(i))).toEqual([
         "ON, self Magic blink 1, until OFF: (foe's PHY atk ⤇ 50% for AoE m4.85 f+n B.Mag)",
         'OFF, m8.84/4 f+n',
         'AoE m5.9/2 f+n',
@@ -1854,7 +1854,7 @@ describe('skill', () => {
       const attack = describeSoulBreak('Firion - Fervid Blazer');
       expect(attack).toEqual({
         damage: 'phys 7.0/10 holy+ice+fire',
-        other: 'self crit =75% 15s, fastcast 15s',
+        other: 'self crit =75% 25s, fastcast 15s',
         braveCondition: ['Samurai'],
         braveCommands: [
           {
@@ -2345,7 +2345,7 @@ describe('skill', () => {
           'earth infuse 25s, self dmg cap +10k 15s, Negate dmg 100%, ' +
           'Last stand, when Neg. Dmg. lost: instacast 15s, Last stand, ' +
           '15s: Awoken Stalwart: earth inf. hones, up to 1.3x dmg @ rank 5, ' +
-          '(earth ⤇ p1.92/6 e+n Monk)',
+          '(earth ⤇ p4.32/6 e+n Monk)',
       });
 
       expect(describeSoulBreak('Xezat - AASB')).toEqual({
@@ -2405,7 +2405,7 @@ describe('skill', () => {
         damage: 'phys 9.0/15 fire+dark+non rngd',
         other:
           'self dmg cap +10k 15s, ' +
-          '1 turn: (fire/dark ⤇ fire/dark infuse), ' +
+          '1 turn: (dark/fire ⤇ dark/fire infuse), ' +
           '15s: (1/2/3+ dark ⤇ 2/2.5/3x cast), (dark ⤇ p1.95/5 d+n rngd Sharpshooter), ' +
           '(1/2/3+ fire ⤇ crit =50/75/100%), (fire ⤇ p1.95/5 f+n rngd Monk), ' +
           '15s: Awoken Legend: dark/fire inf. hones, up to 1.3x dmg @ rank 5, 100% dualcast',
@@ -2631,7 +2631,8 @@ describe('skill', () => {
     it('handles hybrid attacks', () => {
       expect(describeSoulBreak('Reno - Turk Special')).toEqual({
         damage: 'p7.1/10 or m17.0/10 lgt+non rngd',
-        other: 'lgt infuse 25s, self +30% ATK/DEF or DEF/MAG, fastcast 1, 15s: (lgt ⤇ fastcast 1)',
+        other:
+          'lgt infuse 25s, self +30% ATK/DEF or DEF/MAG 25s, fastcast 1, 15s: (lgt ⤇ fastcast 1)',
       });
       expect(describeSoulBreak("Vincent - Lucrecia's Lament")).toEqual({
         damage: 'AoE p5.1/6 or m13.5/6 fire+non rngd',

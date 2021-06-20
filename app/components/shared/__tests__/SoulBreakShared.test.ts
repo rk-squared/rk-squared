@@ -8,14 +8,14 @@ function doSimpleSearch(searchFilter: string): string[] {
   const results = searchSoulBreaksAndLegendMateria(searchFilter);
   const characters = Array.from(results.characters.values()).sort();
   return _.flatten(
-    characters.map(c =>
+    characters.map((c) =>
       _.flatten([
         enlir.soulBreaksByCharacter[c]
-          .filter(i => results.soulBreakIds.has(i.id))
-          .map(i => i.character + ' - ' + i.name),
+          .filter((i) => results.soulBreakIds.has(i.id))
+          .map((i) => i.character + ' - ' + i.name),
         enlir.legendMateriaByCharacter[c]
-          .filter(i => results.legendMateriaIds.has(i.id))
-          .map(i => i.character + ' - ' + i.name),
+          .filter((i) => results.legendMateriaIds.has(i.id))
+          .map((i) => i.character + ' - ' + i.name),
       ]),
     ),
   );
@@ -32,6 +32,7 @@ describe('SoulBreakShared', () => {
           "Noctis - Royal Guardian",
           "Noctis - Warp Factor",
           "Noctis - Static Edge",
+          "Noctis - Empower Link",
           "Noctis - Armiger",
           "Noctis - Armiger Wakes",
           "Noctis - Airstride",
@@ -40,6 +41,7 @@ describe('SoulBreakShared', () => {
           "Noctis - Regal Flair",
           "Noctis - True Ignis Link",
           "Noctis - True Gladiolus Link",
+          "Noctis - True Prompto Link",
           "Noctis - Steel Pirouette Inferno (Engaged)",
           "Noctis - Steel Pirouette Inferno",
           "Noctis - Path of the True King",
@@ -57,10 +59,11 @@ describe('SoulBreakShared', () => {
 
     it('searches for individual soul breaks', () => {
       expect(doSimpleSearch('cloud usb1')).toMatchInlineSnapshot(`
-                                                Array [
-                                                  "Cloud - Ultra Cross Slash",
-                                                ]
-                                    `);
+        Array [
+          "Cloud - Ultra Cross Slash",
+          "Cloud of Darkness - Wide-Angle Particle Beam",
+        ]
+      `);
     });
   });
 });

@@ -238,6 +238,11 @@ exports[`RelicDrawBannerTable renders featured relics with equal probabilities 1
         <td>
           Bartz
           <br />
+          <img
+            className="anima"
+            src="test-file-stub"
+            title="Anima wave 5 (estimated October 2021)"
+          />
         </td>
         <td>
           <img
@@ -273,6 +278,11 @@ exports[`RelicDrawBannerTable renders featured relics with equal probabilities 1
         <td>
           Krile
           <br />
+          <img
+            className="anima"
+            src="test-file-stub"
+            title="Anima wave 5 (estimated October 2021)"
+          />
         </td>
         <td>
           <img
@@ -872,6 +882,11 @@ exports[`RelicDrawBannerTable renders featured relics with varying probabilities
         <td>
           Bartz
           <br />
+          <img
+            className="anima"
+            src="test-file-stub"
+            title="Anima wave 5 (estimated October 2021)"
+          />
         </td>
         <td>
           <img
@@ -911,6 +926,11 @@ exports[`RelicDrawBannerTable renders featured relics with varying probabilities
         <td>
           Krile
           <br />
+          <img
+            className="anima"
+            src="test-file-stub"
+            title="Anima wave 5 (estimated October 2021)"
+          />
         </td>
         <td>
           <img
@@ -1513,6 +1533,11 @@ exports[`RelicDrawBannerTable renders featured relics without probabilities 1`] 
         <td>
           Bartz
           <br />
+          <img
+            className="anima"
+            src="test-file-stub"
+            title="Anima wave 5 (estimated October 2021)"
+          />
         </td>
         <td>
           <img
@@ -1548,6 +1573,11 @@ exports[`RelicDrawBannerTable renders featured relics without probabilities 1`] 
         <td>
           Krile
           <br />
+          <img
+            className="anima"
+            src="test-file-stub"
+            title="Anima wave 5 (estimated October 2021)"
+          />
         </td>
         <td>
           <img

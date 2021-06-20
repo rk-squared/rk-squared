@@ -888,15 +888,6 @@ function patchEnlir() {
       'grants [Awoken Cornelian Princess] to the user',
   );
 
-  // "and" vs. "or" is an apparent mistake in the database - and change
-  // terminology to match Runic Release.
-  applyEffectsPatch(
-    enlir.otherSkillsByName,
-    'Cross Shift',
-    'Six single attacks (2.41 each), grants [Buff Dark 10% (15s)] and [Buff Holy 10% (15s)] every second cast based on element of triggering ability',
-    "Six single attacks (2.41 each), grants [Buff Dark 10% (15s)] or [Buff Holy 10% (15s)] every second cast based on triggering ability's element",
-  );
-
   // Status cleanups.  These too should be fixed up.
   applyEffectsPatch(
     enlir.statusByName,
@@ -954,12 +945,6 @@ function patchEnlir() {
       'grants [40% Damage Reduction Barrier 1] to user when any Damage Reduction Barrier is removed, removed after triggering three times',
     'Mimic attacks deal 50% more damage, casts the last ability used by an ally when any Damage Reduction Barrier is removed, ' +
       'grants [40% Damage Reduction Barrier 1] to user when any Damage Reduction Barrier is removed, removed after triggering three times',
-  );
-  applyEffectsPatch(
-    enlir.statusByName,
-    'Pain -2', // It still seems odd to me that one status can grant another.  "when set" is already used elsewhere.
-    'Decreases Pain level by 2',
-    'Decreases Pain level by 2 when set',
   );
 
   // Legend materia.  To be consistent with statuses, use "and" to separate
@@ -1090,7 +1075,7 @@ function patchEnlir() {
     enlir.synchroCommands,
     '30549323',
     '1/4/8 single ranged/single/single attacks (0.80 each) if the user Physical Blink 0/1/2, ' +
-      'grants [Physical Blink 1]/[Physical Blink 1] if the user has Physical Blink 0/1+, 100% hit rate at Physical Blink 0',
+      'grants [Physical Blink 1]/[Physical Blink 1] if the user has Physical Blink 0/1, 100% hit rate at Physical Blink 0',
     '1/4/8 single attacks (0.80 each) if the user has Physical Blink 0/1/2, grants [Physical Blink 1] to the user',
   );
   // For Palom's sync, our parser isn't currently set up to handle "and" conditionals, and this
@@ -1098,8 +1083,8 @@ function patchEnlir() {
   applyEffectsPatch(
     enlir.synchroCommands,
     '31540512',
-    'Restores HP (25), restores HP (85) and grants [Instant Cast 1] if the user has Mature Mode level 1, causes Mature Mode -1 to the user',
-    'Restores HP (25/85) if the user has Mature Mode level 0/1, grants [Instant Cast 1] if the user has Mature Mode level 1, causes Mature Mode -1 to the user',
+    'Restores HP (25) if the user has Precocious level 0, restores HP (85) and grants [Instant Cast 1] if the user has Precocious level 1, causes Precocious -1 to the user',
+    'Restores HP (25/85) if the user has Precocious level 0/1, grants [Instant Cast 1] if the user has Precocious level 1, causes Precocious -1 to the user',
   );
   // Use a more standard SB points format for Kuja.
   applyEffectsPatch(
