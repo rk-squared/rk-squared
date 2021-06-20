@@ -103,6 +103,10 @@ export function itemImage(lang: LangType, id: number, type: ItemType): string {
       }
       return url(lang, `image/${type}/${id}/${id}_0${rarity}_112.png`);
     }
+    case ItemType.Labyrinth: {
+      const rarity = itemsByName['Treasure Map']?.id ? 7 : 5;
+      return url(lang, `image/${type}/${id}/${id}_0${rarity}_112.png`);
+    }
     case ItemType.Relic: {
       const relic = enlir.relics[id];
 

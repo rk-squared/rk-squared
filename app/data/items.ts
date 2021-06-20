@@ -12,6 +12,7 @@ export enum ItemType {
   GrowthEgg = 'grow_egg',
   HistoriaTail = 'historia_crystal_enhancement_material',
   HistoriaSoul = 'historia_crystal_evolution_material',
+  Labyrinth = 'labyrinth_item',
   Orb = 'ability_material',
   Magicite = 'beast',
   MemoryCrystal = 'memory_crystal',
@@ -42,6 +43,7 @@ export const itemTypeDescription: { [t in ItemType]: string } = {
   [ItemType.GrowthEgg]: 'Growth Eggs',
   [ItemType.HistoriaTail]: 'Historia',
   [ItemType.HistoriaSoul]: 'Historia Souls',
+  [ItemType.Labyrinth]: 'Labyrinth',
   [ItemType.Orb]: 'Orbs',
   [ItemType.Magicite]: 'Magicite',
   [ItemType.MemoryCrystal]: 'Memory Crystals',
@@ -216,6 +218,11 @@ export const items: Item[] = [
     name: 'Rainbow Crystal',
     type: ItemType.UpgradeMaterial,
     id: 25097002,
+  },
+  {
+    name: 'Rosetta Stone of Wisdom',
+    type: ItemType.UpgradeMaterial,
+    id: 25097003,
   },
   {
     name: 'Tiny Scarletite',
@@ -1466,6 +1473,32 @@ export const items: Item[] = [
     name: '5★ Shifting Mote',
     type: ItemType.Mote,
     id: 133001300,
+  },
+
+  {
+    name: 'Magic Key',
+    type: ItemType.Labyrinth,
+    id: 181000001,
+  },
+  {
+    name: 'Teleport Stone',
+    type: ItemType.Labyrinth,
+    id: 181000002,
+  },
+  {
+    name: 'Lethe Tears',
+    type: ItemType.Labyrinth,
+    id: 181000003,
+  },
+  {
+    name: 'Record Marker',
+    type: ItemType.Labyrinth,
+    id: 181000004,
+  },
+  {
+    name: 'Treasure Map',
+    type: ItemType.Labyrinth,
+    id: 181000005,
   },
 
   {
