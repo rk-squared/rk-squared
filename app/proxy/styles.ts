@@ -4,7 +4,7 @@ import { IState } from '../reducers';
 
 export function getStyleOverrides(store: Store<IState>): string | null {
   let rules = '';
-  const { hideAccolades } = store.getState().options;
+  const { hideAccolades, markLabyrinthChests } = store.getState().options;
 
   if (hideAccolades) {
     /* Base game's CSS for supporter list (roaming warrior list):
@@ -43,6 +43,24 @@ export function getStyleOverrides(store: Store<IState>): string | null {
 
     .scene-select-supporter .c-accolades {
       display: none !important;
+    }
+    `;
+  }
+
+  if (markLabyrinthChests) {
+    rules += `
+    div.s-treasure-box[data-app-treasure-chest-id="500101"],
+    div.s-treasure-box[data-app-treasure-chest-id="500102"],
+    div.s-treasure-box[data-app-treasure-chest-id="500103"],
+    div.s-treasure-box[data-app-treasure-chest-id="500104"] {
+      filter: brightness(2) contrast(1.5);
+    }
+    div.s-treasure-box[data-app-treasure-chest-id="400001"] {
+    }
+    div.s-treasure-box[data-app-treasure-chest-id="100001"],
+    div.s-treasure-box[data-app-treasure-chest-id="200001"],
+    div.s-treasure-box[data-app-treasure-chest-id="300001"] {
+      filter: grayscale(1);
     }
     `;
   }

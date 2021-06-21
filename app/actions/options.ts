@@ -18,6 +18,11 @@ export interface Options {
   hideAccolades?: boolean;
 
   /**
+   * Visually indicate valuable labyrinth chests?
+   */
+  markLabyrinthChests?: boolean;
+
+  /**
    * Expire old relic draw banners after this value, in days.
    */
   maxOldRelicDrawBannerAgeInDays?: number;
@@ -41,6 +46,7 @@ export const defaultOptions: Required<Options> = {
   saveTrafficCaptures: false,
   enableTransparentProxy: false,
   hideAccolades: false,
+  markLabyrinthChests: false,
 
   // Earlier versions were effectively 0.  Pick 1 so they don't *immediately*
   // expire.

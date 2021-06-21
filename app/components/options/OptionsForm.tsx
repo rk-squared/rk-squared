@@ -121,6 +121,25 @@ export class OptionsForm extends React.Component<Props, State> {
           </HelpText>
         </div>
 
+        <div className="form-group">
+          <Checkbox id="markLabyrinthChests" {...{ options, setOption }} needsGameRestart={true}>
+            Mark labyrinth chests
+          </Checkbox>
+          <HelpText>
+            <p>
+              Mark valuable labyrinth chests in-game, so that you don't have to check RK<sup>2</sup>{' '}
+              for treasure chest details. 5★ chests (which contain Hero Artifacts) will be
+              highlighted, 4★ chests (which may contain rare items such as anima lenses) will have
+              their default blue appearance, and 1★ through 3★ chests will be grayed out.
+            </p>
+            <p>
+              <CheatWarningModalLink>
+                This is a cosmetic option and should be safe.
+              </CheatWarningModalLink>
+            </p>
+          </HelpText>
+        </div>
+
         <h5>RK&sup2; Preferences</h5>
         <p>Preferences affecting RK&sup2;'s own operations.</p>
 
