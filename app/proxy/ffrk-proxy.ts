@@ -117,7 +117,7 @@ function recordRawCapturedData(data: any, req: http.IncomingMessage, extension: 
   const filename = getCaptureFilename(req, extension);
 
   return new Promise((resolve, reject) => {
-    fs.writeFile(filename, data, err => {
+    fs.writeFile(filename, data, (err) => {
       if (err) {
         reject(err);
       } else {
@@ -219,8 +219,8 @@ function handleFfrkApiRequest(
 
     if (store.getState().options.saveTrafficCaptures) {
       recordCapturedData(decoded, req, res)
-        .catch(err => logger.error(`Failed to save data capture: ${err}`))
-        .then(filename => logger.debug(`Saved to ${filename}`));
+        .catch((err) => logger.error(`Failed to save data capture: ${err}`))
+        .then((filename) => logger.debug(`Saved to ${filename}`));
     }
 
     sessionHandler(decoded, req, res, store);
@@ -259,12 +259,12 @@ function handleFfrkStartupRequest(
       // eslint-disable-next-line no-constant-condition
       if (0) {
         recordRawCapturedData(decoded, req, '.html')
-          .catch(err => logger.error(`Failed to save raw data capture: ${err}`))
-          .then(filename => logger.debug(`Saved to ${filename}`));
+          .catch((err) => logger.error(`Failed to save raw data capture: ${err}`))
+          .then((filename) => logger.debug(`Saved to ${filename}`));
       }
       recordCapturedData(startupData, req, res)
-        .catch(err => logger.error(`Failed to save data capture: ${err}`))
-        .then(filename => logger.debug(`Saved to ${filename}`));
+        .catch((err) => logger.error(`Failed to save data capture: ${err}`))
+        .then((filename) => logger.debug(`Saved to ${filename}`));
     }
 
     sessionHandler(decoded, req, res, store);
@@ -339,7 +339,7 @@ function handleServerErrors(
   description: string,
   store: Store<IState>,
 ) {
-  anyServer.on('error', e => showServerError(e, description, store));
+  anyServer.on('error', (e) => showServerError(e, description, store));
 }
 
 /**
@@ -447,11 +447,11 @@ function configureApp(
   });
 
   app.use((req: http.IncomingMessage, res: http.ServerResponse) => {
-    req.on('error', e => {
+    req.on('error', (e) => {
       logger.debug('Error within proxy req');
       logException(e, 'debug');
     });
-    res.on('error', e => {
+    res.on('error', (e) => {
       logger.debug('Error within proxy res');
       logException(e, 'debug');
     });
@@ -481,7 +481,7 @@ function configureApp(
       req.pipe(proxyReq.bodyStream);
     }
 
-    Promise.resolve(getTarget(req)).then(target => proxy.web(req, res, { buffer, target }));
+    Promise.resolve(getTarget(req)).then((target) => proxy.web(req, res, { buffer, target }));
   });
 }
 
@@ -524,10 +524,10 @@ function createTransparentApp(store: Store<IState>, proxy: httpProxy, tlsCert: T
   });
 
   const resolver = new DnsResolver();
-  configureApp(app, store, proxy, tlsCert, req => {
+  configureApp(app, store, proxy, tlsCert, (req) => {
     const reqUrl = url.parse(req.url as string);
     return Promise.resolve(resolver.resolve(reqUrl.host!)).then(
-      address => reqUrl.protocol + '//' + address,
+      (address) => reqUrl.protocol + '//' + address,
     );
   });
 
@@ -578,14 +578,14 @@ export function createFfrkProxy(store: Store<IState>, proxyArgs: ProxyArgs) {
   const httpsPort = proxyArgs.httpsPort || defaultHttpsPort;
 
   const proxy = httpProxy.createProxyServer({ preserveHeaderKeyCase: true });
-  proxy.on('error', e => {
+  proxy.on('error', (e) => {
     logger.debug('Error within proxy');
     logException(e, 'debug');
   });
   proxy.on('proxyReq', preserveProxyReqHeaderKeyCase);
 
   const app = connect();
-  configureApp(app, store, proxy, tlsCert, req => {
+  configureApp(app, store, proxy, tlsCert, (req) => {
     const reqUrl = url.parse(req.url as string);
     return reqUrl.protocol + '//' + reqUrl.host;
   });

@@ -114,14 +114,14 @@ export function getDungeonPrizes(
   }
 
   const ids = Object.keys(result).sort();
-  const sortedPrizes = ids.map(i => result[+i]);
+  const sortedPrizes = ids.map((i) => result[+i]);
 
   // Hack: FFRK doesn't report number of treasure chests found, so we often
   // don't have this information.  Therefore, if includeAll is requested, then
   // consistently omit all treasure chest information, since we can't
   // consistently include all of it.
   if (!includeAll) {
-    const dungeonChests = _.sumBy(dungeons, i => i.dungeonChests || 0);
+    const dungeonChests = _.sumBy(dungeons, (i) => i.dungeonChests || 0);
     if (dungeonChests) {
       sortedPrizes.push(makeDungeonChestPrizeItem(dungeonChests));
     }
