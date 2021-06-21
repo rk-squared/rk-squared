@@ -138,6 +138,16 @@ export function getAvailablePrizes(dungeonOrDungeons: Dungeon | Dungeon[]): Priz
   return getDungeonPrizes(dungeonOrDungeons, false);
 }
 
+export function isLabyrinthPainting(dungeon: Dungeon) {
+  return (
+    dungeon.totalStamina === 0 &&
+    !dungeon.isUnlocked &&
+    !dungeon.isComplete &&
+    !dungeon.prizes.completion.length &&
+    dungeon.name.endsWith(' Painting')
+  );
+}
+
 /**
  * Add (replace) the list of dungeons for a world.
  */

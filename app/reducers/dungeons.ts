@@ -9,6 +9,7 @@ import {
   DungeonsAction,
   finishWorldDungeons,
   forgetWorldDungeons,
+  isLabyrinthPainting,
   openDungeonChest,
   updateDungeon,
 } from '../actions/dungeons';
@@ -28,20 +29,22 @@ const initialState = {
   byWorld: {},
 };
 
-export function getDungeonsForWorld(state: DungeonState, worldId: number) {
+export function getDungeonsForWorld(state: DungeonState, worldId: number): Dungeon[] | undefined {
   const worldDungeons = state.byWorld[worldId];
-  return worldDungeons ? worldDungeons.map((i: number) => state.dungeons[i]) : undefined;
+  return !worldDungeons
+    ? undefined
+    : worldDungeons.map((i: number) => state.dungeons[i]).filter((i) => !isLabyrinthPainting(i));
 }
 
-export function getDungeonsForWorlds(state: DungeonState, worlds: World[]) {
-  const worldDungeons: Array<Dungeon[] | undefined> = worlds.map(w =>
+export function getDungeonsForWorlds(state: DungeonState, worlds: World[]): Dungeon[] {
+  const worldDungeons: Array<Dungeon[] | undefined> = worlds.map((w) =>
     getDungeonsForWorld(state, w.id),
   );
   return _.flatten((_.filter(worldDungeons) as any) as Dungeon[][]);
 }
 
 export function getWorldIdForDungeon(state: DungeonState, dungeonId: number): number | undefined {
-  const result = _.findKey(state.byWorld, i => i.indexOf(dungeonId) !== -1);
+  const result = _.findKey(state.byWorld, (i) => i.indexOf(dungeonId) !== -1);
   return result ? +result : undefined;
 }
 
