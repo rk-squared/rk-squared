@@ -35,6 +35,11 @@ const labyrinthHandler: Handler = {
     const paintings = convertLabyrinthPaintings(data.labyrinth_dungeon_session);
     store.dispatch(setLabyrinthPaintings(paintings));
   },
+
+  select_painting(data: labyrinthSchemas.LabyrinthSelectPainting, store: Store<IState>) {
+    const paintings = convertLabyrinthPaintings(data.labyrinth_dungeon_session);
+    store.dispatch(setLabyrinthPaintings(paintings));
+  },
 };
 
 export default labyrinthHandler;

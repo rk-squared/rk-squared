@@ -1,8 +1,9 @@
 import { createAction } from 'typesafe-actions';
 import { BattleTips } from '../data/strategy';
+import { DisplayPaintingId } from '../api/schemas/labyrinth';
 
 export interface LabyrinthPainting {
-  id: number;
+  id: DisplayPaintingId;
   name: string;
   combat?: {
     name: string;

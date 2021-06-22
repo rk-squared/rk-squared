@@ -1,4 +1,5 @@
 import { EnlirRelicType, EnlirSchool } from '../data/enlir';
+import { DisplayPaintingId } from '../api/schemas/labyrinth';
 
 export type LocalIconType =
   | 'darkElement'
@@ -110,4 +111,16 @@ export const schoolIcons: { [s in EnlirSchool]: string | undefined } = {
   Thief: require('../images/ffrk-icons/thief.png'),
   'White Magic': require('../images/ffrk-icons/white_magic.png'),
   Witch: require('../images/ffrk-icons/witch.png'),
+};
+
+export const labyrinthIcons: { [id in DisplayPaintingId]: string | undefined } = {
+  [DisplayPaintingId.GreenCombatant]: require('../images/game-icons/swordman-green.svg'),
+  [DisplayPaintingId.OrangeCombatant]: require('../images/game-icons/swordman-orange.svg'),
+  [DisplayPaintingId.RedCombatant]: require('../images/game-icons/swordman-red.svg'),
+  [DisplayPaintingId.Master]: require('../images/game-icons/cultist-purple.svg'),
+  [DisplayPaintingId.Treasure]: require('../images/game-icons/open-treasure-chest-gold.svg'),
+  [DisplayPaintingId.Exploration]: require('../images/game-icons/dungeon-gate-teal.svg'),
+  [DisplayPaintingId.Onslaught]: require('../images/game-icons/swords-power-pink.svg'),
+  [DisplayPaintingId.Portal]: require('../images/game-icons/magic-portal-blue.svg'),
+  [DisplayPaintingId.Restoration]: require('../images/game-icons/angel-wings-blue.svg'),
 };

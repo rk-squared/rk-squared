@@ -5,6 +5,7 @@ import DropTrackerPage from '../containers/DropTrackerPage';
 import DungeonScoresPage from '../containers/DungeonScoresPage';
 import DungeonsPage from '../containers/DungeonsPage';
 import FutureAbilitiesPage from '../containers/FutureAbilitiesPage';
+import LabyrinthPage from '../containers/LabyrinthPage';
 import OptionsPage from '../containers/OptionsPage';
 import RecordMateriaPage from '../containers/RecordMateriaPage';
 import RelicDrawsPage from '../containers/RelicDrawsPage';
@@ -17,6 +18,11 @@ const routes: RouteItem[] = [
     component: DropTrackerPage,
     description: 'Drops',
     path: '/dropTracker',
+  },
+  {
+    component: LabyrinthPage,
+    description: 'Labyrinth',
+    path: '/labyrinth',
   },
   {
     component: DungeonsPage,

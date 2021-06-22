@@ -5,9 +5,12 @@ export enum DisplayPaintingId {
   GreenCombatant = 100001,
   OrangeCombatant = 100002,
   RedCombatant = 100003,
+  Master = 200001, // TODO: Confirm
+  Treasure = 300001, // TODO: Confirm
   Exploration = 400001,
   Onslaught = 500001,
   Portal = 600001,
+  Restoration = 700001, // TODO: Confirm
 }
 
 // Sample URL: http://ffrk.denagames.com/dff/event/labyrinth/4500/get_display_paintings
