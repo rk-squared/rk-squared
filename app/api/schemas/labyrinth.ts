@@ -10,7 +10,7 @@ export enum DisplayPaintingId {
   Exploration = 400001,
   Onslaught = 500001,
   Portal = 600001,
-  Restoration = 700001, // TODO: Confirm
+  Restoration = 700001,
 }
 
 // Sample URL: http://ffrk.denagames.com/dff/event/labyrinth/4500/get_display_paintings
