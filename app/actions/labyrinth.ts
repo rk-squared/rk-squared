@@ -2,16 +2,19 @@ import { createAction } from 'typesafe-actions';
 import { BattleTips } from '../data/strategy';
 import { DisplayPaintingId } from '../api/schemas/labyrinth';
 
+export interface LabyrinthCombat {
+  name: string;
+  difficulty: number;
+  imageUrl?: string; // A full URL
+  message: string;
+  tips: BattleTips[];
+}
+
 export interface LabyrinthPainting {
   id: DisplayPaintingId;
   name: string;
   number: number;
-  combat?: {
-    name: string;
-    difficulty: number;
-    message: string;
-    tips: BattleTips[];
-  };
+  combat?: LabyrinthCombat;
 }
 
 export const setLabyrinthChests = createAction('SET_LABYRINTH_CHESTS', (chests: number[]) => ({
