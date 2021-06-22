@@ -342,6 +342,7 @@ export interface TipBattle {
   id: number;
   title: string;
   message: string;
+  wiki_guide_url?: string;
 }
 
 export interface UnlockConditions {

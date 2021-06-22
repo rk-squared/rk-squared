@@ -1,3 +1,5 @@
+import { Capture } from './battles';
+
 export enum DisplayPaintingId {
   GreenCombatant = 100001,
   OrangeCombatant = 100002,
@@ -89,20 +91,6 @@ interface Dungeon {
   prologue_image_path: string;
   background_image_path: string;
   captures: Capture[];
-}
-
-interface Capture {
-  enemy_id: string;
-  sp_scores: any[];
-  image_path: string;
-  tip_battle: {
-    group_id: number;
-    html_content: string;
-    id: number;
-    title: string;
-    wiki_guide_url: string;
-    message: string;
-  };
 }
 
 interface LabyrinthItem {
