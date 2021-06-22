@@ -15,6 +15,7 @@ function getPaintingCombat(dungeon: labyrinthSchemas.Dungeon): LabyrinthPainting
   const tip = dungeon.captures[0].tip_battle;
   return {
     name: tip.title.replace(' (Labyrinth)', ''),
+    difficulty: dungeon.challenge_level,
     message: sanitizeBattleMessage(tip.message),
     tips: parseBattleTips(tip.html_content),
   };
@@ -26,19 +27,22 @@ function convertLabyrinthPaintings(
   return session.display_paintings.map((i) => ({
     id: i.painting_id,
     name: i.name,
+    number: i.no,
     combat: i.dungeon && getPaintingCombat(i.dungeon),
   }));
 }
 
 const labyrinthHandler: Handler = {
   get_display_paintings(data: labyrinthSchemas.LabyrinthDisplayPaintings, store: Store<IState>) {
-    const paintings = convertLabyrinthPaintings(data.labyrinth_dungeon_session);
-    store.dispatch(setLabyrinthPaintings(paintings));
+    const session = data.labyrinth_dungeon_session;
+    const paintings = convertLabyrinthPaintings(session);
+    store.dispatch(setLabyrinthPaintings(paintings, session.remaining_painting_num));
   },
 
   select_painting(data: labyrinthSchemas.LabyrinthSelectPainting, store: Store<IState>) {
-    const paintings = convertLabyrinthPaintings(data.labyrinth_dungeon_session);
-    store.dispatch(setLabyrinthPaintings(paintings));
+    const session = data.labyrinth_dungeon_session;
+    const paintings = convertLabyrinthPaintings(session);
+    store.dispatch(setLabyrinthPaintings(paintings, session.remaining_painting_num));
   },
 };
 

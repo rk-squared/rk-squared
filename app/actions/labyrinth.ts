@@ -5,8 +5,10 @@ import { DisplayPaintingId } from '../api/schemas/labyrinth';
 export interface LabyrinthPainting {
   id: DisplayPaintingId;
   name: string;
+  number: number;
   combat?: {
     name: string;
+    difficulty: number;
     message: string;
     tips: BattleTips[];
   };
@@ -23,9 +25,9 @@ export const clearLabyrinthChests = createAction('CLEAR_LABYRINTH_CHESTS', () =>
 
 export const setLabyrinthPaintings = createAction(
   'SET_LABYRINTH_PAINTINGS',
-  (paintings: LabyrinthPainting[]) => ({
+  (paintings: LabyrinthPainting[], remaining: number) => ({
     type: 'SET_LABYRINTH_PAINTINGS',
-    payload: paintings,
+    payload: { paintings, remaining },
   }),
 );
 

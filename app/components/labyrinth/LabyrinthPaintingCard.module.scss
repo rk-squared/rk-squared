@@ -1,0 +1,9 @@
+:local {
+  .component {
+    width: 10em;
+
+    & > :global(.card-body) > p {
+      margin-bottom: 0;
+    }
+  }
+}

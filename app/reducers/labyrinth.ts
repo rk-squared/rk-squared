@@ -11,6 +11,7 @@ import {
 export interface LabyrinthState {
   chests?: number[];
   paintings?: LabyrinthPainting[];
+  remaining?: number;
 }
 
 export function labyrinth(state: LabyrinthState = {}, action: LabyrinthAction): LabyrinthState {
@@ -23,7 +24,8 @@ export function labyrinth(state: LabyrinthState = {}, action: LabyrinthAction): 
         delete draft.chests;
         return;
       case getType(setLabyrinthPaintings):
-        draft.paintings = action.payload;
+        draft.paintings = action.payload.paintings;
+        draft.remaining = action.payload.remaining;
         return;
     }
   });
