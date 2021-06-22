@@ -1,4 +1,5 @@
 import * as cheerio from 'cheerio';
+import * as sanitizeHtml from 'sanitize-html';
 import { EnlirElement } from './enlir';
 
 const classToElement: Record<string, EnlirElement> = {
@@ -73,4 +74,17 @@ export function parseBattleTips(content: string) {
   }
 
   return sections;
+}
+
+export function sanitizeBattleMessage(content: string) {
+  const $ = cheerio.load(content);
+  $('span.red').each((index, element) => {
+    $(element).replaceWith('<strong>' + $(element).text() + '</strong>');
+  });
+
+  // Remove class names, etc.
+  const result = sanitizeHtml($.html());
+
+  // Hack: Remove leading '-' from each list item.
+  return result.replace('<li>-', '<li>');
 }
