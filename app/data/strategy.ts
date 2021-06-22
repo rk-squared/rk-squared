@@ -86,5 +86,5 @@ export function sanitizeBattleMessage(content: string) {
   const result = sanitizeHtml($.html());
 
   // Hack: Remove leading '-' from each list item.
-  return result.replace('<li>-', '<li>');
+  return result.replace(/<li>-/g, '<li>');
 }

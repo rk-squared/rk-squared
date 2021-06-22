@@ -26,6 +26,7 @@ import { StartupHandler } from './common';
 import dungeons from './dungeons';
 import dungeonScores from './dungeonScores';
 import itemUpdates from './itemUpdates';
+import labyrinth from './labyrinth';
 import recordMateria from './recordMateria';
 import relicDraws from './relicDraws';
 import { sessionHandler } from './session';
@@ -54,6 +55,7 @@ const handlers = [
   itemUpdates,
   recordMateria,
   dungeonScores,
+  labyrinth,
 ];
 
 const ffrkRegex = /ffrk\.denagames\.com\/dff|dff\.sp\.mbga\.jp\/dff/;

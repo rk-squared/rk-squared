@@ -1,4 +1,5 @@
 import { Capture } from './battles';
+import { ItemTypeName } from './common';
 
 export enum DisplayPaintingId {
   GreenCombatant = 100001,
@@ -15,13 +16,20 @@ export interface LabyrinthDisplayPaintings {
 
   labyrinth_dungeon_session: LabyrinthDungeonSession;
   labyrinth_items: LabyrinthItem[];
-  unsettled_items: any[];
+  unsettled_items: {
+    num: number;
+    image_path: string;
+    item_type_name: ItemTypeName;
+    item_name: string;
+    item_id: number;
+    is_buddy_sacred_equipment: boolean;
+  }[];
   current_labyrinth_point: number;
 
   SERVER_TIME: number;
 }
 
-interface LabyrinthDungeonSession {
+export interface LabyrinthDungeonSession {
   current_floor: number;
   labyrinth_point: number;
   party_info: {
@@ -52,7 +60,8 @@ interface DisplayPainting {
   dungeon?: Dungeon;
 }
 
-interface Dungeon {
+// TODO: Deduplicate with other Dungeon interfaces
+export interface Dungeon {
   unlock_conditions: {};
   closed_at: number;
   order_no: number;

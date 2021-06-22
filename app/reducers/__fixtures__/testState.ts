@@ -18,6 +18,7 @@ export function makeTestState(state?: DeepPartial<IState>): IState {
       dungeons: {},
       byWorld: {},
     },
+    labyrinth: {},
     messages: {
       messages: [],
     },
