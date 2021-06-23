@@ -17,6 +17,18 @@ export interface LabyrinthPainting {
   combat?: LabyrinthCombat;
 }
 
+export const setLabyrinthCombat = createAction(
+  'SET_LABYRINTH_COMBAT',
+  (combat: LabyrinthCombat) => ({
+    type: 'SET_LABYRINTH_COMBAT',
+    payload: combat,
+  }),
+);
+
+export const clearLabyrinthCombat = createAction('CLEAR_LABYRINTH_COMBAT', () => ({
+  type: 'CLEAR_LABYRINTH_COMBAT',
+}));
+
 export const setLabyrinthChests = createAction('SET_LABYRINTH_CHESTS', (chests: number[]) => ({
   type: 'SET_LABYRINTH_CHESTS',
   payload: chests,
@@ -35,5 +47,9 @@ export const setLabyrinthPaintings = createAction(
 );
 
 export type LabyrinthAction = ReturnType<
-  typeof setLabyrinthChests | typeof clearLabyrinthChests | typeof setLabyrinthPaintings
+  | typeof setLabyrinthCombat
+  | typeof clearLabyrinthCombat
+  | typeof setLabyrinthChests
+  | typeof clearLabyrinthChests
+  | typeof setLabyrinthPaintings
 >;

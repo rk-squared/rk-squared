@@ -51,6 +51,15 @@ export interface LabyrinthDungeonSession {
   display_paintings: DisplayPainting[];
   addon_record_materia_id_map: { [key: string]: number };
   remaining_painting_num: number;
+
+  // These are present for select_painting and choose_explore_painting,
+  // depending on the type of painting selected and the exploration results.
+  // They can also be present for get_display_paintings if the user restarts the
+  // game while at a painting.
+  current_painting?: CurrentPainting;
+  explore_painting_event?: ExplorePaintingEvent;
+  treasure_chest_ids?: number[];
+  dungeon?: Dungeon;
 }
 
 interface DisplayPainting {
@@ -122,13 +131,23 @@ interface LabyrinthItem {
 }
 
 // Sample URL: http://ffrk.denagames.com/dff/event/labyrinth/4500/select_painting
+// This is the request issued when you go to an Exploration or Treasure painting.
 export interface LabyrinthSelectPainting {
   success: boolean;
 
-  labyrinth_dungeon_session: LabyrinthDungeonSession & {
-    explore_painting_event: ExplorePaintingEvent;
-  };
+  labyrinth_dungeon_session: LabyrinthDungeonSession;
   current_labyrinth_point: number;
+
+  SERVER_TIME: number;
+}
+
+// Sample URL: http://ffrk.denagames.com/dff/event/labyrinth/4500/choose_explore_painting
+export interface LabyrinthChooseExplorePainting {
+  success: boolean;
+
+  is_hit: boolean;
+
+  labyrinth_dungeon_session: LabyrinthDungeonSession;
 
   SERVER_TIME: number;
 }
@@ -141,10 +160,16 @@ export interface CurrentPainting {
 }
 
 export interface ExplorePaintingEvent {
-  sub_text_master_id_3: string;
-  sub_text_master_id_1: string;
   id: number;
   type: number;
-  sub_text_master_id_2: string;
   text_master_id: string;
+  sub_text_master_id_1: string;
+  sub_text_master_id_2: string;
+  sub_text_master_id_3: string;
+}
+
+// Sample URL: http://ffrk.denagames.com/dff/event/labyrinth/4500/finish_current_painting
+export interface LabyrinthFinishPainting {
+  success: boolean;
+  SERVER_TIME: number;
 }
