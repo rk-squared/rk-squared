@@ -1,3 +1,19 @@
+# v3.2.0
+
+Add Labyrinth support. The new Labyrinth section displays the following information:
+
+- The next 9 paintings (as shown in-game), with full combat details for all 9 paintings (even red paintings).
+- Treasure chest contents, once you've found a treasure room
+- Combat details for Exploration Painting encounters, after you get "The enemy is upon you" but before the battle starts, so you can make a more informed team choice
+
+There's also a new option under the Options section, "Mark labyrinth chests." This causes the in-game treasure room chests to be highlighted in-game: rank 5 chests (with hero artifacts) will be highlighted, and rank 1 through 3 chests will be grayed out. This is a cosmetic change to FFRK's behavior, so use at your own risk, but it's believed to be safe.
+
+Known issues:
+
+- The "Hide accolades" option has some minor display glitches.
+- The Dungeon Tracker doesn't include rewards for individual Labyrinth "Corridor" levels.
+- Labyrinth nexus superbosses aren't shown under Dungeon Scores.
+
 # v3.1.0
 
 - Dungeons
