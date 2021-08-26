@@ -49,8 +49,16 @@ yarn start-renderer-dev
 #    front-end, using React components served by the renderer job.
 yarn start-main-dev
 
-# Build an installable release.
+# Once window number **3** reports "Compiled", you can exit all four threads by 
+#    hitting Ctrl-C.
+
+# Build an installable release. "all" may fail so use the platform you use.
+# "portable" creates an executable that can be run without an Installer for testing.
 yarn package:all
+#yarn package:windows
+#yarn package:mac
+#yarn package:linux
+#yarn package:portable
 ```
 
 ## JP support
