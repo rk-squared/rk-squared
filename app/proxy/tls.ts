@@ -25,7 +25,7 @@ function setCommon(cert: pki.Certificate, commonName: string, issuer?: pki.Certi
   cert.validity.notAfter = new Date();
   // As described at https://support.apple.com/en-gb/HT210176, certificates
   // must be valid for 825 days or less.
-  cert.validity.notAfter.setFullYear(cert.validity.notBefore.getFullYear() + 2);
+  cert.validity.notAfter.setFullYear(cert.validity.notBefore.getFullYear() + 1);
 
   const attrs = [
     {
