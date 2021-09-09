@@ -1,7 +1,7 @@
 {
   "name": "rk-squared",
   "productName": "RK Squared",
-  "version": "3.2.0",
+  "version": "3.2.1",
   "description": "RK Squared tracker for Final Fantasy Record Keeper",
   "main": "./app/main.prod.js",
   "scripts": {
