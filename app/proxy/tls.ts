@@ -203,7 +203,7 @@ function createSiteCertificate(
     {
       name: 'subjectAltName',
       altNames: [
-        ...tlsSites.map(site => ({
+        ...tlsSites.map((site) => ({
           type: 2, // DNS - see https://tools.ietf.org/html/rfc5280#section-4.2.1.6
           value: site,
         })),

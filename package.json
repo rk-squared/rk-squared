@@ -17,7 +17,7 @@
     "package:linux": "yarn build && electron-builder --linux",
     "package:mac": "yarn build && electron-builder --mac",
     "package:win": "yarn build && electron-builder --win --x64",
-	"package:portable": "yarn build && electron-builder --win portable --x64",
+    "package:portable": "yarn build && electron-builder --win portable --x64",
     "lint": "eslint \"app/**/*.ts\" \"app/**/*.tsx\" \"scripts/**/*.ts\"",
     "start": "cross-env NODE_ENV=production electron ./app/main.prod.js",
     "start-main-dev": "cross-env HOT=1 NODE_ENV=development IS_ELECTRON=1 electron ./dist/app/main.js",

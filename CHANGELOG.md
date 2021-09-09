@@ -1,3 +1,7 @@
+# v3.2.1
+
+Fix certificate validity for current versions of Android and Chrome. Thanks, @subworx!
+
 # v3.2.0
 
 Add Labyrinth support. The new Labyrinth section displays the following information:
@@ -6,7 +10,7 @@ Add Labyrinth support. The new Labyrinth section displays the following informat
 - Treasure chest contents, once you've found a treasure room
 - Combat details for Exploration Painting encounters, after you get "The enemy is upon you" but before the battle starts, so you can make a more informed team choice
 
-There's also a new option under the Options section, "Mark labyrinth chests." This causes the in-game treasure room chests to be highlighted in-game: rank 5 chests (with hero artifacts) will be highlighted, and rank 1 through 3 chests will be grayed out. This is a cosmetic change to FFRK's behavior, so use at your own risk, but it's believed to be safe.
+There's also a new option under the Options section, "Mark labyrinth chests." This causes the treasure room chests to be highlighted in-game: rank 5 chests (with hero artifacts) will be highlighted, and rank 1 through 3 chests will be grayed out. This is a cosmetic change to FFRK's behavior, so use at your own risk, but it's believed to be safe.
 
 Known issues:
 

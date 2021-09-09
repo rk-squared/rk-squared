@@ -1096,6 +1096,11 @@ export const items: Item[] = [
     type: ItemType.Orb,
     id: 40000172,
   },
+  {
+    name: 'Dual Swing Record',
+    type: ItemType.Orb,
+    id: 40000173,
+  },
 
   {
     name: 'Minor Growth Egg',
