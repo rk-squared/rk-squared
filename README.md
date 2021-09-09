@@ -49,8 +49,22 @@ yarn start-renderer-dev
 #    front-end, using React components served by the renderer job.
 yarn start-main-dev
 
-# Build an installable release.
+# Once window number **3** reports "Compiled successfully", open a fifth
+#    terminal window.
+# If you intend to develop and not only compile, leave the first four terminals
+#    open for continuous feedback. Otherwise you can close the four terminals.
+
+# Build an (installable) release.
+#    "all" may fail so better use the platform you are running this on.
+#    "portable" creates a Windows executable that can be run without 
+#     installation for testing in "release/RK Squared 3.2.0.exe"
 yarn package:all
+#yarn package:windows
+#yarn package:mac
+#yarn package:linux
+#yarn package:portable
+
+# Once the result starts/installs successfully, you can close all terminal windows.
 ```
 
 ## JP support
