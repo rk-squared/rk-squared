@@ -8,6 +8,8 @@ before=${before:-tmp/mrp-before.txt}
 after=${after:-tmp/mrp-after.txt}
 diff=${diff:-tmp/mrp.diff}
 
+mkdir -p tmp
+
 if ! node dist/scripts/$convert >& $after ; then
   # If enlir-to-mrp.ts failed, then show the likely error and abort.
   tail -n 20 $after
@@ -17,7 +19,7 @@ fi
 
 # Optionally launch Beyond Compare, but don't run it if it's already running.
 # "Already running" logic is currently unimplemented in MinGW.
-if [ "$OSTYPE" != msys ]; then
+if [ -f "$before" ] && [ "$OSTYPE" != msys ]; then
   if command -v bcomp >& /dev/null; then
     if ! pgrep bcomp >& /dev/null; then
       bcomp $before $after &

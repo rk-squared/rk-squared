@@ -17,17 +17,17 @@ Both the global and Japanese versions of FFRK are supported. However, a running 
 
 ## Development
 
-RK Squared uses TypeScript, React, and Electron.
+RK Squared uses TypeScript, React, Redux, and Electron.
 
-Sample instructions for setting up development:
+Sample instructions for setting up a development environment:
 
 ```sh
 # Install packages (assuming you have Yarn installed).
 yarn
 
-# Download the latest data from the FFRK Community Database (originally
-# Enlir).
-yarn get-enlir
+# Locally process RK Squared's copy of data from the FFRK Community Database
+# (originally Enlir).
+yarn copy-json
 
 # Run PEG.js to generate the parsers for the FFRK Community Database data.
 yarn peg
@@ -55,9 +55,10 @@ yarn start-main-dev
 #    open for continuous feedback. Otherwise you can close the four terminals.
 
 # Build an (installable) release.
-#    "all" may fail so better use the platform you are running this on.
-#    "portable" creates a Windows executable that can be run without 
-#     installation for testing in "release/RK Squared 3.2.0.exe"
+#    "all" may fail depending on your platform - Mac can build for Windows, but
+#        not vice versa.
+#    "portable" creates a Windows executable that can be run without
+#        installation for testing in "release/RK Squared 3.2.0.exe"
 yarn package:all
 #yarn package:windows
 #yarn package:mac
@@ -66,6 +67,8 @@ yarn package:all
 
 # Once the result starts/installs successfully, you can close all terminal windows.
 ```
+
+See the [docs](./docs) folder for additional documentation.
 
 ## JP support
 
