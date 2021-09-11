@@ -8,7 +8,6 @@ import { faArrowDown } from '@fortawesome/free-solid-svg-icons/faArrowDown';
 import { faCertificate } from '@fortawesome/free-solid-svg-icons/faCertificate';
 import { faCheck } from '@fortawesome/free-solid-svg-icons/faCheck';
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons/faChevronDown';
-import { faCoffee } from '@fortawesome/free-solid-svg-icons/faCoffee';
 import { faCog } from '@fortawesome/free-solid-svg-icons/faCog';
 import { faDiceD20 } from '@fortawesome/free-solid-svg-icons/faDiceD20';
 import { faEllipsisH } from '@fortawesome/free-solid-svg-icons/faEllipsisH';
@@ -41,7 +40,6 @@ library.add(
   faCertificate,
   faCheck,
   faChevronDown,
-  faCoffee,
   faCog,
   faDiceD20,
   faEllipsisH,
