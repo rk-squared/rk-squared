@@ -44,15 +44,13 @@ export class AndroidInstructions extends React.Component<Props> {
           <li>Tap &ldquo;Save.&rdquo;</li>
           <li>If FFRK is currently running, close and restart it.</li>
         </ol>
-
         <h6>Install and enable the RK&sup2; certificate</h6>
         <p>
           Current versions of FFRK for Android require that you install the RK&sup2; certificate on
-          Android.
+          Android. Note that this may require special steps (such as a rooted phone) on current
+          versions of Android.
         </p>
-
         <p>There are two ways of getting the certificate:</p>
-
         <ul>
           <li>
             Open Chrome on your phone, tablet, or emulator and navigate to{' '}
@@ -70,15 +68,30 @@ export class AndroidInstructions extends React.Component<Props> {
             and copy <code>ffrk-ca.pem</code>.
           </li>
         </ul>
-
         <p>
           Instructions for configuring your Android device or emulator to use the certificate are
           available online. See{' '}
           <BrowserLink href="https://www.reddit.com/r/FFRecordKeeper/comments/pl4p84/using_rk_squared_with_android_51_and_ffrk_800/">
             here
           </BrowserLink>{' '}
-          for one example.
+          for one example. Or, for Android 5.x and 6.x phones only:
         </p>
+
+        <ol>
+          <li>
+            On your phone, in Chrome, go to <code>cert.rk-squared.com</code>. (This{' '}
+            <code>cert</code> site isn't a “real” web site; it's handled within RK² and is only
+            accessible if you've configured your proxy.)
+          </li>
+          <li>
+            Chrome should automatically download the <code>RKSquared.cer</code> file to your phone.
+          </li>
+          <li>Go under Settings, Security, Advanced, Encryption &amp; credentials.</li>
+          <li>Tap "Install from SD card."</li>
+          <li>
+            Find the certificate you downloaded and follow the on-screen instructions to install it.
+          </li>
+        </ol>
       </CollapsibleLink>
     );
   }
