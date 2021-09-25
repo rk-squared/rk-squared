@@ -16,7 +16,7 @@ const chestContents: Record<number, string> = {
 function describeChest(chestId: number) {
   const type = Math.floor(chestId / 100000);
   const text = `Rank ${type} - ` + (chestContents[type] || 'Unknown');
-  return type === 5 ? <strong>{text}</strong> : text;
+  return type >= 3 ? <strong>{text}</strong> : text;
 }
 
 export class LabyrinthChests extends React.Component<Props> {

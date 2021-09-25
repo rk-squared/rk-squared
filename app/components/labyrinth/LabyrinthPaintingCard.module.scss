@@ -1,9 +1,23 @@
 :local {
   .component {
     width: 11em;
+    height: 11em;
+    text-align: center;
 
-    & > :global(.card-body) > p {
-      margin-bottom: 0;
+    & > :global(.card-body)
+    {
+      padding: 0.5em;
+      p { 
+        font-size: 0.8em;
+        margin-bottom: 0;
+      }
+      .card-title{
+        font-size: 0.8em;
+      }
+    }
+
+    & > :global(.card-img-top) {
+      height: 60%;
     }
   }
 

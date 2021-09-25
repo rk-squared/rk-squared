@@ -28,10 +28,10 @@ export class LabyrinthPaintingCard extends React.Component<Props> {
         <div className={`card ${styles.component}`} data-tip={tooltipId} data-for={tooltipId}>
           {icon && <img className="card-img-top" src={icon} />}
           <div className="card-body">
-            <h5 className="card-title">
-              {painting.number + '. ' + painting.name.replace(/ Painting/, '')}
-            </h5>
-            {painting.combat && <p>{`${painting.combat.name} (D${painting.combat.difficulty})`}</p>}
+            <h6 className="card-title">
+              {painting.number + '. ' + painting.name.replace(/ Painting/, '') } 
+            </h6>
+            {painting.combat && <h6 className="card-title">{`${painting.combat.name} (D${painting.combat.difficulty})`}</h6>}
           </div>
         </div>
         {painting.combat && tooltipId && <CombatTooltip id={tooltipId} combat={painting.combat} />}
