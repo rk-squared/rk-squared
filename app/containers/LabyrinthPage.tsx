@@ -20,7 +20,7 @@ function CombatTooltip({ id, combat }: { id: string; combat: LabyrinthCombat }) 
 
 export class LabyrinthPage extends React.Component<LabyrinthState> {
   render() {
-    const { combat, chests, paintings } = this.props;
+    const { combat, chests, paintings, remaining } = this.props;
     const tooltipId = combat && `labyrinth-battle`;
     return (
       <Page title="Labyrinth">
@@ -40,7 +40,7 @@ export class LabyrinthPage extends React.Component<LabyrinthState> {
           </>
         )}
 
-        <h5>Paintings</h5>
+        <h5>Paintings ({remaining}) </h5>
         {!paintings ? (
           <p>No labyrinth paintings have been loaded.</p>
         ) : (

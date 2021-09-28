@@ -4,7 +4,6 @@
  */
 
 import { Store } from 'redux';
-
 import { LangType } from '../api/apiUrls';
 import * as labyrinthSchemas from '../api/schemas/labyrinth';
 import { Handler, HandlerRequest, getRequestLang } from './common';
@@ -13,11 +12,16 @@ import { IState } from '../reducers';
 import {
   clearLabyrinthChests,
   clearLabyrinthCombat,
+  clearLabyrinthPartyFatigues,
   LabyrinthCombat,
   LabyrinthPainting,
+  LabyrinthParty,
   setLabyrinthChests,
   setLabyrinthCombat,
+  setLabyrinthDungeon,
   setLabyrinthPaintings,
+  setLabyrinthParties,
+  setLabyrinthPartyFatigues,
 } from '../actions/labyrinth';
 import { sanitizeBattleMessage, parseBattleTips } from '../data/strategy';
 
@@ -29,6 +33,7 @@ function getPaintingCombat(lang: LangType, dungeon: labyrinthSchemas.Dungeon): L
     imageUrl: relativeUrl(lang, dungeon.captures[0].image_path),
     message: sanitizeBattleMessage(tip.message),
     tips: parseBattleTips(tip.html_content),
+    dungeonId: dungeon.id
   };
 }
 
@@ -63,7 +68,38 @@ function processLabyrinthSession(
     store.dispatch(setLabyrinthCombat(combat));
   } else {
     store.dispatch(clearLabyrinthCombat());
+    store.dispatch(clearLabyrinthPartyFatigues());
   }
+}
+
+function processLabyrinthBuddyInfo(info: labyrinthSchemas.LabyrinthBuddyInfo, store: Store<IState>) {
+  const abrasions: Record<string, number> = info.memory_abrasions
+    .reduce((p, c) => ({ ...p, [c.user_buddy_id]: Number(c.memory_abrasion) }), {});
+  store.dispatch(setLabyrinthPartyFatigues(abrasions));
+}
+
+function processLabyrinthPartyList(parties: labyrinthSchemas.Party[], store: Store<IState>) {
+  const result = parties.map(p => {
+    const buddies = Object.entries(p.slot_to_buddy_id).map(b => b[1]);
+    return <LabyrinthParty>
+      {
+        no: p.party_no,
+        buddies: buddies
+      }
+  });
+  store.dispatch(setLabyrinthParties(result));
+}
+
+function processLabyrinthSelectDungeon(dungeonId: number, store: Store<IState>) {
+  store.dispatch(setLabyrinthDungeon(dungeonId));
+}
+
+function buddy_info(data: labyrinthSchemas.LabyrinthBuddyInfoData, store: Store<IState>) {
+  processLabyrinthBuddyInfo(data.labyrinth_buddy_info, store);
+}
+
+function party_list(data: labyrinthSchemas.LabyrinthPartyList, store: Store<IState>) {
+  processLabyrinthPartyList(data.parties, store);
 }
 
 const labyrinthHandler: Handler = {
@@ -83,6 +119,13 @@ const labyrinthHandler: Handler = {
     store.dispatch(clearLabyrinthChests());
     store.dispatch(clearLabyrinthCombat());
   },
+
+  'party/list': party_list,
+  'buddy/info': buddy_info,
+
+  dungeon_recommend_info(data: any, store, { query }: HandlerRequest) {
+    processLabyrinthSelectDungeon(Number(query.dungeon_id), store);
+  }
 };
 
 export default labyrinthHandler;

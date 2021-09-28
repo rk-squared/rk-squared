@@ -9,13 +9,19 @@ import {
   LabyrinthAction,
   LabyrinthPainting,
   LabyrinthCombat,
+  setLabyrinthDungeon,
+  LabyrinthParty,
+  setLabyrinthPartyFatigues,
+  setLabyrinthParties,
+  clearLabyrinthPartyFatigues,
 } from '../actions/labyrinth';
-
 export interface LabyrinthState {
   combat?: LabyrinthCombat;
   chests?: number[];
   paintings?: LabyrinthPainting[];
   remaining?: number;
+  parties?: LabyrinthParty[];
+  fatigues?: Record<string, number>;
 }
 
 export function labyrinth(state: LabyrinthState = {}, action: LabyrinthAction): LabyrinthState {
@@ -36,6 +42,21 @@ export function labyrinth(state: LabyrinthState = {}, action: LabyrinthAction): 
       case getType(setLabyrinthPaintings):
         draft.paintings = action.payload.paintings;
         draft.remaining = action.payload.remaining;
+        return;
+      case getType(setLabyrinthDungeon):
+        {
+          const painting = draft.paintings?.find(p => p.combat?.dungeonId === action.payload);
+          draft.combat = painting && painting.combat;
+        }
+        return;
+      case getType(setLabyrinthParties):
+        draft.parties = action.payload;
+        return;
+      case getType(setLabyrinthPartyFatigues):
+        draft.fatigues = action.payload;
+        return;
+      case getType(clearLabyrinthPartyFatigues):
+        delete draft.fatigues;
         return;
     }
   });
