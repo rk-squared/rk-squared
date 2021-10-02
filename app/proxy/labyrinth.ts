@@ -55,7 +55,7 @@ function processLabyrinthSession(
   store: Store<IState>,
 ) {
   const paintings = convertLabyrinthPaintings(lang, session);
-  store.dispatch(setLabyrinthPaintings(paintings, session.remaining_painting_num));
+  store.dispatch(setLabyrinthPaintings(paintings, session.remaining_painting_num, session.current_floor));
 
   if (session.treasure_chest_ids) {
     store.dispatch(setLabyrinthChests(session.treasure_chest_ids));

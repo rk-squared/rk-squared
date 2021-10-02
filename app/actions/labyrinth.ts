@@ -46,9 +46,9 @@ export const clearLabyrinthChests = createAction('CLEAR_LABYRINTH_CHESTS', () =>
 
 export const setLabyrinthPaintings = createAction(
   'SET_LABYRINTH_PAINTINGS',
-  (paintings: LabyrinthPainting[], remaining: number) => ({
+  (paintings: LabyrinthPainting[], remaining: number, floor: number) => ({
     type: 'SET_LABYRINTH_PAINTINGS',
-    payload: { paintings, remaining },
+    payload: { paintings, remaining, floor },
   }),
 );
 

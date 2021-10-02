@@ -6,12 +6,21 @@ import {
   setLabyrinthChests,
   clearLabyrinthChests,
   clearLabyrinthCombat,
-  setLabyrinthPartyFatigues
+  setLabyrinthPartyFatigues,
+  setLabyrinthPaintings,
+  LabyrinthPainting
 } from '../actions/labyrinth';
 import { logger } from '../utils/logger';
 import { IState } from '../reducers';
 import { LabyrinthState } from '../reducers/labyrinth';
 import { getStoragePath } from '../proxy/util'
+import { DisplayPaintingId } from '../api/schemas/labyrinth';
+
+const schemaLookup = {
+  chest: ["left", "center", "right"],
+  combat: ["enemy", "totalFatigue1", "totalFatigue2", "totalFatigue3"],
+  painting: ["remaining", "hasPortal", "hasMaster", "canSkipExploration", "futureTreasure", "futureExploration"]
+}
 
 function getCaptureFilename(stateType: string) {
   const capturePath: string = getStoragePath('state');
@@ -44,7 +53,7 @@ const execRemoveFile = (type: string) => removeFile(type);
 export function* saveChestState(action: ReturnType<typeof setLabyrinthChests>) {
   const chests = action.payload;
   const chestTypes = chests.map(c => Math.floor(c / 100000));
-  const text = chestTypes.join(',');
+  const text = chestTypes.join(',') + "\n" + schemaLookup.chest.join(',');
   yield call(execWriteFile, 'chest', text);
 }
 
@@ -75,8 +84,59 @@ export function* saveCombatPartyState() {
       (p, c) => p + (fatigues[c] ?? 0), 0));
   const combatName: Array<number | string> = [ladyrinth.combat.name];
   const partyState = combatName.concat(partyFatigues);
-  const text = partyState.join(',');
+  const text = partyState.join(',') + "\n" + schemaLookup.combat.join(',');
   yield call(execWriteFile, 'combat', text);
+}
+
+export function* savePaintingState(action: ReturnType<typeof setLabyrinthPaintings>) {
+  const remaining = action.payload.remaining;
+  const paintings = action.payload.paintings;
+
+  if (!paintings) {
+    logger.error(`Failed to load painting state`);
+    return;
+  }
+  const perRow = 3;
+  const explorationIds = [DisplayPaintingId.Exploration1, DisplayPaintingId.Exploration2];
+  const treasureIds = [DisplayPaintingId.Treasure1, DisplayPaintingId.Treasure2
+    , DisplayPaintingId.Treasure3, DisplayPaintingId.Treasure4];
+  let hasPortal = false;
+  let hasMaster = false;
+  let causeFloorEnd = true;
+  let futureTreasure = 0;
+  let futureExploration = 0
+  for (let i = 0; i < paintings.length; i++) {
+    const painting = paintings[i];
+    if (i < perRow) {
+      const isPortal = painting.id == DisplayPaintingId.Portal;
+      const isMaster = painting.id == DisplayPaintingId.Master;
+      hasPortal = hasPortal || isPortal;
+      hasMaster = hasMaster || isMaster;
+      causeFloorEnd = causeFloorEnd && (explorationIds.includes(painting.id) || isPortal || isMaster);
+    }
+
+    if (i >= perRow) {
+      futureTreasure = checkPaintingAccess(paintings, i, futureTreasure, treasureIds);
+      futureExploration = checkPaintingAccess(paintings, i, futureExploration, explorationIds);
+    }
+  }
+
+  const data = [remaining, hasPortal, hasMaster, !causeFloorEnd, futureTreasure, futureExploration];
+  const text = data.join(',') + "\n" + schemaLookup.painting.join(',');
+  yield call(execWriteFile, 'painting', text);
+}
+
+function checkPaintingAccess(paintings: LabyrinthPainting[], index: number, count: number, checkIds: DisplayPaintingId[]) {
+  if (checkIds.includes(paintings[index].id)) {
+    count++;
+    if (index % 2 == 0) { //when painting index at 3-4, 5-6, 7-8
+      const previous = paintings[index - 1];
+      if (checkIds.includes(previous.id)) {
+        count--;
+      }
+    }
+  }
+  return count;
 }
 
 export function* clearCombatPartyState() {
@@ -88,4 +148,5 @@ export function* watchLabyrinthState() {
   yield takeEvery(getType(clearLabyrinthChests), clearChestState);
   yield takeEvery(getType(setLabyrinthPartyFatigues), saveCombatPartyState);
   yield takeEvery(getType(clearLabyrinthCombat), clearCombatPartyState);
+  yield takeEvery(getType(setLabyrinthPaintings), savePaintingState);
 }

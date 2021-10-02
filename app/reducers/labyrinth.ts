@@ -20,6 +20,7 @@ export interface LabyrinthState {
   chests?: number[];
   paintings?: LabyrinthPainting[];
   remaining?: number;
+  floor?: number;
   parties?: LabyrinthParty[];
   fatigues?: Record<string, number>;
 }
@@ -42,6 +43,7 @@ export function labyrinth(state: LabyrinthState = {}, action: LabyrinthAction): 
       case getType(setLabyrinthPaintings):
         draft.paintings = action.payload.paintings;
         draft.remaining = action.payload.remaining;
+        draft.floor = action.payload.floor;
         return;
       case getType(setLabyrinthDungeon):
         {
