@@ -105,6 +105,8 @@ export function* savePaintingState(action: ReturnType<typeof setLabyrinthPaintin
   let causeFloorEnd = true;
   let futureTreasure = 0;
   let futureExploration = 0
+  const treasureRecord: Record<string, number> = { "2": 0, "3": 0 };
+  const exploreRecord: Record<string, number> = { "2": 0, "3": 0 };
   for (let i = 0; i < paintings.length; i++) {
     const painting = paintings[i];
     if (i < perRow) {
@@ -113,30 +115,34 @@ export function* savePaintingState(action: ReturnType<typeof setLabyrinthPaintin
       hasPortal = hasPortal || isPortal;
       hasMaster = hasMaster || isMaster;
       causeFloorEnd = causeFloorEnd && (explorationIds.includes(painting.id) || isPortal || isMaster);
-    }
+    } else {
+      const pushPainting = hasMaster || hasPortal;
+      const currentRow = String(Math.ceil((i + 1) / perRow));
 
-    if (i >= perRow) {
-      futureTreasure = checkPaintingAccess(paintings, i, futureTreasure, treasureIds);
-      futureExploration = checkPaintingAccess(paintings, i, futureExploration, explorationIds);
+      checkPaintingAccess(paintings, i, currentRow, treasureRecord, pushPainting, treasureIds);
+      checkPaintingAccess(paintings, i, currentRow, exploreRecord, pushPainting, explorationIds);
+      //logger.debug(`Current ${i} row ${currentRow} treasure ${treasureRecord[currentRow]} explore ${exploreRecord[currentRow]}`);
     }
   }
+
+  futureTreasure = Object.entries(treasureRecord).reduce((p, c) => p + (c[1] > 0 ? 1 : 0), 0);
+  futureExploration = Object.entries(exploreRecord).reduce((p, c) => p + (c[1] > 0 ? 1 : 0), 0);
 
   const data = [remaining, hasPortal, hasMaster, !causeFloorEnd, futureTreasure, futureExploration];
   const text = data.join(',') + "\n" + schemaLookup.painting.join(',');
   yield call(execWriteFile, 'painting', text);
 }
 
-function checkPaintingAccess(paintings: LabyrinthPainting[], index: number, count: number, checkIds: DisplayPaintingId[]) {
+function checkPaintingAccess(paintings: LabyrinthPainting[], index: number, row: string, record: Record<string, number>, pushPainting: boolean, checkIds: DisplayPaintingId[]) {
   if (checkIds.includes(paintings[index].id)) {
-    count++;
-    if (index % 2 == 0) { //when painting index at 3-4, 5-6, 7-8
+    record[row] = record[row] + 1;
+    if (pushPainting && index % 2 == 0) { //when painting index at 3-4, 5-6, 7-8
       const previous = paintings[index - 1];
       if (checkIds.includes(previous.id)) {
-        count--;
+        record[row] = record[row] - 1;
       }
     }
   }
-  return count;
 }
 
 export function* clearCombatPartyState() {
