@@ -176,7 +176,7 @@ function checkHandlers(
   res: http.ServerResponse,
   store: Store<IState>,
   fragments?: string[],
-  targetHandler?: HandlerFunction
+  targetHandlers?: HandlerFunction[]
 ) {
   const reqUrl = url.parse(req.url as string);
   const reqQuery = reqUrl.query ? querystring.parse(reqUrl.query) : undefined;
@@ -186,19 +186,21 @@ function checkHandlers(
   }
 
   let changed = false;
-  if (targetHandler == null) {
-    targetHandler = getHandlerFunction(fragments);
+  if (targetHandlers == null) {
+    targetHandlers = getHandlerFunctions(fragments);
   }
 
-  if (targetHandler) {
-    const newData = targetHandler(data, store, {
-      query: reqQuery,
-      body: reqBody,
-      url: reqUrl,
-    });
-    if (newData !== undefined) {
-      changed = true;
-      data = newData;
+  if (targetHandlers) {
+    for (const targetHandler of targetHandlers) {
+      const newData = targetHandler(data, store, {
+        query: reqQuery,
+        body: reqBody,
+        url: reqUrl,
+      });
+      if (newData !== undefined) {
+        changed = true;
+        data = newData;
+      }
     }
   }
   return changed ? data : undefined;
@@ -213,10 +215,10 @@ function handleFfrkApiRequest(
   try {
     const reqUrl = url.parse(req.url as string);
     const fragments = getFragmentsToCheck(reqUrl);
-    const handlerFunction = getHandlerFunction(fragments);
+    const handlerFunctions = getHandlerFunctions(fragments);
     const isSessionUrl = checkSessionUrl(req);
     const saveTraffic = store.getState().options.saveTrafficCaptures;
-    if (!(isSessionUrl || handlerFunction) && !saveTraffic) {
+    if (!(isSessionUrl || handlerFunctions) && !saveTraffic) {
       sessionHandler({}, req, res, store);
       logger.debug(`Skip ${req.url} with not session and handler`);
       return data;
@@ -238,7 +240,7 @@ function handleFfrkApiRequest(
 
     sessionHandler(decoded, req, res, store);
 
-    const newData = checkHandlers(decoded, req, res, store, fragments, handlerFunction);
+    const newData = checkHandlers(decoded, req, res, store, fragments, handlerFunctions);
     if (newData !== undefined) {
       data = encodeData(String.fromCharCode(UTF8_BOM) + JSON.stringify(newData), res);
     }
@@ -248,13 +250,18 @@ function handleFfrkApiRequest(
   return data;
 }
 
-function getHandlerFunction(fragments: string[]) {
+function getHandlerFunctions(fragments: string[]) {
+  const handlerList: HandlerFunction[] = [];
   for (const handler of handlers) {
     for (const fragment of fragments) {
       if (handler[fragment]) {
-        return handler[fragment];
+        handlerList.push(handler[fragment]);
+        break;
       }
     }
+  }
+  if (handlerList.length > 0) {
+    return handlerList;
   }
   return undefined;
 }

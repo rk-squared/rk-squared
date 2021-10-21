@@ -70,18 +70,21 @@ export function* saveCombatPartyState() {
 
   if (!ladyrinth.parties) {
     logger.error(`Failed to load parties state`);
-    return;
   }
 
   if (!ladyrinth.fatigues) {
     logger.error(`Failed to load fatigues state`);
-    return;
   }
 
-  const fatigues = ladyrinth.fatigues;
-  const partyFatigues = ladyrinth.parties.map(
-    m => m.buddies.reduce(
-      (p, c) => p + (fatigues[c] ?? 0), 0));
+  const maxFatigue = 50;
+  let partyFatigues = [maxFatigue, maxFatigue, maxFatigue];
+  if (ladyrinth.parties && ladyrinth.fatigues) {
+    const fatigues = ladyrinth.fatigues;
+    partyFatigues = ladyrinth.parties.map(
+      m => m.buddies.reduce(
+        (p, c) => p + (fatigues[String(c)] ?? 0), 0));
+  }
+
   const combatName: Array<number | string> = [ladyrinth.combat.name];
   const partyState = combatName.concat(partyFatigues);
   const text = partyState.join(',') + "\n" + schemaLookup.combat.join(',');

@@ -20,7 +20,7 @@ export interface LabyrinthPainting {
 
 export interface LabyrinthParty {
   no: number;
-  buddies: [string];
+  buddies: number[];
 }
 
 export const setLabyrinthCombat = createAction(

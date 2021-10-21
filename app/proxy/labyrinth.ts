@@ -24,6 +24,7 @@ import {
   setLabyrinthPartyFatigues,
 } from '../actions/labyrinth';
 import { sanitizeBattleMessage, parseBattleTips } from '../data/strategy';
+import { isLabyrinthPartyList } from '../api/schemas';
 
 function getPaintingCombat(lang: LangType, dungeon: labyrinthSchemas.Dungeon): LabyrinthCombat {
   const tip = dungeon.captures[0].tip_battle;
@@ -80,7 +81,7 @@ function processLabyrinthBuddyInfo(info: labyrinthSchemas.LabyrinthBuddyInfo, st
 
 function processLabyrinthPartyList(parties: labyrinthSchemas.Party[], store: Store<IState>) {
   const result = parties.map(p => {
-    const buddies = Object.entries(p.slot_to_buddy_id).map(b => b[1]);
+    const buddies: number[] = Object.entries(p.slot_to_buddy_id).map(b => b[1]);
     return <LabyrinthParty>
       {
         no: p.party_no,
@@ -98,7 +99,10 @@ function buddy_info(data: labyrinthSchemas.LabyrinthBuddyInfoData, store: Store<
   processLabyrinthBuddyInfo(data.labyrinth_buddy_info, store);
 }
 
-function party_list(data: labyrinthSchemas.LabyrinthPartyList, store: Store<IState>) {
+function party_list(data: labyrinthSchemas.LabyrinthPartyList, store: Store<IState>, request: HandlerRequest) {
+  if (!isLabyrinthPartyList(request.url)) {
+    return;
+  }
   processLabyrinthPartyList(data.parties, store);
 }
 
