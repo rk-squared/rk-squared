@@ -124,6 +124,8 @@ export const labyrinthIcons: { [id in DisplayPaintingId]: string | undefined } =
   [DisplayPaintingId.Treasure4]: require('../images/game-icons/open-treasure-chest-gold.svg'),
   [DisplayPaintingId.Treasure5]: require('../images/game-icons/open-treasure-chest-gold.svg'),
   [DisplayPaintingId.Treasure6]: require('../images/game-icons/open-treasure-chest-gold.svg'),
+  [DisplayPaintingId.Treasure7]: require('../images/game-icons/open-treasure-chest-gold.svg'),
+  [DisplayPaintingId.Treasure8]: require('../images/game-icons/open-treasure-chest-gold.svg'),
   [DisplayPaintingId.Exploration1]: require('../images/game-icons/dungeon-gate-teal.svg'),
   [DisplayPaintingId.Exploration2]: require('../images/game-icons/dungeon-gate-teal.svg'),
   [DisplayPaintingId.Exploration3]: require('../images/game-icons/dungeon-gate-teal.svg'),
