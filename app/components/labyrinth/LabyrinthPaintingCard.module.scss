@@ -4,14 +4,10 @@
     height: 11em;
     text-align: center;
 
-    & > :global(.card-body)
-    {
+    & > :global(.card-body) {
       padding: 0.5em;
-      p { 
-        font-size: 0.8em;
-        margin-bottom: 0;
-      }
-      .card-title{
+
+      & > :global(.card-subtitle) {
         font-size: 0.8em;
       }
     }

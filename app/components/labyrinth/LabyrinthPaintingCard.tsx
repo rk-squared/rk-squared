@@ -31,7 +31,7 @@ export class LabyrinthPaintingCard extends React.Component<Props> {
             <h6 className="card-title">
               {painting.number + '. ' + painting.name.replace(/ Painting/, '') } 
             </h6>
-            {painting.combat && <h6 className="card-title">{`${painting.combat.name} (D${painting.combat.difficulty})`}</h6>}
+            {painting.combat && <h6 className="card-subtitle">{`${painting.combat.name} (D${painting.combat.difficulty})`}</h6>}
           </div>
         </div>
         {painting.combat && tooltipId && <CombatTooltip id={tooltipId} combat={painting.combat} />}

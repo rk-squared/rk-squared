@@ -100,9 +100,9 @@ export function* savePaintingState(action: ReturnType<typeof setLabyrinthPaintin
     return;
   }
   const perRow = 3;
-  const explorationIds = [DisplayPaintingId.Exploration1, DisplayPaintingId.Exploration2];
+  const explorationIds = [DisplayPaintingId.Exploration1, DisplayPaintingId.Exploration2, DisplayPaintingId.Exploration3];
   const treasureIds = [DisplayPaintingId.Treasure1, DisplayPaintingId.Treasure2
-    , DisplayPaintingId.Treasure3, DisplayPaintingId.Treasure4];
+    , DisplayPaintingId.Treasure3, DisplayPaintingId.Treasure4, DisplayPaintingId.Treasure5, DisplayPaintingId.Treasure6];
   let hasPortal = false;
   let hasMaster = false;
   let causeFloorEnd = true;
