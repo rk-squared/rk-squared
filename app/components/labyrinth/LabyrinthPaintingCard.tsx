@@ -23,9 +23,10 @@ export class LabyrinthPaintingCard extends React.Component<Props> {
     const { painting } = this.props;
     const icon = labyrinthIcons[painting.id];
     const tooltipId = painting.combat && `labyrinth-card-${painting.number}`;
+    const special = painting.special ? ` ${styles.rainbowbox}` : "";
     return (
       <>
-        <div className={`card ${styles.component}`} data-tip={tooltipId} data-for={tooltipId}>
+        <div className={`card ${styles.component}${special}`} data-tip={tooltipId} data-for={tooltipId}>
           {icon && <img className="card-img-top" src={icon} />}
           <div className="card-body">
             <h6 className="card-title">

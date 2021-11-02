@@ -13,9 +13,12 @@ export interface LabyrinthCombat {
 
 export interface LabyrinthPainting {
   id: DisplayPaintingId;
+  type: number;
+  displayType?: number;
   name: string;
   number: number;
   combat?: LabyrinthCombat;
+  special: boolean;
 }
 
 export interface LabyrinthParty {

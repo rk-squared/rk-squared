@@ -17,9 +17,9 @@ import { getStoragePath } from '../proxy/util'
 import { DisplayPaintingId } from '../api/schemas/labyrinth';
 
 const schemaLookup = {
-  chest: ["left", "center", "right"],
-  combat: ["enemy", "totalFatigue1", "totalFatigue2", "totalFatigue3"],
-  painting: ["remaining", "hasPortal", "hasMaster", "canSkipExploration", "futureTreasure", "futureExploration"]
+  chest: ["left", "center", "right"].join(','),
+  combat: ["enemy", "totalFatigue1", "totalFatigue2", "totalFatigue3"].join(','),
+  painting: ["remaining", "hasPortal", "hasMaster", "canSkipExploration", "futureTreasure", "futureExploration"].join(',')
 }
 
 function getCaptureFilename(stateType: string) {
@@ -53,7 +53,7 @@ const execRemoveFile = (type: string) => removeFile(type);
 export function* saveChestState(action: ReturnType<typeof setLabyrinthChests>) {
   const chests = action.payload;
   const chestTypes = chests.map(c => Math.floor(c / 100000));
-  const text = chestTypes.join(',') + "\n" + schemaLookup.chest.join(',');
+  const text = chestTypes.join(',') + "\n" + schemaLookup.chest;
   yield call(execWriteFile, 'chest', text);
 }
 
@@ -76,8 +76,8 @@ export function* saveCombatPartyState() {
     logger.error(`Failed to load fatigues state`);
   }
 
-  const maxFatigue = 50;
-  let partyFatigues = [maxFatigue, maxFatigue, maxFatigue];
+  const initFatigue = 15;
+  let partyFatigues = [initFatigue, initFatigue, initFatigue];
   if (ladyrinth.parties && ladyrinth.fatigues) {
     const fatigues = ladyrinth.fatigues;
     partyFatigues = ladyrinth.parties.map(
@@ -87,7 +87,7 @@ export function* saveCombatPartyState() {
 
   const combatName: Array<number | string> = [ladyrinth.combat.name];
   const partyState = combatName.concat(partyFatigues);
-  const text = partyState.join(',') + "\n" + schemaLookup.combat.join(',');
+  const text = partyState.join(',') + "\n" + schemaLookup.combat;
   yield call(execWriteFile, 'combat', text);
 }
 
@@ -107,17 +107,27 @@ export function* savePaintingState(action: ReturnType<typeof setLabyrinthPaintin
   let hasMaster = false;
   let causeFloorEnd = true;
   let futureTreasure = 0;
-  let futureExploration = 0
+  let futureExploration = 0;
+  const selection = [];
   const treasureRecord: Record<string, number> = { "2": 0, "3": 0 };
   const exploreRecord: Record<string, number> = { "2": 0, "3": 0 };
   for (let i = 0; i < paintings.length; i++) {
     const painting = paintings[i];
     if (i < perRow) {
+      if (painting.special) {
+        logger.info(`Found rainbow painting at ${painting.name}${i + 1}`)
+      }
+      let paintingType = `${painting.type}_${painting.special}`;
+      if (painting.type == 1) {
+        paintingType = `${painting.type}${painting.displayType}_${painting.special}_${painting.combat?.name}`
+      }
+      selection.push(paintingType);
       const isPortal = painting.id == DisplayPaintingId.Portal;
       const isMaster = painting.id == DisplayPaintingId.Master;
       hasPortal = hasPortal || isPortal;
       hasMaster = hasMaster || isMaster;
-      causeFloorEnd = causeFloorEnd && (explorationIds.includes(painting.id) || isPortal || isMaster);
+      const isExploration = explorationIds.includes(painting.id);
+      causeFloorEnd = causeFloorEnd && (isExploration || isPortal || isMaster);
     } else {
       const pushPainting = hasMaster || hasPortal;
       const currentRow = String(Math.ceil((i + 1) / perRow));
@@ -132,7 +142,7 @@ export function* savePaintingState(action: ReturnType<typeof setLabyrinthPaintin
   futureExploration = Object.entries(exploreRecord).reduce((p, c) => p + (c[1] > 0 ? 1 : 0), 0);
 
   const data = [remaining, hasPortal, hasMaster, !causeFloorEnd, futureTreasure, futureExploration];
-  const text = data.join(',') + "\n" + schemaLookup.painting.join(',');
+  const text = data.join(',') + "\n" + selection.join(',') + "\n" + schemaLookup.painting + "\n" + schemaLookup.chest;
   yield call(execWriteFile, 'painting', text);
 }
 

@@ -44,9 +44,12 @@ function convertLabyrinthPaintings(
 ): LabyrinthPainting[] {
   return session.display_paintings.map((i) => ({
     id: i.painting_id,
+    type: i.type,
+    displayType: i.display_type,
     name: i.name,
     number: i.no,
     combat: i.dungeon && getPaintingCombat(lang, i.dungeon),
+    special: i.is_special_effect
   }));
 }
 
