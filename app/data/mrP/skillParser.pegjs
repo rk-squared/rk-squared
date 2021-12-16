@@ -45,20 +45,20 @@ Attack
 SimpleAttack
   = numAttacks:NumAttacks _ attackType:AttackType modifiers:AttackModifiers _ "attack" "s"?
     _ attackMultiplierGroup:("(" group:AttackMultiplierGroup ")" { return group; })?
-    _ additionalCritDamage:('with additional' _ value:Integer '% critical damage' { return value; })?
-    _ overstrike:(","? _ "capped at 99999")?
+    _ additionalCritDamage:('with additional' _ value:Integer '% critical damage' { return value; })?    
     _ scalingOverstrike:(","? _ value:ScalingOverstrike { return value })?
+    _ overstrikeCap:(","? _ "capped at" _ value:Integer { return value; })?    
     _ isPiercingDef:(_ "that ignores DEF")?
     _ isPiercingRes:(_ "that ignores RES")? {
     const result = Object.assign({
       type: 'attack',
       numAttacks,
     }, attackMultiplierGroup || {}, scalingOverstrike || {});
+    if (overstrikeCap) {
+      result.overstrikeCap = overstrikeCap;
+    }
     if (additionalCritDamage) {
       result.additionalCritDamage = additionalCritDamage;
-    }
-    if (overstrike) {
-      result.isOverstrike = true;
     }
 
     // Alternate isPiercingDef / isPiercingRes format that's only used for
@@ -228,7 +228,7 @@ AirTime
 // Alternate overstrike - appears within extras instead of immediately after
 // attacks.  Seen in Cloud's SASB.
 AlternateOverstrike
-  = "capped" _ "at" _ "99999" { return { isOverstrike: true }; }
+  = "capped" _ "at" _ "99999" { return { overstrikeCap: 99999 }; }
 
 AlwaysCrits
   = "always" _ "deals" _ "a" _ "critical" _ "hit" { return { alwaysCrits: true }; }

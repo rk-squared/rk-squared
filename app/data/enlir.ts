@@ -226,6 +226,8 @@ export type EnlirSoulBreakTier =
   | 'Glint+'
   | 'SASB'
   | 'ADSB'
+  | 'DASB'
+  | 'CSB+'
   | 'RW'
   | 'Shared';
 
@@ -509,6 +511,8 @@ export const soulBreakTierOrder: { [t in EnlirSoulBreakTier]: number } = {
   SASB: 10,
   ADSB: 11,
   CSB: 12,
+  'CSB+': 13,
+  DASB: 14,
   RW: 100,
   Shared: 101,
 };
@@ -1718,11 +1722,11 @@ export function isLimitBreak(skill: EnlirSkill): skill is EnlirLimitBreak {
 }
 
 export function isArcaneDyad1st(sb: EnlirSoulBreak): boolean {
-  return sb.tier === 'ADSB' && sb.points === 0;
+  return (sb.tier === 'ADSB' && sb.points === 0) || (sb.tier === 'DASB' && sb.points !== 0);
 }
 
 export function isArcaneDyad2nd(sb: EnlirSoulBreak): boolean {
-  return sb.tier === 'ADSB' && sb.points !== 0;
+  return (sb.tier === 'ADSB' && sb.points !== 0) || (sb.tier === 'DASB' && sb.points === 0);
 }
 
 /**

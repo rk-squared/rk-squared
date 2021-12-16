@@ -43,6 +43,8 @@ export function makeTierStyleMap(
     Glint: cssStyles.glint,
     'Glint+': cssStyles.glint,
     ADSB: cssStyles.arcaneDyad,
+    DASB: cssStyles.awakening,
+    'CSB+': cssStyles.chain,
 
     LBO: cssStyles.overstrikeLimitBreak,
     LBG: cssStyles.glint,
@@ -71,6 +73,8 @@ export const soulBreakAbbrevAliases = makeSoulBreakAliases(enlir.soulBreaks, {
   AASB: 'AA',
   SASB: 'SA',
   ADSB: 'AD',
+  DASB: 'DA',
+ 'CSB+': 'C+',
   RW: '-',
   Shared: '-',
 });

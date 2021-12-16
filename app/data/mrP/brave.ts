@@ -67,11 +67,11 @@ function filterBraveLevels(allParts: string[]) {
 
 function getBraveDamage(mrP: MrPSkill[]): string {
   let { parts, firstLevel, lastLevel } = filterBraveLevels(mrP.map(i => i.damage || ''));
-  const overstrike = parts.map(i => i.match('overstrike') != null);
+  const overstrike = parts.map(i => i.match('w/ 99k cap') != null);
 
   // Separate the 'm' and 'p' damage markers, and remove "overstrike," since
   // we'll handle that separately.
-  parts = parts.map(i => i.replace(/\b([mp])(\d)/g, '$1 $2').replace(' overstrike', ''));
+  parts = parts.map(i => i.replace(/\b([mp])(\d)/g, '$1 $2').replace(' w/ 99k cap', ''));
 
   // Handle damage.
   let damage = slashMerge(parts, { join: enDashJoin });
@@ -83,7 +83,7 @@ function getBraveDamage(mrP: MrPSkill[]): string {
   // Add overstrike level.
   const overstrikeLevel = overstrike.indexOf(true);
   if (damage && overstrikeLevel !== -1) {
-    damage += ', overstrike' + formatBraveMinLevel(firstLevel + overstrikeLevel);
+    damage += ', 99k cap' + formatBraveMinLevel(firstLevel + overstrikeLevel);
   }
 
   return damage;
