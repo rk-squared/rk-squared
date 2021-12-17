@@ -449,7 +449,7 @@ Chain
   }
 
 Mimic
-  = chance:(c:Integer "%" _ "chance" _ "to" _ { return c; })? "cast"i "s"? _ "the last ability used by an ally" _ occurrence:Occurrence?
+  = chance:(c:Integer "%" _ "chance" _ "to" _ { return c; })? "cast"i "s"? _ "the last ability used by any ally" _ occurrence:Occurrence?
   "," _ "default" _ "ability" _ "(PHY:" _ "single," _ defaultPower:DecimalNumber _ "physical" defaultCritChance:("," _ c:Integer _ "%" _ "critical" _ "chance" { return c; })? ")" {
     const result = {
       type: 'mimic',

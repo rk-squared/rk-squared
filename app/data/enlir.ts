@@ -964,9 +964,9 @@ function patchEnlir() {
   applyEffectsPatch(
     enlir.statusByName,
     'Mimic Hero Mode', // Match 'Mimic attacks' from, e.g., legend materia
-    'Mimicked abilities deal 50% more damage, casts the last ability used by an ally when any Damage Reduction Barrier is removed, ' +
+    'Mimicked abilities deal 50% more damage, casts the last ability used by any ally when any Damage Reduction Barrier is removed, ' +
       'grants [40% Damage Reduction Barrier 1] to user when any Damage Reduction Barrier is removed, removed after triggering three times',
-    'Mimic attacks deal 50% more damage, casts the last ability used by an ally when any Damage Reduction Barrier is removed, ' +
+    'Mimic attacks deal 50% more damage, casts the last ability used by any ally when any Damage Reduction Barrier is removed, ' +
       'grants [40% Damage Reduction Barrier 1] to user when any Damage Reduction Barrier is removed, removed after triggering three times',
   );
 
