@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import classNames from 'classnames';
 
-import { enlir, EnlirSoulBreak, isArcaneDyad1st, isArcaneDyad2nd } from '../../data/enlir';
+import { enlir, EnlirSoulBreak, isPart1SoulBreak, isPart2SoulBreak } from '../../data/enlir';
 import { convertEnlirSkillToMrP, formatMrPSkill, MrPSkill } from '../../data/mrP/skill';
 import { breakHyphensAndSlashes } from '../../utils/textUtils';
 import {
@@ -90,14 +90,15 @@ export class SoulBreakListItem extends React.PureComponent<Props> {
   render() {
     let { soulBreak, className } = this.props;
 
-    // To handle ADSBs: The second soul break is authoritative (see enlir.ts's
-    // enlir data structure for details), so if asked to render the 1st, do,
-    // nothing, and if asked to render the 2nd, show 1st and then 2nd.
+    // To handle two-part SBs (e.g. ADSB and DSAB): The second soul break is 
+    // authoritative (see enlir.ts's enlir data structure for details), so 
+    // if asked to render the 1st, do nothing, and if asked to render the 2nd,
+    // show 1st and then 2nd.
     let trueArcane2nd: EnlirSoulBreak | undefined;
-    if (isArcaneDyad1st(soulBreak)) {
+    if (isPart1SoulBreak(soulBreak)) {
       return null;
     }
-    if (isArcaneDyad2nd(soulBreak)) {
+    if (isPart2SoulBreak(soulBreak)) {
       trueArcane2nd = soulBreak;
       soulBreak = enlir.trueArcane1stSoulBreaks[soulBreak.id];
     }

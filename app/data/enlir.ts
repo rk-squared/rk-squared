@@ -733,9 +733,9 @@ export const enlir = {
   ]),
 
   allSoulBreaks: rawData.soulBreaks,
-  // True Arcane Soul Breaks result in two entries with the same ID.  The second
+  // Two part sould breaks result in two entries with the same ID.  The second
   // activation will be under soulBreaks; add the first activation here.
-  trueArcane1stSoulBreaks: _.keyBy(rawData.soulBreaks.filter(isArcaneDyad1st), 'id'),
+  trueArcane1stSoulBreaks: _.keyBy(rawData.soulBreaks.filter(isPart1SoulBreak), 'id'),
 
   status: _.keyBy(rawData.status, 'id'),
   statusByName: _.keyBy(rawData.status, 'name'),
@@ -1691,6 +1691,14 @@ export function isSynchroSoulBreak(sb: EnlirSoulBreak): boolean {
   return sb.tier === 'SASB';
 }
 
+export function isArcaneDyad(sb: EnlirSoulBreak): boolean {
+  return sb.tier === 'ADSB';
+}
+
+export function isDualAwakening(sb: EnlirSoulBreak): boolean {
+  return sb.tier === 'DASB';
+}
+
 export function isBurstCommand(skill: EnlirSkill): skill is EnlirBurstCommand {
   return (
     'character' in skill &&
@@ -1721,12 +1729,12 @@ export function isLimitBreak(skill: EnlirSkill): skill is EnlirLimitBreak {
   return 'minimumLbPoints' in skill;
 }
 
-export function isArcaneDyad1st(sb: EnlirSoulBreak): boolean {
-  return (sb.tier === 'ADSB' && sb.points === 0) || (sb.tier === 'DASB' && sb.points !== 0);
+export function isPart1SoulBreak(sb: EnlirSoulBreak): boolean {
+  return (isArcaneDyad(sb) && sb.points === 0) || (isDualAwakening(sb) && sb.points !== 0);
 }
 
-export function isArcaneDyad2nd(sb: EnlirSoulBreak): boolean {
-  return (sb.tier === 'ADSB' && sb.points !== 0) || (sb.tier === 'DASB' && sb.points === 0);
+export function isPart2SoulBreak(sb: EnlirSoulBreak): boolean {
+  return (isArcaneDyad(sb) && sb.points !== 0) || (isDualAwakening(sb) && sb.points === 0);
 }
 
 /**

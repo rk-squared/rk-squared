@@ -14,7 +14,8 @@ import {
   isBurstCommand,
   isNat,
   isSoulBreak,
-  isArcaneDyad2nd,
+  isPart2SoulBreak,
+  isArcaneDyad,
 } from '../enlir';
 import { appendCondition, describeCondition, describeMultiplierScaleType } from './condition';
 import { describeRageEffects } from './rage';
@@ -573,7 +574,8 @@ function describeAttackDamage(
         attack.scaleType.type === 'statusLevel' &&
         skill !== 'simple' &&
         isSoulBreak(skill) &&
-        isArcaneDyad2nd(skill)
+        isArcaneDyad(skill) &&
+        isPart2SoulBreak(skill)
       ) {
         scaleType = describeArcaneDyadCondition(skill);
       }
