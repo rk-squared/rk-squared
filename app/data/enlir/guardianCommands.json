@@ -2,7 +2,7 @@
   {
     "character": "Rydia",
     "source": "Guardian Titan",
-    "name": "Earthen Ward",
+    "name": "Guardian Gaia's Shelter",
     "guardianAbilitySlot": "1",
     "type": "BLK",
     "target": "All enemies",
@@ -20,12 +20,12 @@
     "school": "Black Magic",
     "nameJp": "Gだいちのまもり",
     "id": 31540972,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Rydia",
     "source": "Guardian Titan",
-    "name": "Earthen Crush",
+    "name": "Guardian Gaia's Force",
     "guardianAbilitySlot": "2",
     "type": "BLK",
     "target": "All enemies",
@@ -43,12 +43,12 @@
     "school": "Black Magic",
     "nameJp": "Gだいちのいちげき",
     "id": 31540973,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Rydia",
     "source": "Guardian Titan",
-    "name": "Gaia's Wrath",
+    "name": "Guardian Gaia's Wrath",
     "guardianAbilitySlot": "Finisher",
     "type": "BLK",
     "target": "All enemies",
@@ -66,12 +66,12 @@
     "school": "-",
     "nameJp": "Gだいちのいかり",
     "id": 20090027,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Locke",
     "source": "Guardian Phoenix",
-    "name": "Rising Flame",
+    "name": "Guardian Flames of Ascension",
     "guardianAbilitySlot": "1",
     "type": "PHY",
     "target": "All enemies",
@@ -89,12 +89,12 @@
     "school": "Combat",
     "nameJp": "Gしょうてんのほのお",
     "id": 31540982,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Locke",
     "source": "Guardian Phoenix",
-    "name": "Explosion",
+    "name": "Guardian Explosive Flame",
     "guardianAbilitySlot": "2",
     "type": "PHY",
     "target": "Single enemy",
@@ -112,12 +112,12 @@
     "school": "Combat",
     "nameJp": "Gばくえん",
     "id": 31540983,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Locke",
     "source": "Guardian Phoenix",
-    "name": "Flames of Rebirth",
+    "name": "Guardian Flames of Rebirth",
     "guardianAbilitySlot": "Finisher",
     "type": "PHY",
     "target": "All enemies",
@@ -135,12 +135,152 @@
     "school": "-",
     "nameJp": "Gてんせいのほのお",
     "id": 20240026,
+    "gl": true
+  },
+  {
+    "character": "Terra",
+    "source": "Guardian Maduin",
+    "name": "Big Bang",
+    "guardianAbilitySlot": "1",
+    "type": "BLK",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 112,
+    "element": [
+      "Fire",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "6/8 single attacks (14.00 each) after 1/2+ uses, grants [Fire Ability +50% Boost 1] to the user",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 60,
+    "school": "Black Magic",
+    "nameJp": "Gビッグバン",
+    "id": 31541688,
+    "gl": false
+  },
+  {
+    "character": "Terra",
+    "source": "Guardian Maduin",
+    "name": "Terra Volcano",
+    "guardianAbilitySlot": "2",
+    "type": "BLK",
+    "target": "All enemies",
+    "formula": "Magical",
+    "multiplier": 45,
+    "element": [
+      "Fire",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "One group attack (45.00) capped at 99999, grants [Buff Fire 10% (15s)] to the user",
+    "counter": true,
+    "autoTarget": "All enemies",
+    "sb": 60,
+    "school": "Black Magic",
+    "nameJp": "Gテラボルケーノ",
+    "id": 31541689,
+    "gl": false
+  },
+  {
+    "character": "Terra",
+    "source": "Guardian Maduin",
+    "name": "Chaos Wave",
+    "guardianAbilitySlot": "Finisher",
+    "type": "BLK",
+    "target": "All enemies",
+    "formula": "Magical",
+    "multiplier": 251,
+    "element": [
+      "Fire",
+      "Wind",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Ten group attacks (19.00 each), followed by one group attack (61.00) capped at 99999, removes [Guardian Summon Mode] from the user",
+    "counter": false,
+    "autoTarget": "All enemies",
+    "sb": 0,
+    "school": "-",
+    "nameJp": "Gケイオスウェイブ",
+    "id": 20100038,
+    "gl": false
+  },
+  {
+    "character": "Cloud",
+    "source": "Guardian Choco/Mog",
+    "name": "Chocobo Kick",
+    "guardianAbilitySlot": "1",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 35.1,
+    "element": [
+      "Wind",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Six single attacks (5.85 each), grants [Damage Cap +10000 1] to the user",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 60,
+    "school": "Combat",
+    "nameJp": "Gチョコボキック",
+    "id": 31541599,
+    "gl": false
+  },
+  {
+    "character": "Cloud",
+    "source": "Guardian Choco/Mog",
+    "name": "Choco Meteor",
+    "guardianAbilitySlot": "2",
+    "type": "PHY",
+    "target": "All enemies",
+    "formula": "Physical",
+    "multiplier": 19,
+    "element": [
+      "Wind",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "One group attack (19.00) capped at 99999, grants [Buff Wind 30% (15s)] to the user",
+    "counter": true,
+    "autoTarget": "All enemies",
+    "sb": 60,
+    "school": "Combat",
+    "nameJp": "Gチョコメテオ",
+    "id": 31541600,
+    "gl": false
+  },
+  {
+    "character": "Cloud",
+    "source": "Guardian Choco/Mog",
+    "name": "Deathblow!!",
+    "guardianAbilitySlot": "Finisher",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 100.4,
+    "element": [
+      "Wind",
+      "Dark",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Ten single attacks (7.60 each), followed by one single attack (24.40) capped at 99999, grants [Wind +30% Boost 2] and [Quick Cast 2] to Cloud",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "-",
+    "nameJp": "G必殺技!!",
+    "id": 20110037,
     "gl": false
   },
   {
     "character": "Quistis",
     "source": "Guardian Doomtrain",
-    "name": "Poisonous Breath",
+    "name": "Guardian Venomous Breath",
     "guardianAbilitySlot": "1",
     "type": "BLK",
     "target": "Single enemy",
@@ -158,12 +298,12 @@
     "school": "Black Magic",
     "nameJp": "G猛毒の息",
     "id": 31541094,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Quistis",
     "source": "Guardian Doomtrain",
-    "name": "Poisonous Steam",
+    "name": "Guardian Venomous Vapor",
     "guardianAbilitySlot": "2",
     "type": "BLK",
     "target": "Single enemy",
@@ -181,12 +321,12 @@
     "school": "Black Magic",
     "nameJp": "G猛毒の蒸気",
     "id": 31541095,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Quistis",
     "source": "Guardian Doomtrain",
-    "name": "Endless Runaway",
+    "name": "Guardian Runaway Train",
     "guardianAbilitySlot": "Finisher",
     "type": "BLK",
     "target": "All enemies",
@@ -204,12 +344,12 @@
     "school": "-",
     "nameJp": "G果てしなき暴走",
     "id": 20500018,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Eiko",
     "source": "Guardian Madeen",
-    "name": "Terra Tornado",
+    "name": "Guardian Terra Tornado",
     "guardianAbilitySlot": "1",
     "type": "BLK",
     "target": "Single enemy",
@@ -228,12 +368,12 @@
     "school": "Black Magic",
     "nameJp": "Gテラトルネード",
     "id": 31540759,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Eiko",
     "source": "Guardian Madeen",
-    "name": "Terra Sonic",
+    "name": "Guardian Terra Sonic",
     "guardianAbilitySlot": "2",
     "type": "BLK",
     "target": "All enemies",
@@ -252,12 +392,12 @@
     "school": "Black Magic",
     "nameJp": "Gテラソニック",
     "id": 31540760,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Eiko",
     "source": "Guardian Madeen",
-    "name": "Terra Homing",
+    "name": "Guardian Terra Homing",
     "guardianAbilitySlot": "Finisher",
     "type": "BLK",
     "target": "All enemies",
@@ -276,12 +416,12 @@
     "school": "-",
     "nameJp": "Gテラホーミング",
     "id": 20620023,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Yuna",
     "source": "Guardian Valefor",
-    "name": "Sonic Wings",
+    "name": "Guardian Sonic Wings",
     "guardianAbilitySlot": "1",
     "type": "BLK",
     "target": "Single enemy",
@@ -300,12 +440,12 @@
     "school": "Black Magic",
     "nameJp": "Gソニックウィング",
     "id": 31540761,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Yuna",
     "source": "Guardian Valefor",
-    "name": "Energy Ray",
+    "name": "Guardian Energy Ray",
     "guardianAbilitySlot": "2",
     "type": "BLK",
     "target": "All enemies",
@@ -324,12 +464,12 @@
     "school": "Black Magic",
     "nameJp": "Gシューティング・レイ",
     "id": 31540762,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Yuna",
     "source": "Guardian Valefor",
-    "name": "Energy Blast",
+    "name": "Guardian Energy Blast",
     "guardianAbilitySlot": "Finisher",
     "type": "BLK",
     "target": "All enemies",
@@ -348,12 +488,12 @@
     "school": "-",
     "nameJp": "Gシューティングパワー",
     "id": 20520026,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Lilisette",
     "source": "Guardian Lady Lilith",
-    "name": "Durance Whip",
+    "name": "Guardian Durance Whip",
     "guardianAbilitySlot": "1",
     "type": "PHY",
     "target": "Single enemy",
@@ -372,12 +512,12 @@
     "school": "Combat",
     "nameJp": "Gデュランスウィップ",
     "id": 31541197,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Lilisette",
     "source": "Guardian Lady Lilith",
-    "name": "Moonlight Veil",
+    "name": "Guardian Moonlight Veil",
     "guardianAbilitySlot": "2",
     "type": "PHY",
     "target": "Single enemy",
@@ -396,15 +536,15 @@
     "school": "Combat",
     "nameJp": "Gムーンライトヴェール",
     "id": 31541198,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Lilisette",
     "source": "Guardian Lady Lilith",
-    "name": "Petaline Tempest",
+    "name": "Guardian Petaline Tempest",
     "guardianAbilitySlot": "Finisher",
     "type": "PHY",
-    "target": "Single enemy",
+    "target": "All enemies",
     "formula": "Physical",
     "multiplier": 100.4,
     "element": [
@@ -413,13 +553,157 @@
       "NE"
     ],
     "time": 0.01,
-    "effects": "Ten group attacks (7.60 each), followed by one single group attack (24.40) capped at 99999, removes [Guardian Summon Mode] from the user",
+    "effects": "Ten group attacks (7.60 each), followed by one group attack (24.40) capped at 99999, removes [Guardian Summon Mode] from the user",
     "counter": false,
     "autoTarget": "All enemies",
     "sb": 0,
     "school": "-",
     "nameJp": "Gペタラインテンペスト",
     "id": 23350007,
+    "gl": true
+  },
+  {
+    "character": "Lightning",
+    "source": "Guardian Odin",
+    "name": "Ripping Crush",
+    "guardianAbilitySlot": "1",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 35.1,
+    "element": [
+      "Lightning",
+      "Holy",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Six single attacks (5.85 each), grants Gestalt Drive +1 to the user",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 60,
+    "school": "Combat",
+    "nameJp": "G天雷絶影",
+    "id": 31541579,
+    "gl": false
+  },
+  {
+    "character": "Lightning",
+    "source": "Guardian Odin",
+    "name": "Seismic Slayer",
+    "guardianAbilitySlot": "2",
+    "type": "PHY",
+    "target": "All enemies",
+    "formula": "Physical",
+    "multiplier": 19,
+    "element": [
+      "Lightning",
+      "Holy",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "One single attack (19.00) capped at 99999, grants [Lightning/Holy Ability +50% Boost 2] and [Damage Cap +10000 2] to the user",
+    "counter": true,
+    "autoTarget": "All enemies",
+    "sb": 60,
+    "school": "Combat",
+    "nameJp": "G咆雷烈破",
+    "id": 31541580,
+    "gl": false
+  },
+  {
+    "character": "Lightning",
+    "source": "Guardian Odin",
+    "name": "Thunderfall",
+    "guardianAbilitySlot": "Finisher",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 105.42,
+    "element": [
+      "Lightning",
+      "Holy",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Ten single attacks (7.98 each) followed by one single attack (23.18/24.40/25.62) capped at 99999 if the user has Gestalt Drive level 0/1/2",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "-",
+    "nameJp": "G天鳴万雷",
+    "id": 20600035,
+    "gl": false
+  },
+  {
+    "character": "Ardyn",
+    "source": "Guardian Ifrit",
+    "name": "Pulsefire",
+    "guardianAbilitySlot": "1",
+    "type": "PHY",
+    "target": "All enemies",
+    "formula": "Physical",
+    "multiplier": 35.1,
+    "element": [
+      "Fire",
+      "Dark",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Six group attacks (5.85 each), grants [Dark/Fire Ability +30% Boost 1] to the user",
+    "counter": true,
+    "autoTarget": "All enemies",
+    "sb": 60,
+    "school": "Combat",
+    "nameJp": "G業炎",
+    "id": 31541470,
+    "gl": false
+  },
+  {
+    "character": "Ardyn",
+    "source": "Guardian Ifrit",
+    "name": "Incinerate",
+    "guardianAbilitySlot": "2",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 17.55,
+    "element": [
+      "Fire",
+      "Dark",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Three single attacks (5.85 each), causes [Imperil Dark 10% (15s)] and [Imperil Fire 10% (15s)]",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 60,
+    "school": "Combat",
+    "nameJp": "G炎塵",
+    "id": 31541471,
+    "gl": false
+  },
+  {
+    "character": "Ardyn",
+    "source": "Guardian Ifrit",
+    "name": "Hellfire",
+    "guardianAbilitySlot": "Finisher",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 251,
+    "element": [
+      "Fire",
+      "Dark",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Ten single attacks (19.00 each), followed by one single attack (61.00) capped at 99999, grants [Quick Cast 3] and [Fire/Dark +30% Boost 3] to Ardyn",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "-",
+    "nameJp": "G地獄の火炎",
+    "id": 23520008,
     "gl": false
   }
 ]

@@ -1711,8 +1711,8 @@
   },
   {
     "character": "Dorgann",
-    "source": "Swords of the Ages",
-    "name": "Sword of Dawn",
+    "source": "Blade Lore",
+    "name": "Soaring Blade",
     "brave": 0,
     "type": "PHY",
     "target": "Single enemy",
@@ -1733,12 +1733,12 @@
     ],
     "nameJp": "我流剣技・聳然",
     "id": 31541069,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Dorgann",
-    "source": "Swords of the Ages",
-    "name": "Sword of Dawn",
+    "source": "Blade Lore",
+    "name": "Soaring Blade",
     "brave": 1,
     "type": "PHY",
     "target": "Single enemy",
@@ -1759,12 +1759,12 @@
     ],
     "nameJp": "我流剣技・聳然",
     "id": 31541070,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Dorgann",
-    "source": "Swords of the Ages",
-    "name": "Sword of Dawn",
+    "source": "Blade Lore",
+    "name": "Soaring Blade",
     "brave": 2,
     "type": "PHY",
     "target": "Single enemy",
@@ -1785,12 +1785,12 @@
     ],
     "nameJp": "我流剣技・聳然",
     "id": 31541071,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Dorgann",
-    "source": "Swords of the Ages",
-    "name": "Sword of Dawn",
+    "source": "Blade Lore",
+    "name": "Soaring Blade",
     "brave": 3,
     "type": "PHY",
     "target": "Single enemy",
@@ -1811,7 +1811,7 @@
     ],
     "nameJp": "我流剣技・聳然",
     "id": 31541072,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Terra",
@@ -2017,7 +2017,7 @@
     "character": "Gogo (VI)",
     "source": "Righteous Mimicry",
     "name": "Mimic (VI)",
-    "nameNote": "Alias name: Mimic Preparation!",
+    "nameNote": "Alias name: Mimic Prep!",
     "brave": 0,
     "type": "NAT",
     "typeDetails": [
@@ -2050,7 +2050,7 @@
     "character": "Gogo (VI)",
     "source": "Righteous Mimicry",
     "name": "Mimic (VI)",
-    "nameNote": "Alias name: Mimic Execution!",
+    "nameNote": "Alias name: Mimic Go!",
     "brave": 1,
     "type": "NAT",
     "target": null,
@@ -2058,7 +2058,7 @@
     "multiplier": null,
     "element": null,
     "time": 0.83,
-    "effects": "Casts the last ability used by an ally, default ability (PHY: single, 1.50 physical)",
+    "effects": "Casts the last ability used by any ally, default ability (PHY: single, 1.50 physical)",
     "counter": false,
     "autoTarget": "-",
     "sb": 100,
@@ -2075,7 +2075,7 @@
     "character": "Gogo (VI)",
     "source": "Righteous Mimicry",
     "name": "Mimic (VI)",
-    "nameNote": "Alias name: Mimic Execution!",
+    "nameNote": "Alias name: Mimic Go!",
     "brave": 2,
     "type": "NAT",
     "target": null,
@@ -2083,7 +2083,7 @@
     "multiplier": null,
     "element": null,
     "time": 0.83,
-    "effects": "Casts the last ability used by an ally twice, default ability (PHY: single, 1.50 physical)",
+    "effects": "Casts the last ability used by any ally twice, default ability (PHY: single, 1.50 physical)",
     "counter": false,
     "autoTarget": "-",
     "sb": 100,
@@ -2100,7 +2100,7 @@
     "character": "Gogo (VI)",
     "source": "Righteous Mimicry",
     "name": "Mimic (VI)",
-    "nameNote": "Alias name: Mimic Execution!",
+    "nameNote": "Alias name: Mimic Go!",
     "brave": 3,
     "type": "NAT",
     "target": null,
@@ -2108,7 +2108,7 @@
     "multiplier": null,
     "element": null,
     "time": 0.83,
-    "effects": "Casts the last ability used by an ally three times, default ability (PHY: single, 1.50 physical)",
+    "effects": "Casts the last ability used by any ally three times, default ability (PHY: single, 1.50 physical)",
     "counter": false,
     "autoTarget": "-",
     "sb": 100,
@@ -2157,7 +2157,7 @@
     "multiplier": null,
     "element": null,
     "time": 0.83,
-    "effects": "Casts the last ability used by an ally, default ability (PHY: single, 1.50 physical, 100% critical chance)",
+    "effects": "Casts the last ability used by any ally, default ability (PHY: single, 1.50 physical, 100% critical chance)",
     "counter": false,
     "autoTarget": "-",
     "sb": 100,
@@ -2180,7 +2180,7 @@
     "multiplier": null,
     "element": null,
     "time": 0.83,
-    "effects": "Casts the last ability used by an ally twice, default ability (PHY: single, 1.50 physical, 100% critical chance)",
+    "effects": "Casts the last ability used by any ally twice, default ability (PHY: single, 1.50 physical, 100% critical chance)",
     "counter": false,
     "autoTarget": "-",
     "sb": 100,
@@ -2203,7 +2203,7 @@
     "multiplier": null,
     "element": null,
     "time": 0.83,
-    "effects": "Casts the last ability used by an ally three times, default ability (PHY: single, 1.50 physical, 100% critical chance)",
+    "effects": "Casts the last ability used by any ally three times, default ability (PHY: single, 1.50 physical, 100% critical chance)",
     "counter": false,
     "autoTarget": "-",
     "sb": 100,
@@ -2218,7 +2218,7 @@
   {
     "character": "Strago",
     "source": "Magic Tempest",
-    "name": "Secret of Thamasa",
+    "name": "Mystery of Thamasa",
     "brave": 0,
     "type": "BLK",
     "target": "Single enemy",
@@ -2239,12 +2239,12 @@
     ],
     "nameJp": "サマサの秘伝",
     "id": 31540790,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Strago",
     "source": "Magic Tempest",
-    "name": "Secret of Thamasa",
+    "name": "Mystery of Thamasa",
     "brave": 1,
     "type": "BLK",
     "target": "Single enemy",
@@ -2265,12 +2265,12 @@
     ],
     "nameJp": "サマサの秘伝",
     "id": 31540791,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Strago",
     "source": "Magic Tempest",
-    "name": "Secret of Thamasa",
+    "name": "Mystery of Thamasa",
     "brave": 2,
     "type": "BLK",
     "target": "Single enemy",
@@ -2291,12 +2291,12 @@
     ],
     "nameJp": "サマサの秘伝",
     "id": 31540792,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Strago",
     "source": "Magic Tempest",
-    "name": "Secret of Thamasa",
+    "name": "Mystery of Thamasa",
     "brave": 3,
     "type": "BLK",
     "target": "Single enemy",
@@ -2317,7 +2317,7 @@
     ],
     "nameJp": "サマサの秘伝",
     "id": 31540793,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Vincent",
@@ -4847,8 +4847,8 @@
   },
   {
     "character": "Cid (XIV)",
-    "source": "Flamethrower",
-    "name": "Heat Blast",
+    "source": "Flamethrower (XIV)",
+    "name": "Heat Blast (XIV)",
     "brave": 0,
     "type": "PHY",
     "target": "Single enemy",
@@ -4873,12 +4873,12 @@
     ],
     "nameJp": "ヒートブラスト",
     "id": 31540956,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Cid (XIV)",
-    "source": "Flamethrower",
-    "name": "Heat Blast",
+    "source": "Flamethrower (XIV)",
+    "name": "Heat Blast (XIV)",
     "brave": 1,
     "type": "PHY",
     "target": "Single enemy",
@@ -4903,12 +4903,12 @@
     ],
     "nameJp": "ヒートブラスト",
     "id": 31540957,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Cid (XIV)",
-    "source": "Flamethrower",
-    "name": "Heat Blast",
+    "source": "Flamethrower (XIV)",
+    "name": "Heat Blast (XIV)",
     "brave": 2,
     "type": "PHY",
     "target": "Single enemy",
@@ -4933,12 +4933,12 @@
     ],
     "nameJp": "ヒートブラスト",
     "id": 31540958,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Cid (XIV)",
-    "source": "Flamethrower",
-    "name": "Heat Blast",
+    "source": "Flamethrower (XIV)",
+    "name": "Heat Blast (XIV)",
     "brave": 3,
     "type": "PHY",
     "target": "Single enemy",
@@ -4963,7 +4963,7 @@
     ],
     "nameJp": "ヒートブラスト",
     "id": 31540959,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Gaffgarion",
