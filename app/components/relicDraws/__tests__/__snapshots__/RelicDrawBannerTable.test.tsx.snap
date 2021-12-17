@@ -241,7 +241,7 @@ exports[`RelicDrawBannerTable renders featured relics with equal probabilities 1
           <img
             className="anima"
             src="test-file-stub"
-            title="Anima wave 5 (estimated October 2021)"
+            title="Anima wave 5 (currently available)"
           />
         </td>
         <td>
@@ -269,7 +269,7 @@ exports[`RelicDrawBannerTable renders featured relics with equal probabilities 1
           Crystalline Focus
         </td>
         <td>
-          phys 24.0/3 wind+water+fire+earth overstrike
+          phys 24.0/3 wind+water+fire+earth w/ 99k cap
         </td>
       </tr>
       <tr
@@ -281,7 +281,7 @@ exports[`RelicDrawBannerTable renders featured relics with equal probabilities 1
           <img
             className="anima"
             src="test-file-stub"
-            title="Anima wave 5 (estimated October 2021)"
+            title="Anima wave 5 (currently available)"
           />
         </td>
         <td>
@@ -309,7 +309,7 @@ exports[`RelicDrawBannerTable renders featured relics with equal probabilities 1
           Raging Hellfire
         </td>
         <td>
-          magic 36.4/20, then 26.5 overstrike, fire (SUM)
+          magic 36.4/20, then 26.5 w/ 99k cap, fire (SUM)
         </td>
       </tr>
       <tr
@@ -885,7 +885,7 @@ exports[`RelicDrawBannerTable renders featured relics with varying probabilities
           <img
             className="anima"
             src="test-file-stub"
-            title="Anima wave 5 (estimated October 2021)"
+            title="Anima wave 5 (currently available)"
           />
         </td>
         <td>
@@ -913,7 +913,7 @@ exports[`RelicDrawBannerTable renders featured relics with varying probabilities
           Crystalline Focus
         </td>
         <td>
-          phys 24.0/3 wind+water+fire+earth overstrike
+          phys 24.0/3 wind+water+fire+earth w/ 99k cap
         </td>
         <td>
           4
@@ -929,7 +929,7 @@ exports[`RelicDrawBannerTable renders featured relics with varying probabilities
           <img
             className="anima"
             src="test-file-stub"
-            title="Anima wave 5 (estimated October 2021)"
+            title="Anima wave 5 (currently available)"
           />
         </td>
         <td>
@@ -957,7 +957,7 @@ exports[`RelicDrawBannerTable renders featured relics with varying probabilities
           Raging Hellfire
         </td>
         <td>
-          magic 36.4/20, then 26.5 overstrike, fire (SUM)
+          magic 36.4/20, then 26.5 w/ 99k cap, fire (SUM)
         </td>
         <td>
           5
@@ -1536,7 +1536,7 @@ exports[`RelicDrawBannerTable renders featured relics without probabilities 1`] 
           <img
             className="anima"
             src="test-file-stub"
-            title="Anima wave 5 (estimated October 2021)"
+            title="Anima wave 5 (currently available)"
           />
         </td>
         <td>
@@ -1564,7 +1564,7 @@ exports[`RelicDrawBannerTable renders featured relics without probabilities 1`] 
           Crystalline Focus
         </td>
         <td>
-          phys 24.0/3 wind+water+fire+earth overstrike
+          phys 24.0/3 wind+water+fire+earth w/ 99k cap
         </td>
       </tr>
       <tr
@@ -1576,7 +1576,7 @@ exports[`RelicDrawBannerTable renders featured relics without probabilities 1`] 
           <img
             className="anima"
             src="test-file-stub"
-            title="Anima wave 5 (estimated October 2021)"
+            title="Anima wave 5 (currently available)"
           />
         </td>
         <td>
@@ -1604,7 +1604,7 @@ exports[`RelicDrawBannerTable renders featured relics without probabilities 1`] 
           Raging Hellfire
         </td>
         <td>
-          magic 36.4/20, then 26.5 overstrike, fire (SUM)
+          magic 36.4/20, then 26.5 w/ 99k cap, fire (SUM)
         </td>
       </tr>
       <tr
