@@ -711,6 +711,7 @@ Condition
   / "if" _ count:Integer _ "or more female allies are alive" { return { type: 'femalesAlive', count, plus: true }; }
   / "if" _ "there" _ "are" _ count:IntegerSlashList "+"? _ realm:Realm _ "characters" _ "in" _ "the" _ "party" { return { type: 'realmCharactersInParty', realm, count }; }
   / "if" _ count:IntegerRangeSlashList plus:"+"? _ realm:Realm _ ("characters are alive" / "character is alive" / "allies are alive" / "members are alive") { return { type: 'realmCharactersAlive', realm, count, plus: !!plus }; }
+  / "if" _ count:IntegerRangeSlashList plus:"+"? _ "allies have any [Attach " _ element:Element _ "]" { return {type: 'attachElementInParty', element, count, plus: !!plus}; }
   / "if" _ count:Integer _ "or more females are in the party" { return { type: 'femalesInParty', count }; }
   / "if" _ count:IntegerSlashList "+"? _ ("party members" / "allies") _ "are alive" { return { type: 'charactersAlive', count }; }
 
