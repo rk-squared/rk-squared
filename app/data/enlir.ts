@@ -963,7 +963,7 @@ function patchEnlir() {
   );
   applyEffectsPatch(
     enlir.statusByName,
-    'Mimic Hero Mode', // Match 'Mimic attacks' from, e.g., legend materia
+    'Mimicked Salvation Mode', // Match 'Mimic attacks' from, e.g., legend materia
     'Mimicked abilities deal 50% more damage, casts the last ability used by any ally when any Damage Reduction Barrier is removed, ' +
       'grants [40% Damage Reduction Barrier 1] to user when any Damage Reduction Barrier is removed, removed after triggering three times',
     'Mimic attacks deal 50% more damage, casts the last ability used by any ally when any Damage Reduction Barrier is removed, ' +
@@ -991,16 +991,6 @@ function patchEnlir() {
     '201020901',
     'Causes [Doom: 15], restores HP to all allies for 55% max HP and grants [Last Stand] to all allies when HP fall below 20%',
     'Causes [Doom: 15] to the user and restores HP to all allies for 55% of their max HP and grants [Last Stand] to all allies when HP fall below 20%',
-  );
-  // More consistent syntax for hybrid and ether.  I have not confirmed that
-  // this actually is smart ether.
-  applyEffectPatch(
-    enlir.legendMateria,
-    '201030205',
-    '35% chance to cast an ability (SUM/WHT: single, 3x 2.81/2.98 magical Water/Holy/NE, summoning ether 1 to the user) ' +
-      'after dealing damage with a Water or Holy ability',
-    '35% chance to cast an ability (SUM/WHT: single, hybrid 3x 2.81 or 2.98 magical Water/Holy/NE, Summoning smart ether 1 to the user) ' +
-      'after dealing damage with a Water or Holy ability',
   );
   // "Triplecast" is clearer than "dualcast twice," especially now that we have
   // triple/quad/etc. in statuses.
