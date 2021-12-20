@@ -439,7 +439,7 @@ RandomCastOther
 // Specialty: chains, mimics
 
 Chain
-  = "activates"i _ chainType:[a-zA-Z0-9-]+ _ "Chain" _ "(max" _ max:Integer "," _ "field" _ fieldBonus:SignedInteger "%)" {
+  = "activates"i _ chainType:[a-zA-Z0-9-/]+ _ "Chain" _ "(max" _ max:Integer "," _ "field" _ fieldBonus:SignedInteger "%)" {
     return {
       type: 'chain',
       chainType: chainType.join(''),

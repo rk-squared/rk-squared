@@ -1587,6 +1587,11 @@ describe('skill', () => {
         chain: 'Type-0 chain 1.5x (max 150)',
         other: 'party Haste, +30% ATK/MAG 25s',
       });
+      // Dr. Mog has a non-standard realm in the chain description.
+      expect(describeSoulBreak('Dr. Mog - Our Historia')).toEqual({
+        chain: 'Core/Beyond chain 1.5x (max 150)',
+        other: 'party Haste, +30% ATK/MAG 25s',
+      });
     });
 
     it('converts status ailments', () => {
