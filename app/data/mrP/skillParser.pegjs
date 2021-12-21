@@ -404,7 +404,7 @@ DispelOrEsuna
   }
 
 RandomEther
-  = "restores"i _ amount:Integer _ "consumed" _ "ability" _ "use" _ who:Who? _ perUses:PerUses? {
+  = "restores"i _ amount:(Integer/NumberString) _ "consumed" _ "ability" _ "use" _ who:Who? _ perUses:PerUses? {
     return { type: 'randomEther', amount, who, perUses };
   }
 
