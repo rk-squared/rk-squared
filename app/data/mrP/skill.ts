@@ -669,6 +669,11 @@ export function processSkillStatus(
       return;
     }
 
+    // Similar to ADSB, the second DASB trigger removes the first, so ignore it.
+    if (status.type === 'standardStatus' && removes && status.name.startsWith("Dual Awoken")) {
+      return;
+    }
+    
     if (status.type !== 'standardStatus') {
       // Status levels are always self.
       other.push(
