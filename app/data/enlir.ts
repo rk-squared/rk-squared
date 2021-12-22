@@ -1735,6 +1735,45 @@ export function isEnlirStatus(status: EnlirStatus | EnlirLegendMateria): status 
   return 'effects' in status;
 }
 
+function extractStatusesFromEffects(effects:string) : string[] {
+  const results:string[] = [];
+  const re = /{([^}]+)}/g;
+  let text:RegExpExecArray | null;
+
+  while((text = re.exec(effects)) !== null) {
+    results.push(text[1]);
+  }
+  return results;
+}
+
+function describeStatuses(effects:string, expandStatuses:boolean) : string {
+  const statuses:string[] = extractStatusesFromEffects(effects);
+  statuses.forEach((status: string) => {
+    const maybeStatus:(EnlirStatus | null) = enlir.statusByName[status];
+    // If the status can't be looked up, just leave it (usually it's self descriptive).
+    if (maybeStatus) {
+      const statusEffects:string = getEffects(maybeStatus);
+      effects.replace('['+status+']', '['+status+': ' + (expandStatuses ? describeStatuses(statusEffects, false) : statusEffects) + ']');
+    }
+  })
+  return effects
+}
+
+export function stringifyStatus(status: EnlirStatus) {
+  const effects:string = describeStatuses(getEffects(status), true);
+  return '[' + status.name + ': ' + effects + ']';
+}
+
+export function stringifySkill(skill: EnlirSkill) {
+  const effects:string = describeStatuses(getEffects(skill), true);  
+  const modifiers:string = (skill.formula ? 'Type: ' + skill.formula + ', ': '') +
+    ('school' in skill ? 'School: ' + skill.school + ', ' : '') +
+    (skill.element ? 'Element: (' + skill.element + '), ': '') + 
+    (skill.time ? 'Cast time: ' + skill.time + 's, ': '');       
+  return '[' + skill.name + ': ' + modifiers + ' ' + effects + ']';
+}
+
+
 function makeSkillAliases<
   TierT extends string,
   SkillT extends { id: number; character: string | null; tier: TierT }

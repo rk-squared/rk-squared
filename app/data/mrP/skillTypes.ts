@@ -44,7 +44,8 @@ export type EffectClause =
   | ResistViaKO
   | Reset
   | CastTime
-  | CastTimePerUse;
+  | CastTimePerUse
+  | Fallback;
 
 // --------------------------------------------------------------------------
 // Attacks
@@ -334,6 +335,10 @@ export interface CastTime {
 export interface CastTimePerUse {
   type: 'castTimePerUse';
   castTimePerUse: number;
+}
+
+export interface Fallback {
+  type: 'fallback';  
 }
 
 // Special case: These exist during parsing but is merged by

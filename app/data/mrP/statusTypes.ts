@@ -104,7 +104,8 @@ export type EffectClause =
   | DisableAttacks
   | Paralyze
   | Stun
-  | GilUp;
+  | GilUp
+  | Fallback;
 
 // --------------------------------------------------------------------------
 // Stat mods
@@ -870,6 +871,12 @@ interface GilUp {
   chance: number;
   value: number;
   condition?: common.Condition;
+}
+
+// Raw DB effects, used if parsing fails.
+export interface Fallback {
+  type: 'fallback';
+  value: string;
 }
 
 // --------------------------------------------------------------------------

@@ -26,6 +26,7 @@ import {
   isPart2SoulBreak,
   isLimitBreak,
   isArcaneDyad,
+  stringifySkill,
 } from '../enlir';
 import {
   describeAttack,
@@ -114,7 +115,7 @@ export function safeParseSkill(skill: EnlirSkill): skillTypes.SkillEffect | null
     logger.error(`Failed to parse ${skill.name}:`);
     logException(e);
     if (e.name === 'SyntaxError') {
-      return null;
+      return [{type: 'fallback'}];
     }
     throw e;
   }
@@ -1263,6 +1264,9 @@ export function convertEnlirSkillToMrP(
       case 'randomSkillEffect':
         processRandomSkill(skill, effect, other);
         break;
+      case 'fallback':
+        other.misc.push(stringifySkill(skill));
+        break;      
       default:
         return assertNever(effect);
     }
