@@ -226,6 +226,8 @@ export type EnlirSoulBreakTier =
   | 'Glint+'
   | 'SASB'
   | 'ADSB'
+  | 'DASB'
+  | 'CSB+'
   | 'RW'
   | 'Shared';
 
@@ -509,6 +511,8 @@ export const soulBreakTierOrder: { [t in EnlirSoulBreakTier]: number } = {
   SASB: 10,
   ADSB: 11,
   CSB: 12,
+  'CSB+': 13,
+  DASB: 14,
   RW: 100,
   Shared: 101,
 };
@@ -729,9 +733,9 @@ export const enlir = {
   ]),
 
   allSoulBreaks: rawData.soulBreaks,
-  // True Arcane Soul Breaks result in two entries with the same ID.  The second
+  // Two part sould breaks result in two entries with the same ID.  The second
   // activation will be under soulBreaks; add the first activation here.
-  trueArcane1stSoulBreaks: _.keyBy(rawData.soulBreaks.filter(isArcaneDyad1st), 'id'),
+  trueArcane1stSoulBreaks: _.keyBy(rawData.soulBreaks.filter(isPart1SoulBreak), 'id'),
 
   status: _.keyBy(rawData.status, 'id'),
   statusByName: _.keyBy(rawData.status, 'name'),
@@ -959,10 +963,10 @@ function patchEnlir() {
   );
   applyEffectsPatch(
     enlir.statusByName,
-    'Mimic Hero Mode', // Match 'Mimic attacks' from, e.g., legend materia
-    'Mimicked abilities deal 50% more damage, casts the last ability used by an ally when any Damage Reduction Barrier is removed, ' +
+    'Mimicked Salvation Mode', // Match 'Mimic attacks' from, e.g., legend materia
+    'Mimicked abilities deal 50% more damage, casts the last ability used by any ally when any Damage Reduction Barrier is removed, ' +
       'grants [40% Damage Reduction Barrier 1] to user when any Damage Reduction Barrier is removed, removed after triggering three times',
-    'Mimic attacks deal 50% more damage, casts the last ability used by an ally when any Damage Reduction Barrier is removed, ' +
+    'Mimic attacks deal 50% more damage, casts the last ability used by any ally when any Damage Reduction Barrier is removed, ' +
       'grants [40% Damage Reduction Barrier 1] to user when any Damage Reduction Barrier is removed, removed after triggering three times',
   );
 
@@ -987,16 +991,6 @@ function patchEnlir() {
     '201020901',
     'Causes [Doom: 15], restores HP to all allies for 55% max HP and grants [Last Stand] to all allies when HP fall below 20%',
     'Causes [Doom: 15] to the user and restores HP to all allies for 55% of their max HP and grants [Last Stand] to all allies when HP fall below 20%',
-  );
-  // More consistent syntax for hybrid and ether.  I have not confirmed that
-  // this actually is smart ether.
-  applyEffectPatch(
-    enlir.legendMateria,
-    '201030205',
-    '35% chance to cast an ability (SUM/WHT: single, 3x 2.81/2.98 magical Water/Holy/NE, summoning ether 1 to the user) ' +
-      'after dealing damage with a Water or Holy ability',
-    '35% chance to cast an ability (SUM/WHT: single, hybrid 3x 2.81 or 2.98 magical Water/Holy/NE, Summoning smart ether 1 to the user) ' +
-      'after dealing damage with a Water or Holy ability',
   );
   // "Triplecast" is clearer than "dualcast twice," especially now that we have
   // triple/quad/etc. in statuses.
@@ -1687,6 +1681,14 @@ export function isSynchroSoulBreak(sb: EnlirSoulBreak): boolean {
   return sb.tier === 'SASB';
 }
 
+export function isArcaneDyad(sb: EnlirSoulBreak): boolean {
+  return sb.tier === 'ADSB';
+}
+
+export function isDualAwakening(sb: EnlirSoulBreak): boolean {
+  return sb.tier === 'DASB';
+}
+
 export function isBurstCommand(skill: EnlirSkill): skill is EnlirBurstCommand {
   return (
     'character' in skill &&
@@ -1717,12 +1719,12 @@ export function isLimitBreak(skill: EnlirSkill): skill is EnlirLimitBreak {
   return 'minimumLbPoints' in skill;
 }
 
-export function isArcaneDyad1st(sb: EnlirSoulBreak): boolean {
-  return sb.tier === 'ADSB' && sb.points === 0;
+export function isPart1SoulBreak(sb: EnlirSoulBreak): boolean {
+  return (isArcaneDyad(sb) && sb.points === 0) || (isDualAwakening(sb) && sb.points !== 0);
 }
 
-export function isArcaneDyad2nd(sb: EnlirSoulBreak): boolean {
-  return sb.tier === 'ADSB' && sb.points !== 0;
+export function isPart2SoulBreak(sb: EnlirSoulBreak): boolean {
+  return (isArcaneDyad(sb) && sb.points !== 0) || (isDualAwakening(sb) && sb.points === 0);
 }
 
 /**

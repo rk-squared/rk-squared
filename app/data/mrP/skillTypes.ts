@@ -52,7 +52,7 @@ export type EffectClause =
 export interface Attack extends Partial<AttackMultiplierGroup>, AttackExtras {
   type: 'attack';
   numAttacks: NumAttacks;
-  isOverstrike?: boolean;
+  overstrikeCap?: number;
   scalingOverstrike?: number[]; // For ADSB.  Separate from isOverstrike.
   scaleType?: AttackScaleType;
   isAoE?: boolean;
@@ -112,7 +112,7 @@ export interface AttackExtras {
   airTime?: number | number[];
   airTimeCondition?: common.Condition;
 
-  isOverstrike?: boolean;
+  overstrikeCap?: number;
   alwaysCrits?: boolean;
   atkUpWithLowHp?: boolean;
 

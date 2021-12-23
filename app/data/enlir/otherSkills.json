@@ -440,6 +440,173 @@
   },
   {
     "sourceType": "Follow-Up Status",
+    "source": "Pledge to History Follow-Up",
+    "name": "Pledge to History",
+    "type": "BLK",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 7.5,
+    "element": [
+      "Fire",
+      "Ice",
+      "Lightning",
+      "Earth",
+      "Wind",
+      "Water",
+      "Holy",
+      "Dark",
+      "Poison",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "1/4 single attacks (7.50 or 2.04 each) capped at 99999/9999 every 1+2n/2+2n uses, grants [Quick Cast 1] to the user every 2+2n uses",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Black Magic",
+    "id": 31541444,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Historian's Authority Mode",
+    "name": "Magical Surfing",
+    "type": "BLK",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 9.99,
+    "element": [
+      "Fire",
+      "Ice",
+      "Lightning",
+      "Earth",
+      "Wind",
+      "Water",
+      "Holy",
+      "Dark",
+      "Poison",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "One single attack (9.99/10.99) capped at 99999 if 1+ of Tyro, Elarra, Biggs or Wedge aren't/are alive",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Black Magic",
+    "id": 31541448,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Dual Awoken Record Keeper Mode One (Tyro)",
+    "name": "Dual Wisdom Grimoire",
+    "type": "NAT",
+    "typeDetails": [
+      "PHY",
+      "BLK"
+    ],
+    "target": "Single enemy",
+    "formula": "Hybrid",
+    "multiplier": null,
+    "element": [
+      "Fire",
+      "Ice",
+      "Lightning",
+      "Earth",
+      "Wind",
+      "Water",
+      "Holy",
+      "Dark",
+      "Poison",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Ten ranged hybrid attacks (0.12/0.19/0.26/0.32/0.39 or 0.41/0.64/0.87/1.10/1.33 each) at triggering ability rank 1/2/3/4/5, 100% hit rate",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Support",
+    "id": 31541436,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Dual Awoken Record Keeper Mode Two (Tyro)",
+    "name": "Dual Guardian Grimoire",
+    "type": "NAT",
+    "typeDetails": [
+      "PHY",
+      "BLK"
+    ],
+    "target": "Single enemy",
+    "formula": "Hybrid",
+    "multiplier": null,
+    "element": [
+      "Fire",
+      "Ice",
+      "Lightning",
+      "Earth",
+      "Wind",
+      "Water",
+      "Holy",
+      "Dark",
+      "Poison",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "One single hybrid attacks (5.92 or 24.78) capped at 9999/19999 if 2+ Core/Beyond allies aren't/are alive, ignores DEF and RES, 100% hit rate, grants [40% Damage Reduction Barrier 1] to all allies",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Support",
+    "id": 31541453,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Dual Awoken Wind Mode Two (Wedge)",
+    "name": "Dual Wonder Cyclone",
+    "type": "NAT",
+    "typeDetails": [
+      "PHY",
+      "BLK"
+    ],
+    "target": "Single enemy",
+    "formula": "Hybrid",
+    "multiplier": null,
+    "element": [
+      "Wind",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Six single hybrid attacks (0.48 or 1.98 each), 100% hit rate, grants [Quick Cast 1] to all allies in the character's row",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Black Magic",
+    "id": 31541440,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Novice Mode",
+    "name": "Reminiscence Grimoire",
+    "type": "NAT",
+    "target": "Single enemy",
+    "formula": null,
+    "multiplier": null,
+    "element": [],
+    "time": 0.01,
+    "effects": "One single attack that deals 99999 damage, causes [Imperil Prismatic 10% (5s)], removes Novice Mode after triggering two times",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Support",
+    "id": 31541584,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
     "source": "Grip of Chaos Follow-Up",
     "name": "Grip of Chaos",
     "type": "PHY",
@@ -666,8 +833,8 @@
   },
   {
     "sourceType": "Follow-Up Status",
-    "source": "Poisonous Seaweed Follow-Up",
-    "name": "Poisonous Seaweed",
+    "source": "Poisoner Thieves Follow-Up",
+    "name": "Poisoner Thieves",
     "type": "PHY",
     "target": "Single enemy",
     "formula": "Physical",
@@ -684,12 +851,12 @@
     "sb": 0,
     "school": "Thief",
     "id": 31541108,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
-    "source": "Fiercest Fighter Mode",
-    "name": "Shocking Fist",
+    "source": "Frenzied Monk Mode",
+    "name": "Ballistic Fist",
     "type": "PHY",
     "target": "Single enemy",
     "formula": "Physical",
@@ -701,12 +868,93 @@
       "NE"
     ],
     "time": 0.01,
-    "effects": "One single attack (4.45), ignores DEF, 100% hit rate, causes Fighting Spirit -1 to the user",
+    "effects": "One single attack (4.45), ignores DEF, 100% hit rate, causes Martial Will -1 to the user",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 0,
     "school": "Monk",
     "id": 31541155,
+    "gl": true
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Princess' Talent",
+    "name": "Prodigy of Fynn (White Magic)",
+    "type": "WHT",
+    "target": "Single ally",
+    "formula": null,
+    "multiplier": null,
+    "element": null,
+    "time": 0.01,
+    "effects": "Restores HP (105), grants [Damage Cap +10000 1] to the user",
+    "counter": false,
+    "autoTarget": "Lowest HP% ally",
+    "sb": 0,
+    "school": "White Magic",
+    "id": 31541301,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Princess' Talent",
+    "name": "Prodigy of Fynn (Dancer)",
+    "type": "NAT",
+    "target": "All allies",
+    "formula": null,
+    "multiplier": null,
+    "element": null,
+    "time": 0.01,
+    "effects": "Grants [HP Stock (1500)]",
+    "counter": false,
+    "autoTarget": "All allies",
+    "sb": 0,
+    "school": "Dancer",
+    "id": 31541302,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Dual Awoken Cosmic Warrior Mode Two (Wol)",
+    "name": "Dual Heavy Break",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 4.04,
+    "element": [
+      "Earth",
+      "Holy",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Four single attacks (1.01), causes [Imperil Earth 10% (15s)] and [Imperil Holy 10% (15s)]",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Knight",
+    "id": 31541374,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Awoken Battlefist",
+    "name": "Fist Flurry",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 4.2,
+    "element": [
+      "Earth",
+      "Fire",
+      "Lightning",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Six single attacks (0.70 each), grants [100% Critical 1] to the user every second use",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Monk",
+    "id": 31541789,
     "gl": false
   },
   {
@@ -1050,7 +1298,7 @@
   {
     "sourceType": "Follow-Up Status",
     "source": "Chain of Arms Mode",
-    "name": "Vertical Dive",
+    "name": "Plummet",
     "type": "PHY",
     "target": "Single enemy",
     "formula": "Physical",
@@ -1066,11 +1314,11 @@
     "sb": 0,
     "school": "Samurai",
     "id": 31540909,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
-    "source": "Awoken Proficiency",
+    "source": "Awoken Mastery",
     "name": "Weapon Waltz",
     "type": "PHY",
     "target": "Single enemy",
@@ -1089,12 +1337,12 @@
     "sb": 0,
     "school": "Samurai",
     "id": 31540918,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
-    "source": "Level Proficiency Mode",
-    "name": "Straight Arrow",
+    "source": "Enhanced Mastery Mode",
+    "name": "Straightarrow",
     "type": "PHY",
     "target": "Single enemy",
     "formula": "Physical",
@@ -1112,12 +1360,12 @@
     "sb": 0,
     "school": "Samurai",
     "id": 31540925,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
-    "source": "Stalwart Archer Mode",
-    "name": "Crash VIII",
+    "source": "Stout Archer Mode",
+    "name": "Mash VIII",
     "type": "BLK",
     "target": "Single enemy",
     "formula": "Magical",
@@ -1133,12 +1381,12 @@
     "sb": 0,
     "school": "Black Magic",
     "id": 31541000,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
-    "source": "Splash Toxin Follow-Up",
-    "name": "Splash Toxin",
+    "source": "Aqua Venom Follow-Up",
+    "name": "Aqua Venom",
     "type": "PHY",
     "target": "Single enemy",
     "formula": "Physical",
@@ -1155,24 +1403,162 @@
     "sb": 0,
     "school": "Thief",
     "id": 31541115,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
-    "source": "Heroic Bravado Mode",
-    "name": "Morale Boost",
+    "source": "Stalwart Survivor Mode",
+    "name": "Boost Morale",
     "type": "NAT",
     "target": "All allies",
     "formula": null,
     "multiplier": null,
     "element": null,
     "time": 0.01,
-    "effects": "Grants [Last Stand], grants [Buff Ice 50% (5s)] to the user, removes Heroic Bravado Mode from the user",
+    "effects": "Grants [Last Stand], grants [Buff Ice 50% (5s)] to the user, removes Stalwart Survivor Mode from the user",
     "counter": false,
     "autoTarget": "All allies",
     "sb": 0,
     "school": "Monk",
     "id": 31541135,
+    "gl": true
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Giant's Fist Follow-Up",
+    "name": "Giant's Fist",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 1,
+    "element": [
+      "Earth",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "One single attack (1.00), 100% hit rate, 100% additional critical chance, grants [Damage Cap +10000 1] to the user after every third use",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Monk",
+    "id": 31541295,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Dual Awoken Imperial Mode Two (Emperor)",
+    "name": "Dual Military Force",
+    "type": "NAT",
+    "target": "Single enemy",
+    "formula": null,
+    "multiplier": null,
+    "element": null,
+    "time": 0.01,
+    "effects": "Causes [ATK and MAG -50% (8s)]/[DEF and RES -50% (8s)] every 1+2n/2+2n casts, grants [Quick Cast 1] to all allies",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Black Magic",
+    "id": 31541532,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Gaia Boost Mode",
+    "name": "Dual Lock Impact",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 6.4,
+    "element": [
+      "Earth",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "One single attack (6.40) capped at 99999, 100% hit rate",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Monk",
+    "id": 31541534,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Concerned Heart Mode",
+    "name": "Fiery Blow",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 3.36,
+    "element": [
+      "Fire",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "One single attack (1.76/3.36) capped at 99999 if 0-3/4+ FF2 allies are alive, 0%/100% additional critical chance if 0-3/4+ FF2 allies are alive, grants [Quick Cast 1] to the user if 4+ FF2 allies are alive",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Spellblade",
+    "id": 31541539,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Dual Awoken Earth Mode Two (Maria)",
+    "name": "Dual Break Meteor",
+    "type": "BLK",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 8.46,
+    "element": [
+      "Earth",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "One single attack (8.46) capped at 99999, grants [Buff Earth 10% (15s)] to the user",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Black Magic",
+    "id": 31541598,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Captain's Camaraderie Mode",
+    "name": "Caustic Splash (Water)",
+    "type": "NAT",
+    "target": "Self",
+    "formula": null,
+    "multiplier": null,
+    "element": null,
+    "time": 0.01,
+    "effects": "Grants [Instant Cast 1], [Soul Break Gauge +250], removes Captain's Camaraderie Mode from the user",
+    "counter": false,
+    "autoTarget": "Self",
+    "sb": 0,
+    "school": "Special",
+    "id": 31541733,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Captain's Camaraderie Mode",
+    "name": "Caustic Splash (Poison)",
+    "type": "NAT",
+    "target": "Single enemy",
+    "formula": null,
+    "multiplier": null,
+    "element": null,
+    "time": 0.01,
+    "effects": "Causes [Imperil Poison 10% (15s)], grants [Buff Poison 10% (15s)] to all allies, grants [Attach Poison] to the user, removes Captain's Camaraderie Mode from the user",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Special",
+    "id": 31541734,
     "gl": false
   },
   {
@@ -1586,8 +1972,8 @@
   },
   {
     "sourceType": "Follow-Up Status",
-    "source": "Loyal Mode Follow-Up",
-    "name": "Knight Espada",
+    "source": "Fealty Mode",
+    "name": "Knight's Espada",
     "type": "PHY",
     "target": "Single enemy",
     "formula": "Physical",
@@ -1603,11 +1989,11 @@
     "sb": 0,
     "school": "Knight",
     "id": 31541030,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
-    "source": "Channel Wind Mode",
+    "source": "Wind Chosen Mode",
     "name": "Onion Soul: Wind",
     "type": "BLK",
     "target": "Single enemy",
@@ -1624,12 +2010,12 @@
     "sb": 0,
     "school": "Black Magic",
     "id": 31541026,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
     "source": "Maiden of Water Mode",
-    "name": "Maiden's Support",
+    "name": "Maiden's Protection",
     "type": "WHT",
     "target": "Single enemy",
     "formula": "Magical",
@@ -1642,7 +2028,7 @@
     "sb": 0,
     "school": "White Magic",
     "id": 31541220,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
@@ -1698,7 +2084,7 @@
       "NE"
     ],
     "time": 0.01,
-    "effects": "One single attack (11.28) capped at 99999, causes [Imperil Lightning 10% (15s)] and [DEF, RES and MND -70% (8s)], causes Flood of Darkness -2 to the user",
+    "effects": "One single attack (16.40) capped at 99999, causes [Imperil Lightning 10% (15s)] and [DEF, RES and MND -70% (8s)], causes Flood of Darkness -2 to the user",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 0,
@@ -1722,6 +2108,51 @@
     "sb": 0,
     "school": "Darkness",
     "id": 31541289,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Crystal Revelation Mode",
+    "name": "Super Slash",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 3.54,
+    "element": [
+      "Wind",
+      "Water",
+      "Fire",
+      "Earth",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "One single attack (3.20/3.37/3.54) capped at 99999 if ATK is greater than or equal to 0/1200/1800 ATK, 100% hit rate",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Celerity",
+    "id": 31541324,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Random Flame Dance Follow-Up",
+    "name": "Random Flame Dance",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": null,
+    "element": [
+      "Fire",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Six single attacks (? each)",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Monk",
+    "id": 31520060,
     "gl": false
   },
   {
@@ -2186,8 +2617,8 @@
   },
   {
     "sourceType": "Follow-Up Status",
-    "source": "Gaia Wisdom Mode",
-    "name": "Gaia's Blessing",
+    "source": "Earthen Wisdom Mode",
+    "name": "Gaia's Grace",
     "type": "BLK",
     "target": "Single enemy",
     "formula": "Magical",
@@ -2203,11 +2634,11 @@
     "sb": 0,
     "school": "Black Magic",
     "id": 31540712,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
-    "source": "Gaia Wisdom Mode",
+    "source": "Earthen Wisdom Mode",
     "name": "Tellah's Faith",
     "type": "BLK",
     "target": "Single enemy",
@@ -2224,12 +2655,12 @@
     "sb": 0,
     "school": "Black Magic",
     "id": 31540713,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
-    "source": "Gaia Wisdom Mode",
-    "name": "Gaia's Recollection",
+    "source": "Earthen Wisdom Mode",
+    "name": "Memory of the Land",
     "type": "BLK",
     "target": "Single enemy",
     "formula": "Magical",
@@ -2245,12 +2676,12 @@
     "sb": 0,
     "school": "Black Magic",
     "id": 31540714,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
-    "source": "Gaia Wisdom Follow-Up",
-    "name": "Gaia Wisdom",
+    "source": "Earthen Wisdom Follow-Up",
+    "name": "Sage's Strike",
     "type": "BLK",
     "target": "All enemies",
     "formula": "Magical",
@@ -2260,19 +2691,19 @@
       "NE"
     ],
     "time": 0.01,
-    "effects": "One single attack (13.80~16.40 scaling with targets) capped at 99999, removes [Gaia Wisdom Mode] and [Gaia Wisdom Follow-Up] from the user",
+    "effects": "One single attack (13.80~16.40 scaling with targets) capped at 99999, removes [Earthen Wisdom Mode] and [Earthen Wisdom Follow-Up] from the user",
     "effectsNote": "The multiplier per hit for this ability decreases as the number of enemies increases. The exact number is given by the following formula, where X is the number of alive enemies:\n\n13.80+(16.40-13.80)*exp(-(X-1)*0.40)\n\nThis multiplier starts at 16.40 with only 1 enemy and is always higher than 13.80",
     "counter": true,
     "autoTarget": "All enemies",
     "sb": 0,
     "school": "Black Magic",
     "id": 31540715,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
-    "source": "Black Mage's Bluff",
-    "name": "Bluffed Black Magic",
+    "source": "Bluff Mode",
+    "name": "Black Magic Bluff",
     "type": "BLK",
     "target": "Single enemy",
     "formula": "Magical",
@@ -2290,7 +2721,7 @@
     "sb": 0,
     "school": "Black Magic",
     "id": 31540923,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
@@ -2313,12 +2744,12 @@
     "sb": 0,
     "school": "Black Magic",
     "id": 31540926,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
-    "source": "Flame Cloak Mode",
-    "name": "Flame Cloak",
+    "source": "Fire Cloak Mode",
+    "name": "Counter: Fira",
     "type": "BLK",
     "target": "Single enemy",
     "formula": "Magical",
@@ -2334,12 +2765,12 @@
     "sb": 0,
     "school": "Black Magic",
     "id": 31541008,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
-    "source": "Archfiend's Flame Follow-Up",
-    "name": "Archfiend's Flame",
+    "source": "Martial Flames Follow-Up",
+    "name": "Martial Flames",
     "type": "BLK",
     "target": "Single enemy",
     "formula": "Magical",
@@ -2355,12 +2786,12 @@
     "sb": 0,
     "school": "Black Magic",
     "id": 31541018,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
-    "source": "Lunar Beam Mode",
-    "name": "Lunar Beam",
+    "source": "Moonlight Mode",
+    "name": "Lunar Power",
     "type": "WHT",
     "target": "Single enemy",
     "formula": "Magical",
@@ -2376,12 +2807,12 @@
     "sb": 0,
     "school": "White Magic",
     "id": 31541042,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
-    "source": "Awoken Night Watch",
-    "name": "Lunarian Wisdom",
+    "source": "Awoken Night Vigil",
+    "name": "Moonblossom Mind",
     "type": "WHT",
     "target": "Single enemy",
     "formula": "Magical",
@@ -2397,12 +2828,12 @@
     "sb": 0,
     "school": "White Magic",
     "id": 31541050,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
-    "source": "Lunar Cleansing Follow-Up",
-    "name": "Lunar Cleansing",
+    "source": "Moonblossom Purity Follow-Up",
+    "name": "Moonblossom Purity",
     "type": "WHT",
     "target": "Single enemy",
     "formula": "Magical",
@@ -2418,12 +2849,12 @@
     "sb": 0,
     "school": "White Magic",
     "id": 31541051,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
-    "source": "Innocent Summoner Mode",
-    "name": "Divine Breath",
+    "source": "True Summoner Mode",
+    "name": "Divine Breeze",
     "type": "SUM",
     "target": "Single enemy",
     "formula": "Magical",
@@ -2439,6 +2870,275 @@
     "sb": 0,
     "school": "Summoning",
     "id": 31540963,
+    "gl": true
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Dual Awoken Dragoon Pride Mode One (Kain)",
+    "name": "Dual Dragoon Dive",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 5.28,
+    "element": [
+      "Lightning",
+      "Dark",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "One single ranged attack (5.28) capped at 99999",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Dragoon",
+    "id": 31541353,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Airship Showmanship Follow-Up",
+    "name": "Airship Showmanship",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 3.52,
+    "element": [
+      "Lightning",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "One single ranged attack (3.52) capped at 99999, causes [Instant KO] to the user after the fourth cast",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Machinist",
+    "id": 31541369,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Dual Awoken Holy Mode Two (Cecil (Paladin))",
+    "name": "Dual Light Barrier",
+    "type": "NAT",
+    "typeDetails": [
+      "PHY",
+      "WHT"
+    ],
+    "target": "Single enemy",
+    "formula": "Hybrid",
+    "multiplier": null,
+    "element": [
+      "Holy",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Four single hybrid attacks (0.75/3.25 each), grants [50% Damage Reduction Barrier 1] to all allies",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Knight",
+    "id": 31541372,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Bow Master Mode",
+    "name": "Gift of Love",
+    "type": "WHT",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": null,
+    "element": null,
+    "time": 0.01,
+    "effects": "Deals 99999 WHT damage, grants [HP Stock (2000)] to the ally with the lowest HP%",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "White Magic",
+    "id": 31541379,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Alternate Dimensions Mode",
+    "name": "Eidolon's Roar",
+    "type": "SUM",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 11.85,
+    "element": [
+      "Water",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "One single attack (10.72/11.85/11.85) capped at 99999 after 1/2/3 uses, grants [Quick Cast 1]/[Quick Cast 1]/[Instant Cast 1] to the user after 1/2/3 uses, grants [Water +50% Boost 1] to the user after three uses",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Summoning",
+    "id": 31541429,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Dual Awoken Dark Mode Two (Golbez)",
+    "name": "Dual Night Glow",
+    "type": "BLK",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 12.1,
+    "element": [
+      "Dark",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Five single attacks (2.42 each), causes [Imperil Dark 10% (15s)]",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Darkness",
+    "id": 31541419,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Dual Awoken Wind Mode One (Barbariccia)",
+    "name": "Dual Tornado Breath",
+    "type": "BLK",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 8.16,
+    "element": [
+      "Wind",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Four single attacks (2.04 each), grants [Quick Cast 1] to the user every second use",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Black Magic",
+    "id": 31541616,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Dual Awoken Wind Mode Two (Barbariccia)",
+    "name": "Dual Storm Down",
+    "type": "BLK",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 7.44,
+    "element": [
+      "Wind",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Two single attacks (3.72 each), causes [Imperil Wind 10% (15s)]",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Black Magic",
+    "id": 31541617,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Bewitching Ruler Mode",
+    "name": "Violent Wind",
+    "type": "BLK",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 4.95,
+    "element": [
+      "Wind",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "One single attack (4.95), causes [Imperil Wind 10% (15s)] every second use, grants [40% Damage Reduction Barrier 1] to the user",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Black Magic",
+    "id": 31541625,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Hexa Mirage Follow-Up",
+    "name": "Hexa Mirage",
+    "type": "BLK",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 7.92,
+    "element": [
+      "Wind",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Six single attacks (1.32 each)",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Black Magic",
+    "id": 31541640,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Dual Awoken Lightning Mode Two (Cid (IV))",
+    "name": "Force Break!",
+    "type": "NAT",
+    "target": "All allies",
+    "formula": null,
+    "multiplier": null,
+    "element": null,
+    "time": 0.01,
+    "effects": "Grants [100% Critical 1] and [Lightning +30% Boost 1], damages the user for 50% current HP, grants [Instant Cast 1] to the user",
+    "counter": false,
+    "autoTarget": "All allies",
+    "sb": 0,
+    "school": "Special",
+    "id": 31541740,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Awoken Airship Engineer",
+    "name": "Bolt Rush",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 4.32,
+    "element": [
+      "Lightning",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Six single ranged attacks (0.72 each), 100% hit rate",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Machinist",
+    "id": 31541747,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Reliable Sister Mode",
+    "name": "Annoying Gift",
+    "type": "WHT",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": null,
+    "element": null,
+    "time": 0.01,
+    "effects": "Deals 99999 WHT damage, grants [HP Stock (2000)] to the lowest HP% ally, grants [Quick Cast 1] to all allies if 4+ FF4 allies are alive",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "White Magic",
+    "id": 31541745,
     "gl": false
   },
   {
@@ -3051,8 +3751,8 @@
   },
   {
     "sourceType": "Follow-Up Status",
-    "source": "Awoken Master's Bearing",
-    "name": "Aqua Breath",
+    "source": "Awoken Virtuoso",
+    "name": "Punishing Aqua Breath",
     "type": "BLK",
     "target": "Single enemy",
     "formula": "Magical",
@@ -3068,12 +3768,12 @@
     "sb": 0,
     "school": "Black Magic",
     "id": 31540881,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
     "source": "Veteran's Resolve Mode",
-    "name": "Veteran's Onslaught",
+    "name": "Dawn Onslaught",
     "type": "PHY",
     "target": "Single enemy",
     "formula": "Physical",
@@ -3089,12 +3789,12 @@
     "sb": 0,
     "school": "Monk",
     "id": 31540936,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
     "source": "Veteran's Resolve Mode",
-    "name": "Veteran's Onslaught (Imperil)",
+    "name": "Dawn Onslaught (Imperil)",
     "type": "PHY",
     "target": "Single enemy",
     "formula": "Physical",
@@ -3110,12 +3810,12 @@
     "sb": 0,
     "school": "Monk",
     "id": 31540937,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
-    "source": "Compassionate Captain Mode",
-    "name": "Slash of the Flame Soul",
+    "source": "Big Softie Mode",
+    "name": "Flaming Soul Slash",
     "type": "PHY",
     "target": "Single enemy",
     "formula": "Physical",
@@ -3131,12 +3831,12 @@
     "sb": 0,
     "school": "Samurai",
     "id": 31540939,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
-    "source": "Crystal's Watch Mode",
-    "name": "Adventurer's Experience",
+    "source": "Crystal Warden Mode",
+    "name": "Adventuring Savvy",
     "type": "PHY",
     "target": "Single enemy",
     "formula": "Physical",
@@ -3152,12 +3852,12 @@
     "sb": 0,
     "school": "Knight",
     "id": 31541064,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
-    "source": "Awoken Regole Swordsman",
-    "name": "Regole Sword Technique",
+    "source": "Awoken Regolian Warrior",
+    "name": "Dawnblade",
     "type": "PHY",
     "target": "Single enemy",
     "formula": "Physical",
@@ -3173,11 +3873,11 @@
     "sb": 0,
     "school": "Combat",
     "id": 31541073,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
-    "source": "Awoken Werewolf Chief",
+    "source": "Awoken Alpha Wolf",
     "name": "Lupine Illusion",
     "type": "PHY",
     "target": "Single enemy",
@@ -3194,12 +3894,12 @@
     "sb": 0,
     "school": "Ninja",
     "id": 31541066,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
-    "source": "Blazing Resolve Mode",
-    "name": "Incinerating Slash",
+    "source": "Flame Resolve Mode",
+    "name": "Blade of Embers",
     "type": "PHY",
     "target": "Single enemy",
     "formula": "Physical",
@@ -3215,6 +3915,224 @@
     "sb": 0,
     "school": "Spellblade",
     "id": 31541147,
+    "gl": true
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Dual Awoken Spellblade Mode One (Bartz - Wind)",
+    "name": "Dual Wind Blade",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 4.5,
+    "element": [
+      "Wind",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "5/15 single attacks (0.30 each) every 1+2n/2+2n uses, 100% additional critical chance, 100% hit rate",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Spellblade",
+    "id": 31541357,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Wind Dual Spellblader Mode",
+    "name": "Dual Gale Slash",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 3.44,
+    "element": [
+      "Wind",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "One single attack (2.51/2.64/3.04/3.44) capped at 99999 if the user has Attach Wind 0/1/2/3, 100% hit rate, causes [Detach Wind] to the user",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Spellblade",
+    "id": 31541358,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Dual Awoken Thief Mode Two (Faris)",
+    "name": "Dual Neppa",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 2.92,
+    "element": [
+      "Wind",
+      "Fire",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Four single ranged attacks (0.73 each), 100% hit rate, causes [Imperil Wind 10% (15s)] and [Imperil Fire 10% (15s)]",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Thief",
+    "id": 31541497,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Dual Awoken Successor Mode One (Krile)",
+    "name": "Dual Reka",
+    "type": "BLK",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 8.28,
+    "element": [
+      "Fire",
+      "Earth",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Two single attacks (4.14 each) capped at 19999",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Black Magic",
+    "id": 31541499,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Connecting Hearts Mode",
+    "name": "Gift of Charity",
+    "type": "WHT",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": null,
+    "element": null,
+    "time": 0.01,
+    "effects": "Deals 99999 WHT damage, grants [HP Stock (2000)] to a random ally",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "White Magic",
+    "id": 31541508,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Dual Awoken Dual Job Mode One (Lenna)",
+    "name": "Dual Gospel of the Saint",
+    "type": "WHT",
+    "target": "All allies",
+    "formula": null,
+    "multiplier": null,
+    "element": null,
+    "time": 0.01,
+    "effects": "Grants [HP Stock (500/1000/1500/2000/3000)] at rank 1/2/3/4/5 of the triggering ability",
+    "counter": false,
+    "autoTarget": "All allies",
+    "sb": 0,
+    "school": "White Magic",
+    "id": 31541576,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Dual Awoken Dual Job Mode One (Lenna)",
+    "name": "Dual Graceful Heart",
+    "type": "WHT",
+    "target": "All allies",
+    "formula": null,
+    "multiplier": null,
+    "element": null,
+    "time": 0.01,
+    "effects": "Restores HP (10/15/25/35/45) at rank 1/2/3/4/5 of the triggering ability",
+    "counter": false,
+    "autoTarget": "All allies",
+    "sb": 0,
+    "school": "White Magic",
+    "id": 31541577,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Dual Awoken Dual Job Mode Two (Lenna)",
+    "name": "Dual Kind Oath",
+    "type": "WHT",
+    "target": "All allies",
+    "formula": null,
+    "multiplier": null,
+    "element": null,
+    "time": 0.01,
+    "effects": "Restores HP (55), grants [Regenga] and [Quick Cast 1]",
+    "counter": false,
+    "autoTarget": "All allies",
+    "sb": 0,
+    "school": "White Magic",
+    "id": 31541578,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Earth Spellblade Dance Mode",
+    "name": "Earth Spellblade Dance",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 2.95,
+    "element": [
+      "Earth",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Five single attacks (0.59 each), 100% hit rate",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Spellblade",
+    "id": 31541615,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Dual Awoken Fire Mode One (Gilgamesh)",
+    "name": "Dual Gang Yan",
+    "type": "NAT",
+    "target": "Single enemy",
+    "formula": null,
+    "multiplier": null,
+    "element": null,
+    "time": 0.01,
+    "effects": "Causes [Imperil Fire 10% (5s)], grants [Buff Fire 10% (15s)] every third cast",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Samurai",
+    "id": 31541686,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Dual Awoken Fire Mode Two (Gilgamesh)",
+    "name": "Dual Random Flame Cut",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": null,
+    "element": [
+      "Fire",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "4/6/10 single attacks (0.41 each) after 1/2/3+ uses, 100% additional critical chance, 100% hit rate, grants [Retaliate] to the user",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Samurai",
+    "id": 31541687,
     "gl": false
   },
   {
@@ -3851,7 +4769,7 @@
       "NE"
     ],
     "time": 0.01,
-    "effects": "Six single attacks (1.02 each), 100% hit rate, grants [Physical Blink 3]",
+    "effects": "Six single attacks (1.02 each), 100% hit rate, grants [Physical Blink 3] to the user",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 0,
@@ -4176,7 +5094,7 @@
   },
   {
     "sourceType": "Follow-Up Status",
-    "source": "Searching for Friends Mode",
+    "source": "More the Merrier Mode",
     "name": "Metamorphosis",
     "type": "PHY",
     "target": "Single enemy",
@@ -4193,12 +5111,12 @@
     "sb": 0,
     "school": "Spellblade",
     "id": 31540724,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
-    "source": "Frigid Blow Follow-Up",
-    "name": "Frigid Blow",
+    "source": "Intense Cold Follow-Up",
+    "name": "Intense Cold",
     "type": "PHY",
     "target": "Single enemy",
     "formula": "Physical",
@@ -4214,12 +5132,12 @@
     "sb": 0,
     "school": "Monk",
     "id": 31541158,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
-    "source": "Dutiful Samurai Mode",
-    "name": "Samurai's Blow",
+    "source": "Faithful Samurai Mode",
+    "name": "Martial Strike",
     "type": "PHY",
     "target": "Single enemy",
     "formula": "Physical",
@@ -4235,12 +5153,12 @@
     "sb": 0,
     "school": "Samurai",
     "id": 31541271,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
-    "source": "Quick-witted Stance",
-    "name": "Quick Strike",
+    "source": "Fleet Blade Follow-Up",
+    "name": "Fleet Blade",
     "type": "PHY",
     "target": "Single enemy",
     "formula": "Physical",
@@ -4256,7 +5174,7 @@
     "sb": 0,
     "school": "Samurai",
     "id": 31541276,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
@@ -4277,6 +5195,281 @@
     "sb": 0,
     "school": "Sharpshooter",
     "id": 31541267,
+    "gl": true
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Twister Flare Follow-Up",
+    "name": "Twister Flare",
+    "type": "BLK",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 37.28,
+    "element": [
+      "Fire",
+      "Wind",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Two single attacks (3.90 each) if the user hasn't Terra Trance, grants [High Quick Cast 1] to the user if the user hasn't Terra Trance, two single attacks (18.64 each), ignores RES if the user has [Terra Trance], removes Terra Trance from the user",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Black Magic",
+    "id": 31541604,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Awoken Flaring Magitek Warrior",
+    "name": "Wind Nova",
+    "type": "BLK",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 14.46,
+    "element": [
+      "Fire",
+      "Wind",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Six single attacks (2.41 each), grants [Buff Fire 10% (15s)] and [Buff Wind 10% (15s)] to the user every second use",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Black Magic",
+    "id": 31541608,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Wild Child Mode",
+    "name": "Dual Rough-Up",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 1.64,
+    "element": [
+      "Lightning",
+      "Wind",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Two single attacks (0.82 each), 100% hit rate, grants [200% ATB 1] and [Quick Cast 1] to the user",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Celerity",
+    "id": 31541553,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Wild Child Mode",
+    "name": "Dual Jump",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 1.64,
+    "element": [
+      "Lightning",
+      "Wind",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Two single attacks (0.82 each), 100% hit rate, grants [Damage Cap +10000 2] to the user",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Celerity",
+    "id": 31541554,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Wild Child Mode",
+    "name": "Dual Scratch",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 1.64,
+    "element": [
+      "Lightning",
+      "Wind",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Two single attacks (0.82 each), 100% hit rate, grants [Celerity/Combat +30% Boost 2] to the user",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Celerity",
+    "id": 31541555,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Dual Awoken Wind Mode One (Strago)",
+    "name": "Dual Power of Descendents",
+    "type": "BLK",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 15,
+    "element": [
+      "Water",
+      "Wind",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Four single attacks (3.75 each), causes [DEF, RES and MND -70% (8s)]",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Black Magic",
+    "id": 31541557,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Dual Awoken Wind Mode Two (Strago)",
+    "name": "Dual Ancient Sage's Protection",
+    "type": "NAT",
+    "target": "All allies",
+    "formula": null,
+    "multiplier": null,
+    "element": null,
+    "time": 0.01,
+    "effects": "Grants [HP Stock (3000)], smart ether 1 and [40% Damage Reduction Barrier 1]",
+    "counter": false,
+    "autoTarget": "All allies",
+    "sb": 0,
+    "school": "Black Magic",
+    "id": 31541551,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Dual Awoken Invincible General Mode One (Celes)",
+    "name": "Dual Divine Edge",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 2,
+    "element": [
+      "Holy",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Four single attacks (0.50 each), 100% hit rate",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Spellblade",
+    "id": 31541709,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Dual Awoken Samurai Mode Two (Cyan)",
+    "name": "Dual Blade Flash",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 2.64,
+    "element": [
+      "Fire",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "One single attack (2.64) capped at 99999, 100% hit rate, causes [Imperil Prismatic 10% (15s)]/[Imperil Prismatic 30% (15s)] if 0-3/4+ FF6 allies are alive",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Samurai",
+    "id": 31541712,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Awoken Doma's Samurai",
+    "name": "Doma Sword Technique: Flame Dance",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 4.32,
+    "element": [
+      "Fire",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Six single attacks (0.72 each), 100% hit rate",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Samurai",
+    "id": 31541719,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Awoken Heated Fighter",
+    "name": "Blazing Phoenix",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 4.32,
+    "element": [
+      "Fire",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Six single attacks (0.72 each), 100% hit rate, grants [100% Critical 1] to the user every second cast",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Monk",
+    "id": 31541721,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Awoken Machine Mania",
+    "name": "Trinity Crossbow",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 4.2,
+    "element": [
+      "Poison",
+      "Fire",
+      "Lightning",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Six single ranged attacks (0.70 each), 100% hit rate",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Machinist",
+    "id": 31541731,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Dual Awoken Machinist Mode Two (Edgar)",
+    "name": "Dual Noisebooster",
+    "type": "NAT",
+    "target": "Self",
+    "formula": null,
+    "multiplier": null,
+    "element": null,
+    "time": 0.01,
+    "effects": "Grants [Dualcast Poison 1], [100% Critical 1] and [Buff Poison 10% (5s)]/[Triplecast Poison 1], [100% Critical 1] and [Buff Poison 20% (5s)]/[Quadcast Poison 1], [100% Critical 1] and [Buff Poison 30% (5s)] if any enemy has Imperil Poison 0-20%/30-40%/50%+ or is at 200% Poison weakness",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Machinist",
+    "id": 31541725,
     "gl": false
   },
   {
@@ -4811,8 +6004,8 @@
   },
   {
     "sourceType": "Follow-Up Status",
-    "source": "Freewheeling Ascension Follow-Up",
-    "name": "Freewheeling Ascension",
+    "source": "Inner Exaltation Follow-Up",
+    "name": "Inner Exaltation",
     "type": "NAT",
     "target": "Single enemy",
     "formula": null,
@@ -4825,12 +6018,12 @@
     "sb": 0,
     "school": "Ninja",
     "id": 31540707,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
-    "source": "Awoken Chosen",
-    "name": "Disaster",
+    "source": "Awoken Chosen One",
+    "name": "Mesocyclone",
     "type": "PHY",
     "target": "Single enemy",
     "formula": "Physical",
@@ -4847,12 +6040,12 @@
     "sb": 0,
     "school": "Samurai",
     "id": 31541157,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
-    "source": "Awoken Self-Proclaimed SOLDIER",
-    "name": "Spindrive (VII)",
+    "source": "Awoken Ex-SOLDIER",
+    "name": "Spin Drive (VII)",
     "type": "PHY",
     "target": "Single enemy",
     "formula": "Physical",
@@ -4869,11 +6062,11 @@
     "sb": 0,
     "school": "Combat",
     "id": 31541174,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
-    "source": "Awoken Tsviet Mode",
+    "source": "Awoken Tsviet",
     "name": "Lightning Spear",
     "type": "PHY",
     "target": "Single enemy",
@@ -4890,6 +6083,234 @@
     "sb": 0,
     "school": "Celerity",
     "id": 31541287,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Dual Awoken Ninja Mode Two (Yuffie)",
+    "name": "Dual Water Vortex",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 4.45,
+    "element": [
+      "Water",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "One single attack (4.45), ignores DEF, 100% hit rate",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Ninja",
+    "id": 31541355,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Dual SOLDIER Mode",
+    "name": "Dual Slash Impact",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 4.45,
+    "element": [
+      "Wind",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "One single attack (4.45) capped at 49999/69999/89999 after 1/2/3 uses, ignores DEF, 100% hit rate",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Spellblade",
+    "id": 31541592,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Dual Awoken Wind Mode Two (Zack)",
+    "name": "Dual Tornado Down",
+    "type": "NAT",
+    "target": "Single enemy",
+    "formula": null,
+    "multiplier": null,
+    "element": null,
+    "time": 0.01,
+    "effects": "Causes [Imperil Wind 10% (5s)], grants [Critical Damage +50% 1] to all allies",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Special",
+    "id": 31541594,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Awoken Cetra's Might",
+    "name": "Prayer to the Stars",
+    "type": "WHT",
+    "target": "All allies",
+    "formula": null,
+    "multiplier": null,
+    "element": null,
+    "time": 0.01,
+    "effects": "Restores HP (25), smart ether 1 every third cast",
+    "counter": false,
+    "autoTarget": "All allies",
+    "sb": 0,
+    "school": "White Magic",
+    "id": 31541549,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Dual Awoken Fire Mode Two (Barret)",
+    "name": "Dual Break Cannon",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 1.8,
+    "element": [
+      "Fire",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Two single ranged attacks (0.90 each), causes [ATK, DEF, MAG, RES and MND -50% (8s)], grants [Quick Cast 1] to all allies",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Machinist",
+    "id": 31541544,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Awoken Platinum Crush",
+    "name": "Rock Drive",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 4.32,
+    "element": [
+      "Earth",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Six single attacks (0.72 each), 100% hit rate",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Monk",
+    "id": 31541547,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Dual Awoken Wind Mode Two (Cid (VII))",
+    "name": "Dual Wind Jump",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 2.64,
+    "element": [
+      "Wind",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "One single ranged jump attack (2.64) capped at 99999, grants [Buff Wind 10% (15s)] to all allies",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Dragoon",
+    "id": 31541697,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Hot-Blooded Pilot Mode",
+    "name": "Aero Down",
+    "type": "NAT",
+    "target": "Single enemy",
+    "formula": null,
+    "multiplier": null,
+    "element": null,
+    "time": 0.01,
+    "effects": "Causes [Imperil Wind 10% (15s)], grants [Buff Wind 10% (15s)] to all allies",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Dragoon",
+    "id": 31541706,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Excellent Partner Mode",
+    "name": "Charging Bolt",
+    "type": "NAT",
+    "typeDetails": [
+      "PHY",
+      "BLK"
+    ],
+    "target": "Single enemy",
+    "formula": "Hybrid",
+    "multiplier": null,
+    "element": [
+      "Earth",
+      "Lightning",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "One single ranged hybrid attack (0.50 or 2.42), grants Professionalism +1 (max 10) to the user",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Monk",
+    "id": 31541809,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Awoken Serious Elite",
+    "name": "Sparkshot",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 4.26,
+    "element": [
+      "Fire",
+      "Lightning",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Six single ranged attacks (0.71 each), grants [Buff Fire 10% (15)] and [Buff Lightning 10% (15s)] to the user every second cast",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Sharpshooter",
+    "id": 31541816,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Awoken Scarlet Worker",
+    "name": "Electro-mag Shot",
+    "type": "NAT",
+    "target": "Single enemy",
+    "formula": "Hybrid",
+    "multiplier": null,
+    "element": [
+      "Lightning",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Six single ranged hybrid attacks (0.72 or 2.44 each), 100% hit rate, grants [Lightning Ability +30% Boost 1] to the user every second cast",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Machinist",
+    "id": 31541814,
     "gl": false
   },
   {
@@ -5500,8 +6921,8 @@
   },
   {
     "sourceType": "Follow-Up Status",
-    "source": "Time Kompression Mode",
-    "name": "Time Kompression",
+    "source": "Time Compression Mode",
+    "name": "Relentless Blades",
     "type": "BLK",
     "target": "Single enemy",
     "formula": "Magical",
@@ -5511,13 +6932,13 @@
       "NE"
     ],
     "time": 0.01,
-    "effects": "One single attack (16.40) capped at 99999, removes [Time Kompression Mode] from the user",
+    "effects": "One single attack (16.40) capped at 99999, removes [Time Compression Mode] from the user",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 0,
     "school": "Black Magic",
     "id": 31540732,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
@@ -5538,12 +6959,12 @@
     "sb": 0,
     "school": "Black Magic",
     "id": 31540737,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
-    "source": "4 Seconds Duel Mode",
-    "name": "Meteor Barret",
+    "source": "Duel 4S Mode",
+    "name": "FB Meteor Barret",
     "type": "PHY",
     "target": "Single enemy",
     "formula": "Physical",
@@ -5553,18 +6974,18 @@
       "NE"
     ],
     "time": 0.01,
-    "effects": "One single attack (6.00) capped at 99999, 100% hit rate, removes [4 Seconds Duel Mode] from the user",
+    "effects": "One single attack (6.00) capped at 99999, 100% hit rate",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 0,
     "school": "Monk",
     "id": 31540858,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
-    "source": "6 Seconds Duel Mode",
-    "name": "Meteor Strike",
+    "source": "Duel 6S Mode",
+    "name": "Meteor Strike Z",
     "type": "PHY",
     "target": "Single enemy",
     "formula": "Physical",
@@ -5580,12 +7001,12 @@
     "sb": 0,
     "school": "Monk",
     "id": 31540859,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
-    "source": "6 Seconds Duel Mode",
-    "name": "Meteor Barret",
+    "source": "Duel 6S Mode",
+    "name": "FB Meteor Barret",
     "type": "PHY",
     "target": "Single enemy",
     "formula": "Physical",
@@ -5595,17 +7016,17 @@
       "NE"
     ],
     "time": 0.01,
-    "effects": "One single attack (6.00) capped at 99999, 100% hit rate, removes [6 Seconds Duel Mode] from the user",
+    "effects": "One single attack (6.00) capped at 99999, 100% hit rate",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 0,
     "school": "Monk",
     "id": 31540858,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
-    "source": "9 Seconds Duel Mode",
+    "source": "Duel 9S Mode",
     "name": "Mach Kick",
     "type": "PHY",
     "target": "Single enemy",
@@ -5622,12 +7043,12 @@
     "sb": 0,
     "school": "Monk",
     "id": 31540860,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
-    "source": "9 Seconds Duel Mode",
-    "name": "Meteor Barret",
+    "source": "Duel 9S Mode",
+    "name": "FB Meteor Barret",
     "type": "PHY",
     "target": "Single enemy",
     "formula": "Physical",
@@ -5637,18 +7058,18 @@
       "NE"
     ],
     "time": 0.01,
-    "effects": "One single attack (6.00) capped at 99999, 100% hit rate, removes [9 Seconds Duel Mode] from the user",
+    "effects": "One single attack (6.00) capped at 99999, 100% hit rate",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 0,
     "school": "Monk",
     "id": 31540858,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
-    "source": "Dark Shot Follow-Up",
-    "name": "Dark Shot",
+    "source": "Dark Ammo Shot Follow-Up",
+    "name": "Dark Ammo Shot",
     "type": "PHY",
     "target": "Single enemy",
     "formula": "Physical",
@@ -5664,7 +7085,7 @@
     "sb": 0,
     "school": "Sharpshooter",
     "id": 31540862,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
@@ -5686,6 +7107,216 @@
     "sb": 0,
     "school": "Spellblade",
     "id": 31540915,
+    "gl": true
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Awoken Comet",
+    "name": "Lianxing",
+    "type": "BLK",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 14.46,
+    "element": [
+      "Ice",
+      "Earth",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Six single attacks (2.41 each)",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Black Magic",
+    "id": 31541314,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Dual Awoken Sorceress's Knight Mode Two (Seifer)",
+    "name": "Cleanup Sword",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 2.92,
+    "element": [
+      "Dark",
+      "Fire",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Four single attacks (0.73 each), 100% hit rate",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Darkness",
+    "id": 31541420,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Dual Awoken Lightning Mode One (Raijin)",
+    "name": "Dual Thunder Mallet",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 2,
+    "element": [
+      "Lightning",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Four single attack (0.50 each), 100% hit rate, causes [DEF, RES and MND -70% (8s)]",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Monk",
+    "id": 31541523,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Awoken Ebonice Sorceress",
+    "name": "Cold Curse",
+    "type": "BLK",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 14.46,
+    "element": [
+      "Ice",
+      "Dark",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Six single attacks (2.41 each)",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Black Magic",
+    "id": 31541677,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Sorceress of Hatred Mode",
+    "name": "Sorceress's Protection",
+    "type": "NAT",
+    "target": "All allies",
+    "formula": null,
+    "multiplier": null,
+    "element": null,
+    "time": 0.01,
+    "effects": "Grants [40% Damage Reduction Barrier], grants [30% Buff Dark (15s)] to the third cast",
+    "counter": false,
+    "autoTarget": "All allies",
+    "sb": 0,
+    "school": "Black Magic",
+    "id": 31541670,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Dual Awoken Wind Mode Two (Fujin)",
+    "name": "Dual Wind Dance (Black Magic)",
+    "type": "BLK",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 11.88,
+    "element": [
+      "Wind",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Six single attacks (1.98 each), grants [Black Magic Quick Cast 1] to the user",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Black Magic",
+    "id": 31541660,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Dual Awoken Wind Mode Two (Fujin)",
+    "name": "Dual Wind Dance (Ninja)",
+    "type": "NIN",
+    "typeDetails": [
+      "Wrapped in a BLK action"
+    ],
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 18.64,
+    "element": [
+      "Wind",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "One single attack (18.64), ignores RES, grants [Buff Wind 10% (15s)] to all allies, grants [Quick Cast 1] to all allies in the character's row",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Ninja",
+    "id": 31541661,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Caring Friend Mode",
+    "name": "Trabia's Gift",
+    "type": "WHT",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": null,
+    "element": null,
+    "time": 0.01,
+    "effects": "Deals 99999 WHT damage, grants [40% Damage Reduction Barrier 1] to the lowest HP% ally",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "White Magic",
+    "id": 31541674,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Dual Awoken Monk Mode One (Zell)",
+    "name": "Dual Heat Punch",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 5.81,
+    "element": [
+      "Fire",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "One single attack (4.76/5.27/5.81) capped at 99999 if the user dealt 0/72001/240001+ damage while under [Dual Awoken Monk Mode One (Zell)], 100% hit rate, grants [100% Critical 3] to the user",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Monk",
+    "id": 31541684,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Dual Awoken Instructor Mode One (Quistis)",
+    "name": "Dual Poison Fragrance",
+    "type": "BLK",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 8.45,
+    "element": [
+      "Poison",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Five single attacks (1.53/1.61/1.69 each) scaling with uses",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Black Magic",
+    "id": 31541723,
     "gl": false
   },
   {
@@ -6102,7 +7733,7 @@
   {
     "sourceType": "Follow-Up Status",
     "source": "Awoken Dragon",
-    "name": "Dragon Sword",
+    "name": "Trance Lancer",
     "type": "PHY",
     "target": "Single enemy",
     "formula": "Physical",
@@ -6118,12 +7749,12 @@
     "sb": 0,
     "school": "Dragoon",
     "id": 31540795,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
-    "source": "Six Dragons Chase Follow-Up",
-    "name": "Six Dragons Chase",
+    "source": "Six Dragon Hunt Follow-Up",
+    "name": "Six Dragon Hunt",
     "type": "PHY",
     "target": "Single enemy",
     "formula": "Physical",
@@ -6139,7 +7770,7 @@
     "sb": 0,
     "school": "Dragoon",
     "id": 31540787,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
@@ -6154,13 +7785,13 @@
       "NE"
     ],
     "time": 0.01,
-    "effects": "2/4 single attacks (0.57/0.50 each) if Steiner isn't/is alive, 0%/100% additional critical chance if Steiner isn't/is alive",
+    "effects": "2/4 single attacks (0.57/0.50 each) if Steiner isn't/is alive, 0%/100% additional critical chance if Steiner isn't/is alive, grants [Quick Cast 1] to the user",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 0,
     "school": "Knight",
     "id": 31541257,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
@@ -6178,6 +7809,66 @@
     "sb": 0,
     "school": "Summoning",
     "id": 31541249,
+    "gl": true
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Dual Awoken Chant Mode Two (Garnet)",
+    "name": "Dual Light Blessing",
+    "type": "NAT",
+    "target": "All allies",
+    "formula": null,
+    "multiplier": null,
+    "element": null,
+    "time": 0.01,
+    "effects": "Restores 2000 HP, grants [40% Damage Reduction Barrier 1]",
+    "counter": false,
+    "autoTarget": "All allies",
+    "sb": 0,
+    "school": "Bard",
+    "id": 31541346,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Balefire Pyre Mode",
+    "name": "Dual Crash Firaga",
+    "type": "BLK",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 8.46,
+    "element": [
+      "Fire",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "One single attack (8.46) capped at 99999",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Black Magic",
+    "id": 31541596,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Treasure Rush Follow-Up",
+    "name": "Treasure Rush",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 2.56,
+    "element": [
+      "Wind",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "8/12/16 single attacks (0.32 each) after 1+3n/2+3n/3+3n uses, 100% hit rate",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Thief",
+    "id": 31541754,
     "gl": false
   },
   {
@@ -6666,7 +8357,7 @@
   {
     "sourceType": "Follow-Up Status",
     "source": "Awoken High Summoner",
-    "name": "Ifrit's Claws",
+    "name": "Flamebeast Flex",
     "type": "SUM",
     "target": "Single enemy",
     "formula": "Magical",
@@ -6682,7 +8373,7 @@
     "sb": 0,
     "school": "Summoning",
     "id": 31541021,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
@@ -6703,12 +8394,12 @@
     "sb": 0,
     "school": "Spellblade",
     "id": 31541214,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
-    "source": "Amateur Warrior Mode",
-    "name": "Full Slide",
+    "source": "Neophyte Warrior Mode",
+    "name": "Hard Tackle",
     "type": "PHY",
     "target": "Single enemy",
     "formula": "Physical",
@@ -6724,30 +8415,30 @@
     "sb": 0,
     "school": "Sharpshooter",
     "id": 31541225,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
-    "source": "Bushido Blade Mode",
-    "name": "Flame",
+    "source": "Bushido Edge Mode",
+    "name": "Crushing Blaze",
     "type": "NAT",
     "target": "Single enemy",
     "formula": null,
     "multiplier": null,
     "element": null,
     "time": 0.01,
-    "effects": "Causes [Imperil Fire 30% (5s)], removes [Bushido Blade Mode] from the user",
+    "effects": "Causes [Imperil Fire 30% (5s)], removes [Bushido Edge Mode] from the user",
     "counter": false,
     "autoTarget": "Lowest HP% enemy",
     "sb": 0,
     "school": "Samurai",
     "id": 31541236,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
-    "source": "Awoken Guardian's Guidance",
-    "name": "Dedicated Blade",
+    "source": "Awoken Guiding Guardian",
+    "name": "Blade of Allegiance",
     "type": "PHY",
     "target": "Single enemy",
     "formula": "Physical",
@@ -6763,7 +8454,7 @@
     "sb": 0,
     "school": "Samurai",
     "id": 31541241,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
@@ -6784,11 +8475,11 @@
     "sb": 0,
     "school": "Machinist",
     "id": 31541232,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
-    "source": "Awoken Salvage",
+    "source": "Awoken Salvager",
     "name": "Hydro Grenade",
     "type": "PHY",
     "target": "Single enemy",
@@ -6805,12 +8496,12 @@
     "sb": 0,
     "school": "Machinist",
     "id": 31541238,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
-    "source": "Lively Girl Mode",
-    "name": "Help to Position",
+    "source": "Spirited Guardian Mode",
+    "name": "Al Bhed Aid",
     "type": "NAT",
     "target": "Single enemy",
     "formula": null,
@@ -6823,6 +8514,149 @@
     "sb": 0,
     "school": "Thief",
     "id": 31541239,
+    "gl": true
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Grand Summoner's Resolve Mode",
+    "name": "Grand Summoner's Resolve",
+    "type": "SUM",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": null,
+    "element": [
+      "Fire",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Four single attacks (? each)",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Summoning",
+    "id": 31520058,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Dual Awoken Kindred Mode Two (Yuna)",
+    "name": "Dual Prayer for the Future",
+    "type": "WHT",
+    "target": "All allies",
+    "formula": null,
+    "multiplier": null,
+    "element": null,
+    "time": 0.01,
+    "effects": "Restores HP (55), grants [HP Stock (2000)] and [Quick Cast 1]",
+    "counter": false,
+    "autoTarget": "All allies",
+    "sb": 0,
+    "school": "White Magic",
+    "id": 31541512,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Dual Awoken Water Mode Two (Paine)",
+    "name": "Dual Flood!",
+    "type": "NAT",
+    "target": "All allies",
+    "formula": null,
+    "multiplier": null,
+    "element": null,
+    "time": 0.01,
+    "effects": "Grants [Buff Water 10% (15s)] and [Quick Cast 1]",
+    "counter": false,
+    "autoTarget": "All allies",
+    "sb": 0,
+    "school": "Special",
+    "id": 31541619,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Awoken Water Full Throttle",
+    "name": "Marine Sword",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 4,
+    "element": [
+      "Water",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "One single attack (4.00) capped at 99999, grants [Quick Cast 1] to all allies",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Spellblade",
+    "id": 31541622,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Aqua Impact",
+    "name": "Aqua Impact",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 5.28,
+    "element": [
+      "Water",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "One single ranged jump attack (5.28) capped at 99999, 100% hit rate, grants [Soul Break Gauge +250] to the user",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Dragoon",
+    "id": 31541778,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Awoken Sphere Hunter",
+    "name": "White Wisdom (White Magic)",
+    "type": "WHT",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 15.33,
+    "element": [
+      "Holy",
+      "Wind",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Three single attacks (5.11 each), restores HP (25) to all allies",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "White Magic",
+    "id": 31541776,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Awoken Sphere Hunter",
+    "name": "White Wisdom (Summoning)",
+    "type": "SUM",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 14.46,
+    "element": [
+      "Holy",
+      "Wind",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Six single attacks (2.41 each)",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Summoning",
+    "id": 31541779,
     "gl": false
   },
   {
@@ -6988,7 +8822,7 @@
   },
   {
     "sourceType": "Follow-Up Status",
-    "source": "Unparalleled Mode",
+    "source": "Unexpected Assault Mode",
     "name": "Mantra",
     "type": "PHY",
     "target": "Single enemy",
@@ -7000,13 +8834,13 @@
       "NE"
     ],
     "time": 0.01,
-    "effects": "Three single attacks (0.66 each), 100% hit rate, grants [Buff Prismatic 10% (5s)]",
+    "effects": "Three single attacks (0.66 each), 100% hit rate, grants [Buff Prismatic 10% (5s)] to all allies",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 0,
     "school": "Monk",
     "id": 31541206,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
@@ -7471,6 +9305,102 @@
   },
   {
     "sourceType": "Follow-Up Status",
+    "source": "Dual Awoken Lightning Mode One (Ashe)",
+    "name": "Dual Northswain Bolt",
+    "type": "BLK",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 17.4,
+    "element": [
+      "Lightning",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Six single attacks (2.63 each), 2.90 if exploiting Lightning weakness, grants [Lightning Quick Cast 1] to the user",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Black Magic",
+    "id": 31541456,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Cheerful Girl Mode",
+    "name": "Gentle Gift",
+    "type": "WHT",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": null,
+    "element": null,
+    "time": 0.01,
+    "effects": "Deals 99999 WHT damage, grants [HP Stock (2000)] to all allies, grants [Quick Cast 1] to all allies if 4+ FF12 allies are alive",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Dancer",
+    "id": 31541463,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Dual Awoken Lightning Mode Two (Reks)",
+    "name": "Dual Dalmascan Mind",
+    "type": "NAT",
+    "target": "Single enemy",
+    "formula": null,
+    "multiplier": null,
+    "element": null,
+    "time": 0.01,
+    "effects": "Causes [Imperil Prismatic 10% (15s)]/[Imperil Prismatic 20% (15s)] if 0-3/4+ FF12 allies are alive, grants [ATK, DEF, MAG and RES +15% (8s)] to all allies if 4+ FF12 allies are alive",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Spellblade",
+    "id": 31541467,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Dual Awoken Dark Mode One (Gabranth)",
+    "name": "Dual Time of Grudge",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 1.76,
+    "element": null,
+    "time": 0.01,
+    "effects": "One single attack (1.76) capped at 99999, 100% hit rate, grants [Dark Quick Cast 2] if the user has Heavy Charge 2, causes [Imperil Dark 10% (15s)] if the user has Heavy Charge 0-1",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Heavy",
+    "id": 31541695,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Dual Awoken Darkness Mode One (Vayne)",
+    "name": "Dual Dark Strategy",
+    "type": "NAT",
+    "target": "Single enemy",
+    "formula": "Hybrid",
+    "multiplier": null,
+    "element": [
+      "Dark",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "One single ranged hybrid attack (4.45 or 18.64), ignores DEF and RES",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Darkness",
+    "id": 31541693,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
     "source": "EX: Knight of Etro",
     "name": "Divine Edge 1",
     "nameNote": "Alias name: Saint Sabre",
@@ -7540,8 +9470,8 @@
   },
   {
     "sourceType": "Follow-Up Status",
-    "source": "Windfang Follow-Up",
-    "name": "Windfang",
+    "source": "Wind Fang Follow-Up",
+    "name": "Wind Fang",
     "type": "PHY",
     "target": "Single enemy",
     "formula": "Physical",
@@ -7749,7 +9679,7 @@
   },
   {
     "sourceType": "Follow-Up Status",
-    "source": "Crystal Tear Mode",
+    "source": "Crystal Tears Mode",
     "name": "Apocalyptic Dream",
     "type": "BLK",
     "target": "Single enemy",
@@ -7760,18 +9690,18 @@
       "NE"
     ],
     "time": 0.01,
-    "effects": "One single attack (18.64), ignores RES, grants [Awakened Farseer Mode] to the user",
+    "effects": "One single attack (18.64), ignores RES, grants [Farseer's Awakening Mode] to the user",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 0,
     "school": "Black Magic",
     "id": 31540758,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
-    "source": "Awakened Farseer Mode",
-    "name": "Etro's Interference",
+    "source": "Farseer's Awakening Mode",
+    "name": "Etro's Intervention",
     "type": "BLK",
     "target": "Single enemy",
     "formula": "Magical",
@@ -7787,7 +9717,7 @@
     "sb": 0,
     "school": "Black Magic",
     "id": 31540757,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
@@ -7959,8 +9889,8 @@
   },
   {
     "sourceType": "Follow-Up Status",
-    "source": "Extroverted Pilot Mode",
-    "name": "Extroverted Pilot",
+    "source": "Chirpy Pilot Mode",
+    "name": "Debilitating Shot",
     "type": "PHY",
     "target": "Single enemy",
     "formula": "Physical",
@@ -7985,6 +9915,214 @@
     "sb": 0,
     "school": "Machinist",
     "id": 31540833,
+    "gl": true
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Awoken Judgment",
+    "name": "Divine Punishment",
+    "type": "SUM",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 14.65,
+    "element": [
+      "Holy",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "One single attack (4.48/7.05/9.50/12.07/14.65) capped at 19999/29999/39999/49999/59999 at rank 1/2/3/4/5 of the triggering ability",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Summoning",
+    "id": 31541320,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Dual Awoken Holy Mode One (Hope)",
+    "name": "Dual Judgment",
+    "type": "SUM",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 8.16,
+    "element": [
+      "Holy",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Four single attacks (2.04 each), grants smart ether 1 and [Quick Cast 1] to the user every second cast",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Summoning",
+    "id": 31541375,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Dual Awoken Last Hunter Mode One (Noel)",
+    "name": "Dual Cross Crash",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 5.34,
+    "element": [
+      "Ice",
+      "Water",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Six single ranged attacks (0.89 each), 100% hit rate",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Sharpshooter",
+    "id": 31541392,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Dual Awoken Last Hunter Mode Two (Noel)",
+    "name": "Dual Break",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 1.78,
+    "element": [
+      "Ice",
+      "Water",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Two single ranged attacks (0.89 each), causes [Imperil Ice 10% (15s)] and [Imperil Water 10% (15s)], causes [DEF -50% (8s)]/[RES -50% (8s)] every 1+2n/2+2n casts",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Sharpshooter",
+    "id": 31541393,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Dual Awoken Dark Mode One (Nabaat)",
+    "name": "Dual Cruelty Gear",
+    "type": "BLK",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 8.4,
+    "element": [
+      "Dark",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Two single attacks (4.20 each), causes [Imperil Dark 10% (15s) every second use",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Darkness",
+    "id": 31541395,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Kind Maiden Mode",
+    "name": "Gift of Oerba",
+    "type": "WHT",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": null,
+    "element": null,
+    "time": 0.01,
+    "effects": "One single attack that deals 99999 damage, grants [Quick Cast 1] to all allies",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "White Magic",
+    "id": 31541402,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Awoken Divine Warrior Goddess",
+    "name": "Xianglin",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 4.26,
+    "element": [
+      "Lightning",
+      "Holy",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Six single attacks (0.71 each), grants [Buff Lightning 10% (15s)] and [Buff Holy 10% (15s)] to the user every second use",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Celerity",
+    "id": 31541582,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Dual Awoken Ice Mode Two (Snow)",
+    "name": "Dual Fortitude",
+    "type": "NAT",
+    "target": "All allies",
+    "formula": null,
+    "multiplier": null,
+    "element": null,
+    "time": 0.01,
+    "effects": "Grants [40% Damage Reduction Barrier 1], grants Dual Fortitude +1 (max 3) to the user",
+    "counter": false,
+    "autoTarget": "All allies",
+    "sb": 0,
+    "school": "Special",
+    "id": 31541588,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Indomitable Resolve Mode",
+    "name": "Dual Icebreaker Fist",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 7.45,
+    "element": [
+      "Ice",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Four single attacks (0.75 each), followed by one single attack (4.45) that ignores DEF with 100% additional critical chance if the user has Dual Fortitude level 1+, causes Dual Fortitude -1 to the user",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Monk",
+    "id": 31541587,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Dual Awoken Seraph Mode One (Cid Raines)",
+    "name": "Dual Seraph Wing Attack",
+    "type": "BLK",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 8.25,
+    "element": [
+      "Dark",
+      "Holy",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Two single attacks (4.14 each), grants [Quick Cast 1] to the user, grants [Dark/Holy Ability +30% Boost 1] to the user if the user's Doom timer is below or equal to 19, causes [Doom Timer -1] to the user if the user's Doom timer is below or equal to 19",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Darkness",
+    "id": 31541757,
     "gl": false
   },
   {
@@ -8286,6 +10424,67 @@
   },
   {
     "sourceType": "Follow-Up Status",
+    "source": "Dual Awoken Ice Mode One (Ysayle)",
+    "name": "Dual Freezing Power",
+    "type": "SUM",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 8.4,
+    "element": [
+      "Ice",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Two single attacks (4.20 each), grants [Buff Ice 10% (5s)] and smart ether 1 to the user",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Summoning",
+    "id": 31541569,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Dual Awoken Ice Mode Two (Ysayle)",
+    "name": "Dual Millennium Knowledge",
+    "type": "NAT",
+    "target": "Single enemy",
+    "formula": null,
+    "multiplier": null,
+    "element": null,
+    "time": 0.01,
+    "effects": "Causes [Imperil Ice 20% (15s)]",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Summoning",
+    "id": 31541570,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Dual Awoken Scion Red Mage Mode Two (Alisaie)",
+    "name": "Dual Enchanted Zwerchhau",
+    "type": "BLK",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": null,
+    "element": [
+      "Wind",
+      "Lightning",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "2/4 single attacks (3.02 each) if the user has Dual Black Mana level 0-1/2+, followed by one single attack (16.92) capped at 99999 if the user has Dual Black Mana level 3+",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Black Magic",
+    "id": 31541572,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
     "source": "EX: Future King",
     "name": "Warp Strike",
     "type": "PHY",
@@ -8556,8 +10755,8 @@
   },
   {
     "sourceType": "Follow-Up Status",
-    "source": "Airborne Unit Mode",
-    "name": "Airborne Spear",
+    "source": "Airborne Division Mode",
+    "name": "General's Spear",
     "type": "PHY",
     "target": "Single enemy",
     "formula": "Physical",
@@ -8568,13 +10767,13 @@
       "NE"
     ],
     "time": 0.01,
-    "effects": "One single ranged attack (5.28) capped at 99999, 100% hit rate, grants [Damage Cap +20000 3] and [100% Critical 3] to the user, removes [Airborne Unit Mode] from the user",
+    "effects": "One single ranged attack (5.28) capped at 99999, 100% hit rate, grants [Damage Cap +20000 3] and [100% Critical 3] to the user, removes [Airborne Division Mode] from the user",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 0,
     "school": "Dragoon",
     "id": 31540699,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
@@ -8806,8 +11005,8 @@
   },
   {
     "sourceType": "Follow-Up Status",
-    "source": "Unyielding Blade's Fury Follow-Up",
-    "name": "Unyielding Blade's Fury",
+    "source": "Ferocious Blade Follow-Up",
+    "name": "Ferocious Blade",
     "type": "PHY",
     "target": "Single enemy",
     "formula": "Physical",
@@ -8824,12 +11023,12 @@
     "sb": 0,
     "school": "Knight",
     "id": 31540806,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
-    "source": "Awoken Clan Leader",
-    "name": "Follow-Up Combo",
+    "source": "Awoken Clanmate",
+    "name": "Trailing Combo",
     "type": "BLK",
     "target": "Single enemy",
     "formula": "Magical",
@@ -8842,7 +11041,7 @@
     "sb": 0,
     "school": "Black Magic",
     "id": 31540811,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
@@ -9366,7 +11565,7 @@
   {
     "sourceType": "Follow-Up Status",
     "source": "Plasma Snipe Mode",
-    "name": "Plasma Snipe",
+    "name": "Infinite Waltz",
     "type": "PHY",
     "target": "Single enemy",
     "formula": "Physical",
@@ -9382,7 +11581,7 @@
     "sb": 0,
     "school": "Machinist",
     "id": 31540771,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
@@ -9405,7 +11604,7 @@
     "sb": 0,
     "school": "Sharpshooter",
     "id": 31540870,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
@@ -9428,7 +11627,7 @@
     "sb": 0,
     "school": "Sharpshooter",
     "id": 31540871,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
@@ -9451,7 +11650,7 @@
     "sb": 0,
     "school": "Sharpshooter",
     "id": 31540872,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
@@ -9473,12 +11672,12 @@
     "sb": 0,
     "school": "Heavy",
     "id": 31540898,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
     "source": "Ninja Slice Mode",
-    "name": "Ninja Slice",
+    "name": "Callous Blade",
     "type": "PHY",
     "target": "Single enemy",
     "formula": "Physical",
@@ -9494,7 +11693,7 @@
     "sb": 0,
     "school": "Samurai",
     "id": 31541016,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Follow-Up Status",
@@ -9515,6 +11714,219 @@
     "sb": 0,
     "school": "Dragoon",
     "id": 31541189,
+    "gl": true
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Dual Awoken Fire Mode One (Ace)",
+    "name": "Dual Firaga RF",
+    "type": "BLK",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 8.4,
+    "element": [
+      "Fire",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Two single attacks (4.20 each), grants [Buff Fire 10% (15s)] to the user every 3n+2 uses, grants [Instant Cast 1] to the user every 3n+3 uses",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Black Magic",
+    "id": 31541349,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Dual Awoken Fire Mode Two (Ace)",
+    "name": "Dual Firaga SHG",
+    "type": "BLK",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 10.56,
+    "element": [
+      "Fire",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Eight single attacks (1.32 each)",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Black Magic",
+    "id": 31541350,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Dual Awoken Earth Mode Two (Machina)",
+    "name": "Dual Assault Rapier",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 2.88,
+    "element": [
+      "Earth",
+      "Dark",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Six single attacks (0.48 each), 100% hit rate",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Spellblade",
+    "id": 31541360,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Dual Awoken Sharpshooter Mode Two (Trey)",
+    "name": "Dual Arrow Force",
+    "type": "NAT",
+    "target": "Single enemy",
+    "formula": null,
+    "multiplier": null,
+    "element": null,
+    "time": 0.01,
+    "effects": "Causes [Imperil Fire 10% (15s)], [Imperil Water 10% (15s)] and [Imperil Ice 10% (15s)]",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Sharpshooter",
+    "id": 31541423,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Dual Awoken Sharpshooter Mode Two (Trey)",
+    "name": "Dual Tri-Shot",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 7.8,
+    "element": [
+      "Fire",
+      "Ice",
+      "Water",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Ten single ranged attacks (0.78 each), 100% hit rate",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Sharpshooter",
+    "id": 31541424,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Tri-Element Arrow Follow-Up",
+    "name": "Tri-Element Arrow",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 1.24,
+    "element": [
+      "Fire",
+      "Ice",
+      "Water",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Four single ranged attacks (0.31 each)",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Sharpshooter",
+    "id": 31541430,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Dual Awoken Samurai Mode Two (Jack)",
+    "name": "Dual Red Flame",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 8.9,
+    "element": [
+      "Fire",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Two single attacks (4.45 each), ignores DEF, grants [10% Damage Reduction Barrier 1] to the user",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Samurai",
+    "id": 31541488,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Dual Awoken Darkness Mode Two (Sice)",
+    "name": "Dual Nemesis Force",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 2.64,
+    "element": [
+      "Dark",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "One single attack (2.64) capped at 99999, 100% hit rate",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Darkness",
+    "id": 31541485,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Awoken Savage Heart",
+    "name": "Energy Bolt",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 4.32,
+    "element": [
+      "Lightning",
+      "Dark",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Six single attacks (0.72 each), 100% additional critical chance, 100% hit rate, grants [Buff Lightning 10% (15s)] to the user every second cast",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Spellblade",
+    "id": 31541528,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Siphon Aura Follow-Up",
+    "name": "Siphon Aura",
+    "type": "WHT",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 8.79,
+    "element": [
+      "Holy",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Three single attacks (2.93 each), grants [Buff Holy 10% (5s)] to the user every second cast",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "White Magic",
+    "id": 31541639,
     "gl": false
   },
   {
@@ -10115,8 +12527,8 @@
   },
   {
     "sourceType": "Follow-Up Status",
-    "source": "Wind Rhapsody Follow-Up",
-    "name": "Wind Rhapsody",
+    "source": "Fluttering Rhapsody Follow-Up",
+    "name": "Fluttering Rhapsody",
     "type": "BLK",
     "target": "Single enemy",
     "formula": "Magical",
@@ -10132,6 +12544,48 @@
     "sb": 0,
     "school": "Black Magic",
     "id": 31540783,
+    "gl": true
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Dual Awoken Wind Mode Two (Serafie)",
+    "name": "Mascot Guidance",
+    "type": "BLK",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 12.24,
+    "element": [
+      "Wind",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Four single attacks (3.06 each), grants [Wind Ability +30% Boost 1] to all allies",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Black Magic",
+    "id": 31541552,
+    "gl": false
+  },
+  {
+    "sourceType": "Follow-Up Status",
+    "source": "Fairy's Mischief Follow-Up",
+    "name": "Fairy's Mischief",
+    "type": "BLK",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 7.92,
+    "element": [
+      "Wind",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Six single attacks (1.32 each), causes [Imperil Wind 10% (15s)] every second use, grants [Wind Ability +30% Boost 1] to the user every second use",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Black Magic",
+    "id": 31541556,
     "gl": false
   },
   {
@@ -10234,6 +12688,27 @@
   },
   {
     "sourceType": "Finisher Status",
+    "source": "Shadow Dragon Summon Finisher",
+    "name": "Dark Fang",
+    "type": "BLK",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 8.16,
+    "element": [
+      "Dark",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Four single attacks (2.04 each), grants [Instant Cast 1] to the user, removes [Shadow Dragon Summon Mode] from the user",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Darkness",
+    "id": 31541413,
+    "gl": false
+  },
+  {
+    "sourceType": "Finisher Status",
     "source": "EX: Crystal Might",
     "name": "Spellblade Finish",
     "type": "PHY",
@@ -10249,6 +12724,45 @@
     "school": "Spellblade",
     "id": 30547119,
     "gl": true
+  },
+  {
+    "sourceType": "Finisher Status",
+    "source": "Dual Awoken Monk Mode Two (Tifa)",
+    "name": "Dual Zangan Blow",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 8,
+    "element": [
+      "Earth",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "One single attack (8.00) capped at 99999, 100% hit rate",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Monk",
+    "id": 31541541,
+    "gl": false
+  },
+  {
+    "sourceType": "Finisher Status",
+    "source": "Hot-Blooded Pilot Mode",
+    "name": "High Up",
+    "type": "NAT",
+    "target": "All allies",
+    "formula": null,
+    "multiplier": null,
+    "element": null,
+    "time": 0.01,
+    "effects": "Grants [Jump 50% Boost 1]/[Wind Ability +50% Boost 1] to all allies if 0-2/3+ FF7 allies are alive",
+    "counter": false,
+    "autoTarget": "All allies",
+    "sb": 0,
+    "school": "Dragoon",
+    "id": 31541707,
+    "gl": false
   },
   {
     "sourceType": "Finisher Status",
@@ -10475,7 +12989,7 @@
   },
   {
     "sourceType": "Finisher Status",
-    "source": "Legendary Mechanic Mode Finisher",
+    "source": "Legendary Engineer Mode Finisher",
     "name": "Volley Fire",
     "type": "PHY",
     "target": "Single enemy",
@@ -10489,12 +13003,34 @@
       "NE"
     ],
     "time": 0.01,
-    "effects": "One single ranged attack (3.37) capped at 99999, 100% hit rate, removes [Legendary Mechanic Mode] and [Legendary Mechanic Mode Finisher] from the user",
+    "effects": "One single ranged attack (3.37) capped at 99999, 100% hit rate, removes [Legendary Engineer Mode] and [Legendary Engineer Mode Finisher] from the user",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 0,
     "school": "Machinist",
     "id": 31540952,
+    "gl": true
+  },
+  {
+    "sourceType": "Finisher Status",
+    "source": "Dual Awoken Scion Red Mage Mode One (Alisaie)",
+    "name": "Dual Enchanted Riposte",
+    "type": "BLK",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 21.2,
+    "element": [
+      "Wind",
+      "Lightning",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Ten single attacks (0.01/2.12 each) if the user has Dual Black Mana level 0-3/4",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Black Magic",
+    "id": 31541680,
     "gl": false
   },
   {
@@ -10581,8 +13117,8 @@
   },
   {
     "sourceType": "Finisher Status",
-    "source": "Firearms Expert Mode",
-    "name": "Firearms Expert",
+    "source": "Dual Handgun Mode",
+    "name": "Sparked Munitions",
     "type": "PHY",
     "target": "Single enemy",
     "formula": "Physical",
@@ -10598,7 +13134,7 @@
     "sb": 0,
     "school": "Machinist",
     "id": 31540772,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "FInisher Status",
@@ -10621,6 +13157,27 @@
     "school": "Spellblade",
     "id": 30547216,
     "gl": true
+  },
+  {
+    "sourceType": "Periodic Status",
+    "source": "Shadow Dragon Summon Mode",
+    "name": "Black Fang",
+    "type": "BLK",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 8.16,
+    "element": [
+      "Dark",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Four single attacks (2.04 each)",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Darkness",
+    "id": 31541412,
+    "gl": false
   },
   {
     "sourceType": "Periodic Status",
@@ -10753,8 +13310,8 @@
   },
   {
     "sourceType": "Periodic Status",
-    "source": "Legendary Mechanic Mode",
-    "name": "Support Turret",
+    "source": "Legendary Engineer Mode",
+    "name": "Turret Cover Fire",
     "type": "PHY",
     "target": "Single enemy",
     "formula": "Physical",
@@ -10773,7 +13330,7 @@
     "sb": 0,
     "school": "Machinist",
     "id": 31540951,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Periodic Status",
@@ -13861,7 +16418,7 @@
     "sb": 0,
     "school": "Monk",
     "id": 31520051,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Legend Materia",
@@ -13882,7 +16439,7 @@
     "sb": 0,
     "school": "Monk",
     "id": 31520052,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Legend Materia",
@@ -14274,7 +16831,7 @@
   {
     "sourceType": "Legend Materia",
     "source": "Onslaught (Alisaie)",
-    "name": "Ambush",
+    "name": "Scatter",
     "type": "BLK",
     "target": "Single enemy",
     "formula": "Magical",
@@ -14291,7 +16848,7 @@
     "sb": 0,
     "school": "?",
     "id": null,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Legend Materia",
@@ -14319,7 +16876,7 @@
   {
     "sourceType": "Legend Materia",
     "source": "Onslaught (Aranea)",
-    "name": "Ambush",
+    "name": "Magitek Thrust",
     "type": "PHY",
     "target": "Single enemy",
     "formula": "Physical",
@@ -14336,7 +16893,7 @@
     "sb": 0,
     "school": "Dragoon",
     "id": 31520022,
-    "gl": false
+    "gl": true
   },
   {
     "sourceType": "Legend Materia",
@@ -14424,7 +16981,7 @@
   {
     "sourceType": "Legend Materia",
     "source": "Onslaught (King)",
-    "name": "Ambush",
+    "name": "Quadruple Shot",
     "type": "PHY",
     "target": "Single enemy",
     "formula": "Physical",
@@ -14439,6 +16996,28 @@
     "autoTarget": "Lowest HP% enemy",
     "sb": 0,
     "school": "?",
+    "id": null,
+    "gl": true
+  },
+  {
+    "sourceType": "Legend Materia",
+    "source": "Synergy (Machina)",
+    "name": "Focal Sword",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": null,
+    "element": [
+      "Earth",
+      "Dark",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Four single attacks (? each)",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "Spellblade",
     "id": null,
     "gl": false
   }

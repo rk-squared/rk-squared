@@ -229,6 +229,12 @@ export function describeCondition(condition: common.Condition, count?: number | 
         condition.realm + ' chars. alive',
         condition.plus,
       );
+    case 'attachElementInParty':
+      return formatCountCharacters(
+        condition.count,
+        condition.element + ' infused chars.',
+        condition.plus,
+      );
     case 'charactersAlive':
       return formatCountCharacters(condition.count, 'chars. alive');
     case 'alliesJump':

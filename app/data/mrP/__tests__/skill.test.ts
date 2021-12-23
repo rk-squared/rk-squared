@@ -302,26 +302,26 @@ describe('skill', () => {
       // Deviation: MrP omits "overstrike" for OSBs.  But, as overstrike
       // on non-OSBs becomes more common, it makes sense to be consistent.
       expect(describeSoulBreak('Cecil (Paladin) - Arc of Light')).toEqual({
-        damage: 'phys 12.0 holy+non rngd overstrike',
+        damage: 'phys 12.0 holy+non rngd w/ 99k cap',
       });
 
       // This also tests handling of fast soul breaks.
       expect(describeSoulBreak('Locke - Miracle of Kohlingen')).toEqual({
         fast: true,
-        damage: 'phys 10.0 fire+holy rngd overstrike',
+        damage: 'phys 10.0 fire+holy rngd w/ 99k cap',
         other: undefined,
       });
     });
 
     it('converts 20+1 Arcane Overstrikes', () => {
       expect(describeSoulBreak('Luneth - Storm of Blades')).toEqual({
-        damage: 'phys 11.0/20, then 8.0 overstrike, wind rngd',
+        damage: 'phys 11.0/20, then 8.0 w/ 99k cap, wind rngd',
       });
     });
 
     it('converts 3-hit Arcane Overstrikes', () => {
       expect(describeSoulBreak('Rinoa - Angel Wing Comet')).toEqual({
-        damage: 'magic 79.5/3 ice+earth overstrike',
+        damage: 'magic 79.5/3 ice+earth w/ 99k cap',
       });
     });
 
@@ -434,7 +434,7 @@ describe('skill', () => {
         damage: 'phys 7.0/10 earth+holy+non',
         other:
           'self 1.3-1.5-1.7x PHY dmg w/ 0-1-2 uses 15s, ' +
-          '15s: (earth/holy ⤇ p2.0 e+h+n overstrike Heavy)',
+          '15s: (earth/holy ⤇ p2.0 e+h+n w/ 99k cap Heavy)',
       });
 
       expect(describeSoulBreak('Zidane - Solution 9')).toEqual({
@@ -1082,7 +1082,7 @@ describe('skill', () => {
 
     it('converts HP thresholds', () => {
       expect(describeSoulBreak('Cecil (Dark Knight) - Evil Blade')).toEqual({
-        damage: 'phys 10.75 - 11.5 - 13.0 - 15.0 - 17.0 dark+non overstrike @ 80-50-20-6% HP',
+        damage: 'phys 10.75 - 11.5 - 13.0 - 15.0 - 17.0 dark+non w/ 99k cap @ 80-50-20-6% HP',
       });
       expect(describeSoulBreak('Locke - Burning Spirit')).toEqual({
         damage: 'phys 7.1/10 fire+non rngd',
@@ -1107,15 +1107,15 @@ describe('skill', () => {
     it('converts specialized thresholds', () => {
       expect(describeSoulBreak('Celes - Blade Unbound')).toEqual({
         damage:
-          'phys 11.0 - 12.0 - 13.0 - 14.0 holy+wind overstrike ' +
+          'phys 11.0 - 12.0 - 13.0 - 14.0 holy+wind w/ 99k cap ' +
           '@ 5-12-20 WHT/BLK/BLU/SUM hits taken',
       });
       expect(describeSoulBreak('Edgar - Armageddon Blast')).toEqual({
-        damage: 'AoE phys 8.6 - 9.6 - 10.6 - 11.6 bio+non rngd overstrike @ 0-1-2-3 statuses',
+        damage: 'AoE phys 8.6 - 9.6 - 10.6 - 11.6 bio+non rngd w/ 99k cap @ 0-1-2-3 statuses',
         other: '15% Petrify, Poison, Blind, Silence',
       });
       expect(describeSoulBreak('Firion - Rose of Rebellion')).toEqual({
-        damage: 'phys 11.25 - 12.5 - 13.75 holy+non overstrike @ 9-22 atks',
+        damage: 'phys 11.25 - 12.5 - 13.75 holy+non w/ 99k cap @ 9-22 atks',
       });
       expect(describeSoulBreak('Prishe - Nullifying Dropkick')).toEqual({
         damage: 'phys 7.44/8',
@@ -1146,7 +1146,7 @@ describe('skill', () => {
 
       expect(describeSoulBreak('Vaan - Blood-Red Spiral')).toEqual({
         damage:
-          'phys 11.0 - 11.5 - 12.0 - 12.5 - 13.0 - 14.0 rngd overstrike @ 1-2-3-4-5 stats lowered',
+          'phys 11.0 - 11.5 - 12.0 - 12.5 - 13.0 - 14.0 rngd w/ 99k cap @ 1-2-3-4-5 stats lowered',
       });
 
       expect(describeSoulBreak('Ricard - Highwind Secrets')).toEqual({
@@ -1171,7 +1171,7 @@ describe('skill', () => {
         other:
           'dark infuse 25s, self lose 99% curr HP, Negate dmg 100%, ' +
           'until Neg. Dmg. lost: dualcast Darkness, ' +
-          'Finisher: magic 11.8 - 20.5 - 34.6 dark+non overstrike Darkness @ 5-9 Darkness used',
+          'Finisher: magic 11.8 - 20.5 - 34.6 dark+non w/ 99k cap Darkness @ 5-9 Darkness used',
       });
 
       expect(describeSoulBreak('Maria - Magma XXXII')).toEqual({
@@ -1180,7 +1180,7 @@ describe('skill', () => {
       });
 
       expect(describeSoulBreak('Noctis - Armiger')).toEqual({
-        damage: 'phys 15.0 overstrike',
+        damage: 'phys 15.0 w/ 99k cap',
         other: 'self Negate dmg 30%, until Neg. Dmg. lost: +30% ATK, hi fastcast',
       });
 
@@ -1236,7 +1236,7 @@ describe('skill', () => {
       expect(describeSoulBreak('Cloud - Climirage')).toEqual({
         damage: 'phys 7.2/15 wind',
         other:
-          'wind infuse 25s, 15s: EX: +30% ATK, (wind ⤇ p1.6/4 or 3.2/8 wi+n overstrike Combat)',
+          'wind infuse 25s, 15s: EX: +30% ATK, (wind ⤇ p1.6/4 or 3.2/8 wi+n w/ 99k cap Combat)',
       });
 
       expect(describeSoulBreak('Agrias - Divine Devastation')).toEqual({
@@ -1292,14 +1292,14 @@ describe('skill', () => {
           'self +30% MAG/RES/MND 25s, +30% holy/dark dmg 15s, ' +
           '15s: (1/2/3+ W.Mag/Darkness ⤇ m5.2/4 d+h+n Darkness – ' +
           'm7.8/6 d+h+n Darkness, self heal 10% of dmg – ' +
-          'm20.2 d+h+n overstrike Darkness, self heal 10% of dmg)',
+          'm20.2 d+h+n w/ 99k cap Darkness, self heal 10% of dmg)',
       });
 
       expect(describeSoulBreak("Bartz - Crystals' Chosen")).toEqual({
         damage: 'phys 6.9/10 wind+water+fire+earth',
         other:
           '15s: EX: (0-8 wind/water/fire/earth ⤇ 1.3-1.35-1.4-1.45-1.5-1.55-1.6-1.65-1.7x Spellblade dmg), ' +
-          'Finisher: phys 35% Spellblade overstrike Spellblade',
+          'Finisher: phys 35% Spellblade w/ 99k cap Spellblade',
       });
     });
 
@@ -1330,17 +1330,17 @@ describe('skill', () => {
                                                                       "school": "Spellblade",
                                                                     },
                                                                     Object {
-                                                                      "damage": "p3.2 i+f overstrike",
+                                                                      "damage": "p3.2 i+f w/ 99k cap",
                                                                       "other": undefined,
                                                                       "school": "Spellblade",
                                                                     },
                                                                     Object {
-                                                                      "damage": "p6.4 i+f overstrike",
+                                                                      "damage": "p6.4 i+f w/ 99k cap",
                                                                       "other": undefined,
                                                                       "school": "Spellblade",
                                                                     },
                                                                     Object {
-                                                                      "damage": "p10.0 i+f overstrike",
+                                                                      "damage": "p10.0 i+f w/ 99k cap",
                                                                       "other": undefined,
                                                                       "school": "Spellblade",
                                                                     },
@@ -1370,20 +1370,20 @@ describe('skill', () => {
       expect(describeSoulBreak('Auron - Lost Arts')).toEqual({
         damage: 'phys 7.1/10 fire+non',
         other:
-          'fire infuse 25s, 15s: Finisher: phys 35% fire overstrike Samurai, ' +
+          'fire infuse 25s, 15s: Finisher: phys 35% fire w/ 99k cap Samurai, ' +
           '15s: (Samurai ⤇ crit =30-50-75%, 2-2.5-3x cast)',
       });
       expect(describeSoulBreak('Sice - Dark Nebula')).toEqual({
         damage: 'phys 7.1/10 dark+non',
         other:
-          'dark infuse 25s, 15s: Finisher: phys 35% dark overstrike Darkness, ' +
+          'dark infuse 25s, 15s: Finisher: phys 35% dark w/ 99k cap Darkness, ' +
           '15s: (Darkness ⤇ crit =30-50-75%, 2-2.5-3x cast)',
       });
       expect(describeSoulBreak('Hope - Reflecting Arc')).toEqual({
         damage: 'magic 17.3/10 holy (SUM)',
         other:
           'party Reflect Dmg 75% as holy 30s, ' +
-          '15s: Finisher: magic 11.8 - 20.5 - 34.6 holy+non overstrike Summon @ 3-6 holy used, ' +
+          '15s: Finisher: magic 11.8 - 20.5 - 34.6 holy+non w/ 99k cap Summon @ 3-6 holy used, ' +
           'self refill 0-1-2 abil. use, ' +
           '(holy ⤇ 2-2.5-3x zap)',
       });
@@ -1587,6 +1587,11 @@ describe('skill', () => {
         chain: 'Type-0 chain 1.5x (max 150)',
         other: 'party Haste, +30% ATK/MAG 25s',
       });
+      // Dr. Mog has a non-standard realm in the chain description.
+      expect(describeSoulBreak('Dr. Mog - Our Historia')).toEqual({
+        chain: 'Core/Beyond chain 1.5x (max 150)',
+        other: 'party Haste, +30% ATK/MAG 25s',
+      });
     });
 
     it('converts status ailments', () => {
@@ -1643,7 +1648,7 @@ describe('skill', () => {
       });
 
       expect(describeSoulBreak('Luneth - Heavenly Gust')).toEqual({
-        damage: 'phys 11.2 wind+non jump overstrike, up to p14.5 w/ wind atks used',
+        damage: 'phys 11.2 wind+non jump w/ 99k cap, up to p14.5 w/ wind atks used',
       });
       expect(describeSoulBreak('Paine - Grand Storm')).toEqual({
         damage: 'AoE phys 5.4/6 water+earth+wind, up to p6.6 w/ Spellblade used',
@@ -1660,17 +1665,17 @@ describe('skill', () => {
         ],
       });
       expect(describeSoulBreak('Jecht - Blitz King')).toEqual({
-        damage: 'phys 11.7 dark+fire rngd overstrike, up to p13.0 @ 6 SB bars',
+        damage: 'phys 11.7 dark+fire rngd w/ 99k cap, up to p13.0 @ 6 SB bars',
       });
 
       expect(describeSoulBreak('Cid Raines - Shattered Dreams')).toEqual({
-        damage: 'magic 37.39 dark+holy overstrike, up to m48.0 at low Doom time, default m37.0',
+        damage: 'magic 37.39 dark+holy w/ 99k cap, up to m48.0 at low Doom time, default m37.0',
       });
       expect(describeSoulBreak('Gladiolus - Dawnhammer')).toEqual({
-        damage: 'phys 11.44 earth+non overstrike, up to p12.93 w/ hits taken',
+        damage: 'phys 11.44 earth+non w/ 99k cap, up to p12.93 w/ hits taken',
       });
       expect(describeSoulBreak('Lightning - Thunderfall')).toEqual({
-        damage: 'phys 11.25 - 12.0 - 12.75 - 13.5 lgt+non overstrike w/ 0-1-2-3 uses',
+        damage: 'phys 11.25 - 12.0 - 12.75 - 13.5 lgt+non w/ 99k cap w/ 0-1-2-3 uses',
         other: undefined,
       });
       expect(describeSoulBreak('Cloud - Cloud Cycle')).toEqual({
@@ -1742,10 +1747,10 @@ describe('skill', () => {
         ],
       });
       expect(describeSoulBreak('Zidane - Meo Twister')).toEqual({
-        damage: 'phys 11.8 wind+non overstrike, or p12.8 if ≥4 females in party',
+        damage: 'phys 11.8 wind+non w/ 99k cap, or p12.8 if ≥4 females in party',
       });
       expect(describeSoulBreak('Steiner - Imbued Blade')).toEqual({
-        damage: 'phys 10.5 fire+lgt+ice overstrike, or p13.0 vs. weak',
+        damage: 'phys 10.5 fire+lgt+ice w/ 99k cap, or p13.0 vs. weak',
       });
       expect(describeSoulBreak('Matoya - Inner Eye')).toEqual({
         damage: 'magic 16.0/8 fire+ice+lgt, or m20.0/10 vs. weak',
@@ -1777,7 +1782,7 @@ describe('skill', () => {
         ],
       });
       expect(describeSoulBreak('Lann - Mega Mirage Zantetsuken')).toEqual({
-        damage: 'phys 12.6 overstrike, or p13.6 if Reynn alive',
+        damage: 'phys 12.6 w/ 99k cap, or p13.6 if Reynn alive',
         other: '60% KO',
       });
 
@@ -1862,21 +1867,21 @@ describe('skill', () => {
             school: 'Samurai',
           },
           {
-            damage: 'p3.15 h+i+f overstrike',
+            damage: 'p3.15 h+i+f w/ 99k cap',
             school: 'Samurai',
           },
           {
-            damage: 'p6.3 h+i+f overstrike',
+            damage: 'p6.3 h+i+f w/ 99k cap',
             school: 'Samurai',
           },
           {
-            damage: 'p9.85 h+i+f overstrike',
+            damage: 'p9.85 h+i+f w/ 99k cap',
             school: 'Samurai',
           },
         ],
       });
       expect(formatBraveCommands(attack.braveCommands!)).toEqual(
-        'p1.9 – 3.15 – 6.3 – 9.85 h+i+f, overstrike at brv.1+',
+        'p1.9 – 3.15 – 6.3 – 9.85 h+i+f, 99k cap at brv.1+',
       );
 
       const summon = describeSoulBreak('Alphinaud - Garuda Exoburst');
@@ -2019,24 +2024,24 @@ describe('skill', () => {
             school: 'Darkness',
           },
           {
-            damage: 'p3.85 d overstrike',
+            damage: 'p3.85 d w/ 99k cap',
             other: '-30% DEF 15s, self lose 25% max HP',
             school: 'Darkness',
           },
           {
-            damage: 'p7.7 d overstrike',
+            damage: 'p7.7 d w/ 99k cap',
             other: '-30% DEF 15s, self lose 25% max HP',
             school: 'Darkness',
           },
           {
-            damage: 'p12.0 d overstrike',
+            damage: 'p12.0 d w/ 99k cap',
             other: '-70% DEF/RES 8s, self lose 25% max HP',
             school: 'Darkness',
           },
         ],
       });
       expect(formatBraveCommands(darkKnight.braveCommands!)).toEqual(
-        'p1.92 – 3.85 – 7.7 – 12.0 d, overstrike at brv.1+, ' +
+        'p1.92 – 3.85 – 7.7 – 12.0 d, 99k cap at brv.1+, ' +
           '-30% DEF 15s – -30% DEF 15s – -70% DEF/RES 8s & self lose 25% max HP at brv.1+',
       );
 
@@ -2052,24 +2057,24 @@ describe('skill', () => {
             schoolDetails: ['Combat', 'Black Magic'],
           },
           {
-            damage: 'p3.25 or m12.0 l rngd overstrike',
+            damage: 'p3.25 or m12.0 l rngd w/ 99k cap',
             school: 'Special',
             schoolDetails: ['Combat', 'Black Magic'],
           },
           {
-            damage: 'p6.5 or m20.8 l rngd overstrike',
+            damage: 'p6.5 or m20.8 l rngd w/ 99k cap',
             school: 'Special',
             schoolDetails: ['Combat', 'Black Magic'],
           },
           {
-            damage: 'p10.15 or m35.0 l rngd overstrike',
+            damage: 'p10.15 or m35.0 l rngd w/ 99k cap',
             school: 'Special',
             schoolDetails: ['Combat', 'Black Magic'],
           },
         ],
       });
       expect(formatBraveCommands(hybrid.braveCommands!)).toEqual(
-        'p1.92 – 3.25 – 6.5 – 10.15 or m7.92 – 12.0 – 20.8 – 35.0 l rngd, overstrike at brv.1+',
+        'p1.92 – 3.25 – 6.5 – 10.15 or m7.92 – 12.0 – 20.8 – 35.0 l rngd, 99k cap at brv.1+',
       );
 
       const finalEffect = describeSoulBreak('Kuja - Chaotic Rhapsody');
@@ -2083,22 +2088,22 @@ describe('skill', () => {
             school: 'Darkness',
           },
           {
-            damage: 'm12.0 d overstrike',
+            damage: 'm12.0 d w/ 99k cap',
             school: 'Darkness',
           },
           {
-            damage: 'm20.8 d overstrike',
+            damage: 'm20.8 d w/ 99k cap',
             school: 'Darkness',
           },
           {
-            damage: 'm35.0 d overstrike',
+            damage: 'm35.0 d w/ 99k cap',
             other: 'self Reraise 40%',
             school: 'Darkness',
           },
         ],
       });
       expect(formatBraveCommands(finalEffect.braveCommands!)).toEqual(
-        'm7.92 – 12.0 – 20.8 – 35.0 d, overstrike at brv.1+, self Reraise 40% at brv.3',
+        'm7.92 – 12.0 – 20.8 – 35.0 d, 99k cap at brv.1+, self Reraise 40% at brv.3',
       );
 
       const mimic = describeSoulBreak('Gogo (VI) - Righteous Mimicry');
@@ -2148,7 +2153,7 @@ describe('skill', () => {
         other:
           'self crit =100% 25s, dmg cap +10k 15s, ' +
           '15s: hi fastcast, ' +
-          'Finisher: phys 3.1 - 6.2 - 9.7 fire+earth+lgt+non overstrike Combat @ 0-7-11 fire/earth/lgt used, ' +
+          'Finisher: phys 3.1 - 6.2 - 9.7 fire+earth+lgt+non w/ 99k cap Combat @ 0-7-11 fire/earth/lgt used, ' +
           '15s: Awoken Lucian King: fire/earth/lgt inf. hones, up to 1.3x dmg @ rank 5, 100% dualcast',
       });
 
@@ -2158,7 +2163,7 @@ describe('skill', () => {
         damage: 'phys 9.0/15 fire+non',
         other:
           'fire infuse 25s, self dmg cap +10k 15s, ' +
-          '15s: (3 Samurai ⤇ p5.28 f+n overstrike Samurai, -70% DEF/RES/MND 8s), ' +
+          '15s: (3 Samurai ⤇ p5.28 f+n w/ 99k cap Samurai, -70% DEF/RES/MND 8s), ' +
           '15s: Awoken Samurai: Samurai inf. hones, up to 1.3x dmg @ rank 5, 100% dualcast',
       });
 
@@ -2181,7 +2186,7 @@ describe('skill', () => {
         damage: 'phys 9.0/15 lgt+non jump',
         other:
           'lgt infuse 25s, self dmg cap +20k 15s, ' +
-          '15s: (3 Dragoon ⤇ p5.2 l+wi+n rngd overstrike Dragoon), ' +
+          '15s: (3 Dragoon ⤇ p5.2 l+wi+n rngd w/ 99k cap Dragoon), ' +
           '15s: Awoken Dragoon: Dragoon inf. hones, up to 1.3x dmg @ rank 5, jump instacast',
       });
 
@@ -2257,7 +2262,7 @@ describe('skill', () => {
         damage: 'phys 9.0/15 ice+non',
         other:
           'ice infuse 25s, self dmg cap +10k 15s, fastcast 15s, ' +
-          'Finisher: phys 9.6/10 ice+non Spellblade @ +10 - 30 - 50% crit @ 0-5-9 ice used, then phys 6.4 ice+non overstrike Spellblade @ 9 ice used, ' +
+          'Finisher: phys 9.6/10 ice+non Spellblade @ +10 - 30 - 50% crit @ 0-5-9 ice used, then phys 6.4 ice+non w/ 99k cap Spellblade @ 9 ice used, ' +
           '15s: Awoken Ice: ice inf. hones, up to 1.3x dmg @ rank 5, 100% dualcast',
       });
 
@@ -2266,7 +2271,7 @@ describe('skill', () => {
         other:
           'earth infuse 25s, self 1.3x PHY dmg 15s, dmg cap +10k 15s, ' +
           '15s: (3 earth ⤇ p1.56/3 - 2.6/5 - 2.6/5 e+n Knight @ 0-72k-240k dmg dealt, ' +
-          'then p5.0/10, then 5.0 overstrike, e+n Knight @ 240k dmg dealt (once only)), ' +
+          'then p5.0/10, then 5.0 w/ 99k cap, e+n Knight @ 240k dmg dealt (once only)), ' +
           '15s: Awoken Earth: earth inf. hones, up to 1.3x dmg @ rank 5, 100% dualcast',
       });
 
@@ -2325,7 +2330,7 @@ describe('skill', () => {
         other:
           'earth infuse 25s, self dmg cap +10k 15s, fastcast 15s, ' +
           '15s: (3 earth ⤇ m3.6/3 - 6.0/5 - 18.0/15 e+h+n B.Mag @ 0-72k-240k earth dmg dealt, ' +
-          'then m17.3 e+h+n overstrike B.Mag @ 240k earth dmg dealt, once only), ' +
+          'then m17.3 e+h+n w/ 99k cap B.Mag @ 240k earth dmg dealt, once only), ' +
           '15s: Awoken Earth: earth inf. hones, up to 1.3x dmg @ rank 5, 100% dualcast',
       });
 
@@ -2334,7 +2339,7 @@ describe('skill', () => {
         other:
           'earth infuse 25s, self dmg cap +10k 15s, ' +
           'Reflect Dmg 75% as overstrike earth 30s, ' +
-          '15s: (4 earth ⤇ p5.2 e+d+n overstrike Spellblade, self instacast 1), ' +
+          '15s: (4 earth ⤇ p5.2 e+d+n w/ 99k cap Spellblade, self instacast 1), ' +
           '15s: (1/2/3+ earth ⤇ Reflect Dmg 125/200/300% as overstrike earth 30s), ' +
           '15s: Awoken Earth: earth inf. hones, up to 1.3x dmg @ rank 5, 100% dualcast',
       });
@@ -2433,7 +2438,7 @@ describe('skill', () => {
         other:
           'fire infuse 25s, self dmg cap +10k 15s, ' +
           '15s: (0/1/2 Samurai ⤇ 1.15-1.3-1.5x Samurai dmg), ' +
-          '(4 Samurai ⤇ p6.9 - 6.9 - 7.0/2 f+n overstrike Samurai @ +0 - 50 - 100% crit ' +
+          '(4 Samurai ⤇ p6.9 - 6.9 - 7.0/2 f+n w/ 99k cap Samurai @ +0 - 50 - 100% crit ' +
           '@ 0-500-1000 SB pts, remove mode), ' +
           '15s: Awoken Samurai: Samurai inf. hones, up to 1.3x dmg @ rank 5, 100% dualcast',
       });
@@ -2620,7 +2625,7 @@ describe('skill', () => {
     it('handles Doom', () => {
       // See also Doom under scaling attacks.
       expect(describeSoulBreak('Kuja - Final Requiem')).toEqual({
-        damage: 'magic 38.0 dark+non overstrike, or m44.0 if Doomed',
+        damage: 'magic 38.0 dark+non w/ 99k cap, or m44.0 if Doomed',
       });
       expect(describeSoulBreak('Cid Raines - True Miracle')).toEqual({
         damage: 'magic 16.2/10 dark+holy, or m18.7/10 if Doomed',
@@ -2685,7 +2690,7 @@ describe('skill', () => {
         damage: 'phys 7.1/10 dark+non',
         other:
           'dark infuse 25s, self +1 to all Hvy Charge gains 15s, ' +
-          '15s: (dark ⤇ p1.6/4 d+n overstrike Heavy)',
+          '15s: (dark ⤇ p1.6/4 d+n w/ 99k cap Heavy)',
       });
       expect(describeSoulBreak('Gladiolus - Double Charging...')).toEqual({
         instant: true,
@@ -2793,11 +2798,11 @@ describe('skill', () => {
         damage: 'p?/15 or m?/15 fire+wind+non rngd',
         other:
           'fire infuse 25s, self dmg cap +10k 15s, ' +
-          '15s: (3 fire ⤇ p4.24 or m15.35 f+wi+n rngd overstrike), ' +
+          '15s: (3 fire ⤇ p4.24 or m15.35 f+wi+n rngd w/ 99k cap), ' +
           '15s: Awoken Fire: fire inf. hones, up to 1.3x dmg @ rank 5, 100% dualcast',
       });
       expect(convertEnlirSkillToMrP(unknownSoulBreaks[1])).toEqual({
-        damage: 'p?/3 or m?/3 fire+wind overstrike',
+        damage: 'p?/3 or m?/3 fire+wind w/ 99k cap',
       });
       expect(convertEnlirSkillToMrP(unknownSoulBreaks[2])).toEqual({
         damage: 'p?/10 or m?/10 rngd',

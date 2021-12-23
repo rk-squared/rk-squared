@@ -655,7 +655,7 @@ DispelOrEsuna
   }
 
 Mimic
-  = "casts"i _ "the last ability used by an ally" _ occurrence:Occurrence? {
+  = "casts"i _ "the last ability used by any ally" _ occurrence:Occurrence? {
     return {
       type: 'mimic',
       count: occurrence,
