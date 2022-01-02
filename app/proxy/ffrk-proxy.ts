@@ -22,14 +22,14 @@ const transformerProxy = require('transformer-proxy');
 
 import battle from './battle';
 import characters from './characters';
-import { StartupHandler } from './common';
+import { StartupHandler, HandlerFunction } from './common';
 import dungeons from './dungeons';
 import dungeonScores from './dungeonScores';
 import itemUpdates from './itemUpdates';
 import labyrinth from './labyrinth';
 import recordMateria from './recordMateria';
 import relicDraws from './relicDraws';
-import { sessionHandler } from './session';
+import { checkSessionUrl, sessionHandler } from './session';
 
 import { showMessage } from '../actions/messages';
 import { updateLastTraffic, updateProxyStatus } from '../actions/proxy';
@@ -176,6 +176,7 @@ function checkHandlers(
   res: http.ServerResponse,
   store: Store<IState>,
   fragments?: string[],
+  targetHandlers?: HandlerFunction[]
 ) {
   const reqUrl = url.parse(req.url as string);
   const reqQuery = reqUrl.query ? querystring.parse(reqUrl.query) : undefined;
@@ -185,19 +186,20 @@ function checkHandlers(
   }
 
   let changed = false;
-  for (const handler of handlers) {
-    for (const fragment of fragments) {
-      if (handler[fragment]) {
-        const newData = handler[fragment](data, store, {
-          query: reqQuery,
-          body: reqBody,
-          url: reqUrl,
-        });
-        if (newData !== undefined) {
-          changed = true;
-          data = newData;
-        }
-        break;
+  if (targetHandlers == null) {
+    targetHandlers = getHandlerFunctions(fragments);
+  }
+
+  if (targetHandlers) {
+    for (const targetHandler of targetHandlers) {
+      const newData = targetHandler(data, store, {
+        query: reqQuery,
+        body: reqBody,
+        url: reqUrl,
+      });
+      if (newData !== undefined) {
+        changed = true;
+        data = newData;
       }
     }
   }
@@ -211,6 +213,17 @@ function handleFfrkApiRequest(
   store: Store<IState>,
 ) {
   try {
+    const reqUrl = url.parse(req.url as string);
+    const fragments = getFragmentsToCheck(reqUrl);
+    const handlerFunctions = getHandlerFunctions(fragments);
+    const isSessionUrl = checkSessionUrl(req);
+    const saveTraffic = store.getState().options.saveTrafficCaptures;
+    if (!(isSessionUrl || handlerFunctions) && !saveTraffic) {
+      sessionHandler({}, req, res, store);
+      logger.debug(`Skip ${req.url} with not session and handler`);
+      return data;
+    }
+
     let decoded = decodeData(data, res).toString();
     if (decoded.charCodeAt(0) === UTF8_BOM) {
       decoded = decoded.substr(1);
@@ -219,7 +232,7 @@ function handleFfrkApiRequest(
 
     checkRequestBody(req);
 
-    if (store.getState().options.saveTrafficCaptures) {
+    if (saveTraffic) {
       recordCapturedData(decoded, req, res)
         .catch((err) => logger.error(`Failed to save data capture: ${err}`))
         .then((filename) => logger.debug(`Saved to ${filename}`));
@@ -227,7 +240,7 @@ function handleFfrkApiRequest(
 
     sessionHandler(decoded, req, res, store);
 
-    const newData = checkHandlers(decoded, req, res, store);
+    const newData = checkHandlers(decoded, req, res, store, fragments, handlerFunctions);
     if (newData !== undefined) {
       data = encodeData(String.fromCharCode(UTF8_BOM) + JSON.stringify(newData), res);
     }
@@ -235,6 +248,22 @@ function handleFfrkApiRequest(
     logException(e);
   }
   return data;
+}
+
+function getHandlerFunctions(fragments: string[]) {
+  const handlerList: HandlerFunction[] = [];
+  for (const handler of handlers) {
+    for (const fragment of fragments) {
+      if (handler[fragment]) {
+        handlerList.push(handler[fragment]);
+        break;
+      }
+    }
+  }
+  if (handlerList.length > 0) {
+    return handlerList;
+  }
+  return undefined;
 }
 
 function handleFfrkStartupRequest(

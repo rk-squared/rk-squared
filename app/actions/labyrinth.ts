@@ -8,13 +8,22 @@ export interface LabyrinthCombat {
   imageUrl?: string; // A full URL
   message: string;
   tips: BattleTips[];
+  dungeonId: number;
 }
 
 export interface LabyrinthPainting {
   id: DisplayPaintingId;
+  type: number;
+  displayType?: number;
   name: string;
   number: number;
   combat?: LabyrinthCombat;
+  special: boolean;
+}
+
+export interface LabyrinthParty {
+  no: number;
+  buddies: number[];
 }
 
 export const setLabyrinthCombat = createAction(
@@ -40,9 +49,37 @@ export const clearLabyrinthChests = createAction('CLEAR_LABYRINTH_CHESTS', () =>
 
 export const setLabyrinthPaintings = createAction(
   'SET_LABYRINTH_PAINTINGS',
-  (paintings: LabyrinthPainting[], remaining: number) => ({
+  (paintings: LabyrinthPainting[], remaining: number, floor: number) => ({
     type: 'SET_LABYRINTH_PAINTINGS',
-    payload: { paintings, remaining },
+    payload: { paintings, remaining, floor },
+  }),
+);
+
+export const setLabyrinthParties = createAction(
+  'SET_LABYRINTH_PARTIES',
+  (parties: LabyrinthParty[]) => ({
+    type: 'SET_LABYRINTH_PARTIES',
+    payload: parties,
+  }),
+);
+
+export const setLabyrinthPartyFatigues = createAction(
+  'SET_LABYRINTH_PARTY_FATIGUES',
+  (fatigues: Record<string, number>) => ({
+    type: 'SET_LABYRINTH_PARTY_FATIGUES',
+    payload: fatigues,
+  }),
+);
+
+export const clearLabyrinthPartyFatigues = createAction('CLEAR_LABYRINTH_PARTY_FATIGUES', () => ({
+  type: 'CLEAR_LABYRINTH_PARTY_FATIGUES',
+}));
+
+export const setLabyrinthDungeon = createAction(
+  'SET_LABYRINTH_DUNGEON',
+  (dungeonId: number) => ({
+    type: 'SET_LABYRINTH_DUNGEON',
+    payload: dungeonId,
   }),
 );
 
@@ -52,4 +89,8 @@ export type LabyrinthAction = ReturnType<
   | typeof setLabyrinthChests
   | typeof clearLabyrinthChests
   | typeof setLabyrinthPaintings
+  | typeof setLabyrinthParties
+  | typeof setLabyrinthDungeon
+  | typeof setLabyrinthPartyFatigues
+  | typeof clearLabyrinthPartyFatigues
 >;
