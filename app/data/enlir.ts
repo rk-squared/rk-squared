@@ -552,6 +552,10 @@ interface CharacterMap<T> {
   [character: string]: T[];
 }
 
+interface SourceMultimap<T> {
+  [source: string]: T[];
+}
+
 interface Command extends EnlirGenericSkill {
   character: string;
   source: string;
@@ -572,6 +576,14 @@ function makeIdMultimap<T extends { id: number }>(items: T[]): IdMultimap<T> {
   for (const i of items) {
     result[i.id] = result[i.id] || [];
     result[i.id].push(i);
+  }
+  return result;
+}
+function makeSourceMultimap<T extends { source : string }>(items: T[]): SourceMultimap<T> {
+  const result: SourceMultimap<T> = {};
+  for (const i of items) {
+    result[i.source] = result[i.source] || [];
+    result[i.source].push(i);
   }
   return result;
 }
@@ -720,6 +732,7 @@ export const enlir = {
   otherSkills: rawData.otherSkills,
   otherSkillsByName: _.keyBy(rawData.otherSkills, 'name'),
   otherSkillsBySource: _.keyBy(rawData.otherSkills, (i) => otherSkillSourceKey(i.source, i.name)),
+  otherSkillsBySourceOnly: makeSourceMultimap(rawData.otherSkills),
 
   relics: _.keyBy(rawData.relics, 'id'),
   relicsByNameWithRealm: _.keyBy(rawData.relics, (i) => i.name + ' (' + i.realm + ')'),
@@ -731,6 +744,7 @@ export const enlir = {
     (i: EnlirSoulBreak) => soulBreakTierOrder[i.tier],
     (i: EnlirSoulBreak) => i.sortOrder,
   ]),
+  soulBreaksByName: _.keyBy(rawData.soulBreaks, 'name'),
 
   allSoulBreaks: rawData.soulBreaks,
   // Two part sould breaks result in two entries with the same ID.  The second
@@ -1727,6 +1741,10 @@ export function isPart2SoulBreak(sb: EnlirSoulBreak): boolean {
   return (isArcaneDyad(sb) && sb.points !== 0) || (isDualAwakening(sb) && sb.points === 0);
 }
 
+export function getDualShiftForDualAwakening(dualWoke: EnlirSoulBreak): EnlirSoulBreak {
+  return enlir.soulBreaksByName[dualWoke.name + ' (Dual Shift)'];
+}
+
 /**
  * Some of our status-handling code is flexible enough to handle legend materia
  * effects as well.  This function helps implement that.
@@ -1766,6 +1784,12 @@ export function stringifyStatus(status: EnlirStatus) {
 
 export function stringifySkill(skill: EnlirSkill) {
   const effects:string = describeStatuses(getEffects(skill), true);  
+  const otherSkills:EnlirOtherSkill[] = enlir.otherSkillsBySourceOnly[skill.name];
+  if (otherSkills) {
+    otherSkills.forEach((otherSkill:EnlirOtherSkill) => {
+      effects.replace(otherSkill.name, '['+otherSkill.name+': ' +getEffects(otherSkill)+']');
+    })
+  }
   const modifiers:string = (skill.formula ? 'Type: ' + skill.formula + ', ': '') +
     ('school' in skill ? 'School: ' + skill.school + ', ' : '') +
     (skill.element ? 'Element: (' + skill.element + '), ': '') + 

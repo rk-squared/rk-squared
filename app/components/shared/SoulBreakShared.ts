@@ -19,9 +19,10 @@ import {
   isArcaneDyad,
   isSoulBreak2,
   isDualAwakening,
+  EnlirSoulBreak,
 } from '../../data/enlir';
 import { formatBraveCommands } from '../../data/mrP/brave';
-import { formatMrPSkill, MrPSkill } from '../../data/mrP/skill';
+import { convertEnlirSkillToMrP, formatMrPSkill, MrPSkill } from '../../data/mrP/skill';
 import {
   formatSchoolOrAbilityList,
   getSchoolShortName,
@@ -133,6 +134,17 @@ export function getBurstColumns(burstCommands: MrPSkill[]): Array<[string, strin
         formatMrPSkill(cmd),
       ] as [string, string],
   );
+}
+
+export function getDualWokeColumns(dualShift:EnlirSoulBreak): [string, string] {  
+  const mrP:MrPSkill = convertEnlirSkillToMrP(dualShift)
+  if (!mrP) {
+    return ['After Dual Shift:', '?'];
+  }
+  return [
+    'After Dual Shift:',    
+    formatMrPSkill(mrP),
+  ];
 }
 
 export function getSynchroColumns(
