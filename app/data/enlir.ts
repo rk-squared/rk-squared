@@ -226,6 +226,8 @@ export type EnlirSoulBreakTier =
   | 'Glint+'
   | 'SASB'
   | 'ADSB'
+  | 'DASB'
+  | 'CSB+'
   | 'RW'
   | 'Shared';
 
@@ -509,6 +511,8 @@ export const soulBreakTierOrder: { [t in EnlirSoulBreakTier]: number } = {
   SASB: 10,
   ADSB: 11,
   CSB: 12,
+  'CSB+': 13,
+  DASB: 14,
   RW: 100,
   Shared: 101,
 };
@@ -548,6 +552,10 @@ interface CharacterMap<T> {
   [character: string]: T[];
 }
 
+interface SourceMultimap<T> {
+  [source: string]: T[];
+}
+
 interface Command extends EnlirGenericSkill {
   character: string;
   source: string;
@@ -568,6 +576,14 @@ function makeIdMultimap<T extends { id: number }>(items: T[]): IdMultimap<T> {
   for (const i of items) {
     result[i.id] = result[i.id] || [];
     result[i.id].push(i);
+  }
+  return result;
+}
+function makeSourceMultimap<T extends { source : string }>(items: T[]): SourceMultimap<T> {
+  const result: SourceMultimap<T> = {};
+  for (const i of items) {
+    result[i.source] = result[i.source] || [];
+    result[i.source].push(i);
   }
   return result;
 }
@@ -716,6 +732,7 @@ export const enlir = {
   otherSkills: rawData.otherSkills,
   otherSkillsByName: _.keyBy(rawData.otherSkills, 'name'),
   otherSkillsBySource: _.keyBy(rawData.otherSkills, (i) => otherSkillSourceKey(i.source, i.name)),
+  otherSkillsBySourceOnly: makeSourceMultimap(rawData.otherSkills),
 
   relics: _.keyBy(rawData.relics, 'id'),
   relicsByNameWithRealm: _.keyBy(rawData.relics, (i) => i.name + ' (' + i.realm + ')'),
@@ -727,11 +744,12 @@ export const enlir = {
     (i: EnlirSoulBreak) => soulBreakTierOrder[i.tier],
     (i: EnlirSoulBreak) => i.sortOrder,
   ]),
+  soulBreaksByName: _.keyBy(rawData.soulBreaks, 'name'),
 
   allSoulBreaks: rawData.soulBreaks,
-  // True Arcane Soul Breaks result in two entries with the same ID.  The second
+  // Two part sould breaks result in two entries with the same ID.  The second
   // activation will be under soulBreaks; add the first activation here.
-  trueArcane1stSoulBreaks: _.keyBy(rawData.soulBreaks.filter(isArcaneDyad1st), 'id'),
+  trueArcane1stSoulBreaks: _.keyBy(rawData.soulBreaks.filter(isPart1SoulBreak), 'id'),
 
   status: _.keyBy(rawData.status, 'id'),
   statusByName: _.keyBy(rawData.status, 'name'),
@@ -959,10 +977,10 @@ function patchEnlir() {
   );
   applyEffectsPatch(
     enlir.statusByName,
-    'Mimic Hero Mode', // Match 'Mimic attacks' from, e.g., legend materia
-    'Mimicked abilities deal 50% more damage, casts the last ability used by an ally when any Damage Reduction Barrier is removed, ' +
+    'Mimicked Salvation Mode', // Match 'Mimic attacks' from, e.g., legend materia
+    'Mimicked abilities deal 50% more damage, casts the last ability used by any ally when any Damage Reduction Barrier is removed, ' +
       'grants [40% Damage Reduction Barrier 1] to user when any Damage Reduction Barrier is removed, removed after triggering three times',
-    'Mimic attacks deal 50% more damage, casts the last ability used by an ally when any Damage Reduction Barrier is removed, ' +
+    'Mimic attacks deal 50% more damage, casts the last ability used by any ally when any Damage Reduction Barrier is removed, ' +
       'grants [40% Damage Reduction Barrier 1] to user when any Damage Reduction Barrier is removed, removed after triggering three times',
   );
 
@@ -987,16 +1005,6 @@ function patchEnlir() {
     '201020901',
     'Causes [Doom: 15], restores HP to all allies for 55% max HP and grants [Last Stand] to all allies when HP fall below 20%',
     'Causes [Doom: 15] to the user and restores HP to all allies for 55% of their max HP and grants [Last Stand] to all allies when HP fall below 20%',
-  );
-  // More consistent syntax for hybrid and ether.  I have not confirmed that
-  // this actually is smart ether.
-  applyEffectPatch(
-    enlir.legendMateria,
-    '201030205',
-    '35% chance to cast an ability (SUM/WHT: single, 3x 2.81/2.98 magical Water/Holy/NE, summoning ether 1 to the user) ' +
-      'after dealing damage with a Water or Holy ability',
-    '35% chance to cast an ability (SUM/WHT: single, hybrid 3x 2.81 or 2.98 magical Water/Holy/NE, Summoning smart ether 1 to the user) ' +
-      'after dealing damage with a Water or Holy ability',
   );
   // "Triplecast" is clearer than "dualcast twice," especially now that we have
   // triple/quad/etc. in statuses.
@@ -1687,6 +1695,14 @@ export function isSynchroSoulBreak(sb: EnlirSoulBreak): boolean {
   return sb.tier === 'SASB';
 }
 
+export function isArcaneDyad(sb: EnlirSoulBreak): boolean {
+  return sb.tier === 'ADSB';
+}
+
+export function isDualAwakening(sb: EnlirSoulBreak): boolean {
+  return sb.tier === 'DASB';
+}
+
 export function isBurstCommand(skill: EnlirSkill): skill is EnlirBurstCommand {
   return (
     'character' in skill &&
@@ -1717,12 +1733,16 @@ export function isLimitBreak(skill: EnlirSkill): skill is EnlirLimitBreak {
   return 'minimumLbPoints' in skill;
 }
 
-export function isArcaneDyad1st(sb: EnlirSoulBreak): boolean {
-  return sb.tier === 'ADSB' && sb.points === 0;
+export function isPart1SoulBreak(sb: EnlirSoulBreak): boolean {
+  return (isArcaneDyad(sb) && sb.points === 0) || (isDualAwakening(sb) && sb.points !== 0);
 }
 
-export function isArcaneDyad2nd(sb: EnlirSoulBreak): boolean {
-  return sb.tier === 'ADSB' && sb.points !== 0;
+export function isPart2SoulBreak(sb: EnlirSoulBreak): boolean {
+  return (isArcaneDyad(sb) && sb.points !== 0) || (isDualAwakening(sb) && sb.points === 0);
+}
+
+export function getDualShiftForDualAwakening(dualWoke: EnlirSoulBreak): EnlirSoulBreak {
+  return enlir.soulBreaksByName[dualWoke.name + ' (Dual Shift)'];
 }
 
 /**
@@ -1732,6 +1752,51 @@ export function isArcaneDyad2nd(sb: EnlirSoulBreak): boolean {
 export function isEnlirStatus(status: EnlirStatus | EnlirLegendMateria): status is EnlirStatus {
   return 'effects' in status;
 }
+
+function extractStatusesFromEffects(effects:string) : string[] {
+  const results:string[] = [];
+  const re = /{([^}]+)}/g;
+  let text:RegExpExecArray | null;
+
+  while((text = re.exec(effects)) !== null) {
+    results.push(text[1]);
+  }
+  return results;
+}
+
+function describeStatuses(effects:string, expandStatuses:boolean) : string {
+  const statuses:string[] = extractStatusesFromEffects(effects);
+  statuses.forEach((status: string) => {
+    const maybeStatus:(EnlirStatus | null) = enlir.statusByName[status];
+    // If the status can't be looked up, just leave it (usually it's self descriptive).
+    if (maybeStatus) {
+      const statusEffects:string = getEffects(maybeStatus);
+      effects.replace('['+status+']', '['+status+': ' + (expandStatuses ? describeStatuses(statusEffects, false) : statusEffects) + ']');
+    }
+  })
+  return effects
+}
+
+export function stringifyStatus(status: EnlirStatus) {
+  const effects:string = describeStatuses(getEffects(status), true);
+  return '[' + status.name + ': ' + effects + ']';
+}
+
+export function stringifySkill(skill: EnlirSkill) {
+  const effects:string = describeStatuses(getEffects(skill), true);  
+  const otherSkills:EnlirOtherSkill[] = enlir.otherSkillsBySourceOnly[skill.name];
+  if (otherSkills) {
+    otherSkills.forEach((otherSkill:EnlirOtherSkill) => {
+      effects.replace(otherSkill.name, '['+otherSkill.name+': ' +getEffects(otherSkill)+']');
+    })
+  }
+  const modifiers:string = (skill.formula ? 'Type: ' + skill.formula + ', ': '') +
+    ('school' in skill ? 'School: ' + skill.school + ', ' : '') +
+    (skill.element ? 'Element: (' + skill.element + '), ': '') + 
+    (skill.time ? 'Cast time: ' + skill.time + 's, ': '');       
+  return '[' + skill.name + ': ' + modifiers + ' ' + effects + ']';
+}
+
 
 function makeSkillAliases<
   TierT extends string,

@@ -12,6 +12,8 @@ import {
   EnlirLimitBreak,
   EnlirRealm,
   EnlirSoulBreak,
+  getDualShiftForDualAwakening,
+  isDualAwakening,
   SbOrLm,
 } from '../../data/enlir';
 import { describeMrPLegendMateria } from '../../data/mrP/legendMateria';
@@ -27,6 +29,7 @@ import { RelicTypeIcon } from '../shared/RelicTypeIcon';
 import {
   getBraveColumns,
   getBurstColumns,
+  getDualWokeColumns,
   getGuardianColumns,
   getSynchroColumns,
   legendMateriaAliases,
@@ -174,7 +177,13 @@ export class RelicDrawBannerTable extends React.Component<Props, State> {
 
     const commandColumns: Array<[string, string]> = [];
     if (mrP && mrP.braveCommands) {
-      commandColumns.push(getBraveColumns(mrP, mrP.braveCommands));
+      commandColumns.push(getBraveColumns(mrP, mrP.braveCommands )); 
+    }
+    if (mrP && sb && isDualAwakening(sb)) {
+      const dualShift:EnlirSoulBreak = getDualShiftForDualAwakening(sb);
+      if (dualShift) {
+        commandColumns.push(getDualWokeColumns(dualShift));
+      }
     }
     if (mrP && mrP.burstCommands) {
       commandColumns.push(...getBurstColumns(mrP.burstCommands));

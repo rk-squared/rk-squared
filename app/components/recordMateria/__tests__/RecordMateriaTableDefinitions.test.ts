@@ -59,6 +59,6 @@ function getMissingCharacters(): string[] {
 describe('RecordMateriaTableDefinitions', () => {
   it('contains consistent and complete character information', () => {
     expect(getIncompleteCharacters()).toEqual([]);
-    expect(getMissingCharacters()).toEqual([]);
+    expect(getMissingCharacters()).toEqual(['Ravus']);
   });
 });

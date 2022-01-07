@@ -36,9 +36,15 @@ export const animaWaves: { [wave: number]: AnimaWave } = {
   },
   5: {
     color: '#f08f2e',
-    released: false,
+    released: true,
     estimatedMonth: 10,
     estimatedYear: 2021,
+  },
+  6: {
+    color: '#03fce3',
+    released: false,
+    estimatedMonth: 4,
+    estimatedYear: 2022,
   },
 };
 

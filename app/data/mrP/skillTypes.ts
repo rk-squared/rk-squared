@@ -44,7 +44,8 @@ export type EffectClause =
   | ResistViaKO
   | Reset
   | CastTime
-  | CastTimePerUse;
+  | CastTimePerUse
+  | Fallback;
 
 // --------------------------------------------------------------------------
 // Attacks
@@ -52,7 +53,7 @@ export type EffectClause =
 export interface Attack extends Partial<AttackMultiplierGroup>, AttackExtras {
   type: 'attack';
   numAttacks: NumAttacks;
-  isOverstrike?: boolean;
+  overstrikeCap?: number;
   scalingOverstrike?: number[]; // For ADSB.  Separate from isOverstrike.
   scaleType?: AttackScaleType;
   isAoE?: boolean;
@@ -112,7 +113,7 @@ export interface AttackExtras {
   airTime?: number | number[];
   airTimeCondition?: common.Condition;
 
-  isOverstrike?: boolean;
+  overstrikeCap?: number;
   alwaysCrits?: boolean;
   atkUpWithLowHp?: boolean;
 
@@ -334,6 +335,10 @@ export interface CastTime {
 export interface CastTimePerUse {
   type: 'castTimePerUse';
   castTimePerUse: number;
+}
+
+export interface Fallback {
+  type: 'fallback';  
 }
 
 // Special case: These exist during parsing but is merged by

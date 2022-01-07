@@ -22,6 +22,7 @@ import {
   isSoulBreak,
   isSynchroCommand,
   isSynchroSoulBreak,
+  stringifyStatus,
 } from '../enlir';
 import { describeAttack, describeDamage, describeDamageType } from './attack';
 import * as common from './commonTypes';
@@ -203,7 +204,7 @@ export function safeParseStatus(status: EnlirStatus): statusTypes.StatusEffect |
       failedStatusIds.add(status.id);
     }
     if (e.name === 'SyntaxError') {
-      return null;
+      return [{type: 'fallback', value: stringifyStatus(status) }];
     }
     throw e;
   }
@@ -1741,6 +1742,8 @@ function describeStatusEffect(
         `bonus ${effect.value}% Gil` +
         (effect.condition ? ' ' + describeCondition(effect.condition) : '')
       );
+    case 'fallback':
+      return effect.value;
   }
 }
 

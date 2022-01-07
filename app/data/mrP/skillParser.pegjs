@@ -45,20 +45,20 @@ Attack
 SimpleAttack
   = numAttacks:NumAttacks _ attackType:AttackType modifiers:AttackModifiers _ "attack" "s"?
     _ attackMultiplierGroup:("(" group:AttackMultiplierGroup ")" { return group; })?
-    _ additionalCritDamage:('with additional' _ value:Integer '% critical damage' { return value; })?
-    _ overstrike:(","? _ "capped at 99999")?
+    _ additionalCritDamage:('with additional' _ value:Integer '% critical damage' { return value; })?    
     _ scalingOverstrike:(","? _ value:ScalingOverstrike { return value })?
+    _ overstrikeCap:(","? _ "capped at" _ value:Integer { return value; })?    
     _ isPiercingDef:(_ "that ignores DEF")?
     _ isPiercingRes:(_ "that ignores RES")? {
     const result = Object.assign({
       type: 'attack',
       numAttacks,
     }, attackMultiplierGroup || {}, scalingOverstrike || {});
+    if (overstrikeCap) {
+      result.overstrikeCap = overstrikeCap;
+    }
     if (additionalCritDamage) {
       result.additionalCritDamage = additionalCritDamage;
-    }
-    if (overstrike) {
-      result.isOverstrike = true;
     }
 
     // Alternate isPiercingDef / isPiercingRes format that's only used for
@@ -228,7 +228,7 @@ AirTime
 // Alternate overstrike - appears within extras instead of immediately after
 // attacks.  Seen in Cloud's SASB.
 AlternateOverstrike
-  = "capped" _ "at" _ "99999" { return { isOverstrike: true }; }
+  = "capped" _ "at" _ "99999" { return { overstrikeCap: 99999 }; }
 
 AlwaysCrits
   = "always" _ "deals" _ "a" _ "critical" _ "hit" { return { alwaysCrits: true }; }
@@ -404,7 +404,7 @@ DispelOrEsuna
   }
 
 RandomEther
-  = "restores"i _ amount:Integer _ "consumed" _ "ability" _ "use" _ who:Who? _ perUses:PerUses? {
+  = "restores"i _ amount:(Integer/NumberString) _ "consumed" _ "ability" _ "use" _ who:Who? _ perUses:PerUses? {
     return { type: 'randomEther', amount, who, perUses };
   }
 
@@ -439,7 +439,7 @@ RandomCastOther
 // Specialty: chains, mimics
 
 Chain
-  = "activates"i _ chainType:[a-zA-Z0-9-]+ _ "Chain" _ "(max" _ max:Integer "," _ "field" _ fieldBonus:SignedInteger "%)" {
+  = "activates"i _ chainType:[a-zA-Z0-9-/]+ _ "Chain" _ "(max" _ max:Integer "," _ "field" _ fieldBonus:SignedInteger "%)" {
     return {
       type: 'chain',
       chainType: chainType.join(''),
@@ -449,7 +449,7 @@ Chain
   }
 
 Mimic
-  = chance:(c:Integer "%" _ "chance" _ "to" _ { return c; })? "cast"i "s"? _ "the last ability used by an ally" _ occurrence:Occurrence?
+  = chance:(c:Integer "%" _ "chance" _ "to" _ { return c; })? "cast"i "s"? _ "the last ability used by any ally" _ occurrence:Occurrence?
   "," _ "default" _ "ability" _ "(PHY:" _ "single," _ defaultPower:DecimalNumber _ "physical" defaultCritChance:("," _ c:Integer _ "%" _ "critical" _ "chance" { return c; })? ")" {
     const result = {
       type: 'mimic',
@@ -711,6 +711,7 @@ Condition
   / "if" _ count:Integer _ "or more female allies are alive" { return { type: 'femalesAlive', count, plus: true }; }
   / "if" _ "there" _ "are" _ count:IntegerSlashList "+"? _ realm:Realm _ "characters" _ "in" _ "the" _ "party" { return { type: 'realmCharactersInParty', realm, count }; }
   / "if" _ count:IntegerRangeSlashList plus:"+"? _ realm:Realm _ ("characters are alive" / "character is alive" / "allies are alive" / "members are alive") { return { type: 'realmCharactersAlive', realm, count, plus: !!plus }; }
+  / "if" _ count:IntegerRangeSlashList plus:"+"? _ "allies have any [Attach " _ element:Element _ "]" { return {type: 'attachElementInParty', element, count, plus: !!plus}; }
   / "if" _ count:Integer _ "or more females are in the party" { return { type: 'femalesInParty', count }; }
   / "if" _ count:IntegerSlashList "+"? _ ("party members" / "allies") _ "are alive" { return { type: 'charactersAlive', count }; }
 

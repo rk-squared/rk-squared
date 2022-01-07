@@ -107,7 +107,7 @@ StatShareLm
   = "Increases base" _ dest:Stat _ "by" _ value:Integer "% base" _ src:Stat { return { type: 'statShare', src, dest, value }; }
 
 CritChance
-  = "Critical chance =" value:(PercentSlashList / PercentOrX) {
+  = "critical chance ="i value:(PercentSlashList / PercentOrX) {
     const result = { type: 'critChance' };
     if (typeof value === 'object' && !Array.isArray(value)) {
       Object.assign(result, value);
@@ -655,7 +655,7 @@ DispelOrEsuna
   }
 
 Mimic
-  = "casts"i _ "the last ability used by an ally" _ occurrence:Occurrence? {
+  = "casts"i _ "the last ability used by any ally" _ occurrence:Occurrence? {
     return {
       type: 'mimic',
       count: occurrence,
@@ -777,6 +777,7 @@ OnceOnly
   / "Removed"i _ ("after" / "when") _ skill:AnySkillName _ "is cast" _ count:Occurrence? _ "or if user hasn't Synchro Mode"? { return { onceOnly: count || true, skill }; }
   / "Removed"i _ "after casting" _ skill:AnySkillName _ count:Occurrence? _ "or if user hasn't Synchro Mode"? { return { onceOnly: count || true, skill }; }
   / "Removed"i _ "when effect is triggered" _ count:Occurrence? _ "or if user hasn't Synchro Mode"? { return { onceOnly: count || true }; }
+  / "once per battle" {return {onceOnly:true}; }
 
 RemovedAfterTrigger
   = "Removed"i _ trigger:Trigger { return { type: 'removedAfterTrigger', trigger }; }
@@ -972,6 +973,7 @@ Trigger
   / "after using a single-target" _ school:School _ "ability that restores HP on an ally" { return { type: 'singleHeal', school }; }
   / "after taking damage from an enemy" { return { type: 'damaged' }; }
   / "after using" _ count:TriggerCount _ ("ability that deals" / "abilities that deal") _ element:ElementList _ "damage" { return { type: 'ability', element, count, requiresDamage: true }; }
+  / "after using" _ count:TriggerCount _ school:School _ "abilities" _ once:OnceOnly? { return { type: 'ability', school, once }; }
   // These should go last to avoid parse conflicts.
   / "after casting" _ skill:(Skill1Or2 / AnySkillName) { return { type: 'skill', skill }; }
 
@@ -1173,6 +1175,8 @@ Condition
       who: who === 'user' ? 'self' : 'target',
     };
   }
+
+  / OnceOnly
 
   // General status.
   // TODO: I think the database is trying to standardize on brackets?

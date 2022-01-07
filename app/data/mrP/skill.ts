@@ -22,9 +22,11 @@ import {
   isSoulBreak,
   isSynchroCommand,
   isSynchroSoulBreak,
-  isArcaneDyad1st,
-  isArcaneDyad2nd,
+  isPart1SoulBreak,
+  isPart2SoulBreak,
   isLimitBreak,
+  isArcaneDyad,
+  stringifySkill,
 } from '../enlir';
 import {
   describeAttack,
@@ -113,7 +115,7 @@ export function safeParseSkill(skill: EnlirSkill): skillTypes.SkillEffect | null
     logger.error(`Failed to parse ${skill.name}:`);
     logException(e);
     if (e.name === 'SyntaxError') {
-      return null;
+      return [{type: 'fallback'}];
     }
     throw e;
   }
@@ -664,10 +666,15 @@ export function processSkillStatus(
     const isLast = thisStatusIndex + 1 === statuses.length;
 
     // Special case: Since every ADSB clears its associated mode, omit that.
-    if (who === 'self' && removes && skill && isSoulBreak(skill) && isArcaneDyad2nd(skill)) {
+    if (who === 'self' && removes && skill && isSoulBreak(skill) && isArcaneDyad(skill) && isPart2SoulBreak(skill)) {
       return;
     }
 
+    // Similar to ADSB, the second DASB trigger removes the first, so ignore it.
+    if (status.type === 'standardStatus' && removes && status.name.startsWith("Dual Awoken")) {
+      return;
+    }
+    
     if (status.type !== 'standardStatus') {
       // Status levels are always self.
       other.push(
@@ -680,7 +687,7 @@ export function processSkillStatus(
 
     // Special case: Omit / simplify some ADSB details, and handle others via
     // describeTrueArcaneCondition.
-    if (skill && isSoulBreak(skill) && isArcaneDyad1st(skill)) {
+    if (skill && isSoulBreak(skill) && isArcaneDyad(skill) && isPart1SoulBreak(skill)) {
       const tracker = getEnlirArcaneDyadTracker(skill);
       const level = getEnlirArcaneDyadLevel(skill);
       if ((tracker && tracker.id === status.id) || (level && level.id === status.id)) {
@@ -1257,6 +1264,9 @@ export function convertEnlirSkillToMrP(
       case 'randomSkillEffect':
         processRandomSkill(skill, effect, other);
         break;
+      case 'fallback':
+        other.misc.push(stringifySkill(skill));
+        break;      
       default:
         return assertNever(effect);
     }
