@@ -66,3 +66,18 @@ app/data/enlir/*.json.bak
 
 # Compiled PEG.js files
 app/data/mrP/*Parser.js
+
+# personal test-node modules
+node_modules
+activate.bat
+deactivate.bat
+install_tools.bat
+node.exe
+node_etw_provider.man
+nodevars.bat
+npm
+npm.cmd 
+npx
+npx.cmd 
+Activate.ps1
+nodejs.exe

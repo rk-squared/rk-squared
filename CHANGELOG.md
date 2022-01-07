@@ -1,3 +1,8 @@
+# v3.2.2
+
+- Add new soulbreaks: DASB, CSB+, Updated Items
+- Support for anima wave 6
+
 # v3.2.1
 
 Fix certificate validity for current versions of Android and Chrome. Thanks, @subworx!
