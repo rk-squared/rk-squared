@@ -15,7 +15,7 @@ describe('mrP/status', () => {
           'Black Flurry Mode',
           'Eiko Trance',
           'Freya Trance',
-          'Galian Beast',
+          'Beast Mode',
           'Garnet Trance',
           'Gilgamesh Trance',
           'Phoenix Mode',

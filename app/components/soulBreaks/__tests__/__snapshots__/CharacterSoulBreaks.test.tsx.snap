@@ -23,6 +23,25 @@ exports[`CharacterSoulBreaks renders multiple kinds of soul breaks and shows own
       </thead>
       <tbody>
         <tr
+          className="overstrikeLimitBreak jp"
+        >
+          <td
+            className="tier"
+          >
+            𝐋𝐎
+          </td>
+          <td
+            className="name"
+          >
+            “Dual Dragon Dive”
+          </td>
+          <td
+            className="effects"
+          >
+            phys ^4.0/4 lgt+dark jump w/ 99k cap @ +100% crit scaling w/ LB pts and honing
+          </td>
+        </tr>
+        <tr
           className="glint"
         >
           <td
@@ -39,6 +58,57 @@ exports[`CharacterSoulBreaks renders multiple kinds of soul breaks and shows own
             className="effects"
           >
             instant lgt infuse 25s
+          </td>
+        </tr>
+        <tr
+          className="unowned awakening jp"
+        >
+          <td
+            className="tier"
+          >
+            DA
+          </td>
+          <td
+            className="name"
+          >
+            “Awoken Gungnir”
+          </td>
+          <td
+            className="effects"
+          >
+            phys 6.3/7 lgt+non jump w/ 19k cap, lgt infuse w/ stacking 25s, self dmg cap +10k 15s, 1.05x Dragoon dmg 15s, 15s: [Dual Awoken Dragoon Pride Mode I (Kain): Dragoon abilities deal 5/10/15/20/30% more damage at ability rank 1/2/3/4/5, triplecasts Dragoon abilities, critical chance =25%/50%/75%/100% for equipped Dragoon abilities after using 1/2/3+ Dragoon abilities, casts Dual Dragoon Dive after casting three Dragoon abilities]
+          </td>
+        </tr>
+        <tr
+          className="unowned trueArcane2nd"
+        >
+          <td />
+          <td
+            className="school"
+          >
+            then
+          </td>
+          <td>
+            instant self instant ATB 1, [Dual Awoken Dragoon Pride Mode II (Kain): Increases the damage/healing cap by 20000, Dragoon abilities deal 5/10/15/20/30% more damage at ability rank 1/2/3/4/5, dualcasts Dragoon abilities, cast speed x9999999 for Jump attacks, critical chance =100%, lasts for 3/3/2/1/0 turns if the user had [Dual Awoken Dragoon Pride Mode I (Kain)] for 1/2/3/4/5+ turns]
+          </td>
+        </tr>
+        <tr
+          className="unowned chain jp"
+        >
+          <td
+            className="tier"
+          >
+            C+
+          </td>
+          <td
+            className="name"
+          >
+            “Boltlink (Kain)”
+          </td>
+          <td
+            className="effects"
+          >
+            instant lgt chain 1.5x (max 150), party (+10% lgt dmg 5s) / (+20% lgt dmg 5s) / (+30% lgt dmg 5s) if 0-2-4+ Lightning infused chars., +50% ATK 25s, self instacast 1
           </td>
         </tr>
         <tr
@@ -61,6 +131,38 @@ exports[`CharacterSoulBreaks renders multiple kinds of soul breaks and shows own
           </td>
         </tr>
         <tr
+          className="unowned arcaneDyad jp"
+        >
+          <td
+            className="tier"
+          >
+            AD
+          </td>
+          <td
+            className="name"
+          >
+            “Apex Jump”
+          </td>
+          <td
+            className="effects"
+          >
+            instant lgt infuse w/ stacking 25s, self dmg cap +10k 15s
+          </td>
+        </tr>
+        <tr
+          className="unowned trueArcane2nd"
+        >
+          <td />
+          <td
+            className="school"
+          >
+            then
+          </td>
+          <td>
+            phys 20.0/20 - 22.0/20 - 24.0/20 w/ 9k/19k/29k cap, then 10.0 - 11.0 - 12.0 w/ 99k cap, lgt+non jump @ 0-100k-300k dmg dealt
+          </td>
+        </tr>
+        <tr
           className="unowned synchro"
         >
           <td
@@ -76,7 +178,7 @@ exports[`CharacterSoulBreaks renders multiple kinds of soul breaks and shows own
           <td
             className="effects"
           >
-            phys 9.0/15 lgt+dark+non jump, self dmg cap +10k 15s, 1 turn: (lgt/dark ⤇ lgt/dark infuse w/ stacking)
+            phys 9.0/15 lgt+dark+non jump, self dmg cap +10k 15s, 1 turn: (lgt/dark ⤇ lgt/dark infuse 2 w/ stacking)
           </td>
         </tr>
         <tr
@@ -125,7 +227,7 @@ exports[`CharacterSoulBreaks renders multiple kinds of soul breaks and shows own
           <td
             className="effects"
           >
-            phys 9.0/15 lgt+non jump, lgt infuse 3 w/ stacking 25s, self dmg cap +10k 15s, 15s: (3 lgt ⤇ p5.28 l+n rngd overstrike Dragoon)
+            phys 9.0/15 lgt+non jump, lgt infuse 3 w/ stacking 25s, self dmg cap +10k 15s, 15s: (3 lgt ⤇ p5.28 l+n rngd w/ 99k cap Dragoon)
           </td>
         </tr>
         <tr
@@ -140,7 +242,7 @@ exports[`CharacterSoulBreaks renders multiple kinds of soul breaks and shows own
           <td
             className="command"
           >
-            p6.4 l+n jump overstrike, air time 2.50s
+            p6.4 l+n jump w/ 99k cap, air time 2.50s
           </td>
         </tr>
         <tr
@@ -193,7 +295,7 @@ exports[`CharacterSoulBreaks renders multiple kinds of soul breaks and shows own
           <td
             className="effects"
           >
-            phys 9.0/15 lgt+non jump, lgt infuse 25s, self dmg cap +20k 15s, 15s: (3 Dragoon ⤇ p5.2 l+wi+n rngd overstrike Dragoon), 15s: Awoken Dragoon: Dragoon inf. hones, up to 1.3x dmg @ rank 5, jump instacast
+            phys 9.0/15 lgt+non jump, lgt infuse 25s, self dmg cap +20k 15s, 15s: (3 Dragoon ⤇ p5.2 l+wi+n rngd w/ 99k cap Dragoon), 15s: Awoken Dragoon: Dragoon inf. hones, up to 1.3x dmg @ rank 5, jump instacast
           </td>
         </tr>
         <tr
@@ -212,7 +314,7 @@ exports[`CharacterSoulBreaks renders multiple kinds of soul breaks and shows own
           <td
             className="effects"
           >
-            phys 11.0/20, then 8.0 overstrike, dark jump
+            phys 11.0/20, then 8.0 w/ 99k cap, dark jump
           </td>
         </tr>
         <tr
@@ -231,7 +333,7 @@ exports[`CharacterSoulBreaks renders multiple kinds of soul breaks and shows own
           <td
             className="effects"
           >
-            phys 24.0/3 lgt jump overstrike
+            phys 24.0/3 lgt jump w/ 99k cap
           </td>
         </tr>
         <tr
@@ -282,7 +384,7 @@ exports[`CharacterSoulBreaks renders multiple kinds of soul breaks and shows own
           <td
             className="command"
           >
-            p1.92 – 3.25 – 6.5 – 10.15 l jump, overstrike at brv.1+
+            p1.92 – 3.25 – 6.5 – 10.15 l jump, 99k cap at brv.1+
           </td>
         </tr>
         <tr
@@ -320,7 +422,7 @@ exports[`CharacterSoulBreaks renders multiple kinds of soul breaks and shows own
           <td
             className="effects"
           >
-            phys 10.5 lgt+non jump overstrike, up to p14.5 w/ Dragoon used
+            phys 10.5 lgt+non jump w/ 99k cap, up to p14.5 w/ Dragoon used
           </td>
         </tr>
         <tr
@@ -668,6 +770,76 @@ exports[`CharacterSoulBreaks renders multiple kinds of soul breaks in anonymous 
           </td>
         </tr>
         <tr
+          className="overstrikeLimitBreak jp"
+        >
+          <td
+            className="tier"
+          >
+            𝐋𝐎
+          </td>
+          <td
+            className="name"
+          >
+            “Dual Dragon Dive”
+          </td>
+          <td
+            className="effects"
+          >
+            phys ^4.0/4 lgt+dark jump w/ 99k cap @ +100% crit scaling w/ LB pts and honing
+          </td>
+        </tr>
+        <tr
+          className="awakening jp"
+        >
+          <td
+            className="tier"
+          >
+            DA
+          </td>
+          <td
+            className="name"
+          >
+            “Awoken Gungnir”
+          </td>
+          <td
+            className="effects"
+          >
+            phys 6.3/7 lgt+non jump w/ 19k cap, lgt infuse w/ stacking 25s, self dmg cap +10k 15s, 1.05x Dragoon dmg 15s, 15s: [Dual Awoken Dragoon Pride Mode I (Kain): Dragoon abilities deal 5/10/15/20/30% more damage at ability rank 1/2/3/4/5, triplecasts Dragoon abilities, critical chance =25%/50%/75%/100% for equipped Dragoon abilities after using 1/2/3+ Dragoon abilities, casts Dual Dragoon Dive after casting three Dragoon abilities]
+          </td>
+        </tr>
+        <tr
+          className="trueArcane2nd"
+        >
+          <td />
+          <td
+            className="school"
+          >
+            then
+          </td>
+          <td>
+            instant self instant ATB 1, [Dual Awoken Dragoon Pride Mode II (Kain): Increases the damage/healing cap by 20000, Dragoon abilities deal 5/10/15/20/30% more damage at ability rank 1/2/3/4/5, dualcasts Dragoon abilities, cast speed x9999999 for Jump attacks, critical chance =100%, lasts for 3/3/2/1/0 turns if the user had [Dual Awoken Dragoon Pride Mode I (Kain)] for 1/2/3/4/5+ turns]
+          </td>
+        </tr>
+        <tr
+          className="chain jp"
+        >
+          <td
+            className="tier"
+          >
+            C+
+          </td>
+          <td
+            className="name"
+          >
+            “Boltlink (Kain)”
+          </td>
+          <td
+            className="effects"
+          >
+            instant lgt chain 1.5x (max 150), party (+10% lgt dmg 5s) / (+20% lgt dmg 5s) / (+30% lgt dmg 5s) if 0-2-4+ Lightning infused chars., +50% ATK 25s, self instacast 1
+          </td>
+        </tr>
+        <tr
           className="chain"
         >
           <td
@@ -687,6 +859,38 @@ exports[`CharacterSoulBreaks renders multiple kinds of soul breaks in anonymous 
           </td>
         </tr>
         <tr
+          className="arcaneDyad jp"
+        >
+          <td
+            className="tier"
+          >
+            AD
+          </td>
+          <td
+            className="name"
+          >
+            “Apex Jump”
+          </td>
+          <td
+            className="effects"
+          >
+            instant lgt infuse w/ stacking 25s, self dmg cap +10k 15s
+          </td>
+        </tr>
+        <tr
+          className="trueArcane2nd"
+        >
+          <td />
+          <td
+            className="school"
+          >
+            then
+          </td>
+          <td>
+            phys 20.0/20 - 22.0/20 - 24.0/20 w/ 9k/19k/29k cap, then 10.0 - 11.0 - 12.0 w/ 99k cap, lgt+non jump @ 0-100k-300k dmg dealt
+          </td>
+        </tr>
+        <tr
           className="synchro"
         >
           <td
@@ -702,7 +906,7 @@ exports[`CharacterSoulBreaks renders multiple kinds of soul breaks in anonymous 
           <td
             className="effects"
           >
-            phys 9.0/15 lgt+dark+non jump, self dmg cap +10k 15s, 1 turn: (lgt/dark ⤇ lgt/dark infuse w/ stacking)
+            phys 9.0/15 lgt+dark+non jump, self dmg cap +10k 15s, 1 turn: (lgt/dark ⤇ lgt/dark infuse 2 w/ stacking)
           </td>
         </tr>
         <tr
@@ -751,7 +955,7 @@ exports[`CharacterSoulBreaks renders multiple kinds of soul breaks in anonymous 
           <td
             className="effects"
           >
-            phys 9.0/15 lgt+non jump, lgt infuse 3 w/ stacking 25s, self dmg cap +10k 15s, 15s: (3 lgt ⤇ p5.28 l+n rngd overstrike Dragoon)
+            phys 9.0/15 lgt+non jump, lgt infuse 3 w/ stacking 25s, self dmg cap +10k 15s, 15s: (3 lgt ⤇ p5.28 l+n rngd w/ 99k cap Dragoon)
           </td>
         </tr>
         <tr
@@ -766,7 +970,7 @@ exports[`CharacterSoulBreaks renders multiple kinds of soul breaks in anonymous 
           <td
             className="command"
           >
-            p6.4 l+n jump overstrike, air time 2.50s
+            p6.4 l+n jump w/ 99k cap, air time 2.50s
           </td>
         </tr>
         <tr
@@ -819,7 +1023,7 @@ exports[`CharacterSoulBreaks renders multiple kinds of soul breaks in anonymous 
           <td
             className="effects"
           >
-            phys 9.0/15 lgt+non jump, lgt infuse 25s, self dmg cap +20k 15s, 15s: (3 Dragoon ⤇ p5.2 l+wi+n rngd overstrike Dragoon), 15s: Awoken Dragoon: Dragoon inf. hones, up to 1.3x dmg @ rank 5, jump instacast
+            phys 9.0/15 lgt+non jump, lgt infuse 25s, self dmg cap +20k 15s, 15s: (3 Dragoon ⤇ p5.2 l+wi+n rngd w/ 99k cap Dragoon), 15s: Awoken Dragoon: Dragoon inf. hones, up to 1.3x dmg @ rank 5, jump instacast
           </td>
         </tr>
         <tr
@@ -838,7 +1042,7 @@ exports[`CharacterSoulBreaks renders multiple kinds of soul breaks in anonymous 
           <td
             className="effects"
           >
-            phys 11.0/20, then 8.0 overstrike, dark jump
+            phys 11.0/20, then 8.0 w/ 99k cap, dark jump
           </td>
         </tr>
         <tr
@@ -857,7 +1061,7 @@ exports[`CharacterSoulBreaks renders multiple kinds of soul breaks in anonymous 
           <td
             className="effects"
           >
-            phys 24.0/3 lgt jump overstrike
+            phys 24.0/3 lgt jump w/ 99k cap
           </td>
         </tr>
         <tr
@@ -908,7 +1112,7 @@ exports[`CharacterSoulBreaks renders multiple kinds of soul breaks in anonymous 
           <td
             className="command"
           >
-            p1.92 – 3.25 – 6.5 – 10.15 l jump, overstrike at brv.1+
+            p1.92 – 3.25 – 6.5 – 10.15 l jump, 99k cap at brv.1+
           </td>
         </tr>
         <tr
@@ -946,7 +1150,7 @@ exports[`CharacterSoulBreaks renders multiple kinds of soul breaks in anonymous 
           <td
             className="effects"
           >
-            phys 10.5 lgt+non jump overstrike, up to p14.5 w/ Dragoon used
+            phys 10.5 lgt+non jump w/ 99k cap, up to p14.5 w/ Dragoon used
           </td>
         </tr>
         <tr
