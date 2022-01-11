@@ -50,3 +50,8 @@ export function sessionHandler(
 
   store.dispatch(updateSession({ userId, isJp, userSession, sessionCookie }));
 }
+
+export function checkSessionUrl(req: http.IncomingMessage) {
+  const reqUrl = req.url as string;
+  return reqUrl.endsWith('/update_user_session');
+}

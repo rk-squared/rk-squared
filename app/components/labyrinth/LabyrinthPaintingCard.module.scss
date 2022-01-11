@@ -1,10 +1,26 @@
 :local {
   .component {
-    width: 11em;
+    width: 12em;
+    height: 11em;
+    text-align: center;
 
-    & > :global(.card-body) > p {
-      margin-bottom: 0;
+    & > :global(.card-body) {
+      padding: 0.5em;
+
+      & > :global(.card-subtitle) {
+        font-size: 0.8em;
+      }
     }
+
+    & > :global(.card-img-top) {
+      height: 60%;
+    }
+  }
+
+  .rainbowbox {
+    border: 5px solid transparent;
+    border-image: linear-gradient(to bottom right, #b827fc 0%, #2c90fc 25%, #b8fd33 50%, #fec837 75%, #fd1892 100%);
+    border-image-slice: 1;
   }
 
   .tooltip {

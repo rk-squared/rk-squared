@@ -10,8 +10,13 @@ export enum DisplayPaintingId {
   Treasure2 = 300102,
   Treasure3 = 300103,
   Treasure4 = 300104,
+  Treasure5 = 300201,
+  Treasure6 = 300202,
+  Treasure7 = 300203,
+  Treasure8 = 300204,
   Exploration1 = 400001,
   Exploration2 = 400002,
+  Exploration3 = 400008,
   Onslaught = 500001,
   Portal = 600001,
   Restoration = 700001,
@@ -172,4 +177,91 @@ export interface ExplorePaintingEvent {
 export interface LabyrinthFinishPainting {
   success: boolean;
   SERVER_TIME: number;
+}
+
+interface RecordMateria {
+  record_materia_id: string;
+  user_buddy_id: string;
+  slot: string;
+}
+
+interface Equipment {
+  user_equipment_id: string;
+  user_buddy_id: string;
+  slot: string;
+}
+
+interface SoulStrike {
+  soul_strike_id: string;
+  user_buddy_id: string;
+  slot: string;
+}
+
+interface LegendMateria {
+  legend_materia_id: string;
+  user_buddy_id: string;
+  slot: string;
+}
+
+interface Row {
+  row: string;
+  user_buddy_id: string;
+}
+
+interface Ability {
+  user_buddy_id: string;
+  user_ability_id: string;
+  slot: string;
+}
+
+interface MemoryAbrasion {
+  memory_abrasion: string;
+  user_buddy_id: string;
+}
+
+export interface LabyrinthBuddyInfo {
+  record_materias: RecordMateria[];
+  equipments: Equipment[];
+  soul_strikes: SoulStrike[];
+  legend_materias: LegendMateria[];
+  rows: Row[];
+  abilities: Ability[];
+  memory_abrasions: MemoryAbrasion[];
+}
+
+export interface LabyrinthBuddyInfoData {
+  success: boolean;
+  labyrinth_buddy_info: LabyrinthBuddyInfo;
+  SERVER_TIME: number;
+}
+
+export interface SlotToBeastIdSub {
+  1: number;
+  2: number;
+  3: number;
+  4: number;
+}
+
+export interface SlotToBuddyId {
+  1: number;
+  2: number;
+  3: number;
+  4: number;
+  5: number;
+}
+
+export interface Party {
+  historia_crystal_id: number;
+  enable_talisman_type: number;
+  party_no: number;
+  beast_id_main: string;
+  slot_to_beast_id_sub: SlotToBeastIdSub;
+  slot_to_buddy_id: SlotToBuddyId;
+  user_id: any;
+}
+
+export interface LabyrinthPartyList {
+  success: boolean;
+  SERVER_TIME: number;
+  parties: Party[];
 }

@@ -6,26 +6,41 @@ import { LabyrinthState } from '../reducers/labyrinth';
 import { LabyrinthChests } from '../components/labyrinth/LabyrinthChests';
 import { LabyrinthPaintingsList } from '../components/labyrinth/LabyrinthPaintingsList';
 import { LabyrinthCombatDisplay } from '../components/labyrinth/LabyrinthCombatDisplay';
+import ReactTooltip = require('react-tooltip');
+const styles = require('../components/labyrinth/LabyrinthPaintingCard.module.scss');
+import { LabyrinthCombat } from '../actions/labyrinth';
+
+function CombatTooltip({ id, combat }: { id: string; combat: LabyrinthCombat }) {
+  return (
+    <ReactTooltip place="bottom" id={id}>
+      <LabyrinthCombatDisplay combat={combat} className={styles.tooltip} />
+    </ReactTooltip>
+  );
+}
 
 export class LabyrinthPage extends React.Component<LabyrinthState> {
   render() {
-    const { combat, chests, paintings } = this.props;
+    const { combat, chests, paintings, remaining, floor } = this.props;
+    const tooltipId = combat && `labyrinth-battle`;
     return (
       <Page title="Labyrinth">
         {combat && (
           <>
-            <h4>Current Combat</h4>
-            <LabyrinthCombatDisplay combat={combat} />
+            <div data-tip={tooltipId} data-for={tooltipId}>
+              <h5>Combat</h5> 
+              <h6>{`${combat.name} (D${combat.difficulty})`}</h6>
+              {tooltipId && <CombatTooltip id={tooltipId} combat={combat} />}
+            </div>
           </>
         )}
         {chests && (
           <>
-            <h4>Treasure Chests</h4>
+            <h5>Treasure Chests</h5>
             <LabyrinthChests chests={chests} />
           </>
         )}
 
-        <h4>Paintings</h4>
+        <h5>Paintings ({remaining}|F{floor}) </h5>
         {!paintings ? (
           <p>No labyrinth paintings have been loaded.</p>
         ) : (
