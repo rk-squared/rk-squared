@@ -30,7 +30,7 @@ function logError(e: Error, rowNumber: number, colNumber: number, colName: strin
 const toBool = (value: string) => value === 'Y';
 const toInt = (value: string) => (value === '' ? null : +value);
 const toFloat = (value: string) =>
-  value === '' ? null : Number.parseFloat(value.replace(',', '.'));
+  !value ? null : Number.parseFloat(value.replace(',', '.'));
 const toString = (value: string) => (value === '' ? null : value);
 const checkToBool = (value: string) => value === '✓';
 const toDate = (value: string) => {
@@ -43,6 +43,10 @@ const toDate = (value: string) => {
   }
   return sprintf('%04i-%02i-%02i', +m[3], +m[1], +m[2]);
 };
+
+function isDataMined(dataMinedCol:number, globalCol:number, row:any[]) {
+  return row[dataMinedCol] === '✓' || row[globalCol] === '✓';
+}
 
 function dashAs<TDash, TValue>(
   dashValue: TDash,
@@ -63,6 +67,9 @@ function toStringWithDecimals(value: string) {
   // We used to also convert '' to null, but nearly all skills, statuses,
   // legend materia, and record materia have non-null effect(s), so requiring
   // code to support null adds too much complexity for too little benefit.
+  if(!value) {
+    return '';
+  }
   return value.replace(/(\d+),(\d+)/g, '$1.$2');
 }
 
@@ -862,8 +869,26 @@ async function convertEnlir(outputDirectory: string) {
       notes = await fs.readJson(path.join(workPath, localName + '.notes.json'));
       notes = notes.sheets[0].data[0].rowData;
     }
-
-    allData[localName] = converter(rawData.values, notes);
+    // Filter out undatamined rows as these frequently contain unparsable data.
+    const dataMinedCol = rawData.values[0].indexOf('✓');
+    const globalCol = rawData.values[0].indexOf('GL');
+    let filteredRows: any[] = [];
+    let filteredNotes: any[] = [];
+    if (dataMinedCol != -1 && globalCol != -1) {
+      for (let i = 0; i < rawData.values.length; i++) {
+        if(isDataMined(dataMinedCol, globalCol, rawData.values[i])) {
+          filteredRows.push(rawData.values[i]);
+          if (notes)
+            filteredNotes.push(notes[i]);
+        } 
+      }      
+      logger.info("Discarding " + (rawData.values.length - filteredRows.length) + " un-datamined rows.");
+    } else {
+      filteredRows = rawData.values;
+      filteredNotes = notes;
+    }
+    allData[localName] = converter(filteredRows, filteredNotes);
+    
   }
 
   for (const { localName, postProcessor } of dataTypes) {
