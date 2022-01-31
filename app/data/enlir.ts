@@ -127,7 +127,7 @@ export type EnlirFormula = 'Physical' | 'Magical' | 'Hybrid' | '?';
 
 export type EnlirLegendMateriaTier = 'LMR' | 'LMR+';
 
-export type EnlirLimitBreakTier = 'LBO' | 'LBG' | 'LBGS';
+export type EnlirLimitBreakTier = 'LBO' | 'LBG' | 'LBGS' | 'LBC';
 
 export type EnlirRelicType =
   | 'Accessory'
@@ -521,6 +521,7 @@ export const limitBreakTierOrder: { [t in EnlirLimitBreakTier]: number } = {
   LBG: 0,
   LBO: 1,
   LBGS: 2,
+  LBC: 3,
 };
 
 const rawData = {
@@ -1734,11 +1735,11 @@ export function isLimitBreak(skill: EnlirSkill): skill is EnlirLimitBreak {
 }
 
 export function isPart1SoulBreak(sb: EnlirSoulBreak): boolean {
-  return (isArcaneDyad(sb) && sb.points === 0) || (isDualAwakening(sb) && sb.points !== 0);
+  return (isArcaneDyad(sb) && sb.points === 0) || (isDualAwakening(sb) && sb.points !== 0) || (isDualAwakening(sb) && !sb.name.includes("(Dual Shift)"));
 }
 
 export function isPart2SoulBreak(sb: EnlirSoulBreak): boolean {
-  return (isArcaneDyad(sb) && sb.points !== 0) || (isDualAwakening(sb) && sb.points === 0);
+  return (isArcaneDyad(sb) && sb.points !== 0) || (isDualAwakening(sb) && sb.points === 0) || (isDualAwakening(sb) && sb.name.includes("(Dual Shift)"));
 }
 
 export function getDualShiftForDualAwakening(dualWoke: EnlirSoulBreak): EnlirSoulBreak {
