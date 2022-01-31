@@ -12304,7 +12304,7 @@
   {
     "eventName": "Dungeon Update #78 (IV:TAY, VII:DoC)",
     "realm": null,
-    "glDate": null,
+    "glDate": "2022-01-10",
     "jpDate": "2020-09-09",
     "type": "Dungeons Update",
     "heroRecords": null,
@@ -12968,7 +12968,7 @@
   {
     "eventName": "Chaotic Memories II (VI)",
     "realm": "VI",
-    "glDate": null,
+    "glDate": "2021-12-09",
     "jpDate": "2021-06-04",
     "type": "Challenge Event",
     "heroRecords": null,
@@ -12981,7 +12981,7 @@
   {
     "eventName": "Labyrinth Dungeon Season 2 Group G",
     "realm": null,
-    "glDate": null,
+    "glDate": "2021-12-16",
     "jpDate": "2021-06-11",
     "type": "Labyrinth Event",
     "heroRecords": null,
@@ -12994,7 +12994,7 @@
   {
     "eventName": "Palace of Illusion (II)",
     "realm": "II",
-    "glDate": null,
+    "glDate": "2021-12-23",
     "jpDate": "2021-06-18",
     "type": "Challenge Event",
     "heroRecords": null,
@@ -13005,9 +13005,9 @@
     "abilitiesAwarded": null
   },
   {
-    "eventName": "Explosion Fest 2021",
+    "eventName": "Glory Fest 2021",
     "realm": null,
-    "glDate": null,
+    "glDate": "2021-12-27",
     "jpDate": "2021-06-25",
     "type": "Festival",
     "heroRecords": null,
@@ -13020,7 +13020,7 @@
   {
     "eventName": "Epic of the Blue Planet",
     "realm": "IV",
-    "glDate": null,
+    "glDate": "2021-12-30",
     "jpDate": "2021-06-30",
     "type": "Challenge Event",
     "heroRecords": null,
@@ -13046,7 +13046,7 @@
   {
     "eventName": "Palace of Illusion (XIII)",
     "realm": "XIII",
-    "glDate": null,
+    "glDate": "2022-01-13",
     "jpDate": "2021-07-09",
     "type": "Challenge Event",
     "heroRecords": null,
@@ -13059,7 +13059,7 @@
   {
     "eventName": "Chaotic Memories II (VIII)",
     "realm": "VIII",
-    "glDate": null,
+    "glDate": "2022-01-20",
     "jpDate": "2021-07-16",
     "type": "Challenge Event",
     "heroRecords": null,
@@ -13072,7 +13072,7 @@
   {
     "eventName": "Light the Skies!",
     "realm": "Core",
-    "glDate": null,
+    "glDate": "2022-01-27",
     "jpDate": "2021-07-23",
     "type": "Challenge Event",
     "heroRecords": null,
@@ -13379,6 +13379,114 @@
     "memoryCrystals2": null,
     "memoryCrystals3": null,
     "wardrobeRecords": null,
+    "abilitiesAwarded": null
+  },
+  {
+    "eventName": "Palace of Illusions (Type-0)",
+    "realm": "Type-0",
+    "glDate": null,
+    "jpDate": "2021-12-17",
+    "type": "Challenge Event",
+    "heroRecords": null,
+    "memoryCrystals1": null,
+    "memoryCrystals2": null,
+    "memoryCrystals3": null,
+    "wardrobeRecords": null,
+    "abilitiesAwarded": null
+  },
+  {
+    "eventName": "New Years Party 2022",
+    "realm": null,
+    "glDate": null,
+    "jpDate": "2021-12-24",
+    "type": "Festival",
+    "heroRecords": null,
+    "memoryCrystals1": null,
+    "memoryCrystals2": null,
+    "memoryCrystals3": null,
+    "wardrobeRecords": null,
+    "abilitiesAwarded": null
+  },
+  {
+    "eventName": "Labyrinth Dungeon Season 4 Group Q",
+    "realm": null,
+    "glDate": null,
+    "jpDate": "2021-12-24",
+    "type": "Labyrinth Event",
+    "heroRecords": null,
+    "memoryCrystals1": null,
+    "memoryCrystals2": null,
+    "memoryCrystals3": null,
+    "wardrobeRecords": null,
+    "abilitiesAwarded": null
+  },
+  {
+    "eventName": "Of Love and Ties",
+    "realm": "VI",
+    "glDate": null,
+    "jpDate": "2021-12-31",
+    "type": "Challenge Event",
+    "heroRecords": null,
+    "memoryCrystals1": null,
+    "memoryCrystals2": null,
+    "memoryCrystals3": null,
+    "wardrobeRecords": null,
+    "abilitiesAwarded": null
+  },
+  {
+    "eventName": "Chaotic Memories III (II)",
+    "realm": "II",
+    "glDate": null,
+    "jpDate": "2022-01-07",
+    "type": "Challenge Event",
+    "heroRecords": null,
+    "memoryCrystals1": null,
+    "memoryCrystals2": null,
+    "memoryCrystals3": null,
+    "wardrobeRecords": null,
+    "abilitiesAwarded": null
+  },
+  {
+    "eventName": "Labyrinth Dungeon Season 4 Group R",
+    "realm": null,
+    "glDate": null,
+    "jpDate": "2022-01-14",
+    "type": "Labyrinth Event",
+    "heroRecords": null,
+    "memoryCrystals1": null,
+    "memoryCrystals2": null,
+    "memoryCrystals3": null,
+    "wardrobeRecords": null,
+    "abilitiesAwarded": null
+  },
+  {
+    "eventName": "Crystal Dungeon (Fire)",
+    "realm": null,
+    "glDate": null,
+    "jpDate": "2022-01-21",
+    "type": "Challenge Event",
+    "heroRecords": null,
+    "memoryCrystals1": null,
+    "memoryCrystals2": null,
+    "memoryCrystals3": null,
+    "wardrobeRecords": null,
+    "abilitiesAwarded": null
+  },
+  {
+    "eventName": "Onward to Adoulin",
+    "realm": "XI",
+    "glDate": null,
+    "jpDate": "2022-01-28",
+    "type": "Challenge Event",
+    "heroRecords": [
+      "Arciela"
+    ],
+    "memoryCrystals1": null,
+    "memoryCrystals2": null,
+    "memoryCrystals3": null,
+    "wardrobeRecords": [
+      "Arciela II"
+    ],
     "abilitiesAwarded": null
   }
 ]

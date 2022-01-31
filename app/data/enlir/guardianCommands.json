@@ -2,6 +2,7 @@
   {
     "character": "Rydia",
     "source": "Guardian Titan",
+    "lbVer": "LBGS1",
     "name": "Guardian Gaia's Shelter",
     "guardianAbilitySlot": "1",
     "type": "BLK",
@@ -25,6 +26,7 @@
   {
     "character": "Rydia",
     "source": "Guardian Titan",
+    "lbVer": "LBGS1",
     "name": "Guardian Gaia's Force",
     "guardianAbilitySlot": "2",
     "type": "BLK",
@@ -48,6 +50,7 @@
   {
     "character": "Rydia",
     "source": "Guardian Titan",
+    "lbVer": "LBGS1",
     "name": "Guardian Gaia's Wrath",
     "guardianAbilitySlot": "Finisher",
     "type": "BLK",
@@ -71,6 +74,7 @@
   {
     "character": "Locke",
     "source": "Guardian Phoenix",
+    "lbVer": "LBGS1",
     "name": "Guardian Flames of Ascension",
     "guardianAbilitySlot": "1",
     "type": "PHY",
@@ -94,6 +98,7 @@
   {
     "character": "Locke",
     "source": "Guardian Phoenix",
+    "lbVer": "LBGS1",
     "name": "Guardian Explosive Flame",
     "guardianAbilitySlot": "2",
     "type": "PHY",
@@ -117,6 +122,7 @@
   {
     "character": "Locke",
     "source": "Guardian Phoenix",
+    "lbVer": "LBGS1",
     "name": "Guardian Flames of Rebirth",
     "guardianAbilitySlot": "Finisher",
     "type": "PHY",
@@ -140,6 +146,7 @@
   {
     "character": "Terra",
     "source": "Guardian Maduin",
+    "lbVer": "LBGS1",
     "name": "Big Bang",
     "guardianAbilitySlot": "1",
     "type": "BLK",
@@ -163,6 +170,7 @@
   {
     "character": "Terra",
     "source": "Guardian Maduin",
+    "lbVer": "LBGS1",
     "name": "Terra Volcano",
     "guardianAbilitySlot": "2",
     "type": "BLK",
@@ -174,7 +182,7 @@
       "NE"
     ],
     "time": 0.01,
-    "effects": "One group attack (45.00) capped at 99999, grants [Buff Fire 10% (15s)] to the user",
+    "effects": "One group attack (45.00) capped at 99999, grants [Buff Fire 30% (15s)] to the user",
     "counter": true,
     "autoTarget": "All enemies",
     "sb": 60,
@@ -186,6 +194,7 @@
   {
     "character": "Terra",
     "source": "Guardian Maduin",
+    "lbVer": "LBGS1",
     "name": "Chaos Wave",
     "guardianAbilitySlot": "Finisher",
     "type": "BLK",
@@ -210,6 +219,7 @@
   {
     "character": "Cloud",
     "source": "Guardian Choco/Mog",
+    "lbVer": "LBGS1",
     "name": "Chocobo Kick",
     "guardianAbilitySlot": "1",
     "type": "PHY",
@@ -233,6 +243,7 @@
   {
     "character": "Cloud",
     "source": "Guardian Choco/Mog",
+    "lbVer": "LBGS1",
     "name": "Choco Meteor",
     "guardianAbilitySlot": "2",
     "type": "PHY",
@@ -256,6 +267,7 @@
   {
     "character": "Cloud",
     "source": "Guardian Choco/Mog",
+    "lbVer": "LBGS1",
     "name": "Deathblow!!",
     "guardianAbilitySlot": "Finisher",
     "type": "PHY",
@@ -280,6 +292,7 @@
   {
     "character": "Quistis",
     "source": "Guardian Doomtrain",
+    "lbVer": "LBGS1",
     "name": "Guardian Venomous Breath",
     "guardianAbilitySlot": "1",
     "type": "BLK",
@@ -303,6 +316,7 @@
   {
     "character": "Quistis",
     "source": "Guardian Doomtrain",
+    "lbVer": "LBGS1",
     "name": "Guardian Venomous Vapor",
     "guardianAbilitySlot": "2",
     "type": "BLK",
@@ -326,6 +340,7 @@
   {
     "character": "Quistis",
     "source": "Guardian Doomtrain",
+    "lbVer": "LBGS1",
     "name": "Guardian Runaway Train",
     "guardianAbilitySlot": "Finisher",
     "type": "BLK",
@@ -349,6 +364,7 @@
   {
     "character": "Eiko",
     "source": "Guardian Madeen",
+    "lbVer": "LBGS1",
     "name": "Guardian Terra Tornado",
     "guardianAbilitySlot": "1",
     "type": "BLK",
@@ -373,6 +389,7 @@
   {
     "character": "Eiko",
     "source": "Guardian Madeen",
+    "lbVer": "LBGS1",
     "name": "Guardian Terra Sonic",
     "guardianAbilitySlot": "2",
     "type": "BLK",
@@ -397,6 +414,7 @@
   {
     "character": "Eiko",
     "source": "Guardian Madeen",
+    "lbVer": "LBGS1",
     "name": "Guardian Terra Homing",
     "guardianAbilitySlot": "Finisher",
     "type": "BLK",
@@ -421,6 +439,7 @@
   {
     "character": "Yuna",
     "source": "Guardian Valefor",
+    "lbVer": "LBGS1",
     "name": "Guardian Sonic Wings",
     "guardianAbilitySlot": "1",
     "type": "BLK",
@@ -445,6 +464,7 @@
   {
     "character": "Yuna",
     "source": "Guardian Valefor",
+    "lbVer": "LBGS1",
     "name": "Guardian Energy Ray",
     "guardianAbilitySlot": "2",
     "type": "BLK",
@@ -469,6 +489,7 @@
   {
     "character": "Yuna",
     "source": "Guardian Valefor",
+    "lbVer": "LBGS1",
     "name": "Guardian Energy Blast",
     "guardianAbilitySlot": "Finisher",
     "type": "BLK",
@@ -493,6 +514,7 @@
   {
     "character": "Lilisette",
     "source": "Guardian Lady Lilith",
+    "lbVer": "LBGS1",
     "name": "Guardian Durance Whip",
     "guardianAbilitySlot": "1",
     "type": "PHY",
@@ -517,6 +539,7 @@
   {
     "character": "Lilisette",
     "source": "Guardian Lady Lilith",
+    "lbVer": "LBGS1",
     "name": "Guardian Moonlight Veil",
     "guardianAbilitySlot": "2",
     "type": "PHY",
@@ -541,6 +564,7 @@
   {
     "character": "Lilisette",
     "source": "Guardian Lady Lilith",
+    "lbVer": "LBGS1",
     "name": "Guardian Petaline Tempest",
     "guardianAbilitySlot": "Finisher",
     "type": "PHY",
@@ -563,8 +587,162 @@
     "gl": true
   },
   {
+    "character": "Shantotto",
+    "source": "Guardian Colossal Shantotto",
+    "lbVer": "LBGS1",
+    "name": "Guardian Burst",
+    "guardianAbilitySlot": "1",
+    "type": "BLK",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 84,
+    "element": [
+      "Lightning",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Six single attacks (14.00 each), grants [75% Damage Reduction Barrier 1] to the user",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 60,
+    "school": "Witch",
+    "nameJp": "Gバースト",
+    "id": 31541831,
+    "gl": false
+  },
+  {
+    "character": "Shantotto",
+    "source": "Guardian Colossal Shantotto",
+    "lbVer": "LBGS1",
+    "name": "Guardian Thunder",
+    "guardianAbilitySlot": "2",
+    "type": "BLK",
+    "target": "All enemies",
+    "formula": "Magical",
+    "multiplier": 45,
+    "element": [
+      "Lightning",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "One group attack (45.00) capped at 99999, grants [Lightning Ability +50% Boost 2] and [Damage Cap +10000 2] to the user",
+    "counter": true,
+    "autoTarget": "All enemies",
+    "sb": 60,
+    "school": "Witch",
+    "nameJp": "Gサンダー",
+    "id": 31541832,
+    "gl": false
+  },
+  {
+    "character": "Shantotto",
+    "source": "Guardian Colossal Shantotto",
+    "lbVer": "LBGS1",
+    "name": "Guardian Salvation Scythe",
+    "guardianAbilitySlot": "Finisher",
+    "type": "BLK",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 251,
+    "element": [
+      "Lightning",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Ten single attacks (19.00 each), followed by one group attack (61.00) capped at 99999, removes [Guardian Summon Mode] from the user",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "-",
+    "nameJp": null,
+    "id": 22360020,
+    "gl": false
+  },
+  {
+    "character": "Arciela",
+    "source": "Guardian Darrcuiln",
+    "lbVer": "LBGS1",
+    "name": "Guardian Aurous Charge",
+    "guardianAbilitySlot": "1",
+    "type": "BLK",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 84,
+    "element": [
+      "Ice",
+      "Lightning",
+      "Water",
+      "Wind",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Six single attacks (14.00 each), grants [Damage Cap +10000 1] to the user",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 60,
+    "school": "Black Magic",
+    "nameJp": "Gオーラス・チャージ",
+    "id": 31541932,
+    "gl": false
+  },
+  {
+    "character": "Arciela",
+    "source": "Guardian Darrcuiln",
+    "lbVer": "LBGS1",
+    "name": "Guardian Howling Gust",
+    "guardianAbilitySlot": "2",
+    "type": "BLK",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 45,
+    "element": [
+      "Ice",
+      "Lightning",
+      "Water",
+      "Wind",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "One single attack (45.00) capped at 99999, causes [DEF and RES -50% (8s)], grants Roar +1 to the user",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 60,
+    "school": "Black Magic",
+    "nameJp": "Gハウリング・ガスト",
+    "id": 31541933,
+    "gl": false
+  },
+  {
+    "character": "Arciela",
+    "source": "Guardian Darrcuiln",
+    "lbVer": "LBGS1",
+    "name": "Guardian Stalking Prey",
+    "guardianAbilitySlot": "Finisher",
+    "type": "BLK",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 263.55,
+    "element": [
+      "Ice",
+      "Lightning",
+      "Water",
+      "Wind",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Ten single attacks (18.05/19.95 each) if the user has Roar level 0/1, followed by one single attack (57.95/64.05) if the user has Roar level 0/1",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "-",
+    "nameJp": "Gストーキング・プレー",
+    "id": 23540005,
+    "gl": false
+  },
+  {
     "character": "Lightning",
     "source": "Guardian Odin",
+    "lbVer": "LBGS1",
     "name": "Ripping Crush",
     "guardianAbilitySlot": "1",
     "type": "PHY",
@@ -589,6 +767,7 @@
   {
     "character": "Lightning",
     "source": "Guardian Odin",
+    "lbVer": "LBGS1",
     "name": "Seismic Slayer",
     "guardianAbilitySlot": "2",
     "type": "PHY",
@@ -613,6 +792,7 @@
   {
     "character": "Lightning",
     "source": "Guardian Odin",
+    "lbVer": "LBGS1",
     "name": "Thunderfall",
     "guardianAbilitySlot": "Finisher",
     "type": "PHY",
@@ -637,6 +817,7 @@
   {
     "character": "Ardyn",
     "source": "Guardian Ifrit",
+    "lbVer": "LBGS1",
     "name": "Pulsefire",
     "guardianAbilitySlot": "1",
     "type": "PHY",
@@ -661,6 +842,7 @@
   {
     "character": "Ardyn",
     "source": "Guardian Ifrit",
+    "lbVer": "LBGS1",
     "name": "Incinerate",
     "guardianAbilitySlot": "2",
     "type": "PHY",
@@ -685,6 +867,7 @@
   {
     "character": "Ardyn",
     "source": "Guardian Ifrit",
+    "lbVer": "LBGS1",
     "name": "Hellfire",
     "guardianAbilitySlot": "Finisher",
     "type": "PHY",

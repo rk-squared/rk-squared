@@ -1387,20 +1387,6 @@
   },
   {
     "realm": "II",
-    "character": "Leila",
-    "name": "Re-action (Leila)",
-    "tier": "LMR+",
-    "lmVer": "LMR+1",
-    "effect": "100% chance to dualcast every third Thief ability",
-    "master": "ATK +10",
-    "relic": "Platinum Dagger (II)",
-    "nameJp": "再動【レイラ】",
-    "id": 201020704,
-    "anima": null,
-    "gl": false
-  },
-  {
-    "realm": "II",
     "character": "Ricard",
     "name": "Daring Dragoon",
     "tier": "LM",
@@ -1930,20 +1916,6 @@
     "id": 201030304,
     "anima": null,
     "gl": true
-  },
-  {
-    "realm": "III",
-    "character": "Refia",
-    "name": "Synergy (Refia)",
-    "tier": "LMR+",
-    "lmVer": "LMR+2",
-    "effect": "Grants [Fire Quick Cast] and [Random Flame Dance Follow-Up] at the beginning of the battle",
-    "master": "ATK +10",
-    "relic": "Minerva Bustier (III)",
-    "nameJp": "迅撃【レフィア】",
-    "id": 201030305,
-    "anima": null,
-    "gl": false
   },
   {
     "realm": "III",
@@ -3250,7 +3222,7 @@
   {
     "realm": "IV",
     "character": "Cid (IV)",
-    "name": "Re-action (Cid (IV))",
+    "name": "Re-action (Cid IV)",
     "tier": "LMR+",
     "lmVer": "LMR+1",
     "effect": "100% chance to dualcast every third Lightning ability",
@@ -3259,7 +3231,7 @@
     "nameJp": "再動【シド(IV)】",
     "id": 201041504,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "IV",
@@ -4047,20 +4019,6 @@
   },
   {
     "realm": "V",
-    "character": "Krile",
-    "name": "Refinement (Krile)",
-    "tier": "LMR+",
-    "lmVer": "LMR+1",
-    "effect": "BLK attacks deal 25% more damage",
-    "master": "MAG +10",
-    "relic": "Prophet's Hairpin (V)",
-    "nameJp": "昇華【クルル】",
-    "id": 201051206,
-    "anima": null,
-    "gl": false
-  },
-  {
-    "realm": "V",
     "character": "Xezat",
     "name": "Veteran Swordsman",
     "tier": "LM",
@@ -4663,20 +4621,6 @@
   },
   {
     "realm": "VI",
-    "character": "Cyan",
-    "name": "Refinement (Cyan)",
-    "tier": "LMR+",
-    "lmVer": "LMR+1",
-    "effect": "PHY attacks deal 25% more damage",
-    "master": "ATK +10",
-    "relic": "White Bracer (VI)",
-    "nameJp": "昇華【ガウ】",
-    "id": 201060903,
-    "anima": null,
-    "gl": false
-  },
-  {
-    "realm": "VI",
     "character": "Gau",
     "name": "Dried Meat Connoisseur",
     "tier": "LM",
@@ -4716,20 +4660,6 @@
     "id": 201061002,
     "anima": 1,
     "gl": true
-  },
-  {
-    "realm": "VI",
-    "character": "Gau",
-    "name": "Refinement (Gau)",
-    "tier": "LMR+",
-    "lmVer": "LMR+1",
-    "effect": "PHY attacks deal 25% more damage",
-    "master": "ATK +10",
-    "relic": "Scarface (VI)",
-    "nameJp": "昇華【カイエン】",
-    "id": 201061003,
-    "anima": null,
-    "gl": false
   },
   {
     "realm": "VI",
@@ -5349,20 +5279,6 @@
   },
   {
     "realm": "VII",
-    "character": "Barret",
-    "name": "Swiftness (Barret)",
-    "tier": "LMR+",
-    "lmVer": "LMR+1",
-    "effect": "Grants [Haste] and [Instant Cast 3] at the beginning of the battle",
-    "master": "ATK +10",
-    "relic": "Metal Jerkin (VII)",
-    "nameJp": "迅速【バレット】",
-    "id": 201070204,
-    "anima": null,
-    "gl": false
-  },
-  {
-    "realm": "VII",
     "character": "Tifa",
     "name": "Heroic Devotion",
     "tier": "LM",
@@ -5661,7 +5577,7 @@
     "name": "Beast Within",
     "tier": "LM",
     "lmVer": "LM2",
-    "effect": "Restores HP for 100% of the user's maximum HP and grants [Galian Beast] when HP fall below 20%",
+    "effect": "Restores HP for 100% of the user's maximum HP and grants [Beast Mode] when HP fall below 20%",
     "master": null,
     "relic": null,
     "nameJp": "獣を宿す者",
@@ -5881,20 +5797,6 @@
   },
   {
     "realm": "VII",
-    "character": "Cid (VII)",
-    "name": "Re-action (Cid (VII))",
-    "tier": "LMR+",
-    "lmVer": "LMR+1",
-    "effect": "100% chance to dualcast every third Dragoon ability",
-    "master": "ATK +10",
-    "relic": "Mop (VII)",
-    "nameJp": "再動【シド(VII)】",
-    "id": 201071104,
-    "anima": null,
-    "gl": false
-  },
-  {
-    "realm": "VII",
     "character": "Reno",
     "name": "Master of Lightning",
     "tier": "LM",
@@ -5934,20 +5836,6 @@
     "id": 201071202,
     "anima": 1,
     "gl": true
-  },
-  {
-    "realm": "VII",
-    "character": "Reno",
-    "name": "Refinement (Reno)",
-    "tier": "LMR+",
-    "lmVer": "LMR+1",
-    "effect": "Increases Lightning damage dealt by 25%",
-    "master": "ATK +5, MAG +5",
-    "relic": "Plasma Rod (VII)",
-    "nameJp": "昇華【レノ】",
-    "id": 201071203,
-    "anima": null,
-    "gl": false
   },
   {
     "realm": "VII",
@@ -6073,7 +5961,7 @@
     "nameJp": "耐降【シェルク】",
     "id": 201071904,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "VII",
@@ -7236,20 +7124,6 @@
     "id": 201090103,
     "anima": 1,
     "gl": true
-  },
-  {
-    "realm": "IX",
-    "character": "Zidane",
-    "name": "Swiftness (Zidane)",
-    "tier": "LMR+",
-    "lmVer": "LMR+1",
-    "effect": "Grants [Haste] and [Instant Cast 3] at the beginning of the battle",
-    "master": "ATK +10",
-    "relic": "Panther Tooth (IX)",
-    "nameJp": "迅速【ジタン】",
-    "id": 201090104,
-    "anima": null,
-    "gl": false
   },
   {
     "realm": "IX",
@@ -8496,20 +8370,6 @@
     "id": 201101202,
     "anima": 1,
     "gl": true
-  },
-  {
-    "realm": "X",
-    "character": "Braska",
-    "name": "Provoke (Braska)",
-    "tier": "LMR+",
-    "lmVer": "LMR+1",
-    "effect": "Grants [Grand Summoner's Resolve Mode] after using three Fire abilities once per battle",
-    "master": "MAG +10",
-    "relic": "Crimson Gear (X)",
-    "nameJp": "契機【ブラスカ】",
-    "id": 201101203,
-    "anima": null,
-    "gl": false
   },
   {
     "realm": "X",
@@ -10105,7 +9965,7 @@
     "nameJp": "短縮【ヴァニラ】",
     "id": 201130305,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "XIII",
@@ -10908,16 +10768,16 @@
   {
     "realm": "XIV",
     "character": "Alphinaud",
-    "name": "Initiative (Alphinaud)",
+    "name": "Herald (Alphinaud)",
     "tier": "LMR+",
     "lmVer": "LMR+1",
     "effect": "Grants [Attach Wind] and [Quick Cast] at the beginning of the battle",
     "master": "MAG +10",
-    "relic": "Augmented Ironworks Hood of Casting (XIV)",
+    "relic": "Ironworks Hood of Casting (XIV)",
     "nameJp": "先駆【アルフィノ】",
     "id": 201140604,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "XIV",
@@ -11746,34 +11606,6 @@
     "gl": true
   },
   {
-    "realm": "XV",
-    "character": "Ravus",
-    "name": "Empire General",
-    "tier": "LM",
-    "lmVer": "LM1",
-    "effect": "30% chance to grant [Quick Cast 3] to the user after using a Lightning or Dark attack",
-    "master": null,
-    "relic": null,
-    "nameJp": "帝国の将軍",
-    "id": 201151100,
-    "anima": null,
-    "gl": false
-  },
-  {
-    "realm": "XV",
-    "character": "Ravus",
-    "name": "Extraordinary Hatred",
-    "tier": "LM",
-    "lmVer": "LM2",
-    "effect": "35% chance to dualcast Lightning and Dark abilities",
-    "master": null,
-    "relic": null,
-    "nameJp": "並々ならぬ憎悪",
-    "id": 201151101,
-    "anima": null,
-    "gl": false
-  },
-  {
     "realm": "FFT",
     "character": "Ramza",
     "name": "Strength of Conviction",
@@ -11947,7 +11779,7 @@
     "name": "Lowborn Justice",
     "tier": "LMR",
     "lmVer": "LMR2",
-    "effect": "Spellblade abilities deal 25% more damage when equipping a sword or dagger",
+    "effect": "Spellblade abilities deal 25% more damage when equipping a sword",
     "master": "ATK +10",
     "relic": "Golden Helm (FFT)",
     "nameJp": "自らの正義のために",
@@ -12798,16 +12630,16 @@
   {
     "realm": "Type-0",
     "character": "Machina",
-    "name": "Synergy (Machina)",
+    "name": "Swiftness (Machina)",
     "tier": "LMR+",
     "lmVer": "LMR+1",
-    "effect": "Grants [Quick Cast] at the beginning of the battle, casts Focal Sword after using Spellblade abilities",
+    "effect": "Grants [Quick Cast] and [Focal Sword Follow-Up] at the beginning of the battle",
     "master": "ATK +10",
     "relic": "Adamant Armlet (Type-0)",
     "nameJp": "迅撃【マキナ】",
     "id": 201600404,
     "anima": null,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "Type-0",

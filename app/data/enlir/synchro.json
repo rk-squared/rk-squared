@@ -2,6 +2,7 @@
   {
     "character": "Tyro",
     "source": "Fantasy Grimoire Vol. II",
+    "sbVer": "SASB1",
     "name": "Almighty Chapter",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -41,6 +42,7 @@
   {
     "character": "Tyro",
     "source": "Fantasy Grimoire Vol. II",
+    "sbVer": "SASB1",
     "name": "Divine Chapter",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -65,6 +67,7 @@
   {
     "character": "Elarra",
     "source": "Magika Animus",
+    "sbVer": "SASB1",
     "name": "Magika Cure",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -89,6 +92,7 @@
   {
     "character": "Elarra",
     "source": "Magika Animus",
+    "sbVer": "SASB1",
     "name": "Magika Somnium",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -114,6 +118,7 @@
   {
     "character": "Elarra",
     "source": "Magika Stella",
+    "sbVer": "SASB2",
     "name": "Magika Clarus",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -139,6 +144,7 @@
   {
     "character": "Elarra",
     "source": "Magika Stella",
+    "sbVer": "SASB2",
     "name": "Magika Lux",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -163,6 +169,7 @@
   {
     "character": "Dr. Mog",
     "source": "Rainbow Magic",
+    "sbVer": "SASB1",
     "name": "Sage Counsel",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -198,6 +205,7 @@
   {
     "character": "Dr. Mog",
     "source": "Rainbow Magic",
+    "sbVer": "SASB1",
     "name": "Tome of Knowledge",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -222,6 +230,7 @@
   {
     "character": "Biggs",
     "source": "Prime Explosion",
+    "sbVer": "SASB1",
     "name": "Spirited Strike",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -250,6 +259,7 @@
   {
     "character": "Biggs",
     "source": "Prime Explosion",
+    "sbVer": "SASB1",
     "name": "Stalwart Stance",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -275,6 +285,7 @@
   {
     "character": "Wedge",
     "source": "Flying Star",
+    "sbVer": "SASB1",
     "name": "Vacuum Cutter",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -306,6 +317,7 @@
   {
     "character": "Wedge",
     "source": "Flying Star",
+    "sbVer": "SASB1",
     "name": "Wind Booster",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -337,6 +349,7 @@
   {
     "character": "Warrior of Light",
     "source": "Photon Wave",
+    "sbVer": "SASB1",
     "name": "Photon Strike",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -364,6 +377,7 @@
   {
     "character": "Warrior of Light",
     "source": "Photon Wave",
+    "sbVer": "SASB1",
     "name": "Crystal Boost",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -391,6 +405,7 @@
   {
     "character": "Warrior of Light",
     "source": "True Shining Saber",
+    "sbVer": "SASB2",
     "name": "Shining Thrust",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -418,6 +433,7 @@
   {
     "character": "Warrior of Light",
     "source": "True Shining Saber",
+    "sbVer": "SASB2",
     "name": "Lucent Boost",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -442,6 +458,7 @@
   {
     "character": "Meia",
     "source": "Primal Undine",
+    "sbVer": "SASB1",
     "name": "Water Surface",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -469,6 +486,7 @@
   {
     "character": "Meia",
     "source": "Primal Undine",
+    "sbVer": "SASB1",
     "name": "Aberrant Witch",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -496,6 +514,7 @@
   {
     "character": "Garland",
     "source": "Sinister Reincarnation",
+    "sbVer": "SASB1",
     "name": "Chaos Gouge",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -523,6 +542,7 @@
   {
     "character": "Garland",
     "source": "Sinister Reincarnation",
+    "sbVer": "SASB1",
     "name": "Round Edge",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -548,8 +568,65 @@
     "gl": true
   },
   {
+    "character": "Garland",
+    "source": "True Round Edge",
+    "sbVer": "SASB2",
+    "name": "Chaos Shock",
+    "synchroAbilitySlot": 1,
+    "synchroCondition": [
+      "Dark"
+    ],
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 5.7,
+    "element": [
+      "Dark",
+      "NE"
+    ],
+    "time": 1.65,
+    "effects": "Six single attacks (0.85/0.95 each) at Heavy Charge level 0-1/2+",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 90,
+    "school": "Heavy",
+    "nameJp": "カオスショック",
+    "id": 31541849,
+    "synchroConditionId": 107,
+    "gl": false
+  },
+  {
+    "character": "Garland",
+    "source": "True Round Edge",
+    "sbVer": "SASB2",
+    "name": "Chaos Slam",
+    "synchroAbilitySlot": 2,
+    "synchroCondition": [
+      "Dark"
+    ],
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 2.7,
+    "element": [
+      "Dark",
+      "NE"
+    ],
+    "time": 1.65,
+    "effects": "Three single attacks (0.90 each), grants [Quick Cast 2] and [Heavy Charge +1] to the user ",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 90,
+    "school": "Heavy",
+    "nameJp": "カオスバンプ",
+    "id": 31541850,
+    "synchroConditionId": 107,
+    "gl": false
+  },
+  {
     "character": "Sarah",
     "source": "Far-Reaching Prayer",
+    "sbVer": "SASB1",
     "name": "Peaceful Exultation",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -575,6 +652,7 @@
   {
     "character": "Sarah",
     "source": "Far-Reaching Prayer",
+    "sbVer": "SASB1",
     "name": "Aria of Desire",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -600,6 +678,7 @@
   {
     "character": "Echo",
     "source": "Faerie Tale",
+    "sbVer": "SASB1",
     "name": "Vernal Breeze",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -625,6 +704,7 @@
   {
     "character": "Echo",
     "source": "Faerie Tale",
+    "sbVer": "SASB1",
     "name": "Fey Voice",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -650,6 +730,7 @@
   {
     "character": "Thief (I)",
     "source": "Crescent Gale",
+    "sbVer": "SASB1",
     "name": "Hollow Edge",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -678,6 +759,7 @@
   {
     "character": "Thief (I)",
     "source": "Crescent Gale",
+    "sbVer": "SASB1",
     "name": "Dagger Slash",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -706,6 +788,7 @@
   {
     "character": "Master",
     "source": "Raging Spirit",
+    "sbVer": "SASB1",
     "name": "Uncanny Wild Strike",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -735,6 +818,7 @@
   {
     "character": "Master",
     "source": "Raging Spirit",
+    "sbVer": "SASB1",
     "name": "Shimmer Fist",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -764,6 +848,7 @@
   {
     "character": "Matoya",
     "source": "Cauldron Chant",
+    "sbVer": "SASB1",
     "name": "Eerie Chant",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -793,6 +878,7 @@
   {
     "character": "Matoya",
     "source": "Cauldron Chant",
+    "sbVer": "SASB1",
     "name": "Witch's Infusion",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -822,7 +908,8 @@
   {
     "character": "Wol",
     "source": "Begraben",
-    "name": "Extreme Impact",
+    "sbVer": "SASB1",
+    "name": "Hard Impact",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
       "Earth",
@@ -846,12 +933,13 @@
     "nameJp": "ハードインパクト",
     "id": 31541380,
     "synchroConditionId": 2013,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Wol",
     "source": "Begraben",
-    "name": "Extreme Break",
+    "sbVer": "SASB1",
+    "name": "Hard Break",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
       "Earth",
@@ -875,11 +963,12 @@
     "nameJp": "ハードブレイク",
     "id": 31541381,
     "synchroConditionId": 2013,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Minwu",
     "source": "Holy XCIX",
+    "sbVer": "SASB1",
     "name": "Diara LXVI",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -907,6 +996,7 @@
   {
     "character": "Minwu",
     "source": "Holy XCIX",
+    "sbVer": "SASB1",
     "name": "Dia XXXIII",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -934,6 +1024,7 @@
   {
     "character": "Maria",
     "source": "Armageddon XCIX",
+    "sbVer": "SASB1",
     "name": "Break VIII",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -961,6 +1052,7 @@
   {
     "character": "Maria",
     "source": "Armageddon XCIX",
+    "sbVer": "SASB1",
     "name": "Inner Calm VIII",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -985,6 +1077,7 @@
   {
     "character": "Maria",
     "source": "Cosmic Arrow XCIX",
+    "sbVer": "SASB2",
     "name": "Earth VIII",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -1012,6 +1105,7 @@
   {
     "character": "Maria",
     "source": "Cosmic Arrow XCIX",
+    "sbVer": "SASB2",
     "name": "Quicker VIII",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -1039,6 +1133,7 @@
   {
     "character": "Firion",
     "source": "Full Mastery",
+    "sbVer": "SASB1",
     "name": "Swordmastery",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -1068,6 +1163,7 @@
   {
     "character": "Firion",
     "source": "Full Mastery",
+    "sbVer": "SASB1",
     "name": "Blademastery",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -1097,6 +1193,7 @@
   {
     "character": "Firion",
     "source": "Blizzard Lord",
+    "sbVer": "SASB2",
     "name": "Swordslash",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -1124,6 +1221,7 @@
   {
     "character": "Firion",
     "source": "Blizzard Lord",
+    "sbVer": "SASB2",
     "name": "Gelid Wand",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -1148,6 +1246,7 @@
   {
     "character": "Firion",
     "source": "Weapon Master",
+    "sbVer": "SASB3",
     "name": "Saintfire Sweep",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -1177,6 +1276,7 @@
   {
     "character": "Firion",
     "source": "Weapon Master",
+    "sbVer": "SASB3",
     "name": "Saintfire Blade",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -1202,6 +1302,7 @@
   {
     "character": "Hilda",
     "source": "Wild Rose Bloom",
+    "sbVer": "SASB1",
     "name": "Fortifying Minuet",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -1227,6 +1328,7 @@
   {
     "character": "Hilda",
     "source": "Wild Rose Bloom",
+    "sbVer": "SASB1",
     "name": "Peaceful Lamentation",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -1252,6 +1354,7 @@
   {
     "character": "Leila",
     "source": "Split Edge",
+    "sbVer": "SASB1",
     "name": "Water Bite",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -1279,6 +1382,7 @@
   {
     "character": "Leila",
     "source": "Split Edge",
+    "sbVer": "SASB1",
     "name": "Aqua Harm",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -1306,6 +1410,7 @@
   {
     "character": "Leila",
     "source": "Hollow Beauty",
+    "sbVer": "SASB2",
     "name": "Scourge Bite",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -1333,6 +1438,7 @@
   {
     "character": "Leila",
     "source": "Hollow Beauty",
+    "sbVer": "SASB2",
     "name": "Poison Harm",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -1357,6 +1463,7 @@
   {
     "character": "Emperor",
     "source": "World Dominator",
+    "sbVer": "SASB1",
     "name": "Dismal Gale",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -1387,6 +1494,7 @@
   {
     "character": "Emperor",
     "source": "World Dominator",
+    "sbVer": "SASB1",
     "name": "Dismal Cyclone",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -1417,6 +1525,7 @@
   {
     "character": "Josef",
     "source": "Heroic Blow",
+    "sbVer": "SASB1",
     "name": "Shard Striker",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -1444,6 +1553,7 @@
   {
     "character": "Josef",
     "source": "Heroic Blow",
+    "sbVer": "SASB1",
     "name": "Guardian Stance",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -1468,6 +1578,7 @@
   {
     "character": "Josef",
     "source": "Hero's Resolve",
+    "sbVer": "SASB2",
     "name": "Hyperborean Fist",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -1495,6 +1606,7 @@
   {
     "character": "Josef",
     "source": "Hero's Resolve",
+    "sbVer": "SASB2",
     "name": "Unmatched Valor",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -1519,6 +1631,7 @@
   {
     "character": "Gordon",
     "source": "Honored Memory",
+    "sbVer": "SASB1",
     "name": "Resolute Mind",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -1543,13 +1656,14 @@
   {
     "character": "Gordon",
     "source": "Honored Memory",
+    "sbVer": "SASB1",
     "name": "Delicate Command",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
       "White Magic"
     ],
     "type": "NAT",
-    "target": "Another ally",
+    "target": "Single ally",
     "formula": null,
     "multiplier": null,
     "element": null,
@@ -1567,6 +1681,7 @@
   {
     "character": "Scott",
     "source": "Scarlet Pyroblade",
+    "sbVer": "SASB1",
     "name": "Smoldering Sentiment",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -1594,6 +1709,7 @@
   {
     "character": "Scott",
     "source": "Scarlet Pyroblade",
+    "sbVer": "SASB1",
     "name": "Valiant Struggle",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -1621,6 +1737,7 @@
   {
     "character": "Ricard",
     "source": "Windbolt Dragoon",
+    "sbVer": "SASB1",
     "name": "Spear Onslaught",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -1651,6 +1768,7 @@
   {
     "character": "Ricard",
     "source": "Windbolt Dragoon",
+    "sbVer": "SASB1",
     "name": "Valiant Dash",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -1680,8 +1798,9 @@
   },
   {
     "character": "Guy",
-    "source": "Lunar Howl",
-    "name": "Wolven Fang",
+    "source": "Moon Howl",
+    "sbVer": "SASB1",
+    "name": "Wolf's Bite",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
       "Earth"
@@ -1703,12 +1822,13 @@
     "nameJp": "狼の鋭牙",
     "id": 31541293,
     "synchroConditionId": 103,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Guy",
-    "source": "Lunar Howl",
-    "name": "Gaian Strength",
+    "source": "Moon Howl",
+    "sbVer": "SASB1",
+    "name": "Colossal Arm",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
       "Earth"
@@ -1727,12 +1847,13 @@
     "nameJp": "巨漢の堅腕",
     "id": 31541294,
     "synchroConditionId": 103,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Leon",
     "source": "Shadow Force",
-    "name": "Spear of Treachery",
+    "sbVer": "SASB1",
+    "name": "Treacherous Darkspear",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
       "Dark"
@@ -1754,12 +1875,13 @@
     "nameJp": "裏切りの闇槍",
     "id": 31541297,
     "synchroConditionId": 107,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Leon",
     "source": "Shadow Force",
-    "name": "Lust for Power",
+    "sbVer": "SASB1",
+    "name": "Thirst for Power",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
       "Dark"
@@ -1781,11 +1903,12 @@
     "nameJp": "力の渇望",
     "id": 31541298,
     "synchroConditionId": 107,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Onion Knight",
     "source": "Channel Water",
+    "sbVer": "SASB1",
     "name": "Synchrospell Water",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -1813,6 +1936,7 @@
   {
     "character": "Onion Knight",
     "source": "Channel Water",
+    "sbVer": "SASB1",
     "name": "Breachspell Water",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -1840,6 +1964,7 @@
   {
     "character": "Onion Knight",
     "source": "Channel Earth",
+    "sbVer": "SASB2",
     "name": "Synchrospell Earth",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -1867,6 +1992,7 @@
   {
     "character": "Onion Knight",
     "source": "Channel Earth",
+    "sbVer": "SASB2",
     "name": "Breachspell Earth",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -1891,6 +2017,7 @@
   {
     "character": "Onion Knight",
     "source": "Channel Wind",
+    "sbVer": "SASB3",
     "name": "Synchrospell Wind",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -1918,6 +2045,7 @@
   {
     "character": "Onion Knight",
     "source": "Channel Wind",
+    "sbVer": "SASB3",
     "name": "Breachspell Wind",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -1941,8 +2069,9 @@
   },
   {
     "character": "Onion Knight",
-    "source": "Dual Onion Swords",
-    "name": "Quick Attack",
+    "source": "Onion Dual Wield",
+    "sbVer": "SASB4",
+    "name": "Swift Hit",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
       "Celerity",
@@ -1968,12 +2097,13 @@
     "nameJp": "クイックヒット",
     "id": 31541322,
     "synchroConditionId": 1022,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Onion Knight",
-    "source": "Dual Onion Swords",
-    "name": "Onion Sword Dance",
+    "source": "Onion Dual Wield",
+    "sbVer": "SASB4",
+    "name": "Onion Knight's Dance",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
       "Wind",
@@ -2001,11 +2131,12 @@
     "nameJp": "たまねぎ剣士の舞",
     "id": 31541323,
     "synchroConditionId": 2017,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Ingus",
     "source": "Knight's Assault",
+    "sbVer": "SASB1",
     "name": "Titanic Rush",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -2033,6 +2164,7 @@
   {
     "character": "Ingus",
     "source": "Knight's Assault",
+    "sbVer": "SASB1",
     "name": "Titanic Charge",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -2060,6 +2192,7 @@
   {
     "character": "Ingus",
     "source": "Paragon of Chivalry",
+    "sbVer": "SASB2",
     "name": "Sasune Rush",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -2087,6 +2220,7 @@
   {
     "character": "Ingus",
     "source": "Paragon of Chivalry",
+    "sbVer": "SASB2",
     "name": "Sasune Guard",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -2114,6 +2248,7 @@
   {
     "character": "Cloud of Darkness",
     "source": "Diffusion Particle Beam",
+    "sbVer": "SASB1",
     "name": "Chain Aura Ball",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -2141,6 +2276,7 @@
   {
     "character": "Cloud of Darkness",
     "source": "Diffusion Particle Beam",
+    "sbVer": "SASB1",
     "name": "Deceit Aura Ball",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -2167,8 +2303,9 @@
   },
   {
     "character": "Cloud of Darkness",
-    "source": "Diffraction Particle Beam",
-    "name": "Homing Particle Beam",
+    "source": "Scatter Particle Beam",
+    "sbVer": "SASB2",
+    "name": "Induction Beam",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
       "Lightning"
@@ -2191,12 +2328,13 @@
     "nameJp": "誘導砲",
     "id": 31541283,
     "synchroConditionId": 102,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Cloud of Darkness",
-    "source": "Diffraction Particle Beam",
-    "name": "Bursting Particle Beam",
+    "source": "Scatter Particle Beam",
+    "sbVer": "SASB2",
+    "name": "Uncanny Beam",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
       "Lightning"
@@ -2219,11 +2357,12 @@
     "nameJp": "噴流砲",
     "id": 31541284,
     "synchroConditionId": 102,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Aria",
     "source": "Ephemeral Maiden",
+    "sbVer": "SASB1",
     "name": "Sacred Iris",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -2249,6 +2388,7 @@
   {
     "character": "Aria",
     "source": "Ephemeral Maiden",
+    "sbVer": "SASB1",
     "name": "Rainbow Sky Veil",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -2274,6 +2414,7 @@
   {
     "character": "Aria",
     "source": "Rainbow Prayer",
+    "sbVer": "SASB2",
     "name": "Maiden's Wonder",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -2302,6 +2443,7 @@
   {
     "character": "Aria",
     "source": "Rainbow Prayer",
+    "sbVer": "SASB2",
     "name": "Maiden's Prayer",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -2327,6 +2469,7 @@
   {
     "character": "Luneth",
     "source": "Silver Wind",
+    "sbVer": "SASB1",
     "name": "Tempest Leap",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -2354,6 +2497,7 @@
   {
     "character": "Luneth",
     "source": "Silver Wind",
+    "sbVer": "SASB1",
     "name": "Spear Squall",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -2381,6 +2525,7 @@
   {
     "character": "Luneth",
     "source": "Dragon's Tornado",
+    "sbVer": "SASB2",
     "name": "Gale Leap",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -2408,6 +2553,7 @@
   {
     "character": "Luneth",
     "source": "Dragon's Tornado",
+    "sbVer": "SASB2",
     "name": "Zephyr Force",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -2432,6 +2578,7 @@
   {
     "character": "Arc",
     "source": "Invoke Leviath",
+    "sbVer": "SASB1",
     "name": "Aqua Leviath",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -2463,6 +2610,7 @@
   {
     "character": "Arc",
     "source": "Invoke Leviath",
+    "sbVer": "SASB1",
     "name": "Saint's Leviath",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -2494,6 +2642,7 @@
   {
     "character": "Refia",
     "source": "Searing Circle",
+    "sbVer": "SASB1",
     "name": "Scarlet Flamefist",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -2521,6 +2670,7 @@
   {
     "character": "Refia",
     "source": "Searing Circle",
+    "sbVer": "SASB1",
     "name": "Cresting Flames",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -2545,6 +2695,7 @@
   {
     "character": "Desch",
     "source": "Life Spark",
+    "sbVer": "SASB1",
     "name": "Chaotic Bolt (Enduring Flash 0)",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -2572,6 +2723,7 @@
   {
     "character": "Desch",
     "source": "Life Spark",
+    "sbVer": "SASB1",
     "name": "Chaotic Bolt (Enduring Flash 1)",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -2599,6 +2751,7 @@
   {
     "character": "Desch",
     "source": "Life Spark",
+    "sbVer": "SASB1",
     "name": "Chaotic Bolt (Enduring Flash 2)",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -2626,6 +2779,7 @@
   {
     "character": "Desch",
     "source": "Life Spark",
+    "sbVer": "SASB1",
     "name": "Chaotic Bolt (Enduring Flash 3)",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -2653,6 +2807,7 @@
   {
     "character": "Desch",
     "source": "Life Spark",
+    "sbVer": "SASB1",
     "name": "Selfless Call",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -2677,6 +2832,7 @@
   {
     "character": "Kain",
     "source": "Blood Dragoon",
+    "sbVer": "SASB1",
     "name": "Sworn Lance",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -2704,6 +2860,7 @@
   {
     "character": "Kain",
     "source": "Blood Dragoon",
+    "sbVer": "SASB1",
     "name": "Dragoon Thunderbolt",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -2731,6 +2888,7 @@
   {
     "character": "Kain",
     "source": "Cross Javelin",
+    "sbVer": "SASB2",
     "name": "Shadow Stab",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -2760,6 +2918,7 @@
   {
     "character": "Kain",
     "source": "Cross Javelin",
+    "sbVer": "SASB2",
     "name": "Shadow Avenger",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -2788,6 +2947,7 @@
   {
     "character": "Rydia",
     "source": "Eidolon Zantetsuken",
+    "sbVer": "SASB1",
     "name": "Wrathful Strike",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -2815,6 +2975,7 @@
   {
     "character": "Rydia",
     "source": "Eidolon Zantetsuken",
+    "sbVer": "SASB1",
     "name": "Wrathful Roar",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -2842,6 +3003,7 @@
   {
     "character": "Rydia",
     "source": "Broken Heart",
+    "sbVer": "SASB2",
     "name": "Eidolon King's Favor",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -2869,6 +3031,7 @@
   {
     "character": "Rydia",
     "source": "Broken Heart",
+    "sbVer": "SASB2",
     "name": "Eidolon King's Roar",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -2896,6 +3059,7 @@
   {
     "character": "Rydia",
     "source": "Holy Burst",
+    "sbVer": "SASB3",
     "name": "Resolute Heart",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -2923,6 +3087,7 @@
   {
     "character": "Rydia",
     "source": "Holy Burst",
+    "sbVer": "SASB3",
     "name": "Unsullied Might",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -2947,7 +3112,8 @@
   {
     "character": "Rydia",
     "source": "Call Me Queen",
-    "name": "Eidolon King's Outburst",
+    "sbVer": "SASB4",
+    "name": "Eidolon King's Bellow",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
       "Water"
@@ -2969,12 +3135,13 @@
     "nameJp": "幻獣王の轟咆",
     "id": 31541427,
     "synchroConditionId": 105,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Rydia",
     "source": "Call Me Queen",
-    "name": "Eidolon King's Wallop",
+    "sbVer": "SASB4",
+    "name": "Eidolon King's Strike",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
       "Water"
@@ -2996,11 +3163,12 @@
     "nameJp": "幻獣王の一撃",
     "id": 31541428,
     "synchroConditionId": 105,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Cecil (Dark Knight)",
     "source": "Shadow Blazer",
+    "sbVer": "SASB1",
     "name": "Shadow Smash",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -3028,6 +3196,7 @@
   {
     "character": "Cecil (Dark Knight)",
     "source": "Shadow Blazer",
+    "sbVer": "SASB1",
     "name": "Shadow Drive",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -3056,6 +3225,7 @@
   {
     "character": "Cecil (Dark Knight)",
     "source": "Tenebrous Blast",
+    "sbVer": "SASB2",
     "name": "Evil Smash",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -3083,6 +3253,7 @@
   {
     "character": "Cecil (Dark Knight)",
     "source": "Tenebrous Blast",
+    "sbVer": "SASB2",
     "name": "Evil Gate",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -3110,6 +3281,7 @@
   {
     "character": "Cecil (Paladin)",
     "source": "Shine Braver",
+    "sbVer": "SASB1",
     "name": "Mighty Force",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -3141,6 +3313,7 @@
   {
     "character": "Cecil (Paladin)",
     "source": "Shine Braver",
+    "sbVer": "SASB1",
     "name": "Healing Force",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -3165,6 +3338,7 @@
   {
     "character": "Golbez",
     "source": "Dark Meteor",
+    "sbVer": "SASB1",
     "name": "Void Whip",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -3192,6 +3366,7 @@
   {
     "character": "Golbez",
     "source": "Dark Meteor",
+    "sbVer": "SASB1",
     "name": "Void Hand",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -3219,6 +3394,7 @@
   {
     "character": "Golbez",
     "source": "Darkglow",
+    "sbVer": "SASB2",
     "name": "Void Intimidation",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -3246,6 +3422,7 @@
   {
     "character": "Golbez",
     "source": "Darkglow",
+    "sbVer": "SASB2",
     "name": "Everlasting Darkness",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -3270,6 +3447,7 @@
   {
     "character": "Rosa",
     "source": "Theme of Love",
+    "sbVer": "SASB1",
     "name": "Blessed Prayer",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -3294,6 +3472,7 @@
   {
     "character": "Rosa",
     "source": "Theme of Love",
+    "sbVer": "SASB1",
     "name": "Wondrous Prayer",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -3317,8 +3496,9 @@
   },
   {
     "character": "Rosa",
-    "source": "Angelic Light",
-    "name": "Light of Love",
+    "source": "White Angelus",
+    "sbVer": "SASB2",
+    "name": "Tender Blessing",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
       "White Magic"
@@ -3340,12 +3520,13 @@
     "nameJp": "愛の祝福",
     "id": 31541377,
     "synchroConditionId": 2,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Rosa",
-    "source": "Angelic Light",
-    "name": "Miracle of Love (IV)",
+    "source": "White Angelus",
+    "sbVer": "SASB2",
+    "name": "Tender Miracle (IV)",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
       "White Magic"
@@ -3364,11 +3545,12 @@
     "nameJp": "愛の奇跡【IV】",
     "id": 31541378,
     "synchroConditionId": 2,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Edge",
     "source": "Eblan Harmony",
+    "sbVer": "SASB1",
     "name": "Eblan Surge",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -3402,6 +3584,7 @@
   {
     "character": "Edge",
     "source": "Eblan Harmony",
+    "sbVer": "SASB1",
     "name": "Eblan Struggle",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -3435,6 +3618,7 @@
   {
     "character": "Barbariccia",
     "source": "Raging Wind",
+    "sbVer": "SASB1",
     "name": "Violent Tornado",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -3462,6 +3646,7 @@
   {
     "character": "Barbariccia",
     "source": "Raging Wind",
+    "sbVer": "SASB1",
     "name": "Whirlwind Form",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -3486,6 +3671,7 @@
   {
     "character": "Edward",
     "source": "Kings' Quad",
+    "sbVer": "SASB1",
     "name": "Minstrel's Ballad",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -3510,6 +3696,7 @@
   {
     "character": "Edward",
     "source": "Kings' Quad",
+    "sbVer": "SASB1",
     "name": "Harp's Timbre",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -3534,6 +3721,7 @@
   {
     "character": "Porom",
     "source": "Sync Renew",
+    "sbVer": "SASB1",
     "name": "Seal of Mysidia (IV)",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -3558,6 +3746,7 @@
   {
     "character": "Porom",
     "source": "Sync Renew",
+    "sbVer": "SASB1",
     "name": "Mutated Cure",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -3582,6 +3771,7 @@
   {
     "character": "Porom",
     "source": "Twincast: Curaga",
+    "sbVer": "SASB2",
     "name": "White Thunder",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -3609,6 +3799,7 @@
   {
     "character": "Porom",
     "source": "Twincast: Curaga",
+    "sbVer": "SASB2",
     "name": "Mysidian Heal",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -3633,6 +3824,7 @@
   {
     "character": "Ceodore",
     "source": "Advanced Blade",
+    "sbVer": "SASB1",
     "name": "Holy Cross Slash",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -3660,6 +3852,7 @@
   {
     "character": "Ceodore",
     "source": "Advanced Blade",
+    "sbVer": "SASB1",
     "name": "Awaken",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -3684,6 +3877,7 @@
   {
     "character": "Tellah",
     "source": "Sage's Remembrance",
+    "sbVer": "SASB1",
     "name": "Mortal Struggle",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -3710,6 +3904,7 @@
   {
     "character": "Tellah",
     "source": "Sage's Remembrance",
+    "sbVer": "SASB1",
     "name": "Wise Endeavor",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -3734,6 +3929,7 @@
   {
     "character": "Palom",
     "source": "Coordinated Twin Meteor",
+    "sbVer": "SASB1",
     "name": "Ice Crush",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -3763,6 +3959,7 @@
   {
     "character": "Palom",
     "source": "Coordinated Twin Meteor",
+    "sbVer": "SASB1",
     "name": "A Little Black Magic",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -3792,6 +3989,7 @@
   {
     "character": "Rubicante",
     "source": "Flamespire Warrior",
+    "sbVer": "SASB1",
     "name": "Scorch",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -3819,6 +4017,7 @@
   {
     "character": "Rubicante",
     "source": "Flamespire Warrior",
+    "sbVer": "SASB1",
     "name": "Fire Wielding",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -3843,6 +4042,7 @@
   {
     "character": "Fusoya",
     "source": "Lunar Lineage",
+    "sbVer": "SASB1",
     "name": "Moonlight Gift",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -3870,6 +4070,7 @@
   {
     "character": "Fusoya",
     "source": "Lunar Lineage",
+    "sbVer": "SASB1",
     "name": "Lucent Seal",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -3897,6 +4098,7 @@
   {
     "character": "Yang",
     "source": "Oboro Strike",
+    "sbVer": "SASB1",
     "name": "Affectionate Nudge",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -3924,6 +4126,7 @@
   {
     "character": "Yang",
     "source": "Oboro Strike",
+    "sbVer": "SASB1",
     "name": "Awakening Love",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -3948,6 +4151,7 @@
   {
     "character": "Ursula",
     "source": "Twin Wing Frenzy",
+    "sbVer": "SASB1",
     "name": "Love Palm",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -3975,6 +4179,7 @@
   {
     "character": "Ursula",
     "source": "Twin Wing Frenzy",
+    "sbVer": "SASB1",
     "name": "Mother's Awakening",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -3998,8 +4203,9 @@
   },
   {
     "character": "Cid (IV)",
-    "source": "Guided Missile",
-    "name": "Ballistic Tomahawk",
+    "source": "Rocket Launcher",
+    "sbVer": "SASB1",
+    "name": "Electric Tomahawk",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
       "Lightning"
@@ -4013,7 +4219,7 @@
       "NE"
     ],
     "time": 1.65,
-    "effects": "Six single rangd attacks (0.90 each), causes [Imperil Lightning 10% (5s)]",
+    "effects": "Six single ranged attacks (0.90 each), causes [Imperil Lightning 10% (5s)]",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 90,
@@ -4021,12 +4227,13 @@
     "nameJp": "エレキトマホーク",
     "id": 31541367,
     "synchroConditionId": 102,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Cid (IV)",
-    "source": "Guided Missile",
-    "name": "Flashbang Bombshell",
+    "source": "Rocket Launcher",
+    "sbVer": "SASB1",
+    "name": "Spark Break",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
       "Lightning"
@@ -4048,11 +4255,12 @@
     "nameJp": "スパークブレイク",
     "id": 31541368,
     "synchroConditionId": 102,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Exdeath",
     "source": "Space Disorder",
+    "sbVer": "SASB1",
     "name": "Dark Nothingness",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -4080,6 +4288,7 @@
   {
     "character": "Exdeath",
     "source": "Space Disorder",
+    "sbVer": "SASB1",
     "name": "Pale Nothingness",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -4107,6 +4316,7 @@
   {
     "character": "Exdeath",
     "source": "Almagest",
+    "sbVer": "SASB2",
     "name": "Beckoning Void",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -4134,6 +4344,7 @@
   {
     "character": "Exdeath",
     "source": "Almagest",
+    "sbVer": "SASB2",
     "name": "Malicious Craving",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -4161,6 +4372,7 @@
   {
     "character": "Bartz",
     "source": "Ethereal Bond",
+    "sbVer": "SASB1",
     "name": "Transient Wind",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -4188,6 +4400,7 @@
   {
     "character": "Bartz",
     "source": "Ethereal Bond",
+    "sbVer": "SASB1",
     "name": "Relentless Wind",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -4215,6 +4428,7 @@
   {
     "character": "Bartz",
     "source": "Earthen Bond",
+    "sbVer": "SASB2",
     "name": "Earthen Goblin Punch",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -4242,6 +4456,7 @@
   {
     "character": "Bartz",
     "source": "Earthen Bond",
+    "sbVer": "SASB2",
     "name": "Sandstorm Shank",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -4269,6 +4484,7 @@
   {
     "character": "Bartz",
     "source": "Aqueous Bond",
+    "sbVer": "SASB3",
     "name": "Waterga Strike Barrage",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -4296,6 +4512,7 @@
   {
     "character": "Bartz",
     "source": "Aqueous Bond",
+    "sbVer": "SASB3",
     "name": "Riptide Flurry",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -4320,6 +4537,7 @@
   {
     "character": "Bartz",
     "source": "Flaming Bond",
+    "sbVer": "SASB4",
     "name": "Firaga Barrage",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -4347,6 +4565,7 @@
   {
     "character": "Bartz",
     "source": "Flaming Bond",
+    "sbVer": "SASB4",
     "name": "Pyroblade Strike",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -4374,6 +4593,7 @@
   {
     "character": "Lenna",
     "source": "White Magic Mastery",
+    "sbVer": "SASB1",
     "name": "Wind Drake's Teachings",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -4398,6 +4618,7 @@
   {
     "character": "Lenna",
     "source": "White Magic Mastery",
+    "sbVer": "SASB1",
     "name": "Princess's Charity",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -4423,6 +4644,7 @@
   {
     "character": "Lenna",
     "source": "Regal Grace",
+    "sbVer": "SASB2",
     "name": "Rebirth Wings",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -4451,6 +4673,7 @@
   {
     "character": "Lenna",
     "source": "Regal Grace",
+    "sbVer": "SASB2",
     "name": "Gospel of Grace",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -4476,6 +4699,7 @@
   {
     "character": "Krile",
     "source": "Baldesion Attack",
+    "sbVer": "SASB1",
     "name": "Raging Magma",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -4505,6 +4729,7 @@
   {
     "character": "Krile",
     "source": "Baldesion Attack",
+    "sbVer": "SASB1",
     "name": "Blazing Magma",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -4534,6 +4759,7 @@
   {
     "character": "Krile",
     "source": "Four Hearts United",
+    "sbVer": "SASB2",
     "name": "Fire and Brimstone",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -4563,6 +4789,7 @@
   {
     "character": "Krile",
     "source": "Four Hearts United",
+    "sbVer": "SASB2",
     "name": "Boil Over",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -4592,6 +4819,7 @@
   {
     "character": "Faris",
     "source": "Precious Friend",
+    "sbVer": "SASB1",
     "name": "Wind Assault",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -4619,6 +4847,7 @@
   {
     "character": "Faris",
     "source": "Precious Friend",
+    "sbVer": "SASB1",
     "name": "Flame Assault",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -4646,6 +4875,7 @@
   {
     "character": "Galuf",
     "source": "Soul Successor",
+    "sbVer": "SASB1",
     "name": "Dawn Strike",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -4673,6 +4903,7 @@
   {
     "character": "Galuf",
     "source": "Soul Successor",
+    "sbVer": "SASB1",
     "name": "Dawn Catalyst",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -4697,6 +4928,7 @@
   {
     "character": "Galuf",
     "source": "Dawn Unity",
+    "sbVer": "SASB2",
     "name": "Indomitable Strike",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -4724,6 +4956,7 @@
   {
     "character": "Galuf",
     "source": "Dawn Unity",
+    "sbVer": "SASB2",
     "name": "Immortal Strike",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -4751,6 +4984,7 @@
   {
     "character": "Gilgamesh",
     "source": "Future Ally",
+    "sbVer": "SASB1",
     "name": "Blade Barrage",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -4778,6 +5012,7 @@
   {
     "character": "Gilgamesh",
     "source": "Future Ally",
+    "sbVer": "SASB1",
     "name": "Excalipoor Barrage",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -4805,6 +5040,7 @@
   {
     "character": "Gogo (V)",
     "source": "Submarine Whirlpool",
+    "sbVer": "SASB1",
     "name": "Counter Spell: Water",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -4832,6 +5068,7 @@
   {
     "character": "Gogo (V)",
     "source": "Submarine Whirlpool",
+    "sbVer": "SASB1",
     "name": "Sunken Master",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -4860,6 +5097,7 @@
   {
     "character": "Dorgann",
     "source": "Resolute Flashing Blade",
+    "sbVer": "SASB1",
     "name": "Sundering Blade",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -4887,6 +5125,7 @@
   {
     "character": "Dorgann",
     "source": "Resolute Flashing Blade",
+    "sbVer": "SASB1",
     "name": "Devoted Swordmaster",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -4911,6 +5150,7 @@
   {
     "character": "Xezat",
     "source": "Spellskill Frostbreaker",
+    "sbVer": "SASB1",
     "name": "Permafrost Thunder",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -4940,6 +5180,7 @@
   {
     "character": "Xezat",
     "source": "Spellskill Frostbreaker",
+    "sbVer": "SASB1",
     "name": "Quivering Thunderblade",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -4969,6 +5210,7 @@
   {
     "character": "Kelger",
     "source": "Ferocious Alpha",
+    "sbVer": "SASB1",
     "name": "Lupine Rush",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -4996,6 +5238,7 @@
   {
     "character": "Kelger",
     "source": "Ferocious Alpha",
+    "sbVer": "SASB1",
     "name": "Lupine Ambush",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -5023,6 +5266,7 @@
   {
     "character": "Terra",
     "source": "Inferno Cross",
+    "sbVer": "SASB1",
     "name": "Burning Combo",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -5050,6 +5294,7 @@
   {
     "character": "Terra",
     "source": "Inferno Cross",
+    "sbVer": "SASB1",
     "name": "Esper Flamestrike",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -5077,6 +5322,7 @@
   {
     "character": "Terra",
     "source": "Riot Storm",
+    "sbVer": "SASB2",
     "name": "Stream Combo",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -5104,6 +5350,7 @@
   {
     "character": "Terra",
     "source": "Riot Storm",
+    "sbVer": "SASB2",
     "name": "Ominous Wind",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -5128,6 +5375,7 @@
   {
     "character": "Terra",
     "source": "Inferno Storm",
+    "sbVer": "SASB3",
     "name": "Riot Wave",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -5157,6 +5405,7 @@
   {
     "character": "Terra",
     "source": "Inferno Storm",
+    "sbVer": "SASB3",
     "name": "Chaotic Blade",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -5186,6 +5435,7 @@
   {
     "character": "Locke",
     "source": "Phoenix Heat",
+    "sbVer": "SASB1",
     "name": "Hunter's Grit",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -5213,6 +5463,7 @@
   {
     "character": "Locke",
     "source": "Phoenix Heat",
+    "sbVer": "SASB1",
     "name": "Hunter's Edge",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -5240,6 +5491,7 @@
   {
     "character": "Locke",
     "source": "Shredding Spin",
+    "sbVer": "SASB2",
     "name": "Crimson Dagger",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -5267,6 +5519,7 @@
   {
     "character": "Locke",
     "source": "Shredding Spin",
+    "sbVer": "SASB2",
     "name": "Burn Up",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -5294,6 +5547,7 @@
   {
     "character": "Celes",
     "source": "Mystical Snow",
+    "sbVer": "SASB1",
     "name": "Achromatic Blade",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -5321,6 +5575,7 @@
   {
     "character": "Celes",
     "source": "Mystical Snow",
+    "sbVer": "SASB1",
     "name": "Azure Arc Blade",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -5348,6 +5603,7 @@
   {
     "character": "Celes",
     "source": "Proud Blade",
+    "sbVer": "SASB2",
     "name": "Spellblade Divinity",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -5375,6 +5631,7 @@
   {
     "character": "Celes",
     "source": "Proud Blade",
+    "sbVer": "SASB2",
     "name": "Spellblade Tranquility",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -5402,6 +5659,7 @@
   {
     "character": "Celes",
     "source": "Virtuous Blade",
+    "sbVer": "SASB3",
     "name": "Chilling Crusade",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -5431,6 +5689,7 @@
   {
     "character": "Celes",
     "source": "Virtuous Blade",
+    "sbVer": "SASB3",
     "name": "Solemn Campaign",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -5460,6 +5719,7 @@
   {
     "character": "Shadow",
     "source": "Devastating Carnage",
+    "sbVer": "SASB1",
     "name": "Carnage Cutter",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -5487,6 +5747,7 @@
   {
     "character": "Shadow",
     "source": "Devastating Carnage",
+    "sbVer": "SASB1",
     "name": "Murderous Urge",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -5514,6 +5775,7 @@
   {
     "character": "Relm",
     "source": "Galaxy Prism",
+    "sbVer": "SASB1",
     "name": "Draw Potion",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -5538,6 +5800,7 @@
   {
     "character": "Relm",
     "source": "Galaxy Prism",
+    "sbVer": "SASB1",
     "name": "Draw Friend",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -5562,6 +5825,7 @@
   {
     "character": "Kefka",
     "source": "Rising Tone",
+    "sbVer": "SASB1",
     "name": "Liftoff",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -5591,6 +5855,7 @@
   {
     "character": "Kefka",
     "source": "Rising Tone",
+    "sbVer": "SASB1",
     "name": "Boom-Boom Ultima",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -5620,6 +5885,7 @@
   {
     "character": "Mog",
     "source": "Snow Ensemble",
+    "sbVer": "SASB1",
     "name": "Moogle Salsa",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -5645,6 +5911,7 @@
   {
     "character": "Mog",
     "source": "Snow Ensemble",
+    "sbVer": "SASB1",
     "name": "Moogle Samba",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -5670,6 +5937,7 @@
   {
     "character": "Strago",
     "source": "Tsunami",
+    "sbVer": "SASB1",
     "name": "Mighty Breath",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -5697,6 +5965,7 @@
   {
     "character": "Strago",
     "source": "Tsunami",
+    "sbVer": "SASB1",
     "name": "Secret of Thamasa",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -5724,6 +5993,7 @@
   {
     "character": "Strago",
     "source": "Bubble Tornado",
+    "sbVer": "SASB2",
     "name": "Tidal Wind",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -5753,6 +6023,7 @@
   {
     "character": "Strago",
     "source": "Bubble Tornado",
+    "sbVer": "SASB2",
     "name": "Eddy Blast",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -5782,6 +6053,7 @@
   {
     "character": "Gau",
     "source": "X-Cutter Rage",
+    "sbVer": "SASB1",
     "name": "Rugged Claws (Bestial Awakening 0)",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -5811,6 +6083,7 @@
   {
     "character": "Gau",
     "source": "X-Cutter Rage",
+    "sbVer": "SASB1",
     "name": "Rugged Claws (Bestial Awakening 1)",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -5840,6 +6113,7 @@
   {
     "character": "Gau",
     "source": "X-Cutter Rage",
+    "sbVer": "SASB1",
     "name": "Slaying Blow (Voracious Carnivore 0)",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -5869,6 +6143,7 @@
   {
     "character": "Gau",
     "source": "X-Cutter Rage",
+    "sbVer": "SASB1",
     "name": "Slaying Blow (Voracious Carnivore 1)",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -5898,6 +6173,7 @@
   {
     "character": "Leo",
     "source": "Shattering Highblade",
+    "sbVer": "SASB1",
     "name": "Rock Photon",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -5926,6 +6202,7 @@
   {
     "character": "Leo",
     "source": "Shattering Highblade",
+    "sbVer": "SASB1",
     "name": "Indomitable Knight",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -5954,6 +6231,7 @@
   {
     "character": "Edgar",
     "source": "Trinity Boost",
+    "sbVer": "SASB1",
     "name": "Hexa Boost",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -5983,6 +6261,7 @@
   {
     "character": "Edgar",
     "source": "Trinity Boost",
+    "sbVer": "SASB1",
     "name": "Royal Courage",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -6012,6 +6291,7 @@
   {
     "character": "Edgar",
     "source": "Bio Boost",
+    "sbVer": "SASB2",
     "name": "Enfeebling Poison+",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -6040,6 +6320,7 @@
   {
     "character": "Edgar",
     "source": "Bio Boost",
+    "sbVer": "SASB2",
     "name": "Swift Drill",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -6068,6 +6349,7 @@
   {
     "character": "Sabin",
     "source": "Fiery Bond",
+    "sbVer": "SASB1",
     "name": "Solemn Fist",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -6095,6 +6377,7 @@
   {
     "character": "Sabin",
     "source": "Fiery Bond",
+    "sbVer": "SASB1",
     "name": "Phantom Resolve",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -6119,6 +6402,7 @@
   {
     "character": "Gogo (VI)",
     "source": "True Punishing Meteor",
+    "sbVer": "SASB1",
     "name": "Tetra Magic",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -6154,6 +6438,7 @@
   {
     "character": "Gogo (VI)",
     "source": "True Punishing Meteor",
+    "sbVer": "SASB1",
     "name": "Magical Fusion",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -6189,6 +6474,7 @@
   {
     "character": "Umaro",
     "source": "Snowfall Strike",
+    "sbVer": "SASB1",
     "name": "Insight",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -6216,6 +6502,7 @@
   {
     "character": "Umaro",
     "source": "Snowfall Strike",
+    "sbVer": "SASB1",
     "name": "Big Avalanche",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -6243,6 +6530,7 @@
   {
     "character": "Cyan",
     "source": "Bushido Tiger",
+    "sbVer": "SASB1",
     "name": "Doman Flamestrike",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -6270,6 +6558,7 @@
   {
     "character": "Cyan",
     "source": "Bushido Tiger",
+    "sbVer": "SASB1",
     "name": "Doman Ruin",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -6297,6 +6586,7 @@
   {
     "character": "Setzer",
     "source": "Dealer Shuffle",
+    "sbVer": "SASB1",
     "name": "Black Solitaire",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -6322,6 +6612,7 @@
   {
     "character": "Setzer",
     "source": "Dealer Shuffle",
+    "sbVer": "SASB1",
     "name": "Rigged Coin",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -6346,6 +6637,7 @@
   {
     "character": "Cloud",
     "source": "Apex Slash",
+    "sbVer": "SASB1",
     "name": "Sonic Rush+",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -6373,6 +6665,7 @@
   {
     "character": "Cloud",
     "source": "Apex Slash",
+    "sbVer": "SASB1",
     "name": "Slash Impact",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -6400,6 +6693,7 @@
   {
     "character": "Cloud",
     "source": "Meteor Rain",
+    "sbVer": "SASB2",
     "name": "Hazardous Darkness",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -6427,6 +6721,7 @@
   {
     "character": "Cloud",
     "source": "Meteor Rain",
+    "sbVer": "SASB2",
     "name": "Climbing Charge",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -6451,6 +6746,7 @@
   {
     "character": "Cloud",
     "source": "Mako Strike",
+    "sbVer": "SASB3",
     "name": "Dragon Fang's Touch",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -6480,6 +6776,7 @@
   {
     "character": "Cloud",
     "source": "Mako Strike",
+    "sbVer": "SASB3",
     "name": "Drake's Touch",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -6509,6 +6806,7 @@
   {
     "character": "Tifa",
     "source": "Zangan's Infinitude",
+    "sbVer": "SASB1",
     "name": "Neo Falcon's Dive",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -6536,6 +6834,7 @@
   {
     "character": "Tifa",
     "source": "Zangan's Infinitude",
+    "sbVer": "SASB1",
     "name": "Elbow Crush",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -6563,6 +6862,7 @@
   {
     "character": "Tifa",
     "source": "Limit Combo",
+    "sbVer": "SASB2",
     "name": "Grand Break",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -6590,6 +6890,7 @@
   {
     "character": "Tifa",
     "source": "Limit Combo",
+    "sbVer": "SASB2",
     "name": "Charge Arts",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -6614,6 +6915,7 @@
   {
     "character": "Sephiroth",
     "source": "Demonic Lord",
+    "sbVer": "SASB1",
     "name": "Hell's Might",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -6641,6 +6943,7 @@
   {
     "character": "Sephiroth",
     "source": "Demonic Lord",
+    "sbVer": "SASB1",
     "name": "Self-Oblivion",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -6665,6 +6968,7 @@
   {
     "character": "Sephiroth",
     "source": "Crimson Octaslash",
+    "sbVer": "SASB2",
     "name": "Flame Prison Blade",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -6693,6 +6997,7 @@
   {
     "character": "Sephiroth",
     "source": "Crimson Octaslash",
+    "sbVer": "SASB2",
     "name": "Frenzied Flames",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -6715,8 +7020,69 @@
     "gl": true
   },
   {
+    "character": "Sephiroth",
+    "source": "Blackened Sear",
+    "sbVer": "SASB3",
+    "name": "Thunderous Prison",
+    "synchroAbilitySlot": 1,
+    "synchroCondition": [
+      "Dark",
+      "Fire"
+    ],
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 5.4,
+    "element": [
+      "Fire",
+      "Dark",
+      "NE"
+    ],
+    "time": 1.65,
+    "effects": "Six single attacks (0.90 each), grants [Dark/Fire Ability +30% Boost 1] to the user",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 90,
+    "school": "Darkness",
+    "nameJp": "獄震",
+    "id": 31541842,
+    "synchroConditionId": 2003,
+    "gl": false
+  },
+  {
+    "character": "Sephiroth",
+    "source": "Blackened Sear",
+    "sbVer": "SASB3",
+    "name": "Black Fire",
+    "synchroAbilitySlot": 2,
+    "synchroCondition": [
+      "Dark",
+      "Fire"
+    ],
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 6.3,
+    "element": [
+      "Fire",
+      "Dark",
+      "NE"
+    ],
+    "time": 1.65,
+    "effects": "Seven single attacks (0.90 each), grants [Dark/Fire Ability +30% Boost 1] to the user",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 60,
+    "school": "Darkness",
+    "nameJp": "黒焔刀",
+    "id": 31541843,
+    "synchroConditionId": 2003,
+    "gl": false
+  },
+  {
     "character": "Aerith",
     "source": "Blue-Eyed Sentinel",
+    "sbVer": "SASB1",
     "name": "Hallowed Heart",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -6741,6 +7107,7 @@
   {
     "character": "Aerith",
     "source": "Blue-Eyed Sentinel",
+    "sbVer": "SASB1",
     "name": "Star Tidings",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -6765,6 +7132,7 @@
   {
     "character": "Vincent",
     "source": "Beastial Claws",
+    "sbVer": "SASB1",
     "name": "Fiery Dance",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -6796,6 +7164,7 @@
   {
     "character": "Vincent",
     "source": "Beastial Claws",
+    "sbVer": "SASB1",
     "name": "Hell's Fire",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -6827,6 +7196,7 @@
   {
     "character": "Vincent",
     "source": "Chaos Saber",
+    "sbVer": "SASB2",
     "name": "Rapid Fire DoC",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -6858,6 +7228,7 @@
   {
     "character": "Vincent",
     "source": "Chaos Saber",
+    "sbVer": "SASB2",
     "name": "Chaos Control",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -6889,6 +7260,7 @@
   {
     "character": "Red XIII",
     "source": "Soaring Comet",
+    "sbVer": "SASB1",
     "name": "Grand Fang",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -6916,6 +7288,7 @@
   {
     "character": "Red XIII",
     "source": "Soaring Comet",
+    "sbVer": "SASB1",
     "name": "Grand Howling",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -6940,6 +7313,7 @@
   {
     "character": "Reno",
     "source": "Our Day Off",
+    "sbVer": "SASB1",
     "name": "Neo Turk Light",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -6971,6 +7345,7 @@
   {
     "character": "Reno",
     "source": "Our Day Off",
+    "sbVer": "SASB1",
     "name": "We're Off Duty",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -6995,6 +7370,7 @@
   {
     "character": "Genesis",
     "source": "Purgatorial Wave",
+    "sbVer": "SASB1",
     "name": "Crimson Contempt",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -7022,6 +7398,7 @@
   {
     "character": "Genesis",
     "source": "Purgatorial Wave",
+    "sbVer": "SASB1",
     "name": "Crimson Ardor",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -7046,6 +7423,7 @@
   {
     "character": "Yuffie",
     "source": "Moonless Shower",
+    "sbVer": "SASB1",
     "name": "Rippled Image",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -7073,6 +7451,7 @@
   {
     "character": "Yuffie",
     "source": "Moonless Shower",
+    "sbVer": "SASB1",
     "name": "Shore Leap",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -7097,6 +7476,7 @@
   {
     "character": "Yuffie",
     "source": "Dominate Mind",
+    "sbVer": "SASB2",
     "name": "Fractured Image",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -7124,6 +7504,7 @@
   {
     "character": "Yuffie",
     "source": "Dominate Mind",
+    "sbVer": "SASB2",
     "name": "Tremor Leap",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -7148,6 +7529,7 @@
   {
     "character": "Shelke",
     "source": "Transparent Thunder",
+    "sbVer": "SASB1",
     "name": "Twinspear Thunderguard",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -7175,6 +7557,7 @@
   {
     "character": "Shelke",
     "source": "Transparent Thunder",
+    "sbVer": "SASB1",
     "name": "Orange Bolt",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -7201,8 +7584,9 @@
   },
   {
     "character": "Shelke",
-    "source": "Transparent Edge",
-    "name": "Countertek Dive",
+    "source": "Transparent Gleam",
+    "sbVer": "SASB2",
+    "name": "Technical Dive",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
       "Lightning"
@@ -7224,11 +7608,12 @@
     "nameJp": "テクニカルダイブ",
     "id": 31541280,
     "synchroConditionId": 102,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Shelke",
-    "source": "Transparent Edge",
+    "source": "Transparent Gleam",
+    "sbVer": "SASB2",
     "name": "Quick Rewrite",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -7248,11 +7633,12 @@
     "nameJp": "クイックリライト",
     "id": 31541281,
     "synchroConditionId": 102,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Cait Sith",
     "source": "Miraculous Luck",
+    "sbVer": "SASB1",
     "name": "Happy Dice",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -7277,6 +7663,7 @@
   {
     "character": "Cait Sith",
     "source": "Miraculous Luck",
+    "sbVer": "SASB1",
     "name": "Pleasure Dice",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -7301,6 +7688,7 @@
   {
     "character": "Zack",
     "source": "Come Get It!",
+    "sbVer": "SASB1",
     "name": "DMW Cissnei",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -7328,6 +7716,7 @@
   {
     "character": "Zack",
     "source": "Come Get It!",
+    "sbVer": "SASB1",
     "name": "DMW Angeal",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -7355,6 +7744,7 @@
   {
     "character": "Angeal",
     "source": "White-Winged SOLDIER",
+    "sbVer": "SASB1",
     "name": "Barrage of Gluttony",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -7384,6 +7774,7 @@
   {
     "character": "Angeal",
     "source": "White-Winged SOLDIER",
+    "sbVer": "SASB1",
     "name": "Clutching Blow",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -7413,6 +7804,7 @@
   {
     "character": "Rufus",
     "source": "Presidental Power",
+    "sbVer": "SASB1",
     "name": "Mako Blast",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -7440,6 +7832,7 @@
   {
     "character": "Rufus",
     "source": "Presidental Power",
+    "sbVer": "SASB1",
     "name": "Mako Reload",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -7464,6 +7857,7 @@
   {
     "character": "Barret",
     "source": "Rocket Hammerblow",
+    "sbVer": "SASB1",
     "name": "Frenzied Launcher",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -7491,6 +7885,7 @@
   {
     "character": "Barret",
     "source": "Rocket Hammerblow",
+    "sbVer": "SASB1",
     "name": "Frenzied Vulcan",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -7519,6 +7914,7 @@
   {
     "character": "Cid (VII)",
     "source": "Hyper Jump Unlimited",
+    "sbVer": "SASB1",
     "name": "Vacuum Jump",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -7546,6 +7942,7 @@
   {
     "character": "Cid (VII)",
     "source": "Hyper Jump Unlimited",
+    "sbVer": "SASB1",
     "name": "Wind Shear",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -7570,6 +7967,7 @@
   {
     "character": "Rude",
     "source": "Ground Spark",
+    "sbVer": "SASB1",
     "name": "Rising Cracks",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -7603,6 +8001,7 @@
   {
     "character": "Rude",
     "source": "Ground Spark",
+    "sbVer": "SASB1",
     "name": "Earth Wave",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -7636,6 +8035,7 @@
   {
     "character": "Elena",
     "source": "Conducting Blast",
+    "sbVer": "SASB1",
     "name": "Impulse Bomb",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -7665,6 +8065,7 @@
   {
     "character": "Elena",
     "source": "Conducting Blast",
+    "sbVer": "SASB1",
     "name": "Booster Grenade",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -7694,6 +8095,7 @@
   {
     "character": "Squall",
     "source": "Cross Your Heart",
+    "sbVer": "SASB1",
     "name": "Renzokuken Ice Strike",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -7721,6 +8123,7 @@
   {
     "character": "Squall",
     "source": "Cross Your Heart",
+    "sbVer": "SASB1",
     "name": "Renzokuken Ice Wave",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -7748,6 +8151,7 @@
   {
     "character": "Squall",
     "source": "Fated Flame",
+    "sbVer": "SASB2",
     "name": "Extended Renzokuken",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -7775,6 +8179,7 @@
   {
     "character": "Squall",
     "source": "Fated Flame",
+    "sbVer": "SASB2",
     "name": "Dividing Blaze",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -7802,6 +8207,7 @@
   {
     "character": "Squall",
     "source": "Burst Blade",
+    "sbVer": "SASB3",
     "name": "Renzokuken Frostfire",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -7830,6 +8236,7 @@
   {
     "character": "Squall",
     "source": "Burst Blade",
+    "sbVer": "SASB3",
     "name": "Custom Revolver",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -7858,6 +8265,7 @@
   {
     "character": "Rinoa",
     "source": "Angel Wing Firmament",
+    "sbVer": "SASB1",
     "name": "Truespell Earthfall",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -7885,6 +8293,7 @@
   {
     "character": "Rinoa",
     "source": "Angel Wing Firmament",
+    "sbVer": "SASB1",
     "name": "Truespell Clinkstone",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -7912,6 +8321,7 @@
   {
     "character": "Rinoa",
     "source": "Angel Wing Cross",
+    "sbVer": "SASB2",
     "name": "Truespell Chillfrost",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -7939,6 +8349,7 @@
   {
     "character": "Rinoa",
     "source": "Angel Wing Cross",
+    "sbVer": "SASB2",
     "name": "Truespell Icefury",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -7966,6 +8377,7 @@
   {
     "character": "Rinoa",
     "source": "Apocalypse R",
+    "sbVer": "SASB3",
     "name": "Truespell Icespire",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -7993,6 +8405,7 @@
   {
     "character": "Rinoa",
     "source": "Apocalypse R",
+    "sbVer": "SASB3",
     "name": "Truespell Icerend",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -8020,6 +8433,7 @@
   {
     "character": "Ultimecia",
     "source": "Shockwave Pulsar",
+    "sbVer": "SASB1",
     "name": "Winds of Armageddon",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -8047,6 +8461,7 @@
   {
     "character": "Ultimecia",
     "source": "Shockwave Pulsar",
+    "sbVer": "SASB1",
     "name": "Temporal Tempest",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -8074,6 +8489,7 @@
   {
     "character": "Ultimecia",
     "source": "Abyssal Attractor",
+    "sbVer": "SASB2",
     "name": "Arcing Axes",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -8101,6 +8517,7 @@
   {
     "character": "Ultimecia",
     "source": "Abyssal Attractor",
+    "sbVer": "SASB2",
     "name": "Arrows of Rapture",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -8125,6 +8542,7 @@
   {
     "character": "Selphie",
     "source": "Comrades' Return",
+    "sbVer": "SASB1",
     "name": "Full Cure Waltz",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -8150,6 +8568,7 @@
   {
     "character": "Selphie",
     "source": "Comrades' Return",
+    "sbVer": "SASB1",
     "name": "Retrace Steps",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -8174,6 +8593,7 @@
   {
     "character": "Selphie",
     "source": "Cure Dance",
+    "sbVer": "SASB2",
     "name": "Ice Waltz",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -8202,6 +8622,7 @@
   {
     "character": "Selphie",
     "source": "Cure Dance",
+    "sbVer": "SASB2",
     "name": "Sacred Step",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -8226,6 +8647,7 @@
   {
     "character": "Seifer",
     "source": "Absolutely No Mercy",
+    "sbVer": "SASB1",
     "name": "True Demon Slice",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -8255,6 +8677,7 @@
   {
     "character": "Seifer",
     "source": "Absolutely No Mercy",
+    "sbVer": "SASB1",
     "name": "True Bloodfest",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -8284,6 +8707,7 @@
   {
     "character": "Laguna",
     "source": "Freezing Downpour",
+    "sbVer": "SASB1",
     "name": "Freezing Bombshell",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -8311,6 +8735,7 @@
   {
     "character": "Laguna",
     "source": "Freezing Downpour",
+    "sbVer": "SASB1",
     "name": "Freezing Action",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -8338,6 +8763,7 @@
   {
     "character": "Edea",
     "source": "Sorcerous Binding",
+    "sbVer": "SASB1",
     "name": "Thin Ice Hex",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -8366,6 +8792,7 @@
   {
     "character": "Edea",
     "source": "Sorcerous Binding",
+    "sbVer": "SASB1",
     "name": "Sorceress Sneer",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -8390,6 +8817,7 @@
   {
     "character": "Edea",
     "source": "Relentless Grudge",
+    "sbVer": "SASB2",
     "name": "Cold-hearted Hate",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -8418,6 +8846,7 @@
   {
     "character": "Edea",
     "source": "Relentless Grudge",
+    "sbVer": "SASB2",
     "name": "Sweet Darkfrost Dream",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -8446,6 +8875,7 @@
   {
     "character": "Fujin",
     "source": "Fusai",
+    "sbVer": "SASB1",
     "name": "Wind Cloud",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -8473,6 +8903,7 @@
   {
     "character": "Fujin",
     "source": "Fusai",
+    "sbVer": "SASB1",
     "name": "Soaring Flight",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -8497,6 +8928,7 @@
   {
     "character": "Kiros",
     "source": "Exotic Impact",
+    "sbVer": "SASB1",
     "name": "Hexa Impact",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -8526,6 +8958,7 @@
   {
     "character": "Kiros",
     "source": "Exotic Impact",
+    "sbVer": "SASB1",
     "name": "Non-Stop Pain",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -8555,6 +8988,7 @@
   {
     "character": "Ward",
     "source": "Anchoring Trio",
+    "sbVer": "SASB1",
     "name": "Silent Crush",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -8586,6 +9020,7 @@
   {
     "character": "Ward",
     "source": "Anchoring Trio",
+    "sbVer": "SASB1",
     "name": "Anchor Plunge",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -8617,6 +9052,7 @@
   {
     "character": "Raijin",
     "source": "Thunderstorm Assault",
+    "sbVer": "SASB1",
     "name": "Annihilating Bolt",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -8644,6 +9080,7 @@
   {
     "character": "Raijin",
     "source": "Thunderstorm Assault",
+    "sbVer": "SASB1",
     "name": "Sudden Bolt",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -8671,6 +9108,7 @@
   {
     "character": "Zell",
     "source": "Flare Duel",
+    "sbVer": "SASB1",
     "name": "Booya (no Duel 4S Mode/Duel 6S Mode/Duel 9S Mode)",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -8698,6 +9136,7 @@
   {
     "character": "Zell",
     "source": "Flare Duel",
+    "sbVer": "SASB1",
     "name": "Booya (Duel 4S Mode)",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -8725,6 +9164,7 @@
   {
     "character": "Zell",
     "source": "Flare Duel",
+    "sbVer": "SASB1",
     "name": "Booya (Duel 6S Mode)",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -8752,6 +9192,7 @@
   {
     "character": "Zell",
     "source": "Flare Duel",
+    "sbVer": "SASB1",
     "name": "Booya (Duel 9S Mode)",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -8779,6 +9220,7 @@
   {
     "character": "Zell",
     "source": "Flare Duel",
+    "sbVer": "SASB1",
     "name": "Heel Drop",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -8806,6 +9248,7 @@
   {
     "character": "Irvine",
     "source": "Quick Canister",
+    "sbVer": "SASB1",
     "name": "Shrapnel Shot",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -8834,6 +9277,7 @@
   {
     "character": "Irvine",
     "source": "Quick Canister",
+    "sbVer": "SASB1",
     "name": "Demolition Shot",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -8862,6 +9306,7 @@
   {
     "character": "Quistis",
     "source": "Homing Laser",
+    "sbVer": "SASB1",
     "name": "Bio Breath",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -8890,6 +9335,7 @@
   {
     "character": "Quistis",
     "source": "Homing Laser",
+    "sbVer": "SASB1",
     "name": "Occult Fan",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -8918,6 +9364,7 @@
   {
     "character": "Quistis",
     "source": "Ray of Poison",
+    "sbVer": "SASB2",
     "name": "Poisonous Master",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -8945,6 +9392,7 @@
   {
     "character": "Quistis",
     "source": "Ray of Poison",
+    "sbVer": "SASB2",
     "name": "Cross Toxin",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -8969,6 +9417,7 @@
   {
     "character": "Beatrix",
     "source": "Seiken Shock End",
+    "sbVer": "SASB1",
     "name": "Seiken Cursebreaker",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -8996,6 +9445,7 @@
   {
     "character": "Beatrix",
     "source": "Seiken Shock End",
+    "sbVer": "SASB1",
     "name": "Seiken Purge",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -9023,6 +9473,7 @@
   {
     "character": "Beatrix",
     "source": "Spectral Break",
+    "sbVer": "SASB2",
     "name": "Holy Minus Strike",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -9051,6 +9502,7 @@
   {
     "character": "Beatrix",
     "source": "Spectral Break",
+    "sbVer": "SASB2",
     "name": "Seiken Might",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -9075,6 +9527,7 @@
   {
     "character": "Zidane",
     "source": "Not Alone",
+    "sbVer": "SASB1",
     "name": "Rumbling Blast",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -9102,6 +9555,7 @@
   {
     "character": "Zidane",
     "source": "Not Alone",
+    "sbVer": "SASB1",
     "name": "Rumbling Steal",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -9129,6 +9583,7 @@
   {
     "character": "Garnet",
     "source": "Peridot Thunder",
+    "sbVer": "SASB1",
     "name": "Eidolon Justice",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -9156,6 +9611,7 @@
   {
     "character": "Garnet",
     "source": "Peridot Thunder",
+    "sbVer": "SASB1",
     "name": "Song of Memories (Garnet Trance)",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -9181,6 +9637,7 @@
   {
     "character": "Garnet",
     "source": "Peridot Thunder",
+    "sbVer": "SASB1",
     "name": "Song of Memories (No Garnet Trance)",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -9206,6 +9663,7 @@
   {
     "character": "Garnet",
     "source": "Rendezvous Hour",
+    "sbVer": "SASB2",
     "name": "Strength Within",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -9233,6 +9691,7 @@
   {
     "character": "Garnet",
     "source": "Rendezvous Hour",
+    "sbVer": "SASB2",
     "name": "Distant Memory",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -9258,6 +9717,7 @@
   {
     "character": "Eiko",
     "source": "Seraphic Rebirth",
+    "sbVer": "SASB1",
     "name": "Eidolon Wind",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -9286,6 +9746,7 @@
   {
     "character": "Eiko",
     "source": "Seraphic Rebirth",
+    "sbVer": "SASB1",
     "name": "Eiko's Innervation",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -9310,6 +9771,7 @@
   {
     "character": "Eiko",
     "source": "Blessed Winds",
+    "sbVer": "SASB2",
     "name": "Toll of Ages",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -9338,6 +9800,7 @@
   {
     "character": "Eiko",
     "source": "Blessed Winds",
+    "sbVer": "SASB2",
     "name": "Terra Healing",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -9351,6 +9814,7 @@
     "element": null,
     "time": 0.01,
     "effects": "Grants [Quick Cast 2], restores 2 consumed ability uses, restores HP (25) to all allies on the first cast, grants [HP Stock (2000)] to all allies on the first cast",
+    "effectsNote": "JP 12/16/2021 - Changed to smart ether 1",
     "counter": false,
     "autoTarget": "Self",
     "sb": 70,
@@ -9363,6 +9827,7 @@
   {
     "character": "Vivi",
     "source": "Glittering Flame",
+    "sbVer": "SASB1",
     "name": "My Memory",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -9390,6 +9855,7 @@
   {
     "character": "Vivi",
     "source": "Glittering Flame",
+    "sbVer": "SASB1",
     "name": "Reason to Live",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -9414,6 +9880,7 @@
   {
     "character": "Vivi",
     "source": "Icebolt Advent",
+    "sbVer": "SASB2",
     "name": "Double Black Magic Icebolt",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -9443,6 +9910,7 @@
   {
     "character": "Vivi",
     "source": "Icebolt Advent",
+    "sbVer": "SASB2",
     "name": "Double Black Magic Rimebolt",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -9472,6 +9940,7 @@
   {
     "character": "Kuja",
     "source": "Chaos Divider",
+    "sbVer": "SASB1",
     "name": "Penumbral Onslaught",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -9499,6 +9968,7 @@
   {
     "character": "Kuja",
     "source": "Chaos Divider",
+    "sbVer": "SASB1",
     "name": "Dark Flare Burst",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -9526,6 +9996,7 @@
   {
     "character": "Steiner",
     "source": "Double Shock",
+    "sbVer": "SASB1",
     "name": "Elemental Break",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -9555,6 +10026,7 @@
   {
     "character": "Steiner",
     "source": "Double Shock",
+    "sbVer": "SASB1",
     "name": "Elemental Hazard",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -9584,6 +10056,7 @@
   {
     "character": "Steiner",
     "source": "Reckless Blade",
+    "sbVer": "SASB2",
     "name": "Full Break Rush",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -9613,6 +10086,7 @@
   {
     "character": "Steiner",
     "source": "Reckless Blade",
+    "sbVer": "SASB2",
     "name": "Iceflame Thunder Slash",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -9642,6 +10116,7 @@
   {
     "character": "Amarant",
     "source": "Ironfire Countdown",
+    "sbVer": "SASB1",
     "name": "Explosive Jab",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -9669,6 +10144,7 @@
   {
     "character": "Amarant",
     "source": "Ironfire Countdown",
+    "sbVer": "SASB1",
     "name": "Retaliate (IX)",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -9693,6 +10169,7 @@
   {
     "character": "Marcus",
     "source": "There You Go!",
+    "sbVer": "SASB1",
     "name": "Undermine Resistance",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -9721,6 +10198,7 @@
   {
     "character": "Marcus",
     "source": "There You Go!",
+    "sbVer": "SASB1",
     "name": "Quick Poison",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -9736,7 +10214,7 @@
       "NE"
     ],
     "time": 0.83,
-    "effects": "One single attack (0.90), grants [Quick Cast 2] and [Wind/Poison Ability +30% Boost 2] to the user",
+    "effects": "One single attack (0.80), grants [Quick Cast 2] and [Wind/Poison Ability +30% Boost 2] to the user",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 70,
@@ -9749,6 +10227,7 @@
   {
     "character": "Quina",
     "source": "Culinary Climb",
+    "sbVer": "SASB1",
     "name": "Epicurean Pursuit",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -9778,6 +10257,7 @@
   {
     "character": "Quina",
     "source": "Culinary Climb",
+    "sbVer": "SASB1",
     "name": "Gourmet Treat",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -9802,6 +10282,7 @@
   {
     "character": "Freya",
     "source": "Cliffdance Winds",
+    "sbVer": "SASB1",
     "name": "Six Dragon Thrust",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -9830,6 +10311,7 @@
   {
     "character": "Freya",
     "source": "Cliffdance Winds",
+    "sbVer": "SASB1",
     "name": "Dance of Plenty",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -9855,6 +10337,7 @@
   {
     "character": "Tidus",
     "source": "Blitz Yell",
+    "sbVer": "SASB1",
     "name": "Sphere Shot",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -9882,6 +10365,7 @@
   {
     "character": "Tidus",
     "source": "Blitz Yell",
+    "sbVer": "SASB1",
     "name": "Vitality Shot",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -9909,6 +10393,7 @@
   {
     "character": "Tidus",
     "source": "Blitz Ace",
+    "sbVer": "SASB2",
     "name": "Heightened Shot",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -9936,6 +10421,7 @@
   {
     "character": "Tidus",
     "source": "Blitz Ace",
+    "sbVer": "SASB2",
     "name": "Energy Dream",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -9963,6 +10449,7 @@
   {
     "character": "Rikku",
     "source": "Tidal Wave",
+    "sbVer": "SASB1",
     "name": "Potato Masher",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -9990,6 +10477,7 @@
   {
     "character": "Rikku",
     "source": "Tidal Wave",
+    "sbVer": "SASB1",
     "name": "Prime Twin Stars (2 Items)",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -10014,6 +10502,7 @@
   {
     "character": "Rikku",
     "source": "Tidal Wave",
+    "sbVer": "SASB1",
     "name": "Prime Twin Stars (1 Item)",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -10038,6 +10527,7 @@
   {
     "character": "Rikku",
     "source": "Tidal Wave",
+    "sbVer": "SASB1",
     "name": "Prime Twin Stars (0 Items)",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -10062,6 +10552,7 @@
   {
     "character": "Rikku",
     "source": "True Aqua Toxin",
+    "sbVer": "SASB2",
     "name": "Calamity Bomb",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -10089,6 +10580,7 @@
   {
     "character": "Rikku",
     "source": "True Aqua Toxin",
+    "sbVer": "SASB2",
     "name": "Splash Fall",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -10117,6 +10609,7 @@
   {
     "character": "Yuna",
     "source": "Farplane Wish",
+    "sbVer": "SASB1",
     "name": "Luminous Ray",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -10146,6 +10639,7 @@
   {
     "character": "Yuna",
     "source": "Farplane Wish",
+    "sbVer": "SASB1",
     "name": "Pearly Wisdom",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -10170,6 +10664,7 @@
   {
     "character": "Yuna",
     "source": "Summoner Spherechange",
+    "sbVer": "SASB2",
     "name": "Photon Blast",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -10199,6 +10694,7 @@
   {
     "character": "Yuna",
     "source": "Summoner Spherechange",
+    "sbVer": "SASB2",
     "name": "Radiant Wave",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -10228,6 +10724,7 @@
   {
     "character": "Paine",
     "source": "Liquid Steel Throttle",
+    "sbVer": "SASB1",
     "name": "Hydrosaber",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -10255,6 +10752,7 @@
   {
     "character": "Paine",
     "source": "Liquid Steel Throttle",
+    "sbVer": "SASB1",
     "name": "Rising Sword",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -10279,6 +10777,7 @@
   {
     "character": "Paine",
     "source": "Water Throttle",
+    "sbVer": "SASB2",
     "name": "Liquid Steel Breech",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -10306,6 +10805,7 @@
   {
     "character": "Paine",
     "source": "Water Throttle",
+    "sbVer": "SASB2",
     "name": "Luck",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -10330,6 +10830,7 @@
   {
     "character": "Auron",
     "source": "Secret Shooting Star",
+    "sbVer": "SASB1",
     "name": "Redstar",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -10357,6 +10858,7 @@
   {
     "character": "Auron",
     "source": "Secret Shooting Star",
+    "sbVer": "SASB1",
     "name": "Mottled Chroma",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -10384,6 +10886,7 @@
   {
     "character": "Auron",
     "source": "True Banishing Blade",
+    "sbVer": "SASB2",
     "name": "Cinder Strike",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -10411,6 +10914,7 @@
   {
     "character": "Auron",
     "source": "True Banishing Blade",
+    "sbVer": "SASB2",
     "name": "Crimson Fang",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -10438,6 +10942,7 @@
   {
     "character": "Lulu",
     "source": "Plushie Magic",
+    "sbVer": "SASB1",
     "name": "Heavy Weather",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -10468,6 +10973,7 @@
   {
     "character": "Lulu",
     "source": "Plushie Magic",
+    "sbVer": "SASB1",
     "name": "Arcane Diagram",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -10498,6 +11004,7 @@
   {
     "character": "Wakka",
     "source": "Aurochs Spirit+",
+    "sbVer": "SASB1",
     "name": "Aurochs Rush",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -10525,6 +11032,7 @@
   {
     "character": "Wakka",
     "source": "Aurochs Spirit+",
+    "sbVer": "SASB1",
     "name": "Direct Blitz",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -10552,6 +11060,7 @@
   {
     "character": "Kimahri",
     "source": "Inherited Resolve",
+    "sbVer": "SASB1",
     "name": "Flowing Tide",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -10579,6 +11088,7 @@
   {
     "character": "Kimahri",
     "source": "Inherited Resolve",
+    "sbVer": "SASB1",
     "name": "Azure Will",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -10606,6 +11116,7 @@
   {
     "character": "Jecht",
     "source": "Meteor Shot",
+    "sbVer": "SASB1",
     "name": "Assault Eclipse",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -10635,6 +11146,7 @@
   {
     "character": "Jecht",
     "source": "Meteor Shot",
+    "sbVer": "SASB1",
     "name": "Great Fist",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -10664,6 +11176,7 @@
   {
     "character": "Seymour",
     "source": "Begrudging Soul",
+    "sbVer": "SASB1",
     "name": "Destructive Salvation",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -10691,6 +11204,7 @@
   {
     "character": "Seymour",
     "source": "Begrudging Soul",
+    "sbVer": "SASB1",
     "name": "Twisted Prayer",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -10706,6 +11220,7 @@
     ],
     "time": 1.65,
     "effects": "One single attack (16.40) capped at 99999, restores 1 consumed ability use to the user",
+    "effectsNote": "JP 12/16/2021 - Changed to smart ether 1",
     "counter": false,
     "autoTarget": "Lowest HP% enemy",
     "sb": 90,
@@ -10718,6 +11233,7 @@
   {
     "character": "Braska",
     "source": "High Summoner's Flame",
+    "sbVer": "SASB1",
     "name": "Flamebeast Meteor",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -10745,6 +11261,7 @@
   {
     "character": "Braska",
     "source": "High Summoner's Flame",
+    "sbVer": "SASB1",
     "name": "Flamebeast Strike",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -10760,6 +11277,7 @@
     ],
     "time": 1.65,
     "effects": "One single attack (16.40) capped at 99999, restores 1 consumed ability use to the user",
+    "effectsNote": "JP 12/16/2021 - Changed to smart ether 1",
     "counter": false,
     "autoTarget": "Lowest HP% enemy",
     "sb": 90,
@@ -10772,6 +11290,7 @@
   {
     "character": "Shantotto",
     "source": "Chain Thunder Play",
+    "sbVer": "SASB1",
     "name": "Elegant Fulmination",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -10798,6 +11317,7 @@
   {
     "character": "Shantotto",
     "source": "Chain Thunder Play",
+    "sbVer": "SASB1",
     "name": "Crackling Thunder",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -10825,6 +11345,7 @@
   {
     "character": "Ayame",
     "source": "Winter Moon Blossom",
+    "sbVer": "SASB1",
     "name": "Tachi: Yukikaze",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -10852,6 +11373,7 @@
   {
     "character": "Ayame",
     "source": "Winter Moon Blossom",
+    "sbVer": "SASB1",
     "name": "Meikyo Shisui (XI)",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -10874,8 +11396,65 @@
     "gl": true
   },
   {
+    "character": "Ayame",
+    "source": "Ancestral Blade: Avalanche",
+    "sbVer": "SASB2",
+    "name": "Tachi: Enpi",
+    "synchroAbilitySlot": 1,
+    "synchroCondition": [
+      "Samurai"
+    ],
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 5.4,
+    "element": [
+      "Ice",
+      "NE"
+    ],
+    "time": 1.65,
+    "effects": "Six single attacks (0.90 each), grants [100% Critical 1] to the user",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 90,
+    "school": "Samurai",
+    "nameJp": "壱之太刀・燕飛",
+    "id": 31541835,
+    "synchroConditionId": 12,
+    "gl": false
+  },
+  {
+    "character": "Ayame",
+    "source": "Ancestral Blade: Avalanche",
+    "sbVer": "SASB2",
+    "name": "Hagakure Hanaguruma",
+    "synchroAbilitySlot": 2,
+    "synchroCondition": [
+      "Samurai"
+    ],
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 6,
+    "element": [
+      "Ice",
+      "NE"
+    ],
+    "time": 1.65,
+    "effects": "One single attack (6.00) capped at 99999, causes [Imperil Ice 10% (15s)] every second activation, grants [Samurai Quick Cast 1] to the user every second activation",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 90,
+    "school": "Samurai",
+    "nameJp": "葉隠皆伝・花車",
+    "id": 31541836,
+    "synchroConditionId": 12,
+    "gl": false
+  },
+  {
     "character": "Aphmau",
     "source": "Automaton Band",
+    "sbVer": "SASB1",
     "name": "Heart of Ovjang",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -10901,6 +11480,7 @@
   {
     "character": "Aphmau",
     "source": "Automaton Band",
+    "sbVer": "SASB1",
     "name": "Heart of Mnejing",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -10925,6 +11505,7 @@
   {
     "character": "Curilla",
     "source": "Knights of Round",
+    "sbVer": "SASB1",
     "name": "Savage Blade",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -10952,6 +11533,7 @@
   {
     "character": "Curilla",
     "source": "Knights of Round",
+    "sbVer": "SASB1",
     "name": "Angel's Wings",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -10979,6 +11561,7 @@
   {
     "character": "Lion",
     "source": "Mandalic Stab",
+    "sbVer": "SASB1",
     "name": "Trailing Stab",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -11006,6 +11589,7 @@
   {
     "character": "Lion",
     "source": "Mandalic Stab",
+    "sbVer": "SASB1",
     "name": "Assassin's Charge",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -11033,6 +11617,7 @@
   {
     "character": "Zeid",
     "source": "Scourge (XI)",
+    "sbVer": "SASB1",
     "name": "Red Delirium",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -11060,6 +11645,7 @@
   {
     "character": "Zeid",
     "source": "Scourge (XI)",
+    "sbVer": "SASB1",
     "name": "Dark Blood",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -11087,6 +11673,7 @@
   {
     "character": "Prishe",
     "source": "Hundred Fists",
+    "sbVer": "SASB1",
     "name": "Martial Arts",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -11115,6 +11702,7 @@
   {
     "character": "Prishe",
     "source": "Hundred Fists",
+    "sbVer": "SASB1",
     "name": "Coiled Kick",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -11143,6 +11731,7 @@
   {
     "character": "Lilisette",
     "source": "Rousing Samba",
+    "sbVer": "SASB1",
     "name": "Repeating Samba",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -11168,6 +11757,7 @@
   {
     "character": "Lilisette",
     "source": "Rousing Samba",
+    "sbVer": "SASB1",
     "name": "Healing Samba",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -11191,8 +11781,77 @@
     "gl": true
   },
   {
+    "character": "Arciela",
+    "source": "Dignified Awe",
+    "sbVer": "SASB1",
+    "name": "Harmonic Dread",
+    "synchroAbilitySlot": 1,
+    "synchroCondition": [
+      "Ice",
+      "Lightning",
+      "Water",
+      "Wind"
+    ],
+    "type": "BLK",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 18.3,
+    "element": [
+      "Ice",
+      "Lightning",
+      "Water",
+      "Wind",
+      "NE"
+    ],
+    "time": 1.65,
+    "effects": "Six single attacks (3.05 each), followed by one single attack (16.40) capped at 99999 if the user has Amity level 1, causes Amity -1 to the user",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 90,
+    "school": "Black Magic",
+    "nameJp": "ハーモニックドレッド",
+    "id": 31541937,
+    "synchroConditionId": 2021,
+    "gl": false
+  },
+  {
+    "character": "Arciela",
+    "source": "Dignified Awe",
+    "sbVer": "SASB1",
+    "name": "Expunge Magic",
+    "synchroAbilitySlot": 2,
+    "synchroCondition": [
+      "Ice",
+      "Lightning",
+      "Water",
+      "Wind"
+    ],
+    "type": "BLK",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 16.4,
+    "element": [
+      "Ice",
+      "Lightning",
+      "Water",
+      "Wind",
+      "NE"
+    ],
+    "time": 1.65,
+    "effects": "One single attack (16.40) capped at 99999, grants [Ice/Lightning/Water/Wind Ability +30% Boost 3] to the user",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 90,
+    "school": "Witch",
+    "nameJp": "エクスパンジマジック",
+    "id": 31541938,
+    "synchroConditionId": 2021,
+    "gl": false
+  },
+  {
     "character": "Ashe",
     "source": "Saintly Pride",
+    "sbVer": "SASB1",
     "name": "Fulminating Glory",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -11220,6 +11879,7 @@
   {
     "character": "Ashe",
     "source": "Saintly Pride",
+    "sbVer": "SASB1",
     "name": "Radiant Flash",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -11247,6 +11907,7 @@
   {
     "character": "Ashe",
     "source": "Channeling Bolt",
+    "sbVer": "SASB2",
     "name": "Dancing Thunder",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -11274,6 +11935,7 @@
   {
     "character": "Ashe",
     "source": "Channeling Bolt",
+    "sbVer": "SASB2",
     "name": "Exorcising Flash",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -11301,6 +11963,7 @@
   {
     "character": "Penelo",
     "source": "Shining Vindication",
+    "sbVer": "SASB1",
     "name": "Clairvoyance",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -11325,6 +11988,7 @@
   {
     "character": "Penelo",
     "source": "Shining Vindication",
+    "sbVer": "SASB1",
     "name": "Healing Rumba",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -11349,6 +12013,7 @@
   {
     "character": "Penelo",
     "source": "Prudence",
+    "sbVer": "SASB2",
     "name": "Wind Waltz",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -11376,6 +12041,7 @@
   {
     "character": "Penelo",
     "source": "Prudence",
+    "sbVer": "SASB2",
     "name": "White Dance (XII)",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -11400,6 +12066,7 @@
   {
     "character": "Gabranth",
     "source": "Vengeful Judgment",
+    "sbVer": "SASB1",
     "name": "Divine Arbiter",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -11427,6 +12094,7 @@
   {
     "character": "Gabranth",
     "source": "Vengeful Judgment",
+    "sbVer": "SASB1",
     "name": "Infernal Arbiter",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -11454,6 +12122,7 @@
   {
     "character": "Vaan",
     "source": "Head Strike",
+    "sbVer": "SASB1",
     "name": "Twisting Hazard",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -11481,6 +12150,7 @@
   {
     "character": "Vaan",
     "source": "Head Strike",
+    "sbVer": "SASB1",
     "name": "Eager Notus",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -11508,6 +12178,7 @@
   {
     "character": "Vaan",
     "source": "Cruel Veil",
+    "sbVer": "SASB2",
     "name": "Light Speed",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -11535,6 +12206,7 @@
   {
     "character": "Vaan",
     "source": "Cruel Veil",
+    "sbVer": "SASB2",
     "name": "Wind Velocity",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -11562,6 +12234,7 @@
   {
     "character": "Fran",
     "source": "Boreal Sparkshot",
+    "sbVer": "SASB1",
     "name": "Blink Arrow",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -11591,6 +12264,7 @@
   {
     "character": "Fran",
     "source": "Boreal Sparkshot",
+    "sbVer": "SASB1",
     "name": "Flowing Arrow",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -11620,6 +12294,7 @@
   {
     "character": "Larsa",
     "source": "Amity Potion",
+    "sbVer": "SASB1",
     "name": "Bottomless X-Potion",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -11644,6 +12319,7 @@
   {
     "character": "Larsa",
     "source": "Amity Potion",
+    "sbVer": "SASB1",
     "name": "Bottomless Hi-Potion",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -11668,6 +12344,7 @@
   {
     "character": "Balthier",
     "source": "Fierce Big Bang",
+    "sbVer": "SASB1",
     "name": "Saturated Fire",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -11695,6 +12372,7 @@
   {
     "character": "Balthier",
     "source": "Fierce Big Bang",
+    "sbVer": "SASB1",
     "name": "Luminous Balefire",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -11719,6 +12397,7 @@
   {
     "character": "Basch",
     "source": "True Ruin Impendent",
+    "sbVer": "SASB1",
     "name": "Demise of Evil",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -11748,6 +12427,7 @@
   {
     "character": "Basch",
     "source": "True Ruin Impendent",
+    "sbVer": "SASB1",
     "name": "Unsullied Blow",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -11777,6 +12457,7 @@
   {
     "character": "Basch",
     "source": "Brotherly Rift",
+    "sbVer": "SASB2",
     "name": "Darklight Shockwave",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -11807,6 +12488,7 @@
   {
     "character": "Basch",
     "source": "Brotherly Rift",
+    "sbVer": "SASB2",
     "name": "Purging Shockwave",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -11837,6 +12519,7 @@
   {
     "character": "Vayne",
     "source": "Steel Fusillade",
+    "sbVer": "SASB1",
     "name": "Dark Domination",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -11868,6 +12551,7 @@
   {
     "character": "Vayne",
     "source": "Steel Fusillade",
+    "sbVer": "SASB1",
     "name": "Shadow Tactics",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -11899,6 +12583,7 @@
   {
     "character": "Reks",
     "source": "Dalmascan Hazard",
+    "sbVer": "SASB1",
     "name": "Raven Pledge",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -11926,6 +12611,7 @@
   {
     "character": "Reks",
     "source": "Dalmascan Hazard",
+    "sbVer": "SASB1",
     "name": "Charging Sword",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -11953,6 +12639,7 @@
   {
     "character": "Lightning",
     "source": "Gestalt Drive",
+    "sbVer": "SASB1",
     "name": "Lightningfall",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -11980,6 +12667,7 @@
   {
     "character": "Lightning",
     "source": "Gestalt Drive",
+    "sbVer": "SASB1",
     "name": "Lightning Howl",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -12007,6 +12695,7 @@
   {
     "character": "Lightning",
     "source": "Centuria of One",
+    "sbVer": "SASB2",
     "name": "Holy Stormblade",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -12034,6 +12723,7 @@
   {
     "character": "Lightning",
     "source": "Centuria of One",
+    "sbVer": "SASB2",
     "name": "Holy Razor Gale",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -12061,6 +12751,7 @@
   {
     "character": "Nabaat",
     "source": "Army Gear",
+    "sbVer": "SASB1",
     "name": "Die For Me",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -12088,6 +12779,7 @@
   {
     "character": "Nabaat",
     "source": "Army Gear",
+    "sbVer": "SASB1",
     "name": "Requesting Reinforcement",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -12115,6 +12807,7 @@
   {
     "character": "Serah",
     "source": "Transcendent Arrow",
+    "sbVer": "SASB1",
     "name": "Etro Shot",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -12142,6 +12835,7 @@
   {
     "character": "Serah",
     "source": "Transcendent Arrow",
+    "sbVer": "SASB1",
     "name": "Etro's Finger",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -12169,6 +12863,7 @@
   {
     "character": "Serah",
     "source": "Tidal Arrow",
+    "sbVer": "SASB2",
     "name": "Metamorphose Volley",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -12196,6 +12891,7 @@
   {
     "character": "Serah",
     "source": "Tidal Arrow",
+    "sbVer": "SASB2",
     "name": "Star Volley",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -12223,6 +12919,7 @@
   {
     "character": "Snow",
     "source": "A Dream Revealed",
+    "sbVer": "SASB1",
     "name": "NORA Domination",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -12250,6 +12947,7 @@
   {
     "character": "Snow",
     "source": "A Dream Revealed",
+    "sbVer": "SASB1",
     "name": "Icicle Barrier",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -12274,6 +12972,7 @@
   {
     "character": "Snow",
     "source": "Diamond Fist",
+    "sbVer": "SASB2",
     "name": "Ascending Frost",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -12301,6 +13000,7 @@
   {
     "character": "Snow",
     "source": "Diamond Fist",
+    "sbVer": "SASB2",
     "name": "Heroic Spirit",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -12325,6 +13025,7 @@
   {
     "character": "Fang",
     "source": "Bahamut Assault",
+    "sbVer": "SASB1",
     "name": "Hunting Dive",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -12352,6 +13053,7 @@
   {
     "character": "Fang",
     "source": "Bahamut Assault",
+    "sbVer": "SASB1",
     "name": "Axis Pivot",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -12376,6 +13078,7 @@
   {
     "character": "Vanille",
     "source": "Come On, Hecaton!",
+    "sbVer": "SASB1",
     "name": "Pulse Proclivity",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -12400,6 +13103,7 @@
   {
     "character": "Vanille",
     "source": "Come On, Hecaton!",
+    "sbVer": "SASB1",
     "name": "Quick",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -12423,8 +13127,9 @@
   },
   {
     "character": "Vanille",
-    "source": "Wishes Come True",
-    "name": "Gaian Gospel",
+    "source": "Steel of Oath",
+    "sbVer": "SASB2",
+    "name": "Gaia's Gospel",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
       "White Magic"
@@ -12446,12 +13151,13 @@
     "nameJp": "ガイアの福音",
     "id": 31541400,
     "synchroConditionId": 2,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Vanille",
-    "source": "Wishes Come True",
-    "name": "Gaian Grace",
+    "source": "Steel of Oath",
+    "sbVer": "SASB2",
+    "name": "Gaia's Tidings",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
       "White Magic"
@@ -12470,11 +13176,12 @@
     "nameJp": "ガイアの恩寵",
     "id": 31541401,
     "synchroConditionId": 2,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Cid Raines",
     "source": "Last Destiny",
+    "sbVer": "SASB1",
     "name": "Dark Marionette",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -12504,6 +13211,7 @@
   {
     "character": "Cid Raines",
     "source": "Last Destiny",
+    "sbVer": "SASB1",
     "name": "Seraphic Phase",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -12533,6 +13241,7 @@
   {
     "character": "Noel",
     "source": "Future Remembrance",
+    "sbVer": "SASB1",
     "name": "Shakedown",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -12562,6 +13271,7 @@
   {
     "character": "Noel",
     "source": "Future Remembrance",
+    "sbVer": "SASB1",
     "name": "Hunter's Poise",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -12591,6 +13301,7 @@
   {
     "character": "Hope",
     "source": "Dreadnought Rampage",
+    "sbVer": "SASB1",
     "name": "Assessed Faith",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -12618,6 +13329,7 @@
   {
     "character": "Hope",
     "source": "Dreadnought Rampage",
+    "sbVer": "SASB1",
     "name": "Pioneering Faith",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -12645,6 +13357,7 @@
   {
     "character": "Sazh",
     "source": "Dual Assault",
+    "sbVer": "SASB1",
     "name": "Breaking Shot",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -12675,6 +13388,7 @@
   {
     "character": "Sazh",
     "source": "Dual Assault",
+    "sbVer": "SASB1",
     "name": "Triple Grit",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -12705,6 +13419,7 @@
   {
     "character": "Alphinaud",
     "source": "Child of the Dawn",
+    "sbVer": "SASB1",
     "name": "Moonstone Assault",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -12732,6 +13447,7 @@
   {
     "character": "Alphinaud",
     "source": "Child of the Dawn",
+    "sbVer": "SASB1",
     "name": "Relief Tactics (3 Aetherflow)",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -12756,6 +13472,7 @@
   {
     "character": "Alphinaud",
     "source": "Child of the Dawn",
+    "sbVer": "SASB1",
     "name": "Relief Tactics (1/2 Aetherflow)",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -12780,6 +13497,7 @@
   {
     "character": "Alphinaud",
     "source": "Child of the Dawn",
+    "sbVer": "SASB1",
     "name": "Relief Tactics (0 Aetherflow)",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -12804,6 +13522,7 @@
   {
     "character": "Alphinaud",
     "source": "Summon Moonstone",
+    "sbVer": "SASB2",
     "name": "Moonstone Grace (1 Moonstone Boon)",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -12829,6 +13548,7 @@
   {
     "character": "Alphinaud",
     "source": "Summon Moonstone",
+    "sbVer": "SASB2",
     "name": "Moonstone Grace (0 Moonstone Boon)",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -12854,6 +13574,7 @@
   {
     "character": "Alphinaud",
     "source": "Summon Moonstone",
+    "sbVer": "SASB2",
     "name": "Thaliak's Wisdom (1 Moonstone Boon)",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -12879,6 +13600,7 @@
   {
     "character": "Alphinaud",
     "source": "Summon Moonstone",
+    "sbVer": "SASB2",
     "name": "Thaliak's Wisdom (0 Moonstone Boon)",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -12903,7 +13625,8 @@
   },
   {
     "character": "Alphinaud",
-    "source": "Tri-Punish",
+    "source": "Tri-Shackle",
+    "sbVer": "SASB3",
     "name": "Painflare",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -12926,12 +13649,13 @@
     "nameJp": "ペインフレア",
     "id": 31541330,
     "synchroConditionId": 3,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Alphinaud",
-    "source": "Tri-Punish",
-    "name": "Ruinja",
+    "source": "Tri-Shackle",
+    "sbVer": "SASB3",
+    "name": "Ruin IV",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
       "Summoning"
@@ -12953,11 +13677,12 @@
     "nameJp": "ルインジャ",
     "id": 31541331,
     "synchroConditionId": 3,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Y'shtola",
     "source": "Scion's Flare",
+    "sbVer": "SASB1",
     "name": "Scion's Element",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -12989,6 +13714,7 @@
   {
     "character": "Y'shtola",
     "source": "Scion's Flare",
+    "sbVer": "SASB1",
     "name": "Scion's Despair (1 Enochian)",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -13020,6 +13746,7 @@
   {
     "character": "Y'shtola",
     "source": "Scion's Flare",
+    "sbVer": "SASB1",
     "name": "Scion's Despair (0 Enochian)",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -13050,7 +13777,8 @@
   },
   {
     "character": "Y'shtola",
-    "source": "Scion Afflatus",
+    "source": "Scion's Afflatus",
+    "sbVer": "SASB2",
     "name": "Thin Air",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -13070,11 +13798,12 @@
     "nameJp": "シンエアー",
     "id": 31541311,
     "synchroConditionId": 2,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Y'shtola",
-    "source": "Scion Afflatus",
+    "source": "Scion's Afflatus",
+    "sbVer": "SASB2",
     "name": "Afflatus Benison",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -13087,7 +13816,7 @@
     "multiplier": null,
     "element": null,
     "time": 0.01,
-    "effects": "Grants [Stoneskin: 10%]/[Dual Blink 1] if the user has Healing Lilies level 0/1+, causes Healing Lilies -1 to the user",
+    "effects": "Grants [Stoneskin: 10%]/[Dual Blink 1] if the user has Lilies level 0/1+, causes Lilies -1 to the user",
     "counter": false,
     "autoTarget": "All allies",
     "sb": 70,
@@ -13095,11 +13824,12 @@
     "nameJp": "ハートオブベニゾン",
     "id": 31541312,
     "synchroConditionId": 1021,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Alisaie",
     "source": "Heart and Steel",
+    "sbVer": "SASB1",
     "name": "Black Mana Burst (1 Black Mana)",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -13129,6 +13859,7 @@
   {
     "character": "Alisaie",
     "source": "Heart and Steel",
+    "sbVer": "SASB1",
     "name": "Black Mana Burst (0 Black Mana)",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -13157,6 +13888,7 @@
   {
     "character": "Alisaie",
     "source": "Heart and Steel",
+    "sbVer": "SASB1",
     "name": "Jolt II",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -13185,6 +13917,7 @@
   {
     "character": "Estinien",
     "source": "Black Dragon Dive",
+    "sbVer": "SASB1",
     "name": "High Jump (XIV)",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -13213,6 +13946,7 @@
   {
     "character": "Estinien",
     "source": "Black Dragon Dive",
+    "sbVer": "SASB1",
     "name": "Mirage Dive",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -13242,6 +13976,7 @@
   {
     "character": "Papalymo",
     "source": "A New Beginning",
+    "sbVer": "SASB1",
     "name": "Scion's Foul",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -13269,6 +14004,7 @@
   {
     "character": "Papalymo",
     "source": "A New Beginning",
+    "sbVer": "SASB1",
     "name": "Triplecast Fire IV",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -13296,6 +14032,7 @@
   {
     "character": "Ysayle",
     "source": "Oblivion (XIV)",
+    "sbVer": "SASB1",
     "name": "Glass Dance",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -13323,6 +14060,7 @@
   {
     "character": "Ysayle",
     "source": "Oblivion (XIV)",
+    "sbVer": "SASB1",
     "name": "Heavenly Strike",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -13337,7 +14075,8 @@
       "NE"
     ],
     "time": 1.65,
-    "effects": "One single attack (16.40) capped at 99999, grants [Quick Cast 1], Summoning smart ether 1 to the user",
+    "effects": "One single attack (16.40) capped at 99999, grants [Quick Cast 1], restores 1 consumed ability use to the user",
+    "effectsNote": "JP 12/16/2021 - Changed to smart ether 1",
     "counter": false,
     "autoTarget": "Lowest HP% enemy",
     "sb": 90,
@@ -13350,6 +14089,7 @@
   {
     "character": "Thancred",
     "source": "Assassinate",
+    "sbVer": "SASB1",
     "name": "Final Edge",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -13383,6 +14123,7 @@
   {
     "character": "Thancred",
     "source": "Assassinate",
+    "sbVer": "SASB1",
     "name": "Arcing Blade",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -13416,6 +14157,7 @@
   {
     "character": "Yda",
     "source": "Dearest Companion",
+    "sbVer": "SASB1",
     "name": "Cinder-Crushing Fist",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -13443,6 +14185,7 @@
   {
     "character": "Yda",
     "source": "Dearest Companion",
+    "sbVer": "SASB1",
     "name": "Polarizing Chakras",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -13467,6 +14210,7 @@
   {
     "character": "Haurchefant",
     "source": "Passage of Arms",
+    "sbVer": "SASB1",
     "name": "Sword Within",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -13495,6 +14239,7 @@
   {
     "character": "Haurchefant",
     "source": "Passage of Arms",
+    "sbVer": "SASB1",
     "name": "Knight's Veil",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -13523,6 +14268,7 @@
   {
     "character": "Minfilia",
     "source": "Will of the Light",
+    "sbVer": "SASB1",
     "name": "The Mothercrystal",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -13547,6 +14293,7 @@
   {
     "character": "Minfilia",
     "source": "Will of the Light",
+    "sbVer": "SASB1",
     "name": "Aetherial Guidance",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -13571,6 +14318,7 @@
   {
     "character": "Cid (XIV)",
     "source": "Garlond Overload",
+    "sbVer": "SASB1",
     "name": "Garlond Autoturret",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -13601,6 +14349,7 @@
   {
     "character": "Cid (XIV)",
     "source": "Garlond Overload",
+    "sbVer": "SASB1",
     "name": "Garlond Overdrive",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -13631,6 +14380,7 @@
   {
     "character": "Lunafreya",
     "source": "For the King",
+    "sbVer": "SASB1",
     "name": "Endless Torrent",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -13659,6 +14409,7 @@
   {
     "character": "Lunafreya",
     "source": "For the King",
+    "sbVer": "SASB1",
     "name": "Glimmer of Purity",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -13683,6 +14434,7 @@
   {
     "character": "Lunafreya",
     "source": "Oracle's Decree",
+    "sbVer": "SASB2",
     "name": "Hydraean's Mercy",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -13711,6 +14463,7 @@
   {
     "character": "Lunafreya",
     "source": "Oracle's Decree",
+    "sbVer": "SASB2",
     "name": "Ceremonial Pledge",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -13736,6 +14489,7 @@
   {
     "character": "Noctis",
     "source": "True Ignis Link",
+    "sbVer": "SASB1",
     "name": "Glide Flame",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -13763,6 +14517,7 @@
   {
     "character": "Noctis",
     "source": "True Ignis Link",
+    "sbVer": "SASB1",
     "name": "Tricky Flame",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -13790,6 +14545,7 @@
   {
     "character": "Noctis",
     "source": "True Gladiolus Link",
+    "sbVer": "SASB2",
     "name": "Heavy Impact",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -13817,6 +14573,7 @@
   {
     "character": "Noctis",
     "source": "True Gladiolus Link",
+    "sbVer": "SASB2",
     "name": "Tempest Charge",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -13841,6 +14598,7 @@
   {
     "character": "Noctis",
     "source": "True Prompto Link",
+    "sbVer": "SASB3",
     "name": "Graceful Charge",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -13868,6 +14626,7 @@
   {
     "character": "Noctis",
     "source": "True Prompto Link",
+    "sbVer": "SASB3",
     "name": "Step Breaker",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -13895,6 +14654,7 @@
   {
     "character": "Ignis",
     "source": "Sage's Hellfire",
+    "sbVer": "SASB1",
     "name": "Searing Concoction",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -13922,6 +14682,7 @@
   {
     "character": "Ignis",
     "source": "Sage's Hellfire",
+    "sbVer": "SASB1",
     "name": "Supreme Strategy (3 Comp.)",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -13947,6 +14708,7 @@
   {
     "character": "Ignis",
     "source": "Sage's Hellfire",
+    "sbVer": "SASB1",
     "name": "Supreme Strategy (2 Comp.)",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -13972,6 +14734,7 @@
   {
     "character": "Ignis",
     "source": "Sage's Hellfire",
+    "sbVer": "SASB1",
     "name": "Supreme Strategy (1 Comp.)",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -13997,6 +14760,7 @@
   {
     "character": "Ignis",
     "source": "Sage's Hellfire",
+    "sbVer": "SASB1",
     "name": "Supreme Strategy (0 Comp.)",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -14022,6 +14786,7 @@
   {
     "character": "Gladiolus",
     "source": "Wild Tempest",
+    "sbVer": "SASB1",
     "name": "Orbital Strike",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -14049,6 +14814,7 @@
   {
     "character": "Gladiolus",
     "source": "Wild Tempest",
+    "sbVer": "SASB1",
     "name": "Orbital Shield",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -14076,6 +14842,7 @@
   {
     "character": "Prompto",
     "source": "Miracle Trigger",
+    "sbVer": "SASB1",
     "name": "Drill Break Shot",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -14103,6 +14870,7 @@
   {
     "character": "Prompto",
     "source": "Miracle Trigger",
+    "sbVer": "SASB1",
     "name": "Thunder Trigger",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -14127,6 +14895,7 @@
   {
     "character": "Iris",
     "source": "Pocket Mega-Potion",
+    "sbVer": "SASB1",
     "name": "Step Potion",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -14152,6 +14921,7 @@
   {
     "character": "Iris",
     "source": "Pocket Mega-Potion",
+    "sbVer": "SASB1",
     "name": "Heartening Potion",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -14176,6 +14946,7 @@
   {
     "character": "Ardyn",
     "source": "Mega Death",
+    "sbVer": "SASB1",
     "name": "Phantom Slash",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -14205,6 +14976,7 @@
   {
     "character": "Ardyn",
     "source": "Mega Death",
+    "sbVer": "SASB1",
     "name": "Phantom Burst",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -14234,6 +15006,7 @@
   {
     "character": "Aranea",
     "source": "Spearouette",
+    "sbVer": "SASB1",
     "name": "Magitek Jump",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -14262,6 +15035,7 @@
   {
     "character": "Aranea",
     "source": "Spearouette",
+    "sbVer": "SASB1",
     "name": "Tech Boost",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -14286,6 +15060,7 @@
   {
     "character": "Cor",
     "source": "Immortal's Call",
+    "sbVer": "SASB1",
     "name": "Immortal Flourish of Steel",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -14313,6 +15088,7 @@
   {
     "character": "Cor",
     "source": "Immortal's Call",
+    "sbVer": "SASB1",
     "name": "Lion's Luster",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -14340,6 +15116,7 @@
   {
     "character": "Ravus",
     "source": "Consuming Hatred",
+    "sbVer": "SASB1",
     "name": "Black Thunder",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -14369,6 +15146,7 @@
   {
     "character": "Ravus",
     "source": "Consuming Hatred",
+    "sbVer": "SASB1",
     "name": "Flaring Rage",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -14398,6 +15176,7 @@
   {
     "character": "Orlandeau",
     "source": "Seiken Perfection",
+    "sbVer": "SASB1",
     "name": "Saintly Swordplay",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -14425,6 +15204,7 @@
   {
     "character": "Orlandeau",
     "source": "Seiken Perfection",
+    "sbVer": "SASB1",
     "name": "Thunder God's Epiphany",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -14449,6 +15229,7 @@
   {
     "character": "Orlandeau",
     "source": "Shadowblade Perfection",
+    "sbVer": "SASB2",
     "name": "Dark Path Swordplay",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -14478,6 +15259,7 @@
   {
     "character": "Orlandeau",
     "source": "Shadowblade Perfection",
+    "sbVer": "SASB2",
     "name": "Gloaming Swordplay",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -14507,6 +15289,7 @@
   {
     "character": "Gaffgarion",
     "source": "Dark End",
+    "sbVer": "SASB1",
     "name": "Stygian Feat",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -14534,6 +15317,7 @@
   {
     "character": "Gaffgarion",
     "source": "Dark End",
+    "sbVer": "SASB1",
     "name": "Guileful Blow",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -14561,6 +15345,7 @@
   {
     "character": "Ramza",
     "source": "Brave Story",
+    "sbVer": "SASB1",
     "name": "True Hero's Blade",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -14588,6 +15373,7 @@
   {
     "character": "Ramza",
     "source": "Brave Story",
+    "sbVer": "SASB1",
     "name": "Ultra Boost",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -14612,6 +15398,7 @@
   {
     "character": "Orran",
     "source": "Stargazer",
+    "sbVer": "SASB1",
     "name": "Essential Dignity",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -14636,6 +15423,7 @@
   {
     "character": "Orran",
     "source": "Stargazer",
+    "sbVer": "SASB1",
     "name": "Celestial Intersection",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -14661,6 +15449,7 @@
   {
     "character": "Delita",
     "source": "Hero-King's Ruination",
+    "sbVer": "SASB1",
     "name": "Quad-Element Strike",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -14692,6 +15481,7 @@
   {
     "character": "Delita",
     "source": "Hero-King's Ruination",
+    "sbVer": "SASB1",
     "name": "Quad-Element Blast",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -14723,6 +15513,7 @@
   {
     "character": "Agrias",
     "source": "Last Judgment Blade",
+    "sbVer": "SASB1",
     "name": "Gift of Loyalty",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -14750,6 +15541,7 @@
   {
     "character": "Agrias",
     "source": "Last Judgment Blade",
+    "sbVer": "SASB1",
     "name": "Gift of Faith",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -14774,6 +15566,7 @@
   {
     "character": "Alma",
     "source": "Chant of Devotion",
+    "sbVer": "SASB1",
     "name": "Angelic Gift",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -14798,6 +15591,7 @@
   {
     "character": "Alma",
     "source": "Chant of Devotion",
+    "sbVer": "SASB1",
     "name": "Brother's Teachings",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -14822,6 +15616,7 @@
   {
     "character": "Ovelia",
     "source": "Ethereal Princess",
+    "sbVer": "SASB1",
     "name": "Sister's Plea",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -14846,6 +15641,7 @@
   {
     "character": "Ovelia",
     "source": "Ethereal Princess",
+    "sbVer": "SASB1",
     "name": "Tender Prayer",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -14870,6 +15666,7 @@
   {
     "character": "Meliadoul",
     "source": "Shatter Weapon",
+    "sbVer": "SASB1",
     "name": "Avenging Blade",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -14899,6 +15696,7 @@
   {
     "character": "Meliadoul",
     "source": "Shatter Weapon",
+    "sbVer": "SASB1",
     "name": "Alliance Blade",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -14928,6 +15726,7 @@
   {
     "character": "Montblanc",
     "source": "100% Wool",
+    "sbVer": "SASB1",
     "name": "Chocobo Rush",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -14953,6 +15752,7 @@
   {
     "character": "Montblanc",
     "source": "100% Wool",
+    "sbVer": "SASB1",
     "name": "Tail Wag",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -14978,6 +15778,7 @@
   {
     "character": "Cinque",
     "source": "Meteor Cyclone",
+    "sbVer": "SASB1",
     "name": "Earth Destroyer",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -15006,6 +15807,7 @@
   {
     "character": "Cinque",
     "source": "Meteor Cyclone",
+    "sbVer": "SASB1",
     "name": "Earth Ravager",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -15034,6 +15836,7 @@
   {
     "character": "Cinque",
     "source": "Rock Cyclone",
+    "sbVer": "SASB2",
     "name": "Full Gaia Swing",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -15062,6 +15865,7 @@
   {
     "character": "Cinque",
     "source": "Rock Cyclone",
+    "sbVer": "SASB2",
     "name": "Mace Vortex",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -15090,6 +15894,7 @@
   {
     "character": "Rem",
     "source": "Saintly Huntcraft",
+    "sbVer": "SASB1",
     "name": "Dagger Dia",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -15117,6 +15922,7 @@
   {
     "character": "Rem",
     "source": "Saintly Huntcraft",
+    "sbVer": "SASB1",
     "name": "Spell Conversion",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -15144,6 +15950,7 @@
   {
     "character": "Ace",
     "source": "Assault Cards",
+    "sbVer": "SASB1",
     "name": "Flare BOM",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -15171,6 +15978,7 @@
   {
     "character": "Ace",
     "source": "Assault Cards",
+    "sbVer": "SASB1",
     "name": "Split Cards",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -15194,7 +16002,8 @@
   },
   {
     "character": "Ace",
-    "source": "Volcanic Cards",
+    "source": "Volcano Card",
+    "sbVer": "SASB2",
     "name": "Flame BOM",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -15217,12 +16026,13 @@
     "nameJp": "フレイムBOM",
     "id": 31541316,
     "synchroConditionId": 100,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Ace",
-    "source": "Volcanic Cards",
-    "name": "Igniting Card",
+    "source": "Volcano Card",
+    "sbVer": "SASB2",
+    "name": "Rising Cards",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
       "Fire"
@@ -15241,11 +16051,12 @@
     "nameJp": "ライズカード",
     "id": 31541317,
     "synchroConditionId": 100,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Machina",
     "source": "Power of Fear",
+    "sbVer": "SASB1",
     "name": "Impact Drill",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -15274,6 +16085,7 @@
   {
     "character": "Machina",
     "source": "Power of Fear",
+    "sbVer": "SASB1",
     "name": "Drill Lance",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -15302,7 +16114,8 @@
   {
     "character": "Machina",
     "source": "Siphon Sword",
-    "name": "Twin-Rapier Rush",
+    "sbVer": "SASB2",
+    "name": "Drill Rush",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
       "Spellblade"
@@ -15325,11 +16138,12 @@
     "nameJp": "ラッシュドリル",
     "id": 31541339,
     "synchroConditionId": 4,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Machina",
     "source": "Siphon Sword",
+    "sbVer": "SASB2",
     "name": "Vorpal Drive",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -15353,11 +16167,12 @@
     "nameJp": "ヴォーパルドライブ",
     "id": 31541340,
     "synchroConditionId": 4,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Deuce",
     "source": "Vital Symphony",
+    "sbVer": "SASB1",
     "name": "Set Tone Cluster",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -15383,6 +16198,7 @@
   {
     "character": "Deuce",
     "source": "Vital Symphony",
+    "sbVer": "SASB1",
     "name": "Concerto MP",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -15407,6 +16223,7 @@
   {
     "character": "Cater",
     "source": "Tri-Color Snipe Mode",
+    "sbVer": "SASB1",
     "name": "Explosive Shell",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -15436,6 +16253,7 @@
   {
     "character": "Cater",
     "source": "Tri-Color Snipe Mode",
+    "sbVer": "SASB1",
     "name": "Land Mine",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -15463,8 +16281,69 @@
     "gl": true
   },
   {
+    "character": "Cater",
+    "source": "Tri-Colored Blast Shell",
+    "sbVer": "SASB2",
+    "name": "Fully Charged Shot",
+    "synchroAbilitySlot": 1,
+    "synchroCondition": [
+      "Machinist"
+    ],
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 5.4,
+    "element": [
+      "Fire",
+      "Ice",
+      "Lightning",
+      "NE"
+    ],
+    "time": 1.65,
+    "effects": "Six single ranged attacks (0.90 each), 100% additional critical chance, grants [Quick Cast 1] to the user",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 90,
+    "school": "Machinist",
+    "nameJp": "フルチャージショット",
+    "id": 31541824,
+    "synchroConditionId": 16,
+    "gl": false
+  },
+  {
+    "character": "Cater",
+    "source": "Tri-Colored Blast Shell",
+    "sbVer": "SASB2",
+    "name": "Tricky Bullet",
+    "synchroAbilitySlot": 2,
+    "synchroCondition": [
+      "Machinist"
+    ],
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 6,
+    "element": [
+      "Fire",
+      "Ice",
+      "Lightning",
+      "NE"
+    ],
+    "time": 1.65,
+    "effects": "One single ranged attack (6.00) capped at 99999, causes [Imperil Fire 10% (5s)], [Imperil Ice 10% (5s)] and [Imperil Lightning 10% (5s)]",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 90,
+    "school": "Machinist",
+    "nameJp": "トリッキーバレット",
+    "id": 31541825,
+    "synchroConditionId": 16,
+    "gl": false
+  },
+  {
     "character": "Seven",
     "source": "Icicle Strike",
+    "sbVer": "SASB1",
     "name": "Blizzaga BOM",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -15492,6 +16371,7 @@
   {
     "character": "Seven",
     "source": "Icicle Strike",
+    "sbVer": "SASB1",
     "name": "Icicle Prison",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -15516,6 +16396,7 @@
   {
     "character": "Queen",
     "source": "Devastate",
+    "sbVer": "SASB1",
     "name": "Demonblade Flash",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -15544,6 +16425,7 @@
   {
     "character": "Queen",
     "source": "Devastate",
+    "sbVer": "SASB1",
     "name": "Two-Faced Blessing",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -15568,6 +16450,7 @@
   {
     "character": "King",
     "source": "Endless Snipe",
+    "sbVer": "SASB1",
     "name": "Royal Munitions",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -15595,6 +16478,7 @@
   {
     "character": "King",
     "source": "Endless Snipe",
+    "sbVer": "SASB1",
     "name": "Quick Motion",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -15619,6 +16503,7 @@
   {
     "character": "Trey",
     "source": "Grand Delta",
+    "sbVer": "SASB1",
     "name": "Tri-Shot",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -15648,6 +16533,7 @@
   {
     "character": "Trey",
     "source": "Grand Delta",
+    "sbVer": "SASB1",
     "name": "Arrow Force",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -15677,6 +16563,7 @@
   {
     "character": "Sice",
     "source": "Doomshadow Scythe",
+    "sbVer": "SASB1",
     "name": "Reaper's Zone",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -15704,6 +16591,7 @@
   {
     "character": "Sice",
     "source": "Doomshadow Scythe",
+    "sbVer": "SASB1",
     "name": "Evil Nebula",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -15731,6 +16619,7 @@
   {
     "character": "Eight",
     "source": "Ice Burst Fist",
+    "sbVer": "SASB1",
     "name": "Ice Explosion",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -15758,6 +16647,7 @@
   {
     "character": "Eight",
     "source": "Ice Burst Fist",
+    "sbVer": "SASB1",
     "name": "Sleet Supremacy",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -15785,6 +16675,7 @@
   {
     "character": "Jack",
     "source": "Piercing Gleam",
+    "sbVer": "SASB1",
     "name": "Lightspeed Blade",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -15812,6 +16703,7 @@
   {
     "character": "Jack",
     "source": "Piercing Gleam",
+    "sbVer": "SASB1",
     "name": "Do-or-Die Stance",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -15836,6 +16728,7 @@
   {
     "character": "Nine",
     "source": "Spiral Jump",
+    "sbVer": "SASB1",
     "name": "Storm Jump",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -15863,6 +16756,7 @@
   {
     "character": "Nine",
     "source": "Spiral Jump",
+    "sbVer": "SASB1",
     "name": "Cruel Pierce",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -15890,6 +16784,7 @@
   {
     "character": "Rain",
     "source": "Crimson Nova",
+    "sbVer": "SASB1",
     "name": "Crimson Charge",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -15918,6 +16813,7 @@
   {
     "character": "Rain",
     "source": "Crimson Nova",
+    "sbVer": "SASB1",
     "name": "Crimson Break",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -15946,6 +16842,7 @@
   {
     "character": "Fina",
     "source": "Eternal Light",
+    "sbVer": "SASB1",
     "name": "Eternal Heal",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -15970,6 +16867,7 @@
   {
     "character": "Fina",
     "source": "Eternal Light",
+    "sbVer": "SASB1",
     "name": "Eternal Cheer",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -15995,6 +16893,7 @@
   {
     "character": "Lasswell",
     "source": "Winter's Oblivion",
+    "sbVer": "SASB1",
     "name": "Icemoon Blade",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -16023,6 +16922,7 @@
   {
     "character": "Lasswell",
     "source": "Winter's Oblivion",
+    "sbVer": "SASB1",
     "name": "Oblivion Stance",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -16051,6 +16951,7 @@
   {
     "character": "Enna Kros",
     "source": "The Creator's Rules",
+    "sbVer": "SASB1",
     "name": "Astral Purge",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -16079,6 +16980,7 @@
   {
     "character": "Enna Kros",
     "source": "The Creator's Rules",
+    "sbVer": "SASB1",
     "name": "Motherland",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
@@ -16103,6 +17005,7 @@
   {
     "character": "Serafie",
     "source": "Mascot Special",
+    "sbVer": "SASB1",
     "name": "Whisperwind",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
@@ -16130,6 +17033,7 @@
   {
     "character": "Serafie",
     "source": "Mascot Special",
+    "sbVer": "SASB1",
     "name": "Faerie Lullaby",
     "synchroAbilitySlot": 2,
     "synchroCondition": [

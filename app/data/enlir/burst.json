@@ -2,6 +2,7 @@
   {
     "character": "Tyro",
     "source": "Keeper's Tome",
+    "sbVer": "BSB1",
     "name": "Book of Despair",
     "type": "PHY",
     "target": "Single enemy",
@@ -21,6 +22,7 @@
   {
     "character": "Tyro",
     "source": "Keeper's Tome",
+    "sbVer": "BSB1",
     "name": "Book of Retribution",
     "type": "PHY",
     "target": "Single enemy",
@@ -40,6 +42,7 @@
   {
     "character": "Elarra",
     "source": "Magika Coat",
+    "sbVer": "BSB1",
     "name": "Pulchra Magika",
     "type": "NAT",
     "target": "Self",
@@ -59,6 +62,7 @@
   {
     "character": "Elarra",
     "source": "Magika Coat",
+    "sbVer": "BSB1",
     "name": "Fomenta Magika",
     "type": "WHT",
     "target": "All allies",
@@ -80,6 +84,7 @@
   {
     "character": "Warrior of Light",
     "source": "Ultimate Shield",
+    "sbVer": "BSB1",
     "name": "Stroke of Light",
     "type": "PHY",
     "target": "Single enemy",
@@ -102,6 +107,7 @@
   {
     "character": "Warrior of Light",
     "source": "Ultimate Shield",
+    "sbVer": "BSB1",
     "name": "Crystalize",
     "type": "PHY",
     "target": "All enemies",
@@ -124,6 +130,7 @@
   {
     "character": "Garland",
     "source": "Dark Rebirth",
+    "sbVer": "BSB1",
     "name": "Deathblow",
     "type": "PHY",
     "target": "Single enemy",
@@ -145,6 +152,7 @@
   {
     "character": "Garland",
     "source": "Dark Rebirth",
+    "sbVer": "BSB1",
     "name": "Wave of Darkness",
     "type": "PHY",
     "target": "All enemies",
@@ -166,6 +174,7 @@
   {
     "character": "Garland",
     "source": "Twin Swords",
+    "sbVer": "BSB2",
     "name": "Chain Cast",
     "type": "PHY",
     "target": "Single enemy",
@@ -188,6 +197,7 @@
   {
     "character": "Garland",
     "source": "Twin Swords",
+    "sbVer": "BSB2",
     "name": "Twist Drill",
     "type": "PHY",
     "target": "Single enemy",
@@ -210,6 +220,7 @@
   {
     "character": "Sarah",
     "source": "Age-old Hymn",
+    "sbVer": "BSB1",
     "name": "Inviolate Prayer",
     "type": "WHT",
     "target": "Single ally",
@@ -231,6 +242,7 @@
   {
     "character": "Sarah",
     "source": "Age-old Hymn",
+    "sbVer": "BSB1",
     "name": "Simple Plea",
     "type": "WHT",
     "target": "All allies",
@@ -252,6 +264,7 @@
   {
     "character": "Wol",
     "source": "Shijin Spiral",
+    "sbVer": "BSB1",
     "name": "Sneaky Attack",
     "type": "PHY",
     "target": "Single enemy",
@@ -271,6 +284,7 @@
   {
     "character": "Wol",
     "source": "Shijin Spiral",
+    "sbVer": "BSB1",
     "name": "Break Slayer",
     "type": "PHY",
     "target": "All enemies",
@@ -290,6 +304,7 @@
   {
     "character": "Wol",
     "source": "Howl of Hell",
+    "sbVer": "BSB2",
     "name": "Reaver's Impact",
     "type": "PHY",
     "target": "Single enemy",
@@ -312,6 +327,7 @@
   {
     "character": "Wol",
     "source": "Howl of Hell",
+    "sbVer": "BSB2",
     "name": "Heavy Break",
     "type": "PHY",
     "target": "Single enemy",
@@ -334,6 +350,7 @@
   {
     "character": "Echo",
     "source": "Echo's Prize",
+    "sbVer": "BSB1",
     "name": "Punishing Thunder",
     "type": "BLK",
     "target": "Single enemy",
@@ -356,6 +373,7 @@
   {
     "character": "Echo",
     "source": "Echo's Prize",
+    "sbVer": "BSB1",
     "name": "Magic Meddling",
     "type": "NAT",
     "target": "All enemies",
@@ -375,6 +393,7 @@
   {
     "character": "Echo",
     "source": "Echoing Mischief",
+    "sbVer": "BSB2",
     "name": "Faltering Blade",
     "type": "BLK",
     "target": "Single enemy",
@@ -397,6 +416,7 @@
   {
     "character": "Echo",
     "source": "Echoing Mischief",
+    "sbVer": "BSB2",
     "name": "Faltering Magic",
     "type": "BLK",
     "target": "Single enemy",
@@ -419,6 +439,7 @@
   {
     "character": "Master",
     "source": "Show of Courage",
+    "sbVer": "BSB1",
     "name": "Storm and Strife",
     "type": "PHY",
     "target": "Single enemy",
@@ -438,6 +459,7 @@
   {
     "character": "Master",
     "source": "Show of Courage",
+    "sbVer": "BSB1",
     "name": "Bitter Blow",
     "type": "PHY",
     "target": "Single enemy",
@@ -457,6 +479,7 @@
   {
     "character": "Matoya",
     "source": "Inner Eye",
+    "sbVer": "BSB1",
     "name": "Firefrost Chant",
     "type": "BLK",
     "target": "Single enemy",
@@ -479,6 +502,7 @@
   {
     "character": "Matoya",
     "source": "Inner Eye",
+    "sbVer": "BSB1",
     "name": "Flamebolt Chant",
     "type": "BLK",
     "target": "Single enemy",
@@ -501,6 +525,7 @@
   {
     "character": "Meia",
     "source": "Famfrit",
+    "sbVer": "BSB1",
     "name": "Pallida Fructus",
     "type": "SUM",
     "target": "Self",
@@ -520,6 +545,7 @@
   {
     "character": "Meia",
     "source": "Famfrit",
+    "sbVer": "BSB1",
     "name": "Pallida Fructus (S)",
     "nameNote": "Alias name: Jet-Black Rain",
     "type": "SUM",
@@ -543,6 +569,7 @@
   {
     "character": "Meia",
     "source": "Famfrit",
+    "sbVer": "BSB1",
     "name": "Pallida Schelling",
     "type": "SUM",
     "target": "Single enemy",
@@ -565,6 +592,7 @@
   {
     "character": "Meia",
     "source": "Famfrit",
+    "sbVer": "BSB1",
     "name": "Pallida Schelling (S)",
     "nameNote": "Alias name: Azure Schelling",
     "type": "SUM",
@@ -588,6 +616,7 @@
   {
     "character": "Thief (I)",
     "source": "Invisibreak",
+    "sbVer": "BSB1",
     "name": "Storm Trick",
     "type": "PHY",
     "target": "Single enemy",
@@ -610,6 +639,7 @@
   {
     "character": "Thief (I)",
     "source": "Invisibreak",
+    "sbVer": "BSB1",
     "name": "Storm Break",
     "type": "PHY",
     "target": "Single enemy",
@@ -632,6 +662,7 @@
   {
     "character": "Firion",
     "source": "Weaponsmaster",
+    "sbVer": "BSB1",
     "name": "Chain Strike",
     "type": "PHY",
     "target": "Single enemy",
@@ -654,6 +685,7 @@
   {
     "character": "Firion",
     "source": "Weaponsmaster",
+    "sbVer": "BSB1",
     "name": "Chain Launch",
     "type": "PHY",
     "target": "Single enemy",
@@ -676,6 +708,7 @@
   {
     "character": "Maria",
     "source": "Meteor XVI",
+    "sbVer": "BSB1",
     "name": "Break",
     "type": "BLK",
     "target": "Single enemy",
@@ -698,6 +731,7 @@
   {
     "character": "Maria",
     "source": "Meteor XVI",
+    "sbVer": "BSB1",
     "name": "Sunfire",
     "type": "BLK",
     "target": "All enemies",
@@ -720,6 +754,7 @@
   {
     "character": "Guy",
     "source": "Gigantbreak",
+    "sbVer": "BSB1",
     "name": "Stony Fang",
     "type": "PHY",
     "target": "Single enemy",
@@ -743,6 +778,7 @@
   {
     "character": "Guy",
     "source": "Gigantbreak",
+    "sbVer": "BSB1",
     "name": "Colossal Strength",
     "type": "PHY",
     "target": "All enemies",
@@ -765,6 +801,7 @@
   {
     "character": "Leon",
     "source": "Dark Knight's Charge",
+    "sbVer": "BSB1",
     "name": "Blood Spoils",
     "type": "PHY",
     "target": "Single enemy",
@@ -786,6 +823,7 @@
   {
     "character": "Leon",
     "source": "Dark Knight's Charge",
+    "sbVer": "BSB1",
     "name": "Ambition's Price",
     "type": "PHY",
     "target": "Single enemy",
@@ -807,6 +845,7 @@
   {
     "character": "Minwu",
     "source": "Seal of Heaven",
+    "sbVer": "BSB1",
     "name": "Cure X",
     "type": "WHT",
     "target": "Single ally",
@@ -828,6 +867,7 @@
   {
     "character": "Minwu",
     "source": "Seal of Heaven",
+    "sbVer": "BSB1",
     "name": "Sap XVI",
     "type": "WHT",
     "target": "All enemies",
@@ -849,6 +889,7 @@
   {
     "character": "Minwu",
     "source": "Holy XVI",
+    "sbVer": "BSB2",
     "name": "Magic Emblem",
     "type": "WHT",
     "target": "Single enemy",
@@ -871,6 +912,7 @@
   {
     "character": "Minwu",
     "source": "Holy XVI",
+    "sbVer": "BSB2",
     "name": "Light of Relief",
     "type": "WHT",
     "target": "Single ally",
@@ -892,6 +934,7 @@
   {
     "character": "Gordon",
     "source": "Egil's Blaze",
+    "sbVer": "BSB1",
     "name": "Royal Resolve",
     "type": "PHY",
     "target": "Single enemy",
@@ -911,6 +954,7 @@
   {
     "character": "Gordon",
     "source": "Egil's Blaze",
+    "sbVer": "BSB1",
     "name": "Survivor's Will",
     "type": "PHY",
     "target": "Single enemy",
@@ -930,6 +974,7 @@
   {
     "character": "Leila",
     "source": "Poison Cloud XVI",
+    "sbVer": "BSB1",
     "name": "Poison Sting",
     "type": "PHY",
     "target": "Single enemy",
@@ -952,6 +997,7 @@
   {
     "character": "Leila",
     "source": "Poison Cloud XVI",
+    "sbVer": "BSB1",
     "name": "Pirate's Venom",
     "type": "PHY",
     "target": "Single enemy",
@@ -974,6 +1020,7 @@
   {
     "character": "Ricard",
     "source": "Pride of Deist",
+    "sbVer": "BSB1",
     "name": "Dragon Bloodwind",
     "type": "PHY",
     "target": "Single enemy",
@@ -996,6 +1043,7 @@
   {
     "character": "Ricard",
     "source": "Pride of Deist",
+    "sbVer": "BSB1",
     "name": "Wyvern's Grace",
     "type": "PHY",
     "target": "Single enemy",
@@ -1018,6 +1066,7 @@
   {
     "character": "Josef",
     "source": "Undaunted Hero",
+    "sbVer": "BSB1",
     "name": "Ice Breaker",
     "type": "PHY",
     "target": "Single enemy",
@@ -1040,6 +1089,7 @@
   {
     "character": "Josef",
     "source": "Undaunted Hero",
+    "sbVer": "BSB1",
     "name": "Man of Snow",
     "type": "PHY",
     "target": "Single enemy",
@@ -1062,6 +1112,7 @@
   {
     "character": "Emperor",
     "source": "Winds of War",
+    "sbVer": "BSB1",
     "name": "Binding Gale",
     "type": "BLK",
     "target": "Single enemy",
@@ -1084,6 +1135,7 @@
   {
     "character": "Emperor",
     "source": "Winds of War",
+    "sbVer": "BSB1",
     "name": "Leeching Winds",
     "type": "BLK",
     "target": "Single enemy",
@@ -1106,6 +1158,7 @@
   {
     "character": "Emperor",
     "source": "Hell's Maw",
+    "sbVer": "BSB2",
     "name": "Ruthless Ploy",
     "type": "BLK",
     "target": "Single enemy",
@@ -1128,6 +1181,7 @@
   {
     "character": "Emperor",
     "source": "Hell's Maw",
+    "sbVer": "BSB2",
     "name": "Onyx Crest",
     "type": "BLK",
     "target": "Single enemy",
@@ -1150,6 +1204,7 @@
   {
     "character": "Hilda",
     "source": "Prayer for Peace",
+    "sbVer": "BSB1",
     "name": "Graceful Minuet",
     "type": "WHT",
     "target": "Single ally",
@@ -1171,6 +1226,7 @@
   {
     "character": "Hilda",
     "source": "Prayer for Peace",
+    "sbVer": "BSB1",
     "name": "Song of Tranquility",
     "type": "WHT",
     "target": "All allies",
@@ -1192,6 +1248,7 @@
   {
     "character": "Scott",
     "source": "Scathing Sun",
+    "sbVer": "BSB1",
     "name": "Mark of Destruction",
     "type": "PHY",
     "target": "Single enemy",
@@ -1214,6 +1271,7 @@
   {
     "character": "Scott",
     "source": "Scathing Sun",
+    "sbVer": "BSB1",
     "name": "Fiery Vanguard",
     "type": "PHY",
     "target": "All enemies",
@@ -1236,6 +1294,7 @@
   {
     "character": "Luneth",
     "source": "Eternal Wind",
+    "sbVer": "BSB1",
     "name": "Pummeling Gale",
     "type": "PHY",
     "target": "Single enemy",
@@ -1258,6 +1317,7 @@
   {
     "character": "Luneth",
     "source": "Eternal Wind",
+    "sbVer": "BSB1",
     "name": "Roaring Winds",
     "type": "PHY",
     "target": "All enemies",
@@ -1280,6 +1340,7 @@
   {
     "character": "Arc",
     "source": "Auroral Grace",
+    "sbVer": "BSB1",
     "name": "Dedication to Purity",
     "type": "WHT",
     "target": "Single",
@@ -1301,6 +1362,7 @@
   {
     "character": "Arc",
     "source": "Auroral Grace",
+    "sbVer": "BSB1",
     "name": "Dedication to Healing",
     "type": "WHT",
     "target": "All allies",
@@ -1322,6 +1384,7 @@
   {
     "character": "Arc",
     "source": "Break of Valor",
+    "sbVer": "BSB2",
     "name": "Dia Deluge",
     "type": "WHT",
     "target": "Single enemy",
@@ -1344,6 +1407,7 @@
   {
     "character": "Arc",
     "source": "Break of Valor",
+    "sbVer": "BSB2",
     "name": "Dia Cure",
     "type": "WHT",
     "target": "Single ally",
@@ -1365,6 +1429,7 @@
   {
     "character": "Refia",
     "source": "Dance of Carnage",
+    "sbVer": "BSB1",
     "name": "Riddle of the Flame",
     "type": "PHY",
     "target": "Single enemy",
@@ -1387,6 +1452,7 @@
   {
     "character": "Refia",
     "source": "Dance of Carnage",
+    "sbVer": "BSB1",
     "name": "Fires of Carnage",
     "type": "PHY",
     "target": "All enemies",
@@ -1409,6 +1475,7 @@
   {
     "character": "Ingus",
     "source": "Oathsworn Espada",
+    "sbVer": "BSB1",
     "name": "Tour de Force",
     "type": "PHY",
     "target": "Single enemy",
@@ -1431,6 +1498,7 @@
   {
     "character": "Ingus",
     "source": "Oathsworn Espada",
+    "sbVer": "BSB1",
     "name": "Secrets of Sasune",
     "type": "PHY",
     "target": "Single enemy",
@@ -1453,6 +1521,7 @@
   {
     "character": "Ingus",
     "source": "Faith Escutcheon",
+    "sbVer": "BSB2",
     "name": "Titan Drive",
     "type": "PHY",
     "target": "Single enemy",
@@ -1475,6 +1544,7 @@
   {
     "character": "Ingus",
     "source": "Faith Escutcheon",
+    "sbVer": "BSB2",
     "name": "Aegis Form",
     "type": "NAT",
     "target": "Self",
@@ -1494,6 +1564,7 @@
   {
     "character": "Desch",
     "source": "Ancient Lightning",
+    "sbVer": "BSB1",
     "name": "Heavenly Drum",
     "type": "BLK",
     "target": "Single enemy",
@@ -1516,6 +1587,7 @@
   {
     "character": "Desch",
     "source": "Ancient Lightning",
+    "sbVer": "BSB1",
     "name": "Become the Lightning",
     "type": "BLK",
     "target": "All enemies",
@@ -1538,6 +1610,7 @@
   {
     "character": "Onion Knight",
     "source": "Vessel of Fate",
+    "sbVer": "BSB1",
     "name": "Extra Slice",
     "type": "PHY",
     "target": "Single enemy",
@@ -1557,6 +1630,7 @@
   {
     "character": "Onion Knight",
     "source": "Vessel of Fate",
+    "sbVer": "BSB1",
     "name": "Swiftspell",
     "type": "BLK",
     "target": "Single enemy",
@@ -1576,6 +1650,7 @@
   {
     "character": "Cloud of Darkness",
     "source": "Fusillade Particle Beam",
+    "sbVer": "BSB1",
     "name": "Aura Ball of Confounding",
     "type": "BLK",
     "target": "Single enemy",
@@ -1598,6 +1673,7 @@
   {
     "character": "Cloud of Darkness",
     "source": "Fusillade Particle Beam",
+    "sbVer": "BSB1",
     "name": "Aura Ball of Binding",
     "type": "BLK",
     "target": "Single enemy",
@@ -1620,6 +1696,7 @@
   {
     "character": "Cloud of Darkness",
     "source": "0-Form Particle Beam",
+    "sbVer": "BSB2",
     "name": "Exploding Aura Ball",
     "type": "BLK",
     "target": "Single enemy",
@@ -1642,6 +1719,7 @@
   {
     "character": "Cloud of Darkness",
     "source": "0-Form Particle Beam",
+    "sbVer": "BSB2",
     "name": "Empowered Aura Ball",
     "type": "BLK",
     "target": "Single enemy",
@@ -1664,6 +1742,7 @@
   {
     "character": "Aria",
     "source": "Maiden of Water",
+    "sbVer": "BSB1",
     "name": "Clarion Prayer",
     "type": "WHT",
     "target": "Single ally",
@@ -1685,6 +1764,7 @@
   {
     "character": "Aria",
     "source": "Maiden of Water",
+    "sbVer": "BSB1",
     "name": "Fleeting Wish",
     "type": "WHT",
     "target": "All allies",
@@ -1706,6 +1786,7 @@
   {
     "character": "Cecil (Dark Knight)",
     "source": "Dark Flame",
+    "sbVer": "BSB1",
     "name": "Onyx Wave",
     "type": "PHY",
     "target": "Single enemy",
@@ -1729,6 +1810,7 @@
   {
     "character": "Cecil (Dark Knight)",
     "source": "Dark Flame",
+    "sbVer": "BSB1",
     "name": "Nightfall",
     "type": "PHY",
     "target": "All enemies",
@@ -1751,6 +1833,7 @@
   {
     "character": "Cecil (Dark Knight)",
     "source": "Abyss Gate",
+    "sbVer": "BSB2",
     "name": "Shadow Slice",
     "type": "PHY",
     "target": "Single enemy",
@@ -1773,6 +1856,7 @@
   {
     "character": "Cecil (Dark Knight)",
     "source": "Abyss Gate",
+    "sbVer": "BSB2",
     "name": "Evil Drive",
     "type": "PHY",
     "target": "Single enemy",
@@ -1795,6 +1879,7 @@
   {
     "character": "Cecil (Paladin)",
     "source": "Paladin Force",
+    "sbVer": "BSB1",
     "name": "Blessed Weapon",
     "type": "PHY",
     "target": "Single enemy",
@@ -1816,6 +1901,7 @@
   {
     "character": "Cecil (Paladin)",
     "source": "Paladin Force",
+    "sbVer": "BSB1",
     "name": "Sacred Circle",
     "type": "PHY",
     "target": "All enemies",
@@ -1837,6 +1923,7 @@
   {
     "character": "Cecil (Paladin)",
     "source": "Radiant Blast",
+    "sbVer": "BSB2",
     "name": "Paladin's Charge",
     "type": "PHY",
     "target": "Single enemy",
@@ -1859,6 +1946,7 @@
   {
     "character": "Cecil (Paladin)",
     "source": "Radiant Blast",
+    "sbVer": "BSB2",
     "name": "Light Slash",
     "type": "PHY",
     "target": "Single enemy",
@@ -1881,6 +1969,7 @@
   {
     "character": "Kain",
     "source": "Dragoon's Pride",
+    "sbVer": "BSB1",
     "name": "Stormblood Dragon",
     "type": "PHY",
     "target": "Single enemy",
@@ -1902,6 +1991,7 @@
   {
     "character": "Kain",
     "source": "Dragoon's Pride",
+    "sbVer": "BSB1",
     "name": "Triumphant Lancet",
     "type": "PHY",
     "target": "Single enemy",
@@ -1923,6 +2013,7 @@
   {
     "character": "Rydia",
     "source": "Mournful Cry",
+    "sbVer": "BSB1",
     "name": "Gaia's Strike",
     "type": "SUM",
     "target": "Single enemy",
@@ -1945,6 +2036,7 @@
   {
     "character": "Rydia",
     "source": "Mournful Cry",
+    "sbVer": "BSB1",
     "name": "Gaia's Fury",
     "type": "SUM",
     "target": "All enemies",
@@ -1967,6 +2059,7 @@
   {
     "character": "Rydia",
     "source": "Law of the Eidolons",
+    "sbVer": "BSB2",
     "name": "Gift of the Eidolon King",
     "type": "SUM",
     "target": "Single enemy",
@@ -1989,6 +2082,7 @@
   {
     "character": "Rydia",
     "source": "Law of the Eidolons",
+    "sbVer": "BSB2",
     "name": "Gift of the Eidolon Queen",
     "type": "SUM",
     "target": "Single enemy",
@@ -2011,6 +2105,7 @@
   {
     "character": "Rosa",
     "source": "Holy Ray",
+    "sbVer": "BSB1",
     "name": "Wall of Light",
     "type": "WHT",
     "target": "Single ally",
@@ -2032,6 +2127,7 @@
   {
     "character": "Rosa",
     "source": "Holy Ray",
+    "sbVer": "BSB1",
     "name": "Ripple of Life",
     "type": "WHT",
     "target": "All allies",
@@ -2053,6 +2149,7 @@
   {
     "character": "Edward",
     "source": "Whisperweed Ballad",
+    "sbVer": "BSB1",
     "name": "Soothing Lullaby",
     "type": "PHY",
     "target": "Single enemy",
@@ -2074,6 +2171,7 @@
   {
     "character": "Edward",
     "source": "Whisperweed Ballad",
+    "sbVer": "BSB1",
     "name": "Baneful Nocturne",
     "type": "PHY",
     "target": "Single enemy",
@@ -2095,6 +2193,7 @@
   {
     "character": "Yang",
     "source": "Seven-Star Heavenly Fist",
+    "sbVer": "BSB1",
     "name": "Crushing-Rock Blow",
     "type": "PHY",
     "target": "Single enemy",
@@ -2117,6 +2216,7 @@
   {
     "character": "Yang",
     "source": "Seven-Star Heavenly Fist",
+    "sbVer": "BSB1",
     "name": "Explosive Fists",
     "type": "PHY",
     "target": "Single enemy",
@@ -2139,6 +2239,7 @@
   {
     "character": "Palom",
     "source": "Tri-Disaster",
+    "sbVer": "BSB1",
     "name": "Bomb Thunder",
     "type": "BLK",
     "target": "Single enemy",
@@ -2161,6 +2262,7 @@
   {
     "character": "Palom",
     "source": "Tri-Disaster",
+    "sbVer": "BSB1",
     "name": "Ice Thunder",
     "type": "BLK",
     "target": "Single enemy",
@@ -2183,6 +2285,7 @@
   {
     "character": "Porom",
     "source": "Healing Wind (IV)",
+    "sbVer": "BSB1",
     "name": "Mysidia's Light",
     "type": "WHT",
     "target": "Single ally",
@@ -2204,6 +2307,7 @@
   {
     "character": "Porom",
     "source": "Healing Wind (IV)",
+    "sbVer": "BSB1",
     "name": "Cure Wave",
     "type": "WHT",
     "target": "All allies",
@@ -2225,6 +2329,7 @@
   {
     "character": "Tellah",
     "source": "Sage's Sagacity",
+    "sbVer": "BSB1",
     "name": "Sage's Secrets",
     "type": "BLK",
     "target": "Single enemy",
@@ -2247,6 +2352,7 @@
   {
     "character": "Tellah",
     "source": "Sage's Sagacity",
+    "sbVer": "BSB1",
     "name": "Forbidden Recollection",
     "type": "BLK",
     "target": "All enemies",
@@ -2269,6 +2375,7 @@
   {
     "character": "Edge",
     "source": "Seething Waters",
+    "sbVer": "BSB1",
     "name": "Water Barrage",
     "type": "PHY",
     "target": "Single enemy",
@@ -2291,6 +2398,7 @@
   {
     "character": "Edge",
     "source": "Seething Waters",
+    "sbVer": "BSB1",
     "name": "Raging Seas",
     "type": "PHY",
     "target": "All enemies",
@@ -2313,6 +2421,7 @@
   {
     "character": "Fusoya",
     "source": "Lunarian Prayer",
+    "sbVer": "BSB1",
     "name": "Moonlight's Blessing",
     "type": "BLK",
     "target": "Single enemy",
@@ -2335,6 +2444,7 @@
   {
     "character": "Fusoya",
     "source": "Lunarian Prayer",
+    "sbVer": "BSB1",
     "name": "Moonlight's Seal",
     "type": "BLK",
     "target": "Single enemy",
@@ -2357,6 +2467,7 @@
   {
     "character": "Golbez",
     "source": "Twin Moon",
+    "sbVer": "BSB1",
     "name": "Shadow Dragon",
     "type": "SUM",
     "target": "Self",
@@ -2376,6 +2487,7 @@
   {
     "character": "Golbez",
     "source": "Twin Moon",
+    "sbVer": "BSB1",
     "name": "Shadow Dragon (S)",
     "nameNote": "Alias name: Black Fang",
     "type": "SUM",
@@ -2398,6 +2510,7 @@
   {
     "character": "Golbez",
     "source": "Twin Moon",
+    "sbVer": "BSB1",
     "name": "Glare Hand",
     "type": "BLK",
     "target": "Single enemy",
@@ -2419,6 +2532,7 @@
   {
     "character": "Golbez",
     "source": "Twin Moon",
+    "sbVer": "BSB1",
     "name": "Glare Hand (S)",
     "type": "BLK",
     "target": "Single enemy",
@@ -2440,6 +2554,7 @@
   {
     "character": "Golbez",
     "source": "Abyssal Quasar",
+    "sbVer": "BSB2",
     "name": "Rising Wave",
     "type": "BLK",
     "target": "Single enemy",
@@ -2462,6 +2577,7 @@
   {
     "character": "Golbez",
     "source": "Abyssal Quasar",
+    "sbVer": "BSB2",
     "name": "Attack System",
     "type": "BLK",
     "target": "Single enemy",
@@ -2484,6 +2600,7 @@
   {
     "character": "Cid (IV)",
     "source": "Falcon Drill",
+    "sbVer": "BSB1",
     "name": "Lightning Hammer",
     "type": "PHY",
     "target": "Single enemy",
@@ -2506,6 +2623,7 @@
   {
     "character": "Cid (IV)",
     "source": "Falcon Drill",
+    "sbVer": "BSB1",
     "name": "Thunderbolt Wrench",
     "type": "PHY",
     "target": "Single enemy",
@@ -2528,6 +2646,7 @@
   {
     "character": "Ceodore",
     "source": "Holy Cross",
+    "sbVer": "BSB1",
     "name": "Curing Cut",
     "type": "PHY",
     "target": "Single enemy",
@@ -2550,6 +2669,7 @@
   {
     "character": "Ceodore",
     "source": "Holy Cross",
+    "sbVer": "BSB1",
     "name": "Esuna Blade",
     "type": "PHY",
     "target": "All enemies",
@@ -2572,6 +2692,7 @@
   {
     "character": "Rubicante",
     "source": "Trueflame Inferno",
+    "sbVer": "BSB1",
     "name": "Avatar of Flame",
     "type": "BLK",
     "target": "Self",
@@ -2591,6 +2712,7 @@
   {
     "character": "Rubicante",
     "source": "Trueflame Inferno",
+    "sbVer": "BSB1",
     "name": "Avatar of Flame (S)",
     "type": "BLK",
     "target": "Single enemy",
@@ -2613,6 +2735,7 @@
   {
     "character": "Rubicante",
     "source": "Trueflame Inferno",
+    "sbVer": "BSB1",
     "name": "Rain of Fire",
     "type": "BLK",
     "target": "All enemies",
@@ -2635,6 +2758,7 @@
   {
     "character": "Rubicante",
     "source": "Trueflame Inferno",
+    "sbVer": "BSB1",
     "name": "Rain of Fire (S)",
     "type": "BLK",
     "target": "All enemies",
@@ -2657,6 +2781,7 @@
   {
     "character": "Ursula",
     "source": "Five Star Crimson Palm",
+    "sbVer": "BSB1",
     "name": "Boulder Buster",
     "type": "PHY",
     "target": "Single enemy",
@@ -2679,6 +2804,7 @@
   {
     "character": "Ursula",
     "source": "Five Star Crimson Palm",
+    "sbVer": "BSB1",
     "name": "Explosive Barrage",
     "type": "PHY",
     "target": "Single enemy",
@@ -2701,6 +2827,7 @@
   {
     "character": "Barbariccia",
     "source": "Maelstrom (IV)",
+    "sbVer": "BSB1",
     "name": "Fast Winds",
     "type": "BLK",
     "target": "Single enemy",
@@ -2723,6 +2850,7 @@
   {
     "character": "Barbariccia",
     "source": "Maelstrom (IV)",
+    "sbVer": "BSB1",
     "name": "Aero Drive",
     "type": "BLK",
     "target": "All enemies",
@@ -2745,6 +2873,7 @@
   {
     "character": "Lenna",
     "source": "Phoenix of Tycoon",
+    "sbVer": "BSB1",
     "name": "Royal Judgment",
     "type": "WHT",
     "target": "Single enemy",
@@ -2766,6 +2895,7 @@
   {
     "character": "Lenna",
     "source": "Phoenix of Tycoon",
+    "sbVer": "BSB1",
     "name": "Tycoon's Gift",
     "type": "WHT",
     "target": "All allies",
@@ -2787,6 +2917,7 @@
   {
     "character": "Lenna",
     "source": "Tender Mercy",
+    "sbVer": "BSB2",
     "name": "Tycoon's Mark",
     "type": "WHT",
     "target": "Single ally",
@@ -2808,6 +2939,7 @@
   {
     "character": "Lenna",
     "source": "Tender Mercy",
+    "sbVer": "BSB2",
     "name": "Care for Life",
     "type": "WHT",
     "target": "All allies",
@@ -2829,6 +2961,7 @@
   {
     "character": "Galuf",
     "source": "Sweet Sorrow",
+    "sbVer": "BSB1",
     "name": "Leeching Blow",
     "type": "PHY",
     "target": "Single enemy",
@@ -2851,6 +2984,7 @@
   {
     "character": "Galuf",
     "source": "Sweet Sorrow",
+    "sbVer": "BSB1",
     "name": "Feast of Souls",
     "type": "PHY",
     "target": "All enemies",
@@ -2873,6 +3007,7 @@
   {
     "character": "Galuf",
     "source": "Renewed Vigor",
+    "sbVer": "BSB2",
     "name": "Shattering Fist",
     "type": "PHY",
     "target": "Single enemy",
@@ -2895,6 +3030,7 @@
   {
     "character": "Galuf",
     "source": "Renewed Vigor",
+    "sbVer": "BSB2",
     "name": "Restless Spirit",
     "type": "PHY",
     "target": "Single enemy",
@@ -2917,6 +3053,7 @@
   {
     "character": "Gogo (V)",
     "source": "Deep Aqua Breath",
+    "sbVer": "BSB1",
     "name": "Way of the Mimic",
     "type": "NAT",
     "target": null,
@@ -2936,6 +3073,7 @@
   {
     "character": "Gogo (V)",
     "source": "Deep Aqua Breath",
+    "sbVer": "BSB1",
     "name": "Infamous Waterworks",
     "type": "BLK",
     "target": "Single enemy",
@@ -2958,6 +3096,7 @@
   {
     "character": "Gilgamesh",
     "source": "Gilgamesh Morphing Time",
+    "sbVer": "BSB1",
     "name": "Dual Thrust",
     "type": "PHY",
     "target": "Single enemy",
@@ -2977,6 +3116,7 @@
   {
     "character": "Gilgamesh",
     "source": "Gilgamesh Morphing Time",
+    "sbVer": "BSB1",
     "name": "Tsubamegaeshi",
     "type": "PHY",
     "target": "Single enemy",
@@ -2996,6 +3136,7 @@
   {
     "character": "Gilgamesh",
     "source": "Gilgamesh Scorching Time",
+    "sbVer": "BSB2",
     "name": "Kindred Soul",
     "type": "NAT",
     "target": "Self",
@@ -3015,6 +3156,7 @@
   {
     "character": "Gilgamesh",
     "source": "Gilgamesh Scorching Time",
+    "sbVer": "BSB2",
     "name": "Kindred Soul (S)",
     "nameNote": "Alias name: Willow Stance",
     "type": "NAT",
@@ -3035,6 +3177,7 @@
   {
     "character": "Gilgamesh",
     "source": "Gilgamesh Scorching Time",
+    "sbVer": "BSB2",
     "name": "Cross Slash",
     "type": "PHY",
     "target": "Single enemy",
@@ -3057,6 +3200,7 @@
   {
     "character": "Gilgamesh",
     "source": "Gilgamesh Scorching Time",
+    "sbVer": "BSB2",
     "name": "Cross Slash (S)",
     "nameNote": "Alias name: Super Cross Slash",
     "type": "PHY",
@@ -3080,6 +3224,7 @@
   {
     "character": "Bartz",
     "source": "Light of the Four",
+    "sbVer": "BSB1",
     "name": "Flurry Storm",
     "type": "PHY",
     "target": "Single enemy",
@@ -3102,6 +3247,7 @@
   {
     "character": "Bartz",
     "source": "Light of the Four",
+    "sbVer": "BSB1",
     "name": "Flurry Blast",
     "type": "PHY",
     "target": "Single enemy",
@@ -3124,6 +3270,7 @@
   {
     "character": "Bartz",
     "source": "Woken Water",
+    "sbVer": "BSB2",
     "name": "Smash Dive",
     "type": "PHY",
     "target": "Single enemy",
@@ -3143,6 +3290,7 @@
   {
     "character": "Bartz",
     "source": "Woken Water",
+    "sbVer": "BSB2",
     "name": "Spellblade Torrent",
     "type": "PHY",
     "target": "Single enemy",
@@ -3165,6 +3313,7 @@
   {
     "character": "Bartz",
     "source": "Latent Power",
+    "sbVer": "BSB3",
     "name": "Sundering Spellblade",
     "type": "PHY",
     "target": "Single enemy",
@@ -3187,6 +3336,7 @@
   {
     "character": "Bartz",
     "source": "Latent Power",
+    "sbVer": "BSB3",
     "name": "Whirling Sands",
     "type": "PHY",
     "target": "Single enemy",
@@ -3209,6 +3359,7 @@
   {
     "character": "Bartz",
     "source": "Call of the Wind",
+    "sbVer": "BSB4",
     "name": "Gloomy Spellblade",
     "type": "PHY",
     "target": "Single enemy",
@@ -3231,6 +3382,7 @@
   {
     "character": "Bartz",
     "source": "Call of the Wind",
+    "sbVer": "BSB4",
     "name": "Whirling Tornado",
     "type": "PHY",
     "target": "Single enemy",
@@ -3253,6 +3405,7 @@
   {
     "character": "Bartz",
     "source": "Call of the Flame",
+    "sbVer": "BSB5",
     "name": "Spellblade Blaze",
     "type": "PHY",
     "target": "Single enemy",
@@ -3275,6 +3428,7 @@
   {
     "character": "Bartz",
     "source": "Call of the Flame",
+    "sbVer": "BSB5",
     "name": "Crimson Instinct",
     "type": "PHY",
     "target": "Single enemy",
@@ -3297,6 +3451,7 @@
   {
     "character": "Faris",
     "source": "Beryl Serpent",
+    "sbVer": "BSB1",
     "name": "Deluge",
     "type": "PHY",
     "target": "Single enemy",
@@ -3316,6 +3471,7 @@
   {
     "character": "Faris",
     "source": "Beryl Serpent",
+    "sbVer": "BSB1",
     "name": "Rough Tides",
     "type": "PHY",
     "target": "Single enemy",
@@ -3335,6 +3491,7 @@
   {
     "character": "Faris",
     "source": "Landlubber Lambast",
+    "sbVer": "BSB2",
     "name": "Pirate Bomb",
     "type": "PHY",
     "target": "Single enemy",
@@ -3357,6 +3514,7 @@
   {
     "character": "Faris",
     "source": "Landlubber Lambast",
+    "sbVer": "BSB2",
     "name": "Pirate Cannon",
     "type": "PHY",
     "target": "Single enemy",
@@ -3379,6 +3537,7 @@
   {
     "character": "Dorgann",
     "source": "Uncharted Lands",
+    "sbVer": "BSB1",
     "name": "Protector's Vow",
     "type": "PHY",
     "target": "Single enemy",
@@ -3401,6 +3560,7 @@
   {
     "character": "Dorgann",
     "source": "Uncharted Lands",
+    "sbVer": "BSB1",
     "name": "Blades of Sand",
     "type": "PHY",
     "target": "Single enemy",
@@ -3423,6 +3583,7 @@
   {
     "character": "Exdeath",
     "source": "Neo Black Hole",
+    "sbVer": "BSB1",
     "name": "Black Ray",
     "type": "BLK",
     "target": "Single enemy",
@@ -3445,6 +3606,7 @@
   {
     "character": "Exdeath",
     "source": "Neo Black Hole",
+    "sbVer": "BSB1",
     "name": "Black Storm",
     "type": "BLK",
     "target": "All enemies",
@@ -3467,6 +3629,7 @@
   {
     "character": "Krile",
     "source": "Tomorrow's Promise",
+    "sbVer": "BSB1",
     "name": "Ignus Fatuus",
     "type": "BLK",
     "target": "Single enemy",
@@ -3489,6 +3652,7 @@
   {
     "character": "Krile",
     "source": "Tomorrow's Promise",
+    "sbVer": "BSB1",
     "name": "Eruption",
     "type": "BLK",
     "target": "All enemies",
@@ -3511,6 +3675,7 @@
   {
     "character": "Krile",
     "source": "Brimstone",
+    "sbVer": "BSB2",
     "name": "Consuming Flame",
     "type": "BLK",
     "target": "Single enemy",
@@ -3533,6 +3698,7 @@
   {
     "character": "Krile",
     "source": "Brimstone",
+    "sbVer": "BSB2",
     "name": "Blood Bloom",
     "type": "BLK",
     "target": "All enemies",
@@ -3555,6 +3721,7 @@
   {
     "character": "Xezat",
     "source": "Spellstorm Frostclash",
+    "sbVer": "BSB1",
     "name": "Roaring Frostblade",
     "type": "PHY",
     "target": "Single enemy",
@@ -3577,6 +3744,7 @@
   {
     "character": "Xezat",
     "source": "Spellstorm Frostclash",
+    "sbVer": "BSB1",
     "name": "Chilling Stormfront",
     "type": "PHY",
     "target": "All enemies",
@@ -3599,6 +3767,7 @@
   {
     "character": "Kelger",
     "source": "Sonic Swiftness",
+    "sbVer": "BSB1",
     "name": "Lupine Claw",
     "type": "PHY",
     "target": "Single enemy",
@@ -3621,6 +3790,7 @@
   {
     "character": "Kelger",
     "source": "Sonic Swiftness",
+    "sbVer": "BSB1",
     "name": "Lupine Evasion",
     "type": "PHY",
     "target": "Single enemy",
@@ -3643,6 +3813,7 @@
   {
     "character": "Terra",
     "source": "Blood of Espers",
+    "sbVer": "BSB1",
     "name": "Chaos Fira",
     "type": "BLK",
     "target": "Single enemy",
@@ -3665,6 +3836,7 @@
   {
     "character": "Terra",
     "source": "Blood of Espers",
+    "sbVer": "BSB1",
     "name": "Chaos Watera",
     "type": "BLK",
     "target": "Single enemy",
@@ -3687,6 +3859,7 @@
   {
     "character": "Terra",
     "source": "Finding Love",
+    "sbVer": "BSB2",
     "name": "Fire Combo",
     "type": "BLK",
     "target": "Single enemy",
@@ -3709,6 +3882,7 @@
   {
     "character": "Terra",
     "source": "Finding Love",
+    "sbVer": "BSB2",
     "name": "Fire Wave",
     "type": "BLK",
     "target": "All enemies",
@@ -3731,6 +3905,7 @@
   {
     "character": "Locke",
     "source": "Mirage Phoenix",
+    "sbVer": "BSB1",
     "name": "Mug Weapon",
     "type": "PHY",
     "target": "Single enemy",
@@ -3750,6 +3925,7 @@
   {
     "character": "Locke",
     "source": "Mirage Phoenix",
+    "sbVer": "BSB1",
     "name": "Phoenix Buffet",
     "type": "PHY",
     "target": "Single enemy",
@@ -3772,6 +3948,7 @@
   {
     "character": "Locke",
     "source": "On the Hunt",
+    "sbVer": "BSB2",
     "name": "Brave the Heat",
     "type": "PHY",
     "target": "Single enemy",
@@ -3794,6 +3971,7 @@
   {
     "character": "Locke",
     "source": "On the Hunt",
+    "sbVer": "BSB2",
     "name": "Searing Edge",
     "type": "PHY",
     "target": "Single enemy",
@@ -3816,6 +3994,7 @@
   {
     "character": "Celes",
     "source": "Maria's Song",
+    "sbVer": "BSB1",
     "name": "Ardent Blade",
     "type": "PHY",
     "target": "Single enemy",
@@ -3838,6 +4017,7 @@
   {
     "character": "Celes",
     "source": "Maria's Song",
+    "sbVer": "BSB1",
     "name": "Frigid Blade",
     "type": "PHY",
     "target": "Single enemy",
@@ -3860,6 +4040,7 @@
   {
     "character": "Celes",
     "source": "Invincible Blade",
+    "sbVer": "BSB2",
     "name": "Gleaming Frostblade",
     "type": "PHY",
     "target": "Single enemy",
@@ -3882,6 +4063,7 @@
   {
     "character": "Celes",
     "source": "Invincible Blade",
+    "sbVer": "BSB2",
     "name": "Dazzling Grimblade",
     "type": "PHY",
     "target": "All enemies",
@@ -3904,6 +4086,7 @@
   {
     "character": "Mog",
     "source": "Love Serenade",
+    "sbVer": "BSB1",
     "name": "Fond Memories",
     "type": "WHT",
     "target": "Single ally",
@@ -3925,6 +4108,7 @@
   {
     "character": "Mog",
     "source": "Love Serenade",
+    "sbVer": "BSB1",
     "name": "Moogle Justice",
     "type": "WHT",
     "target": "Single enemy",
@@ -3946,6 +4130,7 @@
   {
     "character": "Edgar",
     "source": "Bio Chainsaw",
+    "sbVer": "BSB1",
     "name": "Bio Attack",
     "type": "PHY",
     "target": "Single enemy",
@@ -3968,6 +4153,7 @@
   {
     "character": "Edgar",
     "source": "Bio Chainsaw",
+    "sbVer": "BSB1",
     "name": "Bio Bomb",
     "type": "PHY",
     "target": "All enemies",
@@ -3990,6 +4176,7 @@
   {
     "character": "Edgar",
     "source": "Trifecta Drill",
+    "sbVer": "BSB2",
     "name": "Enfeebling Flame",
     "type": "PHY",
     "target": "Single enemy",
@@ -4012,6 +4199,7 @@
   {
     "character": "Edgar",
     "source": "Trifecta Drill",
+    "sbVer": "BSB2",
     "name": "Enfeebling Bolt",
     "type": "PHY",
     "target": "Single enemy",
@@ -4034,6 +4222,7 @@
   {
     "character": "Sabin",
     "source": "Perdition's Phoenix",
+    "sbVer": "BSB1",
     "name": "Flame Cannon",
     "type": "PHY",
     "target": "Single enemy",
@@ -4056,6 +4245,7 @@
   {
     "character": "Sabin",
     "source": "Perdition's Phoenix",
+    "sbVer": "BSB1",
     "name": "Flame Volley",
     "type": "PHY",
     "target": "All enemies",
@@ -4078,6 +4268,7 @@
   {
     "character": "Shadow",
     "source": "Shuriken Storm",
+    "sbVer": "BSB1",
     "name": "Mark for Death",
     "type": "PHY",
     "target": "Single enemy",
@@ -4100,6 +4291,7 @@
   {
     "character": "Shadow",
     "source": "Shuriken Storm",
+    "sbVer": "BSB1",
     "name": "Dance with Death",
     "type": "PHY",
     "target": "All enemies",
@@ -4122,6 +4314,7 @@
   {
     "character": "Cyan",
     "source": "Bushido Tempest",
+    "sbVer": "BSB1",
     "name": "Doma Dragon Claw",
     "type": "PHY",
     "target": "Single enemy",
@@ -4141,6 +4334,7 @@
   {
     "character": "Cyan",
     "source": "Bushido Tempest",
+    "sbVer": "BSB1",
     "name": "Doma Double-Edged Sword",
     "type": "PHY",
     "target": "Single enemy",
@@ -4160,6 +4354,7 @@
   {
     "character": "Gau",
     "source": "Maul of the Wild",
+    "sbVer": "BSB1",
     "name": "Feral Flame",
     "type": "PHY",
     "target": null,
@@ -4179,6 +4374,7 @@
   {
     "character": "Gau",
     "source": "Maul of the Wild",
+    "sbVer": "BSB1",
     "name": "Feral Healing",
     "type": "NAT",
     "target": null,
@@ -4198,6 +4394,7 @@
   {
     "character": "Setzer",
     "source": "Mostly Megaflare",
+    "sbVer": "BSB1",
     "name": "Card Trick",
     "type": "PHY",
     "target": "Single enemy",
@@ -4217,6 +4414,7 @@
   {
     "character": "Setzer",
     "source": "Mostly Megaflare",
+    "sbVer": "BSB1",
     "name": "Magic Mystique",
     "type": "PHY",
     "target": "Single enemy",
@@ -4236,6 +4434,7 @@
   {
     "character": "Strago",
     "source": "Lore",
+    "sbVer": "BSB1",
     "name": "Aquatic Shard",
     "type": "BLK",
     "target": "Single enemy",
@@ -4258,6 +4457,7 @@
   {
     "character": "Strago",
     "source": "Lore",
+    "sbVer": "BSB1",
     "name": "Aquatic Gale",
     "type": "BLK",
     "target": "Single enemy",
@@ -4280,6 +4480,7 @@
   {
     "character": "Relm",
     "source": "Star Prism",
+    "sbVer": "BSB1",
     "name": "Rainbow Aura",
     "type": "WHT",
     "target": "Single ally",
@@ -4301,6 +4502,7 @@
   {
     "character": "Relm",
     "source": "Star Prism",
+    "sbVer": "BSB1",
     "name": "Miracle Stroke",
     "type": "WHT",
     "target": "All allies",
@@ -4322,6 +4524,7 @@
   {
     "character": "Gogo (VI)",
     "source": "Punishing Meteor",
+    "sbVer": "BSB1",
     "name": "Quick Mime",
     "type": "NAT",
     "target": null,
@@ -4341,6 +4544,7 @@
   {
     "character": "Gogo (VI)",
     "source": "Punishing Meteor",
+    "sbVer": "BSB1",
     "name": "Adapting Attack",
     "type": "NAT",
     "target": "Single enemy",
@@ -4364,6 +4568,7 @@
   {
     "character": "Umaro",
     "source": "Master's Voice",
+    "sbVer": "BSB1",
     "name": "Take Aim",
     "type": "NAT",
     "target": "Single ally",
@@ -4383,6 +4588,7 @@
   {
     "character": "Umaro",
     "source": "Master's Voice",
+    "sbVer": "BSB1",
     "name": "Frozen Mist",
     "type": "PHY",
     "target": "Single enemy",
@@ -4405,6 +4611,7 @@
   {
     "character": "Kefka",
     "source": "Symphony of Madness",
+    "sbVer": "BSB1",
     "name": "Total Destruction",
     "type": "BLK",
     "target": "Single enemy",
@@ -4427,6 +4634,7 @@
   {
     "character": "Kefka",
     "source": "Symphony of Madness",
+    "sbVer": "BSB1",
     "name": "Dancing Clown",
     "type": "NAT",
     "target": "All enemies",
@@ -4446,6 +4654,7 @@
   {
     "character": "Kefka",
     "source": "Harness the Fiend",
+    "sbVer": "BSB2",
     "name": "Mad Delights",
     "type": "BLK",
     "target": "Single enemy",
@@ -4468,6 +4677,7 @@
   {
     "character": "Kefka",
     "source": "Harness the Fiend",
+    "sbVer": "BSB2",
     "name": "Way of the Fiend",
     "type": "BLK",
     "target": "Single enemy",
@@ -4490,6 +4700,7 @@
   {
     "character": "Leo",
     "source": "Warrior's Warrior",
+    "sbVer": "BSB1",
     "name": "Knight's Ambition",
     "type": "PHY",
     "target": "Single enemy",
@@ -4512,6 +4723,7 @@
   {
     "character": "Leo",
     "source": "Warrior's Warrior",
+    "sbVer": "BSB1",
     "name": "General's Pride",
     "type": "PHY",
     "target": "All enemies",
@@ -4534,6 +4746,7 @@
   {
     "character": "Cloud",
     "source": "Fenrir Overdrive",
+    "sbVer": "BSB1",
     "name": "Whirl Slash",
     "type": "PHY",
     "target": "All enemies",
@@ -4553,6 +4766,7 @@
   {
     "character": "Cloud",
     "source": "Fenrir Overdrive",
+    "sbVer": "BSB1",
     "name": "Quad Cut",
     "type": "PHY",
     "target": "Single enemy",
@@ -4572,6 +4786,7 @@
   {
     "character": "Cloud",
     "source": "Cloud Cycle",
+    "sbVer": "BSB2",
     "name": "Sonic Rush",
     "type": "PHY",
     "target": "Single enemy",
@@ -4595,6 +4810,7 @@
   {
     "character": "Cloud",
     "source": "Cloud Cycle",
+    "sbVer": "BSB2",
     "name": "Slashing Blow",
     "type": "PHY",
     "target": "All enemies",
@@ -4617,6 +4833,7 @@
   {
     "character": "Cloud",
     "source": "Sonic Blade (KH)",
+    "sbVer": "BSB3",
     "name": "Darkness Blast",
     "type": "PHY",
     "target": "Single enemy",
@@ -4639,6 +4856,7 @@
   {
     "character": "Cloud",
     "source": "Sonic Blade (KH)",
+    "sbVer": "BSB3",
     "name": "Dark Gleam",
     "type": "PHY",
     "target": "Single enemy",
@@ -4661,6 +4879,7 @@
   {
     "character": "Barret",
     "source": "Massive Hammerblow",
+    "sbVer": "BSB1",
     "name": "Breakdown Bomb",
     "type": "PHY",
     "target": "Single enemy",
@@ -4680,6 +4899,7 @@
   {
     "character": "Barret",
     "source": "Massive Hammerblow",
+    "sbVer": "BSB1",
     "name": "Breakdown Launcher",
     "type": "PHY",
     "target": "Single enemy",
@@ -4699,6 +4919,7 @@
   {
     "character": "Tifa",
     "source": "Meteor Crusher",
+    "sbVer": "BSB1",
     "name": "Falcon's Dive",
     "type": "PHY",
     "target": "All enemies",
@@ -4721,6 +4942,7 @@
   {
     "character": "Tifa",
     "source": "Meteor Crusher",
+    "sbVer": "BSB1",
     "name": "Elbow Smash",
     "type": "PHY",
     "target": "Single enemy",
@@ -4743,6 +4965,7 @@
   {
     "character": "Tifa",
     "source": "Rolling Blaze",
+    "sbVer": "BSB2",
     "name": "Falcon Rush",
     "type": "PHY",
     "target": "Single enemy",
@@ -4765,6 +4988,7 @@
   {
     "character": "Tifa",
     "source": "Rolling Blaze",
+    "sbVer": "BSB2",
     "name": "Gaia Arrow",
     "type": "PHY",
     "target": "Single enemy",
@@ -4787,6 +5011,7 @@
   {
     "character": "Aerith",
     "source": "White Materia",
+    "sbVer": "BSB1",
     "name": "Wonders of the Cetra",
     "type": "WHT",
     "target": "Single ally",
@@ -4808,6 +5033,7 @@
   {
     "character": "Aerith",
     "source": "White Materia",
+    "sbVer": "BSB1",
     "name": "Paean to Gaia",
     "type": "WHT",
     "target": "All allies",
@@ -4829,6 +5055,7 @@
   {
     "character": "Aerith",
     "source": "Prayer of Salvation",
+    "sbVer": "BSB2",
     "name": "Breath of the Planet",
     "type": "WHT",
     "target": "Single ally",
@@ -4850,6 +5077,7 @@
   {
     "character": "Aerith",
     "source": "Prayer of Salvation",
+    "sbVer": "BSB2",
     "name": "Blessing of the Ancients",
     "type": "NAT",
     "target": "Single ally",
@@ -4869,6 +5097,7 @@
   {
     "character": "Red XIII",
     "source": "Cosmo Canyon",
+    "sbVer": "BSB1",
     "name": "Steelbreak Howl",
     "type": "PHY",
     "target": "Single enemy",
@@ -4888,6 +5117,7 @@
   {
     "character": "Red XIII",
     "source": "Cosmo Canyon",
+    "sbVer": "BSB1",
     "name": "Stone Fang",
     "type": "PHY",
     "target": "Single enemy",
@@ -4907,6 +5137,7 @@
   {
     "character": "Yuffie",
     "source": "Guardian of Wutai",
+    "sbVer": "BSB1",
     "name": "Riptide",
     "type": "PHY",
     "target": "Single enemy",
@@ -4929,6 +5160,7 @@
   {
     "character": "Yuffie",
     "source": "Guardian of Wutai",
+    "sbVer": "BSB1",
     "name": "Eroding Wave",
     "type": "PHY",
     "target": "Single enemy",
@@ -4951,6 +5183,7 @@
   {
     "character": "Yuffie",
     "source": "Doom of the Living",
+    "sbVer": "BSB2",
     "name": "Way of the Mirror",
     "type": "PHY",
     "target": "Single enemy",
@@ -4973,6 +5206,7 @@
   {
     "character": "Yuffie",
     "source": "Doom of the Living",
+    "sbVer": "BSB2",
     "name": "Cup Overflowing",
     "type": "PHY",
     "target": "Single enemy",
@@ -4995,6 +5229,7 @@
   {
     "character": "Cait Sith",
     "source": "Lucky Girl",
+    "sbVer": "BSB1",
     "name": "Toy Box Hammer",
     "type": "WHT",
     "target": "Single enemy",
@@ -5014,6 +5249,7 @@
   {
     "character": "Cait Sith",
     "source": "Lucky Girl",
+    "sbVer": "BSB1",
     "name": "Toy Box Fat Chocobo",
     "type": "WHT",
     "target": "Single enemy",
@@ -5033,6 +5269,7 @@
   {
     "character": "Vincent",
     "source": "Galian Beast",
+    "sbVer": "BSB1",
     "name": "Claws of the Damned",
     "type": "PHY",
     "target": "Single enemy",
@@ -5055,6 +5292,7 @@
   {
     "character": "Vincent",
     "source": "Galian Beast",
+    "sbVer": "BSB1",
     "name": "Howl of the Damned",
     "type": "BLK",
     "target": "Single enemy",
@@ -5077,6 +5315,7 @@
   {
     "character": "Vincent",
     "source": "Flame Penalty",
+    "sbVer": "BSB2",
     "name": "Brimming Chaos",
     "type": "NAT",
     "typeDetails": [
@@ -5103,6 +5342,7 @@
   {
     "character": "Vincent",
     "source": "Flame Penalty",
+    "sbVer": "BSB2",
     "name": "Dual Slugs",
     "type": "NAT",
     "typeDetails": [
@@ -5129,6 +5369,7 @@
   {
     "character": "Zack",
     "source": "Meteor Shots",
+    "sbVer": "BSB1",
     "name": "Eye of the Tornado",
     "type": "PHY",
     "target": "Single enemy",
@@ -5151,6 +5392,7 @@
   {
     "character": "Zack",
     "source": "Meteor Shots",
+    "sbVer": "BSB1",
     "name": "Blast Rush",
     "type": "PHY",
     "target": "All enemies",
@@ -5173,6 +5415,7 @@
   {
     "character": "Sephiroth",
     "source": "Reunion",
+    "sbVer": "BSB1",
     "name": "Despair",
     "type": "PHY",
     "target": "Single enemy",
@@ -5192,6 +5435,7 @@
   {
     "character": "Sephiroth",
     "source": "Reunion",
+    "sbVer": "BSB1",
     "name": "Perdition's Flame",
     "type": "PHY",
     "target": "Single enemy",
@@ -5214,6 +5458,7 @@
   {
     "character": "Sephiroth",
     "source": "Octaslash",
+    "sbVer": "BSB2",
     "name": "Black Wing",
     "type": "PHY",
     "target": "Single enemy",
@@ -5236,6 +5481,7 @@
   {
     "character": "Sephiroth",
     "source": "Octaslash",
+    "sbVer": "BSB2",
     "name": "Fallen Angel",
     "type": "PHY",
     "target": "All enemies",
@@ -5258,6 +5504,7 @@
   {
     "character": "Cid (VII)",
     "source": "Dragon Dive",
+    "sbVer": "BSB1",
     "name": "Aeroboost",
     "type": "PHY",
     "target": "Single enemy",
@@ -5279,6 +5526,7 @@
   {
     "character": "Cid (VII)",
     "source": "Dragon Dive",
+    "sbVer": "BSB1",
     "name": "Wind Force",
     "type": "PHY",
     "target": "All enemies",
@@ -5300,6 +5548,7 @@
   {
     "character": "Reno",
     "source": "Turk Triad",
+    "sbVer": "BSB1",
     "name": "Trine Combo",
     "type": "PHY",
     "target": "Single enemy",
@@ -5322,6 +5571,7 @@
   {
     "character": "Reno",
     "source": "Turk Triad",
+    "sbVer": "BSB1",
     "name": "Stun Rod",
     "type": "PHY",
     "target": "Single enemy",
@@ -5344,6 +5594,7 @@
   {
     "character": "Angeal",
     "source": "Unleashed Wrath",
+    "sbVer": "BSB1",
     "name": "End of Gluttony",
     "type": "NAT",
     "target": "Self",
@@ -5363,6 +5614,7 @@
   {
     "character": "Angeal",
     "source": "Unleashed Wrath",
+    "sbVer": "BSB1",
     "name": "End of Gluttony (S)",
     "nameNote": "Alias name: Regretful Rampage",
     "type": "PHY",
@@ -5386,6 +5638,7 @@
   {
     "character": "Angeal",
     "source": "Unleashed Wrath",
+    "sbVer": "BSB1",
     "name": "Charge of Greed",
     "type": "PHY",
     "target": "Single enemy",
@@ -5408,6 +5661,7 @@
   {
     "character": "Angeal",
     "source": "Unleashed Wrath",
+    "sbVer": "BSB1",
     "name": "Charge of Greed (S)",
     "nameNote": "Alias name: Irrational Regret",
     "type": "PHY",
@@ -5431,6 +5685,7 @@
   {
     "character": "Rufus",
     "source": "President's Scorn",
+    "sbVer": "BSB1",
     "name": "Triple Mako Shot",
     "type": "PHY",
     "target": "Single enemy",
@@ -5453,6 +5708,7 @@
   {
     "character": "Rufus",
     "source": "President's Scorn",
+    "sbVer": "BSB1",
     "name": "President's Gambit",
     "type": "PHY",
     "target": "All enemies",
@@ -5475,6 +5731,7 @@
   {
     "character": "Shelke",
     "source": "Synaptic Net Dive",
+    "sbVer": "BSB1",
     "name": "Magemash Pierce",
     "type": "PHY",
     "target": "Single enemy",
@@ -5497,6 +5754,7 @@
   {
     "character": "Shelke",
     "source": "Synaptic Net Dive",
+    "sbVer": "BSB1",
     "name": "Debilitating Stab",
     "type": "PHY",
     "target": "Single enemy",
@@ -5519,6 +5777,7 @@
   {
     "character": "Rude",
     "source": "Ultimate Grand Spark",
+    "sbVer": "BSB1",
     "name": "Ground Surge",
     "type": "NAT",
     "typeDetails": [
@@ -5549,6 +5808,7 @@
   {
     "character": "Rude",
     "source": "Ultimate Grand Spark",
+    "sbVer": "BSB1",
     "name": "Materia Charge",
     "type": "NAT",
     "target": "Single ally",
@@ -5568,6 +5828,7 @@
   {
     "character": "Elena",
     "source": "Elite Operator",
+    "sbVer": "BSB1",
     "name": "Try this on for size!",
     "type": "PHY",
     "target": "Single enemy",
@@ -5590,6 +5851,7 @@
   {
     "character": "Elena",
     "source": "Elite Operator",
+    "sbVer": "BSB1",
     "name": "Take THIS!",
     "type": "PHY",
     "target": "All enemies",
@@ -5612,6 +5874,7 @@
   {
     "character": "Squall",
     "source": "Lion's Roar",
+    "sbVer": "BSB1",
     "name": "Renzokuken Flame",
     "type": "PHY",
     "target": "Single enemy",
@@ -5634,6 +5897,7 @@
   {
     "character": "Squall",
     "source": "Lion's Roar",
+    "sbVer": "BSB1",
     "name": "Renzokuken Wind",
     "type": "PHY",
     "target": "Single enemy",
@@ -5656,6 +5920,7 @@
   {
     "character": "Squall",
     "source": "Steely Blade",
+    "sbVer": "BSB2",
     "name": "Draw & Junction",
     "type": "PHY",
     "target": "Single enemy",
@@ -5678,6 +5943,7 @@
   {
     "character": "Squall",
     "source": "Steely Blade",
+    "sbVer": "BSB2",
     "name": "Löwen Roar",
     "type": "PHY",
     "target": "Single enemy",
@@ -5700,6 +5966,7 @@
   {
     "character": "Squall",
     "source": "Revolver Drive",
+    "sbVer": "BSB3",
     "name": "Draw & Triple J",
     "type": "PHY",
     "target": "Single enemy",
@@ -5722,6 +5989,7 @@
   {
     "character": "Squall",
     "source": "Revolver Drive",
+    "sbVer": "BSB3",
     "name": "Löwen Herz",
     "type": "PHY",
     "target": "Single enemy",
@@ -5744,6 +6012,7 @@
   {
     "character": "Rinoa",
     "source": "Sorceress's Awakening",
+    "sbVer": "BSB1",
     "name": "Truespell Stonefall",
     "type": "BLK",
     "target": "Single enemy",
@@ -5766,6 +6035,7 @@
   {
     "character": "Rinoa",
     "source": "Sorceress's Awakening",
+    "sbVer": "BSB1",
     "name": "Truespell Iceraze",
     "type": "BLK",
     "target": "Single enemy",
@@ -5788,6 +6058,7 @@
   {
     "character": "Rinoa",
     "source": "Angel Wing Ice Shards",
+    "sbVer": "BSB2",
     "name": "Realm of Ice",
     "type": "BLK",
     "target": "Single enemy",
@@ -5810,6 +6081,7 @@
   {
     "character": "Rinoa",
     "source": "Angel Wing Ice Shards",
+    "sbVer": "BSB2",
     "name": "Betrayal of Magic",
     "type": "NAT",
     "target": "Single enemy",
@@ -5829,6 +6101,7 @@
   {
     "character": "Quistis",
     "source": "Hail to the Queen",
+    "sbVer": "BSB1",
     "name": "Cloying Fragrance",
     "type": "BLK",
     "target": "Single enemy",
@@ -5851,6 +6124,7 @@
   {
     "character": "Quistis",
     "source": "Hail to the Queen",
+    "sbVer": "BSB1",
     "name": "Vile Ichor",
     "type": "BLK",
     "target": "All enemies",
@@ -5873,6 +6147,7 @@
   {
     "character": "Zell",
     "source": "Duelist",
+    "sbVer": "BSB1",
     "name": "Headlong Rush",
     "type": "PHY",
     "target": "Single enemy",
@@ -5892,6 +6167,7 @@
   {
     "character": "Zell",
     "source": "Duelist",
+    "sbVer": "BSB1",
     "name": "Lightning Reflexes",
     "type": "PHY",
     "target": "Single enemy",
@@ -5911,6 +6187,7 @@
   {
     "character": "Zell",
     "source": "Fiery Meteor Barret",
+    "sbVer": "BSB2",
     "name": "Flame Rush",
     "type": "PHY",
     "target": "Single enemy",
@@ -5933,6 +6210,7 @@
   {
     "character": "Zell",
     "source": "Fiery Meteor Barret",
+    "sbVer": "BSB2",
     "name": "Spirit Beatdown",
     "type": "PHY",
     "target": "Single enemy",
@@ -5955,6 +6233,7 @@
   {
     "character": "Selphie",
     "source": "Strange Vision",
+    "sbVer": "BSB1",
     "name": "Prayer for Home",
     "type": "WHT",
     "target": "Single",
@@ -5976,6 +6255,7 @@
   {
     "character": "Selphie",
     "source": "Strange Vision",
+    "sbVer": "BSB1",
     "name": "Moonstone",
     "type": "WHT",
     "target": "Single enemy",
@@ -5997,6 +6277,7 @@
   {
     "character": "Selphie",
     "source": "Reality or Truth",
+    "sbVer": "BSB2",
     "name": "Crescent Heal",
     "type": "WHT",
     "target": "Single ally",
@@ -6018,6 +6299,7 @@
   {
     "character": "Selphie",
     "source": "Reality or Truth",
+    "sbVer": "BSB2",
     "name": "Tiny Heal",
     "type": "WHT",
     "target": "All allies",
@@ -6039,6 +6321,7 @@
   {
     "character": "Irvine",
     "source": "Flame Shot",
+    "sbVer": "BSB1",
     "name": "Blade Snipe",
     "type": "PHY",
     "target": "Single enemy",
@@ -6058,6 +6341,7 @@
   {
     "character": "Irvine",
     "source": "Flame Shot",
+    "sbVer": "BSB1",
     "name": "Mage Snipe",
     "type": "PHY",
     "target": "Single enemy",
@@ -6077,6 +6361,7 @@
   {
     "character": "Irvine",
     "source": "Hyper Canister",
+    "sbVer": "BSB2",
     "name": "Quickening Flame",
     "type": "PHY",
     "target": "Single enemy",
@@ -6099,6 +6384,7 @@
   {
     "character": "Irvine",
     "source": "Hyper Canister",
+    "sbVer": "BSB2",
     "name": "Reloading Flame",
     "type": "PHY",
     "target": "Single enemy",
@@ -6121,6 +6407,7 @@
   {
     "character": "Seifer",
     "source": "Sorceress's Knight",
+    "sbVer": "BSB1",
     "name": "Desperate Madness",
     "type": "PHY",
     "target": "Single enemy",
@@ -6143,6 +6430,7 @@
   {
     "character": "Seifer",
     "source": "Sorceress's Knight",
+    "sbVer": "BSB1",
     "name": "Downfall",
     "type": "PHY",
     "target": "Single enemy",
@@ -6165,6 +6453,7 @@
   {
     "character": "Seifer",
     "source": "Brutal Takedown",
+    "sbVer": "BSB2",
     "name": "Mad Blade",
     "type": "PHY",
     "target": "Single enemy",
@@ -6187,6 +6476,7 @@
   {
     "character": "Seifer",
     "source": "Brutal Takedown",
+    "sbVer": "BSB2",
     "name": "Dire Speed",
     "type": "PHY",
     "target": "Single enemy",
@@ -6209,6 +6499,7 @@
   {
     "character": "Laguna",
     "source": "Split Laser",
+    "sbVer": "BSB1",
     "name": "Rapid Punishment",
     "type": "PHY",
     "target": "Random enemies",
@@ -6231,6 +6522,7 @@
   {
     "character": "Laguna",
     "source": "Split Laser",
+    "sbVer": "BSB1",
     "name": "Miraculous Vision",
     "type": "PHY",
     "target": "Single enemy",
@@ -6253,6 +6545,7 @@
   {
     "character": "Laguna",
     "source": "Freezing Beam",
+    "sbVer": "BSB2",
     "name": "Blizzard Bomb",
     "type": "PHY",
     "target": "Single enemy",
@@ -6275,6 +6568,7 @@
   {
     "character": "Laguna",
     "source": "Freezing Beam",
+    "sbVer": "BSB2",
     "name": "Faeries' Gift",
     "type": "PHY",
     "target": "Single enemy",
@@ -6297,6 +6591,7 @@
   {
     "character": "Edea",
     "source": "Maelstrom",
+    "sbVer": "BSB1",
     "name": "Glamour of Ice",
     "type": "BLK",
     "target": "Single enemy",
@@ -6319,6 +6614,7 @@
   {
     "character": "Edea",
     "source": "Maelstrom",
+    "sbVer": "BSB1",
     "name": "Astral Force",
     "type": "BLK",
     "target": "All enemies",
@@ -6341,6 +6637,7 @@
   {
     "character": "Raijin",
     "source": "Raijin Special",
+    "sbVer": "BSB1",
     "name": "Lurking Tiger",
     "type": "PHY",
     "target": "Lowest HP% ally",
@@ -6360,6 +6657,7 @@
   {
     "character": "Raijin",
     "source": "Raijin Special",
+    "sbVer": "BSB1",
     "name": "Raijin Detonate",
     "type": "PHY",
     "target": "Single enemy",
@@ -6382,6 +6680,7 @@
   {
     "character": "Fujin",
     "source": "Metsu",
+    "sbVer": "BSB1",
     "name": "Shitsu",
     "type": "BLK",
     "target": "Single enemy",
@@ -6404,6 +6703,7 @@
   {
     "character": "Fujin",
     "source": "Metsu",
+    "sbVer": "BSB1",
     "name": "Hakai",
     "type": "BLK",
     "target": "Single enemy",
@@ -6426,6 +6726,7 @@
   {
     "character": "Kiros",
     "source": "Exsanguination",
+    "sbVer": "BSB1",
     "name": "Armor Lapse",
     "type": "PHY",
     "target": "Single enemy",
@@ -6448,6 +6749,7 @@
   {
     "character": "Kiros",
     "source": "Exsanguination",
+    "sbVer": "BSB1",
     "name": "Mental Lapse",
     "type": "NAT",
     "target": "Single enemy",
@@ -6470,6 +6772,7 @@
   {
     "character": "Ward",
     "source": "Massive Anchor",
+    "sbVer": "BSB1",
     "name": "Quickening Leap",
     "type": "PHY",
     "target": "All enemies",
@@ -6492,6 +6795,7 @@
   {
     "character": "Ward",
     "source": "Massive Anchor",
+    "sbVer": "BSB1",
     "name": "Massive Presence",
     "type": "PHY",
     "target": "All enemies",
@@ -6514,6 +6818,7 @@
   {
     "character": "Ultimecia",
     "source": "True Maelstrom",
+    "sbVer": "BSB1",
     "name": "Winds of Ruin",
     "type": "BLK",
     "target": "Single enemy",
@@ -6536,6 +6841,7 @@
   {
     "character": "Ultimecia",
     "source": "True Maelstrom",
+    "sbVer": "BSB1",
     "name": "Sorceress's Decree",
     "type": "BLK",
     "target": "Single enemy",
@@ -6558,6 +6864,7 @@
   {
     "character": "Zidane",
     "source": "Stellar Circle 5",
+    "sbVer": "BSB1",
     "name": "Mug Power",
     "type": "PHY",
     "target": "Single enemy",
@@ -6577,6 +6884,7 @@
   {
     "character": "Zidane",
     "source": "Stellar Circle 5",
+    "sbVer": "BSB1",
     "name": "Mug Defense",
     "type": "PHY",
     "target": "Single enemy",
@@ -6596,6 +6904,7 @@
   {
     "character": "Zidane",
     "source": "Solution 9",
+    "sbVer": "BSB2",
     "name": "Swift Steel",
     "type": "PHY",
     "target": "Single enemy",
@@ -6618,6 +6927,7 @@
   {
     "character": "Zidane",
     "source": "Solution 9",
+    "sbVer": "BSB2",
     "name": "Thief's Offering",
     "nameNote": "Alias name (GL): Weak / First / Second / Third Offering\nAlias name (JP): Ooo, soft... / Good enough, right? / Maybe all you need is some company, eh? / You don't need a reason to help people.",
     "type": "PHY",
@@ -6641,6 +6951,7 @@
   {
     "character": "Garnet",
     "source": "Dagger of Resolve",
+    "sbVer": "BSB1",
     "name": "Healing Light",
     "type": "WHT",
     "target": "Single",
@@ -6662,6 +6973,7 @@
   {
     "character": "Garnet",
     "source": "Dagger of Resolve",
+    "sbVer": "BSB1",
     "name": "Ramuh's Judgment",
     "type": "SUM",
     "target": "All enemies",
@@ -6684,6 +6996,7 @@
   {
     "character": "Garnet",
     "source": "Trial by Lightning",
+    "sbVer": "BSB2",
     "name": "Summon Ramuh",
     "type": "NAT",
     "target": "Lowest HP% ally",
@@ -6703,6 +7016,7 @@
   {
     "character": "Garnet",
     "source": "Trial by Lightning",
+    "sbVer": "BSB2",
     "name": "Summon Ramuh (S)",
     "type": "SUM",
     "target": "All enemies",
@@ -6725,6 +7039,7 @@
   {
     "character": "Garnet",
     "source": "Trial by Lightning",
+    "sbVer": "BSB2",
     "name": "Glimmering Peridot",
     "type": "SUM",
     "target": "Single enemy",
@@ -6747,6 +7062,7 @@
   {
     "character": "Garnet",
     "source": "Trial by Lightning",
+    "sbVer": "BSB2",
     "name": "Glimmering Peridot (S)",
     "type": "SUM",
     "target": "Single enemy",
@@ -6769,6 +7085,7 @@
   {
     "character": "Vivi",
     "source": "Proof of Existence",
+    "sbVer": "BSB1",
     "name": "Doublecast Fira",
     "type": "BLK",
     "target": "Single enemy",
@@ -6791,6 +7108,7 @@
   {
     "character": "Vivi",
     "source": "Proof of Existence",
+    "sbVer": "BSB1",
     "name": "Doublecast Fira All",
     "type": "BLK",
     "target": "All enemies",
@@ -6813,6 +7131,7 @@
   {
     "character": "Vivi",
     "source": "Magic Fury",
+    "sbVer": "BSB2",
     "name": "Glimmering Hope",
     "type": "BLK",
     "target": "Single enemy",
@@ -6836,6 +7155,7 @@
   {
     "character": "Vivi",
     "source": "Magic Fury",
+    "sbVer": "BSB2",
     "name": "Shining Spirit",
     "type": "BLK",
     "target": "All enemies",
@@ -6858,6 +7178,7 @@
   {
     "character": "Steiner",
     "source": "Knight's Honor",
+    "sbVer": "BSB1",
     "name": "Scorching Blade",
     "type": "PHY",
     "target": "Single enemy",
@@ -6879,6 +7200,7 @@
   {
     "character": "Steiner",
     "source": "Knight's Honor",
+    "sbVer": "BSB1",
     "name": "Flame Break",
     "type": "PHY",
     "target": "All enemies",
@@ -6900,6 +7222,7 @@
   {
     "character": "Steiner",
     "source": "Knight's Oath",
+    "sbVer": "BSB2",
     "name": "Elemental Blade",
     "type": "PHY",
     "target": "Single enemy",
@@ -6923,6 +7246,7 @@
   {
     "character": "Steiner",
     "source": "Knight's Oath",
+    "sbVer": "BSB2",
     "name": "Elemental Threat",
     "type": "PHY",
     "target": "All enemies",
@@ -6946,6 +7270,7 @@
   {
     "character": "Freya",
     "source": "Dragon's Crest",
+    "sbVer": "BSB1",
     "name": "Petal Storm",
     "type": "PHY",
     "target": "Single enemy",
@@ -6968,6 +7293,7 @@
   {
     "character": "Freya",
     "source": "Dragon's Crest",
+    "sbVer": "BSB1",
     "name": "Dragon Leech",
     "type": "PHY",
     "target": "Single enemy",
@@ -6990,6 +7316,7 @@
   {
     "character": "Quina",
     "source": "Pumpkin Head",
+    "sbVer": "BSB1",
     "name": "Consume Power",
     "type": "PHY",
     "target": "Single enemy",
@@ -7009,6 +7336,7 @@
   {
     "character": "Quina",
     "source": "Pumpkin Head",
+    "sbVer": "BSB1",
     "name": "Cuisine Magic",
     "type": "PHY",
     "target": "Single enemy",
@@ -7028,6 +7356,7 @@
   {
     "character": "Quina",
     "source": "Angel's Banquet",
+    "sbVer": "BSB2",
     "name": "Frog Rain",
     "type": "PHY",
     "target": "Single enemy",
@@ -7050,6 +7379,7 @@
   {
     "character": "Quina",
     "source": "Angel's Banquet",
+    "sbVer": "BSB2",
     "name": "Juicy Energy",
     "type": "NAT",
     "target": "Self",
@@ -7069,6 +7399,7 @@
   {
     "character": "Eiko",
     "source": "Prayer of the Lost",
+    "sbVer": "BSB1",
     "name": "Eiko's Aid",
     "type": "WHT",
     "target": "Single ally",
@@ -7090,6 +7421,7 @@
   {
     "character": "Eiko",
     "source": "Prayer of the Lost",
+    "sbVer": "BSB1",
     "name": "Wayfarer's Hymn",
     "type": "WHT",
     "target": "All allies",
@@ -7111,6 +7443,7 @@
   {
     "character": "Amarant",
     "source": "Fists of Flame",
+    "sbVer": "BSB1",
     "name": "Flying Fire Fist",
     "type": "PHY",
     "target": "Single enemy",
@@ -7133,6 +7466,7 @@
   {
     "character": "Amarant",
     "source": "Fists of Flame",
+    "sbVer": "BSB1",
     "name": "Sundowner Kick",
     "type": "PHY",
     "target": "All enemies",
@@ -7155,6 +7489,7 @@
   {
     "character": "Beatrix",
     "source": "Knight Protector",
+    "sbVer": "BSB1",
     "name": "Bulwark Blade",
     "type": "PHY",
     "target": "Single enemy",
@@ -7176,6 +7511,7 @@
   {
     "character": "Beatrix",
     "source": "Knight Protector",
+    "sbVer": "BSB1",
     "name": "Sworn Blade",
     "type": "PHY",
     "target": "Single enemy",
@@ -7195,6 +7531,7 @@
   {
     "character": "Beatrix",
     "source": "Seiken Thunder Slash",
+    "sbVer": "BSB2",
     "name": "Banishing Shock",
     "type": "PHY",
     "target": "Single enemy",
@@ -7217,6 +7554,7 @@
   {
     "character": "Beatrix",
     "source": "Seiken Thunder Slash",
+    "sbVer": "BSB2",
     "name": "Divine Hazard",
     "type": "PHY",
     "target": "Single enemy",
@@ -7239,6 +7577,7 @@
   {
     "character": "Kuja",
     "source": "Force Symphony",
+    "sbVer": "BSB1",
     "name": "Clutch Shot",
     "type": "BLK",
     "target": "Single enemy",
@@ -7261,6 +7600,7 @@
   {
     "character": "Kuja",
     "source": "Force Symphony",
+    "sbVer": "BSB1",
     "name": "Burst Energy",
     "type": "BLK",
     "target": "All enemies",
@@ -7283,6 +7623,7 @@
   {
     "character": "Kuja",
     "source": "Corrupt Refrain",
+    "sbVer": "BSB2",
     "name": "Soul Thruster",
     "type": "BLK",
     "target": "Single enemy",
@@ -7305,6 +7646,7 @@
   {
     "character": "Kuja",
     "source": "Corrupt Refrain",
+    "sbVer": "BSB2",
     "name": "Dark Ensemble",
     "type": "BLK",
     "target": "Single enemy",
@@ -7327,6 +7669,7 @@
   {
     "character": "Marcus",
     "source": "Poison Impulse",
+    "sbVer": "BSB1",
     "name": "Poisoned Magic",
     "type": "PHY",
     "target": "Single enemy",
@@ -7349,6 +7692,7 @@
   {
     "character": "Marcus",
     "source": "Poison Impulse",
+    "sbVer": "BSB1",
     "name": "Poisoned Armor",
     "type": "PHY",
     "target": "Single enemy",
@@ -7371,6 +7715,7 @@
   {
     "character": "Tidus",
     "source": "Abes All-star",
+    "sbVer": "BSB1",
     "name": "Volley Shot",
     "type": "PHY",
     "target": "Single enemy",
@@ -7393,6 +7738,7 @@
   {
     "character": "Tidus",
     "source": "Abes All-star",
+    "sbVer": "BSB1",
     "name": "Spin Ball",
     "type": "PHY",
     "target": "All enemies",
@@ -7415,6 +7761,7 @@
   {
     "character": "Tidus",
     "source": "Sonic Strike",
+    "sbVer": "BSB2",
     "name": "Dash Shot",
     "type": "PHY",
     "target": "Single enemy",
@@ -7437,6 +7784,7 @@
   {
     "character": "Tidus",
     "source": "Sonic Strike",
+    "sbVer": "BSB2",
     "name": "Invigorating Shot",
     "type": "PHY",
     "target": "Single enemy",
@@ -7459,6 +7807,7 @@
   {
     "character": "Yuna",
     "source": "Trigger Happy",
+    "sbVer": "BSB1",
     "name": "Scattershot",
     "type": "NAT",
     "target": "All enemies",
@@ -7478,6 +7827,7 @@
   {
     "character": "Yuna",
     "source": "Trigger Happy",
+    "sbVer": "BSB1",
     "name": "Soul Spring",
     "type": "WHT",
     "target": "All allies",
@@ -7499,6 +7849,7 @@
   {
     "character": "Yuna",
     "source": "Tenets of the Fayth",
+    "sbVer": "BSB2",
     "name": "Valefor",
     "type": "SUM",
     "target": "Self",
@@ -7518,6 +7869,7 @@
   {
     "character": "Yuna",
     "source": "Tenets of the Fayth",
+    "sbVer": "BSB2",
     "name": "Valefor (S)",
     "nameNote": "Alias name: Energy Volley",
     "type": "SUM",
@@ -7538,6 +7890,7 @@
   {
     "character": "Yuna",
     "source": "Tenets of the Fayth",
+    "sbVer": "BSB2",
     "name": "Breath of the Heavens",
     "nameNote": "This ability is wrapped in a SUM/Summon ability and thus cannot be dualcasted through the use of WHT/White Magic dualcast RMs or LMs. Healing boosts to WHT/White Magic will work, however (assuming Summon Toggle is off)",
     "type": "WHT",
@@ -7560,6 +7913,7 @@
   {
     "character": "Yuna",
     "source": "Tenets of the Fayth",
+    "sbVer": "BSB2",
     "name": "Breath of the Heavens (S)",
     "type": "SUM",
     "target": "All enemies",
@@ -7579,6 +7933,7 @@
   {
     "character": "Wakka",
     "source": "Assault Reels",
+    "sbVer": "BSB1",
     "name": "Wither Tackle",
     "type": "PHY",
     "target": "Single enemy",
@@ -7598,6 +7953,7 @@
   {
     "character": "Wakka",
     "source": "Assault Reels",
+    "sbVer": "BSB1",
     "name": "Pile Wither",
     "type": "PHY",
     "target": "Single enemy",
@@ -7617,6 +7973,7 @@
   {
     "character": "Wakka",
     "source": "Dual Buster",
+    "sbVer": "BSB2",
     "name": "Wither Magic",
     "type": "PHY",
     "target": "Single enemy",
@@ -7639,6 +7996,7 @@
   {
     "character": "Wakka",
     "source": "Dual Buster",
+    "sbVer": "BSB2",
     "name": "Wither Defense",
     "type": "PHY",
     "target": "Single enemy",
@@ -7661,6 +8019,7 @@
   {
     "character": "Lulu",
     "source": "Triple Threat",
+    "sbVer": "BSB1",
     "name": "Freezing Flame",
     "type": "BLK",
     "target": "Single enemy",
@@ -7683,6 +8042,7 @@
   {
     "character": "Lulu",
     "source": "Triple Threat",
+    "sbVer": "BSB1",
     "name": "Freezing Water",
     "type": "BLK",
     "target": "Single enemy",
@@ -7705,6 +8065,7 @@
   {
     "character": "Kimahri",
     "source": "Aqua Breath (X)",
+    "sbVer": "BSB1",
     "name": "Liquid Drain",
     "type": "PHY",
     "target": "Single enemy",
@@ -7727,6 +8088,7 @@
   {
     "character": "Kimahri",
     "source": "Aqua Breath (X)",
+    "sbVer": "BSB1",
     "name": "Liquid Osmose",
     "type": "PHY",
     "target": "Single enemy",
@@ -7749,6 +8111,7 @@
   {
     "character": "Rikku",
     "source": "Machinations",
+    "sbVer": "BSB1",
     "name": "Shockstorm",
     "type": "PHY",
     "target": "All enemies",
@@ -7771,6 +8134,7 @@
   {
     "character": "Rikku",
     "source": "Machinations",
+    "sbVer": "BSB1",
     "name": "Anti-Power/Armor Shell",
     "type": "PHY",
     "target": "Single enemy",
@@ -7790,6 +8154,7 @@
   {
     "character": "Rikku",
     "source": "Team Bomb",
+    "sbVer": "BSB2",
     "name": "Flash Flood",
     "type": "PHY",
     "target": "Single enemy",
@@ -7812,6 +8177,7 @@
   {
     "character": "Rikku",
     "source": "Team Bomb",
+    "sbVer": "BSB2",
     "name": "Waterfall",
     "type": "PHY",
     "target": "Single enemy",
@@ -7834,6 +8200,7 @@
   {
     "character": "Auron",
     "source": "Bushido",
+    "sbVer": "BSB1",
     "name": "Guardian's Resolve",
     "type": "PHY",
     "target": "Single enemy",
@@ -7853,6 +8220,7 @@
   {
     "character": "Auron",
     "source": "Bushido",
+    "sbVer": "BSB1",
     "name": "Decisive Instant",
     "type": "PHY",
     "target": "All enemies",
@@ -7872,6 +8240,7 @@
   {
     "character": "Auron",
     "source": "Tornado",
+    "sbVer": "BSB2",
     "name": "Incandesce",
     "type": "PHY",
     "target": "Single enemy",
@@ -7894,6 +8263,7 @@
   {
     "character": "Auron",
     "source": "Tornado",
+    "sbVer": "BSB2",
     "name": "Crimson Lotus",
     "type": "PHY",
     "target": "Single enemy",
@@ -7916,6 +8286,7 @@
   {
     "character": "Auron",
     "source": "Fiery Heart",
+    "sbVer": "BSB3",
     "name": "Fangcrush Blade",
     "type": "PHY",
     "target": "Single enemy",
@@ -7938,6 +8309,7 @@
   {
     "character": "Auron",
     "source": "Fiery Heart",
+    "sbVer": "BSB3",
     "name": "Spellbreak Blade",
     "type": "PHY",
     "target": "Single enemy",
@@ -7960,6 +8332,7 @@
   {
     "character": "Jecht",
     "source": "Final Transformation",
+    "sbVer": "BSB1",
     "name": "Jecht Stream",
     "type": "PHY",
     "target": "Single enemy",
@@ -7982,6 +8355,7 @@
   {
     "character": "Jecht",
     "source": "Final Transformation",
+    "sbVer": "BSB1",
     "name": "Jecht Bomber",
     "type": "PHY",
     "target": "All enemies",
@@ -8004,6 +8378,7 @@
   {
     "character": "Jecht",
     "source": "Wound Up",
+    "sbVer": "BSB2",
     "name": "Eagle Talons",
     "type": "PHY",
     "target": "Single enemy",
@@ -8026,6 +8401,7 @@
   {
     "character": "Jecht",
     "source": "Wound Up",
+    "sbVer": "BSB2",
     "name": "Rising Fist",
     "type": "PHY",
     "target": "Single enemy",
@@ -8048,6 +8424,7 @@
   {
     "character": "Braska",
     "source": "Trine Summoning",
+    "sbVer": "BSB1",
     "name": "Ifrit",
     "type": "SUM",
     "target": "Self",
@@ -8067,6 +8444,7 @@
   {
     "character": "Braska",
     "source": "Trine Summoning",
+    "sbVer": "BSB1",
     "name": "Ifrit (S)",
     "type": "SUM",
     "target": "All enemies",
@@ -8089,6 +8467,7 @@
   {
     "character": "Braska",
     "source": "Trine Summoning",
+    "sbVer": "BSB1",
     "name": "Eternal Prayer",
     "type": "SUM",
     "target": "Single enemy",
@@ -8111,6 +8490,7 @@
   {
     "character": "Braska",
     "source": "Trine Summoning",
+    "sbVer": "BSB1",
     "name": "Eternal Prayer (S)",
     "type": "SUM",
     "target": "Single enemy",
@@ -8133,6 +8513,7 @@
   {
     "character": "Paine",
     "source": "Grand Storm",
+    "sbVer": "BSB1",
     "name": "Aqua Storm",
     "type": "PHY",
     "target": "Single enemy",
@@ -8155,6 +8536,7 @@
   {
     "character": "Paine",
     "source": "Grand Storm",
+    "sbVer": "BSB1",
     "name": "Aqua Terra",
     "type": "PHY",
     "target": "Single enemy",
@@ -8177,6 +8559,7 @@
   {
     "character": "Paine",
     "source": "Whelmen",
+    "sbVer": "BSB2",
     "name": "Aqua Slash",
     "type": "PHY",
     "target": "Single enemy",
@@ -8199,6 +8582,7 @@
   {
     "character": "Paine",
     "source": "Whelmen",
+    "sbVer": "BSB2",
     "name": "Aqua Drive",
     "type": "PHY",
     "target": "Single enemy",
@@ -8221,6 +8605,7 @@
   {
     "character": "Seymour",
     "source": "Anima's Pain",
+    "sbVer": "BSB1",
     "name": "Death's Release",
     "type": "BLK",
     "target": "Single enemy",
@@ -8243,6 +8628,7 @@
   {
     "character": "Seymour",
     "source": "Anima's Pain",
+    "sbVer": "BSB1",
     "name": "Mortisunder",
     "type": "BLK",
     "target": "All enemies",
@@ -8265,6 +8651,7 @@
   {
     "character": "Seymour",
     "source": "Guado Grudge",
+    "sbVer": "BSB2",
     "name": "Thirst for Destruction",
     "type": "BLK",
     "target": "Single enemy",
@@ -8287,6 +8674,7 @@
   {
     "character": "Seymour",
     "source": "Guado Grudge",
+    "sbVer": "BSB2",
     "name": "Grave Vengeance",
     "type": "BLK",
     "target": "Self",
@@ -8306,6 +8694,7 @@
   {
     "character": "Shantotto",
     "source": "Play Rough",
+    "sbVer": "BSB1",
     "name": " Fire Play",
     "type": "BLK",
     "target": "Single enemy",
@@ -8328,6 +8717,7 @@
   {
     "character": "Shantotto",
     "source": "Play Rough",
+    "sbVer": "BSB1",
     "name": "Ice Play",
     "type": "BLK",
     "target": "Single enemy",
@@ -8350,6 +8740,7 @@
   {
     "character": "Ayame",
     "source": "Meikyo Shisui",
+    "sbVer": "BSB1",
     "name": "Chillfang Blade",
     "type": "PHY",
     "target": "Single enemy",
@@ -8372,6 +8763,7 @@
   {
     "character": "Ayame",
     "source": "Meikyo Shisui",
+    "sbVer": "BSB1",
     "name": "Icewyrm Blade",
     "type": "PHY",
     "target": "All enemies",
@@ -8394,6 +8786,7 @@
   {
     "character": "Curilla",
     "source": "Intervention",
+    "sbVer": "BSB1",
     "name": "Requiescat",
     "type": "PHY",
     "target": "Single enemy",
@@ -8416,6 +8809,7 @@
   {
     "character": "Curilla",
     "source": "Intervention",
+    "sbVer": "BSB1",
     "name": "Blade of Uriel",
     "type": "PHY",
     "target": "All enemies",
@@ -8438,6 +8832,7 @@
   {
     "character": "Prishe",
     "source": "Nullifying Dropkick",
+    "sbVer": "BSB1",
     "name": "Spin Combo",
     "type": "PHY",
     "target": "Single enemy",
@@ -8457,6 +8852,7 @@
   {
     "character": "Prishe",
     "source": "Nullifying Dropkick",
+    "sbVer": "BSB1",
     "name": "Headlong Tackle",
     "type": "PHY",
     "target": "Single enemy",
@@ -8476,6 +8872,7 @@
   {
     "character": "Lion",
     "source": "Walk the Plank",
+    "sbVer": "BSB1",
     "name": "Broken Blade",
     "type": "PHY",
     "target": "Single enemy",
@@ -8495,6 +8892,7 @@
   {
     "character": "Lion",
     "source": "Walk the Plank",
+    "sbVer": "BSB1",
     "name": "Fraying Guard",
     "type": "PHY",
     "target": "Single enemy",
@@ -8514,6 +8912,7 @@
   {
     "character": "Aphmau",
     "source": "Realignment",
+    "sbVer": "BSB1",
     "name": "Activate",
     "type": "WHT",
     "target": "Single ally",
@@ -8533,6 +8932,7 @@
   {
     "character": "Aphmau",
     "source": "Realignment",
+    "sbVer": "BSB1",
     "name": "Activate (S)",
     "nameNote": "Alias name: Deploy and Retrieve",
     "type": "WHT",
@@ -8556,6 +8956,7 @@
   {
     "character": "Aphmau",
     "source": "Realignment",
+    "sbVer": "BSB1",
     "name": "Light Maneuver",
     "type": "WHT",
     "target": "All allies",
@@ -8575,6 +8976,7 @@
   {
     "character": "Aphmau",
     "source": "Realignment",
+    "sbVer": "BSB1",
     "name": "Light Maneuver (S)",
     "type": "WHT",
     "target": "Single enemy",
@@ -8597,6 +8999,7 @@
   {
     "character": "Zeid",
     "source": "Abyssal Strike",
+    "sbVer": "BSB1",
     "name": "Nether Void",
     "type": "PHY",
     "target": "Single enemy",
@@ -8619,6 +9022,7 @@
   {
     "character": "Zeid",
     "source": "Abyssal Strike",
+    "sbVer": "BSB1",
     "name": "Desperate Strike",
     "type": "PHY",
     "target": "All enemies",
@@ -8641,6 +9045,7 @@
   {
     "character": "Lilisette",
     "source": "Vivifying Waltz",
+    "sbVer": "BSB1",
     "name": "Gust Slash",
     "type": "PHY",
     "target": "Single enemy",
@@ -8663,6 +9068,7 @@
   {
     "character": "Lilisette",
     "source": "Vivifying Waltz",
+    "sbVer": "BSB1",
     "name": "Divine Waltz",
     "type": "NAT",
     "target": "All allies",
@@ -8684,6 +9090,7 @@
   {
     "character": "Vaan",
     "source": "Ark Blast",
+    "sbVer": "BSB1",
     "name": "Addle",
     "type": "PHY",
     "target": "Single enemy",
@@ -8703,6 +9110,7 @@
   {
     "character": "Vaan",
     "source": "Ark Blast",
+    "sbVer": "BSB1",
     "name": "Expose",
     "type": "PHY",
     "target": "Single enemy",
@@ -8722,6 +9130,7 @@
   {
     "character": "Balthier",
     "source": "Gatling Gun",
+    "sbVer": "BSB1",
     "name": "Mud Shot",
     "type": "PHY",
     "target": "Single enemy",
@@ -8741,6 +9150,7 @@
   {
     "character": "Balthier",
     "source": "Gatling Gun",
+    "sbVer": "BSB1",
     "name": "Wyrmfire Shot",
     "type": "PHY",
     "target": "Single enemy",
@@ -8763,6 +9173,7 @@
   {
     "character": "Balthier",
     "source": "Spark of Change",
+    "sbVer": "BSB2",
     "name": "Oil Bomb",
     "type": "PHY",
     "target": "Single enemy",
@@ -8785,6 +9196,7 @@
   {
     "character": "Balthier",
     "source": "Spark of Change",
+    "sbVer": "BSB2",
     "name": "Flame Ignition",
     "type": "PHY",
     "target": "Single enemy",
@@ -8807,6 +9219,7 @@
   {
     "character": "Fran",
     "source": "Gaze of the Void",
+    "sbVer": "BSB1",
     "name": "Gleaming Wyrmfang",
     "type": "PHY",
     "target": "Single enemy",
@@ -8826,6 +9239,7 @@
   {
     "character": "Fran",
     "source": "Gaze of the Void",
+    "sbVer": "BSB1",
     "name": "Paling Breaker",
     "type": "PHY",
     "target": "Single enemy",
@@ -8845,6 +9259,7 @@
   {
     "character": "Fran",
     "source": "Thundering Hail",
+    "sbVer": "BSB2",
     "name": "Icebolt Steelbane",
     "type": "PHY",
     "target": "Single enemy",
@@ -8867,6 +9282,7 @@
   {
     "character": "Fran",
     "source": "Thundering Hail",
+    "sbVer": "BSB2",
     "name": "Icebolt Runebane",
     "type": "PHY",
     "target": "Single enemy",
@@ -8889,6 +9305,7 @@
   {
     "character": "Basch",
     "source": "Shining Ray",
+    "sbVer": "BSB1",
     "name": "Blade of Doom",
     "type": "PHY",
     "target": "Single enemy",
@@ -8910,6 +9327,7 @@
   {
     "character": "Basch",
     "source": "Shining Ray",
+    "sbVer": "BSB1",
     "name": "Beacon of Light",
     "type": "PHY",
     "target": "All enemies",
@@ -8932,6 +9350,7 @@
   {
     "character": "Ashe",
     "source": "Dusk's Decree",
+    "sbVer": "BSB1",
     "name": "Cleansing Storm",
     "type": "BLK",
     "target": "Single enemy",
@@ -8953,6 +9372,7 @@
   {
     "character": "Ashe",
     "source": "Dusk's Decree",
+    "sbVer": "BSB1",
     "name": "Rumbling Flash",
     "type": "BLK",
     "target": "All enemies",
@@ -8975,6 +9395,7 @@
   {
     "character": "Penelo",
     "source": "Evanescence",
+    "sbVer": "BSB1",
     "name": "Divine Twist",
     "type": "WHT",
     "target": "Single enemy",
@@ -8996,6 +9417,7 @@
   {
     "character": "Penelo",
     "source": "Evanescence",
+    "sbVer": "BSB1",
     "name": "Mending Dance",
     "type": "WHT",
     "target": "All allies",
@@ -9017,6 +9439,7 @@
   {
     "character": "Penelo",
     "source": "Resurrection",
+    "sbVer": "BSB2",
     "name": "White Regen",
     "type": "WHT",
     "target": "Single ally",
@@ -9038,6 +9461,7 @@
   {
     "character": "Penelo",
     "source": "Resurrection",
+    "sbVer": "BSB2",
     "name": "Healing Waltz",
     "type": "WHT",
     "target": "All allies",
@@ -9059,6 +9483,7 @@
   {
     "character": "Gabranth",
     "source": "Innocence",
+    "sbVer": "BSB1",
     "name": "Judge's Rondo",
     "type": "PHY",
     "target": "Single enemy",
@@ -9081,6 +9506,7 @@
   {
     "character": "Gabranth",
     "source": "Innocence",
+    "sbVer": "BSB1",
     "name": "Blood Trial",
     "type": "PHY",
     "target": "Single enemy",
@@ -9103,6 +9529,7 @@
   {
     "character": "Larsa",
     "source": "Life Crystal",
+    "sbVer": "BSB1",
     "name": "Quiet Contemplation",
     "type": "WHT",
     "target": "Single ally",
@@ -9124,6 +9551,7 @@
   {
     "character": "Larsa",
     "source": "Life Crystal",
+    "sbVer": "BSB1",
     "name": "Sign of Integrity",
     "type": "WHT",
     "target": "All allies",
@@ -9145,6 +9573,7 @@
   {
     "character": "Vayne",
     "source": "Force of Will",
+    "sbVer": "BSB1",
     "name": "Hand of Empire",
     "type": "PHY",
     "target": "Single enemy",
@@ -9167,6 +9596,7 @@
   {
     "character": "Vayne",
     "source": "Force of Will",
+    "sbVer": "BSB1",
     "name": "Culling of Darkness",
     "type": "BLK",
     "target": "Single enemy",
@@ -9189,6 +9619,7 @@
   {
     "character": "Reks",
     "source": "Whitefall",
+    "sbVer": "BSB1",
     "name": "Elemental Strike",
     "type": "PHY",
     "target": "Single enemy",
@@ -9211,6 +9642,7 @@
   {
     "character": "Reks",
     "source": "Whitefall",
+    "sbVer": "BSB1",
     "name": "Healing Edge",
     "type": "PHY",
     "target": "Single enemy",
@@ -9230,6 +9662,7 @@
   {
     "character": "Lightning",
     "source": "Requiem of the Goddess",
+    "sbVer": "BSB1",
     "name": "Flourish of Steel",
     "type": "PHY",
     "target": "Single enemy",
@@ -9249,6 +9682,7 @@
   {
     "character": "Lightning",
     "source": "Requiem of the Goddess",
+    "sbVer": "BSB1",
     "name": "Skyward Swing",
     "type": "PHY",
     "target": "All enemies",
@@ -9268,6 +9702,7 @@
   {
     "character": "Lightning",
     "source": "Focused Bolts",
+    "sbVer": "BSB2",
     "name": "Azure Lightning",
     "type": "PHY",
     "target": "Single enemy",
@@ -9290,6 +9725,7 @@
   {
     "character": "Lightning",
     "source": "Focused Bolts",
+    "sbVer": "BSB2",
     "name": "Thunderclap",
     "type": "PHY",
     "target": "All enemies",
@@ -9312,6 +9748,7 @@
   {
     "character": "Snow",
     "source": "Here We Go!",
+    "sbVer": "BSB1",
     "name": "Icy Revenge",
     "type": "PHY",
     "target": "Single enemy",
@@ -9335,6 +9772,7 @@
   {
     "character": "Snow",
     "source": "Here We Go!",
+    "sbVer": "BSB1",
     "name": "Frost Charge",
     "type": "PHY",
     "target": "Single enemy",
@@ -9357,6 +9795,7 @@
   {
     "character": "Snow",
     "source": "A Hero Rides",
+    "sbVer": "BSB2",
     "name": "Frost Drive",
     "type": "PHY",
     "target": "Single enemy",
@@ -9378,6 +9817,7 @@
   {
     "character": "Snow",
     "source": "A Hero Rides",
+    "sbVer": "BSB2",
     "name": "Spinning Diamond",
     "type": "PHY",
     "target": "All enemies",
@@ -9400,6 +9840,7 @@
   {
     "character": "Vanille",
     "source": "Transcendent Dream",
+    "sbVer": "BSB1",
     "name": "Light Eternal",
     "type": "WHT",
     "target": "Single enemy",
@@ -9421,6 +9862,7 @@
   {
     "character": "Vanille",
     "source": "Transcendent Dream",
+    "sbVer": "BSB1",
     "name": "Breath of Vitality",
     "type": "WHT",
     "target": "All allies",
@@ -9442,6 +9884,7 @@
   {
     "character": "Vanille",
     "source": "Shifting Worlds",
+    "sbVer": "BSB2",
     "name": "Splendorous Blessing",
     "type": "WHT",
     "target": "Single ally",
@@ -9463,6 +9906,7 @@
   {
     "character": "Vanille",
     "source": "Shifting Worlds",
+    "sbVer": "BSB2",
     "name": "Future's Omen",
     "type": "WHT",
     "target": "All allies",
@@ -9484,6 +9928,7 @@
   {
     "character": "Sazh",
     "source": "Choco-Chick Blues",
+    "sbVer": "BSB1",
     "name": "Protect Puncture",
     "type": "PHY",
     "target": "Single enemy",
@@ -9503,6 +9948,7 @@
   {
     "character": "Sazh",
     "source": "Choco-Chick Blues",
+    "sbVer": "BSB1",
     "name": "Shell Shatter",
     "type": "PHY",
     "target": "Single enemy",
@@ -9522,6 +9968,7 @@
   {
     "character": "Hope",
     "source": "Divine Judgment",
+    "sbVer": "BSB1",
     "name": "Purification",
     "type": "BLK",
     "target": "Single enemy",
@@ -9544,6 +9991,7 @@
   {
     "character": "Hope",
     "source": "Divine Judgment",
+    "sbVer": "BSB1",
     "name": "Obliterator",
     "type": "BLK",
     "target": "Single enemy",
@@ -9566,6 +10014,7 @@
   {
     "character": "Hope",
     "source": "Explosive Fist",
+    "sbVer": "BSB2",
     "name": "Alexander",
     "type": "SUM",
     "target": "All enemies",
@@ -9586,6 +10035,7 @@
   {
     "character": "Hope",
     "source": "Explosive Fist",
+    "sbVer": "BSB2",
     "name": "Alexander (S)",
     "nameNote": "Alias name: Celestial Vengeance",
     "type": "SUM",
@@ -9609,6 +10059,7 @@
   {
     "character": "Hope",
     "source": "Explosive Fist",
+    "sbVer": "BSB2",
     "name": "Divine Judge",
     "type": "BLK",
     "target": "Single enemy",
@@ -9631,6 +10082,7 @@
   {
     "character": "Hope",
     "source": "Explosive Fist",
+    "sbVer": "BSB2",
     "name": "Divine Judge (S)",
     "type": "BLK",
     "target": "Single enemy",
@@ -9653,6 +10105,7 @@
   {
     "character": "Fang",
     "source": "Megaflare",
+    "sbVer": "BSB1",
     "name": "Dragon Claws",
     "type": "PHY",
     "target": "Single enemy",
@@ -9675,6 +10128,7 @@
   {
     "character": "Fang",
     "source": "Megaflare",
+    "sbVer": "BSB1",
     "name": "Whirlwind",
     "type": "PHY",
     "target": "All enemies",
@@ -9697,6 +10151,7 @@
   {
     "character": "Fang",
     "source": "Raging Whirlwind",
+    "sbVer": "BSB2",
     "name": "Seething Winds",
     "type": "PHY",
     "target": "Single enemy",
@@ -9718,6 +10173,7 @@
   {
     "character": "Fang",
     "source": "Raging Whirlwind",
+    "sbVer": "BSB2",
     "name": "Biting Winds",
     "type": "PHY",
     "target": "All enemies",
@@ -9740,6 +10196,7 @@
   {
     "character": "Serah",
     "source": "Moonfrost Arrows",
+    "sbVer": "BSB1",
     "name": "Ice Burst",
     "type": "BLK",
     "target": "Single enemy",
@@ -9762,6 +10219,7 @@
   {
     "character": "Serah",
     "source": "Moonfrost Arrows",
+    "sbVer": "BSB1",
     "name": "Raging Blizzard",
     "type": "BLK",
     "target": "All enemies",
@@ -9784,6 +10242,7 @@
   {
     "character": "Serah",
     "source": "Eternity Unpromised",
+    "sbVer": "BSB2",
     "name": "Artemis Shot",
     "type": "BLK",
     "target": "Single enemy",
@@ -9806,6 +10265,7 @@
   {
     "character": "Serah",
     "source": "Eternity Unpromised",
+    "sbVer": "BSB2",
     "name": "Artemis Spin",
     "type": "BLK",
     "target": "All enemies",
@@ -9828,6 +10288,7 @@
   {
     "character": "Cid Raines",
     "source": "Metamorphose",
+    "sbVer": "BSB1",
     "name": "Shining Moment",
     "type": "BLK",
     "target": "Single enemy",
@@ -9850,6 +10311,7 @@
   {
     "character": "Cid Raines",
     "source": "Metamorphose",
+    "sbVer": "BSB1",
     "name": "Lingering Spirit",
     "type": "BLK",
     "target": "All enemies",
@@ -9872,6 +10334,7 @@
   {
     "character": "Noel",
     "source": "Meteor Javelin",
+    "sbVer": "BSB1",
     "name": "Arc Edge",
     "type": "PHY",
     "target": "Single enemy",
@@ -9891,6 +10354,7 @@
   {
     "character": "Noel",
     "source": "Meteor Javelin",
+    "sbVer": "BSB1",
     "name": "Butterfly Sting",
     "type": "PHY",
     "target": "Single enemy",
@@ -9910,6 +10374,7 @@
   {
     "character": "Noel",
     "source": "Hunter's Rimefang",
+    "sbVer": "BSB2",
     "name": "Icicle Bite",
     "type": "PHY",
     "target": "Single enemy",
@@ -9932,6 +10397,7 @@
   {
     "character": "Noel",
     "source": "Hunter's Rimefang",
+    "sbVer": "BSB2",
     "name": "Frost Form",
     "type": "PHY",
     "target": "Single enemy",
@@ -9954,6 +10420,7 @@
   {
     "character": "Noel",
     "source": "Break Frost",
+    "sbVer": "BSB3",
     "name": "Icicle Break",
     "type": "PHY",
     "target": "Single enemy",
@@ -9976,6 +10443,7 @@
   {
     "character": "Noel",
     "source": "Break Frost",
+    "sbVer": "BSB3",
     "name": "Rime Magic",
     "type": "PHY",
     "target": "Single enemy",
@@ -9998,6 +10466,7 @@
   {
     "character": "Nabaat",
     "source": "Sacrifice Pawn",
+    "sbVer": "BSB1",
     "name": "Harsh Punishment",
     "type": "BLK",
     "target": "Single enemy",
@@ -10020,6 +10489,7 @@
   {
     "character": "Nabaat",
     "source": "Sacrifice Pawn",
+    "sbVer": "BSB1",
     "name": "Fiendish Smile",
     "type": "BLK",
     "target": "All enemies",
@@ -10042,6 +10512,7 @@
   {
     "character": "Y'shtola",
     "source": "Asylum",
+    "sbVer": "BSB1",
     "name": "Tetragrammaton",
     "type": "WHT",
     "target": "Single ally",
@@ -10063,6 +10534,7 @@
   {
     "character": "Y'shtola",
     "source": "Asylum",
+    "sbVer": "BSB1",
     "name": "Medica",
     "type": "WHT",
     "target": "All allies",
@@ -10084,6 +10556,7 @@
   {
     "character": "Thancred",
     "source": "Kassatsu Katon",
+    "sbVer": "BSB1",
     "name": "Duality",
     "type": "PHY",
     "target": "Single enemy",
@@ -10106,6 +10579,7 @@
   {
     "character": "Thancred",
     "source": "Kassatsu Katon",
+    "sbVer": "BSB1",
     "name": "Shade Shift",
     "type": "PHY",
     "target": "Single enemy",
@@ -10128,6 +10602,7 @@
   {
     "character": "Thancred",
     "source": "Fang of the Serpent",
+    "sbVer": "BSB2",
     "name": "Hornet's Sting",
     "type": "PHY",
     "target": "Single enemy",
@@ -10150,6 +10625,7 @@
   {
     "character": "Thancred",
     "source": "Fang of the Serpent",
+    "sbVer": "BSB2",
     "name": "Unending Assault",
     "type": "PHY",
     "target": "Single enemy",
@@ -10172,6 +10648,7 @@
   {
     "character": "Thancred",
     "source": "Kassatsu Doton",
+    "sbVer": "BSB3",
     "name": "Shade Shift Aeolian Edge",
     "type": "PHY",
     "target": "Single enemy",
@@ -10194,6 +10671,7 @@
   {
     "character": "Thancred",
     "source": "Kassatsu Doton",
+    "sbVer": "BSB3",
     "name": "Armor Crush Throwing Dagger",
     "type": "PHY",
     "target": "Single enemy",
@@ -10216,6 +10694,7 @@
   {
     "character": "Yda",
     "source": "Forbidden Chakra",
+    "sbVer": "BSB1",
     "name": "Snap Punch",
     "type": "PHY",
     "target": "Single enemy",
@@ -10238,6 +10717,7 @@
   {
     "character": "Yda",
     "source": "Forbidden Chakra",
+    "sbVer": "BSB1",
     "name": "Fists of Earth",
     "type": "NAT",
     "target": "Self",
@@ -10257,6 +10737,7 @@
   {
     "character": "Papalymo",
     "source": "Enochian Firaja",
+    "sbVer": "BSB1",
     "name": "Astral Fire",
     "type": "BLK",
     "target": "Single enemy",
@@ -10279,6 +10760,7 @@
   {
     "character": "Papalymo",
     "source": "Enochian Firaja",
+    "sbVer": "BSB1",
     "name": "Flare Conversion",
     "type": "BLK",
     "target": "All enemies",
@@ -10301,6 +10783,7 @@
   {
     "character": "Alphinaud",
     "source": "Aerial Blast",
+    "sbVer": "BSB1",
     "name": "Wind Blade",
     "type": "SUM",
     "target": "Single enemy",
@@ -10323,6 +10806,7 @@
   {
     "character": "Alphinaud",
     "source": "Aerial Blast",
+    "sbVer": "BSB1",
     "name": "Aetherflow",
     "type": "SUM",
     "target": "Single enemy",
@@ -10345,6 +10829,7 @@
   {
     "character": "Minfilia",
     "source": "The Echo",
+    "sbVer": "BSB1",
     "name": "Rage of Halone",
     "type": "PHY",
     "target": "Single enemy",
@@ -10367,6 +10852,7 @@
   {
     "character": "Minfilia",
     "source": "The Echo",
+    "sbVer": "BSB1",
     "name": "Glory Slash",
     "type": "PHY",
     "target": "Single enemy",
@@ -10389,6 +10875,7 @@
   {
     "character": "Minfilia",
     "source": "Scion's Guidance",
+    "sbVer": "BSB2",
     "name": "Goring Blade",
     "type": "PHY",
     "target": "Single enemy",
@@ -10411,6 +10898,7 @@
   {
     "character": "Minfilia",
     "source": "Scion's Guidance",
+    "sbVer": "BSB2",
     "name": "Full Swing",
     "type": "PHY",
     "target": "Single enemy",
@@ -10433,6 +10921,7 @@
   {
     "character": "Cid (XIV)",
     "source": "Grenado Shot",
+    "sbVer": "BSB1",
     "name": "Shoot & Reload",
     "type": "PHY",
     "target": "Single enemy",
@@ -10455,6 +10944,7 @@
   {
     "character": "Cid (XIV)",
     "source": "Grenado Shot",
+    "sbVer": "BSB1",
     "name": "Split Shot",
     "type": "PHY",
     "target": "Single enemy",
@@ -10477,6 +10967,7 @@
   {
     "character": "Ysayle",
     "source": "Shiva: Diamond Dust",
+    "sbVer": "BSB1",
     "name": "Avalanche",
     "type": "BLK",
     "target": "Single enemy",
@@ -10499,6 +10990,7 @@
   {
     "character": "Ysayle",
     "source": "Shiva: Diamond Dust",
+    "sbVer": "BSB1",
     "name": "Absolute Zero",
     "type": "BLK",
     "target": "All enemies",
@@ -10521,6 +11013,7 @@
   {
     "character": "Haurchefant",
     "source": "Time of Need",
+    "sbVer": "BSB1",
     "name": "Shield Swipe",
     "type": "PHY",
     "target": "Single enemy",
@@ -10543,6 +11036,7 @@
   {
     "character": "Haurchefant",
     "source": "Time of Need",
+    "sbVer": "BSB1",
     "name": "Spirits Within",
     "type": "PHY",
     "target": "Single enemy",
@@ -10565,6 +11059,7 @@
   {
     "character": "Estinien",
     "source": "The Azure Dragoon",
+    "sbVer": "BSB1",
     "name": "Blood of the Dragon",
     "type": "NAT",
     "target": "Self",
@@ -10584,6 +11079,7 @@
   {
     "character": "Estinien",
     "source": "The Azure Dragoon",
+    "sbVer": "BSB1",
     "name": "Blood of the Dragon (S)",
     "type": "PHY",
     "target": "Single enemy",
@@ -10606,6 +11102,7 @@
   {
     "character": "Estinien",
     "source": "The Azure Dragoon",
+    "sbVer": "BSB1",
     "name": "Fang and Claw",
     "type": "PHY",
     "target": "Single enemy",
@@ -10628,6 +11125,7 @@
   {
     "character": "Estinien",
     "source": "The Azure Dragoon",
+    "sbVer": "BSB1",
     "name": "Fang and Claw (S)",
     "type": "PHY",
     "target": "Single enemy",
@@ -10650,6 +11148,7 @@
   {
     "character": "Noctis",
     "source": "Kings of Old",
+    "sbVer": "BSB1",
     "name": "Death Drop",
     "type": "PHY",
     "target": "Single enemy",
@@ -10669,6 +11168,7 @@
   {
     "character": "Noctis",
     "source": "Kings of Old",
+    "sbVer": "BSB1",
     "name": "Point-Warp",
     "type": "NAT",
     "target": "Self",
@@ -10688,6 +11188,7 @@
   {
     "character": "Gladiolus",
     "source": "Tempest",
+    "sbVer": "BSB1",
     "name": "Shield Slam",
     "type": "PHY",
     "target": "Single enemy",
@@ -10710,6 +11211,7 @@
   {
     "character": "Gladiolus",
     "source": "Tempest",
+    "sbVer": "BSB1",
     "name": "Royal Guard",
     "type": "PHY",
     "target": "Single enemy",
@@ -10732,6 +11234,7 @@
   {
     "character": "Ignis",
     "source": "Stalwart Cook",
+    "sbVer": "BSB1",
     "name": "Royal Menu",
     "type": "PHY",
     "target": "Single enemy",
@@ -10755,6 +11258,7 @@
   {
     "character": "Ignis",
     "source": "Stalwart Cook",
+    "sbVer": "BSB1",
     "name": "Butler's Cooking (2 Ing.)",
     "nameNote": "Alias Name: Golden Tail Soup",
     "type": "NAT",
@@ -10775,6 +11279,7 @@
   {
     "character": "Ignis",
     "source": "Stalwart Cook",
+    "sbVer": "BSB1",
     "name": "Butler's Cooking (1 Ing.)",
     "nameNote": "Alias Name: King's Stew",
     "type": "NAT",
@@ -10795,6 +11300,7 @@
   {
     "character": "Ignis",
     "source": "Stalwart Cook",
+    "sbVer": "BSB1",
     "name": "Butler's Cooking (0 Ing.)",
     "nameNote": "Alias Name: Toasty Rice Balls",
     "type": "NAT",
@@ -10815,6 +11321,7 @@
   {
     "character": "Prompto",
     "source": "Shots Fired",
+    "sbVer": "BSB1",
     "name": "Furious Volley",
     "type": "PHY",
     "target": "Single enemy",
@@ -10837,6 +11344,7 @@
   {
     "character": "Prompto",
     "source": "Shots Fired",
+    "sbVer": "BSB1",
     "name": "Rolling Volley",
     "type": "PHY",
     "target": "Single enemy",
@@ -10859,6 +11367,7 @@
   {
     "character": "Prompto",
     "source": "Recoil (XV)",
+    "sbVer": "BSB2",
     "name": "Sharpshot",
     "type": "PHY",
     "target": "Single enemy",
@@ -10881,6 +11390,7 @@
   {
     "character": "Prompto",
     "source": "Recoil (XV)",
+    "sbVer": "BSB2",
     "name": "Jumpshot",
     "type": "PHY",
     "target": "Single enemy",
@@ -10903,6 +11413,7 @@
   {
     "character": "Iris",
     "source": "Kupo Cure",
+    "sbVer": "BSB1",
     "name": "Pocket Elixir",
     "type": "WHT",
     "target": "Single ally",
@@ -10924,6 +11435,7 @@
   {
     "character": "Iris",
     "source": "Kupo Cure",
+    "sbVer": "BSB1",
     "name": "Pocket Potion",
     "type": "WHT",
     "target": "All allies",
@@ -10945,6 +11457,7 @@
   {
     "character": "Aranea",
     "source": "Air Superiority",
+    "sbVer": "BSB1",
     "name": "Dash Strike",
     "type": "PHY",
     "target": "Single enemy",
@@ -10967,6 +11480,7 @@
   {
     "character": "Aranea",
     "source": "Air Superiority",
+    "sbVer": "BSB1",
     "name": "Heavy Foot",
     "type": "PHY",
     "target": "Single enemy",
@@ -10989,6 +11503,7 @@
   {
     "character": "Ramza",
     "source": "Unsung Hero",
+    "sbVer": "BSB1",
     "name": "Noble Blade",
     "type": "PHY",
     "target": "Single",
@@ -11010,6 +11525,7 @@
   {
     "character": "Ramza",
     "source": "Unsung Hero",
+    "sbVer": "BSB1",
     "name": "Steel",
     "type": "NAT",
     "target": "Single ally",
@@ -11029,6 +11545,7 @@
   {
     "character": "Ramza",
     "source": "Battle Cry (FFT)",
+    "sbVer": "BSB2",
     "name": "Warrior's Dance",
     "type": "PHY",
     "target": "Single enemy",
@@ -11051,6 +11568,7 @@
   {
     "character": "Ramza",
     "source": "Battle Cry (FFT)",
+    "sbVer": "BSB2",
     "name": "Warrior's Will",
     "type": "NAT",
     "target": "Self",
@@ -11070,6 +11588,7 @@
   {
     "character": "Agrias",
     "source": "Divine Ruination",
+    "sbVer": "BSB1",
     "name": "Devotion's Blade",
     "type": "PHY",
     "target": "Single enemy",
@@ -11091,6 +11610,7 @@
   {
     "character": "Agrias",
     "source": "Divine Ruination",
+    "sbVer": "BSB1",
     "name": "Faith's Blade",
     "type": "PHY",
     "target": "Single enemy",
@@ -11112,6 +11632,7 @@
   {
     "character": "Delita",
     "source": "Hero-King",
+    "sbVer": "BSB1",
     "name": "Godfire Blade",
     "type": "PHY",
     "target": "Single enemy",
@@ -11134,6 +11655,7 @@
   {
     "character": "Delita",
     "source": "Hero-King",
+    "sbVer": "BSB1",
     "name": "Icebolt Wave",
     "type": "PHY",
     "target": "Single enemy",
@@ -11156,6 +11678,7 @@
   {
     "character": "Ovelia",
     "source": "Heart's Lament",
+    "sbVer": "BSB1",
     "name": "Sister's Supplication",
     "type": "WHT",
     "target": "Single ally",
@@ -11177,6 +11700,7 @@
   {
     "character": "Ovelia",
     "source": "Heart's Lament",
+    "sbVer": "BSB1",
     "name": "Sister's Mercy",
     "type": "WHT",
     "target": "All allies",
@@ -11198,6 +11722,7 @@
   {
     "character": "Ovelia",
     "source": "Desperate Plea",
+    "sbVer": "BSB2",
     "name": "Esuna Heal",
     "type": "WHT",
     "target": "Single ally",
@@ -11219,6 +11744,7 @@
   {
     "character": "Ovelia",
     "source": "Desperate Plea",
+    "sbVer": "BSB2",
     "name": "Princess Heal",
     "type": "WHT",
     "target": "All allies",
@@ -11240,6 +11766,7 @@
   {
     "character": "Mustadio",
     "source": "Sharpshot Spray",
+    "sbVer": "BSB1",
     "name": "Quick Trigger",
     "type": "PHY",
     "target": "Single enemy",
@@ -11259,6 +11786,7 @@
   {
     "character": "Mustadio",
     "source": "Sharpshot Spray",
+    "sbVer": "BSB1",
     "name": "Aegis Crush",
     "type": "PHY",
     "target": "Single enemy",
@@ -11278,6 +11806,7 @@
   {
     "character": "Orlandeau",
     "source": "Swordplay",
+    "sbVer": "BSB1",
     "name": "Steely Swordplay",
     "type": "PHY",
     "target": "Single enemy",
@@ -11300,6 +11829,7 @@
   {
     "character": "Orlandeau",
     "source": "Swordplay",
+    "sbVer": "BSB1",
     "name": "Dark Swordplay",
     "type": "PHY",
     "target": "Single enemy",
@@ -11322,6 +11852,7 @@
   {
     "character": "Gaffgarion",
     "source": "Fellsword Dance",
+    "sbVer": "BSB1",
     "name": "Darkblade",
     "type": "PHY",
     "target": "Single enemy",
@@ -11344,6 +11875,7 @@
   {
     "character": "Gaffgarion",
     "source": "Fellsword Dance",
+    "sbVer": "BSB1",
     "name": "Bloodblade",
     "type": "PHY",
     "target": "All enemies",
@@ -11366,6 +11898,7 @@
   {
     "character": "Rapha",
     "source": "Heaven's Wrath (FFT)",
+    "sbVer": "BSB1",
     "name": "Thunder Mark",
     "type": "BLK",
     "target": "Single enemy",
@@ -11388,6 +11921,7 @@
   {
     "character": "Rapha",
     "source": "Heaven's Wrath (FFT)",
+    "sbVer": "BSB1",
     "name": "Roaring Sky",
     "type": "BLK",
     "target": "All enemies",
@@ -11410,6 +11944,7 @@
   {
     "character": "Marach",
     "source": "Hell's Wrath",
+    "sbVer": "BSB1",
     "name": "Lightning Mark",
     "type": "BLK",
     "target": "Single enemy",
@@ -11432,6 +11967,7 @@
   {
     "character": "Marach",
     "source": "Hell's Wrath",
+    "sbVer": "BSB1",
     "name": "Thunderbreak",
     "type": "BLK",
     "target": "All enemies",
@@ -11454,6 +11990,7 @@
   {
     "character": "Meliadoul",
     "source": "Crush Helm",
+    "sbVer": "BSB1",
     "name": "Divine Break",
     "type": "PHY",
     "target": "Single enemy",
@@ -11476,6 +12013,7 @@
   {
     "character": "Meliadoul",
     "source": "Crush Helm",
+    "sbVer": "BSB1",
     "name": "Divine Crush",
     "type": "PHY",
     "target": "Single enemy",
@@ -11498,6 +12036,7 @@
   {
     "character": "Marche",
     "source": "Knight Combo",
+    "sbVer": "BSB1",
     "name": "Saint Blade",
     "type": "PHY",
     "target": "Single enemy",
@@ -11520,6 +12059,7 @@
   {
     "character": "Marche",
     "source": "Knight Combo",
+    "sbVer": "BSB1",
     "name": "Saint Shield",
     "type": "PHY",
     "target": "Single enemy",
@@ -11542,6 +12082,7 @@
   {
     "character": "Montblanc",
     "source": "Black Combo",
+    "sbVer": "BSB1",
     "name": "Magic Combo",
     "type": "BLK",
     "target": "Single enemy",
@@ -11565,6 +12106,7 @@
   {
     "character": "Montblanc",
     "source": "Black Combo",
+    "sbVer": "BSB1",
     "name": "Moogle Rush",
     "type": "BLK",
     "target": "Single enemy",
@@ -11588,6 +12130,7 @@
   {
     "character": "Alma",
     "source": "Wisdom of Orbonne",
+    "sbVer": "BSB1",
     "name": "Angelic Glimmer",
     "type": "WHT",
     "target": "Single ally",
@@ -11609,6 +12152,7 @@
   {
     "character": "Alma",
     "source": "Wisdom of Orbonne",
+    "sbVer": "BSB1",
     "name": "Cleric's Bearing",
     "type": "WHT",
     "target": "All allies",
@@ -11630,6 +12174,7 @@
   {
     "character": "Orran",
     "source": "Record of Truth",
+    "sbVer": "BSB1",
     "name": "Lodestar",
     "type": "WHT",
     "target": "Single ally",
@@ -11651,6 +12196,7 @@
   {
     "character": "Orran",
     "source": "Record of Truth",
+    "sbVer": "BSB1",
     "name": "Divine Blessing",
     "type": "WHT",
     "target": "All allies",
@@ -11672,6 +12218,7 @@
   {
     "character": "Ace",
     "source": "Firaga RF",
+    "sbVer": "BSB1",
     "name": "Fire BOM",
     "type": "BLK",
     "target": "Single enemy",
@@ -11694,6 +12241,7 @@
   {
     "character": "Ace",
     "source": "Firaga RF",
+    "sbVer": "BSB1",
     "name": "Fire SHG",
     "type": "BLK",
     "target": "All enemies",
@@ -11716,6 +12264,7 @@
   {
     "character": "Ace",
     "source": "Firaga SHG",
+    "sbVer": "BSB2",
     "name": "Card Haste",
     "type": "BLK",
     "target": "Single enemy",
@@ -11738,6 +12287,7 @@
   {
     "character": "Ace",
     "source": "Firaga SHG",
+    "sbVer": "BSB2",
     "name": "Spirit Hand",
     "type": "BLK",
     "target": "All enemies",
@@ -11760,6 +12310,7 @@
   {
     "character": "Deuce",
     "source": "Concerto",
+    "sbVer": "BSB1",
     "name": "Cure ff",
     "type": "WHT",
     "target": "Single ally",
@@ -11781,6 +12332,7 @@
   {
     "character": "Deuce",
     "source": "Concerto",
+    "sbVer": "BSB1",
     "name": "Healing Melody",
     "type": "WHT",
     "target": "All allies",
@@ -11802,6 +12354,7 @@
   {
     "character": "Nine",
     "source": "Class Zero Basher-in-Chief",
+    "sbVer": "BSB1",
     "name": "Tornado Lance",
     "type": "PHY",
     "target": "Single enemy",
@@ -11823,6 +12376,7 @@
   {
     "character": "Nine",
     "source": "Class Zero Basher-in-Chief",
+    "sbVer": "BSB1",
     "name": "Cyclonic Blast",
     "type": "PHY",
     "target": "All enemies",
@@ -11845,6 +12399,7 @@
   {
     "character": "Machina",
     "source": "Cyclone Drive",
+    "sbVer": "BSB1",
     "name": "Earth Drive",
     "type": "PHY",
     "target": "Single enemy",
@@ -11867,6 +12422,7 @@
   {
     "character": "Machina",
     "source": "Cyclone Drive",
+    "sbVer": "BSB1",
     "name": "Fear Field",
     "type": "WHT",
     "target": "Self",
@@ -11886,6 +12442,7 @@
   {
     "character": "Rem",
     "source": "Siphon Delta",
+    "sbVer": "BSB1",
     "name": "Manalchemy Drain",
     "type": "WHT",
     "target": "Single enemy",
@@ -11908,6 +12465,7 @@
   {
     "character": "Rem",
     "source": "Siphon Delta",
+    "sbVer": "BSB1",
     "name": "Manalchemy Barrier",
     "type": "NAT",
     "target": "Self",
@@ -11927,6 +12485,7 @@
   {
     "character": "Queen",
     "source": "Mana Sphere",
+    "sbVer": "BSB1",
     "name": "Thunder Judgment",
     "type": "PHY",
     "target": "Single enemy",
@@ -11949,6 +12508,7 @@
   {
     "character": "Queen",
     "source": "Mana Sphere",
+    "sbVer": "BSB1",
     "name": "Energy Spark",
     "type": "PHY",
     "target": "All enemies",
@@ -11971,6 +12531,7 @@
   {
     "character": "King",
     "source": "Magazine Blast",
+    "sbVer": "BSB1",
     "name": "Multitask",
     "type": "PHY",
     "target": "Single enemy",
@@ -11993,6 +12554,7 @@
   {
     "character": "King",
     "source": "Magazine Blast",
+    "sbVer": "BSB1",
     "name": "Quick Shot (Type-0)",
     "type": "PHY",
     "target": "Single enemy",
@@ -12015,6 +12577,7 @@
   {
     "character": "Cinque",
     "source": "Gaia Pulse",
+    "sbVer": "BSB1",
     "name": "Gaia Swing",
     "type": "PHY",
     "target": "Single enemy",
@@ -12037,6 +12600,7 @@
   {
     "character": "Cinque",
     "source": "Gaia Pulse",
+    "sbVer": "BSB1",
     "name": "Gaia Break",
     "type": "PHY",
     "target": "Single enemy",
@@ -12059,6 +12623,7 @@
   {
     "character": "Seven",
     "source": "Diving Strike",
+    "sbVer": "BSB1",
     "name": "Blizzard Crush",
     "type": "BLK",
     "target": "Single enemy",
@@ -12081,6 +12646,7 @@
   {
     "character": "Seven",
     "source": "Diving Strike",
+    "sbVer": "BSB1",
     "name": "Frost Magic",
     "type": "BLK",
     "target": "Single enemy",
@@ -12103,6 +12669,7 @@
   {
     "character": "Sice",
     "source": "Black Hole (Type-0)",
+    "sbVer": "BSB1",
     "name": "Nebula Slash",
     "type": "PHY",
     "target": "Single enemy",
@@ -12125,6 +12692,7 @@
   {
     "character": "Sice",
     "source": "Black Hole (Type-0)",
+    "sbVer": "BSB1",
     "name": "Dark Boon",
     "type": "PHY",
     "target": "Single enemy",
@@ -12147,6 +12715,7 @@
   {
     "character": "Jack",
     "source": "Lightning Flash",
+    "sbVer": "BSB1",
     "name": "Class Clown",
     "type": "PHY",
     "target": "Single enemy",
@@ -12169,6 +12738,7 @@
   {
     "character": "Jack",
     "source": "Lightning Flash",
+    "sbVer": "BSB1",
     "name": "Fiery Reckoning",
     "type": "PHY",
     "target": "Single enemy",
@@ -12191,6 +12761,7 @@
   {
     "character": "Eight",
     "source": "Glacial Phantasm",
+    "sbVer": "BSB1",
     "name": "Apex Strike",
     "type": "PHY",
     "target": "Single enemy",
@@ -12213,6 +12784,7 @@
   {
     "character": "Eight",
     "source": "Glacial Phantasm",
+    "sbVer": "BSB1",
     "name": "Umbral Frost",
     "type": "PHY",
     "target": "Single enemy",
@@ -12235,6 +12807,7 @@
   {
     "character": "Sora",
     "source": "Ars Arcanum",
+    "sbVer": "BSB1",
     "name": "Arcanum",
     "type": "PHY",
     "target": "Single enemy",
@@ -12258,6 +12831,7 @@
   {
     "character": "Sora",
     "source": "Ars Arcanum",
+    "sbVer": "BSB1",
     "name": "Break (KH)",
     "nameNote": "Alias name: Break (KH) / Break (KH) / Break (KH) / The End (KH)",
     "type": "PHY",
@@ -12282,6 +12856,7 @@
   {
     "character": "Riku",
     "source": "Darkhand Helm Split",
+    "sbVer": "BSB1",
     "name": "Dash Swing",
     "type": "PHY",
     "target": "Single enemy",
@@ -12304,6 +12879,7 @@
   {
     "character": "Riku",
     "source": "Darkhand Helm Split",
+    "sbVer": "BSB1",
     "name": "Scourge",
     "type": "PHY",
     "target": "Single enemy",
@@ -12326,6 +12902,7 @@
   {
     "character": "Reynn",
     "source": "Channel Element: Ice",
+    "sbVer": "BSB1",
     "name": "Glacial Arrow",
     "type": "BLK",
     "target": "Single enemy",
@@ -12348,6 +12925,7 @@
   {
     "character": "Reynn",
     "source": "Channel Element: Ice",
+    "sbVer": "BSB1",
     "name": "Big Freeze",
     "type": "BLK",
     "target": "Single enemy",
@@ -12370,6 +12948,7 @@
   {
     "character": "Lann",
     "source": "Channel Element: Fire",
+    "sbVer": "BSB1",
     "name": "Melting Blow",
     "type": "PHY",
     "target": "Single enemy",
@@ -12392,6 +12971,7 @@
   {
     "character": "Lann",
     "source": "Channel Element: Fire",
+    "sbVer": "BSB1",
     "name": "Solar Flame",
     "type": "PHY",
     "target": "All enemies",
@@ -12414,6 +12994,7 @@
   {
     "character": "Morrow",
     "source": "Chrono Break",
+    "sbVer": "BSB1",
     "name": "Seal",
     "type": "PHY",
     "target": "Single enemy",
@@ -12433,6 +13014,7 @@
   {
     "character": "Morrow",
     "source": "Chrono Break",
+    "sbVer": "BSB1",
     "name": "Great Divide",
     "type": "PHY",
     "target": "Single enemy",
@@ -12452,6 +13034,7 @@
   {
     "character": "Aemo",
     "source": "Reprogram",
+    "sbVer": "BSB1",
     "name": "Healing Harmony",
     "type": "WHT",
     "target": "Single ally",
@@ -12473,6 +13056,7 @@
   {
     "character": "Aemo",
     "source": "Reprogram",
+    "sbVer": "BSB1",
     "name": "Living Harmony",
     "type": "WHT",
     "target": "All allies",
@@ -12494,6 +13078,7 @@
   {
     "character": "Wrieg",
     "source": "Force Blaster",
+    "sbVer": "BSB1",
     "name": "Geocrush",
     "type": "PHY",
     "target": "Single enemy",
@@ -12516,6 +13101,7 @@
   {
     "character": "Wrieg",
     "source": "Force Blaster",
+    "sbVer": "BSB1",
     "name": "Earth Stomp",
     "type": "PHY",
     "target": "All enemies",
@@ -12538,6 +13124,7 @@
   {
     "character": "Tama",
     "source": "Petal Pummel",
+    "sbVer": "BSB1",
     "name": "Bid for Time",
     "type": "WHT",
     "target": "Single ally",
@@ -12559,6 +13146,7 @@
   {
     "character": "Tama",
     "source": "Petal Pummel",
+    "sbVer": "BSB1",
     "name": "Cheer",
     "type": "WHT",
     "target": "All allies",
@@ -12580,6 +13168,7 @@
   {
     "character": "Enna Kros",
     "source": "Creator's Judgment",
+    "sbVer": "BSB1",
     "name": "Might of A",
     "type": "BLK",
     "target": "Single enemy",
@@ -12602,6 +13191,7 @@
   {
     "character": "Enna Kros",
     "source": "Creator's Judgment",
+    "sbVer": "BSB1",
     "name": "Mortal Meddling",
     "type": "BLK",
     "target": "Single enemy",

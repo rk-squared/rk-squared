@@ -83,7 +83,7 @@ Array [
   Object {
     "character": "Agrias",
     "description": "(Knight ⤇ 30% for +10% holy vuln. 15s)",
-    "effect": "30% chance to cause [Imperil Holy 10% (15s)] to the target after using a Knight ability on an enemy",
+    "effect": "30% chance to cause [Imperil Holy 10% (15s)] to the target after using a Knight ability",
     "name": "Knight's Finesse",
   },
   Object {
@@ -109,6 +109,12 @@ Array [
     "description": "35% dualcast B.Mag/W.Mag",
     "effect": "35% chance to dualcast Black Magic and White Magic abilities",
     "name": "Progeny of the Circle",
+  },
+  Object {
+    "character": "Alisaie",
+    "description": "(B.Mag/W.Mag ⤇ 50% for m? wi+l+n)",
+    "effect": "50% chance to cast Scatter after using a Black Magic or White Magic ability",
+    "name": "Onslaught (Alisaie)",
   },
   Object {
     "character": "Alma",
@@ -151,6 +157,12 @@ Array [
     "description": "wind infuse 25s at battle start",
     "effect": "Grants [Attach Wind] at the beginning of the battle",
     "name": "Journey of Discovery",
+  },
+  Object {
+    "character": "Alphinaud",
+    "description": "wind infuse 25s, fastcast 15s at battle start",
+    "effect": "Grants [Attach Wind] and [Quick Cast] at the beginning of the battle",
+    "name": "Herald (Alphinaud)",
   },
   Object {
     "character": "Amarant",
@@ -208,8 +220,8 @@ Array [
   },
   Object {
     "character": "Aphmau",
-    "description": "Reraise 80% at battle start, (Reraise ⤇ PM blink 1)",
-    "effect": "Grants [Reraise: 80%] at the beginning of the battle, grants [Dual Blink 1] to the user when Reraise is triggered",
+    "description": "status lvl =1 at battle start, (Reraise ⤇ PM blink 1)",
+    "effect": "Grants Reraise: 80% at the beginning of the battle, grants [Dual Blink 1] to the user when Reraise is triggered",
     "name": "Empress of Peace",
   },
   Object {
@@ -256,8 +268,8 @@ Array [
   },
   Object {
     "character": "Aranea",
-    "description": "(Dragoon ⤇ 50% for p1.15 l+d+n rngd)",
-    "effect": "50% chance to cast an ability (PHY: single, 1x 1.15 ranged Lightning/Dark/NE) after using a Dragoon ability",
+    "description": "(Dragoon ⤇ 50% for p1.15 l+d+n rngd Dragoon)",
+    "effect": "50% chance to cast Magitek Thrust after using a Dragoon ability",
     "name": "Onslaught (Aranea)",
   },
   Object {
@@ -292,8 +304,8 @@ Array [
   },
   Object {
     "character": "Arc",
-    "description": "(water/holy dmg ⤇ 35% for m8.43/3 (SUM) or w8.94/3 wa+h+n, self refill 1 Summon abil. use)",
-    "effect": "35% chance to cast an ability (SUM/WHT: single, 3x 2.81/2.98 magical Water/Holy/NE, summoning ether 1 to the user) after dealing damage with a Water or Holy ability",
+    "description": "(water/holy ⤇ 35% for m8.43/3 (SUM) or w8.94/3 wa+h+n, self refill 1 random abil. use)",
+    "effect": "35% chance to cast Reflux Leviath after using a Water or Holy ability",
     "name": "Onslaught (Arc)",
   },
   Object {
@@ -393,6 +405,12 @@ Array [
     "name": "Bound by a Promise",
   },
   Object {
+    "character": "Auron",
+    "description": "(3 Samurai ⤇ +30% ATK, +30% RES, fastcast 15s undefined)",
+    "effect": "Grants [Stoic Guardian Mode] after using three Samurai abilities once per battle",
+    "name": "Catalyst (Auron)",
+  },
+  Object {
     "character": "Axel",
     "description": "1.1x fire dmg",
     "effect": "Increases Fire damage dealt by 10%",
@@ -436,8 +454,8 @@ Array [
   },
   Object {
     "character": "Ayame",
-    "description": "(Samurai dmg ⤇ 50% for p1.15 i+n)",
-    "effect": "50% chance to cast an ability (PHY: single, 1x 1.15 physical Ice/NE) after dealing damage with a Samurai ability",
+    "description": "(Samurai dmg ⤇ 50% for p1.15 i+n Samurai)",
+    "effect": "50% chance to cast Zanshin (XI) after dealing damage with a Samurai ability",
     "name": "Onslaught (Ayame)",
   },
   Object {
@@ -449,7 +467,7 @@ Array [
   Object {
     "character": "Balthier",
     "description": "(Machinist ⤇ 30% for +10% fire vuln. 15s)",
-    "effect": "30% chance to cause [Imperil Fire 10% (15s)] to the target after using a Machinist ability on an enemy",
+    "effect": "30% chance to cause [Imperil Fire 10% (15s)] to the target after using a Machinist ability",
     "name": "Scourge of the Skies",
   },
   Object {
@@ -556,8 +574,8 @@ Array [
   },
   Object {
     "character": "Basch",
-    "description": "(holy/fire dmg ⤇ 35% for p1.47/3 h+f+n, ally heal 1.5k)",
-    "effect": "35% chance to cast an ability (PHY: single, 3x 0.49 physical Holy/Fire/NE, restores 1500 HP to the lowest HP% ally) after dealing damage with a Holy or Fire ability",
+    "description": "(holy/fire dmg ⤇ 35% for p1.47/3 h+f+n Knight, ally heal 1.5k)",
+    "effect": "35% chance to cast Inferno Strike after dealing damage with a Holy or Fire ability",
     "name": "Onslaught (Basch)",
   },
   Object {
@@ -587,7 +605,7 @@ Array [
   Object {
     "character": "Beatrix",
     "description": "(Knight ⤇ 20% for +10% holy vuln. 15s)",
-    "effect": "20% chance to cause [Imperil Holy 10% (15s)] to the target after using a Knight ability on an enemy",
+    "effect": "20% chance to cause [Imperil Holy 10% (15s)] to the target after using a Knight ability",
     "name": "Paladin Paragon",
   },
   Object {
@@ -705,6 +723,12 @@ Array [
     "name": "Dark Elite",
   },
   Object {
+    "character": "Cecil (Dark Knight)",
+    "description": "(3 Darkness ⤇ fastcast 3)",
+    "effect": "Grants [Quick Cast 3] after using three Darkness abilities",
+    "name": "Hastening (Cecil (Dark Knight))",
+  },
+  Object {
     "character": "Cecil (Paladin)",
     "description": "-10% holy dmg taken",
     "effect": "Reduces damage taken by Holy attacks by 10%",
@@ -780,7 +804,7 @@ Array [
     "character": "Ceodore",
     "description": "(Knight ⤇ 35% for ally heal 40% HP)",
     "effect": "35% chance to cast an ability (NAT: single, restores HP for 40% of the target's maximum HP) after using a Knight ability",
-    "name": "Fledging Red Wings",
+    "name": "Fledgling Red Wing",
   },
   Object {
     "character": "Ceodore",
@@ -809,7 +833,7 @@ Array [
   Object {
     "character": "Cid (IV)",
     "description": "(lgt ⤇ 30% for +10% lgt vuln. 15s)",
-    "effect": "30% chance to cause [Imperil Lightning 10% (15s)] to the target after using a Lightning attack on an enemy",
+    "effect": "30% chance to cause [Imperil Lightning 10% (15s)] to the target after using a Lightning attack",
     "name": "Airship Aficionado",
   },
   Object {
@@ -823,6 +847,12 @@ Array [
     "description": "lgt infuse 25s at battle start",
     "effect": "Grants [Attach Lightning] at the beginning of the battle",
     "name": "Unselfish Disposition",
+  },
+  Object {
+    "character": "Cid (IV)",
+    "description": "dualcast lgt per 3 uses",
+    "effect": "100% chance to dualcast every third Lightning ability",
+    "name": "Re-action (Cid IV)",
   },
   Object {
     "character": "Cid (VII)",
@@ -999,6 +1029,12 @@ Array [
     "name": "Oblivion Seeker",
   },
   Object {
+    "character": "Cloud of Darkness",
+    "description": "(3 dark ⤇ fastcast 3)",
+    "effect": "Grants [Quick Cast 3] after using three Dark abilities",
+    "name": "Hastening (Cloud of Darkness)",
+  },
+  Object {
     "character": "Cor",
     "description": "1.15x Samurai dmg",
     "effect": "Samurai abilities deal 15% more damage",
@@ -1044,7 +1080,7 @@ Array [
     "character": "Curilla",
     "description": "dualcast Knight per 3 uses",
     "effect": "100% chance to dualcast every third Knight ability",
-    "name": "Echo (Curilla)",
+    "name": "Re-action (Curilla)",
   },
   Object {
     "character": "Cyan",
@@ -1090,8 +1126,8 @@ Array [
   },
   Object {
     "character": "Delita",
-    "description": "(Spellblade/Knight dmg ⤇ ?% for p?/4 h+f+l+i)",
-    "effect": "?% chance to cast an ability (PHY: single, 4x ? physical Holy/Fire/Lightning/Ice) after dealing damage with a Spellblade or Knight attack",
+    "description": "(Spellblade/Knight dmg ⤇ 35% for p2.16/4 h+f+l+i Spellblade)",
+    "effect": "35% chance to cast Hero-King's Blade after dealing damage with a Spellblade or Knight attack",
     "name": "Onslaught (Delita)",
   },
   Object {
@@ -1175,7 +1211,7 @@ Array [
   Object {
     "character": "Dorgann",
     "description": "(earth ⤇ 20% for +10% earth vuln. 15s)",
-    "effect": "20% chance to cause [Imperil Earth 10% (15s)] to the target after using an Earth attack on an enemy",
+    "effect": "20% chance to cause [Imperil Earth 10% (15s)] to the target after using an Earth attack",
     "name": "Warrior of Regole",
   },
   Object {
@@ -1289,7 +1325,7 @@ Array [
   Object {
     "character": "Edgar",
     "description": "(Machinist ⤇ 20% for +10% fire vuln. 15s)",
-    "effect": "20% chance to cause [Imperil Fire 10% (15s)] to the target after using a Machinist ability on an enemy",
+    "effect": "20% chance to cause [Imperil Fire 10% (15s)] to the target after using a Machinist ability",
     "name": "Awkward Inventor",
   },
   Object {
@@ -1315,6 +1351,12 @@ Array [
     "description": "(Ninja ⤇ 25% for p1.26/3 or m1201.5/3 wa+f+l+n Ninja)",
     "effect": "25% chance to cast Unequaled Master after using a Ninja ability",
     "name": "Unequaled Master",
+  },
+  Object {
+    "character": "Edge",
+    "description": "(3 Ninja ⤇ fastcast 3)",
+    "effect": "Grants [Quick Cast 3] after using three Ninja abilities",
+    "name": "Hastening (Edge)",
   },
   Object {
     "character": "Edward",
@@ -1357,6 +1399,12 @@ Array [
     "description": "ice infuse 25s at battle start",
     "effect": "Grants [Attach Ice] at the beginning of the battle",
     "name": "Keen Perception",
+  },
+  Object {
+    "character": "Eight",
+    "description": "dualcast ice per 3 uses",
+    "effect": "100% chance to dualcast every third Ice ability",
+    "name": "Re-action (Eight)",
   },
   Object {
     "character": "Eiko",
@@ -1673,7 +1721,7 @@ Array [
   Object {
     "character": "Fran",
     "description": "(Support ⤇ 30% for Stun if using a bow)",
-    "effect": "30% chance to cause [Stun] to the target after using a Support ability on an enemy when equipping a bow",
+    "effect": "30% chance to cause [Stun] to the target after using a Support ability when equipping a bow",
     "name": "Brawn and Brains",
   },
   Object {
@@ -1698,7 +1746,7 @@ Array [
     "character": "Fran",
     "description": "(3 ice ⤇ +10% ice vuln. 15s)",
     "effect": "Causes [Imperil Ice 10% (15s)] after using three Ice abilities",
-    "name": "Enfeeble (Fran)",
+    "name": "Subversion (Fran)",
   },
   Object {
     "character": "Freya",
@@ -1756,8 +1804,8 @@ Array [
   },
   Object {
     "character": "Fujin",
-    "description": "(wind dmg ⤇ 35?% for m?/4 wi+n)",
-    "effect": "35?% chance to cast an ability (BLK: single, 4x ? magical Wind/NE) after dealing damage with a Wind attack",
+    "description": "(wind dmg ⤇ 35% for m8.16/4 wi+n B.Mag)",
+    "effect": "35% chance to cast Geki after dealing damage with a Wind attack",
     "name": "Onslaught (Fujin)",
   },
   Object {
@@ -1777,6 +1825,12 @@ Array [
     "description": "holy infuse 25s at battle start",
     "effect": "Grants [Attach Holy] at the beginning of the battle",
     "name": "Watcher of Worlds",
+  },
+  Object {
+    "character": "Fusoya",
+    "description": "(<20% HP ⤇ party Autoheal 2k, Regenga)",
+    "effect": "Grants [HP Stock (2000)] and [Regenga] to all allies when HP fall below 20%",
+    "name": "Blessing (Fusoya)",
   },
   Object {
     "character": "Gabranth",
@@ -1894,8 +1948,8 @@ Array [
   },
   Object {
     "character": "Garland",
-    "description": "(dark dmg ⤇ ?% for p?/4 d+n)",
-    "effect": "?% chance to cast an ability (PHY: single, 4x ? physical Dark/NE) after dealing damage with a Dark attack",
+    "description": "(dark dmg ⤇ 35% for p2.16/4 d+n)",
+    "effect": "35% chance to cast an ability (PHY: single, 4x 0.54 physical Dark/NE) after dealing damage with a Dark ability",
     "name": "Onslaught (Garland)",
   },
   Object {
@@ -1938,7 +1992,7 @@ Array [
     "character": "Garnet",
     "description": "dualcast Summon per 3 uses",
     "effect": "100% chance to dualcast every third Summoning ability",
-    "name": "Echo (Garnet)",
+    "name": "Re-action (Garnet)",
   },
   Object {
     "character": "Gau",
@@ -2049,6 +2103,12 @@ Array [
     "name": "Waterlogged Misfit",
   },
   Object {
+    "character": "Gogo (V)",
+    "description": "(3 water ⤇ +10% water vuln. 15s)",
+    "effect": "Causes [Imperil Water 10% (15s)] after using three Water abilities",
+    "name": "Subversion (Gogo (V))",
+  },
+  Object {
     "character": "Gogo (VI)",
     "description": "1.15x mimic dmg",
     "effect": "Mimic attacks deal 15% more damage",
@@ -2136,7 +2196,7 @@ Array [
     "character": "Gordon",
     "description": "Haste, instacast 3 at battle start",
     "effect": "Grants [Haste] and [Instant Cast 3] at the beginning of the battle",
-    "name": "Hastening (Gordon)",
+    "name": "Swiftness (Gordon)",
   },
   Object {
     "character": "Guy",
@@ -2147,7 +2207,7 @@ Array [
   Object {
     "character": "Guy",
     "description": "(earth ⤇ 30% for +10% earth vuln. 15s)",
-    "effect": "30% chance to cause [Imperil Earth 10% (15s)] to the target after using a Earth attack on an enemy",
+    "effect": "30% chance to cause [Imperil Earth 10% (15s)] to the target after using a Earth attack",
     "name": "Measured Might",
   },
   Object {
@@ -2232,7 +2292,7 @@ Array [
     "character": "Hope",
     "description": "1.25x holy dmg",
     "effect": "Increases Holy damage dealt by 25%",
-    "name": "Sublimation (Hope)",
+    "name": "Refinement (Hope)",
   },
   Object {
     "character": "Ignis",
@@ -2328,13 +2388,19 @@ Array [
     "character": "Irvine",
     "description": "(Sharpshooter/Machinist ⤇ 30% for fastcast 3)",
     "effect": "30% chance to grant [Quick Cast 3] to the user after using a Sharpshooter or Machinist ability",
-    "name": "Master Marksman",
+    "name": "Trigger Finger",
   },
   Object {
     "character": "Irvine",
     "description": "(Sharpshooter/Machinist ⤇ 20% for +10% fire vuln. 15s)",
-    "effect": "20% chance to cause [Imperil Fire 10% (15s)] to the target after using a Sharpshooter or Machinist ability on an enemy",
+    "effect": "20% chance to cause [Imperil Fire 10% (15s)] to the target after using a Sharpshooter or Machinist ability",
     "name": "Key to the Past",
+  },
+  Object {
+    "character": "Irvine",
+    "description": "dualcast fire per 3 uses",
+    "effect": "100% chance to dualcast every third Fire ability",
+    "name": "Re-action (Irvine)",
   },
   Object {
     "character": "Jack",
@@ -2353,6 +2419,12 @@ Array [
     "description": "fire infuse 25s at battle start",
     "effect": "Grants [Attach Fire] at the beginning of the battle",
     "name": "Edge of Flame",
+  },
+  Object {
+    "character": "Jack",
+    "description": "dualcast fire per 3 uses",
+    "effect": "100% chance to dualcast every third Fire ability",
+    "name": "Re-action (Jack)",
   },
   Object {
     "character": "Jecht",
@@ -2520,7 +2592,7 @@ Array [
     "character": "Kimahri",
     "description": "dualcast water per 3 uses",
     "effect": "100% chance to dualcast every third Water ability",
-    "name": "Enable (Kimahri)",
+    "name": "Re-action (Kimahri)",
   },
   Object {
     "character": "King",
@@ -2549,7 +2621,7 @@ Array [
   Object {
     "character": "King",
     "description": "(lgt dmg ⤇ 35% for p?/4 l+n rngd)",
-    "effect": "35% chance to cast an ability (PHY: single, 4x ? ranged physical Lightning/NE) after dealing damage with a Lightning attack",
+    "effect": "35% chance to cast Quadruple Shot after dealing damage with a Lightning attack",
     "name": "Onslaught (King)",
   },
   Object {
@@ -2567,14 +2639,14 @@ Array [
   Object {
     "character": "Kiros",
     "description": "(Ninja/Sharpshooter ⤇ 20% for +10% dark vuln. 15s)",
-    "effect": "20% chance to cause [Imperil Dark 10% (15s)] to the target after using a Ninja or Sharpshooter ability on an enemy",
+    "effect": "20% chance to cause [Imperil Dark 10% (15s)] to the target after using a Ninja or Sharpshooter ability",
     "name": "Exotic Presence",
   },
   Object {
     "character": "Kiros",
     "description": "(3 ice ⤇ +10% ice vuln. 15s)",
     "effect": "Causes [Imperil Ice 10% (15s)] after using three Ice abilities",
-    "name": "Enfeeble (Kiros)",
+    "name": "Subversion (Kiros)",
   },
   Object {
     "character": "Krile",
@@ -2634,7 +2706,7 @@ Array [
     "character": "Kuja",
     "description": "(<20% HP ⤇ heal 100% HP, +50% MAG, -50% RES 25s, hi fastcast 25s)",
     "effect": "Restores HP for 100% of the user's maximum HP and grants [MAG +50%, RES -50% (25s)] and [High Quick Cast (25s)] when HP fall below 20%",
-    "name": "Trance (Kuja)",
+    "name": "Perseverance (Kuja)",
   },
   Object {
     "character": "Laguna",
@@ -2651,7 +2723,7 @@ Array [
   Object {
     "character": "Laguna",
     "description": "(Machinist ⤇ 20% for +10% ice vuln. 15s)",
-    "effect": "20% chance to cause [Imperil Ice 10% (15s)] to the target after using a Machinist ability on an enemy",
+    "effect": "20% chance to cause [Imperil Ice 10% (15s)] to the target after using a Machinist ability",
     "name": "Splash of Fun",
   },
   Object {
@@ -2664,13 +2736,13 @@ Array [
     "character": "Lann",
     "description": "1.1x fire dmg",
     "effect": "Increases Fire damage dealt by 10%",
-    "name": "Childish One",
+    "name": "Freewheeler",
   },
   Object {
     "character": "Lann",
     "description": "35% dualcast fire",
     "effect": "35% chance to dualcast abilities that deal Fire damage",
-    "name": "Resolute Spirit",
+    "name": "Defiant Heart",
   },
   Object {
     "character": "Lann",
@@ -2711,7 +2783,7 @@ Array [
   Object {
     "character": "Lasswell",
     "description": "(ice ⤇ 20% for +10% ice vuln. 15s)",
-    "effect": "20% chance to cause [Imperil Ice 10% (15s)] to the target after using a Ice ability on an enemy",
+    "effect": "20% chance to cause [Imperil Ice 10% (15s)] to the target after using a Ice ability",
     "name": "Heir to the Blade",
   },
   Object {
@@ -2741,7 +2813,7 @@ Array [
   Object {
     "character": "Leila",
     "description": "(water ⤇ 20% for +10% water vuln. 15s)",
-    "effect": "20% chance to cause [Imperil Water 10% (15s)] to the target after using a Water attack on an enemy",
+    "effect": "20% chance to cause [Imperil Water 10% (15s)] to the target after using a Water attack",
     "name": "Pirate of Paloom",
   },
   Object {
@@ -2865,6 +2937,12 @@ Array [
     "name": "Brash Dancer",
   },
   Object {
+    "character": "Lilisette",
+    "description": "(3 Dancer/Support ⤇ fastcast 3)",
+    "effect": "Grants [Quick Cast 3] after using three Dancer/Support abilities",
+    "name": "Hastening (Lilisette)",
+  },
+  Object {
     "character": "Lion",
     "description": "1.1x PHY dmg if using a dagger",
     "effect": "PHY attacks deal 10% more damage when equipping a dagger",
@@ -2886,7 +2964,7 @@ Array [
     "character": "Lion",
     "description": "(3 water ⤇ +10% water vuln. 15s)",
     "effect": "Causes [Imperil Water 10% (15s)] after using three Water abilities",
-    "name": "Enfeeble (Lion)",
+    "name": "Subversion (Lion)",
   },
   Object {
     "character": "Locke",
@@ -2946,7 +3024,7 @@ Array [
     "character": "Lunafreya",
     "description": "1.1x SUM dmg",
     "effect": "SUM attacks deal 10% more damage",
-    "name": "Voice of the Gods",
+    "name": "Voice of Gods",
   },
   Object {
     "character": "Lunafreya",
@@ -3015,6 +3093,12 @@ Array [
     "name": "Chichiri's Godfather",
   },
   Object {
+    "character": "Machina",
+    "description": "fastcast 15s, (Spellblade ⤇ p1.96/4 e+d+n Spellblade) 15s at battle start",
+    "effect": "Grants [Quick Cast] and [Focal Sword Follow-Up] at the beginning of the battle",
+    "name": "Swiftness (Machina)",
+  },
+  Object {
     "character": "Marach",
     "description": "1.1x lgt dmg",
     "effect": "Increases Lightning damage dealt by 10%",
@@ -3035,7 +3119,7 @@ Array [
   Object {
     "character": "Marach",
     "description": "(lgt ⤇ 20% for +10% lgt vuln. 15s)",
-    "effect": "20% chance to cause [Imperil Lightning 10% (15s)] to the target after using a Lightning ability on an enemy",
+    "effect": "20% chance to cause [Imperil Lightning 10% (15s)] to the target after using a Lightning ability",
     "name": "Blood of Galthena",
   },
   Object {
@@ -3059,7 +3143,7 @@ Array [
   Object {
     "character": "Marcus",
     "description": "(Thief ⤇ 20% for +10% wind vuln. 15s)",
-    "effect": "20% chance to cause [Imperil Wind 10% (15s)] to the target after using a Thief ability on an enemy",
+    "effect": "20% chance to cause [Imperil Wind 10% (15s)] to the target after using a Thief ability",
     "name": "Grim Grin",
   },
   Object {
@@ -3097,6 +3181,12 @@ Array [
     "description": "25% dualcast earth",
     "effect": "25% chance to dualcast abilities that deal Earth damage",
     "name": "Searching Sister",
+  },
+  Object {
+    "character": "Maria",
+    "description": "1.25x BLK dmg",
+    "effect": "BLK attacks deal 25% more damage",
+    "name": "Refinement (Maria)",
   },
   Object {
     "character": "Master",
@@ -3178,8 +3268,8 @@ Array [
   },
   Object {
     "character": "Meliadoul",
-    "description": "(Knight ⤇ 30% for +10% earth vuln. 15s)",
-    "effect": "30% chance to cause [Imperil Earth 10% (15s)] to the target after using a Knight ability on an enemy",
+    "description": "(Knight ⤇ 30% for +10% earth/holy vuln. 15s)",
+    "effect": "30% chance to cause [Imperil Earth 10% (15s)] and [Imperil Holy 10% (15s)] to the target after using a Knight ability",
     "name": "Divine Secrets",
   },
   Object {
@@ -3197,7 +3287,7 @@ Array [
   Object {
     "character": "Minfilia",
     "description": "(Knight ⤇ 30% for +10% holy vuln. 15s)",
-    "effect": "30% chance to cause [Imperil Holy 10% (15s)] to the target after using a Knight ability on an enemy",
+    "effect": "30% chance to cause [Imperil Holy 10% (15s)] to the target after using a Knight ability",
     "name": "Courage of Halone",
   },
   Object {
@@ -3303,6 +3393,12 @@ Array [
     "name": "Kindhearted Moogle",
   },
   Object {
+    "character": "Montblanc",
+    "description": "(<20% HP ⤇ heal 100% HP, instant ATB 1, +30% MAG, +30% MND, fastcast 15s)",
+    "effect": "Restores HP for 100% of the user's maximum HP and grants [Instant ATB 1] and [Critical: Quicken Mode] when HP fall below 20%",
+    "name": "Perseverance (Montblanc)",
+  },
+  Object {
     "character": "Morrow",
     "description": "1.15x Support dmg",
     "effect": "Support abilities deal 15% more damage",
@@ -3347,7 +3443,7 @@ Array [
   Object {
     "character": "Nabaat",
     "description": "(dark ⤇ 30% for +10% dark vuln. 15s)",
-    "effect": "30% chance to cause [Imperil Dark 10% (15s)] to the target after using a Dark attack on an enemy",
+    "effect": "30% chance to cause [Imperil Dark 10% (15s)] to the target after using a Dark attack",
     "name": "Belied Ambition",
   },
   Object {
@@ -3395,7 +3491,7 @@ Array [
   Object {
     "character": "Nine",
     "description": "(jump ⤇ 20% for +10% wind vuln. 15s)",
-    "effect": "20% chance to cause [Imperil Wind 10% (15s)] to the target after using a jump attack on an enemy",
+    "effect": "20% chance to cause [Imperil Wind 10% (15s)] to the target after using a jump attack",
     "name": "Dizzying Leap",
   },
   Object {
@@ -3642,7 +3738,7 @@ Array [
     "character": "Papalymo",
     "description": "1.25x BLK dmg",
     "effect": "BLK attacks deal 25% more damage",
-    "name": "Sublimation (Papalymo)",
+    "name": "Refinement (Papalymo)",
   },
   Object {
     "character": "Penelo",
@@ -3719,7 +3815,7 @@ Array [
   Object {
     "character": "Prompto",
     "description": "(Machinist ⤇ 30% for +10% lgt vuln. 15s)",
-    "effect": "30% chance to cause [Imperil Lightning 10% (15s)] to the target after using a Machinist ability on an enemy",
+    "effect": "30% chance to cause [Imperil Lightning 10% (15s)] to the target after using a Machinist ability",
     "name": "Fast Friends",
   },
   Object {
@@ -3947,7 +4043,7 @@ Array [
   Object {
     "character": "Refia",
     "description": "(Monk dmg ⤇ 35% for p?/4 f+n)",
-    "effect": "35% chance to cast an ability (PHY: single, 4x ? physical Fire/NE) after dealing damage with a Monk attack",
+    "effect": "35% chance to cast Flame Blossom after dealing damage with a Monk attack",
     "name": "Onslaught (Refia)",
   },
   Object {
@@ -3972,7 +4068,7 @@ Array [
     "character": "Reks",
     "description": "1.25x lgt dmg",
     "effect": "Increases Lightning damage dealt by 25%",
-    "name": "Boost (Reks)",
+    "name": "Refinement (Reks)",
   },
   Object {
     "character": "Relm",
@@ -4050,7 +4146,7 @@ Array [
     "character": "Reno",
     "description": "35% dualcast lgt",
     "effect": "35% chance to dualcast abilities that deal Lightning damage",
-    "name": "Finishing Buisness",
+    "name": "Finishing Business",
   },
   Object {
     "character": "Reno",
@@ -4068,7 +4164,7 @@ Array [
     "character": "Reynn",
     "description": "(ice ⤇ 30% for fastcast 3)",
     "effect": "30% chance to grant [Quick Cast 3] to the user after using a Ice attack",
-    "name": "Longing to Mother",
+    "name": "A Daughter's Love",
   },
   Object {
     "character": "Reynn",
@@ -4140,7 +4236,7 @@ Array [
     "character": "Riku",
     "description": "35% dualcast dark",
     "effect": "35% chance to dualcast abilities that deal Dark damage",
-    "name": "Friends and Memories",
+    "name": "Friends In My Heart",
   },
   Object {
     "character": "Riku",
@@ -4259,7 +4355,7 @@ Array [
   Object {
     "character": "Rubicante",
     "description": "(B.Mag ⤇ 20% for +10% fire vuln. 15s)",
-    "effect": "20% chance to cause [Imperil Fire 10% (15s)] to the target after using a Black Magic ability on an enemy",
+    "effect": "20% chance to cause [Imperil Fire 10% (15s)] to the target after using a Black Magic ability",
     "name": "Fiercest Fiend",
   },
   Object {
@@ -4284,12 +4380,12 @@ Array [
     "character": "Rufus",
     "description": "1.1x PHY dmg if using a gun",
     "effect": "PHY attacks deal 10% more damage when equipping a gun",
-    "name": "Shinra's Scion",
+    "name": "Shinra Scion",
   },
   Object {
     "character": "Rufus",
     "description": "(dark ⤇ 30% for +10% dark vuln. 15s)",
-    "effect": "30% chance to cause [Imperil Dark 10% (15s)] to the target after using a Dark attack on an enemy",
+    "effect": "30% chance to cause [Imperil Dark 10% (15s)] to the target after using a Dark attack",
     "name": "Scheming Son",
   },
   Object {
@@ -4440,7 +4536,7 @@ Array [
     "character": "Scott",
     "description": "1.25x fire dmg",
     "effect": "Increases Fire damage dealt by 25%",
-    "name": "Moxie (Scott)",
+    "name": "Refinement (Scott)",
   },
   Object {
     "character": "Seifer",
@@ -4541,7 +4637,7 @@ Array [
   Object {
     "character": "Serafie",
     "description": "(wind ⤇ 30% for +10% wind vuln. 15s)",
-    "effect": "30% chance to cause [Imperil Wind 10% (15s)] to the target after using a Wind attack on an enemy",
+    "effect": "30% chance to cause [Imperil Wind 10% (15s)] to the target after using a Wind attack",
     "name": "Mirage Mascot",
   },
   Object {
@@ -4584,7 +4680,7 @@ Array [
     "character": "Serah",
     "description": "dualcast water per 3 uses",
     "effect": "100% chance to dualcast every third Water ability",
-    "name": "Echo (Serah)",
+    "name": "Re-action (Serah)",
   },
   Object {
     "character": "Setzer",
@@ -4631,7 +4727,7 @@ Array [
   Object {
     "character": "Seven",
     "description": "(ice ⤇ 20% for +10% ice vuln. 15s)",
-    "effect": "20% chance to cause [Imperil Ice 10% (15s)] to the target after using a Ice attack on an enemy",
+    "effect": "20% chance to cause [Imperil Ice 10% (15s)] to the target after using a Ice attack",
     "name": "Class Act",
   },
   Object {
@@ -4749,6 +4845,12 @@ Array [
     "name": "Shaper of Fate",
   },
   Object {
+    "character": "Shelke",
+    "description": "(3 Celerity/Support ⤇ +10% lgt vuln. 15s)",
+    "effect": "Causes [Imperil Lightning 10% (15s)] after using three Celerity or Support abilities",
+    "name": "Subversion (Shelke)",
+  },
+  Object {
     "character": "Sice",
     "description": "1.1x dark dmg",
     "effect": "Increases Dark damage dealt by 10%",
@@ -4765,6 +4867,12 @@ Array [
     "description": "dark infuse 25s at battle start",
     "effect": "Grants [Attach Dark] at the beginning of the battle",
     "name": "Survival Mentality",
+  },
+  Object {
+    "character": "Sice",
+    "description": "(3 dark ⤇ fastcast 3)",
+    "effect": "Grants [Quick Cast 3] after using three Dark abilities",
+    "name": "Hastening (Sice)",
   },
   Object {
     "character": "Snow",
@@ -4806,7 +4914,7 @@ Array [
     "character": "Snow",
     "description": "1.25x ice dmg",
     "effect": "Increases Ice damage dealt by 25%",
-    "name": "Moxie (Snow)",
+    "name": "Refinement (Snow)",
   },
   Object {
     "character": "Sora",
@@ -4883,7 +4991,7 @@ Array [
   Object {
     "character": "Steiner",
     "description": "(Spellblade ⤇ 20% for +10% fire vuln. 15s)",
-    "effect": "20% chance to cause [Imperil Fire 10% (15s)] to the target after using a Spellblade ability on an enemy",
+    "effect": "20% chance to cause [Imperil Fire 10% (15s)] to the target after using a Spellblade ability",
     "name": "Opportunity Strikes",
   },
   Object {
@@ -5184,7 +5292,7 @@ Array [
     "character": "Ultimecia",
     "description": "1.25x BLK dmg",
     "effect": "BLK attacks deal 25% more damage",
-    "name": "Boost (Ultimecia)",
+    "name": "Refinement (Ultimecia)",
   },
   Object {
     "character": "Umaro",
@@ -5203,6 +5311,12 @@ Array [
     "description": "ice infuse 25s at battle start",
     "effect": "Grants [Attach Ice] at the beginning of the battle",
     "name": "Ughaaa!",
+  },
+  Object {
+    "character": "Umaro",
+    "description": "(Monk/Sharpshooter ⤇ 35% for AoE p2.01/3 i+n Monk – p1.76 i+n w/ 99k cap Monk)",
+    "effect": "35% chance to cast Snow Play (50%) or Icicle Play (50%) after using Monk or Sharpshooter abilities",
+    "name": "Onslaught (Umaro)",
   },
   Object {
     "character": "Ursula",
@@ -5295,6 +5409,12 @@ Array [
     "name": "Hour of Awakening",
   },
   Object {
+    "character": "Vanille",
+    "description": "(3 W.Mag/Support ⤇ fastcast 3)",
+    "effect": "Grants [Quick Cast 3] after using three White Magic/Support abilities",
+    "name": "Hastening (Vanille)",
+  },
+  Object {
     "character": "Vayne",
     "description": "1.1x dark dmg",
     "effect": "Increases Dark damage dealt by 10%",
@@ -5316,7 +5436,7 @@ Array [
     "character": "Vayne",
     "description": "1.25x dark dmg",
     "effect": "Increases Dark damage dealt by 25%",
-    "name": "Boost (Vayne)",
+    "name": "Refinement (Vayne)",
   },
   Object {
     "character": "Vincent",
@@ -5327,7 +5447,7 @@ Array [
   Object {
     "character": "Vincent",
     "description": "(<20% HP ⤇ heal 100% HP, Trance: +20% A/D/M/R/MND/ACC/EVA, fastcast 25s)",
-    "effect": "Restores HP for 100% of the user's maximum HP and grants [Galian Beast] when HP fall below 20%",
+    "effect": "Restores HP for 100% of the user's maximum HP and grants [Beast Mode] when HP fall below 20%",
     "name": "Beast Within",
   },
   Object {
@@ -5381,7 +5501,7 @@ Array [
   Object {
     "character": "Wakka",
     "description": "(Sharpshooter ⤇ 30% for +10% water vuln. 15s)",
-    "effect": "30% chance to cause [Imperil Water 10% (15s)] to the target after using a Sharpshooter ability on an enemy",
+    "effect": "30% chance to cause [Imperil Water 10% (15s)] to the target after using a Sharpshooter ability",
     "name": "Blitz Spirit",
   },
   Object {
@@ -5418,7 +5538,7 @@ Array [
     "character": "Ward",
     "description": "dualcast water/ice/earth per 3 uses",
     "effect": "100% chance to dualcast every third Water, Ice or Earth ability",
-    "name": "Echo (Ward)",
+    "name": "Re-action (Ward)",
   },
   Object {
     "character": "Warrior of Light",
@@ -5457,6 +5577,12 @@ Array [
     "name": "Cycle Breaker",
   },
   Object {
+    "character": "Warrior of Light",
+    "description": "dualcast holy per 3 uses",
+    "effect": "100% chance to dualcast every third Holy ability",
+    "name": "Re-action (Warrior of Light)",
+  },
+  Object {
     "character": "Wedge",
     "description": "1.1x wind dmg",
     "effect": "Increases Wind damage dealt by 10%",
@@ -5482,21 +5608,21 @@ Array [
   },
   Object {
     "character": "Wedge",
-    "description": "(wind dmg ⤇ 35% for p2.04/4 or m8.16/4 wi+n)",
-    "effect": "35% chance to cast an ability (NAT: single hybrid, 4x 0.51 or 2.04 Wind/NE) after dealing damage with a Wind attack",
+    "description": "(wind dmg ⤇ 35% for p2.04/4 or m8.16/4 wi+n rngd B.Mag)",
+    "effect": "35% chance to cast Spiral Arc after dealing damage with a Wind attack",
     "name": "Onslaught (Wedge)",
   },
   Object {
     "character": "Wol",
     "description": "1.1x PHY dmg",
     "effect": "PHY attacks deal 10% more damage",
-    "name": "Rational Realist",
+    "name": "Keen Pragmatist",
   },
   Object {
     "character": "Wol",
     "description": "Haste, instacast 3 at battle start",
     "effect": "Grants [Haste] and [Instant Cast 3] at the beginning of the battle",
-    "name": "Revolutionary Warrior of Light",
+    "name": "Bringer of Change",
   },
   Object {
     "character": "Wol",
@@ -5507,7 +5633,7 @@ Array [
   Object {
     "character": "Wol",
     "description": "(earth ⤇ 20% for +10% earth vuln. 15s)",
-    "effect": "20% chance to cause [Imperil Earth 10% (15s)] to the target after using a Earth attack on an enemy",
+    "effect": "20% chance to cause [Imperil Earth 10% (15s)] to the target after using a Earth attack",
     "name": "Aspirant of Light",
   },
   Object {
@@ -5639,7 +5765,7 @@ Array [
   Object {
     "character": "Ysayle",
     "description": "(ice ⤇ 20% for +10% ice vuln. 15s)",
-    "effect": "20% chance to cause [Imperil Ice 10% (15s)] to the target after using a Ice attack on an enemy",
+    "effect": "20% chance to cause [Imperil Ice 10% (15s)] to the target after using a Ice attack",
     "name": "The Greater Good",
   },
   Object {

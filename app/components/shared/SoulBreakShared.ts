@@ -53,6 +53,7 @@ export function makeTierStyleMap(
     LBO: cssStyles.overstrikeLimitBreak,
     LBG: cssStyles.glint,
     LBGS: cssStyles.guardianSummon,
+    LBC: cssStyles.chain,
 
     // Unused - placeholders
     Default: cssStyles.unique,
@@ -90,6 +91,7 @@ export const limitBreakAbbrevAliases = makeLimitBreakAliases(enlir.limitBreaks, 
   LBO: '𝐋𝐎',
   LBG: '𝐋𝐆',
   LBGS: '𝐋𝐆𝐒',
+  LBC: '𝐋𝐂',
 });
 export const limitBreakFullAliases = makeLimitBreakAliases(enlir.limitBreaks);
 export const legendMateriaAliases = makeLegendMateriaAliases(enlir.legendMateria);

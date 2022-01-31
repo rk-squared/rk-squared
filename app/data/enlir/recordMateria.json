@@ -6590,36 +6590,6 @@
     "gl": true
   },
   {
-    "realm": "XV",
-    "character": "Ravus",
-    "name": "Protector of the Calm God",
-    "effect": "PHY attacks deal 15% more damage when equipping a sword",
-    "unlockCriteria": "Use Ravus's Memory Crystal",
-    "nameJp": "神凪を守る者",
-    "id": 111150110,
-    "gl": false
-  },
-  {
-    "realm": "XV",
-    "character": "Ravus",
-    "name": "Unfulfilled Hope",
-    "effect": "Dark attacks deal 20% more damage",
-    "unlockCriteria": "Use Ravus's Memory Crystal II, chance to obtain with Ravus in party",
-    "nameJp": "叶わぬ望み",
-    "id": 111150111,
-    "gl": false
-  },
-  {
-    "realm": "XV",
-    "character": "Ravus",
-    "name": "Prosthesis Reward",
-    "effect": "Lightning attacks deal 30% more damage",
-    "unlockCriteria": "Bring Ravus to level 99",
-    "nameJp": "報いの義手",
-    "id": 111150112,
-    "gl": false
-  },
-  {
     "realm": "FFT",
     "character": "Ramza",
     "name": "Salve",

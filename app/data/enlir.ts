@@ -1028,6 +1028,13 @@ function patchEnlir() {
     '10% chance to triplecast Witch abilities',
   );
 
+  applyEffectPatch(
+    enlir.legendMateria,
+    '201061503',
+    '35% chance to cast Snow Play (50%) or Icicle Play (50%) after using Monk or Sharpshooter abilities',
+    '35% chance to cast Snow Play/Icicle Play after using Monk or Sharpshooter abilities',
+  )
+
   // Tyro AASB.  We patch it to simplify the soul break -> status -> triggered
   // other skill -> status setup.
   applyEffectsPatch(

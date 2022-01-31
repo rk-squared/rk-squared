@@ -4757,7 +4757,7 @@
     "name": "Ancient Lightning",
     "rarity": 6,
     "type": "BLK",
-    "target": "Single",
+    "target": "Single enemy",
     "formula": "Magical",
     "multiplier": 21,
     "element": [
@@ -6804,6 +6804,7 @@
     "element": null,
     "time": 1.65,
     "effects": "Restores HP (20), restores 1 consumed ability use every fourth activation",
+    "effectsNote": "JP 12/16/2021 - Changed to smart ether 1",
     "counter": false,
     "autoTarget": "All allies",
     "sb": 100,
@@ -6856,6 +6857,7 @@
     "element": null,
     "time": 1.65,
     "effects": "Restores HP (20), restores 1 consumed ability use every fourth activation",
+    "effectsNote": "JP 12/16/2021 - Changed to smart ether 1",
     "counter": false,
     "autoTarget": "All allies",
     "sb": 100,
@@ -7497,6 +7499,7 @@
     "element": null,
     "time": 1.65,
     "effects": "Restores HP (20), restores 1 consumed ability use every fourth activation",
+    "effectsNote": "JP 12/16/2021 - Changed to smart ether 1",
     "counter": false,
     "autoTarget": "All allies",
     "sb": 100,
@@ -7532,10 +7535,10 @@
         0
       ]
     },
-    "introducingEvent": "Explosion Fest 2021",
+    "introducingEvent": "Glory Fest 2021",
     "nameJp": "メディカラ(ヤ・シュトラ専用)",
     "id": 30121521,
-    "gl": false,
+    "gl": true,
     "recordBoardCharacter": "Y'shtola"
   },
   {
@@ -9890,7 +9893,7 @@
   },
   {
     "school": "Support",
-    "name": "The Transparent",
+    "name": "Transparent",
     "rarity": 6,
     "type": "NAT",
     "target": "Single ally",
@@ -9937,7 +9940,7 @@
     "introducingEvent": "Labyrinth Dungeon Season 2 Group G",
     "nameJp": "無式(シェルク専用)",
     "id": 30161291,
-    "gl": false,
+    "gl": true,
     "recordBoardCharacter": "Shelke"
   },
   {
@@ -9989,7 +9992,7 @@
     "introducingEvent": "Light the Skies!",
     "nameJp": "ブロッサムハーツ(フィーナ専用)",
     "id": 30161301,
-    "gl": false,
+    "gl": true,
     "recordBoardCharacter": "Fina"
   },
   {
@@ -11264,10 +11267,10 @@
         0
       ]
     },
-    "introducingEvent": "Explosion Fest 2021",
+    "introducingEvent": "Glory Fest 2021",
     "nameJp": "連続ヒット(オニオンナイト専用)",
     "id": 30171301,
-    "gl": false,
+    "gl": true,
     "recordBoardCharacter": "Onion Knight"
   },
   {
@@ -16176,7 +16179,7 @@
     "introducingEvent": "Light the Skies!",
     "nameJp": "ソウルプロミネンス(レイン専用)",
     "id": 30141411,
-    "gl": false,
+    "gl": true,
     "recordBoardCharacter": "Rain"
   },
   {
@@ -17680,7 +17683,7 @@
         0
       ]
     },
-    "introducingEvent": "Labyrinth Dungeon Season 3 Group M",
+    "introducingEvent": "Chaotic Memories III (XII)",
     "nameJp": "ブーストジャンプ(シド(VII)専用)",
     "id": 30181301,
     "gl": false,
@@ -19758,7 +19761,7 @@
     "introducingEvent": "Palace of Illusion (II)",
     "nameJp": "ギガントブレイク(ガイ専用)",
     "id": 30191401,
-    "gl": false,
+    "gl": true,
     "recordBoardCharacter": "Guy"
   },
   {
@@ -19825,14 +19828,14 @@
       "BLK"
     ],
     "target": "Single enemy",
-    "formula": "Hybris",
+    "formula": "Hybrid",
     "multiplier": null,
     "element": [
       "Earth",
       "Lightning"
     ],
     "time": 1.65,
-    "effects": "Five single ranged hybrid attacks (? or ? each)",
+    "effects": "Five single ranged hybrid attacks (1.10 or 3.50 each)",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 90,
@@ -19873,6 +19876,60 @@
     "id": 30191421,
     "gl": false,
     "recordBoardCharacter": "Rude"
+  },
+  {
+    "school": "Monk",
+    "name": "Forbidden Chakra",
+    "rarity": 6,
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 4,
+    "element": [
+      "Fire"
+    ],
+    "time": 1.65,
+    "effects": "Four single attacks (1.00 each), grants [Monk Quick Cast 2] to the user",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 90,
+    "uses": 2,
+    "max": 10,
+    "orbs": {
+      "Power Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Non-Elemental Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Fire Crystal": [
+        null,
+        10,
+        15,
+        50,
+        75
+      ],
+      "Record Board": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "introducingEvent": "New Year Party 2022",
+    "nameJp": "陰陽闘気斬(イダ専用)",
+    "id": 30191431,
+    "gl": false,
+    "recordBoardCharacter": "Yda"
   },
   {
     "school": "Thief",
@@ -23429,7 +23486,7 @@
     "introducingEvent": "Labyrinth Dungeon Season 2 Group H",
     "nameJp": "ダンシングエッジ(ウォル専用)",
     "id": 30211401,
-    "gl": false,
+    "gl": true,
     "recordBoardCharacter": "Wol"
   },
   {
@@ -25023,7 +25080,7 @@
     "introducingEvent": "Light the Skies!",
     "nameJp": "紫電一閃・醒(ラスウェル専用)",
     "id": 30221301,
-    "gl": false,
+    "gl": true,
     "recordBoardCharacter": "Lasswell"
   },
   {
@@ -29680,7 +29737,7 @@
     "introducingEvent": "Epic of the Blue Planet",
     "nameJp": "改造(シド(IV)専用)",
     "id": 30261301,
-    "gl": false,
+    "gl": true,
     "recordBoardCharacter": "Cid (IV)"
   },
   {
@@ -29736,6 +29793,116 @@
     "id": 30261321,
     "gl": false,
     "recordBoardCharacter": "Cid (IV)"
+  },
+  {
+    "school": "Machinist",
+    "name": "Chainsaw",
+    "rarity": 6,
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 5.5,
+    "element": [
+      "Poison",
+      "Fire",
+      "Lightning"
+    ],
+    "time": 1.65,
+    "effects": "Five single ranged attacks (1.10 each)",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 90,
+    "uses": 2,
+    "max": 10,
+    "orbs": {
+      "Non-Elemental Crystal": [
+        null,
+        10,
+        15,
+        50,
+        75
+      ],
+      "Fire Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Lightning Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Record Board": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "introducingEvent": "Labyrinth Dungeon Season 4 Group O",
+    "nameJp": "回転のこぎり(エドガー専用)",
+    "id": 30261311,
+    "gl": false,
+    "recordBoardCharacter": "Edgar"
+  },
+  {
+    "school": "Machinist",
+    "name": "Recoil (XV)",
+    "rarity": 6,
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 4,
+    "element": [
+      "Lightning"
+    ],
+    "time": 1.65,
+    "effects": "Four single ranged attacks (1.00 each), grants [Machinist Quick Cast 2] to the user",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 90,
+    "uses": 2,
+    "max": 10,
+    "orbs": {
+      "Power Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Non-Elemental Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Lightning Crystal": [
+        null,
+        10,
+        15,
+        50,
+        75
+      ],
+      "Record Board": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "introducingEvent": "New Year Party 2022",
+    "nameJp": "ブラスター【XV】(プロンプト専用)",
+    "id": 30261331,
+    "gl": false,
+    "recordBoardCharacter": "Prompto"
   },
   {
     "school": "Darkness",
@@ -31592,7 +31759,7 @@
     "introducingEvent": "Labyrinth Dungeon Season 2 Group G",
     "nameJp": "隔たりの触手(暗闇の雲専用)",
     "id": 30271351,
-    "gl": false,
+    "gl": true,
     "recordBoardCharacter": "Cloud of Darkness"
   },
   {
@@ -31646,7 +31813,7 @@
     "introducingEvent": "Palace of Illusion (II)",
     "nameJp": "ダークネスブレイカー(レオンハルト専用)",
     "id": 30271361,
-    "gl": false,
+    "gl": true,
     "recordBoardCharacter": "Leon"
   },
   {
@@ -32682,13 +32849,13 @@
     "type": "PHY",
     "target": "Single enemy",
     "formula": "Physical",
-    "multiplier": null,
+    "multiplier": 5.5,
     "element": [
       "Fire",
       "Lightning"
     ],
-    "time": null,
-    "effects": "Five single ranged attacks (? each), causes [Imperil Fire 10% (5s] and [Imperil Lightning 10% (5s)]",
+    "time": 3.3,
+    "effects": "Five single ranged attacks (1.10 each), causes [Imperil Fire 10% (5s)] and [Imperil Lightning 10% (5s)]",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 90,

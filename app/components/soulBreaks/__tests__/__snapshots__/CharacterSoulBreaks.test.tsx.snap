@@ -23,7 +23,7 @@ exports[`CharacterSoulBreaks renders multiple kinds of soul breaks and shows own
       </thead>
       <tbody>
         <tr
-          className="overstrikeLimitBreak jp"
+          className="overstrikeLimitBreak"
         >
           <td
             className="tier"
@@ -33,7 +33,7 @@ exports[`CharacterSoulBreaks renders multiple kinds of soul breaks and shows own
           <td
             className="name"
           >
-            “Dual Dragon Dive”
+            Dual Dragon Dive
           </td>
           <td
             className="effects"
@@ -61,7 +61,7 @@ exports[`CharacterSoulBreaks renders multiple kinds of soul breaks and shows own
           </td>
         </tr>
         <tr
-          className="unowned awakening jp"
+          className="unowned awakening"
         >
           <td
             className="tier"
@@ -71,12 +71,12 @@ exports[`CharacterSoulBreaks renders multiple kinds of soul breaks and shows own
           <td
             className="name"
           >
-            “Awoken Gungnir”
+            Awoken Gungnir
           </td>
           <td
             className="effects"
           >
-            phys 6.3/7 lgt+non jump w/ 19k cap, lgt infuse w/ stacking 25s, self dmg cap +10k 15s, 1.05x Dragoon dmg 15s, 15s: [Dual Awoken Dragoon Pride Mode I (Kain): Dragoon abilities deal 5/10/15/20/30% more damage at ability rank 1/2/3/4/5, triplecasts Dragoon abilities, critical chance =25%/50%/75%/100% for equipped Dragoon abilities after using 1/2/3+ Dragoon abilities, casts Dual Dragoon Dive after casting three Dragoon abilities]
+            phys 6.3/7 lgt+non jump w/ 19k cap, lgt infuse w/ stacking 25s, self dmg cap +10k 15s, 1.05x Dragoon dmg 15s, 15s: [Dual Awoken Dragoon Pride Mode I (Kain - Lightning): Dragoon abilities deal 5/10/15/20/30% more damage at ability rank 1/2/3/4/5, triplecasts Dragoon abilities, cast speed x2.00/x2.50/x3.00 for equipped Dragoon abilities after using 1/2/3+ Dragoon abilities, casts Dual Dragoon Dive after casting three Dragoon abilities]
           </td>
         </tr>
         <tr
@@ -89,11 +89,11 @@ exports[`CharacterSoulBreaks renders multiple kinds of soul breaks and shows own
             then
           </td>
           <td>
-            instant self instant ATB 1, [Dual Awoken Dragoon Pride Mode II (Kain): Increases the damage/healing cap by 20000, Dragoon abilities deal 5/10/15/20/30% more damage at ability rank 1/2/3/4/5, dualcasts Dragoon abilities, cast speed x9999999 for Jump attacks, critical chance =100%, lasts for 3/3/2/1/0 turns if the user had [Dual Awoken Dragoon Pride Mode I (Kain)] for 1/2/3/4/5+ turns]
+            instant self instant ATB 1, [Dual Awoken Dragoon Pride Mode II (Kain - Lightning): Increases the damage/healing cap by 20000, Dragoon abilities deal 5/10/15/20/30% more damage at ability rank 1/2/3/4/5, dualcasts Dragoon abilities, cast speed x9999999 for Jump attacks, critical chance =100%, lasts for 3/3/2/1/0 turns if the user had [Dual Awoken Dragoon Pride Mode I (Kain - Lightning)] for 1/2/3/4/5+ turns]
           </td>
         </tr>
         <tr
-          className="unowned chain jp"
+          className="unowned chain"
         >
           <td
             className="tier"
@@ -103,7 +103,7 @@ exports[`CharacterSoulBreaks renders multiple kinds of soul breaks and shows own
           <td
             className="name"
           >
-            “Boltlink (Kain)”
+            Lightning Bond (Kain)
           </td>
           <td
             className="effects"
@@ -131,7 +131,7 @@ exports[`CharacterSoulBreaks renders multiple kinds of soul breaks and shows own
           </td>
         </tr>
         <tr
-          className="unowned arcaneDyad jp"
+          className="unowned arcaneDyad"
         >
           <td
             className="tier"
@@ -141,7 +141,7 @@ exports[`CharacterSoulBreaks renders multiple kinds of soul breaks and shows own
           <td
             className="name"
           >
-            “Apex Jump”
+            Apex Jump
           </td>
           <td
             className="effects"
@@ -770,7 +770,7 @@ exports[`CharacterSoulBreaks renders multiple kinds of soul breaks in anonymous 
           </td>
         </tr>
         <tr
-          className="overstrikeLimitBreak jp"
+          className="overstrikeLimitBreak"
         >
           <td
             className="tier"
@@ -780,7 +780,7 @@ exports[`CharacterSoulBreaks renders multiple kinds of soul breaks in anonymous 
           <td
             className="name"
           >
-            “Dual Dragon Dive”
+            Dual Dragon Dive
           </td>
           <td
             className="effects"
@@ -789,7 +789,7 @@ exports[`CharacterSoulBreaks renders multiple kinds of soul breaks in anonymous 
           </td>
         </tr>
         <tr
-          className="awakening jp"
+          className="awakening"
         >
           <td
             className="tier"
@@ -799,12 +799,12 @@ exports[`CharacterSoulBreaks renders multiple kinds of soul breaks in anonymous 
           <td
             className="name"
           >
-            “Awoken Gungnir”
+            Awoken Gungnir
           </td>
           <td
             className="effects"
           >
-            phys 6.3/7 lgt+non jump w/ 19k cap, lgt infuse w/ stacking 25s, self dmg cap +10k 15s, 1.05x Dragoon dmg 15s, 15s: [Dual Awoken Dragoon Pride Mode I (Kain): Dragoon abilities deal 5/10/15/20/30% more damage at ability rank 1/2/3/4/5, triplecasts Dragoon abilities, critical chance =25%/50%/75%/100% for equipped Dragoon abilities after using 1/2/3+ Dragoon abilities, casts Dual Dragoon Dive after casting three Dragoon abilities]
+            phys 6.3/7 lgt+non jump w/ 19k cap, lgt infuse w/ stacking 25s, self dmg cap +10k 15s, 1.05x Dragoon dmg 15s, 15s: [Dual Awoken Dragoon Pride Mode I (Kain - Lightning): Dragoon abilities deal 5/10/15/20/30% more damage at ability rank 1/2/3/4/5, triplecasts Dragoon abilities, cast speed x2.00/x2.50/x3.00 for equipped Dragoon abilities after using 1/2/3+ Dragoon abilities, casts Dual Dragoon Dive after casting three Dragoon abilities]
           </td>
         </tr>
         <tr
@@ -817,11 +817,11 @@ exports[`CharacterSoulBreaks renders multiple kinds of soul breaks in anonymous 
             then
           </td>
           <td>
-            instant self instant ATB 1, [Dual Awoken Dragoon Pride Mode II (Kain): Increases the damage/healing cap by 20000, Dragoon abilities deal 5/10/15/20/30% more damage at ability rank 1/2/3/4/5, dualcasts Dragoon abilities, cast speed x9999999 for Jump attacks, critical chance =100%, lasts for 3/3/2/1/0 turns if the user had [Dual Awoken Dragoon Pride Mode I (Kain)] for 1/2/3/4/5+ turns]
+            instant self instant ATB 1, [Dual Awoken Dragoon Pride Mode II (Kain - Lightning): Increases the damage/healing cap by 20000, Dragoon abilities deal 5/10/15/20/30% more damage at ability rank 1/2/3/4/5, dualcasts Dragoon abilities, cast speed x9999999 for Jump attacks, critical chance =100%, lasts for 3/3/2/1/0 turns if the user had [Dual Awoken Dragoon Pride Mode I (Kain - Lightning)] for 1/2/3/4/5+ turns]
           </td>
         </tr>
         <tr
-          className="chain jp"
+          className="chain"
         >
           <td
             className="tier"
@@ -831,7 +831,7 @@ exports[`CharacterSoulBreaks renders multiple kinds of soul breaks in anonymous 
           <td
             className="name"
           >
-            “Boltlink (Kain)”
+            Lightning Bond (Kain)
           </td>
           <td
             className="effects"
@@ -859,7 +859,7 @@ exports[`CharacterSoulBreaks renders multiple kinds of soul breaks in anonymous 
           </td>
         </tr>
         <tr
-          className="arcaneDyad jp"
+          className="arcaneDyad"
         >
           <td
             className="tier"
@@ -869,7 +869,7 @@ exports[`CharacterSoulBreaks renders multiple kinds of soul breaks in anonymous 
           <td
             className="name"
           >
-            “Apex Jump”
+            Apex Jump
           </td>
           <td
             className="effects"
