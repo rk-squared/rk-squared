@@ -11,7 +11,7 @@ import {
   RelicDrawProbabilities,
 } from '../../actions/relicDraws';
 import { enlir } from '../../data/enlir';
-import { chanceOfDesiredDrawProp5, MaxRarity, StandardMythrilCost } from '../../data/probabilities';
+import { chanceOfDesiredDrawProp5, chanceOfDesiredDrawProp7Lotr, MaxRarity, StandardMythrilCost } from '../../data/probabilities';
 import { IState } from '../../reducers';
 import { RelicDrawBannerDetails } from '../../selectors/relicDraws';
 import { pluralize } from '../../utils/textUtils';
@@ -81,6 +81,29 @@ export function getRelicChanceDetails(
 
   const sixStarCount = relicIds.map((i) => enlir.relics[i]).filter((i) => !!i && i.rarity >= 6)
     .length;
+
+  // RoP/LotR
+  if (params.drawCount === 3) {
+    const totalDetails = chanceOfDesiredDrawProp7Lotr(      
+      rareChancePerRelic / 100,
+      rareChancePerRelic / 100,
+    );
+    const desiredDetails = chanceOfDesiredDrawProp7Lotr(      
+      rareChancePerRelic / 100,
+      desiredChancePerRelic / 100,      
+    );
+    
+    return {
+      drawCount: params.drawCount,
+      starOrBetterChancePerRelic,
+      desiredCount,
+      desiredFeaturedCount,
+      sixStarCount,
+      expectedValue: totalDetails.expectedValue,
+      desiredChance: desiredDetails.desiredChance,
+    };
+    
+  }
 
   const totalDetails = chanceOfDesiredDrawProp5(
     params,

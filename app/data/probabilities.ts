@@ -4,6 +4,8 @@
  * Calculations of relic draw banner probabilities.
  *
  * See https://www.reddit.com/r/FFRecordKeeper/comments/83l3jd/analysis_of_fuitads_gacha_data/
+ * and
+ * https://www.reddit.com/r/FFRecordKeeper/comments/qk4s94/gacha_rates_minor_dataanalysis_on_lotr_and/
  *
  * As described there:
  *
@@ -18,6 +20,8 @@
  *   simultaneously re-rolled until at least one is 5* / 6*
  * - Proposal 6: 11 random relics with a 17.2398% rate, all of which are
  *   simultaneously re-rolled until at least one is 5* / 6*
+ * - Proposal 7: 2 random relics with a 14.04% * 11/12 rate, then a guaranteed
+ *   5* / 6* if none already rolled, otherwise a 3rd relic at the same rate.
  */
 
 export const StandardDrawCount = 11;
@@ -124,6 +128,47 @@ export function chanceOfDesiredDrawProp5(
   return {
     expectedValue: totalEv / (1 - r),
     desiredChance: totalDesiredChance / (1 - r),
+  };
+}
+
+export function chanceOfDesiredDrawProp7Lotr(
+  rareChancePerRelic: number,
+  desiredChancePerRelic: number,  
+): RelicDrawBannerChances {  
+  const modifiedRareChancePerRelic = rareChancePerRelic * (11.0 / 12.0);
+  const undesiredRatio = (rareChancePerRelic - desiredChancePerRelic) / rareChancePerRelic;
+  const oddsOfDesiredPerHit = desiredChancePerRelic / rareChancePerRelic;
+  let totalEv = 0;
+  let totalDesiredChance = 0;
+  
+
+  // Only three possible options, so we just enumerate:
+  // 1. (1) 2 non-rare, forces the third to be rare.
+  // 2. (2) 1 non-rare, 1 rare, third can be rare or non-rare.
+  // 3. (1) 2 rare, third can be rare or non-rare.
+
+  // 1. (1) 2 non-rare, forces the third to be rare.
+  const chanceOfBothMiss = (1 - modifiedRareChancePerRelic) ** 2;
+  const relicCountForBothMiss = 1;
+  totalEv += chanceOfBothMiss * relicCountForBothMiss * oddsOfDesiredPerHit;
+  totalDesiredChance += chanceOfBothMiss * (1-(undesiredRatio**relicCountForBothMiss));
+  
+
+  // 2. (2) 1 non-rare, 1 rare, third can be rare or non-rare.
+  const chanceOfOneMiss = 2 * (1 - modifiedRareChancePerRelic) * modifiedRareChancePerRelic;
+  const relicCountForOneMiss = 1 + modifiedRareChancePerRelic;
+  totalEv += chanceOfOneMiss * relicCountForOneMiss * oddsOfDesiredPerHit;
+  totalDesiredChance += chanceOfOneMiss * (1-(undesiredRatio**relicCountForOneMiss));
+
+  // 3. (1) 2 rare, third can be rare or non-rare.
+  const chanceOfNoMiss = modifiedRareChancePerRelic * modifiedRareChancePerRelic;
+  const relicCountForNoMiss = 2 + modifiedRareChancePerRelic;
+  totalEv += chanceOfNoMiss * relicCountForNoMiss * oddsOfDesiredPerHit;
+  totalDesiredChance += chanceOfNoMiss * (1-(undesiredRatio**relicCountForNoMiss));
+
+  return {
+    expectedValue: totalEv,
+    desiredChance: totalDesiredChance, 
   };
 }
 
