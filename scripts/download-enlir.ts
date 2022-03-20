@@ -166,13 +166,18 @@ function convertAbilities(rows: any[], notes?: NotesRowData[]): any[] {
 
       const field = _.camelCase(col);
       if (
-        col === 'Rarity' ||
         col === 'Uses' ||
         col === 'Max' ||
         col === 'Synchro Ability Slot' ||
         col === 'Synchro Condition ID'
       ) {
         item[field] = toInt(rows[i][j]);
+      } else if (col === 'Rarity') {
+        if (rows[i][j] == 'HA') {
+          item[field] = 6;
+        } else {
+          item[field] = toInt(rows[i][j])
+        }
       } else if (isAnima(col)) {
         item['anima'] = toInt(rows[i][j]);
       } else if (skillFields[col]) {
