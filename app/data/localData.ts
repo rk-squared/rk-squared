@@ -17,6 +17,7 @@ export type LocalIconType =
   | 'animaWave4'
   | 'animaWave5'
   | 'animaWave6'
+  | 'animaWave7'
   | 'animaWaveUnknown'
   | 'mythril'
   | 'odin'
@@ -37,11 +38,12 @@ export const localIcons: { [s in LocalIconType]: string | undefined } = {
   // https://game-icons.net/1x1/lorc/checkered-diamond.html
   // No background, colored foreground, default size.
   animaWave1: require('../images/game-icons/checkered-diamond-6daf50.svg'),
-  animaWave2: require('../images/game-icons/checkered-diamond-d22d2d.svg'),
-  animaWave3: require('../images/game-icons/checkered-diamond-2283c3.svg'),
-  animaWave4: require('../images/game-icons/checkered-diamond-8000ff.svg'),
-  animaWave5: require('../images/game-icons/checkered-diamond-f08f2e.svg'),
-  animaWave6: require('../images/game-icons/checkered-diamond-03fce3.svg'),
+  animaWave2: require('../images/game-icons/checkered-diamond-6daf50.svg'),
+  animaWave3: require('../images/game-icons/checkered-diamond-6daf50.svg'),
+  animaWave4: require('../images/game-icons/checkered-diamond-6daf50.svg'),
+  animaWave5: require('../images/game-icons/checkered-diamond-6daf50.svg'),
+  animaWave6: require('../images/game-icons/checkered-diamond-6daf50.svg'),
+  animaWave7: require('../images/game-icons/checkered-diamond-03fce3.svg'),
   animaWaveUnknown: require('../images/game-icons/checkered-diamond-000000.svg'),
 
   mythril: require('../images/ffrk-icons/mythril.png'),
