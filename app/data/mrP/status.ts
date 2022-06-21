@@ -273,10 +273,15 @@ function isStackingStatus({ name, exclusiveStatus }: EnlirStatus): boolean {
   }
 
   const [, baseName] = m;
-  return (
-    _.find(exclusiveStatus, `All other "${baseName}" status`) != null ||
-    _.find(exclusiveStatus, i => i.match(new RegExp('^' + baseName + ' \\d+'))) != null
-  );
+  // The new method of denoting multiple DAs e.g. "(Machina - 2)"" breaks this RE.
+  try {
+    return (
+      _.find(exclusiveStatus, `All other "${baseName}" status`) != null ||
+      _.find(exclusiveStatus, i => i.match(new RegExp('^' + baseName + ' \\d+'))) != null
+    );
+  } catch(e) {
+    return false;
+  }
 }
 
 type FollowUpStatusSequence = Array<[EnlirStatus, statusTypes.StatusEffect]>;
