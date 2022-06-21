@@ -336,7 +336,7 @@
       "NE"
     ],
     "time": 0.83,
-    "effects": "Three single ranged hybrid attacks (0.80 or 2.70 each), causes [Imperil Wind 10% (15s)] every two uses, grants [Buff Wind 10% (15s)] to the user every two uses",
+    "effects": "Three single ranged hybrid attacks (0.80 or 2.70 each), causes [Imperil Wind 10% (15s)] every two activations, grants [Buff Wind 10% (15s)] to the user every two activations",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 70,
@@ -805,7 +805,7 @@
       "NE"
     ],
     "time": 1.65,
-    "effects": "Six single attacks (0.90 each), 25%/50%/75%/100% additional critical chance scaling with uses",
+    "effects": "Six single attacks (0.90 each), 25%/50%/75%/100% additional critical chance scaling with activations",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 90,
@@ -925,7 +925,7 @@
       "NE"
     ],
     "time": 1.65,
-    "effects": "Six single attacks (0.90 each), causes [ATK and MAG -50% (8s)]/[DEF, RES and MND -50% (8s)] every 1+2n/2+2n uses",
+    "effects": "Six single attacks (0.90 each), causes [ATK and MAG -50% (8s)]/[DEF, RES and MND -50% (8s)] every 1+2n/2+2n activations",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 90,
@@ -1039,7 +1039,7 @@
       "NE"
     ],
     "time": 1.65,
-    "effects": "4/6/8 single attacks (3.05 each) scaling with uses",
+    "effects": "4/6/8 single attacks (3.05 each) scaling with activations",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 90,
@@ -1208,7 +1208,7 @@
       "NE"
     ],
     "time": 1.65,
-    "effects": "4/6/8 single attacks (0.90 each) scaling with uses",
+    "effects": "4/6/8 single attacks (0.90 each) scaling with activations",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 90,
@@ -1425,7 +1425,7 @@
       "NE"
     ],
     "time": 1.2,
-    "effects": "4/6/8 single attacks (0.80 each) scaling with uses, grants [Poison Ability +30% Boost 1] to the user",
+    "effects": "4/6/8 single attacks (0.80 each) scaling with activations, grants [Poison Ability +30% Boost 1] to the user",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 70,
@@ -2132,6 +2132,62 @@
     "id": 31541323,
     "synchroConditionId": 2017,
     "gl": true
+  },
+  {
+    "character": "Onion Knight",
+    "source": "Channel Fire",
+    "sbVer": "SASB5",
+    "name": "Synchrospell Fire",
+    "synchroAbilitySlot": 1,
+    "synchroCondition": [
+      "Fire"
+    ],
+    "type": "BLK",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 19.2,
+    "element": [
+      "Fire",
+      "NE"
+    ],
+    "time": 1.65,
+    "effects": "Six single attacks (2.90 each), 3.20 each if exploiting elemental weakness",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 90,
+    "school": "Black Magic",
+    "nameJp": "同期式だいまほう・炎",
+    "id": 31541986,
+    "synchroConditionId": 100,
+    "gl": false
+  },
+  {
+    "character": "Onion Knight",
+    "source": "Channel Fire",
+    "sbVer": "SASB5",
+    "name": "Breachspell Fire",
+    "synchroAbilitySlot": 2,
+    "synchroCondition": [
+      "Fire"
+    ],
+    "type": "BLK",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 14.52,
+    "element": [
+      "Fire",
+      "NE"
+    ],
+    "time": 0.83,
+    "effects": "One single attack (14.52) capped at 99999, grants [Quick Cast 1] to the user",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 70,
+    "school": "Black Magic",
+    "nameJp": "限界突破だいまほう・炎",
+    "id": 31541987,
+    "synchroConditionId": 100,
+    "gl": false
   },
   {
     "character": "Ingus",
@@ -3240,7 +3296,7 @@
       "NE"
     ],
     "time": 1.65,
-    "effects": "Six single attacks (0.86/0.89/0.92/0.95 each) scaling with uses, damages the user for 25%/15%/5%/5% max HP scaling with uses",
+    "effects": "Six single attacks (0.86/0.89/0.92/0.95 each) scaling with activations, damages the user for 25%/15%/5%/5% max HP scaling with activations",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 90,
@@ -3393,9 +3449,9 @@
   },
   {
     "character": "Golbez",
-    "source": "Darkglow",
+    "source": "Dark Glow",
     "sbVer": "SASB2",
-    "name": "Void Intimidation",
+    "name": "Daunting Darkness",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
       "Dark"
@@ -3417,13 +3473,13 @@
     "nameJp": "漆黒の威圧",
     "id": 31541410,
     "synchroConditionId": 107,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Golbez",
-    "source": "Darkglow",
+    "source": "Dark Glow",
     "sbVer": "SASB2",
-    "name": "Everlasting Darkness",
+    "name": "Everdark Invocation",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
       "Dark"
@@ -3442,7 +3498,7 @@
     "nameJp": "呪縛の常闇",
     "id": 31541411,
     "synchroConditionId": 107,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Rosa",
@@ -3770,9 +3826,9 @@
   },
   {
     "character": "Porom",
-    "source": "Twincast: Curaga",
+    "source": "Twincast Curaga",
     "sbVer": "SASB2",
-    "name": "White Thunder",
+    "name": "Silvery Lightning",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
       "White Magic"
@@ -3794,11 +3850,11 @@
     "nameJp": "白き雷",
     "id": 31541743,
     "synchroConditionId": 2,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Porom",
-    "source": "Twincast: Curaga",
+    "source": "Twincast Curaga",
     "sbVer": "SASB2",
     "name": "Mysidian Heal",
     "synchroAbilitySlot": 2,
@@ -3819,7 +3875,7 @@
     "nameJp": "ミシディアヒール",
     "id": 31541744,
     "synchroConditionId": 2,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Ceodore",
@@ -3891,7 +3947,7 @@
       "Earth"
     ],
     "time": 1.65,
-    "effects": "Seven single attacks (3.05 each), damages the user for 25%/15%/5% max HP scaling with uses",
+    "effects": "Seven single attacks (3.05 each), damages the user for 25%/15%/5% max HP scaling with activations",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 90,
@@ -4057,7 +4113,7 @@
       "NE"
     ],
     "time": 1.65,
-    "effects": "Six single attacks (3.10 each), grants [Quick Cast 1] to the user, grants [Buff Holy 10% (15s)] to all allies every three uses",
+    "effects": "Six single attacks (3.10 each), grants [Quick Cast 1] to the user, grants [Buff Holy 10% (15s)] to all allies every three activations",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 90,
@@ -4387,7 +4443,7 @@
       "NE"
     ],
     "time": 1.65,
-    "effects": "Six single attacks (0.85/0.90/0.95 each) scaling with 0/1/2+ uses",
+    "effects": "Six single attacks (0.85/0.90/0.95 each) scaling with activations",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 90,
@@ -4443,7 +4499,7 @@
       "NE"
     ],
     "time": 1.65,
-    "effects": "Six single attacks (0.85/0.90/0.95 each) scaling with 0/1/2+ uses",
+    "effects": "Six single attacks (0.85/0.90/0.95 each) scaling with activations",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 90,
@@ -4552,7 +4608,7 @@
       "NE"
     ],
     "time": 1.65,
-    "effects": "Six single attacks (0.83/0.86/0.89/0.92/0.95 each) scaling with uses, grants [Quick Cast 1] to the user",
+    "effects": "Six single attacks (0.83/0.86/0.89/0.92/0.95 each) scaling with activations, grants [Quick Cast 1] to the user",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 90,
@@ -4643,9 +4699,9 @@
   },
   {
     "character": "Lenna",
-    "source": "Regal Grace",
+    "source": "Benevolent Princess",
     "sbVer": "SASB2",
-    "name": "Rebirth Wings",
+    "name": "Immortal Drake",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
       "White Magic",
@@ -4660,7 +4716,7 @@
       "NE"
     ],
     "time": 1.65,
-    "effects": "Three single attacks (3.10 each), restores HP (17.5/20/25) if 0-2/3-4/4+ allies have any Attach Fire",
+    "effects": "Three single attacks (3.10 each), restores HP (17.5/20/25) if 0-1/2-3/4+ allies have any Attach Fire",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 70,
@@ -4668,13 +4724,13 @@
     "nameJp": "不死なる飛竜",
     "id": 31541506,
     "synchroConditionId": 1002,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Lenna",
-    "source": "Regal Grace",
+    "source": "Benevolent Princess",
     "sbVer": "SASB2",
-    "name": "Gospel of Grace",
+    "name": "Tenets of Devotion",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
       "White Magic",
@@ -4694,7 +4750,7 @@
     "nameJp": "深愛なる福音",
     "id": 31541507,
     "synchroConditionId": 1002,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Krile",
@@ -4716,7 +4772,7 @@
       "NE"
     ],
     "time": 1.65,
-    "effects": "Six single attacks (2.90/3.05/3.20 each) scaling with 0/1/2+ uses",
+    "effects": "Six single attacks (2.90/3.05/3.20 each) scaling with activations",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 90,
@@ -4758,9 +4814,9 @@
   },
   {
     "character": "Krile",
-    "source": "Four Hearts United",
+    "source": "Inspiring Heart",
     "sbVer": "SASB2",
-    "name": "Fire and Brimstone",
+    "name": "Blazing Earth",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
       "Fire",
@@ -4784,13 +4840,13 @@
     "nameJp": "かえんのだいち",
     "id": 31541503,
     "synchroConditionId": 2001,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Krile",
-    "source": "Four Hearts United",
+    "source": "Inspiring Heart",
     "sbVer": "SASB2",
-    "name": "Boil Over",
+    "name": "Hellish Rage",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
       "Fire",
@@ -4806,7 +4862,7 @@
       "NE"
     ],
     "time": 0.01,
-    "effects": "One single attack (2.70), grants [Quick Cast 3] to the user, grants [Fire/Earth Ability +30% Boost 3] and [Damage Cap +20000 3] to the user if the user has Natural Exchange level 1, causes Natural Exchange -1 to the user",
+    "effects": "One single attack (2.70), grants [Quick Cast 3] to the user, grants [Fire/Earth Ability +30% Boost 3] and [Damage Cap +20000 3] to the user if the user has Beast Whisperer level 1, causes Beast Whisperer -1 to the user",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 60,
@@ -4814,7 +4870,7 @@
     "nameJp": "じごくのいかり",
     "id": 31541504,
     "synchroConditionId": 2001,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Faris",
@@ -4871,6 +4927,66 @@
     "id": 31540246,
     "synchroConditionId": 100,
     "gl": true
+  },
+  {
+    "character": "Faris",
+    "source": "Pirate Slash",
+    "sbVer": "SASB2",
+    "name": "Heat Cyclone",
+    "synchroAbilitySlot": 1,
+    "synchroCondition": [
+      "Wind",
+      "Fire"
+    ],
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 5.1,
+    "element": [
+      "Wind",
+      "Fire",
+      "NE"
+    ],
+    "time": 1.2,
+    "effects": "Six single ranged attacks (0.75/0.80/0.85 each) scaling with uses, grants [Fire/Wind Ability +30% Boost 1] to the user",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 90,
+    "school": "Thief",
+    "nameJp": "ヒートサイクロン",
+    "id": 31542338,
+    "synchroConditionId": 2023,
+    "gl": false
+  },
+  {
+    "character": "Faris",
+    "source": "Pirate Slash",
+    "sbVer": "SASB2",
+    "name": "Heat Phantom",
+    "synchroAbilitySlot": 2,
+    "synchroCondition": [
+      "Wind",
+      "Fire"
+    ],
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 5.4,
+    "element": [
+      "Wind",
+      "Fire",
+      "NE"
+    ],
+    "time": 0.83,
+    "effects": "One single ranged attack (5.40) capped at 99999",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 70,
+    "school": "Thief",
+    "nameJp": "ヒートファントム",
+    "id": 31542339,
+    "synchroConditionId": 2023,
+    "gl": false
   },
   {
     "character": "Galuf",
@@ -4943,7 +5059,7 @@
       "NE"
     ],
     "time": 1.65,
-    "effects": "Six single attacks (0.86/0.89/0.92/0.95 each) scaling with uses, 25%/50%/75%/100% additional critical chance scaling with uses",
+    "effects": "Six single attacks (0.86/0.89/0.92/0.95 each) scaling with activations, 25%/50%/75%/100% additional critical chance scaling with activations",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 90,
@@ -5400,13 +5516,13 @@
     "nameJp": "ライオットウェイヴ",
     "id": 31541605,
     "synchroConditionId": 2018,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Terra",
     "source": "Inferno Storm",
     "sbVer": "SASB3",
-    "name": "Chaotic Blade",
+    "name": "Chaos Sword",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
       "Fire",
@@ -5430,7 +5546,7 @@
     "nameJp": "ケイオスソード",
     "id": 31541606,
     "synchroConditionId": 2018,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Locke",
@@ -5450,7 +5566,7 @@
       "NE"
     ],
     "time": 1.2,
-    "effects": "Six single attacks (0.85/0.90/0.95 each) scaling with Hunter's Edge uses",
+    "effects": "Six single attacks (0.85/0.90/0.95 each) scaling with Hunter's Edge activations",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 90,
@@ -5478,7 +5594,7 @@
       "NE"
     ],
     "time": 1.2,
-    "effects": "Three single attacks (0.90 each), [ATK and DEF -50% (8s)] after 1+2n uses, causes [Imperil Fire 10% (15s)] after 2+2n uses",
+    "effects": "Three single attacks (0.90 each), [ATK and DEF -50% (8s)] after 1+2n activations, causes [Imperil Fire 10% (15s)] after 2+2n activations",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 90,
@@ -6278,7 +6394,7 @@
       "NE"
     ],
     "time": 1.65,
-    "effects": "Three single ranged attacks (0.90 each), causes [Imperil Poison 10% (15s)], [Imperil Fire 10% (15s)] and [Imperil Lightning 10% (15s)] every second use if Sabin and Relm are not alive, causes [Imperil Prismatic 10% (15s)] every second use if Sabin or Relm are alive, grants [Quick Cast 1] to the user",
+    "effects": "Three single ranged attacks (0.90 each), causes [Imperil Poison 10% (15s)], [Imperil Fire 10% (15s)] and [Imperil Lightning 10% (15s)] every second activation if Sabin and Relm are not alive, causes [Imperil Prismatic 10% (15s)] every second activation if Sabin or Relm are alive, grants [Quick Cast 1] to the user",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 90,
@@ -6821,7 +6937,7 @@
       "NE"
     ],
     "time": 1.65,
-    "effects": "Six single attacks (0.86/0.89/0.92/0.95 each) scaling with uses, 25/50/75/100% additional critical chance scaling with uses",
+    "effects": "Six single attacks (0.86/0.89/0.92/0.95 each) scaling with activations, 25%/50%/75%/100% additional critical chance scaling with activations",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 90,
@@ -7034,8 +7150,8 @@
     "formula": "Physical",
     "multiplier": 5.4,
     "element": [
-      "Fire",
       "Dark",
+      "Fire",
       "NE"
     ],
     "time": 1.65,
@@ -7064,8 +7180,8 @@
     "formula": "Physical",
     "multiplier": 6.3,
     "element": [
-      "Fire",
       "Dark",
+      "Fire",
       "NE"
     ],
     "time": 1.65,
@@ -7247,7 +7363,7 @@
       "NE"
     ],
     "time": 0.01,
-    "effects": "One single ranged hybrid attack (0.80 or 2.70), grants [Chaos Form ATK Boost]/[Chaos Form MAG Boost] if the user's ATK > MAG/ATK <= MAG on first use of Chaos Control, grants Sniper Scopes +2 to the user on first use of Chaos Control",
+    "effects": "One single ranged hybrid attack (0.80 or 2.70), grants [Chaos Form ATK Boost]/[Chaos Form MAG Boost] if the user's ATK > MAG/ATK <= MAG on first activation of Chaos Control, grants Sniper Scopes +2 to the user on first activation of Chaos Control",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 60,
@@ -7385,7 +7501,7 @@
       "NE"
     ],
     "time": 1.65,
-    "effects": "Six single attacks (0.86/0.89/0.92/0.95 each) scaling with 0/1/2/3+ uses, 25/50/75/100% additional critical chance",
+    "effects": "Six single attacks (0.86/0.89/0.92/0.95 each) scaling with activations, 25/50/75/100% additional critical chance scaling with activations",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 90,
@@ -7419,6 +7535,59 @@
     "id": 31540188,
     "synchroConditionId": 100,
     "gl": true
+  },
+  {
+    "character": "Genesis",
+    "source": "For Salvation",
+    "sbVer": "SASB2",
+    "name": "Purgatorial Slash",
+    "synchroAbilitySlot": 1,
+    "synchroCondition": [
+      "Fire"
+    ],
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 5.16,
+    "element": [
+      "Fire",
+      "NE"
+    ],
+    "time": 1.65,
+    "effects": "Six single attacks (0.86) each, 0.95 if exploiting Fire weakness",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 90,
+    "school": "Spellblade",
+    "nameJp": "煉獄の斬撃",
+    "id": 31542391,
+    "synchroConditionId": 100,
+    "gl": false
+  },
+  {
+    "character": "Genesis",
+    "source": "For Salvation",
+    "sbVer": "SASB2",
+    "name": "Take Wing",
+    "synchroAbilitySlot": 2,
+    "synchroCondition": [
+      "Fire"
+    ],
+    "type": "NAT",
+    "target": "Self",
+    "formula": null,
+    "multiplier": null,
+    "element": null,
+    "time": 0.01,
+    "effects": "Grants [Quick Cast 3] and [Spellblade +30% Boost 3]",
+    "counter": false,
+    "autoTarget": "Self",
+    "sb": 70,
+    "school": "Spellblade",
+    "nameJp": "紅き羽撃き",
+    "id": 31542392,
+    "synchroConditionId": 100,
+    "gl": false
   },
   {
     "character": "Yuffie",
@@ -7913,7 +8082,7 @@
   },
   {
     "character": "Cid (VII)",
-    "source": "Hyper Jump Unlimited",
+    "source": "True Hyper Jump",
     "sbVer": "SASB1",
     "name": "Vacuum Jump",
     "synchroAbilitySlot": 1,
@@ -7937,11 +8106,11 @@
     "nameJp": "バキュームジャンプ",
     "id": 31541701,
     "synchroConditionId": 104,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Cid (VII)",
-    "source": "Hyper Jump Unlimited",
+    "source": "True Hyper Jump",
     "sbVer": "SASB1",
     "name": "Wind Shear",
     "synchroAbilitySlot": 2,
@@ -7962,13 +8131,13 @@
     "nameJp": "ウィンドシア",
     "id": 31541702,
     "synchroConditionId": 104,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Rude",
-    "source": "Ground Spark",
+    "source": "Thunderstone",
     "sbVer": "SASB1",
-    "name": "Rising Cracks",
+    "name": "Rising Cleave",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
       "Earth",
@@ -7988,7 +8157,7 @@
       "NE"
     ],
     "time": 1.65,
-    "effects": "Six single ranged hybrid attacks (0.90/1.00/1.15 or 3.05/3.40/3.90 each) capped at 9999/19999/29999 if the user has Professionalism level 0/1/2, causes Professionalism -1/-2 to the user if the user has Professionalism level 1/2+",
+    "effects": "Six single ranged hybrid attacks (0.90/1.00/1.15 or 3.05/3.40/3.90 each) capped at 9999/19999/29999 if the user has Pro Mentality level 0/1/2+, causes Pro Mentality -1/-2 to the user if the user has Pro Mentality level 1/2+",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 90,
@@ -7996,11 +8165,11 @@
     "nameJp": "ライジングクラック",
     "id": 31541807,
     "synchroConditionId": 2019,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Rude",
-    "source": "Ground Spark",
+    "source": "Thunderstone",
     "sbVer": "SASB1",
     "name": "Earth Wave",
     "synchroAbilitySlot": 2,
@@ -8030,11 +8199,11 @@
     "nameJp": "アースウェイブ",
     "id": 31541808,
     "synchroConditionId": 2019,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Elena",
-    "source": "Conducting Blast",
+    "source": "Conductive Blast",
     "sbVer": "SASB1",
     "name": "Impulse Bomb",
     "synchroAbilitySlot": 1,
@@ -8060,13 +8229,13 @@
     "nameJp": "インパルスボム",
     "id": 31541811,
     "synchroConditionId": 2020,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Elena",
-    "source": "Conducting Blast",
+    "source": "Conductive Blast",
     "sbVer": "SASB1",
-    "name": "Booster Grenade",
+    "name": "Upgrenade",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
       "Fire",
@@ -8082,7 +8251,7 @@
       "NE"
     ],
     "time": 0.01,
-    "effects": "One single ranged attack (0.80/5.34) capped at 9999/99999 if the user has Recruits' Expectations level 0/1+, grants [Fire/Lightning Ability +30% Boost 2]/[Weakness +30% Boost 2] to the user/all allies if the user has Recruits' Expectations level 0/1+, causes Recruits' Expectations -1 to the user",
+    "effects": "One single ranged attack (0.80/5.34) capped at 9999/99999 if the user has Rookie Ringer level 0/1+, grants [Fire/Lightning Ability +30% Boost 2]/[Weakness +30% Boost 2] to the user/all allies if the user has Rookie Ringer level 0/1+, causes Rookie Ringer -1 to the user",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 60,
@@ -8090,7 +8259,7 @@
     "nameJp": "アップグレネード",
     "id": 31541812,
     "synchroConditionId": 2020,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Squall",
@@ -8540,6 +8709,66 @@
     "gl": true
   },
   {
+    "character": "Ultimecia",
+    "source": "Merciless Blades",
+    "sbVer": "SASB3",
+    "name": "Fatal Blade",
+    "synchroAbilitySlot": 1,
+    "synchroCondition": [
+      "Wind",
+      "Dark"
+    ],
+    "type": "BLK",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 18.3,
+    "element": [
+      "Wind",
+      "Dark",
+      "NE"
+    ],
+    "time": 1.65,
+    "effects": "Six single attacks (3.05 each), grants [Wind/Dark Ability +30% Boost 1] to the user",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 90,
+    "school": "Black Magic",
+    "nameJp": "終焉の剣斧",
+    "id": 31542342,
+    "synchroConditionId": 2004,
+    "gl": false
+  },
+  {
+    "character": "Ultimecia",
+    "source": "Merciless Blades",
+    "sbVer": "SASB3",
+    "name": "Cycling Arrow",
+    "synchroAbilitySlot": 2,
+    "synchroCondition": [
+      "Wind",
+      "Dark"
+    ],
+    "type": "BLK",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 18.3,
+    "element": [
+      "Wind",
+      "Dark",
+      "NE"
+    ],
+    "time": 1.65,
+    "effects": "Six single attacks (3.05 each), causes [Imperil Wind 10% (5s)] and [Imperil Dark 10% (5s)]",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 90,
+    "school": "Black Magic",
+    "nameJp": "永劫の矢",
+    "id": 31542343,
+    "synchroConditionId": 2004,
+    "gl": false
+  },
+  {
     "character": "Selphie",
     "source": "Comrades' Return",
     "sbVer": "SASB1",
@@ -8580,7 +8809,7 @@
     "multiplier": null,
     "element": null,
     "time": 0.01,
-    "effects": "Grants [40% Damage Reduction Barrier 1], grants [Quick Cast 1] every second use",
+    "effects": "Grants [40% Damage Reduction Barrier 1], grants [Quick Cast 1] every second activation",
     "counter": false,
     "autoTarget": "All allies",
     "sb": 70,
@@ -8592,7 +8821,7 @@
   },
   {
     "character": "Selphie",
-    "source": "Cure Dance",
+    "source": "Vivifying Dance",
     "sbVer": "SASB2",
     "name": "Ice Waltz",
     "synchroAbilitySlot": 1,
@@ -8617,11 +8846,11 @@
     "nameJp": "アイスワルツ",
     "id": 31541672,
     "synchroConditionId": 1002,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Selphie",
-    "source": "Cure Dance",
+    "source": "Vivifying Dance",
     "sbVer": "SASB2",
     "name": "Sacred Step",
     "synchroAbilitySlot": 2,
@@ -8642,7 +8871,7 @@
     "nameJp": "セイクリッドステップ",
     "id": 31541673,
     "synchroConditionId": 15,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Seifer",
@@ -8816,9 +9045,9 @@
   },
   {
     "character": "Edea",
-    "source": "Relentless Grudge",
+    "source": "Willful Hatred",
     "sbVer": "SASB2",
-    "name": "Cold-hearted Hate",
+    "name": "Ice Breaker Grudge",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
       "Dark"
@@ -8841,13 +9070,13 @@
     "nameJp": "砕氷の怨恨",
     "id": 31541668,
     "synchroConditionId": 107,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Edea",
-    "source": "Relentless Grudge",
+    "source": "Willful Hatred",
     "sbVer": "SASB2",
-    "name": "Sweet Darkfrost Dream",
+    "name": "Sweet Frostshade Dream",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
       "Dark"
@@ -8870,7 +9099,7 @@
     "nameJp": "甘美なる氷闇の夢",
     "id": 31541669,
     "synchroConditionId": 107,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Fujin",
@@ -8984,6 +9213,66 @@
     "id": 31540563,
     "synchroConditionId": 2010,
     "gl": true
+  },
+  {
+    "character": "Kiros",
+    "source": "Blood Cyclone",
+    "sbVer": "SASB2",
+    "name": "Vorpal Pain",
+    "synchroAbilitySlot": 1,
+    "synchroCondition": [
+      "Dark",
+      "Ice"
+    ],
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 5.6,
+    "element": [
+      "Dark",
+      "Ice",
+      "NE"
+    ],
+    "time": 0.83,
+    "effects": "5/6/7 single attacks (0.80 each) scaling with activations",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 70,
+    "school": "Ninja",
+    "nameJp": "ヴォーパルペイン",
+    "id": 31542207,
+    "synchroConditionId": 2010,
+    "gl": false
+  },
+  {
+    "character": "Kiros",
+    "source": "Blood Cyclone",
+    "sbVer": "SASB2",
+    "name": "Blood Vision",
+    "synchroAbilitySlot": 2,
+    "synchroCondition": [
+      "Dark",
+      "Ice"
+    ],
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 2.4,
+    "element": [
+      "Dark",
+      "Ice",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Three single attacks (0.80 each), grants [Dark/Ice Ability +30% Boost 3] to the user",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 60,
+    "school": "Ninja",
+    "nameJp": "ブラッドビジョン",
+    "id": 31542208,
+    "synchroConditionId": 2010,
+    "gl": false
   },
   {
     "character": "Ward",
@@ -9151,7 +9440,7 @@
       "NE"
     ],
     "time": 1.65,
-    "effects": "Six single attacks (0.90 each), 50%/75%/100% additional critical chance scaling with uses, grants [Instant Cast 1], [Damage Cap +10000 1] and [Fire Ability +30% Boost 1] to the user",
+    "effects": "Six single attacks (0.90 each), 50%/75%/100% additional critical chance scaling with activations, grants [Instant Cast 1], [Damage Cap +10000 1] and [Fire Ability +30% Boost 1] to the user",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 90,
@@ -9460,7 +9749,7 @@
       "NE"
     ],
     "time": 1.65,
-    "effects": "Three single attacks (0.90 each), causes [Imperil Holy 10% (15s)] every second use",
+    "effects": "Three single attacks (0.90 each), causes [Imperil Holy 10% (15s)] every second activation",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 90,
@@ -9488,7 +9777,7 @@
       "NE"
     ],
     "time": 1.65,
-    "effects": "Six single attacks (0.90~1.10 each) scaling with HP%, followed by one single attack (2.95~3.60) capped at 99999 scaling with HP%  if the user has Final Attack level 1, causes Last Ditch Attack -1 to the user",
+    "effects": "Six single attacks (0.90~1.10 each) scaling with HP%, followed by one single attack (2.95~3.60) capped at 99999 scaling with HP%  if the user has Last Ditch Attack level 1, causes Last Ditch Attack -1 to the user",
     "effectsNote": "The multipliers for this attack is given by the following formulas, where X is the current HP% of the user:\n\nSix hits: min(exp(-1*(X-1)*600/10000)*20+90, 110) / 100\n\nSingle hit follow-up: min(exp(-1*(X-1)*600/10000)*65+295, 360) / 100\n\nFor the six hits, the minimum multiplier is 0.90, and never goes higher than 1.10.\n\nFor the single hit follow-up, the minimum multiplier is 2.95, and never goes higher than 3.60.",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
@@ -9570,7 +9859,7 @@
       "NE"
     ],
     "time": 0.83,
-    "effects": "Three single attacks (0.80 each), causes [Imperil Wind 10% (15s)] every two uses, grants [Buff Wind 10% (15s)] every two uses",
+    "effects": "Three single attacks (0.80 each), causes [Imperil Wind 10% (15s)] every two activations, grants [Buff Wind 10% (15s)] every two activations",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 70,
@@ -9787,7 +10076,7 @@
       "NE"
     ],
     "time": 1.65,
-    "effects": "Six single attacks (2.90/3.05/3.20) scaling with uses, grants [Summoning +50% Boost 1]/[Summoning +30% Boost 1]/[Summoning +15% Boost 1] to the user after 1/2/3+ uses",
+    "effects": "Six single attacks (2.90/3.05/3.20) scaling with activations, grants [Summoning +50% Boost 1]/[Summoning +30% Boost 1]/[Summoning +15% Boost 1] to the user after 1/2/3+ activations",
     "counter": false,
     "autoTarget": "Lowest HP% enemy",
     "sb": 90,
@@ -9813,8 +10102,8 @@
     "multiplier": null,
     "element": null,
     "time": 0.01,
-    "effects": "Grants [Quick Cast 2], restores 2 consumed ability uses, restores HP (25) to all allies on the first cast, grants [HP Stock (2000)] to all allies on the first cast",
-    "effectsNote": "JP 12/16/2021 - Changed to smart ether 1",
+    "effects": "Grants [Quick Cast 2], restores 2 consumed ability uses, restores HP (25) to all allies on the first activation, grants [HP Stock (2000)] to all allies on the first activation",
+    "effectsNote": "JP 12/16/2021 - Changed to smart ether 2",
     "counter": false,
     "autoTarget": "Self",
     "sb": 70,
@@ -10298,7 +10587,7 @@
       "NE"
     ],
     "time": 1.65,
-    "effects": "Six single ranged jump attacks (0.86/0.89/0.92/0.95) scaling with uses, 25%/50%/75%/100% additional critical chance scaling with uses",
+    "effects": "Six single ranged jump attacks (0.86/0.89/0.92/0.95) scaling with activations, 25%/50%/75%/100% additional critical chance scaling with activations",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 90,
@@ -10352,7 +10641,7 @@
       "NE"
     ],
     "time": 1.65,
-    "effects": "4/6/8 single ranged attacks (0.90 each) scaling with uses",
+    "effects": "4/6/8 single ranged attacks (0.90 each) scaling with activations",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 90,
@@ -10464,7 +10753,7 @@
       "NE"
     ],
     "time": 1.2,
-    "effects": "Six single attacks (0.90 each), grants [Items +1] to the user",
+    "effects": "Six single attacks (0.90 each)",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 90,
@@ -10663,7 +10952,7 @@
   },
   {
     "character": "Yuna",
-    "source": "Summoner Spherechange",
+    "source": "Summoner Dressphere",
     "sbVer": "SASB2",
     "name": "Photon Blast",
     "synchroAbilitySlot": 1,
@@ -10681,7 +10970,7 @@
       "NE"
     ],
     "time": 1.65,
-    "effects": "Six single attacks (3.05 each), followed by one single attack (16.40) capped at 99999 if the user has Summoner level 1, causes Summoner -1 to the user",
+    "effects": "Six single attacks (3.05 each), followed by one single attack (16.40) capped at 99999 if the user has Summoner Form level 1, causes Summoner Form -1 to the user",
     "counter": false,
     "autoTarget": "Lowest HP% enemy",
     "sb": 90,
@@ -10689,13 +10978,13 @@
     "nameJp": "フォトン・ブラスト",
     "id": 31541772,
     "synchroConditionId": 1006,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Yuna",
-    "source": "Summoner Spherechange",
+    "source": "Summoner Dressphere",
     "sbVer": "SASB2",
-    "name": "Radiant Wave",
+    "name": "Bright Wave",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
       "White Magic",
@@ -10719,7 +11008,7 @@
     "nameJp": "ブライトウェーブ",
     "id": 31541773,
     "synchroConditionId": 1006,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Paine",
@@ -10960,7 +11249,7 @@
       "NE"
     ],
     "time": 1.65,
-    "effects": "4/6/8 single attacks (3.05 each) scaling with uses",
+    "effects": "4/6/8 single attacks (3.05 each) scaling with activations",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 90,
@@ -11172,6 +11461,66 @@
     "id": 31540402,
     "synchroConditionId": 2003,
     "gl": true
+  },
+  {
+    "character": "Jecht",
+    "source": "True Jecht Slash",
+    "sbVer": "SASB2",
+    "name": "Assault Shot",
+    "synchroAbilitySlot": 1,
+    "synchroCondition": [
+      "Dark",
+      "Fire"
+    ],
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 7.2,
+    "element": [
+      "Dark",
+      "Fire",
+      "NE"
+    ],
+    "time": 1.65,
+    "effects": "4/6/8 single ranged attacks (0.90 each) scaling with uses",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 90,
+    "school": "Sharpshooter",
+    "nameJp": "アサルトシュート",
+    "id": 31542287,
+    "synchroConditionId": 2003,
+    "gl": false
+  },
+  {
+    "character": "Jecht",
+    "source": "True Jecht Slash",
+    "sbVer": "SASB2",
+    "name": "Rising Fist",
+    "synchroAbilitySlot": 2,
+    "synchroCondition": [
+      "Dark",
+      "Fire"
+    ],
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 6,
+    "element": [
+      "Dark",
+      "Fire",
+      "NE"
+    ],
+    "time": 1.65,
+    "effects": "One single ranged attack (6.00) capped at 99999, grants [Dark/Fire Ability +30% Boost 3] to the user",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 90,
+    "school": "Sharpshooter",
+    "nameJp": "ライズフィスト",
+    "id": 31542288,
+    "synchroConditionId": 2003,
+    "gl": false
   },
   {
     "character": "Seymour",
@@ -12012,7 +12361,7 @@
   },
   {
     "character": "Penelo",
-    "source": "Prudence",
+    "source": "Scales of Fate",
     "sbVer": "SASB2",
     "name": "Wind Waltz",
     "synchroAbilitySlot": 1,
@@ -12032,15 +12381,15 @@
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 70,
-    "school": "Dancer",
+    "school": "White Magic",
     "nameJp": "ウィンドワルツ",
     "id": 31541461,
     "synchroConditionId": 15,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Penelo",
-    "source": "Prudence",
+    "source": "Scales of Fate",
     "sbVer": "SASB2",
     "name": "White Dance (XII)",
     "synchroAbilitySlot": 2,
@@ -12061,7 +12410,7 @@
     "nameJp": "ホワイトダンス【XII】",
     "id": 31541462,
     "synchroConditionId": 15,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Gabranth",
@@ -12251,7 +12600,7 @@
       "NE"
     ],
     "time": 1.65,
-    "effects": "4/6/8 single ranged attacks (0.90 each) scaling with uses",
+    "effects": "4/6/8 single ranged attacks (0.90 each) scaling with activations",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 90,
@@ -12290,6 +12639,66 @@
     "id": 31540326,
     "synchroConditionId": 2006,
     "gl": true
+  },
+  {
+    "character": "Fran",
+    "source": "Mist Frenzy",
+    "sbVer": "SASB2",
+    "name": "Hoarflash Bolts",
+    "synchroAbilitySlot": 1,
+    "synchroCondition": [
+      "Ice",
+      "Lightning"
+    ],
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 5.4,
+    "element": [
+      "Ice",
+      "Lightning",
+      "NE"
+    ],
+    "time": 1.65,
+    "effects": "Six single ranged attacks (0.90 each)",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 90,
+    "school": "Sharpshooter",
+    "nameJp": "氷雷連閃",
+    "id": 31542222,
+    "synchroConditionId": 2006,
+    "gl": false
+  },
+  {
+    "character": "Fran",
+    "source": "Mist Frenzy",
+    "sbVer": "SASB2",
+    "name": "Hoarflash Snipe",
+    "synchroAbilitySlot": 2,
+    "synchroCondition": [
+      "Ice",
+      "Lightning"
+    ],
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 5.34,
+    "element": [
+      "Ice",
+      "Lightning",
+      "NE"
+    ],
+    "time": 0.83,
+    "effects": "One single ranged attack (5.34) capped at 99999, grants [Sharpshooter +30% Boost 3] to the user if the user has Berserk level 1, causes Berserk -1 to the user",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 70,
+    "school": "Sharpshooter",
+    "nameJp": "氷雷剛射",
+    "id": 31542223,
+    "synchroConditionId": 2006,
+    "gl": false
   },
   {
     "character": "Larsa",
@@ -12393,6 +12802,59 @@
     "id": 31540450,
     "synchroConditionId": 100,
     "gl": true
+  },
+  {
+    "character": "Balthier",
+    "source": "Flames of Disaster",
+    "sbVer": "SASB2",
+    "name": "Arc of Change",
+    "synchroAbilitySlot": 1,
+    "synchroCondition": [
+      "Fire"
+    ],
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 5.4,
+    "element": [
+      "Fire",
+      "NE"
+    ],
+    "time": 1.65,
+    "effects": "Six single ranged attacks (0.90 each)",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 90,
+    "school": "Machinist",
+    "nameJp": "逆転のアーチ",
+    "id": 31542027,
+    "synchroConditionId": 100,
+    "gl": false
+  },
+  {
+    "character": "Balthier",
+    "source": "Flames of Disaster",
+    "sbVer": "SASB2",
+    "name": "Liberating Heat",
+    "synchroAbilitySlot": 2,
+    "synchroCondition": [
+      "Fire"
+    ],
+    "type": "NAT",
+    "target": "Self",
+    "formula": null,
+    "multiplier": null,
+    "element": null,
+    "time": 0.01,
+    "effects": "Grants Reward +1",
+    "counter": false,
+    "autoTarget": "Self",
+    "sb": 70,
+    "school": "Machinist",
+    "nameJp": "自由のカリエンテ",
+    "id": 31542028,
+    "synchroConditionId": 100,
+    "gl": false
   },
   {
     "character": "Basch",
@@ -12538,7 +13000,7 @@
       "NE"
     ],
     "time": 1.65,
-    "effects": "Six single ranged hybrid attacks (0.90 or 3.05 each), damages the user for 25%/15%/5% max HP scaling with uses, grants [Damage Cap +10000 1] to the user",
+    "effects": "Six single ranged hybrid attacks (0.90 or 3.05 each), damages the user for 25%/15%/5% max HP scaling with activations, grants [Damage Cap +10000 1] to the user",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 90,
@@ -12710,7 +13172,7 @@
       "NE"
     ],
     "time": 1.65,
-    "effects": "4/6/8 single attacks (0.90 each) scaling with uses",
+    "effects": "4/6/8 single attacks (0.90 each) scaling with activations",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 90,
@@ -12794,7 +13256,7 @@
       "NE"
     ],
     "time": 1.65,
-    "effects": "Three single attacks (3.05 each), causes [Imperil Dark 10% (15s)] every second use",
+    "effects": "Three single attacks (3.05 each), causes [Imperil Dark 10% (15s)] every second activation",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 90,
@@ -12934,7 +13396,7 @@
       "NE"
     ],
     "time": 1.65,
-    "effects": "Six single attacks (0.86/0.89/0.92/0.95 each), 25/50/75/100% additional critical chance scaling with 0/1/2/3+ uses, grants [Monk +30% Boost 1] to the user",
+    "effects": "Six single attacks (0.86/0.89/0.92/0.95 each) scaling with activations, 25/50/75/100% additional critical chance scaling with activations, grants [Monk +30% Boost 1] to the user",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 90,
@@ -12987,7 +13449,7 @@
       "NE"
     ],
     "time": 1.65,
-    "effects": "4/6/8 single attacks (0.90 each) scaling with uses",
+    "effects": "4/6/8 single attacks (0.90 each) scaling with activations",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 90,
@@ -13316,7 +13778,7 @@
       "NE"
     ],
     "time": 1.65,
-    "effects": "4/6/8 single attacks (3.05 each) scaling with uses, grants [Damage Cap +10000 1] to the user",
+    "effects": "4/6/8 single attacks (3.05 each) scaling with activations, grants [Damage Cap +10000 1] to the user",
     "counter": false,
     "autoTarget": "Lowest HP% enemy",
     "sb": 90,
@@ -14908,7 +15370,7 @@
     "multiplier": null,
     "element": null,
     "time": 0.83,
-    "effects": "Restores HP (105), grants [White Magic Heals +10% Boost 1] and [133% Quick Cast 1]/[White Magic Heals +20% Boost 1] and [Quick Cast 1]/[White Magic Heals +30% Boost 1] and [High Quick Cast 1] scaling with uses",
+    "effects": "Restores HP (105), grants [White Magic Heals +10% Boost 1] and [133% Quick Cast 1]/[White Magic Heals +20% Boost 1] and [Quick Cast 1]/[White Magic Heals +30% Boost 1] and [High Quick Cast 1] scaling with activations",
     "counter": false,
     "autoTarget": "Lowest HP% ally",
     "sb": 80,
@@ -14963,7 +15425,7 @@
       "NE"
     ],
     "time": 1.65,
-    "effects": "4/6/8 single attacks (0.90 each), cast time 1.65/1.10/0.825 scaling with uses",
+    "effects": "4/6/8 single attacks (0.90 each) scaling with uses, cast time 1.65/1.10/0.825 scaling with uses",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 80,
@@ -15115,9 +15577,9 @@
   },
   {
     "character": "Ravus",
-    "source": "Consuming Hatred",
+    "source": "Hateful Onslaught",
     "sbVer": "SASB1",
-    "name": "Black Thunder",
+    "name": "Dark Coil",
     "synchroAbilitySlot": 1,
     "synchroCondition": [
       "Lightning",
@@ -15141,13 +15603,13 @@
     "nameJp": "旋廻の黒雷",
     "id": 31541473,
     "synchroConditionId": 2002,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Ravus",
-    "source": "Consuming Hatred",
+    "source": "Hateful Onslaught",
     "sbVer": "SASB1",
-    "name": "Flaring Rage",
+    "name": "Flashing Fury",
     "synchroAbilitySlot": 2,
     "synchroCondition": [
       "Lightning",
@@ -15163,7 +15625,7 @@
       "NE"
     ],
     "time": 0.01,
-    "effects": "One single attack (0.80), grants a random ally without the same Attach Element as the user [Conditional Attach Element] (based on the Attach Element of the user), grants [Quick Cast 1] and [Conditional Attach Element] to the user if all allies have the same Attach Element as the user",
+    "effects": "One single attack (0.80), grants [Conditional Attach Element] (based on the Attach Element of the user) to a random ally without any Attach Element, grants [Conditional Attach Element] and [Quick Cast 1] to the user if all allies have any Attach Element",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 60,
@@ -15171,7 +15633,7 @@
     "nameJp": "憤怒の剣閃",
     "id": 31541474,
     "synchroConditionId": 2002,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Orlandeau",
@@ -15191,7 +15653,7 @@
       "NE"
     ],
     "time": 1.65,
-    "effects": "Six single attacks (0.86/0.89/0.92/0.95 each) scaling with uses, 25/50/75/100% additional critical chance scaling with uses",
+    "effects": "Six single attacks (0.86/0.89/0.92/0.95 each) scaling with activations, 25/50/75/100% additional critical chance scaling with activations",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 90,
@@ -15683,7 +16145,7 @@
       "NE"
     ],
     "time": 1.65,
-    "effects": "Six single attacks (0.86/0.89/0.92/0.95 each), 25%/50%/75%/100% additional critical chance scaling with uses",
+    "effects": "Six single attacks (0.86/0.89/0.92/0.95 each) scaling with activations, 25%/50%/75%/100% additional critical chance scaling with activations",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 90,
@@ -16018,7 +16480,7 @@
       "NE"
     ],
     "time": 1.65,
-    "effects": "4/6/8 single attacks (3.05 each) scaling with uses",
+    "effects": "4/6/8 single attacks (3.05 each) scaling with activations",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 90,
@@ -16044,8 +16506,8 @@
     "element": null,
     "time": 0.01,
     "effects": "Grants [ATK, DEF, MAG and RES +30% (25s)] and [Weakness +50% Boost 1] if the user has Discarded Delinquent level 1, grants [High Quick Cast 1] and [Dualcast Fire 1] to the user if the user has Discarded Delinquent level 0, causes Discarded Delinquent -1 to the user",
-    "counter": true,
-    "autoTarget": "Lowest HP% enemy",
+    "counter": false,
+    "autoTarget": "All allies",
     "sb": 70,
     "school": "Black Magic",
     "nameJp": "ライズカード",
@@ -16465,7 +16927,7 @@
       "NE"
     ],
     "time": 1.65,
-    "effects": "2/4/6 single ranged attacks (0.90 each) scaling with uses",
+    "effects": "2/4/6 single ranged attacks (0.90 each) scaling with activations",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 90,
@@ -16634,7 +17096,7 @@
       "NE"
     ],
     "time": 1.65,
-    "effects": "Six single attacks (0.86/0.89/0.92/0.95 each) scaling with uses, 25%/50%/75%/100% additional critical chance scaling with uses",
+    "effects": "Six single attacks (0.86/0.89/0.92/0.95 each) scaling with activations, 25%/50%/75%/100% additional critical chance scaling with activations",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 90,
@@ -16780,6 +17242,74 @@
     "id": 31541187,
     "synchroConditionId": 104,
     "gl": true
+  },
+  {
+    "character": "Kurasame",
+    "source": "Sub-zero Ice Crush",
+    "sbVer": "SASB1",
+    "name": "Sheer Cold",
+    "synchroAbilitySlot": 1,
+    "synchroCondition": [
+      "Ice",
+      "Dark"
+    ],
+    "type": "NAT",
+    "typeDetails": [
+      "PHY",
+      "BLK"
+    ],
+    "target": "Single enemy",
+    "formula": "Hybrid",
+    "multiplier": null,
+    "element": [
+      "Ice",
+      "Dark",
+      "NE"
+    ],
+    "time": 1.65,
+    "effects": "4/6/8 single hybrid attacks (0.90 or 3.05 each) scaling with activations, grants [Dark/Ice Ability +30% Boost 1] to the user",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 90,
+    "school": "Spellblade",
+    "nameJp": "絶対氷撃",
+    "id": 31542189,
+    "synchroConditionId": 2022,
+    "gl": false
+  },
+  {
+    "character": "Kurasame",
+    "source": "Sub-zero Ice Crush",
+    "sbVer": "SASB1",
+    "name": "Cold Steel",
+    "synchroAbilitySlot": 2,
+    "synchroCondition": [
+      "Ice",
+      "Dark"
+    ],
+    "type": "NAT",
+    "typeDetails": [
+      "PHY",
+      "BLK"
+    ],
+    "target": "Single enemy",
+    "formula": "Hybrid",
+    "multiplier": null,
+    "element": [
+      "Ice",
+      "Dark",
+      "NE"
+    ],
+    "time": 1.65,
+    "effects": "Four single hybrid attacks (0.85/0.90/0.95 or 2.90/3.05/3.20 each) scaling with activations, causes [Imperil Ice 10% (15s)] and [Imperil Dark 10% (15s)] every second activation",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 90,
+    "school": "Spellblade",
+    "nameJp": "氷剣凍刃",
+    "id": 31542190,
+    "synchroConditionId": 2022,
+    "gl": false
   },
   {
     "character": "Rain",

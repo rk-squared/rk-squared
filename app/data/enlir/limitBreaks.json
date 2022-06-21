@@ -124,7 +124,7 @@
   {
     "realm": "Core",
     "character": "Tyro",
-    "name": "Hastening Flash (Tyro)",
+    "name": "Swift Flash (Tyro)",
     "tier": "LBG",
     "lbVer": "LBG1",
     "type": "NAT",
@@ -144,7 +144,7 @@
     "relic": "Crystal Shield (Core)",
     "nameJp": "迅閃【デシ】",
     "id": 20140033,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "I",
@@ -198,6 +198,35 @@
     "nameJp": "エターナルソード",
     "id": 22300014,
     "gl": true
+  },
+  {
+    "realm": "I",
+    "character": "Warrior of Light",
+    "name": "Parallel Bond: Warrior of Light (Holy)",
+    "tier": "LBC",
+    "lbVer": "LBC1",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 8,
+    "element": [
+      "Holy",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Ten single attacks (0.80 each) capped at 19999, activates Holy Chain (max 150, field +0%) or adds 25 to the current Holy Chain maximum limit, grants [Chain Force Mode (Warrior of Light)] and [Instant ATB 1] to the user",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "minimumLbPoints": 250,
+    "limitBreakBonus": [
+      "Limit Break Damage Up",
+      "Quick Cast 1"
+    ],
+    "masteryBonus": null,
+    "relic": "Lustrous Sword (I)",
+    "nameJp": "紡絆・光の戦士聖",
+    "id": 20330028,
+    "gl": false
   },
   {
     "realm": "I",
@@ -339,6 +368,64 @@
     "gl": false
   },
   {
+    "realm": "I",
+    "character": "Thief (I)",
+    "name": "Parallel Bond: Thief (I)",
+    "tier": "LBC",
+    "lbVer": "LBC1",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 8,
+    "element": [
+      "Wind",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Ten single attacks (0.80 each) capped at 19999, element of entry damage changes to Poison/NE if the user has any Attach Poison, activates I Chain (max 150, field +0%) or adds 25 to the current I Chain maximum limit and increases the current chain count on all enemies by 10, grants [Chain Force Mode (Thief (I))] and [Instant ATB 1] to the user",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "minimumLbPoints": 250,
+    "limitBreakBonus": [
+      "Limit Break Damage Up",
+      "Quick Cast 1"
+    ],
+    "masteryBonus": null,
+    "relic": "Tonberry Knife (I)",
+    "nameJp": "紡絆・シーフ(I)",
+    "id": 23140013,
+    "gl": false
+  },
+  {
+    "realm": "I",
+    "character": "Thief (I)",
+    "name": "Whirling Edge",
+    "tier": "LBO",
+    "lbVer": "LBO1",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 40,
+    "element": [
+      "Wind",
+      "Poison"
+    ],
+    "time": 3.75,
+    "effects": "Five single attacks (1.00 each scaling with LB gauge and LB honing level) capped at 99999, ignores DEF, 100% additional critical chance",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "minimumLbPoints": 250,
+    "limitBreakBonus": [
+      "Limit Break Damage Up",
+      "Cast Time Down"
+    ],
+    "masteryBonus": null,
+    "relic": "Variable Dagger (I)",
+    "nameJp": "旋刃トラップ",
+    "id": 23140017,
+    "gl": false
+  },
+  {
     "realm": "II",
     "character": "Firion",
     "name": "Wild Rose Fist",
@@ -391,6 +478,34 @@
     "relic": "Maduin Gear (II)",
     "nameJp": "聖装【ミンウ】",
     "id": 22120013,
+    "gl": true
+  },
+  {
+    "realm": "II",
+    "character": "Minwu",
+    "name": "Holy Verdict",
+    "tier": "LBO",
+    "lbVer": "LBO1",
+    "type": "WHT",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 126.8,
+    "element": [
+      "Holy"
+    ],
+    "time": 2.5,
+    "effects": "Five single attacks (3.17 each scaling with LB gauge and LB honing level) capped at 99999, ignores RES",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "minimumLbPoints": 250,
+    "limitBreakBonus": [
+      "Limit Break Damage Up",
+      "Cast Time Down"
+    ],
+    "masteryBonus": null,
+    "relic": "Golden Staff (II)",
+    "nameJp": "ホーリージャッジメント",
+    "id": 22120017,
     "gl": true
   },
   {
@@ -464,7 +579,7 @@
       "NE"
     ],
     "time": 0.01,
-    "effects": "Ten single attacks (0.80 each) capped at 19999, activates Ice Chain (max 150, field +0%) or adds 25 to the current Ice Chain maximum limit, increases the current chain count on all enemies by 10, grants [Chain Force Mode (Josef)] and [Instant ATB 1] to the user",
+    "effects": "Ten single attacks (0.80 each) capped at 19999, activates Ice Chain (max 150, field +0%) or adds 25 to the current Ice Chain maximum limit and increases the current chain count on all enemies by 10, grants [Chain Force Mode (Josef)] and [Instant ATB 1] to the user",
     "counter": false,
     "autoTarget": "Lowest HP% enemy",
     "minimumLbPoints": 250,
@@ -477,34 +592,6 @@
     "nameJp": "紡絆・ヨーゼフ氷",
     "id": 20190026,
     "gl": false
-  },
-  {
-    "realm": "II",
-    "character": "Minwu",
-    "name": "Holy Verdict",
-    "tier": "LBO",
-    "lbVer": "LBO1",
-    "type": "WHT",
-    "target": "Single enemy",
-    "formula": "Magical",
-    "multiplier": 126.8,
-    "element": [
-      "Holy"
-    ],
-    "time": 2.5,
-    "effects": "Five single attacks (3.17 each scaling with LB gauge and LB honing level) capped at 99999, ignores RES",
-    "counter": false,
-    "autoTarget": "Lowest HP% enemy",
-    "minimumLbPoints": 250,
-    "limitBreakBonus": [
-      "Limit Break Damage Up",
-      "Cast Time Down"
-    ],
-    "masteryBonus": null,
-    "relic": "Golden Staff (II)",
-    "nameJp": "ホーリージャッジメント",
-    "id": 22120017,
-    "gl": true
   },
   {
     "realm": "II",
@@ -534,7 +621,7 @@
     "relic": "Rod of Darkness (II)",
     "nameJp": "インペリアルエレメンツ",
     "id": 22640021,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "II",
@@ -563,6 +650,35 @@
     "relic": "Crimson Glare (II)",
     "nameJp": "パイレーツ・ナイフ",
     "id": 22130020,
+    "gl": true
+  },
+  {
+    "realm": "II",
+    "character": "Leila",
+    "name": "Parallel Bond: Leila (Water)",
+    "tier": "LBC",
+    "lbVer": "LBC1",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 8,
+    "element": [
+      "Water",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Ten single attacks (0.80 each) capped at 19999, activates Water Chain (max 150, field +0%) or adds 25 to the current Water Chain maximum limit and increases the current chain count on all enemies by 10, grants [Chain Force Mode (Leila)] and [Instant ATB 1] to the user",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "minimumLbPoints": 250,
+    "limitBreakBonus": [
+      "Limit Break Damage Up",
+      "Quick Cast 1"
+    ],
+    "masteryBonus": null,
+    "relic": "Eurytos Bow (II)",
+    "nameJp": "紡絆・レイラ水",
+    "id": 22130024,
     "gl": false
   },
   {
@@ -738,6 +854,35 @@
   },
   {
     "realm": "III",
+    "character": "Cloud of Darkness",
+    "name": "Parallel Bond: Cloud of Darkness",
+    "tier": "LBC",
+    "lbVer": "LBC1",
+    "type": "BLK",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 26,
+    "element": [
+      "Dark",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Ten single attacks (2.60 each) capped at 19999, activates Dark Chain (max 150, field +0%) or adds 25 to the current Dark Chain maximum limit and increases the current chain count on all enemies by 10, grants [Chain Force Mode (Cloud of Darkness)] and [Instant ATB 1] to the user",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "minimumLbPoints": 250,
+    "limitBreakBonus": [
+      "Limit Break Damage Up",
+      "Quick Cast 1"
+    ],
+    "masteryBonus": null,
+    "relic": "Assault (III)",
+    "nameJp": "紡絆・暗闇の雲闇",
+    "id": 22670026,
+    "gl": false
+  },
+  {
+    "realm": "III",
     "character": "Onion Knight",
     "name": "Water Flash (Onion Knight)",
     "tier": "LBG",
@@ -767,7 +912,7 @@
   {
     "realm": "III",
     "character": "Onion Knight",
-    "name": "Onion Specter",
+    "name": "Spectral Onion",
     "tier": "LBO",
     "lbVer": "LBO1",
     "type": "BLK",
@@ -793,12 +938,12 @@
     "relic": "Grand Mace (III)",
     "nameJp": "オニオンスペクトル",
     "id": 22460032,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "III",
     "character": "Refia",
-    "name": "Red-Hot Hammer",
+    "name": "Maiden's Hammerblow",
     "tier": "LBO",
     "lbVer": "LBO1",
     "type": "PHY",
@@ -821,7 +966,7 @@
     "relic": "Ironside (III)",
     "nameJp": "乙女の鉄槌",
     "id": 20430016,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "III",
@@ -907,6 +1052,72 @@
     "relic": "Gaia Hammer (III)",
     "nameJp": "ティターンインパクト",
     "id": 20800024,
+    "gl": false
+  },
+  {
+    "realm": "III",
+    "character": "Arc",
+    "name": "Parallel Bond: Arc",
+    "tier": "LBC",
+    "lbVer": "LBC1",
+    "type": "NAT",
+    "typeDetails": [
+      "SUM",
+      "WHT"
+    ],
+    "target": "Single enemy",
+    "formula": "Hybrid",
+    "multiplier": null,
+    "element": [
+      "Holy",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Ten single hybrid attacks (2.70/2.60 each) capped at 19999, element of entry damage changes to Water/NE if the user has any Attach Water, activates III Chain (max 150, field +0%) or adds 25 to the current III Chain maximum limit, grants [Chain Force Mode (Arc)] and [Instant ATB 1] to the user",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "minimumLbPoints": 250,
+    "limitBreakBonus": [
+      "Limit Break Damage Up",
+      "Quick Cast 1"
+    ],
+    "masteryBonus": null,
+    "relic": "El Dorado (III)",
+    "nameJp": "紡絆・アルクゥ",
+    "id": 20420022,
+    "gl": false
+  },
+  {
+    "realm": "III",
+    "character": "Arc",
+    "name": "Seaglow Bible",
+    "tier": "LBO",
+    "lbVer": "LBO1",
+    "type": "NAT",
+    "typeDetails": [
+      "SUM",
+      "WHT"
+    ],
+    "target": "Single enemy",
+    "formula": "Hybrid",
+    "multiplier": null,
+    "element": [
+      "Holy",
+      "Water"
+    ],
+    "time": 2.5,
+    "effects": "Four single hybrid attacks (3.00 or 3.17 each scaling with LB gauge and LB honing level) capped at 99999, ignores RES, 100% additional critical chance",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "minimumLbPoints": 250,
+    "limitBreakBonus": [
+      "Limit Break Damage Up",
+      "Cast Time Down"
+    ],
+    "masteryBonus": null,
+    "relic": "Artemis Bow (III)",
+    "nameJp": "水光のバイブル",
+    "id": 20420026,
     "gl": false
   },
   {
@@ -1003,6 +1214,40 @@
     "nameJp": "エブラーナ流・蓮華",
     "id": 20980016,
     "gl": true
+  },
+  {
+    "realm": "IV",
+    "character": "Edge",
+    "name": "Parallel Bond: Edge",
+    "tier": "LBC",
+    "lbVer": "LBC1",
+    "type": "NAT",
+    "typeDetails": [
+      "PHY",
+      "NIN"
+    ],
+    "target": "Single enemy",
+    "formula": "Hybrid",
+    "multiplier": null,
+    "element": [
+      "Water",
+      "NE"
+    ],
+    "elementNote": "Element changes based on current Attach Element status",
+    "time": 0.01,
+    "effects": "Ten single hybrid attacks (0.80/390.00 each) capped at 19999, element of entry damage changes from Water/NE to Fire/NE or Lightning/NE if the user has any Attach Fire or Attach Lightning, activates IV Chain (max 150, field +0%) or adds 25 to the current IV Chain maximum limit, grants [Chain Force Mode (Edge)] and [Instant ATB 1] to the user",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "minimumLbPoints": 250,
+    "limitBreakBonus": [
+      "Limit Break Damage Up",
+      "Quick Cast 1"
+    ],
+    "masteryBonus": null,
+    "relic": "Water Blade (IV)",
+    "nameJp": "紡絆・エッジ",
+    "id": 20980023,
+    "gl": false
   },
   {
     "realm": "IV",
@@ -1254,7 +1499,7 @@
   {
     "realm": "IV",
     "character": "Golbez",
-    "name": "Shadow Dragon Unbound",
+    "name": "True Shadow Dragon",
     "tier": "LBO",
     "lbVer": "LBO1",
     "type": "BLK",
@@ -1277,7 +1522,7 @@
     "relic": "Demon's Vest (IV)",
     "nameJp": "真・黒竜召喚",
     "id": 20630022,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "IV",
@@ -1302,12 +1547,12 @@
     "relic": "Renewing Morion (IV)",
     "nameJp": "絆閃【ポロム】",
     "id": 22220013,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "IV",
     "character": "Rubicante",
-    "name": "Blazing Onslaught",
+    "name": "Flamelord's Flail",
     "tier": "LBO",
     "lbVer": "LBO1",
     "type": "BLK",
@@ -1327,10 +1572,10 @@
       "Cast Time Down"
     ],
     "masteryBonus": null,
-    "relic": "Monkish Garb (IV)",
+    "relic": "Martial Garb (IV)",
     "nameJp": "炎武の猛攻",
     "id": 22870016,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "IV",
@@ -1418,6 +1663,35 @@
   },
   {
     "realm": "IV",
+    "character": "Ceodore",
+    "name": "Parallel Bond: Ceodore (Holy)",
+    "tier": "LBC",
+    "lbVer": "LBC1",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 8,
+    "element": [
+      "Holy",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Ten single attacks (0.80 each) capped at 19999, activates Holy Chain (max 150, field +0%) or adds 25 to the current Holy Chain maximum limit, grants [Chain Force Mode (Ceodore)] and [Instant ATB 1] to the user",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "minimumLbPoints": 250,
+    "limitBreakBonus": [
+      "Limit Break Damage Up",
+      "Quick Cast 1"
+    ],
+    "masteryBonus": null,
+    "relic": "Azure Gilet (IV)",
+    "nameJp": "紡絆・セオドア聖",
+    "id": 22720019,
+    "gl": false
+  },
+  {
+    "realm": "IV",
     "character": "Tellah",
     "name": "Earth Flash (Tellah)",
     "tier": "LBG",
@@ -1443,6 +1717,121 @@
     "nameJp": "地閃【テラ】",
     "id": 20640014,
     "gl": true
+  },
+  {
+    "realm": "IV",
+    "character": "Tellah",
+    "name": "Parallel Bond: Tellah (Earth)",
+    "tier": "LBC",
+    "lbVer": "LBC1",
+    "type": "BLK",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 26,
+    "element": [
+      "Earth",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Ten single attacks (2.60 each) capped at 19999, activates Earth Chain (max 150, field +0%) or adds 25 to the current Earth Chain maximum limit and increases the current chain count on all enemies by 10, grants [Chain Force Mode (Tellah)] and [Instant ATB 1] to the user",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "minimumLbPoints": 250,
+    "limitBreakBonus": [
+      "Limit Break Damage Up",
+      "Quick Cast 1"
+    ],
+    "masteryBonus": null,
+    "relic": "Wizard's Robes (IV)",
+    "nameJp": "紡絆・テラ地",
+    "id": 20640018,
+    "gl": false
+  },
+  {
+    "realm": "IV",
+    "character": "Tellah",
+    "name": "Sage's Hankering",
+    "tier": "LBO",
+    "lbVer": "LBO1",
+    "type": "BLK",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 120,
+    "element": [
+      "Earth"
+    ],
+    "time": 2.5,
+    "effects": "Five single attacks (3.00 each scaling with LB gauge and LB honing level) capped at 99999, ignores RES",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "minimumLbPoints": 250,
+    "limitBreakBonus": [
+      "Limit Break Damage Up",
+      "Cast Time Down"
+    ],
+    "masteryBonus": null,
+    "relic": "Earth Staff (IV)",
+    "nameJp": "賢者の本懐",
+    "id": 20640022,
+    "gl": false
+  },
+  {
+    "realm": "IV",
+    "character": "Yang",
+    "name": "Parallel Bond: Yang",
+    "tier": "LBC",
+    "lbVer": "LBC1",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 8,
+    "element": [
+      "Earth",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Ten single attacks (0.80 each) capped at 19999, activates IV Chain (max 150, field +0%) or adds 25 to the current IV Chain maximum limit, grants [Chain Force Mode (Yang)] and [Instant ATB 1] to the user",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "minimumLbPoints": 250,
+    "limitBreakBonus": [
+      "Limit Break Damage Up",
+      "Quick Cast 1"
+    ],
+    "masteryBonus": null,
+    "relic": "Gaia Claws (IV)",
+    "nameJp": "紡絆・ヤン",
+    "id": 22340012,
+    "gl": false
+  },
+  {
+    "realm": "IV",
+    "character": "Edward",
+    "name": "Parallel Bond: Edward",
+    "tier": "LBC",
+    "lbVer": "LBC1",
+    "type": "BLK",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 26,
+    "element": [
+      "Holy",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Ten single attacks (2.60 each) capped at 19999, activates IV Chain (max 150, field +0%) or adds 25 to the current IV Chain maximum limit and increases the current chain count on all enemies by 10, grants [Chain Force Mode (Edward)] and [Instant ATB 1] to the user",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "minimumLbPoints": 250,
+    "limitBreakBonus": [
+      "Limit Break Damage Up",
+      "Quick Cast 1"
+    ],
+    "masteryBonus": null,
+    "relic": "Divine Harp (IV)",
+    "nameJp": "紡絆・ギルバート",
+    "id": 22350012,
+    "gl": false
   },
   {
     "realm": "V",
@@ -1487,7 +1876,7 @@
       "NE"
     ],
     "time": 0.01,
-    "effects": "Ten single attacks (0.80 each) capped at 19999, activates Earth Chain (max 150, field +0%) or adds 25 to the current Earth Chain maximum limit, increases the current chain count on all enemies by 10, grants [Chain Force Mode (Galuf)] and [Instant ATB 1] to the user",
+    "effects": "Ten single attacks (0.80 each) capped at 19999, activates Earth Chain (max 150, field +0%) or adds 25 to the current Earth Chain maximum limit and increases the current chain count on all enemies by 10, grants [Chain Force Mode (Galuf)] and [Instant ATB 1] to the user",
     "counter": false,
     "autoTarget": "Lowest HP% enemy",
     "minimumLbPoints": 250,
@@ -1529,6 +1918,61 @@
     "nameJp": "海竜の咆哮",
     "id": 20930018,
     "gl": true
+  },
+  {
+    "realm": "V",
+    "character": "Faris",
+    "name": "Guardian Syldra",
+    "tier": "LBGS",
+    "lbVer": "LBGS1",
+    "type": "NAT",
+    "target": "Self",
+    "formula": null,
+    "multiplier": null,
+    "element": null,
+    "time": 0.01,
+    "effects": "Summons Syldra for 5 seconds, grants [Protect], [Shell], [Haste], [Last Stand], [Instant ATB 1], [DEF and RES +200% (25s)], [Attach Wind 3 with Stacking] and [Damage Cap +20000] to Syldra",
+    "counter": false,
+    "autoTarget": "Self",
+    "minimumLbPoints": 250,
+    "limitBreakBonus": [
+      "Guardian Summon Damage Up",
+      "Damage Reduction Barrier"
+    ],
+    "masteryBonus": null,
+    "relic": "Brave Suit (V)",
+    "nameJp": "Gシルドラ",
+    "id": 20930028,
+    "gl": false
+  },
+  {
+    "realm": "V",
+    "character": "Faris",
+    "name": "Parallel Bond: Faris (Wind)",
+    "tier": "LBC",
+    "lbVer": "LBC1",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 8,
+    "element": [
+      "Wind",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Ten single ranged attacks (0.80 each) capped at 19999, activates Wind Chain (max 150, field +0%) or adds 25 to the current Wind Chain maximum limit and increases the current chain count on all enemies by 10, grants [Chain Force Mode (Faris)] and [Instant ATB 1] to the user",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "minimumLbPoints": 250,
+    "limitBreakBonus": [
+      "Limit Break Damage Up",
+      "Quick Cast 1"
+    ],
+    "masteryBonus": null,
+    "relic": "Crystal Cross (V)",
+    "nameJp": "紡絆・ファリス風",
+    "id": 20930032,
+    "gl": false
   },
   {
     "realm": "V",
@@ -1729,6 +2173,93 @@
     "gl": true
   },
   {
+    "realm": "V",
+    "character": "Kelger",
+    "name": "Parallel Bond: Kelger (Earth)",
+    "tier": "LBC",
+    "lbVer": "LBC1",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 8,
+    "element": [
+      "Earth",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Ten single attacks (0.80 each) capped at 19999, activates Earth Chain (max 150, field +0%) or adds 25 to the current Earth Chain maximum limit, grants [Chain Force Mode (Kelger)] and [Instant ATB 1] to the user",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "minimumLbPoints": 250,
+    "limitBreakBonus": [
+      "Limit Break Damage Up",
+      "Quick Cast 1"
+    ],
+    "masteryBonus": null,
+    "relic": "Blurry Moon (V)",
+    "nameJp": "紡絆・ケルガー地",
+    "id": 23170016,
+    "gl": false
+  },
+  {
+    "realm": "V",
+    "character": "Dorgann",
+    "name": "Gaia Sword Art",
+    "tier": "LBO",
+    "lbVer": "LBO1",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 40,
+    "element": [
+      "Earth"
+    ],
+    "time": 2.5,
+    "effects": "Five single attacks (1.00 each scaling with LB gauge and LB honing level) capped at 99999, ignores DEF, 100% additional critical chance",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "minimumLbPoints": 250,
+    "limitBreakBonus": [
+      "Limit Break Damage Up",
+      "Cast Time Down"
+    ],
+    "masteryBonus": null,
+    "relic": "Force Saber (V)",
+    "nameJp": "大地の剣技",
+    "id": 22510017,
+    "gl": false
+  },
+  {
+    "realm": "V",
+    "character": "Xezat",
+    "name": "Spellsteel Roarfrost",
+    "tier": "LBO",
+    "lbVer": "LBO1",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 32,
+    "element": [
+      "Earth",
+      "Ice",
+      "Lightning"
+    ],
+    "time": 2.5,
+    "effects": "Four single attacks (1.00 each scaling with LB gauge and LB honing level) capped at 99999, ignores DEF, 100% additional critical chance",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "minimumLbPoints": 250,
+    "limitBreakBonus": [
+      "Limit Break Damage Up",
+      "Cast Time Down"
+    ],
+    "masteryBonus": null,
+    "relic": "Hoarfrost Mace (V)",
+    "nameJp": "魔法剣覇技・氷鳴刃",
+    "id": 23160015,
+    "gl": false
+  },
+  {
     "realm": "VI",
     "character": "Terra",
     "name": "Half-Esper Might",
@@ -1806,7 +2337,7 @@
     "relic": "Chaperon (VI)",
     "nameJp": "Gマディン",
     "id": 20100037,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "VI",
@@ -1823,7 +2354,7 @@
       "NE"
     ],
     "time": 0.01,
-    "effects": "Ten single attacks (2.60 each) capped at 19999, activates Wind Chain (max 150, field +0%) or adds 25 to the current Wind Chain maximum limit, grants [Chain Force Mode (Terra)] and [Instant ATB 1] to the user",
+    "effects": "Ten single attacks (2.60 each) capped at 19999, activates Wind Chain (max 150, field +0%) or adds 25 to the current Wind Chain maximum limit, grants [Chain Force Mode (Terra - Wind)] and [Instant ATB 1] to the user",
     "counter": false,
     "autoTarget": "Lowest HP% enemy",
     "minimumLbPoints": 250,
@@ -1835,6 +2366,35 @@
     "relic": "Laevateinn (VI)",
     "nameJp": "紡絆・ティナ風",
     "id": 20100041,
+    "gl": false
+  },
+  {
+    "realm": "VI",
+    "character": "Terra",
+    "name": "Parallel Bond: Terra",
+    "tier": "LBC",
+    "lbVer": "LBC2",
+    "type": "BLK",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 26,
+    "element": [
+      "Fire",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Ten single attacks (2.60 each) capped at 19999, activates VI Chain (max 150, field +0%) or adds 25 to the current VI Chain maximum limit, grants [Chain Force Mode (Terra - VI)] and [Instant ATB 1] to the user",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "minimumLbPoints": 250,
+    "limitBreakBonus": [
+      "Limit Break Damage Up",
+      "Quick Cast 1"
+    ],
+    "masteryBonus": null,
+    "relic": "Bountiful Vestment (VI)",
+    "nameJp": "紡絆・ティナ",
+    "id": 20100042,
     "gl": false
   },
   {
@@ -1887,6 +2447,63 @@
     "nameJp": "Gフェニックス",
     "id": 20240025,
     "gl": true
+  },
+  {
+    "realm": "VI",
+    "character": "Locke",
+    "name": "Entwined Bond: Locke (Fire)",
+    "tier": "LBC",
+    "lbVer": "LBC1",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 8,
+    "element": [
+      "Fire",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Ten single attacks (0.80 each) capped at 19999, activates Fire Chain (max 150, field +0%) or adds 25 to the current Fire Chain maximum limit, grants [Chain Force Mode (Locke)] and [Instant ATB 1] to the user",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "minimumLbPoints": 250,
+    "limitBreakBonus": [
+      "Limit Break Damage Up",
+      "Quick Cast 1"
+    ],
+    "masteryBonus": null,
+    "relic": "Survival Edge (VI)",
+    "nameJp": "紡絆・ロック炎",
+    "id": 20240033,
+    "gl": false
+  },
+  {
+    "realm": "VI",
+    "character": "Locke",
+    "name": "Mirage Passion",
+    "tier": "LBO",
+    "lbVer": "LBO1",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 40,
+    "element": [
+      "Fire"
+    ],
+    "time": 2.5,
+    "effects": "Five single attacks (1.00 each scaling with LB gauge and LB honing level) capped at 99999, ignores DEF, 100% additional critical chance",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "minimumLbPoints": 250,
+    "limitBreakBonus": [
+      "Limit Break Damage Up",
+      "Cast Time Down"
+    ],
+    "masteryBonus": null,
+    "relic": "Dancing Dagger (VI)",
+    "nameJp": "ミラージュパッション",
+    "id": 20240034,
+    "gl": false
   },
   {
     "realm": "VI",
@@ -2003,6 +2620,36 @@
   },
   {
     "realm": "VI",
+    "character": "Edgar",
+    "name": "Parallel Bond: Edgar",
+    "tier": "LBC",
+    "lbVer": "LBC1",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 8,
+    "element": [
+      "Poison",
+      "NE"
+    ],
+    "elementNote": "Element changes based on current Attach Element status",
+    "time": 0.01,
+    "effects": "Ten single ranged attacks (0.80 each) capped at 19999, element of entry damage changes from Poison/NE to Fire/NE or Lightning/NE if the user has any Attach Fire or Attach Lightning, activates VI Chain (max 150, field +0%) or adds 25 to the current VI Chain maximum limit and increases the current chain count on all enemies by 10, grants [Chain Force Mode (Edgar)] and [Instant ATB 1] to the user",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "minimumLbPoints": 250,
+    "limitBreakBonus": [
+      "Limit Break Damage Up",
+      "Quick Cast 1"
+    ],
+    "masteryBonus": null,
+    "relic": "Black Bolts (VI)",
+    "nameJp": " 紡絆・エドガー",
+    "id": 20530029,
+    "gl": false
+  },
+  {
+    "realm": "VI",
     "character": "Celes",
     "name": "Awoken Blade",
     "tier": "LBO",
@@ -2029,6 +2676,35 @@
     "nameJp": "目醒めし常勝の剣",
     "id": 20210024,
     "gl": true
+  },
+  {
+    "realm": "VI",
+    "character": "Celes",
+    "name": "Parallel Bond: Celes (Ice)",
+    "tier": "LBC",
+    "lbVer": "LBC1",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 8,
+    "element": [
+      "Ice",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Ten single attacks (0.80 each) capped at 19999, activates Ice Chain (max 150, field +0%) or adds 25 to the current Ice Chain maximum limit and increases the current chain count on all enemies by 10, grants [Chain Force Mode (Celes)] and [Instant ATB 1] to the user",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "minimumLbPoints": 250,
+    "limitBreakBonus": [
+      "Limit Break Damage Up",
+      "Quick Cast 1"
+    ],
+    "masteryBonus": null,
+    "relic": "Mac an Luin (VI)",
+    "nameJp": "紡絆・セリス氷",
+    "id": 20210034,
+    "gl": false
   },
   {
     "realm": "VI",
@@ -2085,6 +2761,35 @@
     "relic": "Gorgon Gaze (VI)",
     "nameJp": "闇遁",
     "id": 20890020,
+    "gl": false
+  },
+  {
+    "realm": "VI",
+    "character": "Setzer",
+    "name": "Parallel Bond: Setzer (Dark)",
+    "tier": "LBC",
+    "lbVer": "LBC1",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 8,
+    "element": [
+      "Dark",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Ten single ranged attacks (0.80 each) capped at 19999, activates Dark Chain (max 150, field +0%) or adds 25 to the current Dark Chain maximum limit, grants [Chain Force Mode (Setzer)] and [Instant ATB 1] to the user",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "minimumLbPoints": 250,
+    "limitBreakBonus": [
+      "Limit Break Damage Up",
+      "Quick Cast 1"
+    ],
+    "masteryBonus": null,
+    "relic": "Magician's Deck (VI)",
+    "nameJp": "紡絆・セッツァー闇",
+    "id": 20780017,
     "gl": false
   },
   {
@@ -2181,6 +2886,65 @@
   },
   {
     "realm": "VII",
+    "character": "Vincent",
+    "name": "Parallel Bond: Vincent (Fire)",
+    "tier": "LBC",
+    "lbVer": "LBC1",
+    "type": "NAT",
+    "typeDetails": [
+      "PHY",
+      "BLK"
+    ],
+    "target": "Single enemy",
+    "formula": "Hybrid",
+    "multiplier": null,
+    "element": [
+      "Fire",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Ten single ranged hybrid attacks (0.80 or 2.60 each) capped at 19999, activates Fire Chain (max 150, field +0%) or adds 25 to the current Fire Chain maximum limit, grants [Chain Force Mode (Vincent)] and [Instant ATB 1] to the user",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "minimumLbPoints": 250,
+    "limitBreakBonus": [
+      "Limit Break Damage Up",
+      "Quick Cast 1"
+    ],
+    "masteryBonus": null,
+    "relic": "Blow Machine Gun (CC) (VII)",
+    "nameJp": "紡絆・ヴィンセント炎",
+    "id": 22170023,
+    "gl": false
+  },
+  {
+    "realm": "VII",
+    "character": "Vincent",
+    "name": "Guardian Chaos",
+    "tier": "LBGS",
+    "lbVer": "LBGS1",
+    "type": "NAT",
+    "target": "Self",
+    "formula": null,
+    "multiplier": null,
+    "element": null,
+    "time": 0.01,
+    "effects": "Summons Chaos for 5 seconds, grants [Protect], [Shell], [Haste], [Instant ATB 1], [DEF and RES +200% (25s)], [Last Stand], [Attach Fire 3 with Stacking] and [Damage Cap +20000] to Chaos",
+    "counter": false,
+    "autoTarget": "Self",
+    "minimumLbPoints": 250,
+    "limitBreakBonus": [
+      "Guardian Summon Damage Up",
+      "Damage Reduction Barrier"
+    ],
+    "masteryBonus": null,
+    "relic": "Sadalmelik (VII)",
+    "nameJp": "Gカオス",
+    "id": 22170024,
+    "gl": false
+  },
+  {
+    "realm": "VII",
     "character": "Genesis",
     "name": "Light of Doom",
     "tier": "LBO",
@@ -2206,6 +2970,35 @@
     "nameJp": "終焉の光",
     "id": 23470008,
     "gl": true
+  },
+  {
+    "realm": "VII",
+    "character": "Genesis",
+    "name": "Parallel Bond: Genesis (Fire)",
+    "tier": "LBC",
+    "lbVer": "LBC1",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 8,
+    "element": [
+      "Fire",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Ten single attacks (0.80) capped at 19999, activates Fire Chain (max 150, field +0%) or adds 25 to the current Fire Chain maximum limit, grants [Chain Force Mode (Genesis)] and [Instant ATB 1] to the user",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "minimumLbPoints": 250,
+    "limitBreakBonus": [
+      "Limit Break Damage Up",
+      "Quick Cast 1"
+    ],
+    "masteryBonus": null,
+    "relic": "Brave Suit (CC) (VII)",
+    "nameJp": "紡絆・ジェネシス炎",
+    "id": 23470015,
+    "gl": false
   },
   {
     "realm": "VII",
@@ -2266,6 +3059,35 @@
   },
   {
     "realm": "VII",
+    "character": "Shelke",
+    "name": "Parallel Bond: Shelke (Lightning)",
+    "tier": "LBC",
+    "lbVer": "LBC",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 8,
+    "element": [
+      "Lightning",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Ten single attacks (0.80) capped at 19999, activates Lightning Chain (max 150, field +0%) or adds 25 to the current Lightning Chain maximum limit and increases the current chain count on all enemies by 10, grants [Chain Force Mode (Shelke)] and [Instant ATB 1] to the user",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "minimumLbPoints": 250,
+    "limitBreakBonus": [
+      "Limit Break Damage Up",
+      "Quick Cast 1"
+    ],
+    "masteryBonus": null,
+    "relic": "Luin (DoC) (VII)",
+    "nameJp": "紡絆・シェルク雷",
+    "id": 22820020,
+    "gl": false
+  },
+  {
+    "realm": "VII",
     "character": "Angeal",
     "name": "True Unleashed Wrath",
     "tier": "LBO",
@@ -2320,6 +3142,35 @@
     "nameJp": "コメットソア",
     "id": 20470016,
     "gl": true
+  },
+  {
+    "realm": "VII",
+    "character": "Red XIII",
+    "name": "Parallel Bond: Red XIII (Earth)",
+    "tier": "LBC",
+    "lbVer": "LBC1",
+    "type": "BLK",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 26,
+    "element": [
+      "Earth",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Ten single attacks (2.60 each) capped at 19999, activates Earth Chain (max 150, field +0%) or adds 25 to the current Earth Chain maximum limit and increases the current chain count on all enemies by 10, grants [Chain Force Mode (Red XIII)] and [Instant ATB 1] to the user",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "minimumLbPoints": 250,
+    "limitBreakBonus": [
+      "Limit Break Damage Up",
+      "Quick Cast 1"
+    ],
+    "masteryBonus": null,
+    "relic": "Crystal Barette (VII)",
+    "nameJp": "紡絆・レッドXIII地",
+    "id": 20470023,
+    "gl": false
   },
   {
     "realm": "VII",
@@ -2408,8 +3259,37 @@
   },
   {
     "realm": "VII",
+    "character": "Barret",
+    "name": "Parallel Bond: Barret",
+    "tier": "LBC",
+    "lbVer": "LBC1",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 8,
+    "element": [
+      "Fire",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Ten single ranged attacks (0.80 each) capped at 19999, activates VII Chain (max 150, field +0%) or adds 25 to the current VII Chain maximum limit and increases the current chain count on all enemies by 10, grants [Chain Force Mode (Barret)] and [Instant ATB 1] to the user",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "minimumLbPoints": 250,
+    "limitBreakBonus": [
+      "Limit Break Damage Up",
+      "Quick Cast 1"
+    ],
+    "masteryBonus": null,
+    "relic": "Egoist's Armlet (VII)",
+    "nameJp": "紡絆・バレット",
+    "id": 20760022,
+    "gl": false
+  },
+  {
+    "realm": "VII",
     "character": "Cloud",
-    "name": "Guardian Choco/Mog",
+    "name": "Guardian Choco-Mog",
     "tier": "LBGS",
     "lbVer": "LBGS1",
     "type": "NAT",
@@ -2418,7 +3298,7 @@
     "multiplier": null,
     "element": null,
     "time": 0.01,
-    "effects": "Summons Chocobo and Moogle for 5 seconds, grants [Protect], [Shell], [Haste], [Instant ATB 1], [DEF and RES +200% (25s)], [Last Stand], [Attach Wind 3 with Stacking] and [Damage Cap +20000] to Chocobo and Moogle",
+    "effects": "Summons Choco-Moogle for 5 seconds, grants [Protect], [Shell], [Haste], [Instant ATB 1], [DEF and RES +200% (25s)], [Last Stand], [Attach Wind 3 with Stacking] and [Damage Cap +20000] to Choco-Moogle",
     "counter": false,
     "autoTarget": "Self",
     "minimumLbPoints": 250,
@@ -2430,12 +3310,12 @@
     "relic": "Shura Gloves (VII)",
     "nameJp": "Gチョコボ&モーグリ",
     "id": 20110036,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "VII",
     "character": "Cloud",
-    "name": "Sonic Buster",
+    "name": "Sonic Blade",
     "tier": "LBO",
     "lbVer": "LBO1",
     "type": "PHY",
@@ -2456,9 +3336,67 @@
       "Cast Time Down"
     ],
     "masteryBonus": null,
-    "relic": "Demon Slayer (VII)",
+    "relic": "Demonslayer (VII)",
     "nameJp": "ソニックブレード",
     "id": 20110038,
+    "gl": true
+  },
+  {
+    "realm": "VII",
+    "character": "Cloud",
+    "name": "Parallel Bond: Cloud",
+    "tier": "LBC",
+    "lbVer": "LBC1",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 8,
+    "element": [
+      "Wind",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Ten single attacks (0.80 each) capped at 19999, element of entry damage changes to Dark/NE if the user has any Attach Dark, activates VII Chain (max 150, field +0%) or adds 25 to the current VII Chain maximum limit, grants [Chain Force Mode (Cloud)] and [Instant ATB 1] to the user",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "minimumLbPoints": 250,
+    "limitBreakBonus": [
+      "Limit Break Damage Up",
+      "Quick Cast 1"
+    ],
+    "masteryBonus": null,
+    "relic": "Rudra Talwar (VII)",
+    "nameJp": "紡絆・クラウド",
+    "id": 20110041,
+    "gl": false
+  },
+  {
+    "realm": "VII",
+    "character": "Rufus",
+    "name": "Parallel Bond: Rufus",
+    "tier": "LBC",
+    "lbVer": "LBC1",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 8,
+    "element": [
+      "Dark",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Ten single ranged attacks (0.80 each) capped at 19999, activates VII Chain (max 150, field +0%) or adds 25 to the current VII Chain maximum limit, grants [Chain Force Mode (Rufus)] and [Instant ATB 1] to the user",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "minimumLbPoints": 250,
+    "limitBreakBonus": [
+      "Limit Break Damage Up",
+      "Quick Cast 1"
+    ],
+    "masteryBonus": null,
+    "relic": "Valiant R (VII)",
+    "nameJp": "紡絆・ルーファウス",
+    "id": 22630013,
     "gl": false
   },
   {
@@ -2562,7 +3500,7 @@
       "NE"
     ],
     "time": 0.01,
-    "effects": "Ten single ranged attacks (0.80 each) capped at 19999, activates Ice Chain (max 150, field +0%) or adds 25 to the current Ice Chain maximum limit, grants [Chain Force Mode (Laguna)] and [Instant ATB 1] to the user",
+    "effects": "Ten single ranged attacks (0.80 each) capped at 19999, activates Ice Chain (max 150, field +0%) or adds 25 to the current Ice Chain maximum limit and increases the current chain count on all enemies by 10, grants [Chain Force Mode (Laguna)] and [Instant ATB 1] to the user",
     "counter": false,
     "autoTarget": "Lowest HP% enemy",
     "minimumLbPoints": 250,
@@ -2657,6 +3595,35 @@
     "nameJp": "風装【アルティミシア】",
     "id": 23230016,
     "gl": true
+  },
+  {
+    "realm": "VIII",
+    "character": "Ultimecia",
+    "name": "Parallel Bond: Ultimecia (Wind)",
+    "tier": "LBC",
+    "lbVer": "LBC1",
+    "type": "BLK",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 26,
+    "element": [
+      "Wind",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Ten single attacks (2.60 each) capped at 19999, activates Wind Chain (max 150, field +0%) or adds 25 to the current Wind Chain maximum limit, grants [Chain Force Mode (Ultimecia)] and [Instant ATB 1] to the user",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "minimumLbPoints": 250,
+    "limitBreakBonus": [
+      "Limit Break Damage Up",
+      "Quick Cast 1"
+    ],
+    "masteryBonus": null,
+    "relic": "Assault (VIII)",
+    "nameJp": "紡絆・アルティミシア風",
+    "id": 23230026,
+    "gl": false
   },
   {
     "realm": "VIII",
@@ -2773,7 +3740,7 @@
   {
     "realm": "VIII",
     "character": "Fujin",
-    "name": "Soaring Hurricane",
+    "name": "Kakeru",
     "tier": "LBO",
     "lbVer": "LBO1",
     "type": "BLK",
@@ -2796,12 +3763,12 @@
     "relic": "Urubutsin (VIII)",
     "nameJp": "翔",
     "id": 22600020,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "VIII",
     "character": "Zell",
-    "name": "Dolphin Dropkick",
+    "name": "Dolphin Kick",
     "tier": "LBO",
     "lbVer": "LBO1",
     "type": "PHY",
@@ -2824,6 +3791,63 @@
     "relic": "Red Glove (VIII)",
     "nameJp": "ドルフィンキック",
     "id": 20670020,
+    "gl": true
+  },
+  {
+    "realm": "VIII",
+    "character": "Irvine",
+    "name": "Parallel Bond: Irvine (Fire)",
+    "tier": "LBC",
+    "lbVer": "LBC1",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 8,
+    "element": [
+      "Fire",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Ten single attacks (0.80 each) capped at 19999, activates Fire Chain (max 150, field +0%) or adds 25 to the current Fire Chain maximum limit and increases the current chain count on all enemies by 10, grants [Chain Force Mode (Irvine)] and [Instant ATB 1] to the user",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "minimumLbPoints": 250,
+    "limitBreakBonus": [
+      "Limit Break Damage Up",
+      "Quick Cast 1"
+    ],
+    "masteryBonus": null,
+    "relic": "Brimstone Armlet (VIII)",
+    "nameJp": "紡絆・アーヴァイン炎",
+    "id": 20410018,
+    "gl": false
+  },
+  {
+    "realm": "VIII",
+    "character": "Irvine",
+    "name": "Boosted Snipe",
+    "tier": "LBO",
+    "lbVer": "LBO1",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 40,
+    "element": [
+      "Fire"
+    ],
+    "time": 2.5,
+    "effects": "Five single ranged attacks (1.00 each scaling with LB gauge and LB honing level) capped at 99999, ignores DEF, 100% additional critical chance",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "minimumLbPoints": 250,
+    "limitBreakBonus": [
+      "Limit Break Damage Up",
+      "Cast Time Down"
+    ],
+    "masteryBonus": null,
+    "relic": "Adaman Hat (VIII)",
+    "nameJp": "バーストスナイプ",
+    "id": 20410022,
     "gl": false
   },
   {
@@ -2968,6 +3992,34 @@
   },
   {
     "realm": "IX",
+    "character": "Garnet",
+    "name": "Judgment Day",
+    "tier": "LBO",
+    "lbVer": "LBO2",
+    "type": "SUM",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 120,
+    "element": [
+      "Holy"
+    ],
+    "time": 2.5,
+    "effects": "Five single attacks (3.00 each scaling with LB gauge and LB honing level) capped at 99999, ignores RES",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "minimumLbPoints": 250,
+    "limitBreakBonus": [
+      "Limit Break Damage Up",
+      "Cast Time Down"
+    ],
+    "masteryBonus": null,
+    "relic": "Effulgent Cape (IX)",
+    "nameJp": "裁きの時",
+    "id": 20360032,
+    "gl": false
+  },
+  {
+    "realm": "IX",
     "character": "Steiner",
     "name": "Frostfire Thunder Carnage",
     "tier": "LBO",
@@ -2995,6 +4047,35 @@
     "nameJp": "極大・氷炎雷鳴剣",
     "id": 20570016,
     "gl": true
+  },
+  {
+    "realm": "IX",
+    "character": "Steiner",
+    "name": "Parallel Bond: Steiner",
+    "tier": "LBC",
+    "lbVer": "LBC1",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 8,
+    "element": [
+      "Fire",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Ten single attacks (0.80 each) capped at 19999, element of entry damage changes to Ice/NE or Lightning/NE if the user has any Attach Ice or Attach Lightning, activates IX Chain (max 150, field +0%) or adds 25 to the current IX Chain maximum limit, grants [Chain Force Mode (Steiner)] and [Instant ATB 1] to the user",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "minimumLbPoints": 250,
+    "limitBreakBonus": [
+      "Limit Break Damage Up",
+      "Quick Cast 1"
+    ],
+    "masteryBonus": null,
+    "relic": "Night Lotus (IX)",
+    "nameJp": "紡絆・スタイナー",
+    "id": 20570026,
+    "gl": false
   },
   {
     "realm": "IX",
@@ -3052,8 +4133,37 @@
   },
   {
     "realm": "IX",
+    "character": "Kuja",
+    "name": "Entwined Bond: Kuja (Dark)",
+    "tier": "LBC",
+    "lbVer": "LBC1",
+    "type": "BLK",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 26,
+    "element": [
+      "Dark",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Ten single attacks (2.60 each) capped at 19999, activates Dark Chain (max 150, field +0%) or adds 25 to the current Dark Chain maximum limit, grants [Chain Force Mode (Kuja)] and [Instant ATB 1] to the user",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "minimumLbPoints": 250,
+    "limitBreakBonus": [
+      "Limit Break Damage Up",
+      "Quick Cast 1"
+    ],
+    "masteryBonus": null,
+    "relic": "Bone Plate (IX)",
+    "nameJp": "紡絆・クジャ闇",
+    "id": 22240024,
+    "gl": false
+  },
+  {
+    "realm": "IX",
     "character": "Amarant",
-    "name": "Synergize (Amarant)",
+    "name": "Bond Flash (Amarant)",
     "tier": "LBG",
     "lbVer": "LBG1",
     "type": "NAT",
@@ -3073,12 +4183,69 @@
     "relic": "Power Wrist (IX)",
     "nameJp": "絆閃【サラマンダー】",
     "id": 20870016,
+    "gl": true
+  },
+  {
+    "realm": "IX",
+    "character": "Amarant",
+    "name": "Parallel Bond: Amarant (Fire)",
+    "tier": "LBC",
+    "lbVer": "LBC1",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 8,
+    "element": [
+      "Fire",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Ten single attacks (0.80 each) capped at 19999, activates Fire Chain (max 150, field +0%) or adds 25 to the current Fire Chain maximum limit, grants [Chain Force Mode (Amarant)] and [Instant ATB 1] to the user",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "minimumLbPoints": 250,
+    "limitBreakBonus": [
+      "Limit Break Damage Up",
+      "Quick Cast 1"
+    ],
+    "masteryBonus": null,
+    "relic": "Flame Claws (IX)",
+    "nameJp": "紡絆・サラマンダー炎",
+    "id": 20870017,
+    "gl": false
+  },
+  {
+    "realm": "IX",
+    "character": "Amarant",
+    "name": "Red-hot Knuckle Blow",
+    "tier": "LBO",
+    "lbVer": "LBO1",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 40,
+    "element": [
+      "Fire"
+    ],
+    "time": 2.5,
+    "effects": "Five single attacks (1.00 each scaling with LB gauge and LB honing level) capped at 99999, ignores DEF, 100% additional critical chance",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "minimumLbPoints": 250,
+    "limitBreakBonus": [
+      "Limit Break Damage Up",
+      "Cast Time Down"
+    ],
+    "masteryBonus": null,
+    "relic": "Burning Knuckles (IX)",
+    "nameJp": "爆砕焔滅拳",
+    "id": 20870021,
     "gl": false
   },
   {
     "realm": "IX",
     "character": "Marcus",
-    "name": "Venomous Turbulence",
+    "name": "Turbulent Venom",
     "tier": "LBO",
     "lbVer": "LBO1",
     "type": "PHY",
@@ -3102,12 +4269,12 @@
     "relic": "Phase Cutter (IX)",
     "nameJp": "ベノムタービランス",
     "id": 23070012,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "IX",
     "character": "Marcus",
-    "name": "Crippling Flash (Marcus)",
+    "name": "Spiraling Flash (Marcus)",
     "tier": "LBG",
     "lbVer": "LBG1",
     "type": "NAT",
@@ -3128,7 +4295,7 @@
     "relic": "Gigas Armlet (IX)",
     "nameJp": "降閃【マーカス】",
     "id": 23070013,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "X",
@@ -3243,6 +4410,35 @@
   },
   {
     "realm": "X",
+    "character": "Jecht",
+    "name": "Parallel Bond: Jecht",
+    "tier": "LBC",
+    "lbVer": "LBC1",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 8,
+    "element": [
+      "Dark",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Ten single ranged attacks (0.80 each) capped at 19999, element of entry damage changes from Dark/NE to Fire/NE if the user has any Attach Fire, activates X Chain (max 150, field +0%) or adds 25 to the current X Chain maximum limit, grants [Chain Force Mode (Jecht)] and [Instant ATB 1] to the user",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "minimumLbPoints": 250,
+    "limitBreakBonus": [
+      "Limit Break Damage Up",
+      "Quick Cast 1"
+    ],
+    "masteryBonus": null,
+    "relic": "Hell Claw (X)",
+    "nameJp": "紡絆・ジェクト",
+    "id": 22090024,
+    "gl": false
+  },
+  {
+    "realm": "X",
     "character": "Yuna",
     "name": "Guardian Valefor",
     "tier": "LBGS",
@@ -3270,7 +4466,7 @@
   {
     "realm": "X",
     "character": "Yuna",
-    "name": "Blast-Ray",
+    "name": "Blast Ray",
     "tier": "LBO",
     "lbVer": "LBO1",
     "type": "SUM",
@@ -3294,6 +4490,35 @@
     "relic": "Rod of Faith (X)",
     "nameJp": "ブラスト・レイ",
     "id": 20520030,
+    "gl": true
+  },
+  {
+    "realm": "X",
+    "character": "Yuna",
+    "name": "Parallel Bond: Yuna (Holy)",
+    "tier": "LBC",
+    "lbVer": "LBC1",
+    "type": "SUM",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 26,
+    "element": [
+      "Holy",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Ten single attacks (2.60 each) capped at 19999, activates Holy Chain (max 150, field +0%) or adds 25 to the current Holy Chain maximum limit, grants [Chain Force Mode (Yuna)] and [Instant ATB 1] to the user",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "minimumLbPoints": 250,
+    "limitBreakBonus": [
+      "Limit Break Damage Up",
+      "Quick Cast 1"
+    ],
+    "masteryBonus": null,
+    "relic": "Diamond Tiara (X)",
+    "nameJp": "紡絆・ユウナ聖",
+    "id": 20520035,
     "gl": false
   },
   {
@@ -3327,7 +4552,7 @@
   {
     "realm": "X",
     "character": "Wakka",
-    "name": "Blitz Off!",
+    "name": "Blitz Off",
     "tier": "LBO",
     "lbVer": "LBO1",
     "type": "PHY",
@@ -3350,12 +4575,12 @@
     "relic": "Breakaway (X)",
     "nameJp": "ブリッツオフ",
     "id": 20150019,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "X",
     "character": "Wakka",
-    "name": "Stifling Flash (Wakka)",
+    "name": "Spiraling Flash (Wakka)",
     "tier": "LBG",
     "lbVer": "LBG2",
     "type": "NAT",
@@ -3375,7 +4600,7 @@
     "relic": "Power Play (X)",
     "nameJp": "降閃【ワッカ】",
     "id": 20150020,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "X",
@@ -3392,7 +4617,7 @@
       "NE"
     ],
     "time": 0.01,
-    "effects": "Ten single ranged attacks (0.80 each) capped at 19999, activates Water Chain (max 150, field +0%) or adds 25 to the current Water Chain maximum limit, increases the current chain count on all enemies by 10, grants [Chain Force Mode (Wakka)] and [Instant ATB 1] to the user",
+    "effects": "Ten single ranged attacks (0.80 each) capped at 19999, activates Water Chain (max 150, field +0%) or adds 25 to the current Water Chain maximum limit and increases the current chain count on all enemies by 10, grants [Chain Force Mode (Wakka)] and [Instant ATB 1] to the user",
     "counter": false,
     "autoTarget": "Lowest HP% enemy",
     "minimumLbPoints": 250,
@@ -3436,6 +4661,35 @@
   },
   {
     "realm": "X",
+    "character": "Auron",
+    "name": "Parallel Bond: Auron (Fire)",
+    "tier": "LBC",
+    "lbVer": "LBC1",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 8,
+    "element": [
+      "Fire",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Ten single attacks (0.80 each) capped at 19999, activates Fire Chain (max 150, field +0%) or adds 25 to the current Fire Chain maximum limit, grants [Chain Force Mode (Auron)] and [Instant ATB 1] to the user",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "minimumLbPoints": 250,
+    "limitBreakBonus": [
+      "Limit Break Damage Up",
+      "Quick Cast 1"
+    ],
+    "masteryBonus": null,
+    "relic": "Crimson Cherry (X)",
+    "nameJp": "紡絆・アーロン炎",
+    "id": 20690028,
+    "gl": false
+  },
+  {
+    "realm": "X",
     "character": "Rikku",
     "name": "Mix Bubble Bomb",
     "tier": "LBO",
@@ -3465,7 +4719,7 @@
   {
     "realm": "X",
     "character": "Lulu",
-    "name": "Triple Fury",
+    "name": "Tri-Energy",
     "tier": "LBO",
     "lbVer": "LBO1",
     "type": "BLK",
@@ -3487,15 +4741,15 @@
       "Cast Time Down"
     ],
     "masteryBonus": null,
-    "relic": "Chilly Tonberry (X)",
+    "relic": "Tonberry Doll (X)",
     "nameJp": "トライエナジー",
     "id": 20880022,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "X",
     "character": "Paine",
-    "name": "Full Throttle's Edge",
+    "name": "Practiced Blade",
     "tier": "LBO",
     "lbVer": "LBO1",
     "type": "PHY",
@@ -3518,7 +4772,7 @@
     "relic": "Silvance (X)",
     "nameJp": "斬騎の刃",
     "id": 22420022,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "XI",
@@ -3604,6 +4858,35 @@
   },
   {
     "realm": "XI",
+    "character": "Zeid",
+    "name": "Parallel Bond: Zeid (Dark)",
+    "tier": "LBC",
+    "lbVer": "LBC1",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 8,
+    "element": [
+      "Dark",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Ten single attacks (0.80 each) capped at 19999, activates Dark Chain (max 150, field +0%) or adds 25 to the current Dark Chain maximum limit, grants [Chain Force Mode (Zeid)] and [Instant ATB 1] to the user",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "minimumLbPoints": 250,
+    "limitBreakBonus": [
+      "Limit Break Damage Up",
+      "Quick Cast 1"
+    ],
+    "masteryBonus": null,
+    "relic": "Greatsword (XI)",
+    "nameJp": "紡絆・ザイド闇",
+    "id": 22890015,
+    "gl": false
+  },
+  {
+    "realm": "XI",
     "character": "Prishe",
     "name": "Chi Blast",
     "tier": "LBO",
@@ -3630,6 +4913,35 @@
     "nameJp": "気孔弾",
     "id": 22680014,
     "gl": true
+  },
+  {
+    "realm": "XI",
+    "character": "Prishe",
+    "name": "Parallel Bond: Prishe",
+    "tier": "LBC",
+    "lbVer": "LBC1",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 8,
+    "element": [
+      "Lightning",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Ten single attacks (0.80 each) capped at 19999, element of entry damage changes from Lightning/NE to Ice/NE if the user has any Attach Ice, activates XI Chain (max 150, field +0%) or adds 25 to the current XI Chain maximum limit, grants [Chain Force Mode (Prishe)] and [Instant ATB 1] to the user",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "minimumLbPoints": 250,
+    "limitBreakBonus": [
+      "Limit Break Damage Up",
+      "Quick Cast 1"
+    ],
+    "masteryBonus": null,
+    "relic": "Healing Jstcorps (XI)",
+    "nameJp": "紡絆・プリッシュ",
+    "id": 22680017,
+    "gl": false
   },
   {
     "realm": "XI",
@@ -3684,6 +4996,34 @@
     "gl": false
   },
   {
+    "realm": "XI",
+    "character": "Curilla",
+    "name": "Atonement",
+    "tier": "LBO",
+    "lbVer": "LBO1",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 40,
+    "element": [
+      "Holy"
+    ],
+    "time": 2.5,
+    "effects": "Five single attacks (1.00 each scaling with LB gauge and LB honing level) capped at 99999, ignores DEF, 100% additional critical chance",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "minimumLbPoints": 250,
+    "limitBreakBonus": [
+      "Limit Break Damage Up",
+      "Cast Time Down"
+    ],
+    "masteryBonus": null,
+    "relic": "Burtgang (XI)",
+    "nameJp": "ロイエ",
+    "id": 22470017,
+    "gl": false
+  },
+  {
     "realm": "XII",
     "character": "Vaan",
     "name": "Swift Superstar",
@@ -3710,6 +5050,35 @@
     "nameJp": "スピードスーパースター",
     "id": 20700018,
     "gl": true
+  },
+  {
+    "realm": "XII",
+    "character": "Vaan",
+    "name": "Parallel Bond: Vaan (Wind)",
+    "tier": "LBC",
+    "lbVer": "LBC1",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 8,
+    "element": [
+      "Wind",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Ten single attacks (0.80 each) capped at 19999, activates Wind Chain (max 150, field +0%) or adds 25 to the current Wind Chain maximum limit, grants [Chain Force Mode (Vaan)] and [Instant ATB 1] to the user",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "minimumLbPoints": 250,
+    "limitBreakBonus": [
+      "Limit Break Damage Up",
+      "Quick Cast 1"
+    ],
+    "masteryBonus": null,
+    "relic": "Enhancer (XII)",
+    "nameJp": "紡絆・ヴァン風",
+    "id": 20700031,
+    "gl": false
   },
   {
     "realm": "XII",
@@ -3860,7 +5229,7 @@
   {
     "realm": "XII",
     "character": "Ashe",
-    "name": "Northswain's Light",
+    "name": "Northswain Bolt",
     "tier": "LBO",
     "lbVer": "LBO1",
     "type": "BLK",
@@ -3883,7 +5252,7 @@
     "relic": "Queen's Veil (XII)",
     "nameJp": "天砕北斗稲妻斬",
     "id": 20710022,
-    "gl": false
+    "gl": true
   },
   {
     "realm": "XII",
@@ -3912,6 +5281,35 @@
     "nameJp": "真・略奪のコンパス",
     "id": 20440024,
     "gl": true
+  },
+  {
+    "realm": "XII",
+    "character": "Balthier",
+    "name": "Parallel Bond: Balthier (Fire)",
+    "tier": "LBC",
+    "lbVer": "LBC1",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 8,
+    "element": [
+      "Fire",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Ten single ranged attacks (0.80 each) capped at 19999, activates Fire Chain (max 150, field +0%) or adds 25 to the current Fire Chain maximum limit, grants [Chain Force Mode (Balthier)] and [Instant ATB 1] to the user",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "minimumLbPoints": 250,
+    "limitBreakBonus": [
+      "Limit Break Damage Up",
+      "Quick Cast 1"
+    ],
+    "masteryBonus": null,
+    "relic": "Brave Suit (XII)",
+    "nameJp": "紡絆・バルフレア炎",
+    "id": 20440027,
+    "gl": false
   },
   {
     "realm": "XIII",
@@ -3965,6 +5363,35 @@
     "relic": "Velvet Bouncer (XIII)",
     "nameJp": "Gオーディン",
     "id": 20600034,
+    "gl": true
+  },
+  {
+    "realm": "XIII",
+    "character": "Lightning",
+    "name": "Parallel Bond: Lightning",
+    "tier": "LBC",
+    "lbVer": "LBC1",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 8,
+    "element": [
+      "Lightning",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Ten single attacks (0.80 each) capped at 19999, element of entry damage changes from Lightning/NE to Holy/NE if the user has any Attach Holy, activates XIII Chain (max 150, field +0%) or adds 25 to the current XIII Chain maximum limit, grants [Chain Force Mode (Lightning)] and [Instant ATB 1] to the user",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "minimumLbPoints": 250,
+    "limitBreakBonus": [
+      "Limit Break Damage Up",
+      "Quick Cast 1"
+    ],
+    "masteryBonus": null,
+    "relic": "Excalibur (XIII)",
+    "nameJp": "紡絆・ライトニング",
+    "id": 20600039,
     "gl": false
   },
   {
@@ -4052,6 +5479,35 @@
   },
   {
     "realm": "XIII",
+    "character": "Sazh",
+    "name": "Parallel Bond: Sazh",
+    "tier": "LBC",
+    "lbVer": "LBC1",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 8,
+    "element": [
+      "Fire",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Ten single ranged attacks (0.80 each) capped at 19999, activates XIII Chain (max 150, field +0%) or adds 25 to the current XIII Chain maximum limit and increases the current chain count on all enemies by 10, grants [Chain Force Mode (Sazh)] and [Instant ATB 1] to the user",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "minimumLbPoints": 250,
+    "limitBreakBonus": [
+      "Limit Break Damage Up",
+      "Quick Cast 1"
+    ],
+    "masteryBonus": null,
+    "relic": "Hydras (XIII)",
+    "nameJp": "紡絆・サッズ",
+    "id": 20610021,
+    "gl": false
+  },
+  {
+    "realm": "XIII",
     "character": "Hope",
     "name": "Divine Flash (Hope)",
     "tier": "LBG",
@@ -4136,6 +5592,35 @@
     "gl": true
   },
   {
+    "realm": "XIII",
+    "character": "Serah",
+    "name": "Our Private Heaven",
+    "tier": "LBO",
+    "lbVer": "LBO1",
+    "type": "BLK",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 96,
+    "element": [
+      "Ice",
+      "Water"
+    ],
+    "time": 2.5,
+    "effects": "Four single attacks (3.00 each scaling with LB gauge and LB honing level) capped at 99999, ignores RES",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "minimumLbPoints": 250,
+    "limitBreakBonus": [
+      "Limit Break Damage Up",
+      "Cast Time Down"
+    ],
+    "masteryBonus": null,
+    "relic": "Magic Bow (XIII)",
+    "nameJp": "秘密の場所だね",
+    "id": 22260032,
+    "gl": false
+  },
+  {
     "realm": "XIV",
     "character": "Y'shtola",
     "name": "Scion's Meteor",
@@ -4165,6 +5650,36 @@
     "nameJp": "サイオンズ・メテオ",
     "id": 20960011,
     "gl": true
+  },
+  {
+    "realm": "XIV",
+    "character": "Y'shtola",
+    "name": "Parallel Bond: Y'shtola",
+    "tier": "LBC",
+    "lbVer": "LBC1",
+    "type": "BLK",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 26,
+    "element": [
+      "Fire",
+      "NE"
+    ],
+    "elementNote": "Element changes based on current Attach Element status",
+    "time": 0.01,
+    "effects": "Ten single attacks (2.60 each) capped at 19999, element of entry damage changes from Ice/NE, Lightning/NE or Dark/NE if the user has any Attach Ice, Attach Lightning or Attach Dark, activates XIV Chain (max 150, field +0%) or adds 25 to the current XIV Chain maximum limit, grants [Chain Force Mode (Y'shtola)] and [Instant ATB 1] to the user",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "minimumLbPoints": 250,
+    "limitBreakBonus": [
+      "Limit Break Damage Up",
+      "Quick Cast 1"
+    ],
+    "masteryBonus": null,
+    "relic": "Rod of Light (XIV)",
+    "nameJp": "紡絆・ヤ・シュトラ",
+    "id": 20960023,
+    "gl": false
   },
   {
     "realm": "XIV",
@@ -4278,6 +5793,92 @@
     "gl": true
   },
   {
+    "realm": "XIV",
+    "character": "Papalymo",
+    "name": "Parallel Bond: Papalymo (Fire)",
+    "tier": "LBC",
+    "lbVer": "LBC1",
+    "type": "BLK",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 26,
+    "element": [
+      "Fire",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Ten single attacks (2.60 each) capped at 19999, activates Fire Chain (max 150, field +0%) or adds 25 to the current Fire Chain maximum limit, grants [Chain Force Mode (Papalymo)] and [Instant ATB 1] to the user",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "minimumLbPoints": 250,
+    "limitBreakBonus": [
+      "Limit Break Damage Up",
+      "Quick Cast 1"
+    ],
+    "masteryBonus": null,
+    "relic": "Catalyst (XIV)",
+    "nameJp": "紡絆・パパリモ炎",
+    "id": 22330017,
+    "gl": false
+  },
+  {
+    "realm": "XIV",
+    "character": "Papalymo",
+    "name": "Scion's Fire",
+    "tier": "LBO",
+    "lbVer": "LBO1",
+    "type": "BLK",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 120,
+    "element": [
+      "Fire"
+    ],
+    "time": 2.5,
+    "effects": "Five single attacks (3.00 each scaling with LB gauge and LB honing level) capped at 99999, ignores RES",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "minimumLbPoints": 250,
+    "limitBreakBonus": [
+      "Limit Break Damage Up",
+      "Cast Time Down"
+    ],
+    "masteryBonus": null,
+    "relic": "Vanargand (XIV)",
+    "nameJp": "サイオンズ・ファイア",
+    "id": 22330020,
+    "gl": false
+  },
+  {
+    "realm": "XIV",
+    "character": "Alphinaud",
+    "name": "Parallel Bond: Alphinaud (Wind)",
+    "tier": "LBC",
+    "lbVer": "LBC1",
+    "type": "SUM",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 26,
+    "element": [
+      "Wind",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Ten single attacks (2.60 each) capped at 19999, activates Wind Chain (max 150, field +0%) or adds 25 to the current Wind Chain maximum limit, grants [Chain Force Mode (Alphinaud)] and [Instant ATB 1] to the user",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "minimumLbPoints": 250,
+    "limitBreakBonus": [
+      "Limit Break Damage Up",
+      "Quick Cast 1"
+    ],
+    "masteryBonus": null,
+    "relic": "Galdrabok (XIV)",
+    "nameJp": "紡絆・アルフィノ風",
+    "id": 22530018,
+    "gl": false
+  },
+  {
     "realm": "XV",
     "character": "Noctis",
     "name": "Ancillary Link-Strike",
@@ -4306,6 +5907,35 @@
     "nameJp": "アナザーリンクアタック",
     "id": 22740014,
     "gl": true
+  },
+  {
+    "realm": "XV",
+    "character": "Noctis",
+    "name": "Parallel Bond: Noctis (Earth)",
+    "tier": "LBC",
+    "lbVer": "LBC1",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 8,
+    "element": [
+      "Earth",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Ten single attacks (0.80 each) capped at 19999, activates Earth Chain (max 150, field +0%) or adds 25 to the current Earth Chain maximum limit, grants [Chain Force Mode (Noctis)] and [Instant ATB 1] to the user",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "minimumLbPoints": 250,
+    "limitBreakBonus": [
+      "Limit Break Damage Up",
+      "Quick Cast 1"
+    ],
+    "masteryBonus": null,
+    "relic": "Durandal (XIV)",
+    "nameJp": "紡絆・ノクティス地",
+    "id": 22740024,
+    "gl": false
   },
   {
     "realm": "XV",
@@ -4357,9 +5987,38 @@
       "Damage Reduction Barrier"
     ],
     "masteryBonus": null,
-    "relic": "Swords of the Wanderer Variant (XV)",
+    "relic": "Swords of the Wanderer - Variant (XV)",
     "nameJp": "Gイフリート",
     "id": 23520007,
+    "gl": true
+  },
+  {
+    "realm": "XV",
+    "character": "Ardyn",
+    "name": "Parallel Bond: Ardyn",
+    "tier": "LBC",
+    "lbVer": "LBC1",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 8,
+    "element": [
+      "Dark",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Ten single attacks (0.80 each) capped at 19999, element of entry damage changes from Dark/NE to Fire/NE if the user has any Attach Fire, activates XV Chain (max 150, field +0%) or adds 25 to the current XV Chain maximum limit, grants [Chain Force Mode (Ardyn)] and [Instant ATB 1] to the user",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "minimumLbPoints": 250,
+    "limitBreakBonus": [
+      "Limit Break Damage Up",
+      "Quick Cast 1"
+    ],
+    "masteryBonus": null,
+    "relic": "Star of the Rogue Variant (XV)",
+    "nameJp": "紡絆・アーデン",
+    "id": 23520012,
     "gl": false
   },
   {
@@ -4388,6 +6047,35 @@
     "relic": "Tundra Attire (XV)",
     "nameJp": "トリガー・ハント",
     "id": 22970017,
+    "gl": false
+  },
+  {
+    "realm": "XV",
+    "character": "Lunafreya",
+    "name": "Parallel Bond: Lunafreya (Water)",
+    "tier": "LBC",
+    "lbVer": "LBC1",
+    "type": "SUM",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 26,
+    "element": [
+      "Water",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Ten single attacks (2.60 each) capped at 19999, activates Water Chain (max 150, field +0%) or adds 25 to the current Water Chain maximum limit and increases the current chain count on all enemies by 10, grants [Chain Force Mode (Lunafreya)] and [Instant ATB 1] to the user",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "minimumLbPoints": 250,
+    "limitBreakBonus": [
+      "Limit Break Damage Up",
+      "Quick Cast 1"
+    ],
+    "masteryBonus": null,
+    "relic": "Empyrean Rod (XV)",
+    "nameJp": "紡絆・ルナフレーナ水",
+    "id": 23460008,
     "gl": false
   },
   {
@@ -4445,6 +6133,35 @@
     "nameJp": "S・ブーメランダガー",
     "id": 23080012,
     "gl": true
+  },
+  {
+    "realm": "Type-0",
+    "character": "Rem",
+    "name": "Parallel Bond: Rem (Holy)",
+    "tier": "LBC",
+    "lbVer": "LBC1",
+    "type": "WHT",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 27,
+    "element": [
+      "Holy",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Ten single attacks (2.70 each) capped at 19999, activates Holy Chain (max 150, field +0%) or adds 25 to the current Holy Chain maximum limit, grants [Chain Force Mode (Rem)] and [Instant ATB 1] to the user",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "minimumLbPoints": 250,
+    "limitBreakBonus": [
+      "Limit Break Damage Up",
+      "Quick Cast 1"
+    ],
+    "masteryBonus": null,
+    "relic": "Mythril Bracelet (Type-0)",
+    "nameJp": "紡絆・レム聖",
+    "id": 23080020,
+    "gl": false
   },
   {
     "realm": "Type-0",
@@ -4644,6 +6361,35 @@
   },
   {
     "realm": "Type-0",
+    "character": "Eight",
+    "name": "Parallel Bond: Eight (Ice)",
+    "tier": "LBC",
+    "lbVer": "LBC1",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 8,
+    "element": [
+      "Ice",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Ten single attacks (0.80 each) capped at 19999, activates Ice Chain (max 150, field +0%) or adds 25 to the current Ice Chain maximum limit, grants [Chain Force Mode (Eight)] and [Instant ATB 1] to the user",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "minimumLbPoints": 250,
+    "limitBreakBonus": [
+      "Limit Break Damage Up",
+      "Quick Cast 1"
+    ],
+    "masteryBonus": null,
+    "relic": "Master Fists (Type-0)",
+    "nameJp": "紡絆・エイト氷",
+    "id": 23360015,
+    "gl": false
+  },
+  {
+    "realm": "Type-0",
     "character": "Seven",
     "name": "Sub-Zero Snakebite",
     "tier": "LBO",
@@ -4675,14 +6421,14 @@
     "character": "Seven",
     "name": "Weakening Flash (Seven)",
     "tier": "LBG",
-    "lbVer": "LBO1",
+    "lbVer": "LBG1",
     "type": "NAT",
     "target": "Single enemy",
     "formula": null,
     "multiplier": null,
     "element": null,
     "time": 0.01,
-    "effects": "Causes [Imperil Ice 40% (5s)], grants [Quick Cast 1] to all allies",
+    "effects": "Causes [Imperil Ice 40% (5s)], grants [Quick Cast 2] to all allies",
     "counter": false,
     "autoTarget": "Lowest HP% enemy",
     "minimumLbPoints": 0,
@@ -4726,7 +6472,7 @@
   {
     "realm": "Beyond",
     "character": "Serafie",
-    "name": "Weakening Flash (Serafie)",
+    "name": "Spiraling Flash (Serafie)",
     "tier": "LBG",
     "lbVer": "LBG1",
     "type": "NAT",
@@ -4743,9 +6489,38 @@
       "Wind Damage Up"
     ],
     "masteryBonus": "MAG +10",
-    "relic": "Silk Shirt (Beyond)",
+    "relic": "Silken Shirt (Beyond)",
     "nameJp": "降閃【セラフィ】",
     "id": 23450014,
+    "gl": true
+  },
+  {
+    "realm": "Beyond",
+    "character": "Enna Kros",
+    "name": "Parallel Bond: Enna Kros (Earth)",
+    "tier": "LBC",
+    "lbVer": "LBC1",
+    "type": "BLK",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 26,
+    "element": [
+      "Earth",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Ten single attacks (2.60 each) capped at 19999, activates Earth Chain (max 150, field +0%) or adds 25 to the current Earth Chain maximum limit, grants [Chain Force Mode (Enna Kros)] and [Instant ATB 1] to the user",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "minimumLbPoints": 250,
+    "limitBreakBonus": [
+      "Limit Break Damage Up",
+      "Quick Cast 1"
+    ],
+    "masteryBonus": null,
+    "relic": "Titan Mirage (Beyond)",
+    "nameJp": "紡絆・エナ・クロ地",
+    "id": 23280014,
     "gl": false
   }
 ]

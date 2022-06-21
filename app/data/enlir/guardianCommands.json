@@ -72,6 +72,79 @@
     "gl": true
   },
   {
+    "character": "Faris",
+    "source": "Guardian Syldra",
+    "lbVer": "LBGS1",
+    "name": "Guardian Aero Storm",
+    "guardianAbilitySlot": "1",
+    "type": "PHY",
+    "target": "All enemies",
+    "formula": "Physical",
+    "multiplier": 35.1,
+    "element": [
+      "Wind",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Six group ranged attacks (5.85 each), causes [Imperil Wind 10% (15s)]",
+    "counter": true,
+    "autoTarget": "All enemies",
+    "sb": 60,
+    "school": "Combat",
+    "nameJp": "Gエアロストーム",
+    "id": 31542056,
+    "gl": false
+  },
+  {
+    "character": "Faris",
+    "source": "Guardian Syldra",
+    "lbVer": "LBGS1",
+    "name": "Guardian Wind Storm",
+    "guardianAbilitySlot": "2",
+    "type": "PHY",
+    "target": "All enemies",
+    "formula": "Physical",
+    "multiplier": 19,
+    "element": [
+      "Wind",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "One group ranged attack (19.00) capped at 99999, grants [Buff Wind 20% (15s)] and [Damage Cap +10000] to the user",
+    "counter": true,
+    "autoTarget": "All enemies",
+    "sb": 60,
+    "school": "Combat",
+    "nameJp": "Gウインドストーム",
+    "id": 31542057,
+    "gl": false
+  },
+  {
+    "character": "Faris",
+    "source": "Guardian Syldra",
+    "lbVer": "LBGS1",
+    "name": "Guardian Thunderstorm",
+    "guardianAbilitySlot": "Finisher",
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 100.4,
+    "element": [
+      "Wind",
+      "Fire",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Ten single ranged attacks (7.60 each), followed by one single ranged attack (24.40) capped at 99999, removes [Guardian Summon Mode] from the user, grants [Quick Cast 2] to Faris",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "-",
+    "nameJp": "Gサンダーストーム",
+    "id": 20930029,
+    "gl": false
+  },
+  {
     "character": "Locke",
     "source": "Guardian Phoenix",
     "lbVer": "LBGS1",
@@ -147,7 +220,7 @@
     "character": "Terra",
     "source": "Guardian Maduin",
     "lbVer": "LBGS1",
-    "name": "Big Bang",
+    "name": "Guardian Big Bang",
     "guardianAbilitySlot": "1",
     "type": "BLK",
     "target": "Single enemy",
@@ -165,13 +238,13 @@
     "school": "Black Magic",
     "nameJp": "Gビッグバン",
     "id": 31541688,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Terra",
     "source": "Guardian Maduin",
     "lbVer": "LBGS1",
-    "name": "Terra Volcano",
+    "name": "Guardian Terra Volcano",
     "guardianAbilitySlot": "2",
     "type": "BLK",
     "target": "All enemies",
@@ -189,13 +262,13 @@
     "school": "Black Magic",
     "nameJp": "Gテラボルケーノ",
     "id": 31541689,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Terra",
     "source": "Guardian Maduin",
     "lbVer": "LBGS1",
-    "name": "Chaos Wave",
+    "name": "Guardian Chaos Wave",
     "guardianAbilitySlot": "Finisher",
     "type": "BLK",
     "target": "All enemies",
@@ -214,13 +287,13 @@
     "school": "-",
     "nameJp": "Gケイオスウェイブ",
     "id": 20100038,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Cloud",
-    "source": "Guardian Choco/Mog",
+    "source": "Guardian Choco-Mog",
     "lbVer": "LBGS1",
-    "name": "Chocobo Kick",
+    "name": "Guardian Choco Kick",
     "guardianAbilitySlot": "1",
     "type": "PHY",
     "target": "Single enemy",
@@ -238,13 +311,13 @@
     "school": "Combat",
     "nameJp": "Gチョコボキック",
     "id": 31541599,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Cloud",
-    "source": "Guardian Choco/Mog",
+    "source": "Guardian Choco-Mog",
     "lbVer": "LBGS1",
-    "name": "Choco Meteor",
+    "name": "Guardian Choco Meteor",
     "guardianAbilitySlot": "2",
     "type": "PHY",
     "target": "All enemies",
@@ -262,13 +335,13 @@
     "school": "Combat",
     "nameJp": "Gチョコメテオ",
     "id": 31541600,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Cloud",
-    "source": "Guardian Choco/Mog",
+    "source": "Guardian Choco-Mog",
     "lbVer": "LBGS1",
-    "name": "Deathblow!!",
+    "name": "Guardian Deathblow!",
     "guardianAbilitySlot": "Finisher",
     "type": "PHY",
     "target": "Single enemy",
@@ -287,6 +360,78 @@
     "school": "-",
     "nameJp": "G必殺技!!",
     "id": 20110037,
+    "gl": true
+  },
+  {
+    "character": "Vincent",
+    "source": "Guardian Chaos",
+    "lbVer": "LBGS1",
+    "name": "Guardian Chaos Saber",
+    "guardianAbilitySlot": "1",
+    "type": "BLK",
+    "target": "All enemies",
+    "formula": "Magical",
+    "multiplier": 84,
+    "element": [
+      "Fire",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Six group attacks (14.00 each), causes [Imperil Fire 10% (15s)]",
+    "counter": true,
+    "autoTarget": "All enemies",
+    "sb": 0,
+    "school": "Black Magic",
+    "nameJp": "Gカオスセイバー",
+    "id": 31542023,
+    "gl": false
+  },
+  {
+    "character": "Vincent",
+    "source": "Guardian Chaos",
+    "lbVer": "LBGS1",
+    "name": "Guardian Chaos Burst",
+    "guardianAbilitySlot": "2",
+    "type": "BLK",
+    "target": "All enemies",
+    "formula": "Magical",
+    "multiplier": 45,
+    "element": [
+      "Fire",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "One group attack (45.00) capped at 99999, grants [Buff Fire 20% (15s)] and [Damage Cap +10000 2] to the user",
+    "counter": true,
+    "autoTarget": "All enemies",
+    "sb": 0,
+    "school": "Black Magic",
+    "nameJp": "Gカオスブースト",
+    "id": 31542024,
+    "gl": false
+  },
+  {
+    "character": "Vincent",
+    "source": "Guardian Chaos",
+    "lbVer": "LBGS1",
+    "name": "Guardian Satan Slam",
+    "guardianAbilitySlot": "Finisher",
+    "type": "BLK",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 251,
+    "element": [
+      "Fire",
+      "NE"
+    ],
+    "time": 0.01,
+    "effects": "Ten single attacks (19.00 each), followed by one single attack (61.00) capped at 99999, causes [Instant KO], removes [Guardian Summon Mode] from the user",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 0,
+    "school": "-",
+    "nameJp": "Gサタンインパクト",
+    "id": 22170025,
     "gl": false
   },
   {
@@ -649,7 +794,7 @@
       "NE"
     ],
     "time": 0.01,
-    "effects": "Ten single attacks (19.00 each), followed by one group attack (61.00) capped at 99999, removes [Guardian Summon Mode] from the user",
+    "effects": "Ten single attacks (19.00 each), followed by one single attack (61.00) capped at 99999, removes [Guardian Summon Mode] from the user",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 0,
@@ -730,7 +875,7 @@
       "NE"
     ],
     "time": 0.01,
-    "effects": "Ten single attacks (18.05/19.95 each) if the user has Roar level 0/1, followed by one single attack (57.95/64.05) if the user has Roar level 0/1",
+    "effects": "Ten single attacks (18.05/19.95 each) if the user has Roar level 0/1, followed by one single attack (57.95/64.05) if the user has Roar level 0/1, grants [Instant Cast 2] to Arciela",
     "counter": false,
     "autoTarget": "Lowest HP% enemy",
     "sb": 0,
@@ -743,7 +888,7 @@
     "character": "Lightning",
     "source": "Guardian Odin",
     "lbVer": "LBGS1",
-    "name": "Ripping Crush",
+    "name": "Guardian Bolt",
     "guardianAbilitySlot": "1",
     "type": "PHY",
     "target": "Single enemy",
@@ -755,20 +900,20 @@
       "NE"
     ],
     "time": 0.01,
-    "effects": "Six single attacks (5.85 each), grants Gestalt Drive +1 to the user",
+    "effects": "Six single attacks (5.85 each), grants Guardian Drive Gauge +1 to the user",
     "counter": true,
     "autoTarget": "Lowest HP% enemy",
     "sb": 60,
     "school": "Combat",
     "nameJp": "G天雷絶影",
     "id": 31541579,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Lightning",
     "source": "Guardian Odin",
     "lbVer": "LBGS1",
-    "name": "Seismic Slayer",
+    "name": "Guardian Thunder",
     "guardianAbilitySlot": "2",
     "type": "PHY",
     "target": "All enemies",
@@ -787,13 +932,13 @@
     "school": "Combat",
     "nameJp": "G咆雷烈破",
     "id": 31541580,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Lightning",
     "source": "Guardian Odin",
     "lbVer": "LBGS1",
-    "name": "Thunderfall",
+    "name": "Guardian Thunderfall",
     "guardianAbilitySlot": "Finisher",
     "type": "PHY",
     "target": "Single enemy",
@@ -805,20 +950,20 @@
       "NE"
     ],
     "time": 0.01,
-    "effects": "Ten single attacks (7.98 each) followed by one single attack (23.18/24.40/25.62) capped at 99999 if the user has Gestalt Drive level 0/1/2",
+    "effects": "Ten single attacks (7.98 each) followed by one single attack (23.18/24.40/25.62) capped at 99999 if the user has Guardian Drive Gauge level 0/1/2",
     "counter": false,
     "autoTarget": "Lowest HP% enemy",
     "sb": 0,
     "school": "-",
     "nameJp": "G天鳴万雷",
     "id": 20600035,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Ardyn",
     "source": "Guardian Ifrit",
     "lbVer": "LBGS1",
-    "name": "Pulsefire",
+    "name": "Guardian Pulsefire",
     "guardianAbilitySlot": "1",
     "type": "PHY",
     "target": "All enemies",
@@ -837,13 +982,13 @@
     "school": "Combat",
     "nameJp": "G業炎",
     "id": 31541470,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Ardyn",
     "source": "Guardian Ifrit",
     "lbVer": "LBGS1",
-    "name": "Incinerate",
+    "name": "Guardian Embers",
     "guardianAbilitySlot": "2",
     "type": "PHY",
     "target": "Single enemy",
@@ -862,13 +1007,13 @@
     "school": "Combat",
     "nameJp": "G炎塵",
     "id": 31541471,
-    "gl": false
+    "gl": true
   },
   {
     "character": "Ardyn",
     "source": "Guardian Ifrit",
     "lbVer": "LBGS1",
-    "name": "Hellfire",
+    "name": "Guardian Hellfire",
     "guardianAbilitySlot": "Finisher",
     "type": "PHY",
     "target": "Single enemy",
@@ -887,6 +1032,6 @@
     "school": "-",
     "nameJp": "G地獄の火炎",
     "id": 23520008,
-    "gl": false
+    "gl": true
   }
 ]

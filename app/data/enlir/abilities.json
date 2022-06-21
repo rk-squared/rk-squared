@@ -4254,7 +4254,7 @@
         0
       ]
     },
-    "introducingEvent": "Labyrinth Dungeon Season 1 Group B",
+    "introducingEvent": "Labyrinth Dungeon Season 1 Group B (Wind)",
     "nameJp": "エアロガ【VI】(ストラゴス専用)",
     "id": 30111641,
     "gl": true,
@@ -4308,7 +4308,7 @@
         0
       ]
     },
-    "introducingEvent": "Labyrinth Dungeon Season 1 Group B",
+    "introducingEvent": "Labyrinth Dungeon Season 1 Group B (Wind)",
     "nameJp": "かぜのラプソディ(セラフィ専用)",
     "id": 30111651,
     "gl": true,
@@ -4473,7 +4473,7 @@
         0
       ]
     },
-    "introducingEvent": "Labyrinth Dungeon Season 1 Group C",
+    "introducingEvent": "Labyrinth Dungeon Season 1 Group C (Ice)",
     "nameJp": "魔法乱れ撃ち(パロム専用)",
     "id": 30111681,
     "gl": true,
@@ -4639,7 +4639,7 @@
     "introducingEvent": "Chaotic Memories II (II)",
     "nameJp": "リペンテンスの棘(皇帝専用)",
     "id": 30111721,
-    "gl": false,
+    "gl": true,
     "recordBoardCharacter": "Emperor"
   },
   {
@@ -4691,10 +4691,10 @@
         0
       ]
     },
-    "introducingEvent": "7th Anniversary Festival",
+    "introducingEvent": "7th Anniversary",
     "nameJp": "インパクト(アリゼー専用)",
     "id": 30111711,
-    "gl": false,
+    "gl": true,
     "recordBoardCharacter": "Alisaie"
   },
   {
@@ -4746,10 +4746,10 @@
         0
       ]
     },
-    "introducingEvent": "A Kurse Upon the SeeD",
+    "introducingEvent": "Aspiring SeeD",
     "nameJp": "アストラル・ワールド(イデア専用)",
     "id": 30111741,
-    "gl": false,
+    "gl": true,
     "recordBoardCharacter": "Edea"
   },
   {
@@ -4800,11 +4800,68 @@
         0
       ]
     },
-    "introducingEvent": "Hall of Illusions (III)",
+    "introducingEvent": "Palace of Illusion (III)",
     "nameJp": "太古の迅雷(デッシュ専用)",
     "id": 30111731,
-    "gl": false,
+    "gl": true,
     "recordBoardCharacter": "Desch"
+  },
+  {
+    "school": "Black Magic",
+    "name": "Harmonic Displacement",
+    "rarity": 6,
+    "type": "BLK",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 17.5,
+    "element": [
+      "Ice",
+      "Lightning",
+      "Water",
+      "Wind"
+    ],
+    "time": 1.65,
+    "effects": "Five single attacks (3.50 each)",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 90,
+    "uses": 2,
+    "max": 10,
+    "orbs": {
+      "Black Crystal": [
+        null,
+        10,
+        15,
+        50,
+        75
+      ],
+      "Ice Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Wind Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Record Board": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "introducingEvent": "Onward to Adoulin (XI)",
+    "nameJp": "Hディスプレイスメント(アシェラ専用)",
+    "id": 30111751,
+    "gl": false,
+    "recordBoardCharacter": "Arciela"
   },
   {
     "school": "White Magic",
@@ -7430,7 +7487,7 @@
         0
       ]
     },
-    "introducingEvent": "Labyrinth Dungeon Season 1 Group D",
+    "introducingEvent": "Labyrinth Dungeon Season 1 Group D (IV)",
     "nameJp": "せいしんは(フースーヤ専用)",
     "id": 30121511,
     "gl": true,
@@ -7587,10 +7644,10 @@
         0
       ]
     },
-    "introducingEvent": "A Burdening Legacy",
+    "introducingEvent": "Dark Destiny",
     "nameJp": "約束の指笛(ユウナ専用)",
     "id": 30121531,
-    "gl": false,
+    "gl": true,
     "recordBoardCharacter": "Yuna"
   },
   {
@@ -7639,15 +7696,15 @@
         0
       ]
     },
-    "introducingEvent": "Hall of Illusions (III)",
+    "introducingEvent": "Palace of Illusion (III)",
     "nameJp": "水の巫女(エリア専用)",
     "id": 30121541,
-    "gl": false,
+    "gl": true,
     "recordBoardCharacter": "Aria"
   },
   {
     "school": "White Magic",
-    "name": "Healing Wind",
+    "name": "Healing Wind (IV)",
     "rarity": 6,
     "type": "WHT",
     "target": "All allies",
@@ -7691,10 +7748,10 @@
         0
       ]
     },
-    "introducingEvent": "Phantom Palace (IV)",
+    "introducingEvent": "Palace of Illusion (IV)",
     "nameJp": "癒しの風【IV】(ポロム専用)",
     "id": 30121551,
-    "gl": false,
+    "gl": true,
     "recordBoardCharacter": "Porom"
   },
   {
@@ -9937,7 +9994,7 @@
         0
       ]
     },
-    "introducingEvent": "Labyrinth Dungeon Season 2 Group G",
+    "introducingEvent": "Labyrinth Dungeon Season 2 Group G (Lightning)",
     "nameJp": "無式(シェルク専用)",
     "id": 30161291,
     "gl": true,
@@ -9994,6 +10051,58 @@
     "id": 30161301,
     "gl": true,
     "recordBoardCharacter": "Fina"
+  },
+  {
+    "school": "Support",
+    "name": "Soul of AVALANCHE",
+    "rarity": 6,
+    "type": "NAT",
+    "target": "Single ally",
+    "formula": null,
+    "multiplier": null,
+    "element": null,
+    "time": 0.83,
+    "effects": "Transfers the user's Soul Break points to the target (maximum of 500 Soul Break points), grants [Quick Cast 2] to the user",
+    "counter": false,
+    "autoTarget": "Random ally prioritizing self last",
+    "sb": 100,
+    "uses": 2,
+    "max": 10,
+    "orbs": {
+      "Power Crystal": [
+        null,
+        10,
+        15,
+        50,
+        75
+      ],
+      "White Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Black Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Record Board": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "introducingEvent": "Crystal Dungeon (VII)",
+    "nameJp": "アバランチソウル(バレット専用)",
+    "id": 30161311,
+    "gl": false,
+    "recordBoardCharacter": "Barret"
   },
   {
     "school": "Celerity",
@@ -13705,11 +13814,74 @@
         0
       ]
     },
-    "introducingEvent": "Fadeless Frontier",
+    "introducingEvent": "Undying Menace",
     "nameJp": "絆の灯火(クルル専用)",
     "id": 30131561,
-    "gl": false,
+    "gl": true,
     "recordBoardCharacter": "Krile"
+  },
+  {
+    "school": "Summoning",
+    "name": "Dr. Mog's Trump Card",
+    "rarity": 6,
+    "type": "SUM",
+    "target": "Single enemy",
+    "formula": "Magical",
+    "multiplier": 25.6,
+    "element": [
+      "Fire",
+      "Ice",
+      "Lightning",
+      "Earth",
+      "Wind",
+      "Water",
+      "Holy",
+      "Dark",
+      "Poison",
+      "NE"
+    ],
+    "time": 1.8,
+    "effects": "One single attack (25.60) capped at 99999, minimum damage 2000",
+    "counter": false,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 90,
+    "uses": 2,
+    "max": 6,
+    "orbs": {
+      "Summoning Crystal": [
+        null,
+        10,
+        15,
+        50,
+        75
+      ],
+      "Non-Elemental Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Fire Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Record Board": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "introducingEvent": "Crystal Dungeon (Summoning)",
+    "nameJp": "Dr.モグの切り札(Dr.モグ専用)",
+    "id": 30131561,
+    "gl": false,
+    "recordBoardCharacter": "Dr. Mog"
   },
   {
     "school": "Spellblade",
@@ -16234,8 +16406,67 @@
     "introducingEvent": "Starseer Oracle (Reissue)",
     "nameJp": "斬鉄剣【XV】(レイヴス専用)",
     "id": 30141401,
-    "gl": false,
+    "gl": true,
     "recordBoardCharacter": "Ravus"
+  },
+  {
+    "school": "Spellblade",
+    "name": "Arcane Boreal Blade",
+    "rarity": 6,
+    "type": "NAT",
+    "typeDetails": [
+      "PHY",
+      "BLK"
+    ],
+    "target": "Single enemy",
+    "formula": "Hybrid",
+    "multiplier": null,
+    "element": [
+      "Ice",
+      "Dark"
+    ],
+    "time": 3.3,
+    "effects": "Six single hybrid attacks (1.10 or 3.50 each), cast time 3.30/2.75/2.20/1.65 scaling with uses",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 90,
+    "uses": 2,
+    "max": 10,
+    "orbs": {
+      "Power Crystal": [
+        null,
+        10,
+        15,
+        50,
+        75
+      ],
+      "Ice Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Dark Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Record Board": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "introducingEvent": "The Ice Reaper",
+    "nameJp": "氷剣魔斬(クラサメ専用)",
+    "id": 30141431,
+    "gl": false,
+    "recordBoardCharacter": "Kurasame"
   },
   {
     "school": "Dragoon",
@@ -17518,7 +17749,7 @@
         0
       ]
     },
-    "introducingEvent": "Labyrinth Dungeon Season 1 Group B",
+    "introducingEvent": "Labyrinth Dungeon Season 1 Group B (Wind)",
     "nameJp": "竜剣【IX】(フライヤ専用)",
     "id": 30181271,
     "gl": true,
@@ -17686,7 +17917,7 @@
     "introducingEvent": "Chaotic Memories III (XII)",
     "nameJp": "ブーストジャンプ(シド(VII)専用)",
     "id": 30181301,
-    "gl": false,
+    "gl": true,
     "recordBoardCharacter": "Cid (VII)"
   },
   {
@@ -17740,8 +17971,119 @@
     "introducingEvent": "Chaotic Memories II (X)",
     "nameJp": "覚悟の青き槍(キマリ専用)",
     "id": 30181311,
-    "gl": false,
+    "gl": true,
     "recordBoardCharacter": "Kimahri"
+  },
+  {
+    "school": "Dragoon",
+    "name": "Anchor Rain",
+    "rarity": 6,
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 5.5,
+    "element": [
+      "Water",
+      "Ice",
+      "Earth"
+    ],
+    "time": 1.65,
+    "effects": "Five single ranged attacks (1.10 each)",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 90,
+    "uses": 2,
+    "max": 10,
+    "orbs": {
+      "Power Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Ice Crystal": [
+        null,
+        10,
+        15,
+        50,
+        75
+      ],
+      "Earth Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Record Board": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "introducingEvent": "Palace of Illusion (VIII)",
+    "nameJp": "アンカーレイン(ウォード専用)",
+    "id": 30181331,
+    "gl": false,
+    "recordBoardCharacter": "Ward"
+  },
+  {
+    "school": "Dragoon",
+    "name": "Gungnir",
+    "rarity": 6,
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 4,
+    "element": [
+      "Lightning",
+      "Dark"
+    ],
+    "time": 1.65,
+    "effects": "Four single ranged attacks (1.00 each), grants [No Air Time 3] to the user",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 90,
+    "uses": 2,
+    "max": 10,
+    "orbs": {
+      "Lightning Crystal": [
+        null,
+        10,
+        15,
+        50,
+        75
+      ],
+      "Earth Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Dark Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Record Board": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "introducingEvent": "Crystal Dungeon (IV)",
+    "nameJp": "グングニル(カイン専用)",
+    "id": 30181321,
+    "gl": false,
+    "recordBoardCharacter": "Kain"
   },
   {
     "school": "Monk",
@@ -19430,7 +19772,7 @@
         0
       ]
     },
-    "introducingEvent": "Labyrinth Dungeon Season 1 Group D",
+    "introducingEvent": "Labyrinth Dungeon Season 1 Group D (IV)",
     "nameJp": "拳の舞(ヤン専用)",
     "id": 30191341,
     "gl": true,
@@ -19484,7 +19826,7 @@
         0
       ]
     },
-    "introducingEvent": "Labyrinth Dungeon Season 1 Group D",
+    "introducingEvent": "Labyrinth Dungeon Season 1 Group D (IV)",
     "nameJp": "五星紅天掌(アーシュラ専用)",
     "id": 30191351,
     "gl": true,
@@ -19648,7 +19990,7 @@
         0
       ]
     },
-    "introducingEvent": "Labyrinth Dungeon Season 2 Group E",
+    "introducingEvent": "Labyrinth Dungeon Season 2 Group E (Fire)",
     "nameJp": "闘魂乱舞(スーパーモンク専用)",
     "id": 30191381,
     "gl": true,
@@ -19812,10 +20154,10 @@
         0
       ]
     },
-    "introducingEvent": "Labyrinth Dungeon Season 3 Group M",
+    "introducingEvent": "Labyrinth Dungeon Season 3 Group M (VII)",
     "nameJp": "サマーソルト(ティファ専用)",
     "id": 30191411,
-    "gl": false,
+    "gl": true,
     "recordBoardCharacter": "Tifa"
   },
   {
@@ -19874,7 +20216,7 @@
     "introducingEvent": "Chaotic Memories II (VII)",
     "nameJp": "地走り(ルード専用)",
     "id": 30191421,
-    "gl": false,
+    "gl": true,
     "recordBoardCharacter": "Rude"
   },
   {
@@ -19930,6 +20272,60 @@
     "id": 30191431,
     "gl": false,
     "recordBoardCharacter": "Yda"
+  },
+  {
+    "school": "Monk",
+    "name": "Faithful Fist",
+    "rarity": 6,
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 6.6,
+    "element": [
+      "Fire"
+    ],
+    "time": 1.65,
+    "effects": "Six single attacks (1.10 each)",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 90,
+    "uses": 2,
+    "max": 10,
+    "orbs": {
+      "Power Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Fire Crystal": [
+        null,
+        10,
+        15,
+        50,
+        75
+      ],
+      "Earth Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Record Board": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "introducingEvent": "Summoner's Puppy Love",
+    "nameJp": "拳の確信(サラマンダー専用)",
+    "id": 30191441,
+    "gl": false,
+    "recordBoardCharacter": "Amarant"
   },
   {
     "school": "Thief",
@@ -21323,7 +21719,7 @@
     "introducingEvent": "Starseer Oracle (Reissue)",
     "nameJp": "エンハンス(イグニス専用)",
     "id": 30201271,
-    "gl": false,
+    "gl": true,
     "recordBoardCharacter": "Ignis"
   },
   {
@@ -21375,10 +21771,10 @@
         0
       ]
     },
-    "introducingEvent": "Fadeless Frontier",
+    "introducingEvent": "Undying Menace",
     "nameJp": "海竜の暴風(ファリス専用)",
     "id": 30201281,
-    "gl": false,
+    "gl": true,
     "recordBoardCharacter": "Faris"
   },
   {
@@ -21432,7 +21828,7 @@
     "introducingEvent": "7th Anniversary",
     "nameJp": "バーニンスピリット(ロック専用)",
     "id": 30201291,
-    "gl": false,
+    "gl": true,
     "recordBoardCharacter": "Locke"
   },
   {
@@ -23483,7 +23879,7 @@
         0
       ]
     },
-    "introducingEvent": "Labyrinth Dungeon Season 2 Group H",
+    "introducingEvent": "Labyrinth Dungeon Season 2 Group H (Holy)",
     "nameJp": "ダンシングエッジ(ウォル専用)",
     "id": 30211401,
     "gl": true,
@@ -23537,10 +23933,10 @@
         0
       ]
     },
-    "introducingEvent": "Hall of Illusions (III)",
+    "introducingEvent": "Palace of Illusion (III)",
     "nameJp": "忠誠のエスパーダ(イングズ専用)",
     "id": 30211421,
-    "gl": false,
+    "gl": true,
     "recordBoardCharacter": "Ingus"
   },
   {
@@ -23592,11 +23988,65 @@
         0
       ]
     },
-    "introducingEvent": "Labyrinth Dungeon Season 3 Group M",
+    "introducingEvent": "Labyrinth Dungeon Season 3 Group M (VII)",
     "nameJp": "憤怒の解放(アンジール専用)",
     "id": 30211411,
-    "gl": false,
+    "gl": true,
     "recordBoardCharacter": "Angeal"
+  },
+  {
+    "school": "Knight",
+    "name": "Seiken Climhazzard",
+    "rarity": 6,
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 6.6,
+    "element": [
+      "Holy"
+    ],
+    "time": 1.65,
+    "effects": "Six single attacks (1.10 each)",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 90,
+    "uses": 2,
+    "max": 10,
+    "orbs": {
+      "Power Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Wind Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Holy Crystal": [
+        null,
+        10,
+        15,
+        50,
+        75
+      ],
+      "Record Board": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "introducingEvent": "Bloomfest 2022",
+    "nameJp": "聖剣技Cハザード(ベアトリクス専用)",
+    "id": 30211431,
+    "gl": false,
+    "recordBoardCharacter": "Beatrix"
   },
   {
     "school": "Samurai",
@@ -24969,7 +25419,7 @@
         0
       ]
     },
-    "introducingEvent": "Labyrinth Dungeon Season 2 Group E",
+    "introducingEvent": "Labyrinth Dungeon Season 2 Group E (Fire)",
     "nameJp": "閃光(セフィロス専用)",
     "id": 30221281,
     "gl": true,
@@ -25082,6 +25532,114 @@
     "id": 30221301,
     "gl": true,
     "recordBoardCharacter": "Lasswell"
+  },
+  {
+    "school": "Samurai",
+    "name": "Hagakure Yukikaze",
+    "rarity": 6,
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 7.1,
+    "element": [
+      "Ice"
+    ],
+    "time": 1.65,
+    "effects": "One single attack (7.10) capped at 99999, grants [Retaliate] to the user",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 90,
+    "uses": 2,
+    "max": 10,
+    "orbs": {
+      "Non-Elemental Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Ice Crystal": [
+        null,
+        10,
+        15,
+        50,
+        75
+      ],
+      "Wind Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Record Board": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "introducingEvent": "New Year Party 2022",
+    "nameJp": "葉隠皆伝・雪風(アヤメ専用)",
+    "id": 30221311,
+    "gl": false,
+    "recordBoardCharacter": "Ayame"
+  },
+  {
+    "school": "Samurai",
+    "name": "Dragon Fang",
+    "rarity": 6,
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 6.6,
+    "element": [
+      "Fire"
+    ],
+    "time": 1.65,
+    "effects": "Six single attacks (1.10 each)",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 90,
+    "uses": 2,
+    "max": 10,
+    "orbs": {
+      "Power Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Non-Elemental Crystal": [
+        null,
+        10,
+        15,
+        50,
+        75
+      ],
+      "Fire Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Record Board": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "introducingEvent": "Bloomfest 2022",
+    "nameJp": "牙龍(アーロン専用)",
+    "id": 30221321,
+    "gl": false,
+    "recordBoardCharacter": "Auron"
   },
   {
     "school": "Ninja",
@@ -26439,6 +26997,61 @@
     "id": 30231241,
     "gl": true,
     "recordBoardCharacter": "Kelger"
+  },
+  {
+    "school": "Ninja",
+    "name": "Katar Dance",
+    "rarity": 6,
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 6.6,
+    "element": [
+      "Dark",
+      "Ice"
+    ],
+    "time": 0.83,
+    "effects": "4/5/6 single attacks (1.10 each) if the user has Physical Blink 0/1/2, grants [Physical Blink 1] and [Physical Blink Stacking 2] to the user",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 80,
+    "uses": 2,
+    "max": 10,
+    "orbs": {
+      "Ice Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Earth Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Dark Crystal": [
+        null,
+        10,
+        15,
+        50,
+        75
+      ],
+      "Record Board": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "introducingEvent": "Palace of Illusion (VIII)",
+    "nameJp": "カタール乱舞(キロス専用)",
+    "id": 30231271,
+    "gl": false,
+    "recordBoardCharacter": "Kiros"
   },
   {
     "school": "Bard",
@@ -29680,7 +30293,7 @@
         0
       ]
     },
-    "introducingEvent": "Palace of Illusions (X)",
+    "introducingEvent": "Palace of Illusion (X)",
     "nameJp": "タイダルウェーブ(リュック専用)",
     "id": 30261291,
     "gl": true,
@@ -29788,10 +30401,10 @@
         0
       ]
     },
-    "introducingEvent": "Phantom Palace (IV)",
+    "introducingEvent": "Palace of Illusion (IV)",
     "nameJp": "ビッグトールハンマー(シド(IV)専用)",
     "id": 30261321,
-    "gl": false,
+    "gl": true,
     "recordBoardCharacter": "Cid (IV)"
   },
   {
@@ -29844,11 +30457,67 @@
         0
       ]
     },
-    "introducingEvent": "Labyrinth Dungeon Season 4 Group O",
+    "introducingEvent": "Labyrinth Dungeon Season 4 Group O (Poison)",
     "nameJp": "回転のこぎり(エドガー専用)",
     "id": 30261311,
-    "gl": false,
+    "gl": true,
     "recordBoardCharacter": "Edgar"
+  },
+  {
+    "school": "Machinist",
+    "name": "Elementillery",
+    "rarity": 6,
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 5.5,
+    "element": [
+      "Fire",
+      "Ice",
+      "Lightning"
+    ],
+    "time": 1.65,
+    "effects": "Five single ranged attacks (1.10 each)",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 90,
+    "uses": 2,
+    "max": 10,
+    "orbs": {
+      "Fire Crystal": [
+        null,
+        10,
+        15,
+        50,
+        75
+      ],
+      "Ice Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Lightning Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Record Board": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "introducingEvent": "Palace of Illusion (Type-0)",
+    "nameJp": "属性弾(ケイト専用)",
+    "id": 30261341,
+    "gl": false,
+    "recordBoardCharacter": "Cater"
   },
   {
     "school": "Machinist",
@@ -31120,7 +31789,7 @@
     "effects": "Five group ranged attacks (0.92~1.10 scaling with targets)",
     "effectsNote": "The multiplier for this attack is given by the following formula, where X is the number of targets:\n\n(92+(18 *exp(-(X-1)*0.60))/100\n\nThe minimum multiplier is 0.92, and never goes higher than 1.10.",
     "counter": true,
-    "autoTarget": "Lowest HP% enemy",
+    "autoTarget": "All enemies",
     "sb": 90,
     "uses": 2,
     "max": 10,
@@ -31756,7 +32425,7 @@
         0
       ]
     },
-    "introducingEvent": "Labyrinth Dungeon Season 2 Group G",
+    "introducingEvent": "Labyrinth Dungeon Season 2 Group G (Lightning)",
     "nameJp": "隔たりの触手(暗闇の雲専用)",
     "id": 30271351,
     "gl": true,
@@ -32844,7 +33513,7 @@
   },
   {
     "school": "Sharpshooter",
-    "name": "Elite Operator",
+    "name": "Elite Resolve",
     "rarity": 6,
     "type": "PHY",
     "target": "Single enemy",
@@ -32894,8 +33563,62 @@
     "introducingEvent": "Chaotic Memories II (VII)",
     "nameJp": "エリートの意地(イリーナ専用)",
     "id": 30281241,
-    "gl": false,
+    "gl": true,
     "recordBoardCharacter": "Elena"
+  },
+  {
+    "school": "Sharpshooter",
+    "name": "Attack Reels",
+    "rarity": 6,
+    "type": "PHY",
+    "target": "Single enemy",
+    "formula": "Physical",
+    "multiplier": 6.6,
+    "element": [
+      "Water"
+    ],
+    "time": 1.65,
+    "effects": "Six single ranged attacks (1.10 each)",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 90,
+    "uses": 2,
+    "max": 10,
+    "orbs": {
+      "Power Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Non-Elemental Crystal": [
+        null,
+        5,
+        10,
+        25,
+        35
+      ],
+      "Ice Crystal": [
+        null,
+        10,
+        15,
+        50,
+        75
+      ],
+      "Record Board": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "introducingEvent": "Crystal Dungeon (Fire)",
+    "nameJp": "アタックリール(ワッカ専用)",
+    "id": 30281251,
+    "gl": false,
+    "recordBoardCharacter": "Wakka"
   },
   {
     "school": "Witch",
@@ -33659,11 +34382,172 @@
         0
       ]
     },
-    "introducingEvent": "Labyrinth Dungeon Season 2 Group E",
+    "introducingEvent": "Labyrinth Dungeon Season 2 Group E (Fire)",
     "nameJp": "真眼の魔女(マトーヤ専用)",
     "id": 30301141,
     "gl": true,
     "recordBoardCharacter": "Matoya"
+  },
+  {
+    "school": "Witch",
+    "name": "Phobia Stone",
+    "rarity": 6,
+    "type": "BLK",
+    "target": "Single",
+    "formula": "Magical",
+    "multiplier": 15.6,
+    "element": [
+      "Earth"
+    ],
+    "time": 2.6,
+    "effects": "Six single attacks (2.60 each)",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 90,
+    "uses": 2,
+    "max": 10,
+    "orbs": {
+      "Black Crystal": [
+        6,
+        12,
+        18,
+        30,
+        60
+      ],
+      "Earth Crystal": [
+        6,
+        12,
+        18,
+        30,
+        60
+      ],
+      "Dark Crystal": [
+        10,
+        20,
+        30,
+        50,
+        100
+      ],
+      "Ability Record": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "introducingEvent": "Crystal Dungeon (Lightning)",
+    "nameJp": "フォビアストーン",
+    "id": 30301151,
+    "gl": false
+  },
+  {
+    "school": "Witch",
+    "name": "Fast Stoneja",
+    "rarity": 6,
+    "type": "BLK",
+    "target": "Single",
+    "formula": "Magical",
+    "multiplier": 14.8,
+    "element": [
+      "Earth"
+    ],
+    "time": 1.65,
+    "effects": "Four single attacks (3.70 each), grants [Magical Quick Cast 2] to the user",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 90,
+    "uses": 2,
+    "max": 10,
+    "orbs": {
+      "Non-Elemental Crystal": [
+        6,
+        12,
+        18,
+        30,
+        60
+      ],
+      "Earth Crystal": [
+        6,
+        12,
+        18,
+        30,
+        60
+      ],
+      "Dark Crystal": [
+        10,
+        20,
+        30,
+        50,
+        100
+      ],
+      "Ability Record": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "introducingEvent": "Crystal Dungeon (Lightning)",
+    "nameJp": "ファストストンジャ",
+    "id": 30301161,
+    "gl": false
+  },
+  {
+    "school": "Witch",
+    "name": "Tri-Sorcery",
+    "rarity": 6,
+    "type": "BLK",
+    "target": "Single",
+    "formula": "Magical",
+    "multiplier": 14.8,
+    "element": [
+      "Fire",
+      "Ice",
+      "Lightning"
+    ],
+    "time": 1.65,
+    "effects": "Four single attacks (3.70 each), grants [Magical Quick Cast 2] to the user",
+    "counter": true,
+    "autoTarget": "Lowest HP% enemy",
+    "sb": 90,
+    "uses": 2,
+    "max": 10,
+    "orbs": {
+      "Black Crystal": [
+        6,
+        12,
+        18,
+        30,
+        60
+      ],
+      "Non-Elemental Crystal": [
+        6,
+        12,
+        18,
+        30,
+        60
+      ],
+      "Dark Crystal": [
+        10,
+        20,
+        30,
+        50,
+        100
+      ],
+      "Ability Record": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "introducingEvent": "Crystal Dungeon (Lightning)",
+    "nameJp": "トライソーサリー",
+    "id": 30301171,
+    "gl": false
   },
   {
     "school": "Heavy",

@@ -5370,6 +5370,36 @@
     "gl": true
   },
   {
+    "realm": "XI",
+    "character": "Arciela",
+    "name": "Kind Hearted Girl",
+    "effect": "Grants [Haste] at the beginning of the battle",
+    "unlockCriteria": "Use Arciela's Memory Crystal",
+    "nameJp": "心優しき少女",
+    "id": 111110110,
+    "gl": false
+  },
+  {
+    "realm": "XI",
+    "character": "Arciela",
+    "name": "Adoulin's Witch Princess",
+    "effect": "BLK attacks deal 15% more damage",
+    "unlockCriteria": "Use Arciela's Memory Crystal II, chance to obtain with Arciela in party",
+    "nameJp": "アドゥリンの魔女姫",
+    "id": 111110111,
+    "gl": false
+  },
+  {
+    "realm": "XI",
+    "character": "Arciela",
+    "name": "Young Leader",
+    "effect": "BLK attacks deal 30% more damage when equipping a dagger",
+    "unlockCriteria": "Bring Arciela to level 99",
+    "nameJp": "若き指導者",
+    "id": 111110112,
+    "gl": false
+  },
+  {
     "realm": "XII",
     "character": "Vaan",
     "name": "Freedom's Wish",
@@ -6590,6 +6620,36 @@
     "gl": true
   },
   {
+    "realm": "XV",
+    "character": "Ravus",
+    "name": "Oracle Guardian",
+    "effect": "PHY attacks deal 10% more damage when equipping a sword",
+    "unlockCriteria": "Use Ravus's Memory Crystal",
+    "nameJp": "神凪を守る者",
+    "id": 111150110,
+    "gl": true
+  },
+  {
+    "realm": "XV",
+    "character": "Ravus",
+    "name": "Unfinished Business",
+    "effect": "Dark attacks deal 20% more damage",
+    "unlockCriteria": "Use Ravus's Memory Crystal II, chance to obtain with Ravus in party",
+    "nameJp": "叶わぬ望み",
+    "id": 111150111,
+    "gl": true
+  },
+  {
+    "realm": "XV",
+    "character": "Ravus",
+    "name": "Hand of Retribution",
+    "effect": "Lightning attacks deal 30% more damage",
+    "unlockCriteria": "Bring Ravus to level 99",
+    "nameJp": "報いの義手",
+    "id": 111150112,
+    "gl": true
+  },
+  {
     "realm": "FFT",
     "character": "Ramza",
     "name": "Salve",
@@ -7428,6 +7488,36 @@
     "nameJp": "知の力を司る者",
     "id": 111600142,
     "gl": true
+  },
+  {
+    "realm": "Type-0",
+    "character": "Kurasame",
+    "name": "Grim Reaper's Prowess",
+    "effect": "BLK and PHY attacks deal 10% more damage when equipping a sword",
+    "unlockCriteria": "Use Kurasame's Memory Crystal",
+    "nameJp": "死神の戦闘能力",
+    "id": 111600160,
+    "gl": false
+  },
+  {
+    "realm": "Type-0",
+    "character": "Kurasame",
+    "name": "Silent Commander",
+    "effect": "Increases Ice damage dealt by 20%",
+    "unlockCriteria": "Use Kurasame's Memory Crystal II, chance to obtain with Kursame in party",
+    "nameJp": "無口な指揮隊長",
+    "id": 111600161,
+    "gl": false
+  },
+  {
+    "realm": "Type-0",
+    "character": "Kurasame",
+    "name": "Vermillion Tonberry",
+    "effect": "Increases Ice damage dealt by 30%",
+    "unlockCriteria": "Bring Kurasame to level 99",
+    "nameJp": "従者朱雀トンベリ",
+    "id": 111600162,
+    "gl": false
   },
   {
     "realm": "KH",
