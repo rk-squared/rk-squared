@@ -1763,7 +1763,7 @@ export function isEnlirStatus(status: EnlirStatus | EnlirLegendMateria): status 
 
 function extractStatusesFromEffects(effects:string) : string[] {
   const results:string[] = [];
-  const re = /{([^}]+)}/g;
+  const re = /\[([^]]+)\]/g;
   let text:RegExpExecArray | null;
 
   while((text = re.exec(effects)) !== null) {
