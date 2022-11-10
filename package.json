@@ -207,7 +207,7 @@
     "css-modules-require-hook": "^4.0.6",
     "devtron": "^1.4.0",
     "dotenv": "^8.0.0",
-    "electron": "^7.0.0",
+    "electron": "^18.3.7",
     "electron-builder": "^22.2.0",
     "electron-builder-http": "^19.15.0",
     "electron-devtools-installer": "^2.0.1",
