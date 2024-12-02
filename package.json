@@ -235,7 +235,7 @@
     "pnp-webpack-plugin": "^1.4.1",
     "postcss-safe-parser": "^4.0.1",
     "prettier": "^2.2.1",
-    "react-dev-utils": "^8.0.0",
+    "react-dev-utils": "^11.0.4",
     "react-hot-loader": "^3.0.0-beta.6",
     "react-snap": "^1.23.0",
     "react-test-renderer": "^16.0.0",
